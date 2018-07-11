@@ -6,41 +6,41 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 718cc83bb29c0cff323853d22c107e00616b1dd1
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: bce09a500160f0bf13926786d277f8b1e88c1bf8
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126236"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894258"
 ---
-# <a name="host-aspnet-core-in-a-windows-service"></a><span data-ttu-id="be3a0-103">Windows サービスでの ASP.NET Core のホスト</span><span class="sxs-lookup"><span data-stu-id="be3a0-103">Host ASP.NET Core in a Windows Service</span></span>
+# <a name="host-aspnet-core-in-a-windows-service"></a><span data-ttu-id="5f562-103">Windows サービスでの ASP.NET Core のホスト</span><span class="sxs-lookup"><span data-stu-id="5f562-103">Host ASP.NET Core in a Windows Service</span></span>
 
-<span data-ttu-id="be3a0-104">著者: [Luke Latham](https://github.com/guardrex)、[Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="be3a0-104">By [Luke Latham](https://github.com/guardrex) and [Tom Dykstra](https://github.com/tdykstra)</span></span>
+<span data-ttu-id="5f562-104">著者: [Luke Latham](https://github.com/guardrex)、[Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="5f562-104">By [Luke Latham](https://github.com/guardrex) and [Tom Dykstra](https://github.com/tdykstra)</span></span>
 
-<span data-ttu-id="be3a0-105">ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/windows-services/introduction-to-windows-service-applications) として使用せずに、Windows にホストできます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-105">An ASP.NET Core app can be hosted on Windows without using IIS as a [Windows Service](/dotnet/framework/windows-services/introduction-to-windows-service-applications).</span></span> <span data-ttu-id="be3a0-106">Windows サービスとしてホストされると、再起動やクラッシュの後、人の介入なしにアプリを自動的に起動できます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-106">When hosted as a Windows Service, the app can automatically start after reboots and crashes without requiring human intervention.</span></span>
+<span data-ttu-id="5f562-105">ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/windows-services/introduction-to-windows-service-applications) として使用せずに、Windows にホストできます。</span><span class="sxs-lookup"><span data-stu-id="5f562-105">An ASP.NET Core app can be hosted on Windows without using IIS as a [Windows Service](/dotnet/framework/windows-services/introduction-to-windows-service-applications).</span></span> <span data-ttu-id="5f562-106">Windows サービスとしてホストされると、再起動やクラッシュの後、人の介入なしにアプリを自動的に起動できます。</span><span class="sxs-lookup"><span data-stu-id="5f562-106">When hosted as a Windows Service, the app can automatically start after reboots and crashes without requiring human intervention.</span></span>
 
-<span data-ttu-id="be3a0-107">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="be3a0-107">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="5f562-107">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="5f562-107">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="get-started"></a><span data-ttu-id="be3a0-108">作業開始</span><span class="sxs-lookup"><span data-stu-id="be3a0-108">Get started</span></span>
+## <a name="get-started"></a><span data-ttu-id="5f562-108">作業開始</span><span class="sxs-lookup"><span data-stu-id="5f562-108">Get started</span></span>
 
-<span data-ttu-id="be3a0-109">サービスで実行する既存の ASP.NET Core プロジェクトを設定するために必要な最小の変更は、次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="be3a0-109">The following minimum changes are required to set up an existing ASP.NET Core project to run in a service:</span></span>
+<span data-ttu-id="5f562-109">サービスで実行する既存の ASP.NET Core プロジェクトを設定するために必要な最小の変更は、次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="5f562-109">The following minimum changes are required to set up an existing ASP.NET Core project to run in a service:</span></span>
 
-1. <span data-ttu-id="be3a0-110">プロジェクト ファイルで次を実行します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-110">In the project file:</span></span>
+1. <span data-ttu-id="5f562-110">プロジェクト ファイルで次を実行します。</span><span class="sxs-lookup"><span data-stu-id="5f562-110">In the project file:</span></span>
 
-   1. <span data-ttu-id="be3a0-111">ランタイム識別子があることを確認するか、それをターゲット フレームワークを含む **\<PropertyGroup>** に追加します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-111">Confirm the presence of the runtime identifier or add it to the **\<PropertyGroup>** that contains the target framework:</span></span>
+   1. <span data-ttu-id="5f562-111">ランタイム識別子があることを確認するか、それをターゲット フレームワークを含む **\<PropertyGroup>** に追加します。</span><span class="sxs-lookup"><span data-stu-id="5f562-111">Confirm the presence of the runtime identifier or add it to the **\<PropertyGroup>** that contains the target framework:</span></span>
       ```xml
       <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
         <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
       </PropertyGroup>
       ```
-   1. <span data-ttu-id="be3a0-112">[Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/) のパッケージ参照を追加します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-112">Add a package reference for [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).</span></span>
+   1. <span data-ttu-id="5f562-112">[Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/) のパッケージ参照を追加します。</span><span class="sxs-lookup"><span data-stu-id="5f562-112">Add a package reference for [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).</span></span>
 
-1. <span data-ttu-id="be3a0-113">`Program.Main` で次の変更を行います。</span><span class="sxs-lookup"><span data-stu-id="be3a0-113">Make the following changes in `Program.Main`:</span></span>
+1. <span data-ttu-id="5f562-113">`Program.Main` で次の変更を行います。</span><span class="sxs-lookup"><span data-stu-id="5f562-113">Make the following changes in `Program.Main`:</span></span>
 
-   * <span data-ttu-id="be3a0-114">`host.Run` ではなく、[host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-114">Call [host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) instead of `host.Run`.</span></span>
+   * <span data-ttu-id="5f562-114">`host.Run` ではなく、[host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="5f562-114">Call [host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) instead of `host.Run`.</span></span>
 
-   * <span data-ttu-id="be3a0-115">コードが `UseContentRoot` を呼び出した場合、`Directory.GetCurrentDirectory()` の代わりにアプリの発行場所のパスを使用します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-115">If the code calls `UseContentRoot`, use a path to the app's published location instead of `Directory.GetCurrentDirectory()`.</span></span>
+   * <span data-ttu-id="5f562-115">[UseContentRoot](xref:fundamentals/host/web-host#content-root) を呼び出し、`Directory.GetCurrentDirectory()` の代わりにアプリの発行場所のパスを使用します。</span><span class="sxs-lookup"><span data-stu-id="5f562-115">Call [UseContentRoot](xref:fundamentals/host/web-host#content-root) and use a path to the app's published location instead of `Directory.GetCurrentDirectory()`.</span></span>
 
      ::: moniker range=">= aspnetcore-2.0"
 
@@ -54,98 +54,98 @@ ms.locfileid: "37126236"
 
      ::: moniker-end
 
-1. <span data-ttu-id="be3a0-116">アプリの発行</span><span class="sxs-lookup"><span data-stu-id="be3a0-116">Publish the app.</span></span> <span data-ttu-id="be3a0-117">[dotnet publish](/dotnet/articles/core/tools/dotnet-publish) または [Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)を使用します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-117">Use [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) or a [Visual Studio publish profile](xref:host-and-deploy/visual-studio-publish-profiles).</span></span>
+1. <span data-ttu-id="5f562-116">アプリの発行</span><span class="sxs-lookup"><span data-stu-id="5f562-116">Publish the app.</span></span> <span data-ttu-id="5f562-117">[dotnet publish](/dotnet/articles/core/tools/dotnet-publish) または [Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)を使用します。</span><span class="sxs-lookup"><span data-stu-id="5f562-117">Use [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) or a [Visual Studio publish profile](xref:host-and-deploy/visual-studio-publish-profiles).</span></span>
 
-   <span data-ttu-id="be3a0-118">コマンド ラインからサンプル アプリを発行する場合、コンソール ウィンドウでプロジェクト フォルダーから次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-118">To publish the sample app from the command line, run the following command in a console window from the project folder:</span></span>
+   <span data-ttu-id="5f562-118">コマンド ラインからサンプル アプリを発行する場合、コンソール ウィンドウでプロジェクト フォルダーから次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="5f562-118">To publish the sample app from the command line, run the following command in a console window from the project folder:</span></span>
 
    ```console
    dotnet publish --configuration Release
    ```
 
-1. <span data-ttu-id="be3a0-119">[sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-119">Use the [sc.exe](https://technet.microsoft.com/library/bb490995) command-line tool to create the service.</span></span> <span data-ttu-id="be3a0-120">`binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-120">The `binPath` value is the path to the app's executable, which includes the executable file name.</span></span> <span data-ttu-id="be3a0-121">**等号 (=) とパスの開始の引用符文字の間にはスペースが必要です。**</span><span class="sxs-lookup"><span data-stu-id="be3a0-121">**The space between the equal sign and the quote character at the start of the path is required.**</span></span>
+1. <span data-ttu-id="5f562-119">[sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。</span><span class="sxs-lookup"><span data-stu-id="5f562-119">Use the [sc.exe](https://technet.microsoft.com/library/bb490995) command-line tool to create the service.</span></span> <span data-ttu-id="5f562-120">`binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。</span><span class="sxs-lookup"><span data-stu-id="5f562-120">The `binPath` value is the path to the app's executable, which includes the executable file name.</span></span> <span data-ttu-id="5f562-121">**等号 (=) とパスの開始の引用符文字の間にはスペースが必要です。**</span><span class="sxs-lookup"><span data-stu-id="5f562-121">**The space between the equal sign and the quote character at the start of the path is required.**</span></span>
 
    ```console
    sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
    ```
 
-   <span data-ttu-id="be3a0-122">プロジェクト フォルダーに発行されるサービスの場合は、*publish* フォルダーへのパスを使用してサービスを作成します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-122">For a service published in the project folder, use the path to the *publish* folder to create the service.</span></span> <span data-ttu-id="be3a0-123">次に例では、サービスは次のようになります。</span><span class="sxs-lookup"><span data-stu-id="be3a0-123">In the following example, the service is:</span></span>
+   <span data-ttu-id="5f562-122">プロジェクト フォルダーに発行されるサービスの場合は、*publish* フォルダーへのパスを使用してサービスを作成します。</span><span class="sxs-lookup"><span data-stu-id="5f562-122">For a service published in the project folder, use the path to the *publish* folder to create the service.</span></span> <span data-ttu-id="5f562-123">次に例では、サービスは次のようになります。</span><span class="sxs-lookup"><span data-stu-id="5f562-123">In the following example, the service is:</span></span>
 
-   * <span data-ttu-id="be3a0-124">**MyService** という名前です。</span><span class="sxs-lookup"><span data-stu-id="be3a0-124">Named **MyService**.</span></span>
-   * <span data-ttu-id="be3a0-125">*c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* フォルダーに発行されます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-125">Published to the *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* folder.</span></span>
-   * <span data-ttu-id="be3a0-126">*AspNetCoreService.exe* という名前のアプリの実行可能ファイルで表されます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-126">Represented by an app executable named *AspNetCoreService.exe*.</span></span>
+   * <span data-ttu-id="5f562-124">**MyService** という名前です。</span><span class="sxs-lookup"><span data-stu-id="5f562-124">Named **MyService**.</span></span>
+   * <span data-ttu-id="5f562-125">*c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* フォルダーに発行されます。</span><span class="sxs-lookup"><span data-stu-id="5f562-125">Published to the *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* folder.</span></span>
+   * <span data-ttu-id="5f562-126">*AspNetCoreService.exe* という名前のアプリの実行可能ファイルで表されます。</span><span class="sxs-lookup"><span data-stu-id="5f562-126">Represented by an app executable named *AspNetCoreService.exe*.</span></span>
 
-   <span data-ttu-id="be3a0-127">管理者権限でコマンド シェルを開き、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-127">Open a command shell with administrative privileges and run the following command:</span></span>
+   <span data-ttu-id="5f562-127">管理者権限でコマンド シェルを開き、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="5f562-127">Open a command shell with administrative privileges and run the following command:</span></span>
 
    ```console
    sc create MyService binPath= "c:\my_services\aspnetcoreservice\bin\release\<TARGET_FRAMEWORK>\publish\aspnetcoreservice.exe"
    ```
    
    > [!IMPORTANT]
-   > <span data-ttu-id="be3a0-128">`binPath=` 引数とその値の間には、空白を必ず含めてください。</span><span class="sxs-lookup"><span data-stu-id="be3a0-128">Make sure the space is present between the `binPath=` argument and its value.</span></span>
+   > <span data-ttu-id="5f562-128">`binPath=` 引数とその値の間には、空白を必ず含めてください。</span><span class="sxs-lookup"><span data-stu-id="5f562-128">Make sure the space is present between the `binPath=` argument and its value.</span></span>
    
-   <span data-ttu-id="be3a0-129">別のフォルダーからサービスを発行および開始するには</span><span class="sxs-lookup"><span data-stu-id="be3a0-129">To publish and start the service from a different folder:</span></span>
+   <span data-ttu-id="5f562-129">別のフォルダーからサービスを発行および開始するには</span><span class="sxs-lookup"><span data-stu-id="5f562-129">To publish and start the service from a different folder:</span></span>
    
-   1. <span data-ttu-id="be3a0-130">`dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-130">Use the [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) option on the `dotnet publish` command.</span></span>
-   1. <span data-ttu-id="be3a0-131">出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-131">Create the service with the `sc.exe` command using the output folder path.</span></span> <span data-ttu-id="be3a0-132">`binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-132">Include the name of the service's executable in the path provided to `binPath`.</span></span>
+   1. <span data-ttu-id="5f562-130">`dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。</span><span class="sxs-lookup"><span data-stu-id="5f562-130">Use the [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) option on the `dotnet publish` command.</span></span>
+   1. <span data-ttu-id="5f562-131">出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。</span><span class="sxs-lookup"><span data-stu-id="5f562-131">Create the service with the `sc.exe` command using the output folder path.</span></span> <span data-ttu-id="5f562-132">`binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。</span><span class="sxs-lookup"><span data-stu-id="5f562-132">Include the name of the service's executable in the path provided to `binPath`.</span></span>
 
-1. <span data-ttu-id="be3a0-133">サービスを `sc start <SERVICE_NAME>` コマンドで開始します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-133">Start the service with the `sc start <SERVICE_NAME>` command.</span></span>
+1. <span data-ttu-id="5f562-133">サービスを `sc start <SERVICE_NAME>` コマンドで開始します。</span><span class="sxs-lookup"><span data-stu-id="5f562-133">Start the service with the `sc start <SERVICE_NAME>` command.</span></span>
 
-   <span data-ttu-id="be3a0-134">サンプル アプリ サービスを開始するには、次のコマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-134">To start the sample app service, use the following command:</span></span>
+   <span data-ttu-id="5f562-134">サンプル アプリ サービスを開始するには、次のコマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="5f562-134">To start the sample app service, use the following command:</span></span>
 
    ```console
    sc start MyService
    ```
 
-   <span data-ttu-id="be3a0-135">このコマンドでサービスを開始するには数秒かかります。</span><span class="sxs-lookup"><span data-stu-id="be3a0-135">The command takes a few seconds to start the service.</span></span>
+   <span data-ttu-id="5f562-135">このコマンドでサービスを開始するには数秒かかります。</span><span class="sxs-lookup"><span data-stu-id="5f562-135">The command takes a few seconds to start the service.</span></span>
 
-1. <span data-ttu-id="be3a0-136">`sc query <SERVICE_NAME>` コマンドは、そのサービスの状態を確認し、その状態を判断するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-136">The `sc query <SERVICE_NAME>` command can be used to check the status of the service to determine its status:</span></span>
+1. <span data-ttu-id="5f562-136">`sc query <SERVICE_NAME>` コマンドは、そのサービスの状態を確認し、その状態を判断するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="5f562-136">The `sc query <SERVICE_NAME>` command can be used to check the status of the service to determine its status:</span></span>
 
    * `START_PENDING`
    * `RUNNING`
    * `STOP_PENDING`
    * `STOPPED`
 
-   <span data-ttu-id="be3a0-137">次のコマンドを使用し、サンプル アプリ サービスの状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-137">Use the following command to check the status of the sample app service:</span></span>
+   <span data-ttu-id="5f562-137">次のコマンドを使用し、サンプル アプリ サービスの状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="5f562-137">Use the following command to check the status of the sample app service:</span></span>
 
    ```console
    sc query MyService
    ```
 
-1. <span data-ttu-id="be3a0-138">サービスの状態が `RUNNING` で、サービスが Web アプリである場合、そのアプリとそのパスを参照します (既定では、[HTTPS Redirection Middleware](xref:security/enforcing-ssl) の使用時に `https://localhost:5001` にリダイレクトされる `http://localhost:5000`)。</span><span class="sxs-lookup"><span data-stu-id="be3a0-138">When the service is in the `RUNNING` state and if the service is a web app, browse the app at its path (by default, `http://localhost:5000`, which redirects to `https://localhost:5001` when using [HTTPS Redirection Middleware](xref:security/enforcing-ssl)).</span></span>
+1. <span data-ttu-id="5f562-138">サービスの状態が `RUNNING` で、サービスが Web アプリである場合、そのアプリとそのパスを参照します (既定では、[HTTPS Redirection Middleware](xref:security/enforcing-ssl) の使用時に `https://localhost:5001` にリダイレクトされる `http://localhost:5000`)。</span><span class="sxs-lookup"><span data-stu-id="5f562-138">When the service is in the `RUNNING` state and if the service is a web app, browse the app at its path (by default, `http://localhost:5000`, which redirects to `https://localhost:5001` when using [HTTPS Redirection Middleware](xref:security/enforcing-ssl)).</span></span>
 
-   <span data-ttu-id="be3a0-139">サンプル アプリ サービスの場合、アプリは `http://localhost:5000` で参照します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-139">For the sample app service, browse the app at `http://localhost:5000`.</span></span>
+   <span data-ttu-id="5f562-139">サンプル アプリ サービスの場合、アプリは `http://localhost:5000` で参照します。</span><span class="sxs-lookup"><span data-stu-id="5f562-139">For the sample app service, browse the app at `http://localhost:5000`.</span></span>
 
-1. <span data-ttu-id="be3a0-140">`sc stop <SERVICE_NAME>` コマンドを使用して、サービスを停止します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-140">Stop the service with the `sc stop <SERVICE_NAME>` command.</span></span>
+1. <span data-ttu-id="5f562-140">`sc stop <SERVICE_NAME>` コマンドを使用して、サービスを停止します。</span><span class="sxs-lookup"><span data-stu-id="5f562-140">Stop the service with the `sc stop <SERVICE_NAME>` command.</span></span>
 
-   <span data-ttu-id="be3a0-141">サンプル アプリ サービスは、次のコマンドで停止できます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-141">The following command stops the sample app service:</span></span>
+   <span data-ttu-id="5f562-141">サンプル アプリ サービスは、次のコマンドで停止できます。</span><span class="sxs-lookup"><span data-stu-id="5f562-141">The following command stops the sample app service:</span></span>
 
    ```console
    sc stop MyService
    ```
 
-1. <span data-ttu-id="be3a0-142">サービスの停止の少し後に、`sc delete <SERVICE_NAME>` コマンドを使用して、サービスをアンインストールします。</span><span class="sxs-lookup"><span data-stu-id="be3a0-142">After a short delay to stop a service, uninstall the service with the `sc delete <SERVICE_NAME>` command.</span></span>
+1. <span data-ttu-id="5f562-142">サービスの停止の少し後に、`sc delete <SERVICE_NAME>` コマンドを使用して、サービスをアンインストールします。</span><span class="sxs-lookup"><span data-stu-id="5f562-142">After a short delay to stop a service, uninstall the service with the `sc delete <SERVICE_NAME>` command.</span></span>
 
-   <span data-ttu-id="be3a0-143">サンプル アプリ サービスの状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-143">Check the status of the sample app service:</span></span>
+   <span data-ttu-id="5f562-143">サンプル アプリ サービスの状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="5f562-143">Check the status of the sample app service:</span></span>
 
    ```console
    sc query MyService
    ```
 
-   <span data-ttu-id="be3a0-144">サンプル アプリ サービスの状態が `STOPPED` 状態の場合、次のコマンドを使用して、サンプル アプリ サービスをアンインストールします。</span><span class="sxs-lookup"><span data-stu-id="be3a0-144">When the sample app service is in the `STOPPED` state, use the following command to uninstall the sample app service:</span></span>
+   <span data-ttu-id="5f562-144">サンプル アプリ サービスの状態が `STOPPED` 状態の場合、次のコマンドを使用して、サンプル アプリ サービスをアンインストールします。</span><span class="sxs-lookup"><span data-stu-id="5f562-144">When the sample app service is in the `STOPPED` state, use the following command to uninstall the sample app service:</span></span>
 
    ```console
    sc delete MyService
    ```
 
-## <a name="provide-a-way-to-run-outside-of-a-service"></a><span data-ttu-id="be3a0-145">サービスの外部で実行するための方法の提供</span><span class="sxs-lookup"><span data-stu-id="be3a0-145">Provide a way to run outside of a service</span></span>
+## <a name="provide-a-way-to-run-outside-of-a-service"></a><span data-ttu-id="5f562-145">サービスの外部で実行するための方法の提供</span><span class="sxs-lookup"><span data-stu-id="5f562-145">Provide a way to run outside of a service</span></span>
 
-<span data-ttu-id="be3a0-146">サービスの外部で実行する場合のほうがテストおよびデバッグは簡単です。このため、特定の条件下でのみ `RunAsService` を呼び出すコードを追加することが一般的です。</span><span class="sxs-lookup"><span data-stu-id="be3a0-146">It's easier to test and debug when running outside of a service, so it's customary to add code that calls `RunAsService` only under certain conditions.</span></span> <span data-ttu-id="be3a0-147">たとえば、`--console` コマンドライン引数を使用してアプリをコンソール アプリとしてアプリを実行できます。または、デバッガーがアタッチされている場合は、以下を実行します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-147">For example, the app can run as a console app with a `--console` command-line argument or if the debugger is attached:</span></span>
+<span data-ttu-id="5f562-146">サービスの外部で実行する場合のほうがテストおよびデバッグは簡単です。このため、特定の条件下でのみ `RunAsService` を呼び出すコードを追加することが一般的です。</span><span class="sxs-lookup"><span data-stu-id="5f562-146">It's easier to test and debug when running outside of a service, so it's customary to add code that calls `RunAsService` only under certain conditions.</span></span> <span data-ttu-id="5f562-147">たとえば、`--console` コマンドライン引数を使用してアプリをコンソール アプリとしてアプリを実行できます。または、デバッガーがアタッチされている場合は、以下を実行します。</span><span class="sxs-lookup"><span data-stu-id="5f562-147">For example, the app can run as a console app with a `--console` command-line argument or if the debugger is attached:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
 
-<span data-ttu-id="be3a0-148">ASP.NET Core の構成では、コマンドライン引数に名前と値の組みが必要であるため、引数が [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) に渡される前に、`--console` スイッチは削除されます。</span><span class="sxs-lookup"><span data-stu-id="be3a0-148">Because ASP.NET Core configuration requires name-value pairs for command-line arguments, the `--console` switch is removed before the arguments are passed to [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).</span></span>
+<span data-ttu-id="5f562-148">ASP.NET Core の構成では、コマンドライン引数に名前と値の組みが必要であるため、引数が [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) に渡される前に、`--console` スイッチは削除されます。</span><span class="sxs-lookup"><span data-stu-id="5f562-148">Because ASP.NET Core configuration requires name-value pairs for command-line arguments, the `--console` switch is removed before the arguments are passed to [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).</span></span>
 
 ::: moniker-end
 
@@ -155,19 +155,19 @@ ms.locfileid: "37126236"
 
 ::: moniker-end
 
-## <a name="handle-stopping-and-starting-events"></a><span data-ttu-id="be3a0-149">停止および開始イベントの処理</span><span class="sxs-lookup"><span data-stu-id="be3a0-149">Handle stopping and starting events</span></span>
+## <a name="handle-stopping-and-starting-events"></a><span data-ttu-id="5f562-149">停止および開始イベントの処理</span><span class="sxs-lookup"><span data-stu-id="5f562-149">Handle stopping and starting events</span></span>
 
-<span data-ttu-id="be3a0-150">[OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarting)、[OnStarted](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarted)、[OnStopping](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstopping) イベントを処理する場合、追加で次の変更も行います。</span><span class="sxs-lookup"><span data-stu-id="be3a0-150">To handle [OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarting), [OnStarted](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarted), and [OnStopping](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstopping) events, make the following additional changes:</span></span>
+<span data-ttu-id="5f562-150">[OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarting)、[OnStarted](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarted)、[OnStopping](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstopping) イベントを処理する場合、追加で次の変更も行います。</span><span class="sxs-lookup"><span data-stu-id="5f562-150">To handle [OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarting), [OnStarted](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarted), and [OnStopping](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstopping) events, make the following additional changes:</span></span>
 
-1. <span data-ttu-id="be3a0-151">[WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice) から派生するクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-151">Create a class that derives from [WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice):</span></span>
+1. <span data-ttu-id="5f562-151">[WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice) から派生するクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="5f562-151">Create a class that derives from [WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice):</span></span>
 
    [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=NoLogging)]
 
-2. <span data-ttu-id="be3a0-152">カスタム `WebHostService` を [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run) に渡す [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) の拡張メソッドを作成します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-152">Create an extension method for [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) that passes the custom `WebHostService` to [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run):</span></span>
+2. <span data-ttu-id="5f562-152">カスタム `WebHostService` を [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run) に渡す [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) の拡張メソッドを作成します。</span><span class="sxs-lookup"><span data-stu-id="5f562-152">Create an extension method for [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) that passes the custom `WebHostService` to [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run):</span></span>
 
    [!code-csharp[](windows-service/sample/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
-3. <span data-ttu-id="be3a0-153">`Program.Main` で、[RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) ではなく、新しい拡張メソッド `RunAsCustomService` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-153">In `Program.Main`, call the new extension method, `RunAsCustomService`, instead of [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice):</span></span>
+3. <span data-ttu-id="5f562-153">`Program.Main` で、[RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) ではなく、新しい拡張メソッド `RunAsCustomService` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="5f562-153">In `Program.Main`, call the new extension method, `RunAsCustomService`, instead of [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice):</span></span>
 
    ::: moniker range=">= aspnetcore-2.0"
 
@@ -181,14 +181,14 @@ ms.locfileid: "37126236"
 
    ::: moniker-end
 
-<span data-ttu-id="be3a0-154">カスタム `WebHostService` コードに依存関係の挿入からのサービスが必要な場合は (ロガーなど)、[IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) プロパティからそれを取得します。</span><span class="sxs-lookup"><span data-stu-id="be3a0-154">If the custom `WebHostService` code requires a service from dependency injection (such as a logger), obtain it from the [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) property:</span></span>
+<span data-ttu-id="5f562-154">カスタム `WebHostService` コードに依存関係の挿入からのサービスが必要な場合は (ロガーなど)、[IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) プロパティからそれを取得します。</span><span class="sxs-lookup"><span data-stu-id="5f562-154">If the custom `WebHostService` code requires a service from dependency injection (such as a logger), obtain it from the [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) property:</span></span>
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a><span data-ttu-id="be3a0-155">プロキシ サーバーとロード バランサーのシナリオ</span><span class="sxs-lookup"><span data-stu-id="be3a0-155">Proxy server and load balancer scenarios</span></span>
+## <a name="proxy-server-and-load-balancer-scenarios"></a><span data-ttu-id="5f562-155">プロキシ サーバーとロード バランサーのシナリオ</span><span class="sxs-lookup"><span data-stu-id="5f562-155">Proxy server and load balancer scenarios</span></span>
 
-<span data-ttu-id="be3a0-156">インターネットまたは企業ネットワークからの要求とやり取りするサービスやプロキシまたはロード バランサーの背後にあるサービスでは、追加の構成が必要になる場合があります。</span><span class="sxs-lookup"><span data-stu-id="be3a0-156">Services that interact with requests from the Internet or a corporate network and are behind a proxy or load balancer might require additional configuration.</span></span> <span data-ttu-id="be3a0-157">詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="be3a0-157">For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](xref:host-and-deploy/proxy-load-balancer).</span></span>
+<span data-ttu-id="5f562-156">インターネットまたは企業ネットワークからの要求とやり取りするサービスやプロキシまたはロード バランサーの背後にあるサービスでは、追加の構成が必要になる場合があります。</span><span class="sxs-lookup"><span data-stu-id="5f562-156">Services that interact with requests from the Internet or a corporate network and are behind a proxy or load balancer might require additional configuration.</span></span> <span data-ttu-id="5f562-157">詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="5f562-157">For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](xref:host-and-deploy/proxy-load-balancer).</span></span>
 
-## <a name="kestrel-endpoint-configuration"></a><span data-ttu-id="be3a0-158">Kestrel のエンドポイントの構成</span><span class="sxs-lookup"><span data-stu-id="be3a0-158">Kestrel endpoint configuration</span></span>
+## <a name="kestrel-endpoint-configuration"></a><span data-ttu-id="5f562-158">Kestrel のエンドポイントの構成</span><span class="sxs-lookup"><span data-stu-id="5f562-158">Kestrel endpoint configuration</span></span>
 
-<span data-ttu-id="be3a0-159">HTTPS の構成および SNI のサポートを含む Kestrel のエンドポイントの構成の詳細については、[Kestrel のエンドポイントの構成](xref:fundamentals/servers/kestrel#endpoint-configuration)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="be3a0-159">For information on Kestrel endpoint configuration, including HTTPS configuration and SNI support, see [Kestrel endpoint configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).</span></span>
+<span data-ttu-id="5f562-159">HTTPS の構成および SNI のサポートを含む Kestrel のエンドポイントの構成の詳細については、[Kestrel のエンドポイントの構成](xref:fundamentals/servers/kestrel#endpoint-configuration)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="5f562-159">For information on Kestrel endpoint configuration, including HTTPS configuration and SNI support, see [Kestrel endpoint configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).</span></span>
