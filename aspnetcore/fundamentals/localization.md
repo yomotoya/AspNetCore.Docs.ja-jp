@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0f48490af5805e4351c983f3ae519268c8e9c7a7
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9647b605d4b9a23b365085e3677fb0e9b93f0da4
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274132"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434014"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -158,6 +158,27 @@ Razor ビューの `@inject IViewLocalizer` を使用するリソース ファ�
 * Resources/Views.Home.About.fr.resx
 
 `ResourcesPath` オプションを使用しない場合、ビューの *.resx* ファイルは、ビューと同じフォルダーに配置されます。
+
+### <a name="rootnamespaceattribute"></a>RootNamespaceAttribute 
+
+アセンブリのルート名前空間がアセンブリ名と異なると、[RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1) 属性によってアセンブリのルート名前空間が提供されます。 
+
+アセンブリのルート名前空間がアセンブリ名と異なる場合:
+
+* 既定では、ローカライズが機能しません。
+* アセンブリ内でのリソースの検索方法が原因で、ローカライズが失敗します。 `RootNamespace` はビルド時の値で、実行中のプロセスでは使用できません。 
+
+`RootNamespace` が `AssemblyName` と異なる場合、*AssemblyInfo.cs* (パラメーターの値は実際の値に置き換えられます) に次を含めてください。
+
+```Csharp
+using System.Reflection;
+using Microsoft.Extensions.Localization;
+
+[assembly: ResourceLocation("Resource Folder Name")]
+[assembly: RootNamespace("App Root Namespace")]
+```
+
+上記のコードにより、resx ファイルが正常に解決できるようになります。
 
 ## <a name="culture-fallback-behavior"></a>カルチャ フォールバック動作
 

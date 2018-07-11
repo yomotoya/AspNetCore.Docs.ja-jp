@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 40d297257895a4defeb89cef9c5ec6deea64a985
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 879f31a5916646a4d63f9f503173dc9ff4c53434
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033356"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894154"
 ---
 # <a name="net-generic-host"></a>.NET での汎用ホスト
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-.NET アプリは*ホスト*を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 このトピックでは、HTTP 要求の処理を行わないアプリをホストするのに便利な、ASP.NET Core の汎用ホスト ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)) について説明します。 Web ホスト ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)) については、[Web ホスト](xref:fundamentals/host/web-host)に関するトピックをご覧ください。
+.NET アプリは*ホスト*を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 このトピックでは、HTTP 要求の処理を行わないアプリをホストするのに便利な、ASP.NET Core の汎用ホスト ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)) について説明します。 Web ホスト ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)) の対象範囲については、<xref:fundamentals/host/web-host> を参照してください。
 
 汎用ホストの目的は、Web ホスト API から HTTP パイプラインを切り離して、多様なホスト シナリオを有効にすることです。 メッセージング、バックグラウンド タスク、および汎用ホストに基づくその他の HTTP ワークロードに対して、構成、依存関係の挿入 (DI)、ログなどの横断的機能によるメリットがあります。
 
@@ -58,7 +58,7 @@ Visual Studio Code でコンソールを設定するには:
 
 環境変数の構成は、既定では追加されません。 環境変数からホストを構成するには、ホスト ビルダーで [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) を呼び出します。 `AddEnvironmentVariables` は、オプションのユーザー定義プレフィックスを受け入れます。 サンプル アプリは、`PREFIX_` のプレフィックスを使用します。 環境変数が読み取られると、プレフィックスは削除されます。 サンプル アプリのホストが構成されると、`PREFIX_ENVIRONMENT` の環境変数の値が `environment` キーのホスト構成値になります。
 
-開発中に [Visual Studio](https://www.visualstudio.com/) を使用している、または `dotnet run` を使用してアプリを実行している場合は、環境変数を *Properties/launchSettings.json* ファイルに設定することができます。 [Visual Studio Code](https://code.visualstudio.com/) では、開発中に環境変数を *.vscode/launch.json* ファイルに設定することができます。 詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
+開発中に [Visual Studio](https://www.visualstudio.com/) を使用している、または `dotnet run` を使用してアプリを実行している場合は、環境変数を *Properties/launchSettings.json* ファイルに設定することができます。 [Visual Studio Code](https://code.visualstudio.com/) では、開発中に環境変数を *.vscode/launch.json* ファイルに設定することができます。 詳細については、「<xref:fundamentals/environments>」を参照してください。
 
 `ConfigureHostConfiguration` を複数回呼び出して結果を追加できます。 ホストは、最後に値を設定したオプションを使用します。
 
@@ -76,6 +76,21 @@ Visual Studio Code でコンソールを設定するには:
 ### <a name="extension-method-configuration"></a>拡張メソッドの構成
 
 `IHostBuilder` の実装上で拡張メソッドを呼び出して、コンテンツ ルートと環境を構成します。
+
+#### <a name="application-key-name"></a>アプリケーション キー (名前)
+
+[IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.applicationname) プロパティは、ホストの構築時にホストの構成から設定されます。 値を明示的に設定するには、[HostDefaults.ApplicationKey](/dotnet/api/microsoft.extensions.hosting.hostdefaults.applicationkey) を使用します。
+
+**キー**: applicationName  
+**型**: *文字列*  
+**既定**: アプリのエントリ ポイントを含むアセンブリの名前。  
+**次を使用して設定**: `UseSetting`  
+**環境変数**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.ApplicationKey, "CustomApplicationName")
+```
 
 #### <a name="content-root"></a>コンテンツ ルート
 
@@ -128,11 +143,19 @@ Visual Studio Code でコンソールを設定するには:
 > [!NOTE]
 > [AddConfiguration](/dotnet/api/microsoft.extensions.configuration.chainedbuilderextensions.addconfiguration) 拡張メソッドでは、現在、[GetSection](/dotnet/api/microsoft.extensions.configuration.iconfiguration.getsection) (たとえば、`.AddConfiguration(Configuration.GetSection("section"))` によって返される構成セクションを解析することはできません。 `GetSection` メソッドは要求されたセクションに対する構成キーをフィルター処理しますが、キーのセクション名はそのままになります (`section:Logging:LogLevel:Default` など)。 `AddConfiguration` メソッドでは、構成キーが完全に一致している必要があります (`Logging:LogLevel:Default` など)。 キーにセクション名があると、セクションの値でアプリを構成できなくなります。 この問題は、将来のリリースで対処される予定です。 詳細と回避策については、「[Passing configuration section into WebHostBuilder.UseConfiguration uses full keys](https://github.com/aspnet/Hosting/issues/839)」 (WebHostBuilder.UseConfiguration に構成セクションを渡すときにフル キーを使用する) を参照してください。
 
+設定ファイルを出力ディレクトリに移動するには、プロジェクト ファイルの設定ファイルを [MSBuild プロジェクト項目](/visualstudio/msbuild/common-msbuild-project-items) として指定します。 サンプル アプリはその JSON アプリ設定ファイルと、次の **&lt;Content:&gt;** 項目を含む *hostsettings.json* を移動します。
+
+```xml
+<ItemGroup>
+  <Content Include="**\*.json" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup>
+```
+
 ## <a name="configureservices"></a>ConfigureServices
 
 [ConfigureServices](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices) は、アプリの[依存関係の挿入](xref:fundamentals/dependency-injection)コンテナーにサービスを追加します。 `ConfigureServices` を複数回呼び出して結果を追加できます。
 
-ホストされるサービスは、[IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) インターフェイスを実装するバックグラウンド タスク ロジックを持つクラスです。 詳しくは、「[ASP.NET Core でホステッド サービスを使用するバックグラウンド タスク](xref:fundamentals/host/hosted-services)」をご覧ください。
+ホストされるサービスは、[IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) インターフェイスを実装するバックグラウンド タスク ロジックを持つクラスです。 詳細については、「<xref:fundamentals/host/hosted-services>」を参照してください。
 
 [サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/)では、`AddHostedService` 拡張メソッドを使って、有効期間イベント `LifetimeEventsHostedService` と時刻指定付きバックグラウンド タスク `TimedHostedService` のサービスをアプリに追加します。
 
@@ -382,7 +405,7 @@ public class MyClass
 }
 ```
 
-詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
+詳細については、「<xref:fundamentals/environments>」を参照してください。
 
 ## <a name="iapplicationlifetime-interface"></a>IApplicationLifetime インターフェイス
 
@@ -421,5 +444,5 @@ public class MyClass
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ホストされるサービスを使用するバックグラウンド タスク](xref:fundamentals/host/hosted-services)
+* <xref:fundamentals/host/hosted-services>
 * [GitHub のホスティング リポジトリ サンプル](https://github.com/aspnet/Hosting/tree/release/2.1/samples)

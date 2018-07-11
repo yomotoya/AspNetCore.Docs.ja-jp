@@ -5,14 +5,14 @@ description: ASP.NET Core 部分タグ ヘルパーと、その各属性が部�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/13/2018
+ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: fea84621f185c4113147cf0dfd173704bc7b6d81
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274415"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889104"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core の部分タグ ヘルパー
 
@@ -25,7 +25,7 @@ ms.locfileid: "36274415"
 部分タグ ヘルパーは、Razor Pages と MVC アプリで[部分ビュー](xref:mvc/views/partial)をレンダリングするために使用されます。 考慮事項:
 
 * ASP.NET Core 2.1 以降を必要とします。
-* [HTML ヘルパー構文](xref:mvc/views/partial#referencing-a-partial-view)の代替です。
+* [HTML ヘルパー構文](xref:mvc/views/partial#reference-a-partial-view)の代替です。
 * 部分ビューを非同期でレンダリングします。
 
 部分ビューをレンダリングするための HTML ヘルパー オプション:
@@ -81,7 +81,17 @@ ms.locfileid: "36274415"
 
 この例では、`ViewData["IsNumberReadOnly"]` の値によって、*Number* フィールドを読み取り専用として表示するかどうかが決定されます。
 
+## <a name="migrate-from-an-html-helper"></a>HTML ヘルパーから移行する
+
+次のような非同期の HTML ヘルパーの例を考えてみてください。 製品のコレクションが反復処理され、表示されます。 `PartialAsync` メソッドの最初のパラメーターごとに、*_ProductPartial.cshtml* の部分ビューが読み込まれます。 `Product` モデルのインスタンスが、バインディングのために部分ビューに渡されます。
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
+
+次の部分タグ ヘルパーは、`PartialAsync` HTML ヘルパーと同じ非同期レンダリング動作を実現します。 部分ビューのバインディングのため、`model` 属性に `Product` モデルのインスタンスが割り当てられます。
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_TagHelper&highlight=3)]
+
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [部分ビュー](xref:mvc/views/partial)
-* [弱い型指定のデータ (ViewData、ViewData 属性、ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)
+* <xref:mvc/views/partial>
+* <xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag>

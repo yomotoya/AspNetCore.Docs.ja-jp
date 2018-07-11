@@ -2,16 +2,17 @@
 title: ASP.NET Core での Websocket のサポート
 author: rick-anderson
 description: ASP.NET Core で Websocket の使用を開始する方法を説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: ee529f1aaadb6b6062bed56003c51f161eae7e72
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a9fe13ef7895ea3ab43257dbbaf4521f883c0804
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273798"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433988"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core での Websocket のサポート
 
@@ -46,16 +47,9 @@ ms.locfileid: "36273798"
 
 Websocket を使用して、ソケット接続を直接使用します。 たとえば、リアルタイムのゲームで最高のパフォーマンスが必要な場合に WebSockets を使用します。
 
-リアルタイムの機能には、[ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) の方がアプリ モデルとして充実していますが、これは ASP.NET 4.x でのみ実行できるものであり、ASP.NET Core では実行できません。 SignalR の ASP.NET Core バージョンは、ASP.NET Core 2.1 でリリースされる予定です。 「[ASP.NET Core 2.1 high-level planning](https://github.com/aspnet/Announcements/issues/288)」 (ASP.NET Core 2.1 の高度なプラン) を参照してください。
+[ASP.NET Core SignalR](xref:signalr/introduction) は、アプリへのリアルタイム Web 機能の追加を簡単にするライブラリです。 可能なかぎり、WebSocket が使用されます。
 
-SignalR Core がリリースされるまで、WebSockets を使用することができます。 ただし、SignalR が提供する機能は、開発者が提供またはサポートする必要があります。 例:
-
-* 他の転送方法への自動フォールバックが使用された、より多くのブラウザ バージョンのサポート。
-* 切断された場合の自動接続。
-* サーバー上のクライアント、またはこの逆の呼び出しメソッドのサポート。
-* 複数のサーバーへのスケーリングのサポート。
-
-## <a name="how-to-use-it"></a>使用方法
+## <a name="how-to-use-websockets"></a>WebSocket の使用方法
 
 * [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) パッケージをインストールします。
 * ミドルウェアを構成します。

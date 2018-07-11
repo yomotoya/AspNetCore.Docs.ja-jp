@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: ca9145d9e16c23e34bbc1d84ff01ce02709187ce
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033343"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144873"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR 概要
 
@@ -128,9 +128,9 @@ SignalR に要求を渡すように SignalR のサーバーを構成する必要
 
 1. SignalR プロジェクトを構成するには、プロジェクトの `Startup.ConfigureServices` メソッドを変更します。
 
-   `services.AddSignalR` は[ミドルウェア](xref:fundamentals/middleware/index) パイプラインの一部として SignalR を追加します。
+   `services.AddSignalR` は、[ 依存関係の挿入](xref:fundamentals/dependency-injection)システムで SignalR サービスを使用できるようにします。
 
-2. `UseSignalR` を使用し、ハブへのルートを構成します。
+1. `Configure` メソッドで `UseSignalR` を使用して、ハブへのルートを構成します。 `app.UseSignalR` は、[ミドルウェア](xref:fundamentals/middleware/index) パイプラインに SignalR を追加します。
 
    [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=37,57-60)]
 

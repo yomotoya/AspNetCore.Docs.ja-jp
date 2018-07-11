@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core MVC アプリで SQL Server LocalDB を使�
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 05bd76038e5856d2a3e392e3b00e589dbc26fcc6
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 2981035222681e6badbb0d917e4091baa96b9af1
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961059"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889130"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core での SQL Server LocalDB の使用
 
@@ -70,6 +70,8 @@ if (context.Movie.Any())
 
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>シード初期化子の追加
+
+*Program.cs* の内容を次のコードで置き換えます。
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
