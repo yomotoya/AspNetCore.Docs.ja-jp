@@ -18,7 +18,6 @@
 ### [検索の追加](xref:tutorials/razor-pages/search)
 ### [新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
 ### [検証の追加](xref:tutorials/razor-pages/validation)
-### [ファイルのアップロード](xref:tutorials/razor-pages/uploading-files)
 ## [リアルタイムの SignalR Web アプリを作成する](xref:tutorials/signalr)
 ## [TypeScript を使用して SignalR Web アプリを作成する](xref:tutorials/signalr-typescript-webpack)
 ## [MVC Web アプリの作成](tutorials/first-mvc-app/index.md)
@@ -159,6 +158,7 @@
 ## [Razor ページのフィルター メソッド](xref:razor-pages/filter)
 ## [Razor クラス ライブラリの作成](xref:razor-pages/ui-class)
 ## [ルートとアプリの規則](xref:razor-pages/razor-pages-conventions)
+## [Razor ページへのファイルのアップロード](xref:razor-pages/upload-files)
 ## [Razor SDK](xref:razor-pages/sdk)
 
 # [MVC](xref:mvc/overview)
