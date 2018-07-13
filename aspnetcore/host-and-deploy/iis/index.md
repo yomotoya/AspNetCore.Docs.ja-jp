@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: f35fbbbf7d04b041565e76d3cc6b9822f1056e50
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824540"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992816"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -177,7 +177,7 @@ IIS と Kestrel サーバーの間にリバース プロキシを作成するに
    
    インストーラーが x86 パッケージを x64 OS 上にインストールしないようにするために、スイッチ `OPT_NO_X86=1` を使用して管理者のコマンド プロンプトからインストーラーを実行します。
 
-1. システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行します。 IIS を再起動すると、インストーラーによって行われたシステム パスへの変更が取得されます。
+1. システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行します。 IIS を再起動すると、インストーラーによって行われたシステム パスへの変更 (環境変数) が取得されます。
 
 > [!NOTE]
 > IIS 共有構成の詳細については、「[ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration)」 (IIS 共有構成の ASP.NET Core モジュール) を参照してください。
