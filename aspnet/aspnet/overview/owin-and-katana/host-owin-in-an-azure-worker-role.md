@@ -4,19 +4,16 @@ title: Azure Worker ロールで OWIN ホスト |Microsoft Docs
 author: MikeWasson
 description: このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法を示します。 Open Web Interface for .NET (OWIN) は、.NET の web サーバー間の抽象化を定義しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/11/2014
-ms.topic: article
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 56019ef7bdf1c3e9a769ba43f624ef3c6a5e6d4f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: f62b9299a4e369ae3a938c85e60dd6a79108548d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366706"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826482"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホスト
 ====================
