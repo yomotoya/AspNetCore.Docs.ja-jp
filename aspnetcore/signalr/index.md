@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.date: 07/03/2018
 uid: signalr/index
-ms.openlocfilehash: 07846272ab7bd913648a093febb1c331533e2031
-ms.sourcegitcommit: 260abb706ed17f07a53288d8a0c3e69fc13e7468
+ms.openlocfilehash: 5c5c8c9af159a187cdb5c6be38dc3249addae597
+ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38966758"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39025473"
 ---
 # <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
@@ -30,6 +30,8 @@ ms.locfileid: "38966758"
   * [JavaScript API](/javascript/api/?view=signalr-js-latest)
 
 * [構成](xref:signalr/configuration)
+* [認証と承認](xref:signalr/authn-and-authz)
+* [セキュリティに関する考慮事項](xref:signalr/security)
 * [MessagePack ハブ プロトコル](xref:signalr/messagepackhubprotocol)
 * [ストリーミング](xref:signalr/streaming)
 * [SignalR のバージョンの違い](xref:signalr/version-differences)
