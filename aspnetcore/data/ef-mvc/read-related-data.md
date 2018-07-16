@@ -5,12 +5,12 @@ description: このチュートリアルでは、関連データ (Entity Framewo
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
-ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
+ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37092985"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063287"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの読み取り - 6/10
 
@@ -155,7 +155,7 @@ Index メソッドを次のコードに置き換えて、関連データの一�
 これは次のコードの代わりに使用します。
 
 ```csharp
-.Where(I => i.ID == id.Value).Single()
+.Where(i => i.ID == id.Value).Single()
 ```
 
 次に、コースが選択された場合、選択したコースはビュー モデルのコースのリストから取得されます。 次に、ビュー モデルの `Enrollments` プロパティが Enrollment エンティティと共にそのコースの `Enrollments` ナビゲーション プロパティから読み込まれます。

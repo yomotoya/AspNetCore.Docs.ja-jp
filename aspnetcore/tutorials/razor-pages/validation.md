@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 0d35de827ca6fea530229f1ef263ea7b9351e5ad
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077632"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992829"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
@@ -158,6 +158,8 @@ public DateTime ReleaseDate { get; set; }
 
 このアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。
 
+このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 貴重なご意見をお寄せいただき心より感謝いたします。 このチュートリアルの後は、「[Get started with MVC and EF Core](xref:data/ef-mvc/intro)」(MVC と EF Core の概要) にお進みいただくことが推奨されます。
+
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [フォームの操作](xref:mvc/views/working-with-forms)
@@ -166,5 +168,4 @@ public DateTime ReleaseDate { get; set; }
 * [タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)
 
 > [!div class="step-by-step"]
-> [前: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
-> [次: ファイルのアップロード](xref:tutorials/razor-pages/uploading-files)
+> [前へ: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
