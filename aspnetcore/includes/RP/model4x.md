@@ -1,15 +1,15 @@
 <a name="scaffold"></a>
-### <a name="scaffold-the-movie-model"></a>ムービー モデルのスキャフォールディング
+### <a name="scaffold-the-movie-model"></a><span data-ttu-id="8eac8-101">ムービー モデルのスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="8eac8-101">Scaffold the Movie model</span></span>
 
-* コマンド ライン (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むプロジェクト ディレクトリ) で次を実行します。
+* <span data-ttu-id="8eac8-102">コマンド ライン (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むプロジェクト ディレクトリ) で次を実行します。</span><span class="sxs-lookup"><span data-stu-id="8eac8-102">Run the following from the command line (in the project directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files):</span></span>
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
-エラーが発生した場合は、次のようにします。
+<span data-ttu-id="8eac8-103">エラーが発生した場合は、次のようにします。</span><span class="sxs-lookup"><span data-stu-id="8eac8-103">If you get the error:</span></span>
   ```
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) のコマンド シェルを開きます。
+<span data-ttu-id="8eac8-104">プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) のコマンド シェルを開きます。</span><span class="sxs-lookup"><span data-stu-id="8eac8-104">Open a command shell to the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
