@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/model
 ms.openlocfilehash: 3552b541c43375aef43838800855ec63e7fed372
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894044"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38152972"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Visual Studio Code を使用して ASP.NET Core Razor ページ アプリにモデルを追加する
 
@@ -44,7 +44,7 @@ using Microsoft.EntityFrameworkCore;
 
 以下のように、*RazorPagesMovie.csproj* ファイルを編集します。
 
-* **[ファイル]**、**[ファイルを開く]** の順に選択してから、*RazorPagesMovie.csproj* ファイルを選択します。
+* **[ファイル]**、 > **[ファイルを開く]** の順に選択してから、*RazorPagesMovie.csproj* ファイルを選択します。
 * `Microsoft.EntityFrameworkCore.Tools.DotNet` 用のツール参照の 2 つ目の **\<ItemGroup >** への追加
 
 [!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]

@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-mac/model
 ms.openlocfilehash: 3ca6c9b9988b8335116b7248c6c4a89997d02b14
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273275"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38186759"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用して ASP.NET Core Razor ページ アプリにモデルを追加する
 
@@ -45,7 +45,7 @@ ms.locfileid: "36273275"
 
 *.csproj* ファイルを編集するには、次を実行します。
 
-* **[ファイル]**、**[開く]** を選択して、*.csproj* ファイルを選択します。
+* **[ファイル]**、 > **[開く]** を選択して、*.csproj* ファイルを選択します。
 * **[オプション]** を選択します。
 * **[Open with]\(次で開く\)** を **[ソース コード エディター]** に変更します。
 

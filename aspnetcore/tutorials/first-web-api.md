@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
 ms.openlocfilehash: 3da22cbbbe0db7771656997a13587521e182fb2a
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36277401"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38164601"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core と Visual Studio for Windows で Web API を作成する
 
@@ -37,7 +37,7 @@ ms.locfileid: "36277401"
 
 Visual Studio で次の手順を実行します。
 
-* **[ファイル]** メニューで、**[新規作成]**、**[プロジェクト]** の順に作成します。
+* **[ファイル]** メニューで、**[新規作成]**、 > **[プロジェクト]** の順に作成します。
 * **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。 プロジェクトに「*TodoApi*」という名前を付け、**[OK]** をクリックます。
 * **[New ASP.NET Core Web Application - TodoApi]\(新しい ASP.NET Core Web アプリケーション - TodoApi\)** ダイアログで、ASP.NET Core のバージョンを選択します。 **API** テンプレートを選択し、**[OK]** をクリックします。 **[Enable Docker Support]\(Docker サポートを有効にする\)** は**選択しないで**ください。
 
@@ -60,7 +60,7 @@ Internet Explorer を使っている場合、*values.json* ファイルを保存
 > [!NOTE]
 > モデル クラスはプロジェクト内のどこでも使用できます。 通例として、モデル クラス用に *Models* フォルダーを使用しています。
 
-ソリューション エクスプローラーで、*[Models]* フォルダーを右クリックし、**[追加]**、**[クラス]** の順に選択します。 クラスに「*TodoItem*」という名前を付け、**[追加]** をクリックします。
+ソリューション エクスプローラーで、*[Models]* フォルダーを右クリックし、**[追加]**、 > **[クラス]** の順に選択します。 クラスに「*TodoItem*」という名前を付け、**[追加]** をクリックします。
 
 `TodoItem` クラスを次のコードで更新します。
 
@@ -72,7 +72,7 @@ Internet Explorer を使っている場合、*values.json* ファイルを保存
 
 *データベース コンテキスト*は、所与のデータ モデルに対し、Entity Framework 機能を調整するメイン クラスです。 このクラスは `Microsoft.EntityFrameworkCore.DbContext` クラスから派生させて作成します。
 
-ソリューション エクスプローラーで、*[Models]* フォルダーを右クリックし、**[追加]**、**[クラス]** の順に選択します。 クラスに「*TodoContext*」という名前を付け、**[追加]** をクリックします。
+ソリューション エクスプローラーで、*[Models]* フォルダーを右クリックし、**[追加]**、 > **[クラス]** の順に選択します。 クラスに「*TodoContext*」という名前を付け、**[追加]** をクリックします。
 
 このクラスを次のコードで置き換えます。
 

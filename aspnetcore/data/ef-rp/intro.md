@@ -5,12 +5,12 @@ description: Entity Framework Core を使用して Razor ページ アプリを�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: a31b3e0ad72964a0c01c0b855a70d2f3e8966ab9
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 2f6408f2381721c450519818a5973bad0f86ccad
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033291"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938408"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
