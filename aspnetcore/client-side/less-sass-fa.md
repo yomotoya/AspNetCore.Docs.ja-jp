@@ -1,5 +1,5 @@
 ---
-title: 以下であるため、Sass、および ASP.NET Core の優れたフォント
+title: ASP.NET Core における Less、Sass、および Font Awesome
 author: ardalis
 description: Sass、およびフォント優れた小さい ASP.NET Core アプリケーションで使用する方法を説明します。
 ms.author: tdykstra
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 06/20/2018
 ms.locfileid: "36275566"
 ---
-# <a name="less-sass-and-font-awesome-in-aspnet-core"></a>以下であるため、Sass、および ASP.NET Core の優れたフォント
+# <a name="less-sass-and-font-awesome-in-aspnet-core"></a>ASP.NET Core における Less、Sass、および Font Awesome
 
 作成者: [Steve Smith](https://ardalis.com/)
 
