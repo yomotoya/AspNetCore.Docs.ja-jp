@@ -1,107 +1,107 @@
 ---
 title: ASP.NET Core での分散キャッシュを使用します。
 author: ardalis
-description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法を説明します。
+description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2017
 uid: performance/caching/distributed
-ms.openlocfilehash: 5ddc3a6927652f773ab38f93db1e222c5a1900b3
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 861664fcad576c11abe052837b72367eb2b9479a
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077700"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095682"
 ---
-# <a name="work-with-a-distributed-cache-in-aspnet-core"></a><span data-ttu-id="d4726-103">ASP.NET Core での分散キャッシュを使用します。</span><span class="sxs-lookup"><span data-stu-id="d4726-103">Work with a distributed cache in ASP.NET Core</span></span>
+# <a name="work-with-a-distributed-cache-in-aspnet-core"></a><span data-ttu-id="94ce7-103">ASP.NET Core での分散キャッシュを使用します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-103">Work with a distributed cache in ASP.NET Core</span></span>
 
-<span data-ttu-id="d4726-104">作成者: [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="d4726-104">By [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="94ce7-104">作成者: [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="94ce7-104">By [Steve Smith](https://ardalis.com/)</span></span>
 
-<span data-ttu-id="d4726-105">分散キャッシュでは、クラウドまたはサーバー ファーム環境でホストされている場合に特に ASP.NET Core アプリケーションのスケーラビリティとパフォーマンスを向上できます。</span><span class="sxs-lookup"><span data-stu-id="d4726-105">Distributed caches can improve the performance and scalability of ASP.NET Core apps, especially when hosted in a cloud or server farm environment.</span></span> <span data-ttu-id="d4726-106">この記事では、ASP.NET Core の組み込みの分散キャッシュの抽象化と実装を操作する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="d4726-106">This article explains how to work with ASP.NET Core's built-in distributed cache abstractions and implementations.</span></span>
+<span data-ttu-id="94ce7-105">分散キャッシュでは、クラウドまたはサーバー ファームでホストされている場合は特に、パフォーマンスと、ASP.NET Core アプリのスケーラビリティを向上できます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-105">Distributed caches can improve the performance and scalability of ASP.NET Core apps, especially when hosted in the cloud or a server farm.</span></span>
 
-<span data-ttu-id="d4726-107">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="d4726-107">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="94ce7-106">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="94ce7-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="what-is-a-distributed-cache"></a><span data-ttu-id="d4726-108">分散キャッシュとは</span><span class="sxs-lookup"><span data-stu-id="d4726-108">What is a distributed cache</span></span>
+## <a name="what-is-a-distributed-cache"></a><span data-ttu-id="94ce7-107">分散キャッシュとは</span><span class="sxs-lookup"><span data-stu-id="94ce7-107">What is a distributed cache</span></span>
 
-<span data-ttu-id="d4726-109">分散キャッシュが複数のアプリケーション サーバーで共有 (を参照してください[キャッシュ基本](memory.md#caching-basics))。</span><span class="sxs-lookup"><span data-stu-id="d4726-109">A distributed cache is shared by multiple app servers (see [Cache Basics](memory.md#caching-basics)).</span></span> <span data-ttu-id="d4726-110">キャッシュ内の情報が個々 の web サーバーのメモリに格納されていないし、キャッシュされたデータはすべてのアプリのサーバーに使用できます。</span><span class="sxs-lookup"><span data-stu-id="d4726-110">The information in the cache isn't stored in the memory of individual web servers, and the cached data is available to all of the app's servers.</span></span> <span data-ttu-id="d4726-111">これは、いくつかの利点を提供します。</span><span class="sxs-lookup"><span data-stu-id="d4726-111">This provides several advantages:</span></span>
+<span data-ttu-id="94ce7-108">分散キャッシュは、複数のアプリケーション サーバーで共有されます (を参照してください[Cache の基本](memory.md#caching-basics))。</span><span class="sxs-lookup"><span data-stu-id="94ce7-108">A distributed cache is shared by multiple app servers (see [Cache Basics](memory.md#caching-basics)).</span></span> <span data-ttu-id="94ce7-109">キャッシュ内の情報は、個々 の web サーバーのメモリに格納されていないし、キャッシュされたデータはすべてのアプリのサーバーに使用できます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-109">The information in the cache isn't stored in the memory of individual web servers, and the cached data is available to all of the app's servers.</span></span> <span data-ttu-id="94ce7-110">これは、いくつかの利点を提供します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-110">This provides several advantages:</span></span>
 
-1. <span data-ttu-id="d4726-112">キャッシュされたデータがすべての web サーバーに生じます。</span><span class="sxs-lookup"><span data-stu-id="d4726-112">Cached data is coherent on all web servers.</span></span> <span data-ttu-id="d4726-113">ユーザーによっては、web サーバーは、要求を処理、異なる結果が表示されません。</span><span class="sxs-lookup"><span data-stu-id="d4726-113">Users don't see different results depending on which web server handles their request</span></span>
+1. <span data-ttu-id="94ce7-111">キャッシュされたデータがすべての web サーバー上で生じます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-111">Cached data is coherent on all web servers.</span></span> <span data-ttu-id="94ce7-112">ユーザーによっては、web サーバーは、要求を処理する別の結果に表示されません。</span><span class="sxs-lookup"><span data-stu-id="94ce7-112">Users don't see different results depending on which web server handles their request</span></span>
 
-2. <span data-ttu-id="d4726-114">キャッシュされたデータが回収されなかったは、web サーバーを再起動し展開します。</span><span class="sxs-lookup"><span data-stu-id="d4726-114">Cached data survives web server restarts and deployments.</span></span> <span data-ttu-id="d4726-115">個々 の web サーバーを削除またはキャッシュに影響を与えずに追加することができます。</span><span class="sxs-lookup"><span data-stu-id="d4726-115">Individual web servers can be removed or added without impacting the cache.</span></span>
+2. <span data-ttu-id="94ce7-113">キャッシュされたデータは、web サーバーを再起動し、展開に存続します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-113">Cached data survives web server restarts and deployments.</span></span> <span data-ttu-id="94ce7-114">個々 の web サーバーを削除またはキャッシュの影響を与えずに追加できます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-114">Individual web servers can be removed or added without impacting the cache.</span></span>
 
-3. <span data-ttu-id="d4726-116">ソースのデータ ストアでは、(より、複数のメモリ内キャッシュまたはなしですべてのキャッシュ) に加えられた以下の要求があります。</span><span class="sxs-lookup"><span data-stu-id="d4726-116">The source data store has fewer requests made to it (than with multiple in-memory caches or no cache at all).</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="d4726-117">SQL Server 分散キャッシュを使用する場合は、別のデータベース インスタンスは、アプリのソース データのよりも、キャッシュの使用は、true を返します。 これらの利点の一部はのみです。</span><span class="sxs-lookup"><span data-stu-id="d4726-117">If using a SQL Server Distributed Cache, some of these advantages are only true if a separate database instance is used for the cache than for the app's source data.</span></span>
-
-<span data-ttu-id="d4726-118">、任意のキャッシュのように、分散キャッシュ大幅にアプリの応答性が向上、ので、通常のリレーショナル データベース (または web サービス) よりも高速のキャッシュからデータを取得できます。</span><span class="sxs-lookup"><span data-stu-id="d4726-118">Like any cache, a distributed cache can dramatically improve an app's responsiveness, since typically data can be retrieved from the cache much faster than from a relational database (or web service).</span></span>
-
-<span data-ttu-id="d4726-119">キャッシュの構成は、特定の実装です。</span><span class="sxs-lookup"><span data-stu-id="d4726-119">Cache configuration is implementation specific.</span></span> <span data-ttu-id="d4726-120">この記事では、Redis 両方を構成して、SQL Server の分散キャッシュ方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="d4726-120">This article describes how to configure both Redis and SQL Server distributed caches.</span></span> <span data-ttu-id="d4726-121">アプリが共通を使用して、キャッシュと対話する実装の種類を選択するに関係なく`IDistributedCache`インターフェイスです。</span><span class="sxs-lookup"><span data-stu-id="d4726-121">Regardless of which implementation is selected, the app interacts with the cache using a common `IDistributedCache` interface.</span></span>
-
-## <a name="the-idistributedcache-interface"></a><span data-ttu-id="d4726-122">IDistributedCache インターフェイス</span><span class="sxs-lookup"><span data-stu-id="d4726-122">The IDistributedCache Interface</span></span>
-
-<span data-ttu-id="d4726-123">`IDistributedCache`インターフェイスには、同期および非同期のメソッドが含まれています。</span><span class="sxs-lookup"><span data-stu-id="d4726-123">The `IDistributedCache` interface includes synchronous and asynchronous methods.</span></span> <span data-ttu-id="d4726-124">インターフェイスは、追加、取得、および実装では、分散キャッシュから削除する項目を使用します。</span><span class="sxs-lookup"><span data-stu-id="d4726-124">The interface allows items to be added, retrieved, and removed from the distributed cache implementation.</span></span> <span data-ttu-id="d4726-125">`IDistributedCache`インターフェイスには、次のメソッドが含まれています。</span><span class="sxs-lookup"><span data-stu-id="d4726-125">The `IDistributedCache` interface includes the following methods:</span></span>
-
-<span data-ttu-id="d4726-126">**Get、されます。**</span><span class="sxs-lookup"><span data-stu-id="d4726-126">**Get, GetAsync**</span></span>
-
-<span data-ttu-id="d4726-127">文字列のキーは、としてキャッシュされたアイテムを取得、`byte[]`場合、キャッシュ内に存在します。</span><span class="sxs-lookup"><span data-stu-id="d4726-127">Takes a string key and retrieves a cached item as a `byte[]` if found in the cache.</span></span>
-
-<span data-ttu-id="d4726-128">**セット、SetAsync**</span><span class="sxs-lookup"><span data-stu-id="d4726-128">**Set, SetAsync**</span></span>
-
-<span data-ttu-id="d4726-129">項目を追加 (として`byte[]`) 文字列キーを使用してキャッシュします。</span><span class="sxs-lookup"><span data-stu-id="d4726-129">Adds an item (as `byte[]`) to the cache using a string key.</span></span>
-
-<span data-ttu-id="d4726-130">**更新、RefreshAsync**</span><span class="sxs-lookup"><span data-stu-id="d4726-130">**Refresh, RefreshAsync**</span></span>
-
-<span data-ttu-id="d4726-131">スライド式有効期限タイムアウトをリセットする (存在する場合)、そのキーに基づく、キャッシュ内の項目を更新します。</span><span class="sxs-lookup"><span data-stu-id="d4726-131">Refreshes an item in the cache based on its key, resetting its sliding expiration timeout (if any).</span></span>
-
-<span data-ttu-id="d4726-132">**に対して removeasync を実行を削除します。**</span><span class="sxs-lookup"><span data-stu-id="d4726-132">**Remove, RemoveAsync**</span></span>
-
-<span data-ttu-id="d4726-133">そのキーに基づくキャッシュ エントリを削除します。</span><span class="sxs-lookup"><span data-stu-id="d4726-133">Removes a cache entry based on its key.</span></span>
-
-<span data-ttu-id="d4726-134">使用する、`IDistributedCache`インターフェイス。</span><span class="sxs-lookup"><span data-stu-id="d4726-134">To use the `IDistributedCache` interface:</span></span>
-
-   1. <span data-ttu-id="d4726-135">必要な NuGet パッケージをプロジェクト ファイルに追加します。</span><span class="sxs-lookup"><span data-stu-id="d4726-135">Add the required NuGet packages to your project file.</span></span>
-
-   2. <span data-ttu-id="d4726-136">特定の実装を構成する`IDistributedCache`で、`Startup`クラスの`ConfigureServices`メソッドがコンテナーに追加します。</span><span class="sxs-lookup"><span data-stu-id="d4726-136">Configure the specific implementation of `IDistributedCache` in your `Startup` class's `ConfigureServices` method, and add it to the container there.</span></span>
-
-   3. <span data-ttu-id="d4726-137">アプリから[ミドルウェア](xref:fundamentals/middleware/index)MVC コント ローラー クラスでは、要求のインスタンスまたは`IDistributedCache`コンス トラクターからです。</span><span class="sxs-lookup"><span data-stu-id="d4726-137">From the app's [Middleware](xref:fundamentals/middleware/index) or MVC controller classes, request an instance of `IDistributedCache` from the constructor.</span></span> <span data-ttu-id="d4726-138">によって、インスタンスが提供されます[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。</span><span class="sxs-lookup"><span data-stu-id="d4726-138">The instance will be provided by [Dependency Injection](../../fundamentals/dependency-injection.md) (DI).</span></span>
+3. <span data-ttu-id="94ce7-115">ソース データ ストアが、(より、複数のメモリ内キャッシュですべてのキャッシュ) に加えられた要求が減少します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-115">The source data store has fewer requests made to it (than with multiple in-memory caches or no cache at all).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="d4726-139">シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込みの実装のため)。</span><span class="sxs-lookup"><span data-stu-id="d4726-139">There's no need to use a Singleton or Scoped lifetime for `IDistributedCache` instances (at least for the built-in implementations).</span></span> <span data-ttu-id="d4726-140">必要に応じていずれかの場所にインスタンスを作成することも (を使用せずに[依存性の注入](../../fundamentals/dependency-injection.md))、これが難しく、コードをテストするには、違反している、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。</span><span class="sxs-lookup"><span data-stu-id="d4726-140">You can also create an instance wherever you might need one (instead of using [Dependency Injection](../../fundamentals/dependency-injection.md)), but this can make your code harder to test, and violates the [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/).</span></span>
+> <span data-ttu-id="94ce7-116">場合は、SQL Server の分散キャッシュを使用して、これらの利点の一部は、アプリのソース データよりも、キャッシュの別のデータベース インスタンスを使用する場合のみ。</span><span class="sxs-lookup"><span data-stu-id="94ce7-116">If using a SQL Server Distributed Cache, some of these advantages are only true if a separate database instance is used for the cache than for the app's source data.</span></span>
 
-<span data-ttu-id="d4726-141">次の例は、のインスタンスを使用する方法を示しています。`IDistributedCache`では、単純なミドルウェア コンポーネント。</span><span class="sxs-lookup"><span data-stu-id="d4726-141">The following example shows how to use an instance of `IDistributedCache` in a simple middleware component:</span></span>
+<span data-ttu-id="94ce7-117">、任意のキャッシュのような分散キャッシュが飛躍的に向上、アプリの応答性、ため、通常、データはリレーショナル データベース (または web サービス) からよりも高速のキャッシュから取得できます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-117">Like any cache, a distributed cache can dramatically improve an app's responsiveness, since typically data can be retrieved from the cache much faster than from a relational database (or web service).</span></span>
+
+<span data-ttu-id="94ce7-118">キャッシュの構成は、特定の実装です。</span><span class="sxs-lookup"><span data-stu-id="94ce7-118">Cache configuration is implementation specific.</span></span> <span data-ttu-id="94ce7-119">この記事では、Redis 両方を構成して、SQL Server の分散キャッシュする方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-119">This article describes how to configure both Redis and SQL Server distributed caches.</span></span> <span data-ttu-id="94ce7-120">アプリが、一般的なを使用して、キャッシュと対話する実装の種類を選択するに関係なく`IDistributedCache`インターフェイス。</span><span class="sxs-lookup"><span data-stu-id="94ce7-120">Regardless of which implementation is selected, the app interacts with the cache using a common `IDistributedCache` interface.</span></span>
+
+## <a name="the-idistributedcache-interface"></a><span data-ttu-id="94ce7-121">IDistributedCache インターフェイス</span><span class="sxs-lookup"><span data-stu-id="94ce7-121">The IDistributedCache Interface</span></span>
+
+<span data-ttu-id="94ce7-122">`IDistributedCache`インターフェイスには、同期および非同期のメソッドが含まれています。</span><span class="sxs-lookup"><span data-stu-id="94ce7-122">The `IDistributedCache` interface includes synchronous and asynchronous methods.</span></span> <span data-ttu-id="94ce7-123">インターフェイスは、追加、取得、および分散キャッシュの実装から削除する項目を使用します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-123">The interface allows items to be added, retrieved, and removed from the distributed cache implementation.</span></span> <span data-ttu-id="94ce7-124">`IDistributedCache`インターフェイスには、次のメソッドが含まれています。</span><span class="sxs-lookup"><span data-stu-id="94ce7-124">The `IDistributedCache` interface includes the following methods:</span></span>
+
+<span data-ttu-id="94ce7-125">**Get、GetAsync**</span><span class="sxs-lookup"><span data-stu-id="94ce7-125">**Get, GetAsync**</span></span>
+
+<span data-ttu-id="94ce7-126">文字列のキーを受け取り、としてキャッシュされた項目を取得、`byte[]`場合、キャッシュ内に存在します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-126">Takes a string key and retrieves a cached item as a `byte[]` if found in the cache.</span></span>
+
+<span data-ttu-id="94ce7-127">**SetAsync セット**</span><span class="sxs-lookup"><span data-stu-id="94ce7-127">**Set, SetAsync**</span></span>
+
+<span data-ttu-id="94ce7-128">項目を追加します (として`byte[]`) 文字列のキーを使用してキャッシュにします。</span><span class="sxs-lookup"><span data-stu-id="94ce7-128">Adds an item (as `byte[]`) to the cache using a string key.</span></span>
+
+<span data-ttu-id="94ce7-129">**RefreshAsync の更新**</span><span class="sxs-lookup"><span data-stu-id="94ce7-129">**Refresh, RefreshAsync**</span></span>
+
+<span data-ttu-id="94ce7-130">そのスライド式有効期限のタイムアウトをリセットする (ある場合)、そのキーに基づいて、キャッシュ内の項目を更新します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-130">Refreshes an item in the cache based on its key, resetting its sliding expiration timeout (if any).</span></span>
+
+<span data-ttu-id="94ce7-131">**RemoveAsync を削除します。**</span><span class="sxs-lookup"><span data-stu-id="94ce7-131">**Remove, RemoveAsync**</span></span>
+
+<span data-ttu-id="94ce7-132">そのキーに基づくキャッシュ エントリを削除します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-132">Removes a cache entry based on its key.</span></span>
+
+<span data-ttu-id="94ce7-133">使用する、`IDistributedCache`インターフェイス。</span><span class="sxs-lookup"><span data-stu-id="94ce7-133">To use the `IDistributedCache` interface:</span></span>
+
+   1. <span data-ttu-id="94ce7-134">必要な NuGet パッケージをプロジェクト ファイルに追加します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-134">Add the required NuGet packages to your project file.</span></span>
+
+   2. <span data-ttu-id="94ce7-135">特定の実装を構成する`IDistributedCache`で、`Startup`クラスの`ConfigureServices`メソッドがコンテナーに追加します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-135">Configure the specific implementation of `IDistributedCache` in your `Startup` class's `ConfigureServices` method, and add it to the container there.</span></span>
+
+   3. <span data-ttu-id="94ce7-136">アプリの[ミドルウェア](xref:fundamentals/middleware/index)MVC コント ローラーのクラスのインスタンスを要求または`IDistributedCache`コンス トラクターから。</span><span class="sxs-lookup"><span data-stu-id="94ce7-136">From the app's [Middleware](xref:fundamentals/middleware/index) or MVC controller classes, request an instance of `IDistributedCache` from the constructor.</span></span> <span data-ttu-id="94ce7-137">インスタンスがによって提供される[依存関係の注入](../../fundamentals/dependency-injection.md)(DI)。</span><span class="sxs-lookup"><span data-stu-id="94ce7-137">The instance will be provided by [Dependency Injection](../../fundamentals/dependency-injection.md) (DI).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="94ce7-138">シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込み実装のため)。</span><span class="sxs-lookup"><span data-stu-id="94ce7-138">There's no need to use a Singleton or Scoped lifetime for `IDistributedCache` instances (at least for the built-in implementations).</span></span> <span data-ttu-id="94ce7-139">いずれかが必要な場合がありますに、インスタンスを作成することもできます (使用する代わりに[依存関係の挿入](../../fundamentals/dependency-injection.md)) が、コードをテストするには、このことができますに違反して、 [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/)。</span><span class="sxs-lookup"><span data-stu-id="94ce7-139">You can also create an instance wherever you might need one (instead of using [Dependency Injection](../../fundamentals/dependency-injection.md)), but this can make your code harder to test, and violates the [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/).</span></span>
+
+<span data-ttu-id="94ce7-140">次の例は、のインスタンスを使用する方法を示しています。`IDistributedCache`では、単純なミドルウェア コンポーネント。</span><span class="sxs-lookup"><span data-stu-id="94ce7-140">The following example shows how to use an instance of `IDistributedCache` in a simple middleware component:</span></span>
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/StartTimeHeader.cs)]
 
-<span data-ttu-id="d4726-142">上記のコードでキャッシュされた値が、読み取りが書き込まれていません。</span><span class="sxs-lookup"><span data-stu-id="d4726-142">In the code above, the cached value is read, but never written.</span></span> <span data-ttu-id="d4726-143">このサンプルでは、値は、サーバーの起動、および変更されない場合にのみ設定されます。</span><span class="sxs-lookup"><span data-stu-id="d4726-143">In this sample, the value is only set when a server starts up, and doesn't change.</span></span> <span data-ttu-id="d4726-144">マルチ サーバーのシナリオで開始する最も最近使用したサーバーに他のサーバーで設定した前の値が上書きされます。</span><span class="sxs-lookup"><span data-stu-id="d4726-144">In a multi-server scenario, the most recent server to start will overwrite any previous values that were set by other servers.</span></span> <span data-ttu-id="d4726-145">`Get`と`Set`メソッドを使用して、`byte[]`型です。</span><span class="sxs-lookup"><span data-stu-id="d4726-145">The `Get` and `Set` methods use the `byte[]` type.</span></span> <span data-ttu-id="d4726-146">使用して文字列値を変換する必要がありますので、 `Encoding.UTF8.GetString` (の`Get`) および`Encoding.UTF8.GetBytes`(の`Set`)。</span><span class="sxs-lookup"><span data-stu-id="d4726-146">Therefore, the string value must be converted using `Encoding.UTF8.GetString` (for `Get`) and `Encoding.UTF8.GetBytes` (for `Set`).</span></span>
+<span data-ttu-id="94ce7-141">上記のコードでは、キャッシュされた値は、読み取りが書き込まれていません。</span><span class="sxs-lookup"><span data-stu-id="94ce7-141">In the code above, the cached value is read, but never written.</span></span> <span data-ttu-id="94ce7-142">このサンプルで、値は、サーバーが起動し、変更されない場合にのみ設定されます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-142">In this sample, the value is only set when a server starts up, and doesn't change.</span></span> <span data-ttu-id="94ce7-143">マルチ サーバーのシナリオで開始する直近のサーバーに他のサーバーで設定した前の値が上書きされます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-143">In a multi-server scenario, the most recent server to start will overwrite any previous values that were set by other servers.</span></span> <span data-ttu-id="94ce7-144">`Get`と`Set`メソッドを使用して、`byte[]`型。</span><span class="sxs-lookup"><span data-stu-id="94ce7-144">The `Get` and `Set` methods use the `byte[]` type.</span></span> <span data-ttu-id="94ce7-145">使用して文字列値を変換する必要がありますので、 `Encoding.UTF8.GetString` (の`Get`) と`Encoding.UTF8.GetBytes`(の`Set`)。</span><span class="sxs-lookup"><span data-stu-id="94ce7-145">Therefore, the string value must be converted using `Encoding.UTF8.GetString` (for `Get`) and `Encoding.UTF8.GetBytes` (for `Set`).</span></span>
 
-<span data-ttu-id="d4726-147">次のコードから*Startup.cs*設定される値を示しています。</span><span class="sxs-lookup"><span data-stu-id="d4726-147">The following code from *Startup.cs* shows the value being set:</span></span>
+<span data-ttu-id="94ce7-146">次のコードから*Startup.cs*設定されている値が表示されます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-146">The following code from *Startup.cs* shows the value being set:</span></span>
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
 
 > [!NOTE]
-> <span data-ttu-id="d4726-148">`IDistributedCache`で構成された、`ConfigureServices`メソッドが使用できる、`Configure`メソッドのパラメーターとして。</span><span class="sxs-lookup"><span data-stu-id="d4726-148">Since `IDistributedCache` is configured in the `ConfigureServices` method, it's available to the `Configure` method as a parameter.</span></span> <span data-ttu-id="d4726-149">パラメーターとして追加すると、DI で指定する構成済みのインスタンスが許可されます。</span><span class="sxs-lookup"><span data-stu-id="d4726-149">Adding it as a parameter will allow the configured instance to be provided through DI.</span></span>
+> <span data-ttu-id="94ce7-147">`IDistributedCache`で構成されている場合は、`ConfigureServices`メソッドが使用できる、`Configure`メソッドをパラメーターとして。</span><span class="sxs-lookup"><span data-stu-id="94ce7-147">Since `IDistributedCache` is configured in the `ConfigureServices` method, it's available to the `Configure` method as a parameter.</span></span> <span data-ttu-id="94ce7-148">パラメーターとして追加することによって、DI を通じて提供されるインスタンスを構成できます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-148">Adding it as a parameter will allow the configured instance to be provided through DI.</span></span>
 
-## <a name="using-a-redis-distributed-cache"></a><span data-ttu-id="d4726-150">分散 Redis キャッシュの使用</span><span class="sxs-lookup"><span data-stu-id="d4726-150">Using a Redis distributed cache</span></span>
+## <a name="using-a-redis-distributed-cache"></a><span data-ttu-id="94ce7-149">Redis の分散キャッシュを使用します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-149">Using a Redis distributed cache</span></span>
 
-<span data-ttu-id="d4726-151">[Redis](https://redis.io/)分散キャッシュとして使用される多くの場合、オープン ソースのインメモリ データ ストアです。</span><span class="sxs-lookup"><span data-stu-id="d4726-151">[Redis](https://redis.io/) is an open source in-memory data store, which is often used as a distributed cache.</span></span> <span data-ttu-id="d4726-152">ローカルで行うこともでき、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) ASP.NET Core の Azure でホストされるアプリにします。</span><span class="sxs-lookup"><span data-stu-id="d4726-152">You can use it locally, and you can configure an [Azure Redis Cache](https://azure.microsoft.com/services/cache/) for your Azure-hosted ASP.NET Core apps.</span></span> <span data-ttu-id="d4726-153">キャッシュ実装を使用して、ASP.NET Core アプリケーションの構成、`RedisDistributedCache`インスタンス。</span><span class="sxs-lookup"><span data-stu-id="d4726-153">Your ASP.NET Core app configures the cache implementation using a `RedisDistributedCache` instance.</span></span>
+<span data-ttu-id="94ce7-150">[Redis](https://redis.io/)は分散キャッシュとしてよく使用されているオープン ソース、メモリ内データ ストアです。</span><span class="sxs-lookup"><span data-stu-id="94ce7-150">[Redis](https://redis.io/) is an open source in-memory data store, which is often used as a distributed cache.</span></span> <span data-ttu-id="94ce7-151">ローカルで使用して、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure でホストされる ASP.NET Core アプリ。</span><span class="sxs-lookup"><span data-stu-id="94ce7-151">You can use it locally, and you can configure an [Azure Redis Cache](https://azure.microsoft.com/services/cache/) for your Azure-hosted ASP.NET Core apps.</span></span> <span data-ttu-id="94ce7-152">キャッシュ実装を使用して、ASP.NET Core アプリの構成、`RedisDistributedCache`インスタンス。</span><span class="sxs-lookup"><span data-stu-id="94ce7-152">Your ASP.NET Core app configures the cache implementation using a `RedisDistributedCache` instance.</span></span>
 
-<span data-ttu-id="d4726-154">Redis の実装を構成する`ConfigureServices`のインスタンスを要求することによって、アプリ コードでアクセスおよび`IDistributedCache`(上記のコードを参照してください)。</span><span class="sxs-lookup"><span data-stu-id="d4726-154">You configure the Redis implementation in `ConfigureServices` and access it in your app code by requesting an instance of `IDistributedCache` (see the code above).</span></span>
+<span data-ttu-id="94ce7-153">Redis の実装を構成する`ConfigureServices`のインスタンスを要求することによって、アプリのコードでアクセス`IDistributedCache`(上記のコードを参照してください)。</span><span class="sxs-lookup"><span data-stu-id="94ce7-153">You configure the Redis implementation in `ConfigureServices` and access it in your app code by requesting an instance of `IDistributedCache` (see the code above).</span></span>
 
-<span data-ttu-id="d4726-155">サンプル コードで、`RedisCache`のサーバーが構成されている実装を使用して、`Staging`環境。</span><span class="sxs-lookup"><span data-stu-id="d4726-155">In the sample code, a `RedisCache` implementation is used when the server is configured for a `Staging` environment.</span></span> <span data-ttu-id="d4726-156">したがって、`ConfigureStagingServices`メソッドは、構成、 `RedisCache`:</span><span class="sxs-lookup"><span data-stu-id="d4726-156">Thus the `ConfigureStagingServices` method configures the `RedisCache`:</span></span>
+<span data-ttu-id="94ce7-154">サンプル コードで、`RedisCache`実装には、サーバーが構成されている場合、使用、`Staging`環境。</span><span class="sxs-lookup"><span data-stu-id="94ce7-154">In the sample code, a `RedisCache` implementation is used when the server is configured for a `Staging` environment.</span></span> <span data-ttu-id="94ce7-155">したがって、`ConfigureStagingServices`メソッドは、構成、 `RedisCache`:</span><span class="sxs-lookup"><span data-stu-id="94ce7-155">Thus the `ConfigureStagingServices` method configures the `RedisCache`:</span></span>
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
-> <span data-ttu-id="d4726-157">ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/)実行と`redis-server`コマンド プロンプトからです。</span><span class="sxs-lookup"><span data-stu-id="d4726-157">To install Redis on your local machine, install the chocolatey package [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) and run `redis-server` from a command prompt.</span></span>
+> <span data-ttu-id="94ce7-156">ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/)実行`redis-server`コマンド プロンプトからです。</span><span class="sxs-lookup"><span data-stu-id="94ce7-156">To install Redis on your local machine, install the chocolatey package [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) and run `redis-server` from a command prompt.</span></span>
 
-## <a name="using-a-sql-server-distributed-cache"></a><span data-ttu-id="d4726-158">SQL Server を使用してキャッシュを分散</span><span class="sxs-lookup"><span data-stu-id="d4726-158">Using a SQL Server distributed cache</span></span>
+## <a name="using-a-sql-server-distributed-cache"></a><span data-ttu-id="94ce7-157">SQL Server を使用して分散キャッシュ</span><span class="sxs-lookup"><span data-stu-id="94ce7-157">Using a SQL Server distributed cache</span></span>
 
-<span data-ttu-id="d4726-159">SqlServerCache 実装では、バッキング ストアとして SQL Server データベースを使用する分散キャッシュを許可します。</span><span class="sxs-lookup"><span data-stu-id="d4726-159">The SqlServerCache implementation allows the distributed cache to use a SQL Server database as its backing store.</span></span> <span data-ttu-id="d4726-160">SQL サーバーを作成するには、ツール、sql キャッシュを使用するテーブルは指定した名前とスキーマを持つテーブルを作成します。</span><span class="sxs-lookup"><span data-stu-id="d4726-160">To create SQL Server table you can use sql-cache tool, the tool creates a table with the name and schema you specify.</span></span>
+<span data-ttu-id="94ce7-158">SqlServerCache 実装では、バッキング ストアとして SQL Server データベースを使用する分散キャッシュを許可します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-158">The SqlServerCache implementation allows the distributed cache to use a SQL Server database as its backing store.</span></span> <span data-ttu-id="94ce7-159">SQL サーバーを作成するには、ツール、sql キャッシュを使用するテーブルは指定した名前とスキーマ テーブルを作成します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-159">To create SQL Server table you can use sql-cache tool, the tool creates a table with the name and schema you specify.</span></span>
 
 ::: moniker range="< aspnetcore-2.1"
 
-<span data-ttu-id="d4726-161">追加`SqlConfig.Tools`を`<ItemGroup>`実行して、プロジェクト ファイルの要素`dotnet restore`です。</span><span class="sxs-lookup"><span data-stu-id="d4726-161">Add `SqlConfig.Tools` to the `<ItemGroup>` element of the project file and run `dotnet restore`.</span></span>
+<span data-ttu-id="94ce7-160">追加`SqlConfig.Tools`を`<ItemGroup>`要素は、プロジェクト ファイルと実行の`dotnet restore`します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-160">Add `SqlConfig.Tools` to the `<ItemGroup>` element of the project file and run `dotnet restore`.</span></span>
 
 ```xml
 <ItemGroup>
@@ -112,15 +112,15 @@ ms.locfileid: "37077700"
 
 ::: moniker-end
 
-<span data-ttu-id="d4726-162">次のコマンドを実行して SqlConfig.Tools をテストします。</span><span class="sxs-lookup"><span data-stu-id="d4726-162">Test SqlConfig.Tools by running the following command:</span></span>
+<span data-ttu-id="94ce7-161">次のコマンドを実行して SqlConfig.Tools をテストします。</span><span class="sxs-lookup"><span data-stu-id="94ce7-161">Test SqlConfig.Tools by running the following command:</span></span>
 
 ```console
 dotnet sql-cache create --help
 ```
 
-<span data-ttu-id="d4726-163">SqlConfig.Tools は、使用状況、オプション、およびコマンドのヘルプを表示します。</span><span class="sxs-lookup"><span data-stu-id="d4726-163">SqlConfig.Tools displays usage, options, and command help.</span></span>
+<span data-ttu-id="94ce7-162">SqlConfig.Tools では、使用状況、オプション、およびコマンドのヘルプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-162">SqlConfig.Tools displays usage, options, and command help.</span></span>
 
-<span data-ttu-id="d4726-164">SQL server を実行してテーブルを作成、`sql-cache create`コマンド。</span><span class="sxs-lookup"><span data-stu-id="d4726-164">Create a table in SQL Server by running the `sql-cache create` command :</span></span>
+<span data-ttu-id="94ce7-163">SQL server を実行してテーブルを作成、`sql-cache create`コマンド。</span><span class="sxs-lookup"><span data-stu-id="94ce7-163">Create a table in SQL Server by running the `sql-cache create` command :</span></span>
 
 ```console
 dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
@@ -128,28 +128,29 @@ info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
 Table and index were created successfully.
 ```
 
-<span data-ttu-id="d4726-165">作成されたテーブルには、次のスキーマがあります。</span><span class="sxs-lookup"><span data-stu-id="d4726-165">The created table has the following schema:</span></span>
+<span data-ttu-id="94ce7-164">作成されたテーブルでは、次のスキーマがあります。</span><span class="sxs-lookup"><span data-stu-id="94ce7-164">The created table has the following schema:</span></span>
 
 ![SqlServer キャッシュ テーブル](distributed/_static/SqlServerCacheTable.png)
 
-<span data-ttu-id="d4726-167">すべてのキャッシュ実装と同様にアプリを取得および設定のインスタンスを使用してキャッシュ値`IDistributedCache`ではなく、`SqlServerCache`です。</span><span class="sxs-lookup"><span data-stu-id="d4726-167">Like all cache implementations, your app should get and set cache values using an instance of `IDistributedCache`, not a `SqlServerCache`.</span></span> <span data-ttu-id="d4726-168">このサンプルを実装`SqlServerCache`実稼働環境で (で構成されているように`ConfigureProductionServices`)。</span><span class="sxs-lookup"><span data-stu-id="d4726-168">The sample implements `SqlServerCache` in the Production environment (so it's configured in `ConfigureProductionServices`).</span></span>
+<span data-ttu-id="94ce7-166">すべてのキャッシュ実装と同様に、アプリする必要がありますを取得および設定のインスタンスを使用してキャッシュ値`IDistributedCache`ではなく、`SqlServerCache`します。</span><span class="sxs-lookup"><span data-stu-id="94ce7-166">Like all cache implementations, your app should get and set cache values using an instance of `IDistributedCache`, not a `SqlServerCache`.</span></span> <span data-ttu-id="94ce7-167">サンプルでは実装`SqlServerCache`実稼働環境で (で構成されているように`ConfigureProductionServices`)。</span><span class="sxs-lookup"><span data-stu-id="94ce7-167">The sample implements `SqlServerCache` in the Production environment (so it's configured in `ConfigureProductionServices`).</span></span>
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
-> <span data-ttu-id="d4726-169">`ConnectionString` (および必要に応じて、`SchemaName`と`TableName`) 資格情報を含めることは、通常 (UserSecrets) などのソース管理の外部に格納する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d4726-169">The `ConnectionString` (and optionally, `SchemaName` and `TableName`) should typically be stored outside of source control (such as UserSecrets), as they may contain credentials.</span></span>
+> <span data-ttu-id="94ce7-168">`ConnectionString` (および必要に応じて、`SchemaName`と`TableName`) 資格情報を含めることは、通常 (UserSecrets) などのソース管理の外部に格納する必要があります。</span><span class="sxs-lookup"><span data-stu-id="94ce7-168">The `ConnectionString` (and optionally, `SchemaName` and `TableName`) should typically be stored outside of source control (such as UserSecrets), as they may contain credentials.</span></span>
 
-## <a name="recommendations"></a><span data-ttu-id="d4726-170">推奨事項</span><span class="sxs-lookup"><span data-stu-id="d4726-170">Recommendations</span></span>
+## <a name="recommendations"></a><span data-ttu-id="94ce7-169">推奨事項</span><span class="sxs-lookup"><span data-stu-id="94ce7-169">Recommendations</span></span>
 
-<span data-ttu-id="d4726-171">のどの実装を決定する際に`IDistributedCache`Redis 間を選択して、アプリの権利は、既存のインフラストラクチャと環境、パフォーマンス要件、およびチームの経験に基づいて、SQL Server、します。</span><span class="sxs-lookup"><span data-stu-id="d4726-171">When deciding which implementation of `IDistributedCache` is right for your app, choose between Redis and SQL Server based on your existing infrastructure and environment, your performance requirements, and your team's experience.</span></span> <span data-ttu-id="d4726-172">チームがより快適な Redis の操作の場合は、最適な選択肢であります。</span><span class="sxs-lookup"><span data-stu-id="d4726-172">If your team is more comfortable working with Redis, it's an excellent choice.</span></span> <span data-ttu-id="d4726-173">チームが SQL Server を希望する場合で同様に実装することを確信できます。</span><span class="sxs-lookup"><span data-stu-id="d4726-173">If your team prefers SQL Server, you can be confident in that implementation as well.</span></span> <span data-ttu-id="d4726-174">従来のキャッシュ ソリューションがデータをメモリ内データの取得を高速を格納することに注意してください。</span><span class="sxs-lookup"><span data-stu-id="d4726-174">Note that a traditional caching solution stores data in-memory which allows for fast retrieval of data.</span></span> <span data-ttu-id="d4726-175">一般的に使用されるデータをキャッシュに格納し、SQL Server または Azure ストレージなどのバックエンドの永続的なストアでデータ全体を格納する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d4726-175">You should store commonly used data in a cache and store the entire data in a backend persistent store such as SQL Server or Azure Storage.</span></span> <span data-ttu-id="d4726-176">Redis Cache は、SQL キャッシュと比較して、高いスループットと低待機時間ににより、キャッシュ ソリューションです。</span><span class="sxs-lookup"><span data-stu-id="d4726-176">Redis Cache is a caching solution which gives you high throughput and low latency as compared to SQL Cache.</span></span>
+<span data-ttu-id="94ce7-170">実装を決定する際に`IDistributedCache`は Redis 間を選択して、アプリの右と、既存のインフラストラクチャと環境、パフォーマンス要件、およびチームの経験に基づいて、SQL Server。</span><span class="sxs-lookup"><span data-stu-id="94ce7-170">When deciding which implementation of `IDistributedCache` is right for your app, choose between Redis and SQL Server based on your existing infrastructure and environment, your performance requirements, and your team's experience.</span></span> <span data-ttu-id="94ce7-171">チームがより快適な Redis の操作の場合は、優れた選択肢となります。</span><span class="sxs-lookup"><span data-stu-id="94ce7-171">If your team is more comfortable working with Redis, it's an excellent choice.</span></span> <span data-ttu-id="94ce7-172">チームが SQL Server を希望する場合でも実装することを確信できます。</span><span class="sxs-lookup"><span data-stu-id="94ce7-172">If your team prefers SQL Server, you can be confident in that implementation as well.</span></span> <span data-ttu-id="94ce7-173">従来のキャッシュ ソリューションがデータをメモリ内データを迅速に取得できるを格納することに注意してください。</span><span class="sxs-lookup"><span data-stu-id="94ce7-173">Note that a traditional caching solution stores data in-memory which allows for fast retrieval of data.</span></span> <span data-ttu-id="94ce7-174">一般的に使用されるデータをキャッシュに格納し、SQL Server または Azure Storage などのバックエンドの永続的なストアにデータ全体を保存する必要があります。</span><span class="sxs-lookup"><span data-stu-id="94ce7-174">You should store commonly used data in a cache and store the entire data in a backend persistent store such as SQL Server or Azure Storage.</span></span> <span data-ttu-id="94ce7-175">Redis Cache とは、SQL キャッシュと比較して、高スループットと低待機時間に提供するキャッシュ ソリューションです。</span><span class="sxs-lookup"><span data-stu-id="94ce7-175">Redis Cache is a caching solution which gives you high throughput and low latency as compared to SQL Cache.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="d4726-177">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="d4726-177">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="94ce7-176">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="94ce7-176">Additional resources</span></span>
 
-* [<span data-ttu-id="d4726-178">Redis の Azure キャッシュ</span><span class="sxs-lookup"><span data-stu-id="d4726-178">Redis Cache on Azure</span></span>](https://azure.microsoft.com/documentation/services/redis-cache/)
-* [<span data-ttu-id="d4726-179">Azure SQL データベース</span><span class="sxs-lookup"><span data-stu-id="d4726-179">SQL Database on Azure</span></span>](https://azure.microsoft.com/documentation/services/sql-database/)
-* [<span data-ttu-id="d4726-180">メモリ内キャッシュ</span><span class="sxs-lookup"><span data-stu-id="d4726-180">Cache in-memory</span></span>](xref:performance/caching/memory)
-* [<span data-ttu-id="d4726-181">変更トークンを使用する変更の検出</span><span class="sxs-lookup"><span data-stu-id="d4726-181">Detect changes with change tokens</span></span>](xref:fundamentals/primitives/change-tokens)
-* [<span data-ttu-id="d4726-182">応答キャッシュ</span><span class="sxs-lookup"><span data-stu-id="d4726-182">Response caching</span></span>](xref:performance/caching/response)
-* [<span data-ttu-id="d4726-183">応答キャッシュ ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="d4726-183">Response Caching Middleware</span></span>](xref:performance/caching/middleware)
-* [<span data-ttu-id="d4726-184">キャッシュ タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="d4726-184">Cache Tag Helper</span></span>](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [<span data-ttu-id="d4726-185">分散キャッシュ タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="d4726-185">Distributed Cache Tag Helper</span></span>](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [<span data-ttu-id="94ce7-177">Redis azure Cache</span><span class="sxs-lookup"><span data-stu-id="94ce7-177">Redis Cache on Azure</span></span>](https://azure.microsoft.com/documentation/services/redis-cache/)
+* [<span data-ttu-id="94ce7-178">Azure 上の SQL データベース</span><span class="sxs-lookup"><span data-stu-id="94ce7-178">SQL Database on Azure</span></span>](https://azure.microsoft.com/documentation/services/sql-database/)
+* <xref:performance/caching/memory>
+* <xref:fundamentals/primitives/change-tokens>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
+* <xref:host-and-deploy/web-farm>
