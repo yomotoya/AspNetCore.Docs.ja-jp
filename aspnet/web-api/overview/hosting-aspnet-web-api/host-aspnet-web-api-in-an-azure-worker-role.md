@@ -4,166 +4,163 @@ title: ASP.NET Web API 2 では、Azure Worker ロールのホスト |Microsoft 
 author: MikeWasson
 description: このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) de の Web インターフェイスを開く.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/02/2014
-ms.topic: article
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: a370f3bea74332d47e9132206c25d1be4211772c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c53256b8a72a377f51b9fbac7944657cb6d4c6e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395572"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803851"
 ---
-<a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a><span data-ttu-id="dec75-104">ASP.NET Web API 2 では、Azure Worker ロールをホストします。</span><span class="sxs-lookup"><span data-stu-id="dec75-104">Host ASP.NET Web API 2 in an Azure Worker Role</span></span>
+<a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a><span data-ttu-id="50191-104">ASP.NET Web API 2 では、Azure Worker ロールをホストします。</span><span class="sxs-lookup"><span data-stu-id="50191-104">Host ASP.NET Web API 2 in an Azure Worker Role</span></span>
 ====================
-<span data-ttu-id="dec75-105">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="dec75-105">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="50191-105">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="50191-105">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-> <span data-ttu-id="dec75-106">このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="dec75-106">This tutorial shows how to host ASP.NET Web API in an Azure Worker Role, using OWIN to self-host the Web API framework.</span></span>
+> <span data-ttu-id="50191-106">このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="50191-106">This tutorial shows how to host ASP.NET Web API in an Azure Worker Role, using OWIN to self-host the Web API framework.</span></span>
 > 
-> <span data-ttu-id="dec75-107">[.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。</span><span class="sxs-lookup"><span data-stu-id="dec75-107">[Open Web Interface for .NET](http://owin.org/) (OWIN) defines an abstraction between .NET web servers and web applications.</span></span> <span data-ttu-id="dec75-108">OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションの分離 – Azure worker ロール内など。</span><span class="sxs-lookup"><span data-stu-id="dec75-108">OWIN decouples the web application from the server, which makes OWIN ideal for self-hosting a web application in your own process, outside of IIS–for example, inside an Azure worker role.</span></span>
+> <span data-ttu-id="50191-107">[.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。</span><span class="sxs-lookup"><span data-stu-id="50191-107">[Open Web Interface for .NET](http://owin.org/) (OWIN) defines an abstraction between .NET web servers and web applications.</span></span> <span data-ttu-id="50191-108">OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションの分離 – Azure worker ロール内など。</span><span class="sxs-lookup"><span data-stu-id="50191-108">OWIN decouples the web application from the server, which makes OWIN ideal for self-hosting a web application in your own process, outside of IIS–for example, inside an Azure worker role.</span></span>
 > 
-> <span data-ttu-id="dec75-109">このチュートリアルでは、Microsoft.Owin.Host.HttpListener パッケージを使用します OWIN アプリケーションを自己ホストするために使用する HTTP サーバーを提供します。</span><span class="sxs-lookup"><span data-stu-id="dec75-109">In this tutorial, you'll use the Microsoft.Owin.Host.HttpListener package, which provides an HTTP server that be used to self-host OWIN applications.</span></span>
+> <span data-ttu-id="50191-109">このチュートリアルでは、Microsoft.Owin.Host.HttpListener パッケージを使用します OWIN アプリケーションを自己ホストするために使用する HTTP サーバーを提供します。</span><span class="sxs-lookup"><span data-stu-id="50191-109">In this tutorial, you'll use the Microsoft.Owin.Host.HttpListener package, which provides an HTTP server that be used to self-host OWIN applications.</span></span>
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="dec75-110">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="dec75-110">Software versions used in the tutorial</span></span>
+> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="50191-110">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="50191-110">Software versions used in the tutorial</span></span>
 > 
 > 
-> - [<span data-ttu-id="dec75-111">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="dec75-111">Visual Studio 2013</span></span>](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - <span data-ttu-id="dec75-112">Web API 2</span><span class="sxs-lookup"><span data-stu-id="dec75-112">Web API 2</span></span>
-> - [<span data-ttu-id="dec75-113">Azure SDK for .NET 2.3</span><span class="sxs-lookup"><span data-stu-id="dec75-113">Azure SDK for .NET 2.3</span></span>](https://azure.microsoft.com/downloads/)
+> - [<span data-ttu-id="50191-111">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="50191-111">Visual Studio 2013</span></span>](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+> - <span data-ttu-id="50191-112">Web API 2</span><span class="sxs-lookup"><span data-stu-id="50191-112">Web API 2</span></span>
+> - [<span data-ttu-id="50191-113">Azure SDK for .NET 2.3</span><span class="sxs-lookup"><span data-stu-id="50191-113">Azure SDK for .NET 2.3</span></span>](https://azure.microsoft.com/downloads/)
 
 
-## <a name="create-a-microsoft-azure-project"></a><span data-ttu-id="dec75-114">Microsoft Azure プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="dec75-114">Create a Microsoft Azure Project</span></span>
+## <a name="create-a-microsoft-azure-project"></a><span data-ttu-id="50191-114">Microsoft Azure プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="50191-114">Create a Microsoft Azure Project</span></span>
 
-<span data-ttu-id="dec75-115">管理者特権で Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="dec75-115">Start Visual Studio with administrator privileges.</span></span> <span data-ttu-id="dec75-116">Azure コンピューティング エミュレーターを使用してローカルでのアプリケーションをデバッグするには、管理者特権が必要です。</span><span class="sxs-lookup"><span data-stu-id="dec75-116">Administrator privileges are needed to debug the application locally, using the Azure compute emulator.</span></span>
+<span data-ttu-id="50191-115">管理者特権で Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="50191-115">Start Visual Studio with administrator privileges.</span></span> <span data-ttu-id="50191-116">Azure コンピューティング エミュレーターを使用してローカルでのアプリケーションをデバッグするには、管理者特権が必要です。</span><span class="sxs-lookup"><span data-stu-id="50191-116">Administrator privileges are needed to debug the application locally, using the Azure compute emulator.</span></span>
 
-<span data-ttu-id="dec75-117">**ファイル** メニューのをクリックして**新規**、 をクリックし、**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-117">On the **File** menu, click **New**, then click **Project**.</span></span> <span data-ttu-id="dec75-118">**インストールされたテンプレート**、Visual c# では、クリックして**クラウド** をクリックし、 **Windows Azure クラウド サービス**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-118">From **Installed Templates**, under Visual C#, click **Cloud** and then click **Windows Azure Cloud Service**.</span></span> <span data-ttu-id="dec75-119">プロジェクトとして「AzureApp」という名前にして**OK**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-119">Name the project "AzureApp" and click **OK**.</span></span>
+<span data-ttu-id="50191-117">**ファイル** メニューのをクリックして**新規**、 をクリックし、**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="50191-117">On the **File** menu, click **New**, then click **Project**.</span></span> <span data-ttu-id="50191-118">**インストールされたテンプレート**、Visual c# では、クリックして**クラウド** をクリックし、 **Windows Azure クラウド サービス**します。</span><span class="sxs-lookup"><span data-stu-id="50191-118">From **Installed Templates**, under Visual C#, click **Cloud** and then click **Windows Azure Cloud Service**.</span></span> <span data-ttu-id="50191-119">プロジェクトとして「AzureApp」という名前にして**OK**します。</span><span class="sxs-lookup"><span data-stu-id="50191-119">Name the project "AzureApp" and click **OK**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image2.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image1.png)
 
-<span data-ttu-id="dec75-120">**新しい Windows Azure クラウド サービス**ダイアログ ボックスで、ダブルクリックして**ワーカー ロール**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-120">In the **New Windows Azure Cloud Service** dialog, double-click **Worker Role**.</span></span> <span data-ttu-id="dec75-121">既定の名前 ("WorkerRole1") のままにします。</span><span class="sxs-lookup"><span data-stu-id="dec75-121">Leave the default name ("WorkerRole1").</span></span> <span data-ttu-id="dec75-122">この手順では、ソリューションにワーカー ロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-122">This step adds a worker role to the solution.</span></span> <span data-ttu-id="dec75-123">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="dec75-123">Click **OK**.</span></span>
+<span data-ttu-id="50191-120">**新しい Windows Azure クラウド サービス**ダイアログ ボックスで、ダブルクリックして**ワーカー ロール**します。</span><span class="sxs-lookup"><span data-stu-id="50191-120">In the **New Windows Azure Cloud Service** dialog, double-click **Worker Role**.</span></span> <span data-ttu-id="50191-121">既定の名前 ("WorkerRole1") のままにします。</span><span class="sxs-lookup"><span data-stu-id="50191-121">Leave the default name ("WorkerRole1").</span></span> <span data-ttu-id="50191-122">この手順では、ソリューションにワーカー ロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-122">This step adds a worker role to the solution.</span></span> <span data-ttu-id="50191-123">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="50191-123">Click **OK**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image4.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image3.png)
 
-<span data-ttu-id="dec75-124">作成された Visual Studio ソリューションには、2 つのプロジェクトが含まれています。</span><span class="sxs-lookup"><span data-stu-id="dec75-124">The Visual Studio solution that is created contains two projects:</span></span>
+<span data-ttu-id="50191-124">作成された Visual Studio ソリューションには、2 つのプロジェクトが含まれています。</span><span class="sxs-lookup"><span data-stu-id="50191-124">The Visual Studio solution that is created contains two projects:</span></span>
 
-- <span data-ttu-id="dec75-125">&quot;AzureApp&quot;ロールと Azure のアプリケーションの構成を定義します。</span><span class="sxs-lookup"><span data-stu-id="dec75-125">&quot;AzureApp&quot; defines the roles and configuration for the Azure application.</span></span>
-- <span data-ttu-id="dec75-126">&quot;WorkerRole1&quot;ワーカー ロールのコードが含まれています。</span><span class="sxs-lookup"><span data-stu-id="dec75-126">&quot;WorkerRole1&quot; contains the code for the worker role.</span></span>
+- <span data-ttu-id="50191-125">&quot;AzureApp&quot;ロールと Azure のアプリケーションの構成を定義します。</span><span class="sxs-lookup"><span data-stu-id="50191-125">&quot;AzureApp&quot; defines the roles and configuration for the Azure application.</span></span>
+- <span data-ttu-id="50191-126">&quot;WorkerRole1&quot;ワーカー ロールのコードが含まれています。</span><span class="sxs-lookup"><span data-stu-id="50191-126">&quot;WorkerRole1&quot; contains the code for the worker role.</span></span>
 
-<span data-ttu-id="dec75-127">一般に、Azure のアプリケーションは、このチュートリアルは、1 つのロールを使用しますが、複数のロールを含めることができます。</span><span class="sxs-lookup"><span data-stu-id="dec75-127">In general, an Azure application can contain multiple roles, although this tutorial uses a single role.</span></span>
+<span data-ttu-id="50191-127">一般に、Azure のアプリケーションは、このチュートリアルは、1 つのロールを使用しますが、複数のロールを含めることができます。</span><span class="sxs-lookup"><span data-stu-id="50191-127">In general, an Azure application can contain multiple roles, although this tutorial uses a single role.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image5.png)
 
-## <a name="add-the-web-api-and-owin-packages"></a><span data-ttu-id="dec75-128">Web API と OWIN パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-128">Add the Web API and OWIN Packages</span></span>
+## <a name="add-the-web-api-and-owin-packages"></a><span data-ttu-id="50191-128">Web API と OWIN パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-128">Add the Web API and OWIN Packages</span></span>
 
-<span data-ttu-id="dec75-129">**ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-129">From the **Tools** menu, click **Library Package Manager**, then click **Package Manager Console**.</span></span>
+<span data-ttu-id="50191-129">**ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。</span><span class="sxs-lookup"><span data-stu-id="50191-129">From the **Tools** menu, click **Library Package Manager**, then click **Package Manager Console**.</span></span>
 
-<span data-ttu-id="dec75-130">パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="dec75-130">In the Package Manager Console window, enter the following command:</span></span>
+<span data-ttu-id="50191-130">パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="50191-130">In the Package Manager Console window, enter the following command:</span></span>
 
 [!code-console[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample1.cmd)]
 
-## <a name="add-an-http-endpoint"></a><span data-ttu-id="dec75-131">HTTP エンドポイントを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-131">Add an HTTP Endpoint</span></span>
+## <a name="add-an-http-endpoint"></a><span data-ttu-id="50191-131">HTTP エンドポイントを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-131">Add an HTTP Endpoint</span></span>
 
-<span data-ttu-id="dec75-132">ソリューション エクスプ ローラーで、AzureApp プロジェクトを展開します。</span><span class="sxs-lookup"><span data-stu-id="dec75-132">In Solution Explorer, expand the AzureApp project.</span></span> <span data-ttu-id="dec75-133">ロール ノードを展開し、WorkerRole1 を右クリックし、**プロパティ**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-133">Expand the Roles node, right-click WorkerRole1, and select **Properties**.</span></span>
+<span data-ttu-id="50191-132">ソリューション エクスプ ローラーで、AzureApp プロジェクトを展開します。</span><span class="sxs-lookup"><span data-stu-id="50191-132">In Solution Explorer, expand the AzureApp project.</span></span> <span data-ttu-id="50191-133">ロール ノードを展開し、WorkerRole1 を右クリックし、**プロパティ**します。</span><span class="sxs-lookup"><span data-stu-id="50191-133">Expand the Roles node, right-click WorkerRole1, and select **Properties**.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image6.png)
 
-<span data-ttu-id="dec75-134">クリックして**エンドポイント**、 をクリックし、**エンドポイントの追加**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-134">Click **Endpoints**, and then click **Add Endpoint**.</span></span>
+<span data-ttu-id="50191-134">クリックして**エンドポイント**、 をクリックし、**エンドポイントの追加**します。</span><span class="sxs-lookup"><span data-stu-id="50191-134">Click **Endpoints**, and then click **Add Endpoint**.</span></span>
 
-<span data-ttu-id="dec75-135">**プロトコル**ドロップダウン リストで、"http"を選択します。</span><span class="sxs-lookup"><span data-stu-id="dec75-135">In the **Protocol** dropdown list, select "http".</span></span> <span data-ttu-id="dec75-136">**パブリック ポート**と**プライベート ポート**80」と入力します。</span><span class="sxs-lookup"><span data-stu-id="dec75-136">In **Public Port** and **Private Port**, type 80.</span></span> <span data-ttu-id="dec75-137">これらのポート番号が異なることがあります。</span><span class="sxs-lookup"><span data-stu-id="dec75-137">These port numbers can be different.</span></span> <span data-ttu-id="dec75-138">パブリック ポートは、ロール要求を送信するときに使用するクライアントです。</span><span class="sxs-lookup"><span data-stu-id="dec75-138">The public port is what clients use when they send a request to the role.</span></span>
+<span data-ttu-id="50191-135">**プロトコル**ドロップダウン リストで、"http"を選択します。</span><span class="sxs-lookup"><span data-stu-id="50191-135">In the **Protocol** dropdown list, select "http".</span></span> <span data-ttu-id="50191-136">**パブリック ポート**と**プライベート ポート**80」と入力します。</span><span class="sxs-lookup"><span data-stu-id="50191-136">In **Public Port** and **Private Port**, type 80.</span></span> <span data-ttu-id="50191-137">これらのポート番号が異なることがあります。</span><span class="sxs-lookup"><span data-stu-id="50191-137">These port numbers can be different.</span></span> <span data-ttu-id="50191-138">パブリック ポートは、ロール要求を送信するときに使用するクライアントです。</span><span class="sxs-lookup"><span data-stu-id="50191-138">The public port is what clients use when they send a request to the role.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image8.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image7.png)
 
-## <a name="configure-web-api-for-self-host"></a><span data-ttu-id="dec75-139">用の Web API を構成する自己ホスト</span><span class="sxs-lookup"><span data-stu-id="dec75-139">Configure Web API for Self-Host</span></span>
+## <a name="configure-web-api-for-self-host"></a><span data-ttu-id="50191-139">用の Web API を構成する自己ホスト</span><span class="sxs-lookup"><span data-stu-id="50191-139">Configure Web API for Self-Host</span></span>
 
-<span data-ttu-id="dec75-140">ソリューション エクスプ ローラーで WorkerRole1 プロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-140">In Solution Explorer, right click the WorkerRole1 project and select **Add** / **Class** to add a new class.</span></span> <span data-ttu-id="dec75-141">クラスに `Startup` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="dec75-141">Name the class `Startup`.</span></span>
+<span data-ttu-id="50191-140">ソリューション エクスプ ローラーで WorkerRole1 プロジェクトを右クリックし、選択**追加** / **クラス**新しいクラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-140">In Solution Explorer, right click the WorkerRole1 project and select **Add** / **Class** to add a new class.</span></span> <span data-ttu-id="50191-141">クラスに `Startup` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="50191-141">Name the class `Startup`.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image9.png)
 
-<span data-ttu-id="dec75-142">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="dec75-142">Replace all of the boilerplate code in this file with the following:</span></span>
+<span data-ttu-id="50191-142">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="50191-142">Replace all of the boilerplate code in this file with the following:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample2.cs)]
 
-## <a name="add-a-web-api-controller"></a><span data-ttu-id="dec75-143">Web API コント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-143">Add a Web API Controller</span></span>
+## <a name="add-a-web-api-controller"></a><span data-ttu-id="50191-143">Web API コント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-143">Add a Web API Controller</span></span>
 
-<span data-ttu-id="dec75-144">次に、Web API コント ローラー クラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-144">Next, add a Web API controller class.</span></span> <span data-ttu-id="dec75-145">WorkerRole1 プロジェクトを右クリックして**追加** / **クラス**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-145">Right-click the WorkerRole1 project and select **Add** / **Class**.</span></span> <span data-ttu-id="dec75-146">TestController クラスの名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="dec75-146">Name the class TestController.</span></span> <span data-ttu-id="dec75-147">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="dec75-147">Replace all of the boilerplate code in this file with the following:</span></span>
+<span data-ttu-id="50191-144">次に、Web API コント ローラー クラスを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-144">Next, add a Web API controller class.</span></span> <span data-ttu-id="50191-145">WorkerRole1 プロジェクトを右クリックして**追加** / **クラス**します。</span><span class="sxs-lookup"><span data-stu-id="50191-145">Right-click the WorkerRole1 project and select **Add** / **Class**.</span></span> <span data-ttu-id="50191-146">TestController クラスの名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="50191-146">Name the class TestController.</span></span> <span data-ttu-id="50191-147">このファイルの定型コードのすべて、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="50191-147">Replace all of the boilerplate code in this file with the following:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample3.cs)]
 
-<span data-ttu-id="dec75-148">わかりやすくするため、このコント ローラーはプレーン テキストを返す 2 つの GET メソッドだけを定義します。</span><span class="sxs-lookup"><span data-stu-id="dec75-148">For simplicity, this controller just defines two GET methods that return plain text.</span></span>
+<span data-ttu-id="50191-148">わかりやすくするため、このコント ローラーはプレーン テキストを返す 2 つの GET メソッドだけを定義します。</span><span class="sxs-lookup"><span data-stu-id="50191-148">For simplicity, this controller just defines two GET methods that return plain text.</span></span>
 
-## <a name="start-the-owin-host"></a><span data-ttu-id="dec75-149">OWIN ホストを開始します。</span><span class="sxs-lookup"><span data-stu-id="dec75-149">Start the OWIN Host</span></span>
+## <a name="start-the-owin-host"></a><span data-ttu-id="50191-149">OWIN ホストを開始します。</span><span class="sxs-lookup"><span data-stu-id="50191-149">Start the OWIN Host</span></span>
 
-<span data-ttu-id="dec75-150">WorkerRole.cs ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="dec75-150">Open the WorkerRole.cs file.</span></span> <span data-ttu-id="dec75-151">このクラスは、ワーカー ロールが開始および停止時に実行されるコードを定義します。</span><span class="sxs-lookup"><span data-stu-id="dec75-151">This class defines the code that runs when the worker role is started and stopped.</span></span>
+<span data-ttu-id="50191-150">WorkerRole.cs ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="50191-150">Open the WorkerRole.cs file.</span></span> <span data-ttu-id="50191-151">このクラスは、ワーカー ロールが開始および停止時に実行されるコードを定義します。</span><span class="sxs-lookup"><span data-stu-id="50191-151">This class defines the code that runs when the worker role is started and stopped.</span></span>
 
-<span data-ttu-id="dec75-152">次の追加ステートメントを使用します。</span><span class="sxs-lookup"><span data-stu-id="dec75-152">Add the following using statement:</span></span>
+<span data-ttu-id="50191-152">次の追加ステートメントを使用します。</span><span class="sxs-lookup"><span data-stu-id="50191-152">Add the following using statement:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample4.cs)]
 
-<span data-ttu-id="dec75-153">追加、 **IDisposable**メンバーを`WorkerRole`クラス。</span><span class="sxs-lookup"><span data-stu-id="dec75-153">Add an **IDisposable** member to the `WorkerRole` class:</span></span>
+<span data-ttu-id="50191-153">追加、 **IDisposable**メンバーを`WorkerRole`クラス。</span><span class="sxs-lookup"><span data-stu-id="50191-153">Add an **IDisposable** member to the `WorkerRole` class:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample5.cs)]
 
-<span data-ttu-id="dec75-154">`OnStart`メソッドでは、ホストを起動する次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="dec75-154">In the `OnStart` method, add the following code to start the host:</span></span>
+<span data-ttu-id="50191-154">`OnStart`メソッドでは、ホストを起動する次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="50191-154">In the `OnStart` method, add the following code to start the host:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample6.cs?highlight=5)]
 
-<span data-ttu-id="dec75-155">**WebApp.Start**メソッドは、OWIN ホストを開始します。</span><span class="sxs-lookup"><span data-stu-id="dec75-155">The **WebApp.Start** method starts the OWIN host.</span></span> <span data-ttu-id="dec75-156">名前、`Startup`クラスは、メソッドの型パラメーター。</span><span class="sxs-lookup"><span data-stu-id="dec75-156">The name of the `Startup` class is a type parameter to the method.</span></span> <span data-ttu-id="dec75-157">慣例により、ホストが呼び出す、`Configure`このクラスのメソッド。</span><span class="sxs-lookup"><span data-stu-id="dec75-157">By convention, the host will call the `Configure` method of this class.</span></span>
+<span data-ttu-id="50191-155">**WebApp.Start**メソッドは、OWIN ホストを開始します。</span><span class="sxs-lookup"><span data-stu-id="50191-155">The **WebApp.Start** method starts the OWIN host.</span></span> <span data-ttu-id="50191-156">名前、`Startup`クラスは、メソッドの型パラメーター。</span><span class="sxs-lookup"><span data-stu-id="50191-156">The name of the `Startup` class is a type parameter to the method.</span></span> <span data-ttu-id="50191-157">慣例により、ホストが呼び出す、`Configure`このクラスのメソッド。</span><span class="sxs-lookup"><span data-stu-id="50191-157">By convention, the host will call the `Configure` method of this class.</span></span>
 
-<span data-ttu-id="dec75-158">上書き、`OnStop`を破棄する、 *\_アプリ*インスタンス。</span><span class="sxs-lookup"><span data-stu-id="dec75-158">Override the `OnStop` to dispose of the *\_app* instance:</span></span>
+<span data-ttu-id="50191-158">上書き、`OnStop`を破棄する、 *\_アプリ*インスタンス。</span><span class="sxs-lookup"><span data-stu-id="50191-158">Override the `OnStop` to dispose of the *\_app* instance:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample7.cs)]
 
-<span data-ttu-id="dec75-159">WorkerRole.cs の完全なコードを次に示します。</span><span class="sxs-lookup"><span data-stu-id="dec75-159">Here is the complete code for WorkerRole.cs:</span></span>
+<span data-ttu-id="50191-159">WorkerRole.cs の完全なコードを次に示します。</span><span class="sxs-lookup"><span data-stu-id="50191-159">Here is the complete code for WorkerRole.cs:</span></span>
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample8.cs)]
 
-<span data-ttu-id="dec75-160">ソリューションをビルドし、f5 キーを押して Azure コンピューティング エミュレーターでアプリケーションをローカルで実行します。</span><span class="sxs-lookup"><span data-stu-id="dec75-160">Build the solution, and press F5 to run the application locally in the Azure Compute Emulator.</span></span> <span data-ttu-id="dec75-161">ファイアウォールの設定によっては、ファイアウォール経由のエミュレーターを許可する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dec75-161">Depending on your firewall settings, you might need to allow the emulator through your firewall.</span></span>
+<span data-ttu-id="50191-160">ソリューションをビルドし、f5 キーを押して Azure コンピューティング エミュレーターでアプリケーションをローカルで実行します。</span><span class="sxs-lookup"><span data-stu-id="50191-160">Build the solution, and press F5 to run the application locally in the Azure Compute Emulator.</span></span> <span data-ttu-id="50191-161">ファイアウォールの設定によっては、ファイアウォール経由のエミュレーターを許可する必要があります。</span><span class="sxs-lookup"><span data-stu-id="50191-161">Depending on your firewall settings, you might need to allow the emulator through your firewall.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="dec75-162">次のような例外が発生した場合を参照してください[このブログの投稿](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx)問題を回避します。</span><span class="sxs-lookup"><span data-stu-id="dec75-162">If you get an exception like the following, please see [this blog post](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx) for a workaround.</span></span> <span data-ttu-id="dec75-163">"ファイルまたはアセンブリを読み込むことができません ' Microsoft.Owin、バージョン 2.0.2.0、カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' またはその依存関係の 1 つ。</span><span class="sxs-lookup"><span data-stu-id="dec75-163">"Could not load file or assembly 'Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies.</span></span> <span data-ttu-id="dec75-164">指定したアセンブリのマニフェスト定義では、アセンブリ参照は一致しません。</span><span class="sxs-lookup"><span data-stu-id="dec75-164">The located assembly's manifest definition does not match the assembly reference.</span></span> <span data-ttu-id="dec75-165">(HRESULT からの例外: 0x80131040)"</span><span class="sxs-lookup"><span data-stu-id="dec75-165">(Exception from HRESULT: 0x80131040)"</span></span>
+> <span data-ttu-id="50191-162">次のような例外が発生した場合を参照してください[このブログの投稿](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx)問題を回避します。</span><span class="sxs-lookup"><span data-stu-id="50191-162">If you get an exception like the following, please see [this blog post](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx) for a workaround.</span></span> <span data-ttu-id="50191-163">"ファイルまたはアセンブリを読み込むことができません ' Microsoft.Owin、バージョン 2.0.2.0、カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' またはその依存関係の 1 つ。</span><span class="sxs-lookup"><span data-stu-id="50191-163">"Could not load file or assembly 'Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies.</span></span> <span data-ttu-id="50191-164">指定したアセンブリのマニフェスト定義では、アセンブリ参照は一致しません。</span><span class="sxs-lookup"><span data-stu-id="50191-164">The located assembly's manifest definition does not match the assembly reference.</span></span> <span data-ttu-id="50191-165">(HRESULT からの例外: 0x80131040)"</span><span class="sxs-lookup"><span data-stu-id="50191-165">(Exception from HRESULT: 0x80131040)"</span></span>
 
 
-<span data-ttu-id="dec75-166">コンピューティング エミュレーターでは、エンドポイントに、ローカル IP アドレスが割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="dec75-166">The compute emulator assigns a local IP address to the endpoint.</span></span> <span data-ttu-id="dec75-167">コンピューティング エミュレーター UI を表示することによって、IP アドレスを見つけることができます。</span><span class="sxs-lookup"><span data-stu-id="dec75-167">You can find the IP address by viewing the Compute Emulator UI.</span></span> <span data-ttu-id="dec75-168">タスク バー通知領域のエミュレーター アイコンを右クリックして**コンピューティング エミュレーター UI**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-168">Right-click the emulator icon in the task bar notification area, and select **Show Compute Emulator UI**.</span></span>
+<span data-ttu-id="50191-166">コンピューティング エミュレーターでは、エンドポイントに、ローカル IP アドレスが割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="50191-166">The compute emulator assigns a local IP address to the endpoint.</span></span> <span data-ttu-id="50191-167">コンピューティング エミュレーター UI を表示することによって、IP アドレスを見つけることができます。</span><span class="sxs-lookup"><span data-stu-id="50191-167">You can find the IP address by viewing the Compute Emulator UI.</span></span> <span data-ttu-id="50191-168">タスク バー通知領域のエミュレーター アイコンを右クリックして**コンピューティング エミュレーター UI**します。</span><span class="sxs-lookup"><span data-stu-id="50191-168">Right-click the emulator icon in the task bar notification area, and select **Show Compute Emulator UI**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-<span data-ttu-id="dec75-169">サービスの展開で、サービスの詳細情報の展開 [id]、[IP アドレスを検索します。</span><span class="sxs-lookup"><span data-stu-id="dec75-169">Find the IP address under Service Deployments, deployment [id], Service Details.</span></span> <span data-ttu-id="dec75-170">Web ブラウザーを開き、http:// に移動します<em>アドレス</em>/テスト/1、位置<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80/test/1`。</span><span class="sxs-lookup"><span data-stu-id="dec75-170">Open a web browser and navigate to http://<em>address</em>/test/1, where <em>address</em> is the IP address assigned by the compute emulator; for example, `http://127.0.0.1:80/test/1`.</span></span> <span data-ttu-id="dec75-171">Web API コント ローラーからの応答が表示されます。</span><span class="sxs-lookup"><span data-stu-id="dec75-171">You should see the response from the Web API controller:</span></span>
+<span data-ttu-id="50191-169">サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。</span><span class="sxs-lookup"><span data-stu-id="50191-169">Find the IP address under Service Deployments, deployment [id], Service Details.</span></span> <span data-ttu-id="50191-170">Web ブラウザーを開き、http:// に移動します<em>アドレス</em>/テスト/1、位置<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80/test/1`。</span><span class="sxs-lookup"><span data-stu-id="50191-170">Open a web browser and navigate to http://<em>address</em>/test/1, where <em>address</em> is the IP address assigned by the compute emulator; for example, `http://127.0.0.1:80/test/1`.</span></span> <span data-ttu-id="50191-171">Web API コント ローラーからの応答が表示されます。</span><span class="sxs-lookup"><span data-stu-id="50191-171">You should see the response from the Web API controller:</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 
-## <a name="deploy-to-azure"></a><span data-ttu-id="dec75-172">Azure に配置する</span><span class="sxs-lookup"><span data-stu-id="dec75-172">Deploy to Azure</span></span>
+## <a name="deploy-to-azure"></a><span data-ttu-id="50191-172">Azure に配置する</span><span class="sxs-lookup"><span data-stu-id="50191-172">Deploy to Azure</span></span>
 
-<span data-ttu-id="dec75-173">この手順では、Azure アカウントが必要です。</span><span class="sxs-lookup"><span data-stu-id="dec75-173">For this step, you must have an Azure account.</span></span> <span data-ttu-id="dec75-174">1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。</span><span class="sxs-lookup"><span data-stu-id="dec75-174">If you don't already have one, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="dec75-175">詳細については、次を参照してください。 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)します。</span><span class="sxs-lookup"><span data-stu-id="dec75-175">For details, see [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).</span></span>
+<span data-ttu-id="50191-173">この手順では、Azure アカウントが必要です。</span><span class="sxs-lookup"><span data-stu-id="50191-173">For this step, you must have an Azure account.</span></span> <span data-ttu-id="50191-174">1 つをいない場合は、ほんの数分で無料試用版アカウントを作成できます。</span><span class="sxs-lookup"><span data-stu-id="50191-174">If you don't already have one, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="50191-175">詳細については、次を参照してください。 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)します。</span><span class="sxs-lookup"><span data-stu-id="50191-175">For details, see [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).</span></span>
 
-<span data-ttu-id="dec75-176">ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。</span><span class="sxs-lookup"><span data-stu-id="dec75-176">In Solution Explorer, right-click the AzureApp project.</span></span> <span data-ttu-id="dec75-177">**[発行]** を選びます。</span><span class="sxs-lookup"><span data-stu-id="dec75-177">Select **Publish**.</span></span>
+<span data-ttu-id="50191-176">ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。</span><span class="sxs-lookup"><span data-stu-id="50191-176">In Solution Explorer, right-click the AzureApp project.</span></span> <span data-ttu-id="50191-177">**[発行]** を選びます。</span><span class="sxs-lookup"><span data-stu-id="50191-177">Select **Publish**.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image13.png)
 
-<span data-ttu-id="dec75-178">Azure アカウントにサインインしていない場合はクリックして**サインイン**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-178">If you are not signed in to your Azure account, click **Sign In**.</span></span>
+<span data-ttu-id="50191-178">Azure アカウントにサインインしていない場合はクリックして**サインイン**します。</span><span class="sxs-lookup"><span data-stu-id="50191-178">If you are not signed in to your Azure account, click **Sign In**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image15.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image14.png)
 
-<span data-ttu-id="dec75-179">サインインした後、サブスクリプションを選択およびクリックして**次**します。</span><span class="sxs-lookup"><span data-stu-id="dec75-179">After you are signed in, choose a subscription and click **Next**.</span></span>
+<span data-ttu-id="50191-179">サインインした後、サブスクリプションを選択およびクリックして**次**します。</span><span class="sxs-lookup"><span data-stu-id="50191-179">After you are signed in, choose a subscription and click **Next**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
 
-<span data-ttu-id="dec75-180">クラウド サービスの名前を入力し、リージョンを選択します。</span><span class="sxs-lookup"><span data-stu-id="dec75-180">Enter a name for the cloud service and choose a region.</span></span> <span data-ttu-id="dec75-181">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="dec75-181">Click **Create**.</span></span>
+<span data-ttu-id="50191-180">クラウド サービスの名前を入力し、リージョンを選択します。</span><span class="sxs-lookup"><span data-stu-id="50191-180">Enter a name for the cloud service and choose a region.</span></span> <span data-ttu-id="50191-181">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="50191-181">Click **Create**.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
 
-<span data-ttu-id="dec75-182">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="dec75-182">Click **Publish**.</span></span>
+<span data-ttu-id="50191-182">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="50191-182">Click **Publish**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 
-<span data-ttu-id="dec75-183">Azure アクティビティ ログ ウィンドウには、展開の進行状況が表示されます。</span><span class="sxs-lookup"><span data-stu-id="dec75-183">The Azure Activity Log window shows the progress of the deployment.</span></span> <span data-ttu-id="dec75-184">アプリが展開されると、参照http://appname.cloudapp.net/test/1します。</span><span class="sxs-lookup"><span data-stu-id="dec75-184">When the app is deployed, browse to http://appname.cloudapp.net/test/1.</span></span>
+<span data-ttu-id="50191-183">Azure アクティビティ ログ ウィンドウには、展開の進行状況が表示されます。</span><span class="sxs-lookup"><span data-stu-id="50191-183">The Azure Activity Log window shows the progress of the deployment.</span></span> <span data-ttu-id="50191-184">アプリが展開されると、参照http://appname.cloudapp.net/test/1します。</span><span class="sxs-lookup"><span data-stu-id="50191-184">When the app is deployed, browse to http://appname.cloudapp.net/test/1.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image21.png)
 
-## <a name="additional-resources"></a><span data-ttu-id="dec75-185">その他のリソース</span><span class="sxs-lookup"><span data-stu-id="dec75-185">Additional Resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="50191-185">その他のリソース</span><span class="sxs-lookup"><span data-stu-id="50191-185">Additional Resources</span></span>
 
-- [<span data-ttu-id="dec75-186">プロジェクト Katana の概要</span><span class="sxs-lookup"><span data-stu-id="dec75-186">An Overview of Project Katana</span></span>](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
-- [<span data-ttu-id="dec75-187">GitHub の Katana プロジェクト</span><span class="sxs-lookup"><span data-stu-id="dec75-187">Katana Project on GitHub</span></span>](https://github.com/aspnet/AspNetKatana)
+- [<span data-ttu-id="50191-186">プロジェクト Katana の概要</span><span class="sxs-lookup"><span data-stu-id="50191-186">An Overview of Project Katana</span></span>](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+- [<span data-ttu-id="50191-187">GitHub の Katana プロジェクト</span><span class="sxs-lookup"><span data-stu-id="50191-187">Katana Project on GitHub</span></span>](https://github.com/aspnet/AspNetKatana)
