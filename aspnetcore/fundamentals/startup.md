@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: f0b907e4322809dfe2bcd287bb064f35f5ebe150
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: 285d74c0d12e3aca4d8c33d39467dfda02712993
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36314121"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063261"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションのスタートアップ
 
@@ -41,7 +41,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-`IHostingEnvironment` を挿入する代わりに、規約ベースのアプローチがあります。 アプリケーションでは、環境 (たとえば `StartupDevelopment`) ごとに個別の `Startup` クラスを定義することができます。実行時に適切な startup クラスが選択されます。 名前のサフィックスが現在の環境と一致するクラスが優先されます。 アプリケーションが Development 環境で実行され、`Startup` クラスと `StartupDevelopment` クラスの両方が含まれている場合は、`StartupDevelopment` クラスが使用されます。 詳細については、「[Use multiple environments](xref:fundamentals/environments#environment-based-startup-class-and-methods)」(複数の環境の使用) を参照してください。
+`IHostingEnvironment` を挿入する代わりに、規約ベースのアプローチがあります。 アプリケーションでは、環境 (たとえば `StartupDevelopment`) ごとに個別の `Startup` クラスを定義することができます。実行時に適切な `Startup` クラスが選択されます。 名前のサフィックスが現在の環境と一致するクラスが優先されます。 アプリケーションが Development 環境で実行され、`Startup` クラスと `StartupDevelopment` クラスの両方が含まれている場合は、`StartupDevelopment` クラスが使用されます。 詳細については、「[Use multiple environments](xref:fundamentals/environments#environment-based-startup-class-and-methods)」(複数の環境の使用) を参照してください。
 
 `WebHostBuilder` の詳細については、[ホスティング](xref:fundamentals/host/index)に関するトピックを参照してください。 スタートアップ時のエラー処理については、「[Startup exception handling](xref:fundamentals/error-handling#startup-exception-handling)」(スタートアップ例外処理) を参照してください。
 
@@ -84,8 +84,8 @@ Web ホストでは、`Startup` メソッドが呼び出される前にいくつ
 
 次のコードは、以下の動作を除き、互換性モードを ASP.NET Core 2.1 に設定します。
 
-* [AllowCombiningAuthorizeFilters](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
-* [InputFormatterExceptionPolicy](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
+* [AllowCombiningAuthorizeFilters](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
+* [InputFormatterExceptionPolicy](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
 
 [!code-csharp[Main](startup/sampleCompatibility/Startup2.cs?name=snippet1)]
 
@@ -94,7 +94,7 @@ Web ホストでは、`Startup` メソッドが呼び出される前にいくつ
 * 最新のリリースを使用し、互換性に影響する特定の重大な変更をオプトアウトできます。
 * アプリが最新の変更に対応するよう、更新を行う時間を得られます。
 
-[MvcOptions](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) クラス ソースのコメントには、変更があった個所とそれらの改善が多くのユーザーに与えるメリットについて説明しています。
+[MvcOptions](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) クラス ソースのコメントには、変更があった個所とそれらの改善が多くのユーザーに与えるメリットについて説明しています。
 
 将来的に、[ASP.NET Core 3.0 バージョン](https://github.com/aspnet/Home/wiki/Roadmap)がリリースされます。 3.0 バージョンでは、互換性スイッチによってサポートされている古い動作は削除されます。 これらの正の変更は、ほぼすべてのユーザーにとってメリットとなると感じています。 これらの変更を現在導入することにより、ほとんどのアプリでは今メリット享受でき、他ではアプリケーションをアップデートする時間を得られます。
 

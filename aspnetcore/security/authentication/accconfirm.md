@@ -5,89 +5,82 @@ description: 電子メールの確認とパスワードのリセットと ASP.NE
 ms.author: riande
 ms.date: 2/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 12265903f60ff6d62befc445434db025c244c178
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: MT
+ms.openlocfilehash: 8e175cd19ca4a9de1e7cf6b330b3d82f309b6501
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803273"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063339"
 ---
+::: moniker range="<= aspnetcore-2.0"
+
+参照してください[この PDF ファイル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf)ASP.NET Core 1.1 と version 2.1 です。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Joe Audette](https://twitter.com/joeaudette)
 
 このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリをビルドする方法を示します。 このチュートリアルは**いない**先頭トピック。 理解しておく必要があります。
 
-* [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
+* [ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)
 * [認証](xref:security/authentication/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-参照してください[この PDF ファイル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf)の ASP.NET Core MVC 1.1 と 2.x のバージョン。
+<!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
 
-## <a name="create-a-new-aspnet-core-project-with-the-net-core-cli"></a>.NET Core CLI を使用した新しい ASP.NET Core プロジェクトを作成します。
+## <a name="create-a-web--app-and-scaffold-identity"></a>Web アプリを作成し、Identity のスキャフォールディング
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-::: moniker range=">= aspnetcore-2.1"
-
-```console
-dotnet new webapp --auth Individual -o WebPWrecover
-cd WebPWrecover
-```
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-```console
-dotnet new razor --auth Individual -o WebPWrecover
-cd WebPWrecover
-```
-
-::: moniker-end
-
-* `--auth Individual` 個々 のユーザー アカウントのプロジェクト テンプレートを指定します。
-* Windows では、追加、`-uld`オプション。 これは、SQLite の代わりに LocalDB を使用する必要がありますを指定します。
-* 実行`new mvc --help`にこのコマンドのヘルプを表示します。
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-CLI または SQLite を使用している場合は、コマンド ウィンドウで、次を実行します。
-
-```console
-dotnet new mvc --auth Individual
-```
-
-* `--auth Individual` 個々 のユーザー アカウントのプロジェクト テンプレートを指定します。
-* Windows では、追加、`-uld`オプション。 これは、SQLite の代わりに LocalDB を使用する必要がありますを指定します。
-* 実行`new mvc --help`にこのコマンドのヘルプを表示します。
-
----
-
-または、Visual Studio で新しい ASP.NET Core プロジェクトを作成できます。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 * Visual Studio で、作成、新しい**Web アプリケーション**プロジェクト。
-* 選択**ASP.NET Core 2.0**します。 **.NET core**が次の図で選択されている選択することができますが、 **.NET Framework**します。
-* 選択**認証の変更**に設定し、**個々 のユーザー アカウント**します。
-* 既定値を保持**ストア ユーザー アカウントをアプリ内**します。
+* 選択**ASP.NET Core 2.1**します。
+* 既定値を保持**認証**設定**認証なし**します。 認証は、次の手順で追加されます。
 
-![選択されている"個々 のユーザー アカウント radio"を示す新しいプロジェクト ダイアログ ボックス](accconfirm/_static/2.png)
+次の手順。
+
+* レイアウト ページを設定 *~/Pages/Shared/_Layout.cshtml*
+* 選択*アカウント/登録*
+* 新規作成**データ コンテキスト クラス**
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```console
+dotnet new webapp -o WebPWrecover
+cd WebPWrecover
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet restore
+dotnet aspnet-codegenerator identity -fi Account.Register -dc WebPWrecover.Models.WebPWrecoverContext
+dotnet ef migrations add CreateIdentitySchema
+dotnet ef database drop -f
+dotnet ef database update
+dotnet build
+```
+
+実行`dotnet aspnet-codegenerator identity --help`スキャフォールディング ツールのヘルプを表示します。
+
+------
+
+指示に従って[認証を有効に](xref:security/authentication/scaffold-identity#useauthentication):
+
+* 追加`app.UseAuthentication();`に `Startup.Configure`
+* 追加`<partial name="_LoginPartial" />`レイアウト ファイルにします。
 
 ## <a name="test-new-user-registration"></a>新規ユーザー登録をテストします。
 
-アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。 Entity Framework Core migrations を実行する手順に従います。 この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 登録を送信した後は、アプリにログインします。 チュートリアルの後半では、新しいユーザーが自分の電子メールが検証されるまでにログインできないため、コードが更新されます。
+アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 登録を送信した後は、アプリにログインします。 チュートリアルの後半では、新しいユーザーが自分の電子メールが検証されるまでにログインできないため、コードが更新されます。
 
 ## <a name="view-the-identity-database"></a>Id データベースを表示します。
 
-参照してください[、ASP.NET Core MVC プロジェクトでの SQLite の使用](xref:tutorials/first-mvc-app-xplat/working-with-sql)SQLite データベースを表示する方法の詳細について。
-
-For Visual Studio:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 * **ビュー**メニューの  **SQL Server オブジェクト エクスプ ローラー** (SSOX)。
 * 移動します **(localdb) (SQL Server 13) MSSQLLocalDB**します。 右クリックして**dbo します。AspNetUsers** > **データを表示する**:
@@ -98,39 +91,45 @@ For Visual Studio:
 
 アプリが送信された確認メールを送信するとき、次の手順でこの電子メールをもう一度使用する場合があります。 クリックし、行を右クリックして**削除**します。 電子メール エイリアスを削除する簡単で、次の手順。
 
----
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-## <a name="require-https"></a>HTTPS が必要です。
+参照してください[、ASP.NET Core MVC プロジェクトでの SQLite の使用](xref:tutorials/first-mvc-app-xplat/working-with-sql)SQLite データベースを表示する方法の詳細について。
 
-参照してください[Https](xref:security/enforcing-ssl)します。
+------
 
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>確認の電子メールが必要です。
 
-新規ユーザー登録の電子メール アドレスを確認することをお勧めします。 電子メールの他のユーザーが偽装はいないしていることを確認することを確認できます (つまりに登録していない他のユーザーの電子メールで)。 ディスカッション フォーラムでは、行われていればし、しないようにする"yli@example.comとして登録する"から"nolivetto@contoso.com"。 電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを受け取ることができます。 ユーザーが誤ってとして登録されているとします"ylo@example.com""yli"のスペル ミスを認識していなかったとします。 アプリは、正しいメール アドレスがあるないために、パスワードの回復を使用できるでしょう。 確認の電子メールは、ボットからの限られた保護のみを提供します。 確認の電子メールは、多くの電子メール アカウントを使用して悪意のあるユーザーから保護を提供しません。
+新規ユーザー登録の電子メール アドレスを確認することをお勧めします。 電子メールの他のユーザーが偽装はいないしていることを確認することを確認できます (つまりに登録していない他のユーザーの電子メールで)。 ディスカッション フォーラムでは、行われていればし、しないようにする"yli@example.comとして登録する"から"nolivetto@contoso.com"。 電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを受け取ることができます。 ユーザーが誤ってとして登録されているとします"ylo@example.com""yli"のスペル ミスを認識していなかったとします。 アプリは、正しいメール アドレスがあるないために、パスワードの回復を使用できるでしょう。 確認の電子メールは、ボットからの限られた保護を提供します。 確認の電子メールは、多くの電子メール アカウントを使用して悪意のあるユーザーから保護を提供しません。
 
 新しいユーザーが確認された電子メールを受ける前に、web サイトにデータを送信するを防ぐために一般的にします。
 
-Update`ConfigureServices`確認された電子メールを要求します。
+Update *Areas/Identity/IdentityHostingStartup.cs*確認された電子メールを要求します。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet1&highlight=12-17)]
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/IdentityHostingStartup.cs?name=snippet1&highlight=10-13)]
 
 `config.SignIn.RequireConfirmedEmail = true;` 登録済みのユーザーで自分の電子メールを確認するまでのログ記録はできません。
 
 ### <a name="configure-email-provider"></a>電子メール プロバイダーを構成します。
 
-このチュートリアルでは、SendGrid が電子メールの送信に使用されます。 SendGrid アカウントとキーが電子メールを送信する必要があります。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core の 2.x を含む`System.Net.Mail`、アプリから電子メールを送信できます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。 SMTP では、セキュリティで保護し、設定を正しく困難です。
+このチュートリアルで[SendGrid](https://sendgrid.com)電子メールを送信するために使用します。 SendGrid アカウントとキーが電子メールを送信する必要があります。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core の 2.x を含む`System.Net.Mail`、アプリから電子メールを送信できます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。 SMTP では、セキュリティで保護し、設定を正しく困難です。
 
 [オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration/index)します。
 
-電子メールをセキュリティで保護されたキーを取得するためのクラスを作成します。 このサンプルで、`AuthMessageSenderOptions`でクラスを作成、 *Services/AuthMessageSenderOptions.cs*ファイル。
+電子メールをセキュリティで保護されたキーを取得するためのクラスを作成します。 このサンプルでは、次のように作成します*Services/AuthMessageSenderOptions.cs*:。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+
+#### <a name="configure-sendgrid-user-secrets"></a>SendGrid のユーザーの機密情報を構成します。
+
+一意な追加`<UserSecretsId>`値を`<PropertyGroup>`プロジェクト ファイルの要素。
+
+[!code-xml[](accconfirm/sample/WebPWrecover21/WebPWrecover.csproj?highlight=5)]
 
 設定、`SendGridUser`と`SendGridKey`で、 [secret manager ツール](xref:security/app-secrets)します。 例えば:
 
 ```console
-C:\WebAppl\src\WebApp1>dotnet user-secrets set SendGridUser RickAndMSFT
+C:/WebAppl>dotnet user-secrets set SendGridUser RickAndMSFT
 info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 ```
 
@@ -145,57 +144,49 @@ Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*フ
   }
   ```
 
-### <a name="configure-startup-to-use-authmessagesenderoptions"></a>AuthMessageSenderOptions を使用するスタートアップを構成します。
-
-追加`AuthMessageSenderOptions`サービス コンテナーの最後に、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
-[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-[!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
-
----
-
-### <a name="configure-the-authmessagesender-class"></a>AuthMessageSender クラスを構成します。
+### <a name="install-sendgrid"></a>SendGrid をインストールします。
 
 このチュートリアルは、使用して電子メール通知を追加する方法を示します[SendGrid](https://sendgrid.com/)が SMTP およびその他のメカニズムを使用して電子メールを送信できます。
 
 インストール、 `SendGrid` NuGet パッケージ。
 
-* コマンドライン: から
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-    `dotnet add package SendGrid`
+パッケージ マネージャー コンソールで、次のコマンドを入力します。
 
-* パッケージ マネージャー コンソールで、次のコマンドを入力します。
+``` PMC
+Install-Package SendGrid
+```
 
-  `Install-Package SendGrid`
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+コンソールで、次のコマンドを入力します。
+
+```cli
+dotnet add package SendGrid
+```
+
+------
 
 参照してください[SendGrid を無料で開始する](https://sendgrid.com/free/)無料の SendGrid アカウントを登録します。
+### <a name="implement-iemailsender"></a>IEmailSender を実装します。
 
-#### <a name="configure-sendgrid"></a>SendGrid を構成します。
+実装`IEmailSender`、作成*Services/EmailSender.cs*次のようなコードで。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/EmailSender.cs)]
 
-SendGrid を構成するには、次のようなコードを追加*Services/EmailSender.cs*:
+### <a name="configure-startup-to-support-email"></a>電子メールをサポートするために起動時を構成します。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
+次のコードを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+* 追加`EmailSender`シングルトン サービスとして。
+* 登録、`AuthMessageSenderOptions`構成インスタンス。
 
-* 内のコードを追加*Services/MessageServices.cs* SendGrid を構成するには、次のようにします。
-
-[!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
-
----
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
 
 ## <a name="enable-account-confirmation-and-password-recovery"></a>アカウントの確認とパスワードの回復を有効にします。
 
-テンプレートには、アカウントの確認とパスワードの回復用コードがあります。 検索、`OnPostAsync`メソッド*Pages/Account/Register.cshtml.cs*します。
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+テンプレートには、アカウントの確認とパスワードの回復用コードがあります。 検索、`OnPostAsync`メソッド*Areas/Identity/Pages/Account/Register.cshtml.cs*します。
 
 新しく登録されたユーザーが、次の行をコメント アウトによって自動的にログオンされているようにします。
 
@@ -205,29 +196,7 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 メソッド全体を強調表示されている変更された行が表示されます。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-アカウントの確認を有効にするのには、次のコードをコメント解除します。
-
-[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
-
-**注:** コードが原因で、新しく登録されたユーザーが、次の行をコメント アウトによって自動的にログオンされています。
-
-```csharp
-//await _signInManager.SignInAsync(user, isPersistent: false);
-```
-
-内のコードのコメントを解除してパスワードの回復を有効にする、`ForgotPassword`のアクション*Controllers/AccountController.cs*:
-
-[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
-
-フォーム要素をコメント解除します*Views/Account/ForgotPassword.cshtml*します。 削除する必要があります、`<p> For more information on how to enable reset password ... </p>`要素で、この記事へのリンクが含まれています。
-
-[!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
-
----
+[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
 ## <a name="register-confirm-email-and-reset-password"></a>登録、確認の電子メール、およびパスワードのリセット
 
@@ -250,18 +219,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ![ナビゲーション バー](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 管理ページが表示されますが、**プロファイル**タブを選択します。 **電子メール**電子メールを示すチェック ボックスが確認されているかを示します。
-
-![管理 ページ](accconfirm/_static/rick2.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-これは、チュートリアルの後半で説明しました。
-![[管理] ページ](accconfirm/_static/rick2.png)
-
----
 
 ### <a name="test-password-reset"></a>テストのパスワードのリセット
 
@@ -276,7 +234,8 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 電子メールの作業が発生したことはできません: 場合
 
-* 作成、[電子メールを送信するためのコンソール アプリ](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html)します。
+* ブレークポイントを設定`EmailSender.Execute`を確認する`SendGridClient.SendEmailAsync`が呼び出されます。
+* 作成、[電子メールを送信するためのコンソール アプリ](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html)に同様のコードを使用して`EmailSender.Execute`します。
 * レビュー、[電子メール アクティビティ](https://sendgrid.com/docs/User_Guide/email_activity.html)ページ。
 * 迷惑メール フォルダーを確認します。
 * 別のメール プロバイダー (Microsoft、Yahoo、Gmail など) に別の電子メール エイリアスをお試しください。
@@ -308,3 +267,5 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 * 確認されているすべての既存ユーザーをマークするデータベースを更新します。
 * 既存のユーザーを確認します。 確認リンクを含むメールなどのバッチの送信をします。
+
+::: moniker-end
