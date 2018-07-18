@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 607bdb7ee830c9a3bbb83ca2aec4661772a285b2
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992816"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095841"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -168,9 +168,8 @@ IIS と Kestrel サーバーの間にリバース プロキシを作成するに
 
 1. ホスティング システムに *.NET Core ホスティング バンドル*をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
 
-   1. [.NET の「All Downloads」のページ](https://www.microsoft.com/net/download/all)に移動します。
-   1. テーブルの **[Runtime]** 列で、一覧 (**X.Y Runtime (vX.Y.Z) のダウンロード**) からプレビューではない最新の .NET Core ランタイムを選択します。 最新のランタイムには、**[Current]** (最新) ラベルがあります。 プレビュー ソフトウェアと連携しない限り、そのリンク テキストで "Preview" という単語または "rc" (リリース候補) を回避します。
-   1. **Windows** の .NET Core のランタイムのダウンロード ページで、**ホスティング バンドル インストーラー**のリンクを選択して、*.NET Core ホスティング バンドル* インストーラーをダウンロードします。
+   1. [.NET のダウンロードのページ](https://www.microsoft.com/net/download/windows)に移動します。
+   1. **.NET Core** で、**[アプリの実行]** ラベルの横の **[.NET Core ランタイムのダウンロード]** ボタンを選択します。 インストーラーの実行可能ファイルのファイル名には、単語 "hosting" が含まれます (たとえば、*dotnet-hosting-2.1.2-win.exe*)。
    1. サーバーでインストーラーを実行します。
 
    **重要**。 ホスティング バンドルが IIS の前にインストールされている場合、バンドルのインストールを修復する必要があります。 IIS をインストールした後に、ホスティング バンドル インストーラーをもう一度実行します。
@@ -202,7 +201,7 @@ IIS と Kestrel サーバーの間にリバース プロキシを作成するに
    ![[Web サイトの追加] のステップでサイト名、物理パス、ホスト名を指定します。](index/_static/add-website-ws2016.png)
 
    > [!WARNING]
-   > 最上位のワイルドカードのバインド (`http://*:80/` と `http://+:80`) は使用しては**いけません**。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
+   > 最上位のワイルドカードのバインド ( `http://*:80/` と `http://+:80` ) は使用しては **いけません** 。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
 1. サーバーのノードでは、**[アプリケーション プール]** を選択します。
 

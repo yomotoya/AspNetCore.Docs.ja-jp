@@ -4,19 +4,16 @@ title: 挿入、更新、およびデータ (VB) の削除の概要 |Microsoft D
 author: rick-anderson
 description: このチュートリアルでは、ObjectDataSource の Insert()、Update() にマップする方法を見ていきます、構成する方法についても、BLL のメソッドに Delete() メソッドがクラスとしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 35b40b8f-2ca8-4ab3-9c19-f361a91a3647
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0b971e221eeb4f4f52745e029289cf1fe4d0e6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: bd17d87d3fa82d8ef288ce4747876ecb53e3c625
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388728"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820299"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>挿入、更新、およびデータ (VB) の削除の概要
 ====================
@@ -205,7 +202,7 @@ GridView に、[commandfield] を追加するスマート タグから削除を�
 この時点では、信じられないかもしれませんが、終わって GridView に削除のサポートを追加してください。 図 11 に示すようとブラウザーの削除 ボタンの列からこのページにアクセスが存在します。
 
 
-[![[Commandfield] 列の削除] ボタンを追加します](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
+[![Commandfield 列の削除 ボタンを追加します](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
 
 **図 11**: [commandfield] ボタンを追加、列の削除 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image27.png))。
 
@@ -288,7 +285,7 @@ GridView のスマート タグの編集を有効にするチェック ボック
 
 [![Chai の編集ボタンをクリックして編集モードで、行を表示します](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image39.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image38.png)
 
-**図 16**: Chai の] をクリックして [編集] ボタンが編集モードで、行を表示します ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image40.png))。
+**図 16**: Chai の をクリックして [編集] ボタンが編集モードで、行を表示します ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image40.png))。
 
 
 外部キーの値を直接編集するユーザーを確認するだけでなく、編集インターフェイスのインターフェイスは、次の方法で不足しています。

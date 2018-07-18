@@ -3,14 +3,14 @@ title: アカウントの確認と ASP.NET Core でのパスワードの回復
 author: rick-anderson
 description: 電子メールの確認とパスワードのリセットと ASP.NET Core アプリを構築する方法について説明します。
 ms.author: riande
-ms.date: 2/11/2018
+ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 8e175cd19ca4a9de1e7cf6b330b3d82f309b6501
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
-ms.translationtype: HT
+ms.openlocfilehash: af3ba8b27148d94c4a905c688b8165f49b9f2927
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063339"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095747"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 

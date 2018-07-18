@@ -5,12 +5,12 @@ description: EF Core で作成、読み取り、更新、削除を行う方法�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: dfc79964cc4f15851b42822bb97d14800f54b878
-ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
+ms.openlocfilehash: 0a8d386104d9c62f37d0a94e66344d3f1e23bae9
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37093011"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063352"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 
@@ -68,17 +68,17 @@ ms.locfileid: "37093011"
 
 [!code-cshtml[](intro/samples/cu21/Pages/Students/Index1.cshtml?name=snippet)]
 
-アプリを実行し、**[詳細]** リンクを選択します。 URL の形式は、`http://localhost:5000/Students/Details?id=2` です。 クエリ文字列 (`?id=2`) によって受講者 ID が渡されます。
+アプリを実行し、**[詳細]** リンクを選択します。 URL の形式は、 `http://localhost:5000/Students/Details?id=2` です。 クエリ文字列 (`?id=2`) によって受講者 ID が渡されます。
 
 `"{id:int}"` ルート テンプレートを使用するには、[編集]、[詳細]、[削除] の Razor ページを更新します。 これらの各ページのページ ディレクティブを `@page` から `@page "{id:int}"` に変更します。
 
-整数ルート値を**含まない**、"{id:int}" ルート テンプレートを使用するページへの要求では、HTTP 404 (見つかりません) エラーが返されます。 たとえば、`http://localhost:5000/Students/Details` は 404 エラーを返します。 ID を省略するには、次のように `?` をルート制約に追加します。
+整数ルート値を**含まない**、"{id:int}" ルート テンプレートを使用するページへの要求では、HTTP 404 (見つかりません) エラーが返されます。 たとえば、 `http://localhost:5000/Students/Details` は 404 エラーを返します。 ID を省略するには、次のように `?` をルート制約に追加します。
 
  ```cshtml
 @page "{id:int?}"
 ```
 
-アプリを実行し、[詳細] リンクをクリックし、URL がルート データとして ID を渡していることを確認します (`http://localhost:5000/Students/Details/2`)。
+アプリを実行し、[詳細] リンクをクリックし、URL がルート データとして ID を渡していることを確認します ( `http://localhost:5000/Students/Details/2` )。
 
 `@page` から `@page "{id:int}"` への変更をグローバルに行わないでください。これを行うと、[ホーム] ページと [作成] ページへのリンクが解除されます。
 
@@ -236,9 +236,9 @@ Web アプリにおいて、エンティティを読み取り、データを表�
 
 ## <a name="common-errors"></a>一般的なエラー
 
-[受講者]/[ホーム] またはその他のリンクが機能しません。
+[受講者]/[インデックス] またはその他のリンクが機能しません。
 
-Razor ページに正しい `@page` ディレクティブが含まれていることを確認します。 たとえば、[受講者]/[ホーム] Razor ページにルート テンプレートを含めることは**できません**。
+Razor ページに正しい `@page` ディレクティブが含まれていることを確認します。 たとえば、[受講者]/[インデックス] Razor ページにルート テンプレートを含めることは**できません**。
 
 ```cshtml
 @page "{id:int}"

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: d57196693feb6413560ec25e09cf74e9babf93bf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cbbdee6849768004476d94c58be4a0e7cc2d6f9e
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276166"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938473"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -31,6 +31,9 @@ App Service は[ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-modul
 
 [Visual Studio を使用したデバッグについて理解する](/visualstudio/debugger/getting-started-with-the-debugger)  
 このトピックでは、Visual Studio デバッガーの機能を紹介しています。
+
+[Visual Studio Code でのデバッグ](https://code.visualstudio.com/docs/editor/debugging)  
+Visual Studio Code に組み込まれているデバッグのサポートについて説明します。
 
 ## <a name="app-startup-errors"></a>アプリ起動時のエラー
 

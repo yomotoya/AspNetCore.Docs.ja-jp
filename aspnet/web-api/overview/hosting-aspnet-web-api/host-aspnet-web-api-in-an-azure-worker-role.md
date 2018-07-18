@@ -4,19 +4,16 @@ title: ASP.NET Web API 2 では、Azure Worker ロールのホスト |Microsoft 
 author: MikeWasson
 description: このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) de の Web インターフェイスを開く.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/02/2014
-ms.topic: article
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: a370f3bea74332d47e9132206c25d1be4211772c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c53256b8a72a377f51b9fbac7944657cb6d4c6e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395572"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803851"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 では、Azure Worker ロールをホストします。
 ====================
@@ -131,7 +128,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-サービスの展開で、サービスの詳細情報の展開 [id]、[IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動します<em>アドレス</em>/テスト/1、位置<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80/test/1`。 Web API コント ローラーからの応答が表示されます。
+サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動します<em>アドレス</em>/テスト/1、位置<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80/test/1`。 Web API コント ローラーからの応答が表示されます。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 

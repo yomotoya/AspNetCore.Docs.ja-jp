@@ -4,19 +4,16 @@ title: ロールベースの承認 (c#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ロールのフレームワークがユーザーのセキュリティ コンテキストでユーザーのロールを関連付ける方法を参照してください。 次に、ロール ベースの URL を適用する方法を確認しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 4d9b63fa-c3d4-4e85-82b1-26ae3ba3ca1c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8c22f140478deddc2e44f0933edfe0e499bb471
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 243a386bf682d63e3095a4e90ca0a0f08d24b503
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397164"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839948"
 ---
 <a name="role-based-authorization-c"></a>ロールベースの承認 (c#)
 ====================
@@ -94,7 +91,7 @@ Cookie にユーザーのロールをキャッシュするロール framework �
 
 更新して、 `<roleManager>` 3 つの属性を追加することで要素: `cacheRolesInCookie`、 `createPersistentCookie`、および`cookieProtection`します。 設定して`cacheRolesInCookie`に`true`、`RoleManagerModule`要求ごとに、ユーザーのロール情報を参照する必要がなく、cookie にユーザーのロールが自動的にキャッシュようになりました。 明示的に設定されている、`createPersistentCookie`と`cookieProtection`属性を`false`と`All`、それぞれします。 技術的には、永続的な cookie を使用していないことと cookie は、どちらも暗号化され、検証をオフに、既定値にだけに割り当てましたが、私に保存することを明示的にあるため、これらの属性の値を指定する必要はありませんでした。
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。 今後は、ロールのフレームワークでは、cookie にユーザーのロールがキャッシュされます。 ユーザーのブラウザーが cookie をサポートしていないか、cookie が削除されたか、紛失、何らかの形ではありません – たいした、`RolePrincipal`オブジェクトは単を使用して、`Roles`ない cookie (または、無効または期限切れの 1 つ) は、使用可能な場合のクラス。
+すべてです。 今後は、ロールのフレームワークでは、cookie にユーザーのロールがキャッシュされます。 ユーザーのブラウザーが cookie をサポートしていないか、cookie が削除されたか、紛失、何らかの形ではありません – たいした、`RolePrincipal`オブジェクトは単を使用して、`Roles`ない cookie (または、無効または期限切れの 1 つ) は、使用可能な場合のクラス。
 
 > [!NOTE]
 > Microsoft の Patterns &amp; Practices グループは、永続的なロールのキャッシュの cookie を使用してを抑制します。 ハッカーが有効なユーザーの cookie へのアクセスを何らかの形でできる場合は、ロールのキャッシュのクッキーを所有しているはロールのメンバーシップを証明するための十分なであるため、ユーザー権限を借用できます。 ユーザーのブラウザーで cookie が永続化される場合、この問題が発生する可能性が増加します。 このセキュリティの推奨事項とその他のセキュリティに関する注意事項の詳細についてを参照してください、 [ASP.NET 2.0 のセキュリティの質問リスト](https://msdn.microsoft.com/library/ms998375.aspx)します。
@@ -324,7 +321,7 @@ GridView 列挙内のレコードでデータが GridView にバインドされ�
 管理者ロールに (ただし、管理者ロールにありません) に属しているユーザーはアクセスすると、彼と編集 ボタンが表示されます。
 
 
-[![[削除] ボタンが非表示の編集] ボタンはスーパーバイザーに使用可能が、](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
+[![削除 ボタンが非表示の編集 ボタンはスーパーバイザーに使用可能が、](role-based-authorization-cs/_static/image41.png)](role-based-authorization-cs/_static/image40.png)
 
 **図 14**: 中に、[編集] ボタンはスーパーバイザーに使用可能で、[削除] ボタンが非表示 ([フルサイズの画像を表示する をクリックします](role-based-authorization-cs/_static/image42.png))。
 

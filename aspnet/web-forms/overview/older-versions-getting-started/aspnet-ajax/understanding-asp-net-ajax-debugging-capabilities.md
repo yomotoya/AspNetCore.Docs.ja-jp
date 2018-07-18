@@ -4,19 +4,16 @@ title: ASP.NET AJAX デバッグ機能を理解する |Microsoft Docs
 author: scottcate
 description: コードをデバッグする機能は、すべての開発者で使用しているテクノロジに関係なく、コレクションに加えることが必要なスキルです。 多くの開発者には.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/28/2008
-ms.topic: article
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 533eb8d2faf735915fa5cf5044db09d0ab636938
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 9d420a41f50d06541d04a1dd3cb78a2e6beaaa9a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390973"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813829"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>ASP.NET AJAX デバッグ機能を理解します。
 ====================
@@ -101,7 +98,7 @@ Visual Studio 2008 デバッガーでは、外部の JavaScript ファイルと�
 
 Visual Studio .NET がないためことを確認して、ページによって参照されるスクリプトの一部のソース コードを取得する方法は、このダイアログ ボックスが表示されます。 これが非常にイライラすることができます、最初は、単純な解決策です。 デバッグ セッションを開始し、ブレークポイントにヒットしたら後、は、Visual Studio 2008 のメニューの [デバッグの Windows スクリプト エクスプ ローラー] ウィンドウに移動または Ctrl + Alt + N ホットキーを使用します。
 
-> *> [!NOTE] スクリプト エクスプ ローラー メニューが表示できない場合は、ツールに進みます**カスタマイズ* *[Visual Studio .NET のメニュー コマンド。[カテゴリ] セクションでデバッグ エントリを見つけて、使用可能なメニューのすべてのエントリを表示することをクリックします。コマンドの一覧で [スクリプト エクスプ ローラーまで下へスクロールし、デバッグ ドラッグ**での Windows メニューが前に説明しました。これが、スクリプト エクスプ ローラー メニュー エントリ利用できるように Visual Studio .NET を実行するたびにします。*
+> *> [!NOTE] スクリプト エクスプ ローラー メニューが表示できない場合は、ツールに進みます**カスタマイズ* *Visual Studio .NET のメニュー コマンド。[カテゴリ] セクションでデバッグ エントリを見つけて、使用可能なメニューのすべてのエントリを表示することをクリックします。コマンドの一覧で スクリプト エクスプ ローラーまで下へスクロールし、デバッグ ドラッグ**での Windows メニューが前に説明しました。これが、スクリプト エクスプ ローラー メニュー エントリ利用できるように Visual Studio .NET を実行するたびにします。*
 
 
 スクリプト エクスプ ローラーは、ページで使用されるすべてのスクリプトを表示し、コード エディターで開くことができます。 コード エディター ウィンドウで開く現在デバッグ中の .aspx ページで、スクリプト エクスプ ローラーが開いたらをダブルクリックします。 スクリプト エクスプ ローラーに示すように、他のスクリプトのすべての同じアクションを実行します。 できますが、コード ウィンドウで開いているすべてのスクリプトと F11 キーを押して (とその他のデバッグ ホット キーを使用して) コードをステップ実行します。 図 3 は、スクリプト エクスプ ローラーの例を示します。 2 つのカスタム スクリプトと ASP.NET AJAX scriptmanager コントロールによって、ページに動的に挿入する 2 つのスクリプト デバッグされている現在のファイル (Demo.aspx) が一覧表示します。

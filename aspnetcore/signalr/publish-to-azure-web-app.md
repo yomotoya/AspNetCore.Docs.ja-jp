@@ -1,68 +1,68 @@
 ---
-title: ASP.NET Core の発行 SignalR アプリを Azure Web アプリ
-author: rachelappel
-description: ASP.NET Core の発行 SignalR アプリを Azure Web アプリ
+title: 発行、ASP.NET Core SignalR のアプリを Azure Web アプリに
+author: tdykstra
+description: 発行、ASP.NET Core SignalR のアプリを Azure Web アプリに
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: 0d98c6b24b9695c0af0170173f13902bac5f55ed
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b0126771a9ba3a28a7af14adf5b5959c7591e5fb
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36271919"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095295"
 ---
-# <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>ASP.NET Core の発行、Azure Web アプリに SignalR アプリ
+# <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>発行、ASP.NET Core SignalR アプリケーションを Azure Web アプリ
 
-[Azure の Web アプリ](/azure/app-service/app-service-web-overview)は、 [Microsoft クラウド コンピューティング](https://azure.microsoft.com/)ASP.NET Core を含め、web アプリをホストするためのプラットフォーム サービスです。
+[Azure Web アプリの](/azure/app-service/app-service-web-overview)は、 [Microsoft クラウド コンピューティング](https://azure.microsoft.com/)ASP.NET Core を含む、web アプリをホストするためのプラットフォーム サービスです。
 
 > [!NOTE]
-> この資料では、Visual Studio から ASP.NET Core SignalR アプリケーションを発行します。 参照してください[SignalR Azure サービスの](https://azure.microsoft.com/en-gb/services/signalr-service?)SignalR を使用して、Azure での詳細についてはします。
+> この記事では、Visual Studio から ASP.NET Core SignalR アプリの発行を指します。 参照してください[for Azure SignalR サービス](https://azure.microsoft.com/en-gb/services/signalr-service?)詳細については、Azure で SignalR を使用します。
 
 ## <a name="publish-the-app"></a>アプリの発行
 
-Visual Studio は、Azure Web アプリに発行のための組み込みのツールを提供します。 Visual Studio Code のユーザーが使用できる[Azure CLI](/cli/azure)アプリを Azure に発行するコマンド。 この記事では、Visual Studio でツールを使用して発行について説明します。 Azure CLI を使用してアプリを発行するを参照してください。[コマンド ライン ツールを使用して Azure に ASP.NET Core アプリケーションを公開](xref:tutorials/publish-to-azure-webapp-using-cli)です。
+Visual Studio は、Azure Web App に発行のための組み込みのツールを提供します。 Visual Studio Code のユーザーが使用できる[Azure CLI](/cli/azure)アプリを Azure に発行するコマンド。 この記事では、Visual Studio でツールを使用して公開について説明します。 Azure CLI を使用してアプリを発行するを参照してください。[コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを発行](xref:tutorials/publish-to-azure-webapp-using-cli)します。
 
-プロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**発行**です。 いることを確認**新規作成**がオンになって、**発行先の選択**ダイアログ、および選択**発行**です。
+プロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**発行**します。 確認します**新規作成**がチェックイン、**発行先を選択**ダイアログ、および選択**発行**します。
 
-![選択対象をパブリッシュします。](publish-to-azure-web-app/_static/pick-publish-target-dialog.png)
+![発行対象を選択](publish-to-azure-web-app/_static/pick-publish-target-dialog.png)
 
 次の情報を入力、 **App Service の作成**ダイアログと選択**作成**です。
 
 | アイテム | 説明 |
 | ---- | ----------- |
 | **アプリ名** | アプリの一意の名前。 |
-| **サブスクリプション** | アプリで使用する Azure サブスクリプション。 |
-| **リソース グループ** | 関連するリソースをアプリが所属するグループ。  |
-| **ホスティング プラン** | Web アプリの料金プランです。 |
+| **サブスクリプション** | アプリを使用する Azure サブスクリプション。 |
+| **リソース グループ** | アプリが属している関連するリソースのグループ。  |
+| **ホスティング プラン** | Web アプリの価格プランです。 |
 
-![アプリ サービスを作成します。](publish-to-azure-web-app/_static/create-app-service-dialog.png)
+![App service を作成します。](publish-to-azure-web-app/_static/create-app-service-dialog.png)
 
 Visual Studio では、次のタスクを実行します。
 
-* 発行プロファイルを作成する発行の設定を格納します。
-* 作成するか、既存の*Azure Web アプリ*提供された詳細とします。
+* 発行プロファイルを作成します。 発行の設定を格納しています。
+* 作成するか、既存の*Azure Web App*で提供された詳細。
 * アプリを発行します。
-* 読み込まれた公開された web アプリと、ブラウザーを起動します。
+* 公開された web アプリが読み込まれると、ブラウザーを起動します。
 
-URL の形式のことを確認して、アプリは*アプリ {name} .azurewebsites .net*です。 たとえば、という名前のアプリ`SignalRChattR`次のような URL が指定されて`https://signalrchattr.azurewebsites.net`です。
+アプリは、URL の形式に注意してください *{アプリ名} .azurewebsites.net .net*します。 たとえば、という名前のアプリ`SignalRChattR`が次のような URL `https://signalrchattr.azurewebsites.net`。
 
 HTTP 502.2 エラーが発生する場合は、次を参照してください。 [Azure App Service に ASP.NET Core の展開のプレビュー リリース](xref:host-and-deploy/azure-apps/index)問題を解決します。
 
-## <a name="configure-signalr-web-app"></a>SignalR web app を構成します。
+## <a name="configure-signalr-web-app"></a>SignalR web アプリを構成します。
 
-ASP.NET Core SignalR 公開されたアプリに Azure Web アプリが必要に応じて[ARR アフィニティ](https://en.wikipedia.org/wiki/Application_Request_Routing)有効にします。 [Websocket](xref:fundamentals/websockets)を有効にする、Websocket トランスポート関数を使用できるようにします。
+Azure Web アプリがありますに公開されている ASP.NET Core SignalR アプリ[ARR アフィニティ](https://en.wikipedia.org/wiki/Application_Request_Routing)を有効にします。 [Websocket](xref:fundamentals/websockets) Websocket トランスポートは関数を許可する、有効にする必要があります。
 
-Azure ポータルに移動**アプリ設定**を web アプリです。 設定**Websocket**に**で**、ことを確認し、 **ARR アフィニティ**は**で**です。
+Azure portal に移動します**アプリ設定**web アプリ。 設定**Websocket**に**で**、ことを確認し、 **ARR アフィニティ**は**で**します。
 
-![Azure ポータルで azure の Web アプリ設定](publish-to-azure-web-app/_static/azure-web-app-settings.png)
+![Azure portal で azure の Web アプリの設定](publish-to-azure-web-app/_static/azure-web-app-settings.png)
 
- Websocket トランスポートとその他のトランスポート[App Service プランに基づいて制限されます](/azure/azure-subscription-service-limits#app-service-limits)です。
+ Websocket と他のトランスポート[App Service プランの](/azure/azure-subscription-service-limits#app-service-limits)します。
 
 ## <a name="related-resources"></a>関連資料
 
-* [コマンド ライン ツールを使用して Azure に ASP.NET Core アプリケーションを公開します。](xref:tutorials/publish-to-azure-webapp-using-cli?tabs=windows)
-* [Visual Studio での Azure への ASP.NET Core アプリケーションを公開します。](xref:tutorials/publish-to-azure-webapp-using-vs)
-* [ホストし、Azure での ASP.NET Core プレビュー アプリを展開します。](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
+* [コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを発行します。](xref:tutorials/publish-to-azure-webapp-using-cli?tabs=windows)
+* [Visual Studio を使用した Azure への ASP.NET Core アプリを発行します。](xref:tutorials/publish-to-azure-webapp-using-vs)
+* [ホストし、Azure で ASP.NET Core プレビュー アプリを展開します。](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
