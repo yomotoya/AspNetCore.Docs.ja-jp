@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Id を使用します。 含まれ�
 ms.author: riande
 ms.date: 01/24/2018
 uid: security/authentication/identity
-ms.openlocfilehash: c231a7619a4433ce004342ce68564e4c3892e702
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 50ddb96000e6a3f9e1762e9bb3e1f215f20d4356
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829303"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095640"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core Identity の概要
 
@@ -199,7 +199,8 @@ ASP.NET Core アプリケーションで、Id システムを使用するには�
 
 ## <a name="next-steps"></a>次の手順
 
-* [認証と Id を移行します。](xref:migration/identity)
-* [アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)
-* [SMS での 2 要素認証](xref:security/authentication/2fa)
-* [Facebook、Google、および外部プロバイダーの認証](xref:security/authentication/social/index)
+* <xref:migration/identity>
+* <xref:security/authentication/accconfirm>
+* <xref:security/authentication/2fa>
+* <xref:security/authentication/social/index>
+* <xref:host-and-deploy/web-farm>

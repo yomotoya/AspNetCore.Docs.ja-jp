@@ -1,39 +1,39 @@
 ---
-title: ASP.NET Core SignalR では、ストリーミングを使用します。
-author: rachelappel
+title: ASP.NET Core SignalR では、ストリーミングを使用して、
+author: tdykstra
 description: ''
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/07/2018
 uid: signalr/streaming
-ms.openlocfilehash: 08ddea4fb83150bab27a9e2685c75ff34565606b
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: 0001eed830249ac46ba35331759187bb4e7e8fd3
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327494"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095263"
 ---
-# <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用します。
+# <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用して、
 
 によって[真紀 Brennan](https://github.com/BrennanConroy)
 
-ASP.NET Core SignalR には、サーバーのメソッドの戻り値のストリーミングがサポートしています。 これは、データの断片化はどこ時間の経過と共にシナリオに便利です。 戻り値がクライアントにストリーム配信されるときに各フラグメントは、クライアントに送信なります、すぐに使用可能になるすべてのデータの待機中ではなく、使用可能です。
+ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリーミングをサポートします。 これは、データの断片化はどこ時間の経過と共にシナリオに便利です。 戻り値は、クライアントにストリーミングされるときに各フラグメントが送信されるクライアントになったとすぐに使用可能になるすべてのデータを待機するのではなく、使用可能な。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/streaming/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="set-up-the-hub"></a>ハブを設定します。
 
-ハブ メソッドはストリーミングのハブ メソッドを自動的に戻ったとき、`ChannelReader<T>`または`Task<ChannelReader<T>>`です。 クライアントへのデータをストリーミングの基礎を示すサンプルを次に示します。 オブジェクトを記述するときに、`ChannelReader`そのオブジェクトがクライアントに直ちに送信されます。 最後に、`ChannelReader`ストリームが閉じていることをクライアントに指示するのには完了します。
+ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、`ChannelReader<T>`または`Task<ChannelReader<T>>`します。 クライアントへのデータのストリーミングの基礎を示すサンプルを次に示します。 オブジェクトが書き込まれるたびに、`ChannelReader`そのオブジェクトがすぐに、クライアントに送信します。 最後に、`ChannelReader`ストリームが閉じていることをクライアントに指示するのには完了します。
 
 > [!NOTE]
-> 書き込み、`ChannelReader`バック グラウンド スレッドと戻り値の`ChannelReader`できるだけ早くです。 その他のハブ呼び出しをするまでブロックされます、`ChannelReader`が返されます。
+> 書き込み、`ChannelReader`バック グラウンド スレッドと返された場合に、`ChannelReader`できるだけ早くします。 その他のハブ呼び出しまでブロックされます、`ChannelReader`が返されます。
 
 [!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?range=10-34)]
 
 ## <a name="net-client"></a>.NET クライアント
 
-`StreamAsChannelAsync`メソッド`HubConnection`ストリーミング メソッドの呼び出しに使用します。 ハブ メソッドの名前、およびハブ メソッドで定義されている引数を渡す`StreamAsChannelAsync`です。 ジェネリック パラメーターの`StreamAsChannelAsync<T>`ストリーミング メソッドによって返されるオブジェクトの種類を指定します。 A`ChannelReader<T>`ストリーム呼び出しから返され、クライアントにストリームを表します。 データの読み取り、一般的なパターンでは、ループする`WaitToReadAsync`を呼び出すと`TryRead`データを使用する場合。 ストリームが、サーバーによって閉じられてまたはにキャンセル トークンが渡されるときに、ループは終了`StreamAsChannelAsync`は取り消されます。
+`StreamAsChannelAsync`メソッド`HubConnection`ストリーミング メソッドを呼び出すために使用します。 ハブ メソッドの名前、およびハブ メソッドで定義されている引数を渡す`StreamAsChannelAsync`します。 ジェネリック パラメーター`StreamAsChannelAsync<T>`ストリーミング メソッドによって返されるオブジェクトの種類を指定します。 A`ChannelReader<T>`ストリームの呼び出しから返され、クライアントにストリームを表します。 データの読み取り、一般的なパターンは、経由でループする`WaitToReadAsync`を呼び出すと`TryRead`データが使用可能な場合。 サーバーによって、ストリームが閉じているかに渡されたキャンセル トークンと、ループが終了`StreamAsChannelAsync`は取り消されます。
 
 ```csharp
 var channel = await hubConnection.StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
@@ -53,16 +53,16 @@ Console.WriteLine("Streaming completed");
 
 ## <a name="javascript-client"></a>JavaScript クライアント
 
-JavaScript クライアントを使用してハブのストリーミング メソッドを呼び出す`connection.stream`です。 `stream`メソッドは 2 つの引数を受け取ります。
+JavaScript クライアントは、ハブにストリーミング メソッドを使用して呼び出す`connection.stream`します。 `stream`メソッドは 2 つの引数を受け取ります。
 
-* ハブ メソッドの名前。 ハブ メソッドの名前は、次の例では、`Counter`です。
-* ハブ メソッドで定義されている引数。 次の例では引数が: ストリーム項目を受信してストリーム アイテム間の遅延の数をカウントします。
+* ハブ メソッドの名前。 次の例ではハブのメソッド名は`Counter`します。
+* ハブ メソッドで定義されている引数。 次の例では、引数は: ストリーム項目を受信して、ストリームの項目間の遅延の数をカウントします。
 
-`connection.stream` 返します、`IStreamResult`が含まれている、`subscribe`メソッドです。 渡す、`IStreamSubscriber`に`subscribe`設定と、 `next`、 `error`、および`complete`コールバックから通知されるように、`stream`呼び出しです。
+`connection.stream` 返します、`IStreamResult`が含まれています、`subscribe`メソッド。 渡す、`IStreamSubscriber`に`subscribe`設定と、 `next`、 `error`、および`complete`からの通知を取得するコールバック、`stream`呼び出し。
 
 [!code-javascript[Streaming javascript](streaming/sample/wwwroot/js/stream.js?range=19-36)]
 
-クライアントの呼び出し元のストリームを終了する、`dispose`メソッドを`ISubscription`から返された、`subscribe`メソッドです。
+クライアントの呼び出し元のストリームを終了する、`dispose`メソッドを`ISubscription`から返される、`subscribe`メソッド。
 
 ## <a name="related-resources"></a>関連資料
 

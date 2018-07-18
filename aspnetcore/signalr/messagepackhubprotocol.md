@@ -1,42 +1,42 @@
 ---
-title: ASP.NET Core 用 SignalR で MessagePack ハブ プロトコルを使用します。
-author: rachelappel
-description: ASP.NET Core SignalR を MessagePack ハブ プロトコルを追加します。
+title: ASP.NET core SignalR で MessagePack Hub プロトコルを使用します。
+author: tdykstra
+description: ASP.NET Core SignalR には、MessagePack Hub プロトコルを追加します。
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: 702c77502868d6666cb2634b6959f029e036d14e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 78b708c50ce7a8101c9eaa558171540e61c0d7f0
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274990"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39094996"
 ---
-# <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>ASP.NET Core 用 SignalR で MessagePack ハブ プロトコルを使用します。
+# <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>ASP.NET core SignalR で MessagePack Hub プロトコルを使用します。
 
 によって[真紀 Brennan](https://github.com/BrennanConroy)
 
-この記事で説明されているトピックを使い慣れているリーダーが前提としています[開始](xref:tutorials/signalr)です。
+この記事では、リーダーがで説明するトピックを熟知前提としています。[開始](xref:tutorials/signalr)します。
 
 ## <a name="what-is-messagepack"></a>MessagePack とは何ですか。
 
-[MessagePack](https://msgpack.org/index.html)高速でコンパクトなバイナリのシリアル化形式です。 パフォーマンスと帯域幅が、問題になると比較すると、小さいメッセージを作成するため便利です[JSON](https://www.json.org/)です。 バイナリ形式になっているためメッセージは読み取り可能バイト MessagePack パーサー経由で渡される限り、ネットワーク トレースとログを確認するとき SignalR は MessagePack 形式の組み込みサポートし、使用するには、クライアントとサーバーの Api を提供します。
+[MessagePack](https://msgpack.org/index.html)は高速でコンパクトなバイナリ シリアル化形式です。 パフォーマンスと帯域幅が、問題になると比較して小さいメッセージを作成するため、場合に便利です[JSON](https://www.json.org/)します。 バイナリ形式であるため、メッセージは、読み取り可能なバイトが MessagePack パーサーから渡されていない限り、ネットワーク トレースとログを見ると。 SignalR は、MessagePack 形式の組み込みサポートを備え、使用するには、クライアントとサーバーの Api を提供します。
 
-## <a name="configure-messagepack-on-the-server"></a>サーバーで MessagePack を構成します。
+## <a name="configure-messagepack-on-the-server"></a>MessagePack をサーバーを構成します。
 
-MessagePack ハブ サーバーでプロトコルを有効にするには、インストール、`Microsoft.AspNetCore.SignalR.Protocols.MessagePack`アプリのパッケージです。 Startup.cs ファイルで追加`AddMessagePackProtocol`を`AddSignalR`呼び出し、サーバー上の MessagePack サポートを有効にします。
+サーバーの MessagePack Hub プロトコルを有効にするにはインストール、`Microsoft.AspNetCore.SignalR.Protocols.MessagePack`パッケージをアプリにします。 Startup.cs ファイルで追加`AddMessagePackProtocol`を`AddSignalR`呼び出し、サーバー上の MessagePack サポートを有効にします。
 
 > [!NOTE]
-> JSON は既定で有効にします。 MessagePack を追加すると、JSON と MessagePack の両方のクライアントのサポートができます。
+> JSON は、既定で有効です。 MessagePack を追加すると、JSON、MessagePack の両方のクライアントのサポートができます。
 
 ```csharp
 services.AddSignalR()
     .AddMessagePackProtocol();
 ```
 
-MessagePack が、データを書式設定方法をカスタマイズする`AddMessagePackProtocol`オプションを構成するデリゲートを受け取ります。 そのデリゲート内、 `FormatterResolvers` MessagePack シリアル化オプションを構成するプロパティを使用できます。 競合回避モジュールの動作方法の詳細については、MessagePack ライブラリを参照してください。 [MessagePack CSharp](https://github.com/neuecc/MessagePack-CSharp)です。 属性は、処理方法を定義するシリアル化オブジェクトで使用できます。
+MessagePack が、データを書式設定する方法をカスタマイズする`AddMessagePackProtocol`オプションを構成するデリゲートを受け取る。 そのデリゲートで、 `FormatterResolvers` MessagePack シリアル化オプションを構成するプロパティを使用できます。 競合回避モジュールの動作方法の詳細については、MessagePack ライブラリを参照してください。 [MessagePack CSharp](https://github.com/neuecc/MessagePack-CSharp)します。 属性は、処理方法を定義するシリアル化するオブジェクトで使用できます。
 
 ```csharp
 services.AddSignalR()
@@ -49,11 +49,11 @@ services.AddSignalR()
     });
 ```
 
-## <a name="configure-messagepack-on-the-client"></a>クライアントで MessagePack を構成します。
+## <a name="configure-messagepack-on-the-client"></a>MessagePack client を構成します。
 
 ### <a name="net-client"></a>.NET クライアント
 
-.NET クライアントで MessagePack を有効にするには、インストール、`Microsoft.AspNetCore.SignalR.Protocols.MessagePack`パッケージと呼び出し`AddMessagePackProtocol`で`HubConnectionBuilder`です。
+MessagePack、.NET クライアントを有効にするにはインストール、`Microsoft.AspNetCore.SignalR.Protocols.MessagePack`パッケージと呼び出し`AddMessagePackProtocol`で`HubConnectionBuilder`します。
 
 ```csharp
 var hubConnection = new HubConnectionBuilder()
@@ -63,20 +63,20 @@ var hubConnection = new HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> これは、`AddMessagePackProtocol`呼び出しが、サーバーと同じようにオプションを構成するデリゲートを受け取ります。
+> これは、`AddMessagePackProtocol`呼び出しは、サーバーと同様のオプションを構成するためのデリゲートを受け取ります。
 
 ### <a name="javascript-client"></a>JavaScript クライアント
 
-Javascript クライアント MessagePack サポートによって提供されます、 `@aspnet/signalr-protocol-msgpack` NPM パッケージです。
+Javascript クライアント MessagePack サポートが提供、 `@aspnet/signalr-protocol-msgpack` NPM パッケージ。
 
 ```console
 npm install @aspnet/signalr-protocol-msgpack
 ```
 
-Npm パッケージをインストールすると、モジュール、JavaScript のモジュール ローダー経由で直接使用インポートしたりできますが、ブラウザーを参照して、 *node_modules\\ @aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* ファイル。 ブラウザーで、`msgpack5`ライブラリが参照することも必要があります。 使用して、`<script>`タグへの参照を作成します。 ライブラリはあります*node_modules\msgpack5\dist\msgpack5.js*です。
+Npm パッケージをインストールした後、モジュール、JavaScript モジュール ローダーを使用して直接使用したり参照することで、ブラウザーにインポート、 *node_modules\\ @aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* ファイル。 ブラウザーで、`msgpack5`ライブラリが参照することも必要があります。 使用して、`<script>`参照を作成するタグ。 ライブラリに掲載する*node_modules\msgpack5\dist\msgpack5.js*します。
 
 > [!NOTE]
-> 使用する場合、`<script>`要素、順序は重要です。 場合*signalr プロトコル-msgpack.js*する前に参照される*msgpack5.js*MessagePack で接続しようとするときにエラーが発生します。 *signalr.js*も必要とする前に*signalr プロトコル-msgpack.js*です。
+> 使用する場合、`<script>`要素の順序は重要です。 場合*signalr-プロトコル-msgpack.js*する前に参照が*msgpack5.js*MessagePack で接続する際にエラーが発生します。 *signalr.js*する必要がありますも*signalr-プロトコル-msgpack.js*します。
 
 ```html
 <script src="~/lib/signalr/signalr.js"></script>
@@ -84,7 +84,7 @@ Npm パッケージをインストールすると、モジュール、JavaScript
 <script src="~/lib/signalr/signalr-protocol-msgpack.js"></script>
 ```
 
-追加`.withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())`を`HubConnectionBuilder`はサーバーに接続するときに、MessagePack プロトコルを使用するクライアントを構成します。
+追加`.withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())`を`HubConnectionBuilder`MessagePack プロトコルを使用して、サーバーに接続するときにクライアントを構成します。
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -94,7 +94,7 @@ const connection = new signalR.HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> この時点では、JavaScript クライアントで MessagePack プロトコルの構成オプションはありません。
+> この時点では、JavaScript クライアントでは、MessagePack プロトコルの構成オプションはありません。
 
 ## <a name="related-resources"></a>関連資料
 

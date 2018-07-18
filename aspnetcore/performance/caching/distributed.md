@@ -1,60 +1,60 @@
 ---
 title: ASP.NET Core での分散キャッシュを使用します。
 author: ardalis
-description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法を説明します。
+description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2017
 uid: performance/caching/distributed
-ms.openlocfilehash: 5ddc3a6927652f773ab38f93db1e222c5a1900b3
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 861664fcad576c11abe052837b72367eb2b9479a
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077700"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095682"
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュを使用します。
 
 作成者: [Steve Smith](https://ardalis.com/)
 
-分散キャッシュでは、クラウドまたはサーバー ファーム環境でホストされている場合に特に ASP.NET Core アプリケーションのスケーラビリティとパフォーマンスを向上できます。 この記事では、ASP.NET Core の組み込みの分散キャッシュの抽象化と実装を操作する方法について説明します。
+分散キャッシュでは、クラウドまたはサーバー ファームでホストされている場合は特に、パフォーマンスと、ASP.NET Core アプリのスケーラビリティを向上できます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-is-a-distributed-cache"></a>分散キャッシュとは
 
-分散キャッシュが複数のアプリケーション サーバーで共有 (を参照してください[キャッシュ基本](memory.md#caching-basics))。 キャッシュ内の情報が個々 の web サーバーのメモリに格納されていないし、キャッシュされたデータはすべてのアプリのサーバーに使用できます。 これは、いくつかの利点を提供します。
+分散キャッシュは、複数のアプリケーション サーバーで共有されます (を参照してください[Cache の基本](memory.md#caching-basics))。 キャッシュ内の情報は、個々 の web サーバーのメモリに格納されていないし、キャッシュされたデータはすべてのアプリのサーバーに使用できます。 これは、いくつかの利点を提供します。
 
-1. キャッシュされたデータがすべての web サーバーに生じます。 ユーザーによっては、web サーバーは、要求を処理、異なる結果が表示されません。
+1. キャッシュされたデータがすべての web サーバー上で生じます。 ユーザーによっては、web サーバーは、要求を処理する別の結果に表示されません。
 
-2. キャッシュされたデータが回収されなかったは、web サーバーを再起動し展開します。 個々 の web サーバーを削除またはキャッシュに影響を与えずに追加することができます。
+2. キャッシュされたデータは、web サーバーを再起動し、展開に存続します。 個々 の web サーバーを削除またはキャッシュの影響を与えずに追加できます。
 
-3. ソースのデータ ストアでは、(より、複数のメモリ内キャッシュまたはなしですべてのキャッシュ) に加えられた以下の要求があります。
+3. ソース データ ストアが、(より、複数のメモリ内キャッシュですべてのキャッシュ) に加えられた要求が減少します。
 
 > [!NOTE]
-> SQL Server 分散キャッシュを使用する場合は、別のデータベース インスタンスは、アプリのソース データのよりも、キャッシュの使用は、true を返します。 これらの利点の一部はのみです。
+> 場合は、SQL Server の分散キャッシュを使用して、これらの利点の一部は、アプリのソース データよりも、キャッシュの別のデータベース インスタンスを使用する場合のみ。
 
-、任意のキャッシュのように、分散キャッシュ大幅にアプリの応答性が向上、ので、通常のリレーショナル データベース (または web サービス) よりも高速のキャッシュからデータを取得できます。
+、任意のキャッシュのような分散キャッシュが飛躍的に向上、アプリの応答性、ため、通常、データはリレーショナル データベース (または web サービス) からよりも高速のキャッシュから取得できます。
 
-キャッシュの構成は、特定の実装です。 この記事では、Redis 両方を構成して、SQL Server の分散キャッシュ方法について説明します。 アプリが共通を使用して、キャッシュと対話する実装の種類を選択するに関係なく`IDistributedCache`インターフェイスです。
+キャッシュの構成は、特定の実装です。 この記事では、Redis 両方を構成して、SQL Server の分散キャッシュする方法について説明します。 アプリが、一般的なを使用して、キャッシュと対話する実装の種類を選択するに関係なく`IDistributedCache`インターフェイス。
 
 ## <a name="the-idistributedcache-interface"></a>IDistributedCache インターフェイス
 
-`IDistributedCache`インターフェイスには、同期および非同期のメソッドが含まれています。 インターフェイスは、追加、取得、および実装では、分散キャッシュから削除する項目を使用します。 `IDistributedCache`インターフェイスには、次のメソッドが含まれています。
+`IDistributedCache`インターフェイスには、同期および非同期のメソッドが含まれています。 インターフェイスは、追加、取得、および分散キャッシュの実装から削除する項目を使用します。 `IDistributedCache`インターフェイスには、次のメソッドが含まれています。
 
-**Get、されます。**
+**Get、GetAsync**
 
-文字列のキーは、としてキャッシュされたアイテムを取得、`byte[]`場合、キャッシュ内に存在します。
+文字列のキーを受け取り、としてキャッシュされた項目を取得、`byte[]`場合、キャッシュ内に存在します。
 
-**セット、SetAsync**
+**SetAsync セット**
 
-項目を追加 (として`byte[]`) 文字列キーを使用してキャッシュします。
+項目を追加します (として`byte[]`) 文字列のキーを使用してキャッシュにします。
 
-**更新、RefreshAsync**
+**RefreshAsync の更新**
 
-スライド式有効期限タイムアウトをリセットする (存在する場合)、そのキーに基づく、キャッシュ内の項目を更新します。
+そのスライド式有効期限のタイムアウトをリセットする (ある場合)、そのキーに基づいて、キャッシュ内の項目を更新します。
 
-**に対して removeasync を実行を削除します。**
+**RemoveAsync を削除します。**
 
 そのキーに基づくキャッシュ エントリを削除します。
 
@@ -64,44 +64,44 @@ ms.locfileid: "37077700"
 
    2. 特定の実装を構成する`IDistributedCache`で、`Startup`クラスの`ConfigureServices`メソッドがコンテナーに追加します。
 
-   3. アプリから[ミドルウェア](xref:fundamentals/middleware/index)MVC コント ローラー クラスでは、要求のインスタンスまたは`IDistributedCache`コンス トラクターからです。 によって、インスタンスが提供されます[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。
+   3. アプリの[ミドルウェア](xref:fundamentals/middleware/index)MVC コント ローラーのクラスのインスタンスを要求または`IDistributedCache`コンス トラクターから。 インスタンスがによって提供される[依存関係の注入](../../fundamentals/dependency-injection.md)(DI)。
 
 > [!NOTE]
-> シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込みの実装のため)。 必要に応じていずれかの場所にインスタンスを作成することも (を使用せずに[依存性の注入](../../fundamentals/dependency-injection.md))、これが難しく、コードをテストするには、違反している、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。
+> シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込み実装のため)。 いずれかが必要な場合がありますに、インスタンスを作成することもできます (使用する代わりに[依存関係の挿入](../../fundamentals/dependency-injection.md)) が、コードをテストするには、このことができますに違反して、 [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/)。
 
 次の例は、のインスタンスを使用する方法を示しています。`IDistributedCache`では、単純なミドルウェア コンポーネント。
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/StartTimeHeader.cs)]
 
-上記のコードでキャッシュされた値が、読み取りが書き込まれていません。 このサンプルでは、値は、サーバーの起動、および変更されない場合にのみ設定されます。 マルチ サーバーのシナリオで開始する最も最近使用したサーバーに他のサーバーで設定した前の値が上書きされます。 `Get`と`Set`メソッドを使用して、`byte[]`型です。 使用して文字列値を変換する必要がありますので、 `Encoding.UTF8.GetString` (の`Get`) および`Encoding.UTF8.GetBytes`(の`Set`)。
+上記のコードでは、キャッシュされた値は、読み取りが書き込まれていません。 このサンプルで、値は、サーバーが起動し、変更されない場合にのみ設定されます。 マルチ サーバーのシナリオで開始する直近のサーバーに他のサーバーで設定した前の値が上書きされます。 `Get`と`Set`メソッドを使用して、`byte[]`型。 使用して文字列値を変換する必要がありますので、 `Encoding.UTF8.GetString` (の`Get`) と`Encoding.UTF8.GetBytes`(の`Set`)。
 
-次のコードから*Startup.cs*設定される値を示しています。
+次のコードから*Startup.cs*設定されている値が表示されます。
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
 
 > [!NOTE]
-> `IDistributedCache`で構成された、`ConfigureServices`メソッドが使用できる、`Configure`メソッドのパラメーターとして。 パラメーターとして追加すると、DI で指定する構成済みのインスタンスが許可されます。
+> `IDistributedCache`で構成されている場合は、`ConfigureServices`メソッドが使用できる、`Configure`メソッドをパラメーターとして。 パラメーターとして追加することによって、DI を通じて提供されるインスタンスを構成できます。
 
-## <a name="using-a-redis-distributed-cache"></a>分散 Redis キャッシュの使用
+## <a name="using-a-redis-distributed-cache"></a>Redis の分散キャッシュを使用します。
 
-[Redis](https://redis.io/)分散キャッシュとして使用される多くの場合、オープン ソースのインメモリ データ ストアです。 ローカルで行うこともでき、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) ASP.NET Core の Azure でホストされるアプリにします。 キャッシュ実装を使用して、ASP.NET Core アプリケーションの構成、`RedisDistributedCache`インスタンス。
+[Redis](https://redis.io/)は分散キャッシュとしてよく使用されているオープン ソース、メモリ内データ ストアです。 ローカルで使用して、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure でホストされる ASP.NET Core アプリ。 キャッシュ実装を使用して、ASP.NET Core アプリの構成、`RedisDistributedCache`インスタンス。
 
-Redis の実装を構成する`ConfigureServices`のインスタンスを要求することによって、アプリ コードでアクセスおよび`IDistributedCache`(上記のコードを参照してください)。
+Redis の実装を構成する`ConfigureServices`のインスタンスを要求することによって、アプリのコードでアクセス`IDistributedCache`(上記のコードを参照してください)。
 
-サンプル コードで、`RedisCache`のサーバーが構成されている実装を使用して、`Staging`環境。 したがって、`ConfigureStagingServices`メソッドは、構成、 `RedisCache`:
+サンプル コードで、`RedisCache`実装には、サーバーが構成されている場合、使用、`Staging`環境。 したがって、`ConfigureStagingServices`メソッドは、構成、 `RedisCache`:
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
-> ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/)実行と`redis-server`コマンド プロンプトからです。
+> ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/)実行`redis-server`コマンド プロンプトからです。
 
-## <a name="using-a-sql-server-distributed-cache"></a>SQL Server を使用してキャッシュを分散
+## <a name="using-a-sql-server-distributed-cache"></a>SQL Server を使用して分散キャッシュ
 
-SqlServerCache 実装では、バッキング ストアとして SQL Server データベースを使用する分散キャッシュを許可します。 SQL サーバーを作成するには、ツール、sql キャッシュを使用するテーブルは指定した名前とスキーマを持つテーブルを作成します。
+SqlServerCache 実装では、バッキング ストアとして SQL Server データベースを使用する分散キャッシュを許可します。 SQL サーバーを作成するには、ツール、sql キャッシュを使用するテーブルは指定した名前とスキーマ テーブルを作成します。
 
 ::: moniker range="< aspnetcore-2.1"
 
-追加`SqlConfig.Tools`を`<ItemGroup>`実行して、プロジェクト ファイルの要素`dotnet restore`です。
+追加`SqlConfig.Tools`を`<ItemGroup>`要素は、プロジェクト ファイルと実行の`dotnet restore`します。
 
 ```xml
 <ItemGroup>
@@ -118,7 +118,7 @@ SqlServerCache 実装では、バッキング ストアとして SQL Server デ�
 dotnet sql-cache create --help
 ```
 
-SqlConfig.Tools は、使用状況、オプション、およびコマンドのヘルプを表示します。
+SqlConfig.Tools では、使用状況、オプション、およびコマンドのヘルプが表示されます。
 
 SQL server を実行してテーブルを作成、`sql-cache create`コマンド。
 
@@ -128,11 +128,11 @@ info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
 Table and index were created successfully.
 ```
 
-作成されたテーブルには、次のスキーマがあります。
+作成されたテーブルでは、次のスキーマがあります。
 
 ![SqlServer キャッシュ テーブル](distributed/_static/SqlServerCacheTable.png)
 
-すべてのキャッシュ実装と同様にアプリを取得および設定のインスタンスを使用してキャッシュ値`IDistributedCache`ではなく、`SqlServerCache`です。 このサンプルを実装`SqlServerCache`実稼働環境で (で構成されているように`ConfigureProductionServices`)。
+すべてのキャッシュ実装と同様に、アプリする必要がありますを取得および設定のインスタンスを使用してキャッシュ値`IDistributedCache`ではなく、`SqlServerCache`します。 サンプルでは実装`SqlServerCache`実稼働環境で (で構成されているように`ConfigureProductionServices`)。
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet3)]
 
@@ -141,15 +141,16 @@ Table and index were created successfully.
 
 ## <a name="recommendations"></a>推奨事項
 
-のどの実装を決定する際に`IDistributedCache`Redis 間を選択して、アプリの権利は、既存のインフラストラクチャと環境、パフォーマンス要件、およびチームの経験に基づいて、SQL Server、します。 チームがより快適な Redis の操作の場合は、最適な選択肢であります。 チームが SQL Server を希望する場合で同様に実装することを確信できます。 従来のキャッシュ ソリューションがデータをメモリ内データの取得を高速を格納することに注意してください。 一般的に使用されるデータをキャッシュに格納し、SQL Server または Azure ストレージなどのバックエンドの永続的なストアでデータ全体を格納する必要があります。 Redis Cache は、SQL キャッシュと比較して、高いスループットと低待機時間ににより、キャッシュ ソリューションです。
+実装を決定する際に`IDistributedCache`は Redis 間を選択して、アプリの右と、既存のインフラストラクチャと環境、パフォーマンス要件、およびチームの経験に基づいて、SQL Server。 チームがより快適な Redis の操作の場合は、優れた選択肢となります。 チームが SQL Server を希望する場合でも実装することを確信できます。 従来のキャッシュ ソリューションがデータをメモリ内データを迅速に取得できるを格納することに注意してください。 一般的に使用されるデータをキャッシュに格納し、SQL Server または Azure Storage などのバックエンドの永続的なストアにデータ全体を保存する必要があります。 Redis Cache とは、SQL キャッシュと比較して、高スループットと低待機時間に提供するキャッシュ ソリューションです。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Redis の Azure キャッシュ](https://azure.microsoft.com/documentation/services/redis-cache/)
-* [Azure SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
-* [メモリ内キャッシュ](xref:performance/caching/memory)
-* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
-* [応答キャッシュ](xref:performance/caching/response)
-* [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Redis azure Cache](https://azure.microsoft.com/documentation/services/redis-cache/)
+* [Azure 上の SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
+* <xref:performance/caching/memory>
+* <xref:fundamentals/primitives/change-tokens>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
+* <xref:host-and-deploy/web-farm>
