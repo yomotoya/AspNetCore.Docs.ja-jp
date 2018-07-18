@@ -287,6 +287,7 @@
 ### [Visual Studio Tools for Docker](xref:host-and-deploy/docker/visual-studio-tools-for-docker)
 ### [Docker イメージへの公開](https://azure.microsoft.com/documentation/articles/vs-azure-tools-docker-hosting-web-apps-in-docker/)
 ## [プロキシとロード バランサーの構成](xref:host-and-deploy/proxy-load-balancer)
+## [Web ファームでのホスト](xref:host-and-deploy/web-farm)
 ## [Visual Studio のプロファイルの発行](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [ディレクトリの構造](xref:host-and-deploy/directory-structure)
 ## [Azure App Service と IIS の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
