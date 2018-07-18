@@ -20,11 +20,11 @@ ms.locfileid: "37894167"
 
 統合テストでは、データベース、ファイル システム、ネットワークなど、アプリのサポート インフラストラクチャを含むレベルでアプリのコンポーネントが正しく動作することを確認します。 ASP.NET Core では、テスト web ホストとメモリ内のテスト サーバーを単体テスト フレームワークを使用して、統合テストをサポートします。
 
-このトピックでは、単体テストの基本的な知識を前提とします。 場合テストの概念をよく知らないを参照してください、[で .NET Core と .NET Standard の単体テスト](/dotnet/core/testing/)トピックとそのリンクのコンテンツ。
+このトピックでは、単体テストの基本的な知識を前提とします。 テストの概念にあまり馴染みがない場合、[.NET Core と .NET Standard の単体テスト](/dotnet/core/testing/) のトピックとそこでリンクされているコンテンツを参照してください。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-サンプル アプリは、Razor ページ アプリで Razor ページの基本的な知識を前提としています。 Razor ページに不慣れな場合、は、次のトピックを参照してください。
+サンプル アプリは、Razor ページ アプリで Razor ページの基本的な知識を前提としています。 Razor ページに不慣れな場合は、次のトピックを参照してください。
 
 * [Razor ページを始める](xref:razor-pages/index)
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
