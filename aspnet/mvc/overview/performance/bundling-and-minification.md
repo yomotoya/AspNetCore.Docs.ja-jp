@@ -8,12 +8,12 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827376"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123789"
 ---
 <a name="bundling-and-minification"></a>バンドルと縮小
 ====================
@@ -69,7 +69,7 @@ ms.locfileid: "37827376"
 | **サポート技術情報の受信** | 388.51 | 530 | 36% |
 | **読み込み時間** | 510 MS | 780 MS | 53% |
 
-送信バイト数では、ブラウザーが要求に適用される HTTP ヘッダーを非常に冗長のバンドルとは大幅に短縮必要があります。 受信したバイト数の減少がその大きさではありませんので、サイズの大きなファイル (*Scripts\jquery-ui-1.8.11.min.js*と*Scripts\jquery-1.7.1.min.js*) 縮小は既に。 注: 使用するサンプル プログラムのタイミング、 [Fiddler](http://www.fiddler2.com/fiddler2/)低速ネットワークをシミュレートするためのツール。 (、Fiddler から**ルール**メニューの **パフォーマンス**し**モデム スピードのシミュレート**)。
+送信バイト数では、ブラウザーが要求に適用される HTTP ヘッダーを非常に冗長のバンドルとは大幅に短縮必要があります。 受信したバイト数の減少がその大きさではありませんので、個のファイル (*スクリプト\\jquery-ui-1.8.11.min.js*と*スクリプト\\jquery 1.7.1.min.js*) 縮小は既に. 注: 使用するサンプル プログラムのタイミング、 [Fiddler](http://www.fiddler2.com/fiddler2/)低速ネットワークをシミュレートするためのツール。 (、Fiddler から**ルール**メニューの **パフォーマンス**し**モデム スピードのシミュレート**)。
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>バンドルおよび縮小版の JavaScript デバッグ
 
@@ -79,7 +79,7 @@ ms.locfileid: "37827376"
 2. [アセット] ボタンを使用してデバッグする JavaScript 関数を含む、バンドルを選択します。  
     ![](bundling-and-minification/_static/image4.png)
 3. 縮小された JavaScript を選択して書式設定、**構成ボタン**![](bundling-and-minification/_static/image5.png)を選択し、**形式 JavaScript**します。
-4. **検索スクリプト**t 入力ボックスに、デバッグする関数の名前を選択します。 次の図の**AddAltToImg**で入力した、**検索スクリプト**t 入力ボックス。  
+4. **検索スクリプト**入力ボックスで、デバッグする関数の名前を選択します。 次の図の**AddAltToImg**で入力した、**検索スクリプト**入力ボックス。  
     ![](bundling-and-minification/_static/image6.png)
 
 F12 開発者ツールを使用したデバッグの詳細については、MSDN の記事を参照してください。 [JavaScript エラーのデバッグに F12 開発者ツールを使用して](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx)します。
@@ -107,15 +107,15 @@ F12 開発者ツールを使用したデバッグの詳細については、MSDN
 
 このセクションではプロジェクトのバンドルを確認して縮小、ASP.NET MVC を作成します。 という名前の新しい ASP.NET MVC インターネット プロジェクトを最初に、作成**MvcBM**既定値を変更することがなく。
 
-開く、*アプリ\_Start\BundleConfig.cs*ファイルを調べ、`RegisterBundles`メソッドを作成し、登録して、バンドルを構成するために使用します。 次のコードの一部を示しています、`RegisterBundles`メソッド。
+開く、*アプリ\\\_開始\\BundleConfig.cs*ファイルを調べ、`RegisterBundles`メソッドを作成し、登録して、バンドルを構成するために使用します。 次のコードの一部を示しています、`RegisterBundles`メソッド。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
 上記のコードは、という名前の新しい JavaScript バンドルを作成します *~/bundles/jquery*を含む、すべての適切な (デバッグまたはなく縮小する。 *。vsdoc*) 内のファイル、*スクリプト*ワイルドカード文字列"~/Scripts/jquery-{version} .js"に一致するフォルダー。 ASP.NET MVC 4、デバッグ構成では、ファイル、つまり*jquery 1.7.1.js*バンドルに追加されます。 リリース構成で*jquery 1.7.1.min.js*が追加されます。 バンドルのフレームワークにはなどのいくつかの一般的な規則が次に示します。
 
-- "FileX.min.js"と"FileX.js"が存在する場合は、リリース".min"ファイルを選択します。
+- ".Min"ファイルを選択するときにリリース*FileX.min.js*と*FileX.js*が存在します。
 - デバッグ用の非".min"バージョンを選択します。
-- 無視"-vsdoc"(jquery-1.7.1-vsdoc.js) などの IntelliSense でのみ使用されるファイル。
+- 無視"-vsdoc"ファイル (など*jquery-1.7.1-vsdoc.js*)、IntelliSense によってのみ使用されます。
 
 `{version}` JQuery の適切なバージョンの jQuery バンドルを自動的に作成される前に示したワイルドカードに一致する、*スクリプト*フォルダー。 この例では、ワイルド カードを使用すると次の利点があります。
 
@@ -134,7 +134,7 @@ F12 開発者ツールを使用したデバッグの詳細については、MSDN
 
 ## <a name="creating-a-bundle"></a>バンドルの作成
 
-[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`Include`メソッドは各文字列のリソースへの仮想パスが、文字列の配列を受け取ります。 RegisterBundles メソッドから次のコード、*アプリ\_Start\BundleConfig.cs*ファイルは複数のファイルは、バンドルに追加を示しています。
+[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`Include`メソッドは各文字列のリソースへの仮想パスが、文字列の配列を受け取ります。 次のコードから、`RegisterBundles`メソッドで、*アプリ\\\_開始\\BundleConfig.cs*ファイルは複数のファイルは、バンドルに追加を示します。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
@@ -142,7 +142,7 @@ F12 開発者ツールを使用したデバッグの詳細については、MSDN
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-バンドルは、Render メソッドを使用してビューで参照されている ( `Styles.Render` css と`Scripts.Render`JavaScript 用)。 次のマークアップ、 *views \shared\\_Layout.cshtml*ファイルは ASP.NET のインターネット プロジェクトの既定のビューで CSS および JavaScript のバンドルを参照する方法を示しています。
+バンドルは、Render メソッドを使用してビューで参照されている (`Styles.Render` css と`Scripts.Render`JavaScript 用)。 次のマークアップ、*ビュー\\Shared\\\_Layout.cshtml*ファイルは ASP.NET のインターネット プロジェクトの既定のビューで CSS および JavaScript のバンドルを参照する方法を示しています。
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
@@ -156,10 +156,10 @@ Render メソッドには、文字列の配列があるので、コードの 1 �
 
 次の JavaScript ファイルでは、プロジェクトを検討してください。
 
-- *Scripts\Common\AddAltToImg.js*
-- *Scripts\Common\ToggleDiv.js*
-- *Scripts\Common\ToggleImg.js*
-- *Scripts\Common\Sub1\ToggleLinks.js*
+- *スクリプト\\共通\\AddAltToImg.js*
+- *スクリプト\\共通\\ToggleDiv.js*
+- *スクリプト\\共通\\ToggleImg.js*
+- *スクリプト\\共通\\Sub1\\ToggleLinks.js*
 
 ![dir imag](bundling-and-minification/_static/image7.png)
 
@@ -167,13 +167,13 @@ Render メソッドには、文字列の配列があるので、コードの 1 �
 
 | **Call** | **追加されたファイルまたは例外が発生しました** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js、ToggleDiv.js、ToggleImg.js* |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*、 *ToggleDiv.js*、 *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | 無効なパターンの例外。 ワイルドカード文字はプレフィックスまたはサフィックスにのみ使用できます。 |
 | Include("~/Scripts/Common/\*og.\*") | 無効なパターンの例外。 1 つだけのワイルドカード文字を許可します。 |
-| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js、ToggleImg.js* |
-| "Include("~/Scripts/Common/\*") | 無効なパターンの例外。 純粋なワイルドカード セグメントが無効です。 |
-| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js、ToggleImg.js* |
-| IncludeDirectory("~/Scripts/Common", "T\*",true) | *ToggleDiv.js、ToggleImg.js、ToggleLinks.js* |
+| 含まれます ("~/Scripts/Common/T\*") | *ToggleDiv.js*、 *ToggleImg.js* |
+| 含まれます ("~/Scripts/Common/\*") | 無効なパターンの例外。 純粋なワイルドカード セグメントが無効です。 |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js*、 *ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common"、"T\*", true) | *ToggleDiv.js*、 *ToggleImg.js*、 *ToggleLinks.js* |
 
 一般に優先が明示的に各ファイルをバンドルに追加する理由は次のファイルの読み込みのワイルドカードの上。
 
@@ -183,7 +183,7 @@ Render メソッドには、文字列の配列があるので、コードの 1 �
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  ワイルド カード セレクター"\*.css"は、フォルダー内の各 CSS ファイルを含む、 *Content\themes\base\jquery.ui.all.css*ファイル。 *Jquery.ui.all.css*ファイルは、他の CSS ファイルをインポートします。
+  ワイルド カード セレクター"\*.css"は、フォルダー内の各 CSS ファイルを含む、*コンテンツ\\テーマ\\基本\\jquery.ui.all.css*ファイル。 *Jquery.ui.all.css*ファイルは、他の CSS ファイルをインポートします。
 
 ## <a name="bundle-caching"></a>キャッシュのバンドルします。
 
@@ -195,7 +195,7 @@ Render メソッドには、文字列の配列があるので、コードの 1 �
 
 要求   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- バンドルは**AllMyScripts**クエリ文字列のペアを格納および**v = r0sLDicvP58AIXN\_mc3QdyVvVj5euZNzdsa2N1PKvb81**。 クエリ文字列**v**はトークンのキャッシュに使用される一意の識別子の値を持ちます。 ASP.NET アプリケーションが要求は、バンドルが変更されない限り、 **AllMyScripts**このトークンを使用してバンドルします。 バンドル内のファイルが変更された場合、ASP.NET optimization フレームワークはバンドルのブラウザーの要求が、最新のバンドルを取得することを保証しながら、新しいトークンを生成します。
+ バンドルは**AllMyScripts**クエリ文字列のペアを格納および**v = r0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**。 クエリ文字列**v**はトークンのキャッシュに使用される一意の識別子の値を持ちます。 ASP.NET アプリケーションが要求は、バンドルが変更されない限り、 **AllMyScripts**このトークンを使用してバンドルします。 バンドル内のファイルが変更された場合、ASP.NET optimization フレームワークはバンドルのブラウザーの要求が、最新のバンドルを取得することを保証しながら、新しいトークンを生成します。
 
 IE9 F12 開発者ツールを実行して、以前に読み込まれたページに移動して場合、条件付きの GET 要求を各バンドル、および HTTP 304 を返すサーバーに対して表示しない IE 正しくされます。 IE9 のブログ エントリで条件付きの要求が行われたかどうかの問題が理由を読み取ることができます[を使用して Cdn と Web サイトのパフォーマンスを向上させるには、期限切れ日時](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)します。
 
@@ -203,13 +203,13 @@ IE9 F12 開発者ツールを実行して、以前に読み込まれたページ
 
 バンドルと縮小のフレームワークなど、中間言語を処理するためのメカニズムを提供する[SCSS](http://sass-lang.com/)、 [Sass](http://sass-lang.com/)、[少ない](http://www.dotlesscss.org/)または[Coffeescript](http://coffeescript.org/)、し、結果として得られるバンドルに縮小などの変換を適用します。 たとえば、追加する[*.less](http://www.dotlesscss.org/) MVC 4 プロジェクト ファイル。
 
-1. 以下の内容を格納するフォルダーを作成します。 次の例では、 *Content\MyLess*フォルダー。
+1. 以下の内容を格納するフォルダーを作成します。 次の例では、*コンテンツ\\MyLess*フォルダー。
 2. 追加、 [*.less](http://www.dotlesscss.org/) NuGet パッケージ**ドット**をプロジェクトにします。  
     ![NuGet ドットなしのインストール](bundling-and-minification/_static/image9.png)
 3. 実装するクラスを追加、 [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイス。 *.Less トランス フォームをプロジェクトに次のコードを追加します。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. 小さいファイルのバンドルを作成、`LessTransform`と[CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx)変換します。 次のコードを追加、`RegisterBundles`メソッドで、*アプリ\_Start\BundleConfig.cs*ファイル。
+4. 小さいファイルのバンドルを作成、`LessTransform`と[CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx)変換します。 次のコードを追加、`RegisterBundles`メソッドで、*アプリ\\開始 (_s)\\BundleConfig.cs*ファイル。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. 小さいバンドルを参照するすべてのビューには、次のコードを追加します。
@@ -228,11 +228,11 @@ IE9 F12 開発者ツールを実行して、以前に読み込まれたページ
 
 バンドルは、必要とするページでパーティション分割する必要があります。 たとえば、既定のインターネット アプリケーションの ASP.NET MVC テンプレート バンドルを作成します jQuery 検証 jQuery は別です。 値を投稿しないで作成された既定のビューが入力があるないため、検証のバンドルが含まれますはありません。
 
-`System.Web.Optimization` System.Web.Optimization.DLL で名前空間を実装します。 Antlr3.Runtime.dll を使用しているかを縮小機能のため、WebGrease ライブラリ (WebGrease.dll) を活用しています。
+`System.Web.Optimization`で名前空間が実装された*System.Web.Optimization.dll*します。 WebGrease ライブラリを利用しています (*WebGrease.dll*) の縮小の機能を順番に使用して*Antlr3.Runtime.dll*します。
 
 *Twitter を使用して簡単な投稿を行い、リンクを共有します。自分の Twitter ハンドルが*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
 - ビデオ:[バンドルと最適化](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing)によって[Howard dierking が](https://twitter.com/#!/howard_dierking)
 - [Web ページ サイトに Web の最適化を追加する](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx)します。

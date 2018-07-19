@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: ef1b226d673d18ec333c35f193dbe6bd21e54225
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2807560484d03122ed68ee3efb49a50e45150e12
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842916"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123802"
 ---
 <a name="ui-and-navigation"></a>UI とナビゲーション
 ====================
@@ -164,7 +164,7 @@ Visual Studio 2013 のプロジェクト テンプレートを使用して、[�
 3. 名前の変更、 *bootstrap.min.css*に*ブートス トラップ original.min.css*します。
 4. **ソリューション エクスプ ローラー**を右クリックし、*コンテンツ*フォルダーと選択**ファイル エクスプ ローラーでフォルダーを開く**します。  
    ファイル エクスプ ローラーが表示されます。 ダウンロードしたブートス トラップ CSS ファイルは、この場所に保存されます。
-5. ブラウザーに移動します。 [ http://Bootswatch.com](http://bootswatch.com/)します。
+5. ブラウザーに移動します。 [ https://bootswatch.com/3/](https://bootswatch.com/3/)します。
 6. Cerulean テーマが表示されるまでは、ブラウザー ウィンドウをスクロールします。 
 
     ![UI とナビゲーション - Cerulean テーマ](ui_and_navigation/_static/image5.png)
