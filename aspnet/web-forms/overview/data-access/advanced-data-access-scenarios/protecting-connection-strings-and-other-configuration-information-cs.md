@@ -28,7 +28,7 @@ ms.locfileid: "37842222"
 
 ASP.NET アプリケーションの構成情報がよくという XML ファイルに格納されている`Web.config`します。 これらのチュートリアルの過程で更新した、`Web.config`いくつかの時間。 作成するときに、`Northwind`で型指定されたデータセット、[最初のチュートリアル](../introduction/creating-a-data-access-layer-cs.md)、たとえば、接続文字列情報を自動的に追加されたに`Web.config`で、`<connectionStrings>`セクション。 後の「、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、手動で更新しました`Web.config`を追加する、`<pages>`要素は、すべてのプロジェクト内の ASP.NET ページを使用することを示す、`DataWebControls`テーマ。
 
-`Web.config` 、接続文字列などの機密データを含めることができますが重要ですがの内容`Web.config`安全で承認されていないビューアーから非表示を保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能は、返す ASP.NET エンジンによって処理されます、*この種類のページが提供されない*図 1 に表示されるメッセージ。 つまり、訪問者を表示できない、 `Web.config` s の内容を入力するだけでファイルhttp://www.YourServer.com/Web.configブラウザーのアドレス バーにします。
+`Web.config` 、接続文字列などの機密データを含めることができますが重要ですがの内容`Web.config`安全で承認されていないビューアーから非表示を保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能は、返す ASP.NET エンジンによって処理されます、*この種類のページが提供されない*図 1 に表示されるメッセージ。 つまり、訪問者を表示できない、 `Web.config` s の内容を入力するだけでファイル http://www.YourServer.com/Web.configブラウザーのアドレス バーにします。
 
 
 [![Web.config で、ブラウザーを返します。 ページのこの型にアクセスして、メッセージは処理されません。](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)

@@ -149,7 +149,7 @@ Azure portal で Azure アカウントにログインします。
 
 ![新しいテーブル](publish-to-azure/_static/image22.png)
 
-Azure にデプロイされている web アプリをテストする準備が整いました。 Azure で web アプリに移動します (などhttp://contosositeexample.azurewebsites.net/)します。 受講者の一覧のリンクをクリックし、受講者の index ビューを表示する必要があります。
+Azure にデプロイされている web アプリをテストする準備が整いました。 Azure で web アプリに移動します (など http://contosositeexample.azurewebsites.net/)します。 受講者の一覧のリンクをクリックし、受講者の index ビューを表示する必要があります。
 
 ![ビュー](publish-to-azure/_static/image23.png)
 

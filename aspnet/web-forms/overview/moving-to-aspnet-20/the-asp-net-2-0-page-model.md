@@ -141,11 +141,11 @@ ASP.NET 2.0 の @ Page ディレクティブのもう 1 つの新しい機能は
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-ページまたはコントロールをアプリケーション相対パスを返します。 たとえば、あるページhttp://app/folder/page.aspxプロパティを返します。 ~/フォルダー/。
+ページまたはコントロールをアプリケーション相対パスを返します。 たとえば、あるページ http://app/folder/page.aspxプロパティを返します。 ~/フォルダー/。
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-ページまたはコントロールには、仮想ディレクトリの相対パスを返します。 あるページなどのhttp://app/folder/page.aspxプロパティを返します。 ~/folder/page.aspx します。
+ページまたはコントロールには、仮想ディレクトリの相対パスを返します。 あるページなどの http://app/folder/page.aspxプロパティを返します。 ~/folder/page.aspx します。
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 

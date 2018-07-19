@@ -52,7 +52,7 @@ Glimpse に関する情報をインストールするには、NuGet パッケー
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Localhost の glimpse に関する情報を有効にします。
 
-移動しますhttp://localhost:&lt; ポート番号&gt;/glimpse.axd し、 <strong>glimpse に関する情報をオンにする</strong>ボタンをクリックします。
+移動します http://localhost:&lt; ポート番号&gt;/glimpse.axd し、 <strong>glimpse に関する情報をオンにする</strong>ボタンをクリックします。
 
 ![Glimpse axd ページ](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 
