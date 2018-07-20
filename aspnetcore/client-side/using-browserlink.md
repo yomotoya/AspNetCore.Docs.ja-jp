@@ -95,7 +95,7 @@ Visual Studio がブラウザー リンクのツール バー コントロール
 
 ![F5 キーを押してドロップダウン メニュー](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-一度に複数のブラウザーを開く、次のように選択します**を参照しています.。** 同じドロップダウン リストから。 ブラウザーを選択して CTRL キーを押しながらクリックして**参照**:
+一度に複数のブラウザーを開く、次のように選択します**を参照しています。。。** 同じドロップダウン リストから。 ブラウザーを選択して CTRL キーを押しながらクリックして**参照**:
 
 ![一度に多くのブラウザーを開く](using-browserlink/_static/open-many-browsers-at-once.png)
 
