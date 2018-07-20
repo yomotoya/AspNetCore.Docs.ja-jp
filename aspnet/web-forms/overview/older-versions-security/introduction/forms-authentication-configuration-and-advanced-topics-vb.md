@@ -164,7 +164,7 @@ Default.aspx に変更を保存し、ブラウザーを使用しを参照して�
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-リンク URL SomePage.aspx が認証チケットに含まれている URL に変換が自動的にコードがまったくを記述する必要があるしませんでした。 Http:// で始まらない任意のハイパーリンクの URL には、フォーム認証チケットが自動的に埋め込まれるまたは/。 Response.Redirect への呼び出しで、ハイパーリンク コントロール、または HTML アンカー要素内にハイパーリンクが表示されるかは関係がありません (つまり、 &lt;、href =「...」&gt;.&lt;/a&gt;)。 URL のようなものでない限り、http://www.someserver.com/SomePage.aspxまたは/SomePage.aspx、フォーム認証チケットは、私たちにとって埋め込まれます。
+リンク URL SomePage.aspx が認証チケットに含まれている URL に変換が自動的にコードがまったくを記述する必要があるしませんでした。 Http:// で始まらない任意のハイパーリンクの URL には、フォーム認証チケットが自動的に埋め込まれるまたは/。 Response.Redirect への呼び出しで、ハイパーリンク コントロール、または HTML アンカー要素内にハイパーリンクが表示されるかは関係がありません (つまり、 &lt;、href =「...」&gt;.&lt;/a&gt;)。 URL のようなものでない限り、 http://www.someserver.com/SomePage.aspx または/SomePage.aspx、フォーム認証チケットは、私たちにとって埋め込まれます。
 
 > [!NOTE]
 > Cookieless フォーム認証チケットは、cookie ベースの認証チケットとして同じタイムアウト ポリシーに準拠します。 ただし、クッキーなしの認証チケットは、認証チケットが URL に直接埋め込まれているために、リプレイ攻撃を受けやすいです。 Web サイトを訪問、ログイン、および同僚に電子メールで URL を貼り付けますユーザーを想像してください。 仕事仲間は、有効期限に達する前にそのリンクをクリックすると、それらとして記録されます電子メールを送信したユーザー。

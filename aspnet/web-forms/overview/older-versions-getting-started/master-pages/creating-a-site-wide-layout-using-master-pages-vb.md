@@ -26,10 +26,10 @@ ms.locfileid: "37827823"
 
 ## <a name="introduction"></a>はじめに
 
-適切に設計された web サイトの 1 つの属性は、サイト全体の一貫性のあるページ レイアウトです。 Www.asp.net web サイトを例にとってみましょう。 この記事の執筆時は、すべてのページには、上部と、ページの下部に同じ内容があります。 図 1 は、各ページの最上部のマイクロソフト コミュニティの一覧が灰色のバーが表示されます。 つまり、サイトのロゴ、先サイトが翻訳済み、言語のコア セクションでは、一覧の下にある: ホーム、概要、説明、ダウンロード、およびなど。 同様に、ページの下部には、www.asp.net、著作権、およびプライバシーに関する声明へのリンク上の広告に関する情報が含まれます。
+適切に設計された web サイトの 1 つの属性は、サイト全体の一貫性のあるページ レイアウトです。 www.asp.net web サイトを例にとってみましょう。 この記事の執筆時は、すべてのページには、上部と、ページの下部に同じ内容があります。 図 1 は、各ページの最上部のマイクロソフト コミュニティの一覧が灰色のバーが表示されます。 つまり、サイトのロゴ、先サイトが翻訳済み、言語のコア セクションでは、一覧の下にある: ホーム、概要、説明、ダウンロード、およびなど。 同様に、ページの下部には、www.asp.net、著作権、およびプライバシーに関する声明へのリンク上の広告に関する情報が含まれます。
 
 
-[![Www.asp.net web サイトは、すべてのページにわたって一貫したルック アンド フィールを採用しています](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
+[![www.asp.net web サイトは、すべてのページにわたって一貫したルック アンド フィールを採用しています](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
 
 <strong>図 01</strong>: 一貫性のある検索とすべてのページ間で感じる www.asp.net web サイトを採用しています ([フルサイズの画像を表示する をクリックします](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))。
 

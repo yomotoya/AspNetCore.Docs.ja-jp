@@ -24,4 +24,4 @@ ms.locfileid: "37836711"
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/additional-methods.min.js
-- あるファイルをローカライズhttps://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/localization/messages\_##.js場所 ## loc コードに示します。
+- あるファイルをローカライズ https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/localization/messages\_##.js場所 ## loc コードに示します。
