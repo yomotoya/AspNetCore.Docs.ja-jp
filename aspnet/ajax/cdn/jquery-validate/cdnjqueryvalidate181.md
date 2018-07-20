@@ -15,13 +15,13 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37836553"
 ---
-<a name="jqueryvalidate-version-181"></a><span data-ttu-id="499d3-102">jquery.validate バージョン 1.8.1</span><span class="sxs-lookup"><span data-stu-id="499d3-102">jquery.validate version 1.8.1</span></span>
+<a name="jqueryvalidate-version-181"></a><span data-ttu-id="f7bca-102">jquery.validate バージョン 1.8.1</span><span class="sxs-lookup"><span data-stu-id="f7bca-102">jquery.validate version 1.8.1</span></span>
 ====================
-<span data-ttu-id="499d3-103">次のファイルは、CDN にホストされます。</span><span class="sxs-lookup"><span data-stu-id="499d3-103">The following files are hosted on the CDN:</span></span>
+<span data-ttu-id="f7bca-103">次のファイルは、CDN にホストされます。</span><span class="sxs-lookup"><span data-stu-id="f7bca-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/additional-methods.min.js
-- <span data-ttu-id="499d3-104">あるファイルをローカライズhttps://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/localization/messages\_##.js場所 ## loc コードに示します。</span><span class="sxs-lookup"><span data-stu-id="499d3-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/localization/messages\_##.js where ## is the loc code.</span></span>
+- <span data-ttu-id="f7bca-104">あるファイルをローカライズ https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/localization/messages\_##.js場所 ## loc コードに示します。</span><span class="sxs-lookup"><span data-stu-id="f7bca-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/localization/messages\_##.js where ## is the loc code.</span></span>

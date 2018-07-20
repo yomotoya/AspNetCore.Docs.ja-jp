@@ -15,12 +15,12 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37817870"
 ---
-<a name="jquery-validation-1151"></a><span data-ttu-id="69889-102">jQuery Validation 1.15.1</span><span class="sxs-lookup"><span data-stu-id="69889-102">jQuery Validation 1.15.1</span></span>
+<a name="jquery-validation-1151"></a><span data-ttu-id="8288b-102">jQuery Validation 1.15.1</span><span class="sxs-lookup"><span data-stu-id="8288b-102">jQuery Validation 1.15.1</span></span>
 ====================
-<span data-ttu-id="69889-103">次のファイルは、CDN にホストされます。</span><span class="sxs-lookup"><span data-stu-id="69889-103">The following files are hosted on the CDN:</span></span>
+<span data-ttu-id="8288b-103">次のファイルは、CDN にホストされます。</span><span class="sxs-lookup"><span data-stu-id="8288b-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/additional-methods.min.js
-- <span data-ttu-id="69889-104">あるファイルをローカライズhttps://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/localization/messages\_##.js場所 ## loc コードに示します。</span><span class="sxs-lookup"><span data-stu-id="69889-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/localization/messages\_##.js where ## is the loc code.</span></span>
+- <span data-ttu-id="8288b-104">あるファイルをローカライズ https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/localization/messages\_##.js 場所 ## loc コードに示します。</span><span class="sxs-lookup"><span data-stu-id="8288b-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.1/localization/messages\_##.js where ## is the loc code.</span></span>
