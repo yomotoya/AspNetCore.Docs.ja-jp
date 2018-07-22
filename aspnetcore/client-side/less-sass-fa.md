@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core における Less、Sass、および Font Awesome
 author: ardalis
-description: Sass、およびフォント優れた小さい ASP.NET Core アプリケーションで使用する方法を説明します。
+description: ASP.NET Core アプリケーションで Less、Sass、および Font Awesome を使用する方法を説明します。
 ms.author: tdykstra
 ms.date: 10/14/2016
 uid: client-side/less-sass-fa
@@ -16,7 +16,7 @@ ms.locfileid: "36275566"
 
 作成者: [Steve Smith](https://ardalis.com/)
 
-Web アプリケーションのユーザーには、スタイルを設定し、全体的なエクスペリエンスがますます高期待があります。 最新の web アプリケーションは、豊富なツール、フレームワークの定義および一貫した方法で、ルック アンド フィールを管理するために頻繁に活用します。 ようなフレームワーク[ブートス トラップ](http://getbootstrap.com/)共通スタイルと web サイトのレイアウト オプションのセットを定義するために効果的に進むことができます。 ただし、ほとんどの重要なサイトも恩恵を効果的に定義およびスタイルおよびカスケード スタイル シート (CSS) ファイルでは、管理を行うことだけでなく、サイトのインターフェイスのより直観的なを支援するアイコンの画像以外に簡単にアクセスできること。 ような場合は言語とツールをサポートする[小さい](http://lesscss.org/)と[Sass](http://sass-lang.com/)などのライブラリおよび[フォント優れた](http://fontawesome.io/)付属します。
+Web アプリケーションのユーザーには、スタイルを設定し、全体的なエクスペリエンスがますます高期待があります。 最新の web アプリケーションは、豊富なツール、フレームワークの定義および一貫した方法で、ルック アンド フィールを管理するために頻繁に活用します。 [Bootstrap](http://getbootstrap.com/) のようなフレームワークを使用すると web サイトのスタイルとレイアウトオプションの共通セットの定義を効果的に進めることができます。 ただし、ほとんどの重要なサイトも恩恵を効果的に定義およびスタイルおよびカスケード スタイル シート (CSS) ファイルでは、管理を行うことだけでなく、サイトのインターフェイスのより直観的なを支援するアイコンの画像以外に簡単にアクセスできること。 そのような場合で、[Less](http://lesscss.org/) と [Sass](http://sass-lang.com/)、そして [Font Awesome](http://fontawesome.io/) のようなライブラリをサポートする言語とツールが役に立ちます。
 
 ## <a name="css-preprocessor-languages"></a>CSS プリプロセッサ言語
 
