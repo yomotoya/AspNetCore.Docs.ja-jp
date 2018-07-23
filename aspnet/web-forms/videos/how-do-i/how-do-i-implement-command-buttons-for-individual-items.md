@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37815935"
 ---
-<a name="how-do-i-implement-command-buttons-for-individual-items"></a>[How Do i:]個々 のアイテムのコマンド ボタンを実装します。
+<a name="how-do-i-implement-command-buttons-for-individual-items"></a>[How Do i:]個々 のアイテムのコマンド ボタンを実装します
 ====================
 によって[Chris Pels](https://twitter.com/chrispels)
 

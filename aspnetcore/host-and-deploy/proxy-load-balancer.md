@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/26/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: b04219803477c9dc1c25077cde117fc629f8b6fb
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 6b24dd4b4b400625a9dcb647dbbac1d8bd0f7a6a
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938499"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095776"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する
 
@@ -259,4 +259,5 @@ X-Forwarded-For が処理される前に、要求の元のリモート IP アド
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-[Microsoft セキュリティ アドバイザリ CVE-2018-0787: ASP.NET Core の特権の昇格脆弱性](https://github.com/aspnet/Announcements/issues/295)
+* <xref:host-and-deploy/web-farm>
+* [Microsoft セキュリティ アドバイザリ CVE-2018-0787: ASP.NET Core の特権の昇格脆弱性](https://github.com/aspnet/Announcements/issues/295)

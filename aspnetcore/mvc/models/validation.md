@@ -1,16 +1,16 @@
 ---
 title: ASP.NET Core MVC でのモデルの検証
-author: rachelappel
+author: tdykstra
 description: ASP.NET Core MVC でのモデルの検証について説明します。
 ms.author: riande
 ms.date: 12/18/2016
 uid: mvc/models/validation
-ms.openlocfilehash: 19202ffce2ce5394824b401780ce750ef7852bf7
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278893"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095828"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 

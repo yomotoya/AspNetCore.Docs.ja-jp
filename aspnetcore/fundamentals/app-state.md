@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 9c63d9313acb055e6c692a7fef3d28e94cb37093
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 072699113a45056ec3ea79436ad56896ba0a4197
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272884"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095815"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -36,7 +36,7 @@ HTTP はステートレス プロトコルです。 手順を追加しないと�
 | [キャッシュ](#cache) | サーバー側アプリ コード |
 | [依存性の注入](#dependency-injection) | サーバー側アプリ コード |
 
-## <a name="cookies"></a>Cookie
+## <a name="cookies"></a>クッキー
 
 Cookie は、要求と要求の間でデータを格納します。 Cookie は要求ごとに送信されるために、そのサイズは最小に抑える必要があります。 理想的には、識別子だけを Cookie に格納し、データはアプリで格納します。 ほとんどのブラウザーで Cookie のサイズは 4096 バイトに制限されています。 ドメインごとに使用できる Cookie の数も制限されています。
 
@@ -441,3 +441,7 @@ app.Run(async (context) =>
   たとえば、ユーザーがセッションでショッピング カートを格納します。 ユーザーはアイテムをカートに追加しますが、コミットが失敗します。 アプリはこの失敗を認識しないので、アイテムがカートに追加されたことをユーザーに伝えますが、これは正しくありません。
 
   エラーを確認するための推奨される方法は、アプリがセッションへの書き込みを終了したら、アプリ コードから `await feature.Session.CommitAsync();` を呼び出すことです。 バッキング ストアが利用できない場合、`CommitAsync` は例外をスローします。 `CommitAsync` が失敗した場合、アプリは例外を処理できます。 `LoadAsync` は、データ ストアが利用できない場合に同じ条件で例外をスローします。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+<xref:host-and-deploy/web-farm>

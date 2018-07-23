@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/sql-2005/what-is-a-database
-title: データベースとは何ですか。 | Microsoft Docs
+title: データベースとは何ですか | Microsoft Docs
 author: microsoft
 description: この概要は、質問を取り上げています、用語の SQL Server の初心者を作成およびなど、データベースを管理する必要があります SQL Server データベースとは何ですか?。 どう。。。
 ms.author: aspnetcontent
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37822730"
 ---
-<a name="what-is-a-database"></a>データベースとは何ですか。
+<a name="what-is-a-database"></a>データベースとは何ですか
 ====================
 によって[Microsoft](https://github.com/microsoft)
 

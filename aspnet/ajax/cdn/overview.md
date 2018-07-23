@@ -1056,7 +1056,7 @@ Datatable の jQuery プラグインの次のリリースは、この CDN でホ
 
 ### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>Cdn のブートス トラップ TouchCarousel リリース
 
-次のリリースの[ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ")ブートス トラップ TouchCarousel リリースは、CDN でホストされています。
+次のリリースの[https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel")ブートス トラップ TouchCarousel リリースは、CDN でホストされています。
 
 #### <a name="bootstrap-touchcarousel-version-080"></a>ブートス トラップ TouchCarousel バージョン 0.8.0 以降
 
@@ -1067,7 +1067,7 @@ Datatable の jQuery プラグインの次のリリースは、この CDN でホ
 
 ### <a name="hammerjs-releases-on-the-cdn"></a>Cdn Hammer.js リリース
 
-次のリリースの[ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js リリースは、CDN でホストされています。
+次のリリースの[http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js リリースは、CDN でホストされています。
 
 #### <a name="hammerjs-version-204"></a>Hammer.js バージョン 2.0.4
 
