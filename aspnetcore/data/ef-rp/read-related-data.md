@@ -5,12 +5,12 @@ description: このチュートリアルでは、関連データ (Entity Framewo
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: fa3147cc4ad121784911eef802e04ca91f16448f
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063313"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202680"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -168,7 +168,7 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 
 *Pages/Instructors/Index.cshtml.cs* を次のコードで置き換えます。
 
-[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,18-99)]
 
 `OnGetAsync` メソッドは、選択したインストラクターの ID の任意のルート データを受け取ります。
 
@@ -298,7 +298,7 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 
 `Single` メソッドは、`Where` メソッドを別に呼び出す代わりに、`Where` 条件で渡すことができます。
 
-[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21-22,30-31)]
 
 上記の `Single` アプローチでは、`Where` を使用すること以上のメリットは提供されません。 一部の開発者は、`Single` アプローチ スタイルを選択します。
 

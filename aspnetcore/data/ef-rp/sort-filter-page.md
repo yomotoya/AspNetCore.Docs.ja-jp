@@ -5,12 +5,12 @@ description: このチュートリアルでは、ASP.NET Core および Entity F
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
-ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
+ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146898"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202615"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
@@ -263,8 +263,6 @@ http://localhost:5000/Students?SearchString=an
 [!code-csharp[](intro/samples/cu21/Pages/About.cshtml.cs)]
 
 LINQ ステートメントは、登録日で受講者エンティティをグループ化し、各グループ内のエンティティの数を計算して、結果を `EnrollmentDateGroup` ビュー モデル オブジェクトのコレクションに格納します。
-
-注: LINQ `group` は、EF Core で現在サポートされていないコマンドです。 前のコードで、SQL Server から受講者のすべてのレコードが返されます。 `group` コマンドは、SQL Server ではなく Razor Pages アプリで適用されます。 EF Core 2.1 は、この LINQ `group` 演算子をサポートし、グループ化が SQL Server で実行されます。 「[Relational: Support translating GroupBy() to SQL](https://github.com/aspnet/EntityFrameworkCore/issues/2341)」(リレーショナル: GroupBy() の SQL への翻訳のサポート) を参照してください。 [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) は、.NET Core 2.1 でリリースされます。 詳細については、「[.NET Core ロードマップ](https://github.com/dotnet/core/blob/master/roadmap.md)」ページを参照してください。
 
 ### <a name="modify-the-about-razor-page"></a>About Razor Page ページを変更します。
 
