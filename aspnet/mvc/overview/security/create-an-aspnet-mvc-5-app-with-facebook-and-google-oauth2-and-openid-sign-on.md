@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 6af4990f726bfcd0c45eb6991418661f9b8ccbf6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f36b73aac2e7844367e1e52b2c721bfe6b3575e2
+ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824707"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138520"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn、Google の OAuth2 サインオン (c#) で ASP.NET MVC 5 アプリを作成します。
 ====================
@@ -162,55 +162,6 @@ Google や Facebook などの認証プロバイダーに接続するには SSL �
 > [!WARNING]
 > 現在の Facebook OAuth2 認証の手順では、次を参照してください[構成の Facebook 認証。](/aspnet/core/security/authentication/social/facebook-logins)
 
-Facebook の OAuth2 認証の場合は、Facebook で作成したアプリケーションから一部の設定をプロジェクトにコピーする必要があります。
-
-1. ブラウザーに移動します。 [ https://developers.facebook.com/apps ](https://developers.facebook.com/apps) Facebook の資格情報を入力してログインします。
-2. まだ、Facebook 開発者として登録されていない場合はクリックして**開発者として登録**を登録する指示に従います。
-3. **アプリ**] タブで [ **Create New App**します。
-
-    ![新しいアプリを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
-4. 入力、**アプリ名**と**カテゴリ**、 をクリックし、**アプリの作成**。
-
-    <strong>アプリ Namespace</strong>は、アプリが認証に Facebook アプリケーションへのアクセスに使用する URL の一部です (たとえば、https\://apps.facebook.com/{App Namespace})。 指定しない場合、<strong>アプリ Namespace</strong>、<strong>アプリ ID</strong> URL に使用します。 <strong>アプリ ID</strong>はシステムによって生成された時間の数が次の手順で表示されます。
-
-    ![新しいアプリのダイアログを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
-5. 標準的なセキュリティ チェックを送信します。
-
-    ![セキュリティ チェック](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image24.png)
-6. 選択**設定**左側のメニュー バーの![Facebook 開発者のメニュー バー](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image25.png)
-7. **基本的な**ページの設定 セクションを選択**プラットフォームの追加**web サイト アプリケーションを追加することを指定します。 ![基本設定](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image26.png)
-8. 選択**web サイト**プラットフォームの選択肢から。  
-  
-    ![プラットフォームの選択肢](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image27.png)
-9. メモしておきます、**アプリ ID**と**アプリ シークレット**両方を MVC アプリケーションに、このチュートリアルの後半で追加できるようにします。 また、サイトの URL を追加 (`https://localhost:44300/`)、MVC アプリケーションをテストします。 また、追加、 **Contact Email**します。 次に、選択**変更の保存**します。   
-
-    ![基本的なアプリケーションの詳細ページ](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image28.png)
-
-    > [!NOTE]
-    > 登録した電子メール エイリアスを使用して認証のみすることに注意してください。 他のユーザーとテスト用のアカウントを登録することができなきます。 その他の Facebook アカウント、Facebook 上のアプリケーションへのアクセスを付与する**開発者ロール**タブ。
-10. Visual Studio で開く*アプリ\_Start\Startup.Auth.cs*します。
-11. コピーして貼り付け、 **AppId**と**アプリ シークレット**に、`UseFacebookAuthentication`メソッド。 **AppId**と**アプリ シークレット**の下に表示される値のサンプルし、は機能しません。
-
-    [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample3.cs?highlight=33-35,38-39)]
-12. クリックして**変更を保存**します。
-13. キーを押して**CTRL + F5**アプリケーションを実行します。
-
-
-選択**ログイン**ログイン ページを表示します。 クリックして**Facebook** **別のサービスを使用してログインします。**
-
-Facebook の資格情報を入力します。
-
-![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image29.png)
-
-パブリック プロファイルや友達リストにアクセスするアプリケーションのアクセス許可を付与するように促されます。
-
-![Facebook アプリの詳細](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image30.png)
-
-ログインしているようになりました。 アプリケーションでこのアカウントを登録できます。
-
-![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image31.png)
-
-エントリを追加登録するときに、*ユーザー*メンバーシップ データベースのテーブル。
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>メンバーシップ データを調べる

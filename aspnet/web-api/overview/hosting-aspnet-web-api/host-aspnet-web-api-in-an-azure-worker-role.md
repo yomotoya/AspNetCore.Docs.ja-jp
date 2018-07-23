@@ -156,7 +156,7 @@ Azure アカウントにサインインしていない場合はクリックし�
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 
-Azure アクティビティ ログ ウィンドウには、展開の進行状況が表示されます。 アプリが展開されると、参照http://appname.cloudapp.net/test/1します。
+Azure アクティビティ ログ ウィンドウには、展開の進行状況が表示されます。 アプリが展開されると、参照 http://appname.cloudapp.net/test/1 します。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image21.png)
 

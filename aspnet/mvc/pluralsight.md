@@ -8,12 +8,12 @@ ms.date: 03/09/2011
 ms.assetid: 87612fe1-258c-4f50-88d8-c3047dec3f14
 msc.legacyurl: /mvc/pluralsight
 msc.type: content
-ms.openlocfilehash: 95b1a38a6842f0ed46568757d0420a57ee2a3c63
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 41c83b9a348fec1ac73b005ffec466ecf37abb24
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817243"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182617"
 ---
 <a name="mvc-video-training-from-pluralsight"></a>Pluralsight の MVC ビデオ トレーニング
 ====================
@@ -28,14 +28,13 @@ ms.locfileid: "37817243"
 - [SignalR](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m7-signalr&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
 - [Web Developer Tools と Visual Studio 2013](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m8-visualstudio&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
 
-
-"この MVC 5 コースの Pluralsight の K. Scott Allen によって記録されたは、ASP.NET MVC の最新リリースにすばやくいくを取得する優れた手段を提供します。 Scott のプレゼンテーションのスタイルは簡単に理解して、技術的には説得力のあるコース形式、ビデオ プレーヤー、および全体的なパターンは非常に優れた. さらに – MVC 5 を今すぐ学習する言い訳は通用しませんので、無料です。"
-
-Scott Guthrie、エグゼクティブ バイス プレジデント、マイクロソフトのクラウドおよびエンタープライズのグループ、Microsoft
-
+> Pluralsight の K. Scott Allen によって記録されたこの MVC 5 コースでは、ASP.NET MVC の最新リリースにすばやくいくを取得する優れた手段を提供します。 Scott のプレゼンテーションのスタイルは簡単に理解して、技術的には説得力のあるコース形式、ビデオ プレーヤー、および全体的なパターンは非常に優れた. さらに – MVC 5 を今すぐ学習する言い訳は通用しませんので、無料です。
+>
+> &mdash;Scott Guthrie、エグゼクティブ バイス プレジデント、マイクロソフトのクラウドおよびエンタープライズのグループ、Microsoft
 
 ![pluralsight のロゴ-playbutton](pluralsight/_static/image1.png)
 
-3,000 + dev へのアクセスのロックを解除 IT と、いつでもどこに監視できるクリエイティブなコース
+3,000 + dev へのアクセスをロック解除、IT とクリエイティブなコースをいつでも、どこで見ることができます。
 
-**$ 29/売り上げから始まる**[無料試用版を開始](https://pluralsight.com/microsoft/OLT/subscribe/Subscribe1.aspx?freetrial=true&planHint=Monthly&utm_source=microsoft&utm_medium=sponsored-page&utm_content=aspdotnet-mvc5-fundamentals&utm_campaign=microsoft-sponsored-course)[今すぐ購読](https://pluralsight.com/microsoft/olt/subscriptions.aspx?utm_source=microsoft&utm_medium=sponsored-page&utm_content=aspdotnet-mvc5-fundamentals&utm_campaign=microsoft-sponsored-course)
+* [ASP.NET MVC 5 の基礎](https://www.pluralsight.com/courses/aspdotnet-mvc5-fundamentals)
+* [Pluralsight の価格とプラン](https://www.pluralsight.com/pricing)

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/30/2018
 uid: signalr/configuration
-ms.openlocfilehash: fac0226c939f4cf446c876b1c0b359d6c5b9dfd3
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f5a345795f17dafd482e359e77a151d5b0a15688
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095403"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182591"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR の構成
 
@@ -62,7 +62,7 @@ var connection = new HubConnectionBuilder()
 
 | オプション | 説明 |
 | ------ | ----------- |
-| `HandshakeTimeout` | クライアントがこの時間間隔内で最初のハンドシェイク メッセージを送信しない場合、接続は閉じられます。 |
+| `HandshakeTimeout` | クライアントがこの時間間隔内で最初のハンドシェイク メッセージを送信しない場合、接続は閉じられます。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
 | `KeepAliveInterval` | サーバーがこの間隔内でメッセージを送信していない場合、接続を開いたままに ping メッセージが自動的に送信されます。 |
 | `SupportedProtocols` | このハブでサポートされるプロトコル。 既定では、サーバーに登録されているプロトコルをすべて許可されますが、プロトコルは、個々 のハブに対する特定のプロトコルを無効にするには、この一覧から削除できます。 |
 | `EnableDetailedErrors` | 場合`true`詳細のハブ メソッドで例外がスローされたときに、例外メッセージがクライアントに返されます。 既定値は`false`、これらの例外メッセージは、機密情報を含めることができます。 |
@@ -216,10 +216,10 @@ let connection = new signalR.HubConnectionBuilder()
 
 | .NET オプション | JavaScript のオプション | 説明 |
 | ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | サーバーの利用状況のタイムアウト。 サーバーは、この間隔ですべてのメッセージを送信していない、クライアントと見なされ、サーバーが切断されているトリガー、`Closed`イベント (`onclose` JavaScript で)。 |
-| `HandshakeTimeout` | 構成できません。 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル、ハンドシェイクとトリガー、`Closed`イベント (`onclose` JavaScript で)。 |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | サーバーの利用状況のタイムアウト。 サーバーは、この間隔でメッセージを送信していない、クライアントと見なされ、サーバーが切断されているトリガー、`Closed`イベント (`onclose` JavaScript で)。 |
+| `HandshakeTimeout` | 構成できません。 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`Closed`イベント (`onclose` JavaScript で)。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
 
-として、.NET クライアントでタイムアウト値が指定された`TimeSpan`値。 JavaScript クライアントでタイムアウト値は数値として指定します。 数値は、時刻の値 (ミリ秒単位) を表します。
+として、.NET クライアントでタイムアウト値が指定された`TimeSpan`値。 JavaScript クライアントでは、タイムアウト値は、期間 (ミリ秒) を示す数値として指定されます。
 
 ### <a name="configure-additional-options"></a>追加のオプションを構成します。
 
