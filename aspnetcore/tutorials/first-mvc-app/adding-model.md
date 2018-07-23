@@ -56,7 +56,7 @@ ms.locfileid: "36960669"
 **[コントローラーの追加]** ダイアログ ボックスを完了します。
 
 * **[Model class]\(モデル クラス\):** *Movie (MvcMovie.Models)*
-* **[Data context class]\(データ コンテキスト クラス\):****+** アイコンを選択し、既定の **MvcMovie.Models.MvcMovieContext** を追加します。
+* **[Data context class]** \(データ コンテキスト クラス\): **+** アイコンを選択し、既定の **MvcMovie.Models.MvcMovieContext** を追加します。
 
 ![[データの追加] コンテキスト](adding-model/_static/dc.png)
 

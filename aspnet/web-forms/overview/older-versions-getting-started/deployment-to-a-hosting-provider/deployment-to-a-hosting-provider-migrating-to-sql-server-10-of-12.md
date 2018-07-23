@@ -364,7 +364,7 @@ Cytanium コントロール パネルに移動して[ http://panel.cytanium.com]
 
 クリックして**インポート**、先ほどダウンロードした .publishsettings ファイルを選択します。
 
-**接続** タブで、変更、**送信先 URL**この例では、一時的な URL が正しいにhttp://contosouniversity.com.vserver01.cytanium.comします。
+**接続** タブで、変更、**送信先 URL**この例では、一時的な URL が正しいに http://contosouniversity.com.vserver01.cytanium.com します。
 
 運用環境に、プロファイルの名前を変更します。 (選択、**プロファイル** タブでをクリックし、**プロファイルの管理**そのために)。
 
