@@ -5,15 +5,13 @@ description: このチュートリアルでは、複数のユーザーが同じ�
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38150484"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202693"
 ---
-en-us/
-
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - 同時実行 - 8/8
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)
@@ -54,17 +52,21 @@ John が Edit ページの **[保存]** をクリックします。このとき�
 
 * ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新します。
 
-  このシナリオでは、データは失われません。 2 人のユーザーが別のプロパティを更新しました。 今度誰かが English 部署を閲覧すると、Jane の変更と John の変更が両方とも表示されます。 この更新方法では、データが失われる原因となる競合の数を減らすことができます。 このアプローチでは、次が可能です。* 競合する変更が同じプロパティに加えられた場合、データの損失を回避することはできません。
-        * Web アプリでは、一般的に実用的ではありません。 フェッチされたすべての値と新しい値を追跡するために、かなりのステータスを維持することが必要になります。 大量のステータスを保守管理することになると、アプリケーションのパフォーマンスに影響が出ます。
-        * エンティティでの同時実行の検出と比較して、アプリは複雑になります。
+  このシナリオでは、データは失われません。 2 人のユーザーが別のプロパティを更新しました。 今度誰かが English 部署を閲覧すると、Jane の変更と John の変更が両方とも表示されます。 この更新方法では、データが失われる原因となる競合の数を減らすことができます。 この方法の特徴は次のとおりです。
+ 
+  * 競合する変更が同じプロパティに加えられた場合、データの損失を回避することはできません。
+  * Web アプリでは、一般的に実用的ではありません。 フェッチされたすべての値と新しい値を追跡するために、かなりのステータスを維持することが必要になります。 大量のステータスを保守管理することになると、アプリケーションのパフォーマンスに影響が出ます。
+  * エンティティでの同時実行の検出と比較して、アプリは複雑になります。
 
 * John の変更で Jane の変更を上書きするように指定できます。
 
   今度誰かが English 部署を閲覧すると、9/1/2013 の日付と、フェッチされた $350,000.00 の値が表示されます。 このアプローチは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントからの値がすべて、データ ストアの値より優先されます。)同時実行処理に対してコーディングを行わない場合、自動的にクライアント側に合わせられます。
 
-* データベースで John の変更が更新されないようにできます。 通常、アプリでは次が発生します。* エラー メッセージが表示されます。
-        * データの現在のステータスが表示されます。
-        * ユーザーが変更を再適用できるようになります。
+* データベースで John の変更が更新されないようにできます。 通常、アプリの動作は次のようになります。
+
+  * エラー メッセージが表示されます。
+  * データの現在のステータスが表示されます。
+  * ユーザーが変更を再適用できるようになります。
 
   これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)このチュートリアルでは、Store Wins シナリオを実装します。 この手法では、変更が上書きされるとき、それが必ずユーザーに警告されます。
 
@@ -144,7 +146,7 @@ dotnet ef database update
 * *Migrations/{time stamp}_RowVersion.cs* 移行ファイルが追加されます。
 * *Migrations/SchoolContextModelSnapshot.cs* ファイルが更新されます。 更新により、次の強調表示されたコードが `BuildModel` メソッドに追加されます。
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * データベースを更新するために移行が実行されます。
 

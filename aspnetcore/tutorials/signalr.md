@@ -1,22 +1,20 @@
 ---
 title: ASP.NET Core の SignalR 概要
-author: rachelappel
+author: tdykstra
 description: このチュートリアルでは、ASP.NET Core の SignalR を使用してアプリを作成します。
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6b8222ee04573ca7157b4e1125ed5a4453b2b9a9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 83be28b30cf06eeea37e8d76b3f6444ffd9a10e8
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830556"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095492"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR 概要
-
-作成者: [Rachel Appel](https://twitter.com/rachelappel)
 
 このチュートリアルでは、ASP.NET Core の SignalR を使用してリアルタイム アプリをビルドするための基本について説明します。
 
@@ -39,14 +37,14 @@ ms.locfileid: "37830556"
 
 * [.NET Core SDK 2.1 以降](https://www.microsoft.com/net/download/all)
 * **ASP.NET および Web 開発**ワークロードを含む [Visual Studio 2017](https://www.visualstudio.com/downloads/) バージョン 15.7.3 以降
-* [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm) (Node.js のパッケージ マネージャー)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [.NET Core SDK 2.1 以降](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Visual Studio Code 用 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm) (Node.js のパッケージ マネージャー)
 
 -----
 
@@ -71,7 +69,7 @@ Visual Studio には、その **ASP.NET Core Web アプリケーション** テ�
     npm install @aspnet/signalr
     ```
 
-4. プロジェクトの *lib* フォルダー内に "signalr" という名前のフォルダーを新しく作成します。 *node_modules\\@aspnet\signalr\dist\browser* からこのフォルダーに *signalr.js* ファイルをコピーします。
+4. プロジェクトの *wwwroot/lib* フォルダー内に "signalr" という名前のフォルダーを新しく作成します。 *node_modules\\@aspnet\signalr\dist\browser* からこのフォルダーに *signalr.js* ファイルをコピーします。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 

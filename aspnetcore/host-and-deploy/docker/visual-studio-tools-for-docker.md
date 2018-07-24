@@ -4,14 +4,14 @@ author: spboyer
 description: Visual Studio 2017 ツールと Docker for Windows を使用して、ASP.NET Core アプリをコンテナー化する方法を説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/12/2017
+ms.date: 07/18/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: fd485416ff0fab2508ab8ffd3f0ad309be338723
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: afa7b05820ba021c50d9c23804095f7edd8b71f1
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276855"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146885"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker と ASP.NET Core
 
@@ -43,7 +43,7 @@ ASP.NET Core プロジェクトに Docker のサポートを追加するには�
 
 **ASP.NET Core Web アプリケーション** プロジェクト テンプレートを使用して新しいアプリを作成する場合は、次のように **[Enable Docker Support]\(Docker サポートを有効にする\)** チェック ボックスをオンにします。
 
-![[Enable Docker Support]\(Docker サポートを有効にする\) チェック ボックス](visual-studio-tools-for-docker/_static/enable-docker-support-checkbox.png)
+![[Enable Docker Support]\(Docker サポートを有効にする\) チェック ボックス](visual-studio-tools-for-docker/_static/enable-docker-support-check box.png)
 
 ターゲット フレームワークが .NET Core の場合、**[OS]** ドロップダウンでコンテナーの種類を選択できます。
 
@@ -56,7 +56,7 @@ Visual Studio Tools for Docker では、.NET Framework をターゲットとす�
 
 ## <a name="docker-assets-overview"></a>Docker 資産の概要
 
-Visual Studio Tools for Docker は、ソリューションに *docker-compose* プロジェクトを追加します。以下のものを含みます。
+Visual Studio Tools for Docker は、ソリューションに *docker-compose* プロジェクトを追加します。以下のファイルが含まれます。
 
 * *.dockerignore*: ビルド コンテキストを生成するときに除外するファイルとディレクトリのパターンの一覧が含まれています。
 * *docker-compose.yml*: `docker-compose build` と `docker-compose run` を使用してビルドされ実行されるイメージのコレクションを定義するために使用されるベースとなる [Docker Compose](https://docs.docker.com/compose/overview/) ファイル。
@@ -85,7 +85,7 @@ Visual Studio Tools for Docker は、ソリューションに *docker-compose* �
 * *ASPNETCORE_ENVIRONMENT* 環境変数は、コンテナー内で `Development` に設定されます。
 * ポート 80 が公開され、localhost 用に動的に割り当てられているポートにマップされます。 このポートは、Docker ホストによって決定され、`docker ps` コマンドでクエリを実行することができます。
 * アプリがコンテナーにコピーされます。
-* 動的に割り当てられたポートを使用して、デバッガーがコンテナーにアタッチされ、既定のブラウザーが起動します。 
+* 動的に割り当てられたポートを使用して、デバッガーがコンテナーにアタッチされ、既定のブラウザーが起動します。
 
 結果の Docker イメージは *microsoft/aspnetcore* イメージをベース イメージとする、アプリの *dev* イメージです。 **パッケージ マネージャー コンソール** (PMC) ウィンドウで `docker images` コマンドを実行します。 コンピューター上のイメージが表示されます。
 
@@ -109,9 +109,9 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   21 seconds 
 
 ## <a name="edit-and-continue"></a>エディット コンティニュ
 
-静的なファイルや Razor ビューに対する変更は、コンパイルを行う必要はなく、自動的に更新されます。 変更を行って保存し、ブラウザーを更新し、更新を確認します。  
+静的なファイルや Razor ビューに対する変更は、コンパイルを行う必要はなく、自動的に更新されます。 変更を行って保存し、ブラウザーを更新し、更新を確認します。
 
-コード ファイルを変更した場合、コンパイルを行い、コンテナー内で Kestrel を再起動する必要があります。 変更後、CTRL キーを押しながら F5 キーを使用して、プロセスを実行して、コンテナー内でアプリを起動します。 Docker コンテナーが再構築されたり、停止されたりすることはありません。 PMC で `docker ps` コマンドを実行します。 元のコンテナーが 10 分前と同じ状態で実行されていることを確認できます。
+コード ファイルを変更する場合、コンテナー内で Kestrel をコンパイルして再起動する必要があります。 変更したら、`CTRL+F5` キーを使用して、コンテナー内でプロセスを実行し、アプリを起動します。 Docker コンテナーが再構築されたり、停止されたりすることはありません。 PMC で `docker ps` コマンドを実行します。 元のコンテナーが 10 分前と同じ状態で実行されていることを確認できます。
 
 ```console
 CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
@@ -120,7 +120,7 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   10 minutes 
 
 ## <a name="publish-docker-images"></a>Docker イメージの発行
 
-アプリの開発とデバッグのサイクルが完了したら、Visual Studio Tools for Docker でアプリの実稼働イメージを作成できます。 構成ドロップダウンを **[リリース]** に変更し、アプリを構築します。 このツールにより、イメージが、プライベート レジストリまたは Docker Hub にプッシュできる *latest* タグ付きで生成されます。 
+アプリの開発とデバッグのサイクルが完了したら、Visual Studio Tools for Docker でアプリの実稼働イメージを作成できます。 構成ドロップダウンを **[リリース]** に変更し、アプリを構築します。 このツールにより、イメージが、プライベート レジストリまたは Docker Hub にプッシュできる *latest* タグ付きで生成されます。
 
 PMC で `docker images` コマンドを実行して、次のようにイメージの一覧を表示します。
 
@@ -136,3 +136,8 @@ microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours 
 > `docker images` コマンドは、*\<none>* として識別されるリポジトリ名とタグを持つ中間イメージを返します (上にはリストされていません)。 これらの名前のないイメージは、[multi-stage build](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *Dockerfile* によって生成されます。 これにより、最終イメージの構築効率が向上します&mdash;変更時には必要なレイヤーのみが再構築されます。 中間イメージが不要になった場合は、[docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) コマンドを使用して削除します。
 
 *dev* イメージと比較した場合、実稼働またはリリース イメージはサイズが小さいと思うかもしれません。 ボリューム マッピングにより、デバッガーとアプリは、コンテナー内ではなく、ローカル コンピューターから実行されています。 *latest* イメージには、ホスト コンピューターでアプリを実行するために必要なアプリ コードがパッケージ化されています。 そのため、デルタはアプリ コードのサイズです。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [Docker を使用した Visual Studio 2017 開発のトラブルシューティング](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
+* [Visual Studio Tools for Docker の GitHub リポジトリ](https://github.com/Microsoft/DockerTools)
