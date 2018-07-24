@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core での HTTP.sys Web サーバーの実装
-author: rick-anderson
+author: guardrex
 description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys について説明します。 HTTP.sys は、Http.sys カーネル モード ドライバーに基づいて構築された、IIS なしで直接インターネットに接続するために使用できる Kestrel の代替製品です。
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: ae76c9d3adde524fd246b0228d74861ea2b81272
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: aabfd99b7a28e80c665798fab86264b2b11954c2
+ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278675"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138572"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -66,7 +66,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
-   HTTP.sys の追加の構成は、[レジストリ設定](https://support.microsoft.com/kb/820129)を通じて処理されます。
+   HTTP.sys の追加の構成は、[レジストリ設定](https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows)を通じて処理されます。
 
    **HTTP.sys オプション**
 
@@ -81,7 +81,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
    | [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxrequestbodysize) | 「<a href="#maxrequestbodysize">MaxRequestBodySize</a>」セクションを参照してください。 | 30000000 バイト<br>(~28.6 MB) |
    | [RequestQueueLimit](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.requestqueuelimit) | キューに置くことができる要求の最大数。 | 1000 |
    | [ThrowWriteExceptions](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.throwwriteexceptions) | 応答本文の書き込みがクライアントの接続の切断によって失敗した場合、例外をスローするか、または正常に完了するかどうかを指定します。 | `false`<br>(正常に完了する) |
-   | [Timeouts](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts) | HTTP.sys [TimeoutManager](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager) 構成を公開します。レジストリでも構成することができます。 各設定に関する既定値などの詳細については、API のリンクを参照してください。<ul><li>[Timeouts.DrainEntityBody](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts.drainentitybody) &ndash; HTTP サーバー API が Keep-Alive 接続でエンティティ本体をドレインするまでに許容される時間です。</li><li>[Timeouts.EntityBody](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts.entitybody) &ndash; 要求のエンティティ本体が到着するまでに許容される時間です。</li><li>[Timeouts.HeaderWait](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts.headerwait) &ndash; HTTP サーバー API が要求ヘッダーを解析するまでに許容される時間です。</li><li>[Timeouts.IdleConnection](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts.idleconnection) &ndash; 接続で許容されるアイドル時間です。</li><li>[Timeouts.MinSendBytesPerSecond](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts.minsendbytespersecond) &ndash; 応答の最小の送信率です。</li><li>[Timeouts.RequestQueue](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts.requestqueue) &ndash; 要求が、アプリにピック アップされるまでに要求キューの中に留まっていられる時間です。</li></ul> |  |
+   | [Timeouts](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts) | HTTP.sys [TimeoutManager](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager) 構成を公開します。レジストリでも構成することができます。 各設定に関する既定値などの詳細については、API のリンクを参照してください。<ul><li>[TimeoutManager.DrainEntityBody](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.drainentitybody) &ndash; HTTP サーバー API が Keep-Alive 接続でエンティティ本体をドレインするまでに許容される時間です。</li><li>[TimeoutManager.EntityBody](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.entitybody) &ndash; 要求のエンティティ本体が到着するまでに許容される時間です。</li><li>[TimeoutManager.HeaderWait](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.headerwait) &ndash; HTTP サーバー API が要求ヘッダーを解析するまでに許容される時間です。</li><li>[TimeoutManager.IdleConnection](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.idleconnection) &ndash; 接続で許容されるアイドル時間です。</li><li>[TimeoutManager.MinSendBytesPerSecond](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.minsendbytespersecond) &ndash; 応答の最小の送信率です。</li><li>[TimeoutManager.RequestQueue](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.requestqueue) &ndash; 要求が、アプリにピック アップされるまでに要求キューの中に留まっていられる時間です。</li></ul> |  |
    | [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes) | HTTP.sys に登録する [UrlPrefixCollection](/dotnet/api/microsoft.aspnetcore.server.httpsys.urlprefixcollection) を指定します。 最も便利なのは [UrlPrefixCollection.Add](/dotnet/api/microsoft.aspnetcore.server.httpsys.urlprefixcollection.add) です。これを使用して、コレクションにプレフィックスを追加できます。 これらは、リスナーを破棄する前ならいつでも変更できます。 |  |
 
    <a name="maxrequestbodysize"></a>
@@ -135,7 +135,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
    HTTP.sys では、[HTTP サーバー API の UrlPrefix 文字列形式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)が使用されます。
 
    > [!WARNING]
-   > 最上位のワイルドカードのバインド (`http://*:80/` と `http://+:80`) は使用しては**いけません**。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
+   > 最上位のワイルドカードのバインド ( `http://*:80/` と `http://+:80` ) は使用しては **いけません** 。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
 3. HTTP.sys にバインドする URL プレフィックスを事前登録し、x.509 証明書を設定します。
 
