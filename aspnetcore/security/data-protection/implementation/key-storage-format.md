@@ -1,26 +1,26 @@
 ---
-title: ASP.NET Core でのキー記憶域の形式
+title: ASP.NET Core でのキー ストレージの形式
 author: rick-anderson
-description: ASP.NET Core データ保護キーの格納形式の実装の詳細を説明します。
+description: ASP.NET Core データ保護キー ストレージの形式の実装の詳細について説明します。
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: bb2bcdff3ac2b17623a67f51fd27b29bb928a2fb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bca19ad001dd20b5d02ae5470f7d928082496037
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274519"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219278"
 ---
-# <a name="key-storage-format-in-aspnet-core"></a>ASP.NET Core でのキー記憶域の形式
+# <a name="key-storage-format-in-aspnet-core"></a>ASP.NET Core でのキー ストレージの形式
 
 <a name="data-protection-implementation-key-storage-format"></a>
 
-オブジェクトは、XML 表現で残りの部分に保存されます。 キー記憶域の既定のディレクトリには、%localappdata%\asp.net\dataprotection-keys\ です。
+オブジェクトは、XML 表記で残りの部分に保存されます。 キー記憶域の既定のディレクトリには、%localappdata%\asp.net\dataprotection-keys\ です。
 
 ## <a name="the-key-element"></a>\<キー > 要素
 
-キーは、キーのリポジトリ内の最上位レベルのオブジェクトとして存在します。 キーが、ファイル名をある慣例**キー - {guid} .xml**{guid} はキーの id。 このような各ファイルには、1 つのキーが含まれています。 ファイルの形式は次のとおりです。
+キーは、キーのリポジトリ内の最上位レベルのオブジェクトとして存在します。 規則によりキーは、ファイル名をある**キー - {guid} .xml**{guid} はキーの id です。 このような各ファイルには、1 つのキーが含まれています。 ファイルの形式は次のとおりです。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -45,33 +45,33 @@ ms.locfileid: "36274519"
 
 \<キー > 要素には、次の属性と子要素が含まれています。
 
-* キーの id です。この値は権限を持つよう; 扱われますファイル名は、人間にとって読み終わりましただけです。
+* キーの id。この値は、権限のある; に扱われますファイル名は、人間にとって読み言えませんだけです。
 
-* バージョン、\<キー > 要素を 1 に現在固定します。
+* バージョン、\<キー > 要素を 1 に現在固定されています。
 
-* キーの作成、アクティブ化、および有効期限の日付。
+* キーの作成、ライセンス認証、および有効期限の日付。
 
-* A\<記述子 > 要素は、このキー内に含まれる認証済み暗号化の実装について説明します。
+* A\<記述子 > 要素で、このキー内に含まれる、認証された暗号化の実装について説明します。
 
-上記の例では、キーの id {80732141-ec8f-4b80-af9c-c4d2d1ff8901}、作成日時、2015 年 3 月 19 日にアクティブ化、90 日間の有効期間があります。 (場合によっては、アクティブ化された日付があります若干例のように、作成日の前にします。 これは、Api の動作とは実際には問題ありません nit のため) です。
+上記の例では、キーの id に {80732141-ec8f-4b80-af9c-c4d2d1ff8901} が作成され、2015 年 3 月 19 日で有効になっても、90 日間の有効期間があります。 (場合によっては、アクティブ化する日があります少しこの例のように、作成日の前にします。 これは、Api の動作し、は、実際には問題でのつまらぬのため) です。
 
 ## <a name="the-descriptor-element"></a>\<記述子 > 要素
 
-外側\<記述子 > 要素には、属性 deserializerType、IAuthenticatedEncryptorDescriptorDeserializer を実装する型のアセンブリ修飾名が含まれています。 この型は、内部の読み取りを行う\<記述子 > 要素内に含まれる情報を解析しています。
+外側\<記述子 > 要素には、属性 deserializerType、IAuthenticatedEncryptorDescriptorDeserializer を実装する型のアセンブリ修飾名が含まれています。 この型は、内部の読み取りを行う\<記述子 > 要素に含まれる情報を解析しています。
 
-特定の形式、\<記述子 > 要素が、キーによってカプセル化された認証済み暗号化機能の実装に依存し、各種のデシリアライザーはこのわずかに異なる形式が必要です。 一般に、ただし、この要素情報が含まれますアルゴリズム (名前、種類、Oid、または類似した) と秘密キー マテリアル。 上記の例では、記述子は、このキーが、AES 256-CBC 暗号化 + HMACSHA256 検証をラップするを指定します。
+特定の形式、\<記述子 > 要素をキーでカプセル化された認証済みの暗号化機能の実装に依存し、各デシリアライザ-がの型は、このわずかに異なる形式が必要です。 この要素が、アルゴリズムの情報に含めるは一般に、(名前、種類、Oid、または類似した) とシークレット キー マテリアル。 上記の例では、記述子は、このキーが、AES-CBC 256 暗号化 + HMACSHA256 検証をラップするを指定します。
 
 ## <a name="the-encryptedsecret-element"></a>\<EncryptedSecret > 要素
 
-<encryptedSecret>秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する場合[静止したシークレットの暗号化が有効になっている](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest)です。 属性 decryptorType IXmlDecryptor を実装する型のアセンブリ修飾名になります。 この型は、内部の読み取りを行う<encryptedKey>要素と回復元のプレーン テキストに復号化します。
+**&lt;EncryptedSecret&gt;** 秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する可能性がある場合[rest でのシークレットの暗号化が有効になっている](xref:security/data-protection/implementation/key-encryption-at-rest)します。 属性`decryptorType`を実装する型のアセンブリ修飾名は、 [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor)します。 この型は、内部の読み取りを行う**&lt;encryptedKey&gt;** 要素と、元のプレーン テキストを回復する復号化します。
 
-同様に\<記述子 > の特定の形式、<encryptedSecret>要素が使用されて残りの部分での暗号化メカニズムに依存します。 上記の例では、Windows DPAPI を使用して、コメント、マスター _ キーが暗号化されます。
+同様\<記述子 > の特定の形式、<encryptedSecret>要素が使用中の保存時暗号化メカニズムに依存します。 上記の例では、Windows DPAPI を使用して、コメント、マスター _ キーが暗号化します。
 
 ## <a name="the-revocation-element"></a>\<失効 > 要素
 
-取り消した場合は、キーのリポジトリ内の最上位レベルのオブジェクトとして存在します。 失効慣例により、ファイル名がある**失効-{のタイムスタンプ} .xml** (特定の日付までのすべてのキーを取り消す) 用または**失効 - {guid} .xml** (を取り消す場合に特定のキー)。 各ファイルには、1 つ\<失効 > 要素。
+失効は、キーのリポジトリ内の最上位レベルのオブジェクトとして存在します。 失効規則により、ファイル名がある**失効-{のタイムスタンプ} .xml** (特定の日付までのすべてのキーを取り消す) 用または**失効 - {guid} .xml** (特定のキーを取り消す) 用です。 各ファイルには、1 つ\<失効 > 要素。
 
-個々 のキーを取り消した場合、ファイルの内容になります次のようです。
+ファイルの内容になります個々 のキーを取り消した場合は、次のようです。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -82,7 +82,7 @@ ms.locfileid: "36274519"
 </revocation>
 ```
 
-この場合、指定したキーのみが失効します。 場合は、キー id は"*"、ただし、ように、次の例では、作成日付を持つ、指定された失効日より前のすべてのキーが失効しています。
+この場合、指定したキーのみが失効します。 場合は、キー id"*"、ただし、ように、次の例では、作成日付が指定された失効日より前のすべてのキーが失効しました。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -94,4 +94,4 @@ ms.locfileid: "36274519"
 </revocation>
 ```
 
-\<理由 > 要素が、システムによって読み取られることはありません。 人間が判読できる失効理由を格納する便利な場所では単純にすることをお勧めします。
+\<理由 > 要素が、システムによって読み取られることはありません。 失効の人間が判読できる理由を格納する便利な場所だけになります。

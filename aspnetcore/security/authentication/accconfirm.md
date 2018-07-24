@@ -5,12 +5,12 @@ description: 電子メールの確認とパスワードのリセットと ASP.NE
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: af3ba8b27148d94c4a905c688b8165f49b9f2927
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095747"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219408"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -34,13 +34,13 @@ ms.locfileid: "39095747"
 
 ## <a name="prerequisites"></a>前提条件
 
-[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
+[!INCLUDE [](~/includes/2.1-SDK.md)]
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Web アプリを作成し、Identity のスキャフォールディング
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-* Visual Studio で、作成、新しい**Web アプリケーション**プロジェクト。
+* Visual Studio で、作成、新しい**Web アプリケーション**という名前のプロジェクト**WebPWrecover**します。
 * 選択**ASP.NET Core 2.1**します。
 * 既定値を保持**認証**設定**認証なし**します。 認証は、次の手順で追加されます。
 
