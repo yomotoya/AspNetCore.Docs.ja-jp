@@ -19,7 +19,7 @@ ms.locfileid: "37822730"
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-この概要は、質問を取り上げています、用語の SQL Server の初心者を作成およびなど、データベースを管理する必要があります SQL Server データベースとは何ですか?。 SQL Server データベースは Excel スプレッドシートからさまざまな方法 Web サイトまたはソフトウェア アプリケーションで SQL Server データベースはどのような操作を行います Visual Studio Express に SQL Server Express の関係とは何ですか。 という意味で"ADO.NET"などの用語を教えてください。
+この概要は、質問を取り上げています、用語の SQL Server の初心者を作成およびなど、データベースを管理する必要があります SQL Server データベースとは何ですか? SQL Server データベースは Excel スプレッドシートからさまざまな方法 Web サイトまたはソフトウェア アプリケーションで SQL Server データベースはどのような操作を行います Visual Studio Express に SQL Server Express の関係とは何ですか。 という意味で"ADO.NET"などの用語を教えてください。
 
 [&#9654;ビデオでは (28 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-a-database)
 
