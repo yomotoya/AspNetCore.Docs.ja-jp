@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9f16c01515bde80d3994618d26818c2d93f69d87
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6dbffe715990de5c0b3b834e354379e414925816
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828378"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219057"
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC で DropDownList ヘルパーを使用
 ====================
@@ -190,7 +190,7 @@ Starter とこのチュートリアルに付属する完全なサンプル プ�
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-上記のコードで HTML 属性と属性値を追加しましたが`class = "chzn-select"`します。 @ 文字クラスの前に、Razor ビュー エンジンとは無関係です。 `class` [c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)します。 プレフィックスとして @ を含めない限り、c# のキーワードを識別子として使用できません。 上記の例で`@class`有効な識別子ですが、**クラス**できないためは**クラス**はキーワードです。
+上記のコードで HTML 属性と属性値を追加しましたが`class = "chzn-select"`します。 \@文字の前のクラスには、Razor ビュー エンジンとは無関係です。 `class` [c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)します。 C# のキーワードが含まれている場合を除き、識別子として使用できません\@をプレフィックスとして。 上記の例で`@class`有効な識別子ですが、**クラス**できないためは**クラス**はキーワードです。
 
 参照を追加、 *Chosen/chosen.jquery.js*と*Chosen/chosen.css*ファイル。 *Chosen/chosen.jquery.js*を実装して、選択したプラグインの機能的です。 *Chosen/chosen.css*ファイル、スタイル設定を提供します。 一番下にこれらの参照を追加、 *Views\Home\MultiSelectCountry.cshtml*ファイル。 次のコードでは、選択したプラグインを参照する方法を示します。
 
