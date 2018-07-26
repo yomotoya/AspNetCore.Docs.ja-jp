@@ -5,12 +5,12 @@ description: Web アプリに ASP.NET Core では、HTTPS や TLS を必要と�
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 331c17de33b5c13221385ffb4282bc16bde32289
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095718"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254832"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -38,6 +38,11 @@ ms.locfileid: "39095718"
 次のコード呼び出し`UseHttpsRedirection`で、`Startup`クラス。
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
+
+上記の強調表示されたコード。
+
+* 既定値を使用して[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) (`Status307TemporaryRedirect`)。 実稼働アプリを呼び出す必要があります[UseHsts](#hsts)します。
+* 既定値を使用して[HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport) (443)。
 
 次のコード呼び出し[AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection)ミドルウェアのオプションを構成します。
 
