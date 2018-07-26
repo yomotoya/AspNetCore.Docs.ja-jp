@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 70e9e73eeb5d08baf9ef190ebfbda998ace60d77
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 59ab0cd0f6975d15bd01ce7e4128521938182c24
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278326"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228625"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -34,6 +34,40 @@ ms.locfileid: "36278326"
 オプション パターンではオプション クラスを使用して、関連する設定のグループを表します。 オプション パターンの使用の詳細については、「[オプション](xref:fundamentals/configuration/options)」トピックを参照してください。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+
+::: moniker range=">= aspnetcore-2.1"
+
+このトピックで提供される例は、次のものに依存しています。
+
+* [SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) によるアプリの基本パスの設定。 [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージを参照することで、アプリが `SetBasePath` を使用できるようになります。
+* [GetSection](/dotnet/api/microsoft.extensions.configuration.configurationsection.getsection) による構成ファイルのセクションの解決。 [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージを参照することで、アプリが `GetSection` を使用できるようになります。
+* [Bind](/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind) によるバインド構成。 [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージを参照することで、アプリが `Bind` を使用できるようになります。
+
+これらのパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれます。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+このトピックで提供される例は、次のものに依存しています。
+
+* [SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) によるアプリの基本パスの設定。 [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージを参照することで、アプリが `SetBasePath` を使用できるようになります。
+* [GetSection](/dotnet/api/microsoft.extensions.configuration.configurationsection.getsection) による構成ファイルのセクションの解決。 [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージを参照することで、アプリが `GetSection` を使用できるようになります。
+* [Bind](/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind) によるバインド構成。 [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージを参照することで、アプリが `Bind` を使用できるようになります。
+
+これらのパッケージは、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)に含まれます。
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+このトピックで提供される例は、次のものに依存しています。
+
+* [SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) によるアプリの基本パスの設定。 [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージを参照することで、アプリが `SetBasePath` を使用できるようになります。
+* [GetSection](/dotnet/api/microsoft.extensions.configuration.configurationsection.getsection) による構成ファイルのセクションの解決。 [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージを参照することで、アプリが `GetSection` を使用できるようになります。
+* [Bind](/dotnet/api/microsoft.extensions.configuration.configurationbinder.bind) によるバインド構成。 [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージを参照することで、アプリが `Bind` を使用できるようになります。
+
+::: moniker-end
 
 ## <a name="json-configuration"></a>JSON 構成
 

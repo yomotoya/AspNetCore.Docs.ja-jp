@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "38216214"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228583"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core の概要
 
@@ -25,7 +25,7 @@ ms.locfileid: "38216214"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [!INCLUDE [](~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
+    [!INCLUDE [](~/includes/webapp-alias-notice.md)]
 
 3. HTTPS 開発証明書を信頼します。
 
@@ -35,11 +35,11 @@ ms.locfileid: "38216214"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following dialog:
+   上記のコマンドでは、次のダイアログが表示されます。
 
-    ![Security warning dialog](_static/cert.png)
+   ![セキュリティ警告のダイアログ](_static/cert.png)
 
-    Select **Yes** if you agree to trust the development certificate.
+   開発証明書を信頼することに同意する場合は、**[はい]** を選択します。
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -47,18 +47,15 @@ ms.locfileid: "38216214"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following message:
+   上記のコマンドでは、次のメッセージが表示されます。
 
-    *Trusting the HTTPS development certificate was requested. If the certificate is not already trusted we will run the following command:*
-    `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
-    *This command might prompt you for your password to install the certificate on the system keychain.
-    Password:*
+   *HTTPS 開発証明書の信頼が要求されました。証明書がまだ信頼されていない場合は、次のコマンドを実行します:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *このコマンドでは、システム キーチェーン上に証明書をインストールするためにパスワードが求められる場合があります。  パスワード:*
 
-    Enter your password if you agree to trust the development certificate.
+   開発証明書を信頼することに同意する場合は、パスワードを入力します。
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    See the documentation for your Linux distribution on how to trust the HTTPS development certificate
+   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>HTTPS 開発証明書を信頼する方法については、Linux ディストリビューションのドキュメントを参照してください。
 ---
 
 4. 次のようにアプリを実行します。
