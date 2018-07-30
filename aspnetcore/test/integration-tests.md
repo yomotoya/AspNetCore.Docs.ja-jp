@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: e18c5704c9d4db9669d8f831f1b556d1723a0fc1
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 2a5adafd30aeca163063ea76857378e97163d0b9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894167"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342082"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core で統合テスト
 
@@ -292,7 +292,7 @@ SUT は、次の特性を持つ、Razor ページ メッセージ システム�
 
 &#8224;EF トピック[InMemory のテスト](/ef/core/miscellaneous/testing/in-memory)MSTest を使用したテストにメモリ内データベースを使用する方法について説明します。 このトピックでは、 [xUnit](https://xunit.github.io/)テスト フレームワーク。 テストの概念と別のテスト フレームワーク間でのテストの実装は似ていますが、同一ではないです。
 
-アプリを使用しないが、[リポジトリ パターン](http://martinfowler.com/eaaCatalog/repository.html)の有効な例ではありません、 [Unit of Work (UoW) パターン](https://martinfowler.com/eaaCatalog/unitOfWork.html)、Razor ページは、これらのパターンの開発をサポートしています。 詳細については、次を参照してください[インフラストラクチャの永続レイヤーの設計](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)、[リポジトリと単位の作業パターンを実装する ASP.NET MVC アプリケーションで](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)、および[テスト コント ローラー。ロジック](/aspnet/core/mvc/controllers/testing)(このサンプルは、リポジトリ パターンを実装)。
+アプリを使用しないが、[リポジトリ パターン](xref:fundamentals/repository-pattern)の有効な例ではありません、 [Unit of Work (UoW) パターン](https://martinfowler.com/eaaCatalog/unitOfWork.html)、Razor ページは、これらのパターンの開発をサポートしています。 詳細については、次を参照してください[インフラストラクチャの永続レイヤーの設計](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)、[リポジトリと単位の作業パターンを実装する ASP.NET MVC アプリケーションで](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)、および[テスト コント ローラー。ロジック](/aspnet/core/mvc/controllers/testing)(このサンプルは、リポジトリ パターンを実装)。
 
 ### <a name="test-app-organization"></a>組織のアプリをテストします。
 

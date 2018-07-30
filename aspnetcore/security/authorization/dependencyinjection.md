@@ -1,26 +1,26 @@
 ---
-title: ASP.NET Core の要件のハンドラーで依存関係の挿入
+title: ASP.NET Core での要件ハンドラーで依存関係の挿入
 author: rick-anderson
-description: 依存関係の挿入を使用して ASP.NET Core アプリケーションに承認要求ハンドラーを挿入する方法を説明します。
+description: 依存関係の挿入を使用して ASP.NET Core アプリを承認要件ハンドラーを挿入する方法について説明します。
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: c6bb2589c6fef9f4586e6f4ddbb574866e6c48ab
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 71d563e11d308a95c08e6d012d3a071f4697d2de
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273723"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342115"
 ---
-# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>ASP.NET Core の要件のハンドラーで依存関係の挿入
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>ASP.NET Core での要件ハンドラーで依存関係の挿入
 
 <a name="security-authorization-di"></a>
 
-[認証ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration)構成中にサービスのコレクションで (を使用して[依存性の注入](xref:fundamentals/dependency-injection#fundamentals-dependency-injection))。
+[承認ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration)構成中にサービスのコレクションで (を使用して[依存関係の注入](xref:fundamentals/dependency-injection))。
 
-認証ハンドラー内で評価を行うとルールのリポジトリがあるとし、そのリポジトリは、サービスのコレクションに登録されました。 承認を解決して、コンス トラクターを挿入します。
+承認ハンドラーの内部評価を行うとルールのリポジトリがあるとし、そのリポジトリがサービス コレクションに登録します。 承認が解決され、コンス トラクターに挿入します。
 
-たとえば、次のように ASP を使用する場合です。挿入するインフラストラクチャのログ記録の NET`ILoggerFactory`ハンドラーにします。 このようなハンドラーは、ようになります。
+たとえば、次のように ASP を使用する場合です。NET に挿入するインフラストラクチャのログ記録`ILoggerFactory`ハンドラーにします。 このようなハンドラーは、ようになります。
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -41,13 +41,13 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
    }
    ```
 
-ハンドラーを登録するよう`services.AddSingleton()`:
+ハンドラーを登録すると`services.AddSingleton()`:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-アプリケーションを起動時に作成される、ハンドラーのインスタンスと、登録されている挿入 DI は`ILoggerFactory`コンス トラクターにします。
+アプリケーションの開始時に作成される、ハンドラーのインスタンスと、登録済み挿入 DI は`ILoggerFactory`コンス トラクターにします。
 
 > [!NOTE]
-> シングルトンとしては、Entity Framework を使用してハンドラーを登録するべきではありません。
+> Entity Framework を使用して、ハンドラーは、シングルトンとして登録することはできません。

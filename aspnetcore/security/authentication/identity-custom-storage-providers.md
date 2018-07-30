@@ -5,12 +5,12 @@ description: ASP.NET Core Identity 用のカスタム ストレージ プロバ�
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: 7fb64f0b911c11750946697d782488c2107a3637
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889169"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342524"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Identity 用のカスタム ストレージ プロバイダー
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>ASP.NET Core Identity アーキテクチャ
 
-ASP.NET Core Identity は、マネージャーおよびストアと呼ばれるクラスで構成されます。 *マネージャー*は、アプリの開発者を使用して Identity ユーザーの作成などの操作を実行する高度なクラスです。 *ストア*は低レベル クラスなど、ユーザーとロールをエンティティの保存方法を指定します。 次のストア、[リポジトリ パターン](http://deviq.com/repository-pattern/)永続化メカニズムと密接に結び付けられているとします。 管理者は、つまり、(構成) を除く、アプリケーション コードを変更することがなく、永続化メカニズムを置き換えることができます、ストアから切り離されます。
+ASP.NET Core Identity は、マネージャーおよびストアと呼ばれるクラスで構成されます。 *マネージャー*は、アプリの開発者を使用して Identity ユーザーの作成などの操作を実行する高度なクラスです。 *ストア*は低レベル クラスなど、ユーザーとロールをエンティティの保存方法を指定します。 次のストア、[リポジトリ パターン](xref:fundamentals/repository-pattern)永続化メカニズムと密接に結び付けられているとします。 管理者は、つまり、(構成) を除く、アプリケーション コードを変更することがなく、永続化メカニズムを置き換えることができます、ストアから切り離されます。
 
 Web アプリと対話する方法、マネージャー ストアとデータ アクセス層の対話中に次の図を示しています。
 
