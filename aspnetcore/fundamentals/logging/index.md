@@ -5,12 +5,12 @@ description: ASP.NET Core でのログ記録フレームワークについて説
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0181566aeab1fa055435ac90887c019eef52878c
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228638"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320753"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -56,7 +56,7 @@ IIS でホストする場合の stdout ログについては、<xref:host-and-de
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-既定のプロジェクト テンプレートを使用すると、[CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___) メソッドを使用したログ記録が有効になります。
+既定のプロジェクト テンプレートでは、*Program.cs* 内の [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) 拡張メソッドの呼び出しを使用して、コンソールとデバッグのログ プロバイダーが有効にされます。
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -77,11 +77,21 @@ ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) 
 
 ::: moniker-end
 
-各[組み込みログ プロバイダー](#built-in-logging-providers)と[サードパーティ製ログ プロバイダー](#third-party-logging-providers)のリンクについては、この記事で後ほど説明します。
+この記事の後半では、[組み込みログ プロバイダー](#built-in-logging-providers)について説明し、[サードパーティ製ログ プロバイダー](#third-party-logging-providers)へのリンクを示します。
 
-## <a name="settings-file-configuration"></a>設定ファイルの構成
+## <a name="configuration"></a>構成
 
-「[プロバイダーを追加する方法](#how-to-add-providers)」セクションにあったそれぞれの例では、アプリ設定ファイルの `Logging` セクションからログ プロバイダー構成が読み込まれます。 次の例は、一般的な *appsettings.Development.json* ファイルの内容を示しています。
+ログ プロバイダーの構成は、1 つまたは複数の構成プロバイダーによって提供されます。
+
+* ファイル形式 (INI、JSON、および XML)。
+* コマンド ライン引数。
+* 環境変数。
+* メモリ内 .NET オブジェクト。
+* 暗号化されていない[シークレット マネージャー](xref:security/app-secrets)の記憶域。
+* [Azure Key Vault](xref:security/key-vault-configuration) などの暗号化されたユーザー ストア。
+* カスタム プロバイダー (インストール済みまたは作成済み)。
+
+たとえば、一般的に、ログの構成はアプリ設定ファイルの `Logging` セクションで指定されます。 次の例は、一般的な *appsettings.Development.json* ファイルの内容を示しています。
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -122,6 +132,8 @@ ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) 
 `LogLevel` キーは、ログ名を表します。 `Default` キーは明示的に表示されていないログに適用されます。 値は、指定されたログに適用された[ログ レベル](#log-level)を表します。
 
 ::: moniker-end
+
+構成プロバイダーの実装について詳しくは、<xref:fundamentals/configuration/index> をご覧ください。
 
 ## <a name="sample-logging-output"></a>サンプルのログ記録の出力
 
@@ -436,7 +448,7 @@ System.Exception: Item not found exception.
 > [!NOTE]
 > スコープベースのログ記録を有効にするには、`IncludeScopes` コンソールのロガー オプションを構成する必要があります。
 >
-> `IncludeScopes` は *appsettings* 構成ファイルから構成されます。 詳細については、「[設定ファイルの構成](#settings-file-configuration)」セクションを参照してください。
+> 構成について詳しくは、「[構成](#Configuration)」セクションをご覧ください。
 
 ::: moniker-end
 

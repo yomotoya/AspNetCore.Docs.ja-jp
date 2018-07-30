@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 02/14/2017
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 3e4e597fde829ae2e2ce4dbd19a4ec0b42d078df
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 34a553c7ff8a18c367bf5e8079e2ea71f968bf3b
+ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274854"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39219421"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
 
@@ -169,7 +169,7 @@ Type expected
 
 ### <a name="expression-names"></a>式の名前
 
-`asp-for` 属性値は `ModelExpression` であり、ラムダ式の右辺です。 そのため、生成されるコードで `asp-for="Property1"` は `m => m.Property1` になります。したがって、`Model` をプレフィックスとして付加する必要はありません。 "@" 文字を使用してインライン式を開始し、`m.` の前に移動できます。
+`asp-for` 属性値は `ModelExpression` であり、ラムダ式の右辺です。 そのため、生成されるコードで `asp-for="Property1"` は `m => m.Property1` になります。したがって、`Model` をプレフィックスとして付加する必要はありません。 "\@" 文字を使用してインライン式を開始し、`m.` の前に移動できます。
 
 ```HTML
 @{

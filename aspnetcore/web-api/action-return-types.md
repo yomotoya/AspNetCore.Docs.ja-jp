@@ -4,14 +4,14 @@ author: scottaddie
 description: ASP.NET Core Web API でのさまざまなコントローラー アクション メソッドの戻り値の型の使用について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/21/2018
+ms.date: 07/23/2018
 uid: web-api/action-return-types
-ms.openlocfilehash: 422db97da222fb5e742e1d8e6ae410edc90dbc18
-ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
+ms.openlocfilehash: 82d18d866d4d18613cccb950b2f30ae81bd749de
+ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "36273557"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220613"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API のコントローラー アクションの戻り値の型
 
@@ -21,14 +21,19 @@ ms.locfileid: "36273557"
 
 ASP.NET Core では、Web API コントローラー アクションの戻り値の型に次のオプションを提供しています。
 
-::: moniker range="<= aspnetcore-2.0"
-* [特定の型](#specific-type)
-* [IActionResult](#iactionresult-type)
-::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
+
 * [特定の型](#specific-type)
 * [IActionResult](#iactionresult-type)
 * [ActionResult\<T>](#actionresultt-type)
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+* [特定の型](#specific-type)
+* [IActionResult](#iactionresult-type)
+
 ::: moniker-end
 
 このドキュメントでは、各戻り値の型を使用するのが最適な場合について説明します。
@@ -70,12 +75,25 @@ ASP.NET Core では、Web API コントローラー アクションの戻り値�
 前のアクションのその他の既知のリターン コードは、[CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction) ヘルパー メソッドで生成される 201 です。 このパスでは、`Product` オブジェクトが返されます。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="actionresultt-type"></a>ActionResult\<T> 型
 
 ASP.NET Core 2.1 では、Web API コントローラー アクションに対して、[ActionResult\<T>](/dotnet/api/microsoft.aspnetcore.mvc.actionresult-1) の戻り値の型が導入されました。 これにより、[ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) から派生する型、または[特定の型](#specific-type)を返すことができます。 `ActionResult<T>` により、[IActionResult 型](#iactionresult-type)は次の利点を得られます。
 
-* [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute) 属性の `Type` プロパティを除外することができます。
+* [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute) 属性の `Type` プロパティを除外することができます。 たとえば、`[ProducesResponseType(200, Type = typeof(Product))]` は `[ProducesResponseType(200)]` に簡略化されます。 アクションの予期される戻り値の型は、代わりに `ActionResult<T>` の `T` から推論されます。
 * [暗黙的なキャスト演算子](/dotnet/csharp/language-reference/keywords/implicit)は、`T` と `ActionResult` の両方の `ActionResult<T>` への変換をサポートしています。 `T` は [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) に変換されます。つまり、`return new ObjectResult(T);` は `return T;` に簡略化されます。
+
+C# はインターフェイス上での暗黙的なキャスト演算子をサポートしていません。 そのため、`ActionResult<T>` を使用するには、インターフェイスを具象型に変換する必要があります。 たとえば、次の例における `IEnumerable` の使用は機能しません。
+
+    ```csharp
+    [HttpGet]
+    public ActionResult<IEnumerable<Product>> Get()
+    {
+        return _repository.GetProducts();
+    }
+    ```
+
+上記のコードを修正するための選択肢の 1 つは、`_repository.GetProducts().ToList();` を返すことです。
 
 ほとんどのアクションには、特定の戻り値の型があります。 アクションの実行中に予期しない状態が発生する場合、特定の型は返されません。 たとえば、アクションの入力パラメーターがモデルの検証に失敗する場合があります。 このような場合、通常は特定の型ではなく、適切な `ActionResult` 型が返されます。
 
@@ -100,10 +118,11 @@ ASP.NET Core 2.1 では、Web API コントローラー アクションに対し
 
 > [!TIP]
 > ASP.NET Core 2.1 以降では、コントローラー クラスが `[ApiController]` 属性で修飾されていると、アクション パラメーター バインディング ソースの推論が有効になります。 複合型パラメーターは、要求本文を使用して自動的にバインドされます。 したがって、前のアクションの `product` パラメーターは、[[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) 属性を使用して明示的に注釈付けされません。
+
 ::: moniker-end
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [コントローラー アクション](xref:mvc/controllers/actions)
-* [モデル検証](xref:mvc/models/validation)
-* [Swagger を使用する Web API のヘルプ ページ](xref:tutorials/web-api-help-pages-using-swagger)
+* <xref:mvc/controllers/actions>
+* <xref:mvc/models/validation>
+* <xref:tutorials/web-api-help-pages-using-swagger>
