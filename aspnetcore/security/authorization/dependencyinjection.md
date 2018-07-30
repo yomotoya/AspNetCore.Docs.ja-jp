@@ -1,26 +1,26 @@
 ---
-title: ASP.NET Core の要件のハンドラーで依存関係の挿入
+title: ASP.NET Core での要件ハンドラーで依存関係の挿入
 author: rick-anderson
-description: 依存関係の挿入を使用して ASP.NET Core アプリケーションに承認要求ハンドラーを挿入する方法を説明します。
+description: 依存関係の挿入を使用して ASP.NET Core アプリを承認要件ハンドラーを挿入する方法について説明します。
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: c6bb2589c6fef9f4586e6f4ddbb574866e6c48ab
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 71d563e11d308a95c08e6d012d3a071f4697d2de
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273723"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342115"
 ---
-# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a><span data-ttu-id="cc027-103">ASP.NET Core の要件のハンドラーで依存関係の挿入</span><span class="sxs-lookup"><span data-stu-id="cc027-103">Dependency injection in requirement handlers in ASP.NET Core</span></span>
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a><span data-ttu-id="0bc0b-103">ASP.NET Core での要件ハンドラーで依存関係の挿入</span><span class="sxs-lookup"><span data-stu-id="0bc0b-103">Dependency injection in requirement handlers in ASP.NET Core</span></span>
 
 <a name="security-authorization-di"></a>
 
-<span data-ttu-id="cc027-104">[認証ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration)構成中にサービスのコレクションで (を使用して[依存性の注入](xref:fundamentals/dependency-injection#fundamentals-dependency-injection))。</span><span class="sxs-lookup"><span data-stu-id="cc027-104">[Authorization handlers must be registered](xref:security/authorization/policies#handler-registration) in the service collection during configuration (using [dependency injection](xref:fundamentals/dependency-injection#fundamentals-dependency-injection)).</span></span>
+<span data-ttu-id="0bc0b-104">[承認ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration)構成中にサービスのコレクションで (を使用して[依存関係の注入](xref:fundamentals/dependency-injection))。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-104">[Authorization handlers must be registered](xref:security/authorization/policies#handler-registration) in the service collection during configuration (using [dependency injection](xref:fundamentals/dependency-injection)).</span></span>
 
-<span data-ttu-id="cc027-105">認証ハンドラー内で評価を行うとルールのリポジトリがあるとし、そのリポジトリは、サービスのコレクションに登録されました。</span><span class="sxs-lookup"><span data-stu-id="cc027-105">Suppose you had a repository of rules you wanted to evaluate inside an authorization handler and that repository was registered in the service collection.</span></span> <span data-ttu-id="cc027-106">承認を解決して、コンス トラクターを挿入します。</span><span class="sxs-lookup"><span data-stu-id="cc027-106">Authorization will resolve and inject that into your constructor.</span></span>
+<span data-ttu-id="0bc0b-105">承認ハンドラーの内部評価を行うとルールのリポジトリがあるとし、そのリポジトリがサービス コレクションに登録します。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-105">Suppose you had a repository of rules you wanted to evaluate inside an authorization handler and that repository was registered in the service collection.</span></span> <span data-ttu-id="0bc0b-106">承認が解決され、コンス トラクターに挿入します。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-106">Authorization will resolve and inject that into your constructor.</span></span>
 
-<span data-ttu-id="cc027-107">たとえば、次のように ASP を使用する場合です。挿入するインフラストラクチャのログ記録の NET`ILoggerFactory`ハンドラーにします。</span><span class="sxs-lookup"><span data-stu-id="cc027-107">For example, if you wanted to use ASP.NET's logging infrastructure you would want to inject `ILoggerFactory` into your handler.</span></span> <span data-ttu-id="cc027-108">このようなハンドラーは、ようになります。</span><span class="sxs-lookup"><span data-stu-id="cc027-108">Such a handler might look like:</span></span>
+<span data-ttu-id="0bc0b-107">たとえば、次のように ASP を使用する場合です。NET に挿入するインフラストラクチャのログ記録`ILoggerFactory`ハンドラーにします。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-107">For example, if you wanted to use ASP.NET's logging infrastructure you would want to inject `ILoggerFactory` into your handler.</span></span> <span data-ttu-id="0bc0b-108">このようなハンドラーは、ようになります。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-108">Such a handler might look like:</span></span>
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -41,13 +41,13 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
    }
    ```
 
-<span data-ttu-id="cc027-109">ハンドラーを登録するよう`services.AddSingleton()`:</span><span class="sxs-lookup"><span data-stu-id="cc027-109">You would register the handler with `services.AddSingleton()`:</span></span>
+<span data-ttu-id="0bc0b-109">ハンドラーを登録すると`services.AddSingleton()`:</span><span class="sxs-lookup"><span data-stu-id="0bc0b-109">You would register the handler with `services.AddSingleton()`:</span></span>
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-<span data-ttu-id="cc027-110">アプリケーションを起動時に作成される、ハンドラーのインスタンスと、登録されている挿入 DI は`ILoggerFactory`コンス トラクターにします。</span><span class="sxs-lookup"><span data-stu-id="cc027-110">An instance of the handler will be created when your application starts, and DI will inject the registered `ILoggerFactory` into your constructor.</span></span>
+<span data-ttu-id="0bc0b-110">アプリケーションの開始時に作成される、ハンドラーのインスタンスと、登録済み挿入 DI は`ILoggerFactory`コンス トラクターにします。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-110">An instance of the handler will be created when your application starts, and DI will inject the registered `ILoggerFactory` into your constructor.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="cc027-111">シングルトンとしては、Entity Framework を使用してハンドラーを登録するべきではありません。</span><span class="sxs-lookup"><span data-stu-id="cc027-111">Handlers that use Entity Framework shouldn't be registered as singletons.</span></span>
+> <span data-ttu-id="0bc0b-111">Entity Framework を使用して、ハンドラーは、シングルトンとして登録することはできません。</span><span class="sxs-lookup"><span data-stu-id="0bc0b-111">Handlers that use Entity Framework shouldn't be registered as singletons.</span></span>
