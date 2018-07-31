@@ -1,28 +1,35 @@
 ---
 title: ASP.NET Core でのロールベースの承認
 author: rick-anderson
-description: Authorize attribute にロールを渡すことで ASP.NET Core のコント ローラーとアクションのアクセスを制限する方法を説明します。
+description: Authorize 属性にロールを渡すことによって、ASP.NET Core のコント ローラーとアクションのアクセスを制限する方法について説明します。
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: 0d39a457782061a57779bacb0d3a255be352bd2d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 59753b90d3196b0bc16d4963f45b995f5108bc8b
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276433"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356676"
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET Core でのロールベースの承認
 
 <a name="security-authorization-role-based"></a>
 
-Id が作成されるときは、1 つまたは複数のロールに属する可能性があります。 たとえば、さんは、中、Scott は、ユーザー ロールにのみ属することがあります、管理者とユーザーのロールに属する可能性があります。 これらのロールを作成および管理する方法は、承認プロセスのバッキング ストアによって異なります。 開発者が使用するロールが公開されている、 [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole)メソッドを[ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal)クラスです。
+Id が作成されたときに、1 つまたは複数のロールに属する可能性があります。 たとえば、Tracy は、Scott は、ユーザー ロールにのみ属することがあります、管理者およびユーザー ロールに属して可能性があります。 これらのロールを作成および管理する方法は、承認プロセスのバッキング ストアに依存します。 ロールは、開発者に公開、 [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole)メソッドを[ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal)クラス。
 
-## <a name="adding-role-checks"></a>追加のロールのチェック
+::: moniker range=">= aspnetcore-2.0"
 
-ロール ベースの承認チェックが宣言&mdash;開発者は、そのファイルを埋め込みますコント ローラーや、コント ローラー内のアクションに対して、コード内で要求されたリソースにアクセスするのメンバーである必要があります、現在のユーザー ロールを指定します。
+> [!IMPORTANT]
+> このトピックは Razor ページには適用**されません**。 Razor ページをサポートしています[IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)と[IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter)します。 詳細については、[Razor ページのフィルター メソッド](xref:razor-pages/filter)に関するページを参照してください。
 
-次のコードがすべてのアクションへのアクセスを制限するなど、`AdministrationController`のメンバーであるユーザーのユーザーに、`Administrator`ロール。
+::: moniker-end
+
+## <a name="adding-role-checks"></a>追加の役割の確認
+
+ロール ベースの承認チェックは、宣言型&mdash;開発者それらを埋め込みます、コント ローラーまたはコント ローラー内のアクションに対して、コード内で要求されたリソースにアクセスするのメンバーである必要があります、現在のユーザー ロールを指定します。
+
+次のコードがすべてのアクションへのアクセスを制限するなど、`AdministrationController`のメンバーであるユーザーに、`Administrator`ロール。
 
 ```csharp
 [Authorize(Roles = "Administrator")]
@@ -31,7 +38,7 @@ public class AdministrationController : Controller
 }
 ```
 
-複数の役割は、コンマ区切りリストとして指定できます。
+複数のロールは、コンマ区切りリストとして指定できます。
 
 ```csharp
 [Authorize(Roles = "HRManager,Finance")]
@@ -40,9 +47,9 @@ public class SalaryController : Controller
 }
 ```
 
-このコント ローラーにはメンバーであるユーザーがアクセスするだけの`HRManager`ロールまたは`Finance`ロール。
+このコント ローラーがメンバーであるユーザーがアクセスのみができるは`HRManager`ロールまたは`Finance`ロール。
 
-アクセスするユーザーは、指定したすべてのロールのメンバーである必要があります、複数の属性を適用する場合次の例では、ユーザーは両方のメンバーである必要がありますが必要です、`PowerUser`と`ControlPanelUser`ロール。
+アクセスのユーザーは、指定したすべてのロールのメンバーである必要がありますし、複数の属性を適用する場合次の例では、ユーザーが両方のメンバーでなければならないことが必要です、`PowerUser`と`ControlPanelUser`ロール。
 
 ```csharp
 [Authorize(Roles = "PowerUser")]
@@ -52,7 +59,7 @@ public class ControlPanelController : Controller
 }
 ```
 
-さらに操作レベルで追加の役割の承認属性を適用することによってアクセスを制限できます。
+さらに、アクション レベルで追加のロールの承認属性を適用することでアクセスを制限できます。
 
 ```csharp
 [Authorize(Roles = "Administrator, PowerUser")]
@@ -69,9 +76,9 @@ public class ControlPanelController : Controller
 }
 ```
 
-前のコード スニペットのメンバーで、`Administrator`ロールまたは`PowerUser`ロールがアクセスできる、コント ローラーと`SetTime`アクションがのメンバーだけ、`Administrator`ロールがアクセスできる、`ShutDown`アクション。
+前のコード スニペットのメンバーで、`Administrator`ロールまたは`PowerUser`コント ローラーにアクセスできるロールと`SetTime`アクションがのメンバーのみ、`Administrator`ロールがアクセスできる、`ShutDown`アクション。
 
-コント ローラーをロックは個別のアクションに匿名で認証されていないアクセスを許可することもできます。
+コント ローラーのロックダウンも、個々 のアクションへの匿名、認証されていないアクセスを許可できます。
 
 ```csharp
 [Authorize]
@@ -92,7 +99,7 @@ public class ControlPanelController : Controller
 
 ## <a name="policy-based-role-checks"></a>ポリシー ベースの役割の確認
 
-構文を使用して、新しいポリシー、認証サービスの構成の一部として、開発者が起動時にポリシーを登録の役割の要件を表現することもできます。 通常は、この`ConfigureServices()`で、 *Startup.cs*ファイル。
+承認サービスの構成の一部として、開発者が起動時にポリシーを登録、新しいポリシーの構文を使用しても、役割の要件を表現できます。 これに通常発生`ConfigureServices()`で、 *Startup.cs*ファイル。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -116,7 +123,7 @@ public IActionResult Shutdown()
 }
 ```
 
-必要条件で許可されている複数のロールを指定するかどうかは、パラメーターとして指定することができます、`RequireRole`メソッド。
+要件で許可されている複数のロールを指定するかどうかは、それらを指定するにはパラメーターとして、`RequireRole`メソッド。
 
 ```csharp
 options.AddPolicy("ElevatedRights", policy =>

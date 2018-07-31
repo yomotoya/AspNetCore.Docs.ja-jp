@@ -5,12 +5,12 @@ description: Web アプリに ASP.NET Core では、HTTPS や TLS を必要と�
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254832"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356689"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -65,11 +65,17 @@ ms.locfileid: "39254832"
 > [!NOTE]
 > アプリを実行したリバース プロキシ (たとえば、IIS、IIS Express) の背後にあるときに`IServerAddressesFeature`は使用できません。 ポートを手動で構成する必要があります。 ポートが設定されていないときに要求をリダイレクトされません。
 
-設定して、ポートを構成することができます、します。
+設定して、ポートを構成することができます、 [https_port Web ホストの構成設定](xref:fundamentals/host/web-host#https-port):
 
-* `ASPNETCORE_HTTPS_PORT` 環境変数。
-* `http_port` ホスト構成のキー (経由など、 *hostsettings.json*またはコマンドライン引数)。
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport)します。 ポート 5001 を設定する方法を示しています。 前の例を参照してください。
+**キー**: https_port**型**:*文字列*
+**既定**: 既定値が設定されていません。
+**使用して設定**: `UseSetting` 
+**環境変数**: `<PREFIX_>HTTPS_PORT` (プレフィックスは`ASPNETCORE_`Web ホストを使用する場合)。
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting("https_port", "8080")
+```
 
 > [!NOTE]
 > ポート構成できます直接の URL を設定して、`ASPNETCORE_URLS`環境変数。 環境変数は、サーバーを構成し、ミドルウェア直接を検出しない経由で HTTPS ポート`IServerAddressesFeature`します。
