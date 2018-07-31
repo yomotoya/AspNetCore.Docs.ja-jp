@@ -141,6 +141,7 @@
 ### [Kestrel](xref:fundamentals/servers/kestrel)
 ### [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)
 ### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [リポジトリ パターン](xref:fundamentals/repository-pattern)
 ## [グローバライズとローカライズ](xref:fundamentals/localization)
 ### [Orchard コアで移植可能なオブジェクトのローカライズを構成する](xref:fundamentals/portable-object-localization)
 ## [HTTP 要求の開始](xref:fundamentals/http-requests)
