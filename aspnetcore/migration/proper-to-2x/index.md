@@ -5,12 +5,12 @@ description: 既存の ASP.NET MVC または Web API アプリを ASP.NET Core.w
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 285f252767e4eacbb6a9ccc50bd98d1916e26bd4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2f42ca6f9da8d9941e5bab40afc36c95360c3550
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273509"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342186"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET から ASP.NET Core への移行
 
@@ -136,7 +136,7 @@ Unity で依存性の注入を設定する例は、`UnityContainer` をラップ
 Unity でそうであったように、リポジトリは任意の場所に挿入できます。
 
 > [!NOTE]
-> ASP.NET Core での依存性の注入について詳しくは、「[ASP.NET Core での依存性の注入](xref:fundamentals/dependency-injection#replacing-the-default-services-container)」をご覧ください
+> 依存関係の挿入について詳しくは、「[依存関係の挿入](xref:fundamentals/dependency-injection)」をご覧ください。
 
 ## <a name="serve-static-files"></a>静的ファイルの提供
 

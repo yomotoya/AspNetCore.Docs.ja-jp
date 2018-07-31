@@ -1,16 +1,16 @@
 ---
 title: ASP.NET から ASP.NET Core 2.0 への移行
 author: isaac2004
-description: ASP.NET Core 2.0 に移行する既存の ASP.NET MVC または Web API アプリケーションに関するガイダンスが表示されます。
+description: ASP.NET Core 2.0 に移行する既存の ASP.NET MVC または Web API アプリケーションのガイダンスが表示されます。
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/mvc2
-ms.openlocfilehash: 68b00ead1b0bf785211638692cdbeab226a2cb4e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d8a3f76bb5125a1ec76d0435ff3317f939a4ec67
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278636"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342258"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
@@ -20,12 +20,12 @@ ms.locfileid: "36278636"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-インストール**1**から次の[.NET のダウンロード: Windows](https://www.microsoft.com/net/download/windows):
+インストール**1 つ**から次の[.NET ダウンロード: Windows](https://www.microsoft.com/net/download/windows):
 
 * .NET Core SDK
-* Windows 用の visual Studio
-  * **ASP.NET および web 開発**ワークロード
-  * **.NET core クロスプラット フォーム開発**ワークロード
+* Visual Studio for Windows
+  * **ASP.NET および Web の開発**ワークロード
+  * **.NET Core クロスプラットフォームの開発**ワークロード
 
 ## <a name="target-frameworks"></a>ターゲット フレームワーク
 ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .NET Framework のどちらか一方または両方を対象にして柔軟に開発できます。 最も適切なターゲット フレームワークの決定については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)」をご覧ください。
@@ -110,11 +110,12 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 **注:** ASP.NET Core の構成について詳しくは、「[Configuration in ASP.NET Core](xref:fundamentals/configuration/index)」(ASP.NET Core の構成) をご覧ください。
 
 ## <a name="native-dependency-injection"></a>ネイティブな依存性の注入
-大規模で拡張性の高いアプリケーションを構築するときの重要な目標は、コンポーネントとサービスの疎な結合です。 [依存性の注入](xref:fundamentals/dependency-injection)はこれを実現するための一般的な手法であり、ASP.NET Core のネイティブなコンポーネントです。
 
-ASP.NET アプリケーションでは、開発者はサードパーティのライブラリに依存して依存性の注入を実装します。 [Unity](https://github.com/unitycontainer/unity) はそのようなライブラリの 1 つであり、Microsoft Patterns & Practices によって提供されます。 
+大規模で拡張性の高いアプリケーションを構築するときの重要な目標は、コンポーネントとサービスの疎な結合です。 [依存関係の注入](xref:fundamentals/dependency-injection)、これを実現するための一般的な手法であり、ASP.NET Core のネイティブ コンポーネントです。
 
-Unity で依存性の注入を設定する例は、`UnityContainer` をラップする `IDependencyResolver` の実装です。
+ASP.NET アプリケーションでは、開発者は、依存関係の注入を実装するためにサード パーティ製のライブラリに依存します。 [Unity](https://github.com/unitycontainer/unity) はそのようなライブラリの 1 つであり、Microsoft Patterns & Practices によって提供されます。
+
+Unity で依存関係の注入を設定する例を実装する`IDependencyResolver`をラップする、 `UnityContainer`:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
 
@@ -126,15 +127,16 @@ Unity で依存性の注入を設定する例は、`UnityContainer` をラップ
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
 
-依存性の注入は ASP.NET Core の一部であるため、*Startup.cs* の `ConfigureServices` メソッドに独自のサービスを追加できます。
+サービスを追加するには依存関係の挿入は、ASP.NET Core の一部であるため、 `Startup.ConfigureServices`:
 
 [!code-csharp[](samples/configure-services.cs)]
 
 Unity でそうであったように、リポジトリは任意の場所に挿入できます。
 
-**注:** ASP.NET Core での依存性の注入について詳しくは、「[Dependency Injection in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container)」(ASP.NET Core での依存性の注入) をご覧ください。
+ASP.NET Core の依存関係挿入の詳細については、次を参照してください。[依存関係の注入](xref:fundamentals/dependency-injection)します。
 
 ## <a name="serving-static-files"></a>静的ファイルの提供
+
 Web 開発の重要な部分は、静的なクライアント側アセットを提供する機能です。 静的なファイルの最も一般的な例は、HTML、CSS、Javascript、およびイメージです。 これらのファイルは、アプリ (または CDN) の公開された場所に保存され、要求によって読み込めるように参照される必要があります。 このプロセスは、ASP.NET Core で変更されました。
 
 ASP.NET では、静的ファイルはさまざまなディレクトリに保存され、ビューで参照されます。
@@ -147,7 +149,7 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 たとえば、*wwwroot/images* フォルダー内のイメージ アセットには、ブラウザーから `http://<app>/images/<imageFileName>` などの場所でアクセスできます。
 
-**注:** ASP.NET Core での静的ファイルを提供する詳細なリファレンスについては、次を参照してください。[静的ファイル](xref:fundamentals/static-files)です。
+**注:** ASP.NET Core で静的ファイルの提供について詳しくは、次を参照してください。[静的ファイル](xref:fundamentals/static-files)します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
