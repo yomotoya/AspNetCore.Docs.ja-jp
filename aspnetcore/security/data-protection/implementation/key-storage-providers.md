@@ -5,12 +5,12 @@ description: キー記憶域プロバイダーでは、ASP.NET Core とキー記
 ms.author: riande
 ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 74d62e88b40cfcefb81d699a5aba2665c56ac51a
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: e712ff09b5306bc4481c4cc105448d7cbfa39f3a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219265"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356767"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET Core でのキー記憶域プロバイダー
 
@@ -60,7 +60,7 @@ public void ConfigureServices(IServiceCollection services)
 
 * [StackExchange.Redis ConnectionMultiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md)
 * [Azure Redis Cache](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache)
-* [aspnet/DataProtection サンプル](https://github.com/aspnet/DataProtection/samples)
+* [aspnet/DataProtection サンプル](https://github.com/aspnet/DataProtection/tree/master/samples)
 
 ## <a name="registry"></a>レジストリ
 
