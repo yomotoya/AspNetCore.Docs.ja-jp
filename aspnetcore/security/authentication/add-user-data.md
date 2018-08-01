@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
 uid: security/authentication/add-user-data
-ms.openlocfilehash: ecd0e6d1c71b24309fab70fbb06af7731463bb0e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6f583d65460803c816bf1ccd314216952710cd55
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38215936"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378616"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>追加、ダウンロード、および Id に、ASP.NET Core プロジェクトでのカスタム ユーザー データの削除
 
@@ -57,12 +57,12 @@ dotnet new webapp -o WebApp1
 * **ソリューション エクスプ ローラー**、プロジェクトを右クリックして >**追加** > **スキャフォールディングされた新しい項目**します。
 * 左側のウィンドウから、**スキャフォールディングの追加**ダイアログ ボックスで、 **Identity** > **追加**します。
 * **ADD アイデンティティ**ダイアログ ボックスで、次のオプション。
-  * 既存のレイアウト ファイルを選択します *~/Pages/Shared/_Layout.cshtml。*
+  * 既存のレイアウト ファイルを選択して *~/Pages/Shared/_Layout.cshtml*
   * オーバーライドする次のファイルを選択します。
     * **アカウントまたは登録**
     * **アカウント/管理/インデックス**
-  * 選択、 **+** 新たに作成するボタン**データ コンテキスト クラス**します。 型を受け入れる (**WebApp1.Models.WebApp1Context**プロジェクトの名前を付けた場合**WebApp1**)。
-  * 選択、 **+** 新たに作成するボタン**ユーザー クラス**します。 型を受け入れる (**WebApp1User**プロジェクトの名前を付けた場合**WebApp1**) >**追加**します。
+  * 選択、 **+** 新たに作成するボタン**データ コンテキスト クラス**します。 型を受け入れる (**WebApp1.Models.WebApp1Context**場合は、プロジェクトの名前は**WebApp1**)。
+  * 選択、 **+** 新たに作成するボタン**ユーザー クラス**します。 型を受け入れる (**WebApp1User**場合は、プロジェクトの名前は**WebApp1**) >**追加**します。
 * 選択**追加**します。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -108,7 +108,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 ## <a name="add-custom-user-data-to-the-identity-db"></a>Identity DB へのカスタム ユーザー データを追加します。
 
-更新プログラム、`IdentityUser`カスタム プロパティを持つクラスを派生します。 ファイルの名前は WebApp1、プロジェクトの名前を付けた場合*Areas/Identity/Data/WebApp1User.cs*します。 次のコード ファイルを更新します。
+更新プログラム、`IdentityUser`カスタム プロパティを持つクラスを派生します。 ファイルの名前は WebApp1 プロジェクトの名前を付けた場合*Areas/Identity/Data/WebApp1User.cs*します。 次のコード ファイルを更新します。
 
 [!code-csharp[Main](add-user-data/sample/Areas/Identity/Data/WebApp1User.cs)]
 

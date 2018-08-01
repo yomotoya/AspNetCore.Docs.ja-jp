@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR アプリケーションを構成する方法�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/30/2018
+ms.date: 07/31/2018
 uid: signalr/configuration
-ms.openlocfilehash: f5a345795f17dafd482e359e77a151d5b0a15688
-ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
+ms.openlocfilehash: 32c0ad94fba09fa099c2ab4a6b1d6d79a5542d7f
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39182591"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396063"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR の構成
 
@@ -20,7 +20,7 @@ ms.locfileid: "39182591"
 
 ASP.NET Core SignalR は、メッセージをエンコードするための 2 つのプロトコルをサポートしています: [JSON](https://www.json.org/)と[MessagePack](https://msgpack.org/index.html)します。 各プロトコルには、シリアル化の構成オプションがあります。
 
-JSON のシリアル化を使用して、サーバーで構成できます、 [ `AddJsonProtocol` ](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol)拡張メソッドは後に、追加する[AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr)で、`Startup.ConfigureServices`メソッド。 `AddJsonProtocol`メソッドが受信するデリゲートを受け取り、`options`オブジェクト。 [ `PayloadSerializerSettings` ](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings)そのオブジェクトのプロパティは、JSON.NET`JsonSerializerSettings`引数のシリアル化の構成し、戻り値を使用できるオブジェクト。 参照してください、 [JSON.NET のドキュメント](https://www.newtonsoft.com/json/help/html/Introduction.htm)の詳細。
+JSON のシリアル化を使用して、サーバーで構成できます、 [AddJsonProtocol](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol)拡張メソッドは後に、追加する[AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr)で、`Startup.ConfigureServices`メソッド。 `AddJsonProtocol`メソッドが受信するデリゲートを受け取り、`options`オブジェクト。 [PayloadSerializerSettings](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings)そのオブジェクトのプロパティは、JSON.NET`JsonSerializerSettings`引数のシリアル化の構成し、戻り値を使用できるオブジェクト。 参照してください、 [JSON.NET のドキュメント](https://www.newtonsoft.com/json/help/html/Introduction.htm)の詳細。
 
 たとえば、「キャメル ケース」の既定名ではなく"PascalCase"プロパティの名前を使用するシリアライザーを構成する次のコードを使用します。
 
@@ -60,12 +60,12 @@ var connection = new HubConnectionBuilder()
 
 次の表では、SignalR ハブを構成するためのオプションについて説明します。
 
-| オプション | 説明 |
-| ------ | ----------- |
-| `HandshakeTimeout` | クライアントがこの時間間隔内で最初のハンドシェイク メッセージを送信しない場合、接続は閉じられます。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
-| `KeepAliveInterval` | サーバーがこの間隔内でメッセージを送信していない場合、接続を開いたままに ping メッセージが自動的に送信されます。 |
-| `SupportedProtocols` | このハブでサポートされるプロトコル。 既定では、サーバーに登録されているプロトコルをすべて許可されますが、プロトコルは、個々 のハブに対する特定のプロトコルを無効にするには、この一覧から削除できます。 |
-| `EnableDetailedErrors` | 場合`true`詳細のハブ メソッドで例外がスローされたときに、例外メッセージがクライアントに返されます。 既定値は`false`、これらの例外メッセージは、機密情報を含めることができます。 |
+| オプション | 既定値 | 説明 |
+| ------ | ------------- | ----------- |
+| `HandshakeTimeout` | 15 秒 | クライアントがこの時間間隔内で最初のハンドシェイク メッセージを送信しない場合、接続は閉じられます。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
+| `KeepAliveInterval` | 15 秒 | サーバーがこの間隔内でメッセージを送信していない場合、接続を開いたままに ping メッセージが自動的に送信されます。 |
+| `SupportedProtocols` | インストールされているすべてのプロトコル | このハブでサポートされるプロトコル。 既定では、サーバーに登録されているプロトコルをすべて許可されますが、プロトコルは、個々 のハブに対する特定のプロトコルを無効にするには、この一覧から削除できます。 |
+| `EnableDetailedErrors` | `false` | 場合`true`詳細のハブ メソッドで例外がスローされたときに、例外メッセージがクライアントに返されます。 既定値は`false`、これらの例外メッセージは、機密情報を含めることができます。 |
 
 オプションのデリゲートを提供することですべてのハブのオプションを構成でき、`AddSignalR`呼び出す`Startup.ConfigureServices`します。
 
@@ -80,7 +80,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-1 つのハブのオプションで提供されるグローバル オプションを上書き`AddSignalR`を使用して構成できると[ `AddHubOptions<T>` ](/dotnet/api/microsoft.extensions.dependencyinjection.huboptionsdependencyinjectionextensions.addhuboptions):
+1 つのハブのオプションで提供されるグローバル オプションを上書き`AddSignalR`を使用して構成できると[AddHubOptions\<T >](/dotnet/api/microsoft.extensions.dependencyinjection.huboptionsdependencyinjectionextensions.addhuboptions):
 
 ```csharp
 services.AddSignalR().AddHubOptions<MyHub>(options =>
@@ -89,29 +89,29 @@ services.AddSignalR().AddHubOptions<MyHub>(options =>
 }
 ```
 
-使用`HttpConnectionDispatcherOptions`トランスポートおよびメモリ バッファーの管理に関連する高度な設定を構成します。 これらのオプションを構成するデリゲートを渡すことによって[ `MapHub<T>`](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub)します。
+使用`HttpConnectionDispatcherOptions`トランスポートおよびメモリ バッファーの管理に関連する高度な設定を構成します。 これらのオプションを構成するデリゲートを渡すことによって[MapHub\<T >](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub)します。
 
-| オプション | 説明 |
-| ------ | ----------- |
-| `ApplicationMaxBufferSize` | クライアントから受信したバイトの最大数をサーバーのバッファー。 この値を増やすことによりより大きなメッセージを受信するサーバーが、メモリ消費量に悪影響を与えることができます。 既定値は、32 KB です。 |
-| `AuthorizationData` | 一連の[ `IAuthorizeData` ](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata)オブジェクトは、クライアントがハブへの接続を承認されているかどうかを判断するために使用します。 既定では、この値が格納されますから、`Authorize`ハブ クラスに適用される属性。 |
-| `TransportMaxBufferSize` | アプリによって送信されたバイト数の最大数をサーバーのバッファー。 この値を増やすことによりより大きなメッセージを送信するサーバーが、メモリ消費量に悪影響を与えることができます。 既定値は、32 KB です。 |
-| `Transports` | ビットマスク`HttpTransportType`トランスポートを制限する値をクライアントが接続に使用できます。 既定では、すべてのトランスポートが有効にします。 |
-| `LongPolling` | 長いポーリングのトランスポートに固有の追加オプション。 |
-| `WebSockets` | Websocket トランスポートに固有の追加オプション。 |
+| オプション | 既定値 | 説明 |
+| ------ | ------------- | ----------- |
+| `ApplicationMaxBufferSize` | 32 KB | クライアントから受信したバイトの最大数をサーバーのバッファー。 この値を増やすことによりより大きなメッセージを受信するサーバーが、メモリ消費量に悪影響を与えることができます。 |
+| `AuthorizationData` | データが自動的に収集、`Authorize`ハブ クラスに適用される属性。 | 一連の[IAuthorizeData](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata)オブジェクトは、クライアントがハブへの接続を承認されているかどうかを判断するために使用します。 |
+| `TransportMaxBufferSize` | 32 KB | アプリによって送信されたバイト数の最大数をサーバーのバッファー。 この値を増やすことによりより大きなメッセージを送信するサーバーが、メモリ消費量に悪影響を与えることができます。 |
+| `Transports` | すべてのトランスポートが有効になります。 | ビットマスク`HttpTransportType`トランスポートを制限する値をクライアントが接続に使用できます。 |
+| `LongPolling` | 以下を参照してください。 | 長いポーリングのトランスポートに固有の追加オプション。 |
+| `WebSockets` | 以下を参照してください。 | Websocket トランスポートに固有の追加オプション。 |
 
 ポーリングの長いトランスポートを使用して構成できるその他のオプションを持つ、`LongPolling`プロパティ。
 
-| オプション | 説明 |
-| ------ | ----------- |
-| `PollTimeout` | 1 つのポーリング要求を終了する前に、クライアントに送信するメッセージのサーバーが待機する最長時間。 新しいポーリング要求をより頻繁に発行するクライアントは、この値を小さきます。 既定値は、90 秒です。 |
+| オプション | 既定値 | 説明 |
+| ------ | ------------- | ----------- |
+| `PollTimeout` | 90 秒 | 1 つのポーリング要求を終了する前に、クライアントに送信するメッセージのサーバーが待機する最長時間。 新しいポーリング要求をより頻繁に発行するクライアントは、この値を小さきます。 |
 
 WebSocket トランスポートが追加のオプションを使用して構成できる、`WebSockets`プロパティ。
 
-| オプション | 説明 |
-| ------ | ----------- |
-| `CloseTimeout` | サーバーが閉じ、クライアントがこの時間間隔内に閉じるが失敗した場合、接続は終了します。 |
-| `SubProtocolSelector` | 設定するために使用するデリゲート、`Sec-WebSocket-Protocol`ヘッダーをカスタム値。 デリゲートは、入力としてクライアントによって要求された値を受け取るし、目的の値を返します。 |
+| オプション | 既定値 | 説明 |
+| ------ | ------------- | ----------- |
+| `CloseTimeout` | 5 秒 | サーバーが閉じ、クライアントがこの時間間隔内に閉じるが失敗した場合、接続は終了します。 |
+| `SubProtocolSelector` | `null` | 設定するために使用するデリゲート、`Sec-WebSocket-Protocol`ヘッダーをカスタム値。 デリゲートは、入力としてクライアントによって要求された値を受け取るし、目的の値を返します。 |
 
 ## <a name="configure-client-options"></a>クライアント オプションを構成します。
 
@@ -214,10 +214,10 @@ let connection = new signalR.HubConnectionBuilder()
 
 タイムアウトとキープ アライブ動作を構成するための追加のオプションがあります、`HubConnection`オブジェクト自体。
 
-| .NET オプション | JavaScript のオプション | 説明 |
-| ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | サーバーの利用状況のタイムアウト。 サーバーは、この間隔でメッセージを送信していない、クライアントと見なされ、サーバーが切断されているトリガー、`Closed`イベント (`onclose` JavaScript で)。 |
-| `HandshakeTimeout` | 構成できません。 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`Closed`イベント (`onclose` JavaScript で)。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
+| .NET オプション | JavaScript のオプション | 既定値 | 説明 |
+| ----------- | ----------------- | ------------- | ----------- |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 秒 (30,000 ミリ秒) | サーバーの利用状況のタイムアウト。 サーバーは、この間隔でメッセージを送信していない、クライアントと見なされ、サーバーが切断されているトリガー、`Closed`イベント (`onclose` JavaScript で)。 |
+| `HandshakeTimeout` | 構成できません。 | 15 秒 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`Closed`イベント (`onclose` JavaScript で)。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
 
 として、.NET クライアントでタイムアウト値が指定された`TimeSpan`値。 JavaScript クライアントでは、タイムアウト値は、期間 (ミリ秒) を示す数値として指定されます。
 
@@ -225,19 +225,19 @@ let connection = new signalR.HubConnectionBuilder()
 
 追加のオプションを構成することができます、 `WithUrl` (`withUrl` JavaScript で) メソッドを`HubConnectionBuilder`:
 
-| .NET オプション | JavaScript のオプション | 説明 |
-| ----------- | ----------------- | ----------- |
-| `AccessTokenProvider` | `accessTokenFactory` | HTTP 要求でベアラー認証トークンとして提供されている文字列を返す関数。 |
-| `SkipNegotiation` | `skipNegotiation` | これを設定`true`ネゴシエーションの手順をスキップします。 **Websocket トランスポートがトランスポートには、のみの有効な場合にのみサポート**します。 Azure SignalR サービスを使用する場合は、この設定を有効にすることはできません。 |
-| `ClientCertificates` | 構成できない * | 要求の認証に送信する TLS 証明書のコレクション。 |
-| `Cookies` | 構成できない * | すべての HTTP 要求を送信する HTTP クッキーのコレクション。 |
-| `Credentials` | 構成できない * | すべての HTTP 要求を送信する資格情報です。 |
-| `CloseTimeout` | 構成できない * | Websocket だけです。 最長時間、クライアントは、サーバーが閉じる要求を確認するための終了後に待機します。 サーバーは、この時間内終了を確認は、クライアントが切断されます。 |
-| `Headers` | 構成できない * | すべての HTTP 要求を送信する追加の HTTP ヘッダーのディクショナリ。 |
-| `HttpMessageHandlerFactory` | 構成できない * | 構成または置換するために使用するデリゲート、 `HttpMessageHandler` HTTP 要求を送信するために使用します。 WebSocket 接続に使用されません。 このデリゲートは、null 以外の値を返す必要があり、既定値をパラメーターとして受け取ります。 その既定値の設定を変更し、それを返すか返さまったく新しい`HttpMessageHandler`インスタンス。 |
-| `Proxy` | 構成できない * | HTTP 要求を送信するときに使用する HTTP プロキシ。 |
-| `UseDefaultCredentials` | 構成できない * | HTTP と Websocket の要求の既定の資格情報を送信するこのブール値を設定します。 これにより、Windows 認証を使用できます。 |
-| `WebSocketConfiguration` | 構成できない * | 追加の WebSocket オプションを構成するために使用するデリゲート。 インスタンスを受け取る[ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions)オプションを構成できます。 |
+| .NET オプション | JavaScript のオプション | 既定値 | 説明 |
+| ----------- | ----------------- | ------------- | ----------- |
+| `AccessTokenProvider` | `accessTokenFactory` | `null` | HTTP 要求でベアラー認証トークンとして提供されている文字列を返す関数。 |
+| `SkipNegotiation` | `skipNegotiation` | `false` | これを設定`true`ネゴシエーションの手順をスキップします。 **Websocket トランスポートがトランスポートには、のみの有効な場合にのみサポート**します。 Azure SignalR サービスを使用する場合は、この設定を有効にすることはできません。 |
+| `ClientCertificates` | 構成できない * | Empty | 要求の認証に送信する TLS 証明書のコレクション。 |
+| `Cookies` | 構成できない * | Empty | すべての HTTP 要求を送信する HTTP クッキーのコレクション。 |
+| `Credentials` | 構成できない * | Empty | すべての HTTP 要求を送信する資格情報です。 |
+| `CloseTimeout` | 構成できない * | 5 秒 | Websocket だけです。 最長時間、クライアントは、サーバーが閉じる要求を確認するための終了後に待機します。 サーバーは、この時間内終了を確認は、クライアントが切断されます。 |
+| `Headers` | 構成できない * | Empty | すべての HTTP 要求を送信する追加の HTTP ヘッダーのディクショナリ。 |
+| `HttpMessageHandlerFactory` | 構成できない * | `null` | 構成または置換するために使用するデリゲート、 `HttpMessageHandler` HTTP 要求を送信するために使用します。 WebSocket 接続に使用されません。 このデリゲートは、null 以外の値を返す必要があり、既定値をパラメーターとして受け取ります。 その既定値の設定を変更し、それを返すか返さまったく新しい`HttpMessageHandler`インスタンス。 |
+| `Proxy` | 構成できない * | `null` | HTTP 要求を送信するときに使用する HTTP プロキシ。 |
+| `UseDefaultCredentials` | 構成できない * | `false` | HTTP と Websocket の要求の既定の資格情報を送信するこのブール値を設定します。 これにより、Windows 認証を使用できます。 |
+| `WebSocketConfiguration` | 構成できない * | `null` | 追加の WebSocket オプションを構成するために使用するデリゲート。 インスタンスを受け取る[ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions)オプションを構成できます。 |
 
 アスタリスク (*) でマークされたオプションはブラウザー Api の制限により、JavaScript クライアントで構成できます。
 
