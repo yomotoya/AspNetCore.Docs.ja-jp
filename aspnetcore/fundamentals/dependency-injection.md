@@ -1,205 +1,388 @@
 ---
 title: ASP.NET Core での依存関係の挿入
-author: ardalis
+author: guardrex
 description: ASP.NET Core で依存関係の挿入を実装する方法とそれを使う方法について説明します。
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 04c52bd47d34cd2135753c469077b6a75ee02f86
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 861370dc689e2420838f639ea0b1fb8f73927e16
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278454"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342420"
 ---
-# <a name="dependency-injection-in-aspnet-core"></a><span data-ttu-id="a7372-103">ASP.NET Core での依存関係の挿入</span><span class="sxs-lookup"><span data-stu-id="a7372-103">Dependency injection in ASP.NET Core</span></span>
+# <a name="dependency-injection-in-aspnet-core"></a><span data-ttu-id="44f1a-103">ASP.NET Core での依存関係の挿入</span><span class="sxs-lookup"><span data-stu-id="44f1a-103">Dependency injection in ASP.NET Core</span></span>
 
-<a name="fundamentals-dependency-injection"></a>
+<span data-ttu-id="44f1a-104">作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)、[Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="44f1a-104">By [Steve Smith](https://ardalis.com/), [Scott Addie](https://scottaddie.com), and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="a7372-104">作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)</span><span class="sxs-lookup"><span data-stu-id="a7372-104">By [Steve Smith](https://ardalis.com/) and [Scott Addie](https://scottaddie.com)</span></span>
+<span data-ttu-id="44f1a-105">ASP.NET Core では依存関係の挿入 (DI) ソフトウェア設計パターンがサポートされています。これは、クラスとその依存関係の間で[制御の反転 (IoC)](https://deviq.com/inversion-of-control/) を実現するための手法です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-105">ASP.NET Core supports the dependency injection (DI) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](https://deviq.com/inversion-of-control/) between classes and their dependencies.</span></span>
 
-<span data-ttu-id="a7372-105">ASP.NET Core は、依存関係の挿入をサポートして利用するようにまったく新しく設計されています。</span><span class="sxs-lookup"><span data-stu-id="a7372-105">ASP.NET Core is designed from the ground up to support and leverage dependency injection.</span></span> <span data-ttu-id="a7372-106">ASP.NET Core アプリケーションは、組み込みフレームワーク サービスをスタートアップ クラスのメソッドに挿入することによってサービスを利用でき、アプリケーション サービスも挿入用に構成することができます。</span><span class="sxs-lookup"><span data-stu-id="a7372-106">ASP.NET Core applications can leverage built-in framework services by having them injected into methods in the Startup class, and application services can be configured for injection as well.</span></span> <span data-ttu-id="a7372-107">ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能セットを提供するものであり、他のコンテナーの置き換えは意図されていません。</span><span class="sxs-lookup"><span data-stu-id="a7372-107">The default services container provided by ASP.NET Core provides a minimal feature set and isn't intended to replace other containers.</span></span>
+<span data-ttu-id="44f1a-106">MVC コントローラー内部における依存関係の挿入に固有の情報については、<xref:mvc/controllers/dependency-injection> をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-106">For more information specific to dependency injection within MVC controllers, see <xref:mvc/controllers/dependency-injection>.</span></span>
 
-<span data-ttu-id="a7372-108">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="a7372-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="44f1a-107">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="44f1a-107">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="what-is-dependency-injection"></a><span data-ttu-id="a7372-109">依存関係の挿入とは</span><span class="sxs-lookup"><span data-stu-id="a7372-109">What is dependency injection?</span></span>
+## <a name="overview-of-dependency-injection"></a><span data-ttu-id="44f1a-108">依存関係の挿入の概要</span><span class="sxs-lookup"><span data-stu-id="44f1a-108">Overview of dependency injection</span></span>
 
-<span data-ttu-id="a7372-110">依存関係の挿入 (DI) とは、オブジェクトとそのコラボレーター (依存関係) との間の疎結合を実現するための手法です。</span><span class="sxs-lookup"><span data-stu-id="a7372-110">Dependency injection (DI) is a technique for achieving loose coupling between objects and their collaborators, or dependencies.</span></span> <span data-ttu-id="a7372-111">クラスがそのアクションを実行するために必要なオブジェクトは、コラボレーターを直接インスタンス化したり、静的参照を使ったりするのではなく、それ以外の何らかの方法でクラスに提供されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-111">Rather than directly instantiating collaborators, or using static references, the objects a class needs in order to perform its actions are provided to the class in some fashion.</span></span> <span data-ttu-id="a7372-112">ほとんどの場合、クラスはコンストラクターを使って依存関係を宣言することで、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)に従うことができます。</span><span class="sxs-lookup"><span data-stu-id="a7372-112">Most often, classes will declare their dependencies via their constructor, allowing them to follow the [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/).</span></span> <span data-ttu-id="a7372-113">この方法は、"コンストラクターの挿入" と呼ばれます。</span><span class="sxs-lookup"><span data-stu-id="a7372-113">This approach is known as "constructor injection".</span></span>
-
-<span data-ttu-id="a7372-114">クラスが DI を考慮して設計されていると、コラボレーターに対して直接的なハード コーディングされた依存関係を持たないので、より弱い結合になります。</span><span class="sxs-lookup"><span data-stu-id="a7372-114">When classes are designed with DI in mind, they're more loosely coupled because they don't have direct, hard-coded dependencies on their collaborators.</span></span> <span data-ttu-id="a7372-115">これは[依存関係の逆転の原則](http://deviq.com/dependency-inversion-principle/)に従うものです。この原則は、"*高レベルのモジュールは低レベルのモジュールに依存してはならず、どちらも抽象化に依存する必要がある*" というものです。</span><span class="sxs-lookup"><span data-stu-id="a7372-115">This follows the [Dependency Inversion Principle](http://deviq.com/dependency-inversion-principle/), which states that *"high level modules shouldn't depend on low level modules; both should depend on abstractions."*</span></span> <span data-ttu-id="a7372-116">特定の実装を参照する代わりに、クラスはクラスの構築時に提供される抽象化 (通常は `interfaces`) に要求します。</span><span class="sxs-lookup"><span data-stu-id="a7372-116">Instead of referencing specific implementations, classes request abstractions (typically `interfaces`) which are provided to them when the class is constructed.</span></span> <span data-ttu-id="a7372-117">依存関係をインターフェイスに抽出し、これらのインターフェイスの実装をパラメーターとして提供することも、[戦略設計パターン](http://deviq.com/strategy-design-pattern/)の例です。</span><span class="sxs-lookup"><span data-stu-id="a7372-117">Extracting dependencies into interfaces and providing implementations of these interfaces as parameters is also an example of the [Strategy design pattern](http://deviq.com/strategy-design-pattern/).</span></span>
-
-<span data-ttu-id="a7372-118">システムが DI を使うように設計されていて、多くのクラスがコンストラクター (またはプロパティ) を使って依存関係を要求する場合は、これらのクラスとそれに関連付けられている依存関係を作成する専用のクラスを用意すると便利です。</span><span class="sxs-lookup"><span data-stu-id="a7372-118">When a system is designed to use DI, with many classes requesting their dependencies via their constructor (or properties), it's helpful to have a class dedicated to creating these classes with their associated dependencies.</span></span> <span data-ttu-id="a7372-119">このようなクラスは、"*コンテナー*"、あるいはさらに具体的に[制御の反転 (IoC)](http://deviq.com/inversion-of-control/) コンテナーまたは依存関係の挿入 (DI) コンテナーと呼ばれます。</span><span class="sxs-lookup"><span data-stu-id="a7372-119">These classes are referred to as *containers*, or more specifically, [Inversion of Control (IoC)](http://deviq.com/inversion-of-control/) containers or Dependency Injection (DI) containers.</span></span> <span data-ttu-id="a7372-120">コンテナーは基本的に、要求された型のインスタンスを提供するファクトリです。</span><span class="sxs-lookup"><span data-stu-id="a7372-120">A container is essentially a factory that's responsible for providing instances of types that are requested from it.</span></span> <span data-ttu-id="a7372-121">特定の型が依存関係を持つものとして宣言されていて、コンテナーが依存関係の型を提供するように構成されている場合、コンテナーは要求されたインスタンスの作成の一環として依存関係を作成します。</span><span class="sxs-lookup"><span data-stu-id="a7372-121">If a given type has declared that it has dependencies, and the container has been configured to provide the dependency types, it will create the dependencies as part of creating the requested instance.</span></span> <span data-ttu-id="a7372-122">これにより、複雑な依存関係グラフをクラスに提供でき、ハード コーディングされたオブジェクトの構築は必要ありません。</span><span class="sxs-lookup"><span data-stu-id="a7372-122">In this way, complex dependency graphs can be provided to classes without the need for any hard-coded object construction.</span></span> <span data-ttu-id="a7372-123">依存関係を含むオブジェクトを作成するだけでなく、コンテナーは通常、アプリケーション内でのオブジェクトの有効期間を管理します。</span><span class="sxs-lookup"><span data-stu-id="a7372-123">In addition to creating objects with their dependencies, containers typically manage object lifetimes within the application.</span></span>
-
-<span data-ttu-id="a7372-124">ASP.NET Core には既定でコンストラクターの挿入をサポートする簡単な組み込みコンテナーが含まれ (`IServiceProvider` インターフェイスによって表されます)、ASP.NET は DI によって特定のサービスを利用できるようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-124">ASP.NET Core includes a simple built-in container (represented by the `IServiceProvider` interface) that supports constructor injection by default, and ASP.NET makes certain services available through DI.</span></span> <span data-ttu-id="a7372-125">ASP.NET のコンテナーでは、それが管理する型を "*サービス*" と呼びます。</span><span class="sxs-lookup"><span data-stu-id="a7372-125">ASP.NET's container refers to the types it manages as *services*.</span></span> <span data-ttu-id="a7372-126">これ以降この記事では、"*サービス*" は ASP.NET Core の IoC コンテナーによって管理される型を指します。</span><span class="sxs-lookup"><span data-stu-id="a7372-126">Throughout the rest of this article, *services* will refer to types that are managed by ASP.NET Core's IoC container.</span></span> <span data-ttu-id="a7372-127">組み込みコンテナーのサービスは、アプリケーションの `Startup` クラスの `ConfigureServices` メソッドで構成します。</span><span class="sxs-lookup"><span data-stu-id="a7372-127">You configure the built-in container's services in the `ConfigureServices` method in your application's `Startup` class.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="a7372-128">Martin Fowler は、「[Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html)」(制御の反転コンテナーと依存関係の挿入パターン) で広範な記事を書いています。</span><span class="sxs-lookup"><span data-stu-id="a7372-128">Martin Fowler has written an extensive article on [Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html).</span></span> <span data-ttu-id="a7372-129">Microsoft のパターンとプラクティスにも[依存関係の挿入](https://msdn.microsoft.com/library/hh323705.aspx)に関する優れた説明があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-129">Microsoft Patterns and Practices also has a great description of [Dependency Injection](https://msdn.microsoft.com/library/hh323705.aspx).</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="a7372-130">この記事では、すべての ASP.NET アプリケーションに適用される依存関係の挿入について説明します。</span><span class="sxs-lookup"><span data-stu-id="a7372-130">This article covers Dependency Injection as it applies to all ASP.NET applications.</span></span> <span data-ttu-id="a7372-131">MVC コントローラーでの依存関係の挿入については、「[Dependency injection into controllers](../mvc/controllers/dependency-injection.md)」(コントローラーへの依存関係の挿入) をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="a7372-131">Dependency Injection within MVC controllers is covered in [Dependency Injection and Controllers](../mvc/controllers/dependency-injection.md).</span></span>
-
-### <a name="constructor-injection-behavior"></a><span data-ttu-id="a7372-132">コンストラクターの挿入の動作</span><span class="sxs-lookup"><span data-stu-id="a7372-132">Constructor injection behavior</span></span>
-
-<span data-ttu-id="a7372-133">コンストラクターの挿入には、対象のコンストラクターが "*パブリック*" である必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-133">Constructor injection requires that the constructor in question be *public*.</span></span> <span data-ttu-id="a7372-134">そうでない場合、アプリは `InvalidOperationException` をスローします。</span><span class="sxs-lookup"><span data-stu-id="a7372-134">Otherwise, your app will throw an `InvalidOperationException`:</span></span>
-
-> <span data-ttu-id="a7372-135">A suitable constructor for type 'YourType' couldn't be located.</span><span class="sxs-lookup"><span data-stu-id="a7372-135">A suitable constructor for type 'YourType' couldn't be located.</span></span> <span data-ttu-id="a7372-136">Ensure the type is concrete and services are registered for all parameters of a public constructor. (型 'YourType' の適切なコンストラクターが見つかりませんでした。型が具象であること、およびサービスがパブリック コンストラクターのすべてのパラメーターに登録されていることを確認してください。)</span><span class="sxs-lookup"><span data-stu-id="a7372-136">Ensure the type is concrete and services are registered for all parameters of a public constructor.</span></span>
-
-<span data-ttu-id="a7372-137">コンストラクターの挿入では、該当するコンストラクターがただ 1 つだけ存在する必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-137">Constructor injection requires that only one applicable constructor exist.</span></span> <span data-ttu-id="a7372-138">コンストラクターのオーバーロードはサポートされていますが、依存関係の挿入によってすべての引数を設定できるオーバーロードは 1 つしか存在できません。</span><span class="sxs-lookup"><span data-stu-id="a7372-138">Constructor overloads are supported, but only one overload can exist whose arguments can all be fulfilled by dependency injection.</span></span> <span data-ttu-id="a7372-139">複数のコンストラクターが存在する場合、アプリは `InvalidOperationException` をスローします。</span><span class="sxs-lookup"><span data-stu-id="a7372-139">If more than one exists, your app will throw an `InvalidOperationException`:</span></span>
-
-> <span data-ttu-id="a7372-140">Multiple constructors accepting all given argument types have been found in type 'YourType'.</span><span class="sxs-lookup"><span data-stu-id="a7372-140">Multiple constructors accepting all given argument types have been found in type 'YourType'.</span></span> <span data-ttu-id="a7372-141">There should only be one applicable constructor. (型 'YourType' には、特定の引数の型をすべて受け付けるコンストラクターが複数存在します。該当するコンストラクターは 1 つだけでなければなりません。)</span><span class="sxs-lookup"><span data-stu-id="a7372-141">There should only be one applicable constructor.</span></span>
-
-<span data-ttu-id="a7372-142">コンストラクターは、依存関係の挿入によって提供されない引数を受け入れることができますが、既定値をサポートしている必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-142">Constructors can accept arguments that are not provided by dependency injection, but these must support default values.</span></span> <span data-ttu-id="a7372-143">例:</span><span class="sxs-lookup"><span data-stu-id="a7372-143">For example:</span></span>
+<span data-ttu-id="44f1a-109">"*依存関係*" とは、他のオブジェクトが必要とする任意のオブジェクトのことです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-109">A *dependency* is any object that another object requires.</span></span> <span data-ttu-id="44f1a-110">アプリ内の他のクラスが依存している、次の `WriteMessage` メソッドを備えた `MyDependency` クラスを調べます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-110">Examine the following `MyDependency` class with a `WriteMessage` method that other classes in an app depend upon:</span></span>
 
 ```csharp
-// throws InvalidOperationException: Unable to resolve service for type 'System.String'...
-public CharactersController(ICharacterRepository characterRepository, string title)
+public class MyDependency
 {
-    _characterRepository = characterRepository;
-    _title = title;
-}
+    public MyDependency()
+    {
+    }
 
-// runs without error
-public CharactersController(ICharacterRepository characterRepository, string title = "Characters")
-{
-    _characterRepository = characterRepository;
-    _title = title;
+    public Task WriteMessage(string message)
+    {
+        Console.WriteLine(
+            $"MyDependency.WriteMessage called. Message: {message}");
+
+        return Task.FromResult(0);
+    }
 }
 ```
 
-## <a name="using-framework-provided-services"></a><span data-ttu-id="a7372-144">フレームワークが提供するサービスの使用</span><span class="sxs-lookup"><span data-stu-id="a7372-144">Using framework-provided services</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="a7372-145">`Startup` クラスの `ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC といったプラットフォーム機能など、アプリケーションが使うサービスを定義する必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-145">The `ConfigureServices` method in the `Startup` class is responsible for defining the services the application will use, including platform features like Entity Framework Core and ASP.NET Core MVC.</span></span> <span data-ttu-id="a7372-146">最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/host/index)に依存します)。</span><span class="sxs-lookup"><span data-stu-id="a7372-146">Initially, the `IServiceCollection` provided to `ConfigureServices` has the following services defined (depending on [how the host was configured](xref:fundamentals/host/index)):</span></span>
+<span data-ttu-id="44f1a-111">クラスで `WriteMessage` メソッドを使用できるようにするために、`MyDependency` クラスのインスタンスを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-111">An instance of the `MyDependency` class can be created to make the `WriteMessage` method available to a class.</span></span> <span data-ttu-id="44f1a-112">`MyDependency` クラスは `IndexModel` クラスの依存関係です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-112">The `MyDependency` class is a dependency of the `IndexModel` class:</span></span>
 
-| <span data-ttu-id="a7372-147">サービスの種類</span><span class="sxs-lookup"><span data-stu-id="a7372-147">Service Type</span></span> | <span data-ttu-id="a7372-148">有効期間</span><span class="sxs-lookup"><span data-stu-id="a7372-148">Lifetime</span></span> |
-| ----- | ------- |
-| [<span data-ttu-id="a7372-149">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span><span class="sxs-lookup"><span data-stu-id="a7372-149">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) | <span data-ttu-id="a7372-150">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-150">Singleton</span></span> |
-| [<span data-ttu-id="a7372-151">Microsoft.Extensions.Logging.ILoggerFactory</span><span class="sxs-lookup"><span data-stu-id="a7372-151">Microsoft.Extensions.Logging.ILoggerFactory</span></span>](/dotnet/api/microsoft.extensions.logging.iloggerfactory) | <span data-ttu-id="a7372-152">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-152">Singleton</span></span> |
-| [<span data-ttu-id="a7372-153">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="a7372-153">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.logging.ilogger) | <span data-ttu-id="a7372-154">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-154">Singleton</span></span> |
-| [<span data-ttu-id="a7372-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span><span class="sxs-lookup"><span data-stu-id="a7372-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | <span data-ttu-id="a7372-156">一時的</span><span class="sxs-lookup"><span data-stu-id="a7372-156">Transient</span></span> |
-| [<span data-ttu-id="a7372-157">Microsoft.AspNetCore.Http.IHttpContextFactory</span><span class="sxs-lookup"><span data-stu-id="a7372-157">Microsoft.AspNetCore.Http.IHttpContextFactory</span></span>](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextfactory) | <span data-ttu-id="a7372-158">一時的</span><span class="sxs-lookup"><span data-stu-id="a7372-158">Transient</span></span> |
-| [<span data-ttu-id="a7372-159">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="a7372-159">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.ioptions-1) | <span data-ttu-id="a7372-160">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-160">Singleton</span></span> |
-| [<span data-ttu-id="a7372-161">System.Diagnostics.DiagnosticSource</span><span class="sxs-lookup"><span data-stu-id="a7372-161">System.Diagnostics.DiagnosticSource</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | <span data-ttu-id="a7372-162">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-162">Singleton</span></span> |
-| [<span data-ttu-id="a7372-163">System.Diagnostics.DiagnosticListener</span><span class="sxs-lookup"><span data-stu-id="a7372-163">System.Diagnostics.DiagnosticListener</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | <span data-ttu-id="a7372-164">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-164">Singleton</span></span> |
-| [<span data-ttu-id="a7372-165">Microsoft.AspNetCore.Hosting.IStartupFilter</span><span class="sxs-lookup"><span data-stu-id="a7372-165">Microsoft.AspNetCore.Hosting.IStartupFilter</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) | <span data-ttu-id="a7372-166">一時的</span><span class="sxs-lookup"><span data-stu-id="a7372-166">Transient</span></span> |
-| [<span data-ttu-id="a7372-167">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span><span class="sxs-lookup"><span data-stu-id="a7372-167">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span></span>](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | <span data-ttu-id="a7372-168">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-168">Singleton</span></span> |
-| [<span data-ttu-id="a7372-169">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="a7372-169">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | <span data-ttu-id="a7372-170">一時的</span><span class="sxs-lookup"><span data-stu-id="a7372-170">Transient</span></span> |
-| [<span data-ttu-id="a7372-171">Microsoft.AspNetCore.Hosting.Server.IServer</span><span class="sxs-lookup"><span data-stu-id="a7372-171">Microsoft.AspNetCore.Hosting.Server.IServer</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) | <span data-ttu-id="a7372-172">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-172">Singleton</span></span> |
-| [<span data-ttu-id="a7372-173">Microsoft.AspNetCore.Hosting.IStartup</span><span class="sxs-lookup"><span data-stu-id="a7372-173">Microsoft.AspNetCore.Hosting.IStartup</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartup) | <span data-ttu-id="a7372-174">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-174">Singleton</span></span> |
-| [<span data-ttu-id="a7372-175">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span><span class="sxs-lookup"><span data-stu-id="a7372-175">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | <span data-ttu-id="a7372-176">シングルトン</span><span class="sxs-lookup"><span data-stu-id="a7372-176">Singleton</span></span> |
+```csharp
+public class IndexModel : PageModel
+{
+    MyDependency _dependency = new MyDependency();
 
-<span data-ttu-id="a7372-177">`AddDbContext`、`AddIdentity`、`AddMvc` などの複数の拡張メソッドを使ってコンテナーにサービスを追加する方法の例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="a7372-177">Below is an example of how to add additional services to the container using a number of extension methods like `AddDbContext`, `AddIdentity`, and `AddMvc`.</span></span>
+    public async Task OnGetAsync()
+    {
+        await _myDependency.WriteMessage(
+            "IndexModel.OnGetAsync created this message.");
+    }
+}
+```
 
-[!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
+::: moniker-end
 
-<span data-ttu-id="a7372-178">ASP.NET によって提供される機能とミドルウェア (MVC など) は、単一の Add<*サービス名*> 拡張メソッドを使って、その機能に必要なすべてのサービスを登録する規則に従います。</span><span class="sxs-lookup"><span data-stu-id="a7372-178">The features and middleware provided by ASP.NET, such as MVC, follow a convention of using a single Add*ServiceName* extension method to register all of the services required by that feature.</span></span>
+::: moniker range="<= aspnetcore-2.0"
 
-> [!TIP]
-> <span data-ttu-id="a7372-179">`Startup` メソッドでは、パラメーター リストを使って、フレームワークによって提供される特定のサービスを要求できます。詳細については、[アプリケーションの起動](startup.md)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="a7372-179">You can request certain framework-provided services within `Startup` methods through their parameter lists - see [Application Startup](startup.md) for more details.</span></span>
+<span data-ttu-id="44f1a-113">クラスで `WriteMessage` メソッドを使用できるようにするために、`MyDependency` クラスのインスタンスを作成することができます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-113">An instance of the `MyDependency` class can be created to make the `WriteMessage` method available to a class.</span></span> <span data-ttu-id="44f1a-114">`MyDependency` クラスは `HomeController` クラスの依存関係です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-114">The `MyDependency` class is a dependency of the `HomeController` class:</span></span>
 
-## <a name="registering-services"></a><span data-ttu-id="a7372-180">サービスの登録</span><span class="sxs-lookup"><span data-stu-id="a7372-180">Registering services</span></span>
+```csharp
+public class HomeController : Controller
+{
+    MyDependency _dependency = new MyDependency();
 
-<span data-ttu-id="a7372-181">次のようにして、独自のアプリケーション サービスを登録できます。</span><span class="sxs-lookup"><span data-stu-id="a7372-181">You can register your own application services as follows.</span></span> <span data-ttu-id="a7372-182">最初のジェネリック型は、コンテナーに要求する型 (通常はインターフェイス) を表します。</span><span class="sxs-lookup"><span data-stu-id="a7372-182">The first generic type represents the type (typically an interface) that will be requested from the container.</span></span> <span data-ttu-id="a7372-183">2 番目のジェネリック型は、コンテナーによってインスタンス化されてそのような要求を満たすために使われる具象型を表します。</span><span class="sxs-lookup"><span data-stu-id="a7372-183">The second generic type represents the concrete type that will be instantiated by the container and used to fulfill such requests.</span></span>
+    public async Task<IActionResult> Index()
+    {
+        await _myDependency.WriteMessage(
+            "HomeController.Index created this message.");
 
-[!code-csharp[](../common/samples/WebApplication1/Startup.cs?range=53-54)]
+        return View();
+    }
+}
+```
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-115">このクラスは `MyDependency` のインスタンスを作成し、これに直接依存しています。</span><span class="sxs-lookup"><span data-stu-id="44f1a-115">The class creates and directly depends on the `MyDependency` instance.</span></span> <span data-ttu-id="44f1a-116">コードの依存関係 (前の例など) には問題が含まれ、次の理由から回避する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-116">Code dependencies (such as the previous example) are problematic and should be avoided for the following reasons:</span></span>
+
+* <span data-ttu-id="44f1a-117">`MyDependency` を別の実装で置き換えるには、クラスを変更する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-117">To replace `MyDependency` with a different implementation, the class must be modified.</span></span>
+* <span data-ttu-id="44f1a-118">`MyDependency` が依存関係を含んでいる場合、これらはクラスによって構成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-118">If `MyDependency` has dependencies, they must be configured by the class.</span></span> <span data-ttu-id="44f1a-119">複数のクラスが `MyDependency` に依存している大規模なプロジェクトでは、構成コードがアプリ全体に分散するようになります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-119">In a large project with multiple classes depending on `MyDependency`, the configuration code becomes scattered across the app.</span></span>
+* <span data-ttu-id="44f1a-120">このような実装では、単体テストを行うことが困難です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-120">This implementation is difficult to unit test.</span></span> <span data-ttu-id="44f1a-121">アプリはモックまたはスタブの `MyDependency` クラスを使用する必要がありますが、この方法では不可能です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-121">The app should use a mock or stub `MyDependency` class, which isn't possible with this approach.</span></span>
+
+<span data-ttu-id="44f1a-122">依存関係の挿入は、次の方法によってこれらの問題に対応します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-122">Dependency injection addresses these problems through:</span></span>
+
+* <span data-ttu-id="44f1a-123">依存関係の実装を抽象化するための、インターフェイスの使用。</span><span class="sxs-lookup"><span data-stu-id="44f1a-123">The use of an interface to abstract the dependency implementation.</span></span>
+* <span data-ttu-id="44f1a-124">サービス コンテナー内の依存関係の登録。</span><span class="sxs-lookup"><span data-stu-id="44f1a-124">Registration of the dependency in a service container.</span></span> <span data-ttu-id="44f1a-125">ASP.NET Core には、組み込みのサービス コンテナー [IServiceProvider](/dotnet/api/system.iserviceprovider) が用意されています。</span><span class="sxs-lookup"><span data-stu-id="44f1a-125">ASP.NET Core provides a built-in service container, [IServiceProvider](/dotnet/api/system.iserviceprovider).</span></span> <span data-ttu-id="44f1a-126">サービスはアプリの `Startup.ConfigureServices` メソッドに登録されています。</span><span class="sxs-lookup"><span data-stu-id="44f1a-126">Services are registered in the app's `Startup.ConfigureServices` method.</span></span>
+* <span data-ttu-id="44f1a-127">サービスを使用するクラスのコンストラクターへの、サービスの "*挿入*"。</span><span class="sxs-lookup"><span data-stu-id="44f1a-127">*Injection* of the service into the constructor of the class where it's used.</span></span> <span data-ttu-id="44f1a-128">依存関係のインスタンスの作成、およびインスタンスが不要になったときの廃棄の役割を、フレームワークが担当します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-128">The framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed.</span></span>
+
+<span data-ttu-id="44f1a-129">[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples)では、サービスがアプリに提供するメソッドが `IMyDependency` インターフェイスによって定義されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-129">In the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), the `IMyDependency` interface defines a method that the service provides to the app:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-130">このインターフェイスは、具象型 `MyDependency` によって実装されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-130">This interface is implemented by a concrete type, `MyDependency`:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-131">`MyDependency` はそのコンストラクター内で [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) を要求します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-131">`MyDependency` requests an [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) in its constructor.</span></span> <span data-ttu-id="44f1a-132">依存関係の挿入をチェーン形式で使用することは、一般的ではありません。</span><span class="sxs-lookup"><span data-stu-id="44f1a-132">It's not unusual to use dependency injection in a chained fashion.</span></span> <span data-ttu-id="44f1a-133">次に、要求されたそれぞれの依存関係が、それ自身の依存関係を要求します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-133">Each requested dependency in turn requests its own dependencies.</span></span> <span data-ttu-id="44f1a-134">コンテナーによってグラフ内の依存関係が解決され、完全に解決されたサービスが返されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-134">The container resolves the dependencies in the graph and returns the fully resolved service.</span></span> <span data-ttu-id="44f1a-135">解決する必要がある依存関係の集合的なセットは、通常、"*依存関係ツリー*"、"*依存関係グラフ*"、または "*オブジェクト グラフ*" と呼ばれます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-135">The collective set of dependencies that must be resolved is typically referred to as a *dependency tree*, *dependency graph*, or *object graph*.</span></span>
+
+<span data-ttu-id="44f1a-136">`IMyDependency` と `ILogger<TCategoryName>` をサービス コンテナーに登録する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-136">`IMyDependency` and `ILogger<TCategoryName>` must be registered in the service container.</span></span> <span data-ttu-id="44f1a-137">`IMyDependency` は `Startup.ConfigureServices` に登録されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-137">`IMyDependency` is registered in `Startup.ConfigureServices`.</span></span> <span data-ttu-id="44f1a-138">`ILogger<TCategoryName>` はログ記録の抽象化インフラストラクチャによって登録されます。したがって、これは、フレームワークによって既定で登録される[フレームワークが提供するサービス](#framework-provided-services)です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-138">`ILogger<TCategoryName>` is registered by the logging abstractions infrastructure, so it's a [framework-provided service](#framework-provided-services) registered by default by the framework.</span></span>
+
+<span data-ttu-id="44f1a-139">サンプル アプリにおいて、`IMyDependency` サービスは `MyDependency` 具象型を使用して登録されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-139">In the sample app, the `IMyDependency` service is registered with the concrete type `MyDependency`.</span></span> <span data-ttu-id="44f1a-140">登録によって、サービスの有効期間が 1 つの要求の有効期間に範囲設定されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-140">The registration scopes the service lifetime to the lifetime of a single request.</span></span> <span data-ttu-id="44f1a-141">[サービスの有効期間](#service-lifetimes)については、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-141">[Service lifetimes](#service-lifetimes) are described later in this topic.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=11)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
 
 > [!NOTE]
-> <span data-ttu-id="a7372-184">各 `services.Add<ServiceName>` 拡張メソッドは、サービスを追加 (および場合によっては構成) します。</span><span class="sxs-lookup"><span data-stu-id="a7372-184">Each `services.Add<ServiceName>` extension method adds (and potentially configures) services.</span></span> <span data-ttu-id="a7372-185">たとえば、`services.AddMvc()` は MVC が必要とするサービスを追加します。</span><span class="sxs-lookup"><span data-stu-id="a7372-185">For example, `services.AddMvc()` adds the services MVC requires.</span></span> <span data-ttu-id="a7372-186">この規則に従い、拡張メソッドを `Microsoft.Extensions.DependencyInjection` 名前空間に配置して、サービス登録のグループをカプセル化することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="a7372-186">It's recommended that you follow this convention, placing extension methods in the `Microsoft.Extensions.DependencyInjection` namespace, to encapsulate groups of service registrations.</span></span>
+> <span data-ttu-id="44f1a-142">各 `services.Add<ServiceName>` 拡張メソッドは、サービスを追加 (および場合によっては構成) します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-142">Each `services.Add<ServiceName>` extension method adds (and potentially configures) services.</span></span> <span data-ttu-id="44f1a-143">たとえば、`services.AddMvc()` はサービスの Razor Pages と必須の MVC を追加します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-143">For example, `services.AddMvc()` adds the services Razor Pages and MVC require.</span></span> <span data-ttu-id="44f1a-144">アプリをこの規則に従わせることをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-144">We recommended that apps follow this convention.</span></span> <span data-ttu-id="44f1a-145">拡張メソッドを [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) 名前空間に配置して、サービス登録のグループをカプセル化します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-145">Place extension methods in the [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) namespace to encapsulate groups of service registrations.</span></span>
 
-<span data-ttu-id="a7372-187">抽象型を、それを要求するすべてのオブジェクトに対して個別にインスタンス化される具象サービスにマップするには、`AddTransient` メソッドを使います。</span><span class="sxs-lookup"><span data-stu-id="a7372-187">The `AddTransient` method is used to map abstract types to concrete services that are instantiated separately for every object that requires it.</span></span> <span data-ttu-id="a7372-188">これは、サービスの "*有効期間*" と呼ばれます。有効期間の他のオプションについては後で説明します。</span><span class="sxs-lookup"><span data-stu-id="a7372-188">This is known as the service's *lifetime*, and additional lifetime options are described below.</span></span> <span data-ttu-id="a7372-189">登録するサービスごとに適切な有効期間を選ぶことが重要です。</span><span class="sxs-lookup"><span data-stu-id="a7372-189">It's important to choose an appropriate lifetime for each of the services you register.</span></span> <span data-ttu-id="a7372-190">要求するクラスごとに、サービスの新しいインスタンスを提供する必要がありますか。</span><span class="sxs-lookup"><span data-stu-id="a7372-190">Should a new instance of the service be provided to each class that requests it?</span></span> <span data-ttu-id="a7372-191">特定の Web 要求全体で、1 つのインスタンスを使う必要がありますか。</span><span class="sxs-lookup"><span data-stu-id="a7372-191">Should one instance be used throughout a given web request?</span></span> <span data-ttu-id="a7372-192">それとも、アプリケーションの有効期間を通して 1 つのインスタンスを使う必要がありますか。</span><span class="sxs-lookup"><span data-stu-id="a7372-192">Or should a single instance be used for the lifetime of the application?</span></span>
+<span data-ttu-id="44f1a-146">サービスのコンストラクターでプリミティブ (`string` など) が必要な場合は、[構成](xref:fundamentals/configuration/index)や[オプション パターン](xref:fundamentals/configuration/options)を使ってプリミティブを挿入することができます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-146">If the service's constructor requires a primitive, such as a `string`, the primitive can be injected by using [configuration](xref:fundamentals/configuration/index) or the [options pattern](xref:fundamentals/configuration/options):</span></span>
 
-<span data-ttu-id="a7372-193">この記事のサンプルには、文字名を表示する `CharactersController` という名前の簡単なコントローラーがあります。</span><span class="sxs-lookup"><span data-stu-id="a7372-193">In the sample for this article, there's a simple controller that displays character names, called `CharactersController`.</span></span> <span data-ttu-id="a7372-194">その `Index` メソッドは、アプリケーションに格納されている文字の現在のリストを表示し、存在しない場合はいくつかの文字でコレクションを初期化します。</span><span class="sxs-lookup"><span data-stu-id="a7372-194">Its `Index` method displays the current list of characters that have been stored in the application, and initializes the collection with a handful of characters if none exist.</span></span> <span data-ttu-id="a7372-195">このアプリケーションは、永続化のために Entity Framework Core と `ApplicationDbContext` クラスを使いますが、いずれもコントローラーですぐにわかるようにはなっていません。</span><span class="sxs-lookup"><span data-stu-id="a7372-195">Note that although this application uses Entity Framework Core and the `ApplicationDbContext` class for its persistence, none of that's apparent in the controller.</span></span> <span data-ttu-id="a7372-196">代わりに、特定のデータ アクセス メカニズムがインターフェイス `ICharacterRepository` の背後に抽象化されており、それは[リポジトリ パターン](http://deviq.com/repository-pattern/)に従います。</span><span class="sxs-lookup"><span data-stu-id="a7372-196">Instead, the specific data access mechanism has been abstracted behind an interface, `ICharacterRepository`, which follows the [repository pattern](http://deviq.com/repository-pattern/).</span></span> <span data-ttu-id="a7372-197">`ICharacterRepository` のインスタンスがコンストラクターによって要求されてプライベート フィールドに割り当てられ、必要に応じて文字へのアクセスに使われます。</span><span class="sxs-lookup"><span data-stu-id="a7372-197">An instance of `ICharacterRepository` is requested via the constructor and assigned to a private field, which is then used to access characters as necessary.</span></span>
+```csharp
+public class MyDependency : IMyDependency
+{
+    public MyDependency(IConfiguration config)
+    {
+        var myStringValue = config["MyStringKey"];
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
+        // Use myStringValue
+    }
 
-<span data-ttu-id="a7372-198">`ICharacterRepository` では、コントローラーが `Character` インスタンスを操作するときに必要な 2 つのメソッドが定義されています。</span><span class="sxs-lookup"><span data-stu-id="a7372-198">The `ICharacterRepository` defines the two methods the controller needs to work with `Character` instances.</span></span>
+    ...
+}
+```
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
+<span data-ttu-id="44f1a-147">クラスのコンストラクター経由でサービスのインスタンスが要求されます。サービスはプライベート フィールドに割り当てられて使用されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-147">An instance of the service is requested via the constructor of a class where the service is used and assigned to a private field.</span></span> <span data-ttu-id="44f1a-148">このフィールドは、クラス全体で必要に応じてサービスにアクセスするために使用されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-148">The field is used to access the service as necessary throughout the class.</span></span>
 
-<span data-ttu-id="a7372-199">このインターフェイスは、実行時に使われる具象型 `CharacterRepository` で実装されています。</span><span class="sxs-lookup"><span data-stu-id="a7372-199">This interface is in turn implemented by a concrete type, `CharacterRepository`, that's used at runtime.</span></span>
+<span data-ttu-id="44f1a-149">サンプル アプリでは、`IMyDependency` インスタンスが要求され、サービスの `WriteMessage` メソッドを呼び出すために使用されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-149">In the sample app, the `IMyDependency` instance is requested and used to call the service's `WriteMessage` method:</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="a7372-200">`CharacterRepository` クラスでの DI の使い方は一般的なモデルであり、"リポジトリ" やデータ アクセス クラスだけでなく、すべてのアプリケーション サービスで従うことができます。</span><span class="sxs-lookup"><span data-stu-id="a7372-200">The way DI is used with the `CharacterRepository` class is a general model you can follow for all of your application services, not just in "repositories" or data access classes.</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
 
-<span data-ttu-id="a7372-201">`CharacterRepository` はコンストラクターで `ApplicationDbContext` を要求していることに注意してください。</span><span class="sxs-lookup"><span data-stu-id="a7372-201">Note that `CharacterRepository` requests an `ApplicationDbContext` in its constructor.</span></span> <span data-ttu-id="a7372-202">このように、要求された各依存関係がさらにそれ自身の依存関係を要求するチェーン形式で依存関係の挿入が使われるのは、珍しいことではありません。</span><span class="sxs-lookup"><span data-stu-id="a7372-202">It's not unusual for dependency injection to be used in a chained fashion like this, with each requested dependency in turn requesting its own dependencies.</span></span> <span data-ttu-id="a7372-203">コンテナーは、グラフ内のすべての依存関係を解決し、完全に解決されたサービスを返す必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-203">The container is responsible for resolving all of the dependencies in the graph and returning the fully resolved service.</span></span>
+::: moniker-end
 
-> [!NOTE]
-> <span data-ttu-id="a7372-204">要求されたオブジェクト、それが要求するすべてのオブジェクト、さらにそれらが要求するすべてのオブジェクトを作成する処理は、"*オブジェクト グラフ*" と呼ばれることがあります。</span><span class="sxs-lookup"><span data-stu-id="a7372-204">Creating the requested object, and all of the objects it requires, and all of the objects those require, is sometimes referred to as an *object graph*.</span></span> <span data-ttu-id="a7372-205">同様に、解決する必要がある依存関係の集合的なセットは、通常、"*依存関係ツリー*" または "*依存関係グラフ*" と呼ばれます。</span><span class="sxs-lookup"><span data-stu-id="a7372-205">Likewise, the collective set of dependencies that must be resolved is typically referred to as a *dependency tree* or *dependency graph*.</span></span>
+::: moniker range="<= aspnetcore-2.0"
 
-<span data-ttu-id="a7372-206">この場合、`ICharacterRepository` と `ApplicationDbContext` の両方が、`Startup` の `ConfigureServices` でサービス コンテナーに登録されている必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-206">In this case, both `ICharacterRepository` and in turn `ApplicationDbContext` must be registered with the services container in `ConfigureServices` in `Startup`.</span></span> <span data-ttu-id="a7372-207">`ApplicationDbContext` は、拡張メソッド `AddDbContext<T>` を呼び出して構成します。</span><span class="sxs-lookup"><span data-stu-id="a7372-207">`ApplicationDbContext` is configured with the call to the extension method `AddDbContext<T>`.</span></span> <span data-ttu-id="a7372-208">次のコードでは、`CharacterRepository` 型の登録を示します。</span><span class="sxs-lookup"><span data-stu-id="a7372-208">The following code shows the registration of the `CharacterRepository` type.</span></span>
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Controllers/MyDependencyController.cs?name=snippet1&highlight=3,5-8,13-14)]
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
+::: moniker-end
 
-<span data-ttu-id="a7372-209">Entity Framework コンテキストは、`Scoped` 有効期間を使ってサービス コンテナーに追加する必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-209">Entity Framework contexts should be added to the services container using the `Scoped` lifetime.</span></span> <span data-ttu-id="a7372-210">上で示したようにヘルパー メソッドを使っている場合は、これは自動的に処理されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-210">This is taken care of automatically if you use the helper methods as shown above.</span></span> <span data-ttu-id="a7372-211">Entity Framework を利用するリポジトリは、同じ有効期間を使う必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-211">Repositories that will make use of Entity Framework should use the same lifetime.</span></span>
+## <a name="framework-provided-services"></a><span data-ttu-id="44f1a-150">フレームワークが提供するサービス</span><span class="sxs-lookup"><span data-stu-id="44f1a-150">Framework-provided services</span></span>
+
+<span data-ttu-id="44f1a-151">`Startup.ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC のようなプラットフォーム機能など、アプリが使うサービスを定義する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-151">The `Startup.ConfigureServices` method is responsible for defining the services the app uses, including platform features, such as Entity Framework Core and ASP.NET Core MVC.</span></span> <span data-ttu-id="44f1a-152">最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/host/index)に依存します)。</span><span class="sxs-lookup"><span data-stu-id="44f1a-152">Initially, the `IServiceCollection` provided to `ConfigureServices` has the following services defined (depending on [how the host was configured](xref:fundamentals/host/index)):</span></span>
+
+| <span data-ttu-id="44f1a-153">サービスの種類</span><span class="sxs-lookup"><span data-stu-id="44f1a-153">Service Type</span></span> | <span data-ttu-id="44f1a-154">有効期間</span><span class="sxs-lookup"><span data-stu-id="44f1a-154">Lifetime</span></span> |
+| ------------ | -------- |
+| [<span data-ttu-id="44f1a-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span><span class="sxs-lookup"><span data-stu-id="44f1a-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | <span data-ttu-id="44f1a-156">一時的</span><span class="sxs-lookup"><span data-stu-id="44f1a-156">Transient</span></span> |
+| [<span data-ttu-id="44f1a-157">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span><span class="sxs-lookup"><span data-stu-id="44f1a-157">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | <span data-ttu-id="44f1a-158">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-158">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-159">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span><span class="sxs-lookup"><span data-stu-id="44f1a-159">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) | <span data-ttu-id="44f1a-160">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-160">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-161">Microsoft.AspNetCore.Hosting.IStartup</span><span class="sxs-lookup"><span data-stu-id="44f1a-161">Microsoft.AspNetCore.Hosting.IStartup</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartup) | <span data-ttu-id="44f1a-162">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-162">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-163">Microsoft.AspNetCore.Hosting.IStartupFilter</span><span class="sxs-lookup"><span data-stu-id="44f1a-163">Microsoft.AspNetCore.Hosting.IStartupFilter</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) | <span data-ttu-id="44f1a-164">一時的</span><span class="sxs-lookup"><span data-stu-id="44f1a-164">Transient</span></span> |
+| [<span data-ttu-id="44f1a-165">Microsoft.AspNetCore.Hosting.Server.IServer</span><span class="sxs-lookup"><span data-stu-id="44f1a-165">Microsoft.AspNetCore.Hosting.Server.IServer</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) | <span data-ttu-id="44f1a-166">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-166">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-167">Microsoft.AspNetCore.Http.IHttpContextFactory</span><span class="sxs-lookup"><span data-stu-id="44f1a-167">Microsoft.AspNetCore.Http.IHttpContextFactory</span></span>](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextfactory) | <span data-ttu-id="44f1a-168">一時的</span><span class="sxs-lookup"><span data-stu-id="44f1a-168">Transient</span></span> |
+| [<span data-ttu-id="44f1a-169">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="44f1a-169">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.logging.ilogger) | <span data-ttu-id="44f1a-170">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-170">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-171">Microsoft.Extensions.Logging.ILoggerFactory</span><span class="sxs-lookup"><span data-stu-id="44f1a-171">Microsoft.Extensions.Logging.ILoggerFactory</span></span>](/dotnet/api/microsoft.extensions.logging.iloggerfactory) | <span data-ttu-id="44f1a-172">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-172">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-173">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span><span class="sxs-lookup"><span data-stu-id="44f1a-173">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span></span>](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | <span data-ttu-id="44f1a-174">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-174">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-175">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="44f1a-175">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | <span data-ttu-id="44f1a-176">一時的</span><span class="sxs-lookup"><span data-stu-id="44f1a-176">Transient</span></span> |
+| [<span data-ttu-id="44f1a-177">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="44f1a-177">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.ioptions-1) | <span data-ttu-id="44f1a-178">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-178">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-179">System.Diagnostics.DiagnosticSource</span><span class="sxs-lookup"><span data-stu-id="44f1a-179">System.Diagnostics.DiagnosticSource</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | <span data-ttu-id="44f1a-180">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-180">Singleton</span></span> |
+| [<span data-ttu-id="44f1a-181">System.Diagnostics.DiagnosticListener</span><span class="sxs-lookup"><span data-stu-id="44f1a-181">System.Diagnostics.DiagnosticListener</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | <span data-ttu-id="44f1a-182">シングルトン</span><span class="sxs-lookup"><span data-stu-id="44f1a-182">Singleton</span></span> |
+
+<span data-ttu-id="44f1a-183">サービス (および必要であればサービスが依存するサービス) を登録するためにサービス コレクションの拡張メソッドを使用できる場合は、1 つの `Add<ServiceName>` 拡張メソッドを使用してそのサービスが必要とするすべてのサービスを登録することが規則です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-183">When a service collection extension method is available to register a service (and its dependent services, if required), the convention is to use a single `Add<ServiceName>` extension method to register all of the services required by that service.</span></span> <span data-ttu-id="44f1a-184">次のコードは、拡張メソッド [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext)、[AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity)、[AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc) を使用して、コンテナーに追加のサービスを追加する方法の例です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-184">The following code is an example of how to add additional services to the container using the extension methods [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), and [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):</span></span>
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+    services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
+    services.AddMvc();
+}
+```
+
+<span data-ttu-id="44f1a-185">詳細については、API のドキュメントの「[ServiceCollection Class](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection)」(ServiceCollection クラス) をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-185">For more information, see the [ServiceCollection Class](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection) in the API documentation.</span></span>
+
+## <a name="service-lifetimes"></a><span data-ttu-id="44f1a-186">サービスの有効期間</span><span class="sxs-lookup"><span data-stu-id="44f1a-186">Service lifetimes</span></span>
+
+<span data-ttu-id="44f1a-187">登録される各サービスの適切な有効期間を選択します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-187">Choose an appropriate lifetime for each registered service.</span></span> <span data-ttu-id="44f1a-188">ASP.NET Core サービスは、次の有効期間で構成できます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-188">ASP.NET Core services can be configured with the following lifetimes:</span></span>
+
+<span data-ttu-id="44f1a-189">**一時的**</span><span class="sxs-lookup"><span data-stu-id="44f1a-189">**Transient**</span></span>
+
+<span data-ttu-id="44f1a-190">有効期間が一時的のサービスは、要求されるたびに作成されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-190">Transient lifetime services are created each time they're requested.</span></span> <span data-ttu-id="44f1a-191">この有効期間は、軽量でステートレスのサービスに最適です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-191">This lifetime works best for lightweight, stateless services.</span></span>
+
+<span data-ttu-id="44f1a-192">**スコープ**</span><span class="sxs-lookup"><span data-stu-id="44f1a-192">**Scoped**</span></span>
+
+<span data-ttu-id="44f1a-193">有効期間がスコープのサービスは、要求ごとに 1 回作成されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-193">Scoped lifetime services are created once per request.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="a7372-212">注意しなければならない最大の危険は、シングルトンからの `Scoped` サービスの解決です。</span><span class="sxs-lookup"><span data-stu-id="a7372-212">The main danger to be wary of is resolving a `Scoped` service from a singleton.</span></span> <span data-ttu-id="a7372-213">このような場合、後続の要求を処理するときに、サービスが正しくない状態になっている可能性があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-213">It's likely in such a case that the service will have incorrect state when processing subsequent requests.</span></span>
+> <span data-ttu-id="44f1a-194">ミドルウェアでスコープ サービスを使用している場合、サービスを `Invoke` または `InvokeAsync` メソッドに追加します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-194">When using a scoped service in a middleware, inject the service into the `Invoke` or `InvokeAsync` method.</span></span> <span data-ttu-id="44f1a-195">コンストラクターを使用して挿入すると、サービスがシングルトンのように動作するよう強制されるので、コンストラクターを使用した挿入は行わないでください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-195">Don't inject via constructor injection because it forces the service to behave like a singleton.</span></span> <span data-ttu-id="44f1a-196">詳細については、「<xref:fundamentals/middleware/index>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-196">For more information, see <xref:fundamentals/middleware/index>.</span></span>
 
-<span data-ttu-id="a7372-214">依存関係のあるサービスは、コンテナーに登録する必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-214">Services that have dependencies should register them in the container.</span></span> <span data-ttu-id="a7372-215">サービスのコンストラクターでプリミティブ (`string` など) が必要な場合は、[構成](xref:fundamentals/configuration/index)と[オプション パターン](xref:fundamentals/configuration/options)を使ってこれを挿入できます。</span><span class="sxs-lookup"><span data-stu-id="a7372-215">If a service's constructor requires a primitive, such as a `string`, this can be injected by using [configuration](xref:fundamentals/configuration/index) and the [options pattern](xref:fundamentals/configuration/options).</span></span>
+<span data-ttu-id="44f1a-197">**シングルトン**</span><span class="sxs-lookup"><span data-stu-id="44f1a-197">**Singleton**</span></span>
 
-## <a name="service-lifetimes-and-registration-options"></a><span data-ttu-id="a7372-216">サービスの有効期間と登録のオプション</span><span class="sxs-lookup"><span data-stu-id="a7372-216">Service lifetimes and registration options</span></span>
-
-<span data-ttu-id="a7372-217">ASP.NET サービスは、次の有効期間で構成できます。</span><span class="sxs-lookup"><span data-stu-id="a7372-217">ASP.NET services can be configured with the following lifetimes:</span></span>
-
-<span data-ttu-id="a7372-218">**一時的**</span><span class="sxs-lookup"><span data-stu-id="a7372-218">**Transient**</span></span>
-
-<span data-ttu-id="a7372-219">有効期間が一時的のサービスは、要求されるたびに作成されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-219">Transient lifetime services are created each time they're requested.</span></span> <span data-ttu-id="a7372-220">この有効期間は、軽量でステートレスのサービスに最適です。</span><span class="sxs-lookup"><span data-stu-id="a7372-220">This lifetime works best for lightweight, stateless services.</span></span>
-
-<span data-ttu-id="a7372-221">**スコープ**</span><span class="sxs-lookup"><span data-stu-id="a7372-221">**Scoped**</span></span>
-
-<span data-ttu-id="a7372-222">有効期間がスコープのサービスは、要求ごとに 1 回作成されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-222">Scoped lifetime services are created once per request.</span></span>
+<span data-ttu-id="44f1a-198">有効期間がシングルトンのサービスは、最初に要求されたときに作成されます (または、`ConfigureServices` が実行されて、サービス登録でインスタンスが指定された場合)。</span><span class="sxs-lookup"><span data-stu-id="44f1a-198">Singleton lifetime services are created the first time they're requested (or when `ConfigureServices` is run and an instance is specified with the service registration).</span></span> <span data-ttu-id="44f1a-199">以降の要求は、すべて同じインスタンスを使用します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-199">Every subsequent request uses the same instance.</span></span> <span data-ttu-id="44f1a-200">アプリをシングルトンで動作させる必要がある場合は、サービス コンテナーによるサービスの有効期間の管理を許可することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-200">If the app requires singleton behavior, allowing the service container to manage the service's lifetime is recommended.</span></span> <span data-ttu-id="44f1a-201">クラス内のオブジェクトの有効期間を管理するために、シングルトンの設計パターンを実装してユーザー コードを提供しないでください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-201">Don't implement the singleton design pattern and provide user code to manage the object's lifetime in the class.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="a7372-223">ミドルウェアでスコープ サービスを使用している場合、サービスを `Invoke` または `InvokeAsync` メソッドに追加します。</span><span class="sxs-lookup"><span data-stu-id="a7372-223">If you're using a scoped service in a middleware, inject the service into the `Invoke` or `InvokeAsync` method.</span></span> <span data-ttu-id="a7372-224">コンストラクターを使用して挿入すると、サービスがシングルトンのように動作するよう強制されるので、コンストラクターを使用した挿入は行わないでください。</span><span class="sxs-lookup"><span data-stu-id="a7372-224">Don't inject via constructor injection because it forces the service to behave like a singleton.</span></span>
+> <span data-ttu-id="44f1a-202">シングルトンからスコープ サービスを解決するのは危険です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-202">It's dangerous to resolve a scoped service from a singleton.</span></span> <span data-ttu-id="44f1a-203">後続の要求を処理する際に、サービスが正しくない状態になる可能性があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-203">It may cause the service to have incorrect state when processing subsequent requests.</span></span>
 
-<span data-ttu-id="a7372-225">**シングルトン**</span><span class="sxs-lookup"><span data-stu-id="a7372-225">**Singleton**</span></span>
+### <a name="constructor-injection-behavior"></a><span data-ttu-id="44f1a-204">コンストラクターの挿入の動作</span><span class="sxs-lookup"><span data-stu-id="44f1a-204">Constructor injection behavior</span></span>
 
-<span data-ttu-id="a7372-226">有効期間がシングルトンのサービスは、サービスが初めて要求されたとき (または、インスタンスを指定する場合は `ConfigureServices` が実行されたとき) に作成され、後続のすべての要求で同じインスタンスが使われます。</span><span class="sxs-lookup"><span data-stu-id="a7372-226">Singleton lifetime services are created the first time they're requested (or when `ConfigureServices` is run if you specify an instance there) and then every subsequent request will use the same instance.</span></span> <span data-ttu-id="a7372-227">アプリケーションでシングルトン動作が必要な場合は、シングルトン設計パターンを実装して自分でクラス内のオブジェクトの有効期間を管理するのではなく、サービス コンテナーにサービスの有効期間の管理を任せることをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="a7372-227">If your application requires singleton behavior, allowing the services container to manage the service's lifetime is recommended instead of implementing the singleton design pattern and managing your object's lifetime in the class yourself.</span></span>
+<span data-ttu-id="44f1a-205">サービスは 2 つのメカニズムによって解決できます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-205">Services can be resolved by two mechanisms:</span></span>
 
-<span data-ttu-id="a7372-228">サービスは、複数の方法でコンテナーに登録できます。</span><span class="sxs-lookup"><span data-stu-id="a7372-228">Services can be registered with the container in several ways.</span></span> <span data-ttu-id="a7372-229">使う具象型を指定することにより特定の型でサービスの実装を登録する方法は既に示しました。</span><span class="sxs-lookup"><span data-stu-id="a7372-229">We have already seen how to register a service implementation with a given type by specifying the concrete type to use.</span></span> <span data-ttu-id="a7372-230">さらに、ファクトリを指定することができます。ファクトリは、必要なときにインスタンスを作成するために使われます。</span><span class="sxs-lookup"><span data-stu-id="a7372-230">In addition, a factory can be specified, which will then be used to create the instance on demand.</span></span> <span data-ttu-id="a7372-231">3 番目の方法は、使う型のインスタンスを直接指定する方法です。この場合、コンテナーはインスタンスの作成を試みません (インスタンスの破棄も行いません)。</span><span class="sxs-lookup"><span data-stu-id="a7372-231">The third approach is to directly specify the instance of the type to use, in which case the container will never attempt to create an instance (nor will it dispose of the instance).</span></span>
+* `IServiceProvider`
+* <span data-ttu-id="44f1a-206">[ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; 依存関係の挿入コンテナーにサービスを登録することなくオブジェクトの作成を許可します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-206">[ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; Permits object creation without service registration in the dependency injection container.</span></span> <span data-ttu-id="44f1a-207">`ActivatorUtilities` はユーザー側の抽象化 (タグ ヘルパー、MVC コントローラー、SignalR ハブ、モデル バインダーなど) で使用されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-207">`ActivatorUtilities` is used with user-facing abstractions, such as Tag Helpers, MVC controllers, SignalR Hubs, and model binders.</span></span>
 
-<span data-ttu-id="a7372-232">これらの有効期間と登録オプションの違いを示すため、1 つまたは複数のタスクを一意の識別子 `OperationId` を持つ "*操作*" として表す簡単なインターフェイスについて考えます。</span><span class="sxs-lookup"><span data-stu-id="a7372-232">To demonstrate the difference between these lifetime and registration options, consider a simple interface that represents one or more tasks as an *operation* with a unique identifier, `OperationId`.</span></span> <span data-ttu-id="a7372-233">このサービスの有効期間の構成方法に応じて、コンテナーはサービスの同じインスタンスまたは異なるインスタンスを要求元のクラスに提供します。</span><span class="sxs-lookup"><span data-stu-id="a7372-233">Depending on how we configure the lifetime for this service, the container will provide either the same or different instances of the service to the requesting class.</span></span> <span data-ttu-id="a7372-234">要求されている有効期間がはっきりわかるように、有効期間オプションごとに 1 つの型を作成します。</span><span class="sxs-lookup"><span data-stu-id="a7372-234">To make it clear which lifetime is being requested, we will create one type per lifetime option:</span></span>
+<span data-ttu-id="44f1a-208">コンストラクターは、依存関係の挿入によって提供されない引数を受け取ることができますが、引数は既定値を割り当てる必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-208">Constructors can accept arguments that aren't provided by dependency injection, but the arguments must assign default values.</span></span>
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
+<span data-ttu-id="44f1a-209">`IServiceProvider` または `ActivatorUtilities` によってサービスを解決する場合、コンストラクターの挿入には "*パブリック*" コンストラクターが必要です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-209">When services are resolved by `IServiceProvider` or `ActivatorUtilities`, constructor injection requires a *public* constructor.</span></span>
 
-<span data-ttu-id="a7372-235">これらのインターフェイスを、1 つのクラス `Operation` を使って実装します。このクラスは、コンストラクターで `Guid` を受け取り、提供されない場合は新しい `Guid` を使います。</span><span class="sxs-lookup"><span data-stu-id="a7372-235">We implement these interfaces using a single class, `Operation`, that accepts a `Guid` in its constructor, or uses a new `Guid` if none is provided.</span></span>
+<span data-ttu-id="44f1a-210">`ActivatorUtilities` によってサービスを解決する場合、コンストラクターの挿入に必要なことは、該当するコンストラクターが 1 つだけ存在することです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-210">When services are resolved by `ActivatorUtilities`, constructor injection requires that only one applicable constructor exist.</span></span> <span data-ttu-id="44f1a-211">コンストラクターのオーバーロードはサポートされていますが、依存関係の挿入によってすべての引数を設定できるオーバーロードは 1 つしか存在できません。</span><span class="sxs-lookup"><span data-stu-id="44f1a-211">Constructor overloads are supported, but only one overload can exist whose arguments can all be fulfilled by dependency injection.</span></span>
 
-<span data-ttu-id="a7372-236">次に、`ConfigureServices` では、各型が名前で指定されている有効期間に従ってコンテナーに追加されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-236">Next, in `ConfigureServices`, each type is added to the container according to its named lifetime:</span></span>
+## <a name="entity-framework-contexts"></a><span data-ttu-id="44f1a-212">Entity Framework コンテキスト</span><span class="sxs-lookup"><span data-stu-id="44f1a-212">Entity Framework contexts</span></span>
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
+<span data-ttu-id="44f1a-213">Entity Framework コンテキストは、スコープの有効期間を使ってサービス コンテナーに追加する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-213">Entity Framework contexts should be added to the service container using the scoped lifetime.</span></span> <span data-ttu-id="44f1a-214">これは、データベース コンテキストを登録する際に、[AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) メソッドへの呼び出しを使用して自動的に処理されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-214">This is handled automatically with a call to the [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) method when registering the database context.</span></span> <span data-ttu-id="44f1a-215">データベース コンテキストを使用するサービスは、スコープの有効期間も使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-215">Services that use the database context should also use the scoped lifetime.</span></span>
 
-<span data-ttu-id="a7372-237">`IOperationSingletonInstance` サービスは既知の ID `Guid.Empty` を持つ特定のインスタンスを使っているので、この型が使われているときは明確にわかります (その Guid はすべて 0 になります)。</span><span class="sxs-lookup"><span data-stu-id="a7372-237">Note that the `IOperationSingletonInstance` service is using a specific instance with a known ID of `Guid.Empty` so it will be clear when this type is in use (its Guid will be all zeroes).</span></span> <span data-ttu-id="a7372-238">また、他の各 `Operation` 型に依存する `OperationService` も登録してあるので、操作の種類ごとに、このサービスがコントローラーと同じインスタンスを取得しているか、または新しいインスタンスかが、要求内ではっきりわかります。</span><span class="sxs-lookup"><span data-stu-id="a7372-238">We have also registered an `OperationService` that depends on each of the other `Operation` types, so that it will be clear within a request whether this service is getting the same instance as the controller, or a new one, for each operation type.</span></span> <span data-ttu-id="a7372-239">このサービスが行うことは、依存関係をビューに表示できるように、依存関係をプロパティとして公開することだけです。</span><span class="sxs-lookup"><span data-stu-id="a7372-239">All this service does is expose its dependencies as properties, so they can be displayed in the view.</span></span>
+## <a name="lifetime-and-registration-options"></a><span data-ttu-id="44f1a-216">有効期間と登録のオプション</span><span class="sxs-lookup"><span data-stu-id="44f1a-216">Lifetime and registration options</span></span>
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
+<span data-ttu-id="44f1a-217">有効期間と登録のオプションの違いを示すために、タスクを一意の識別子 `OperationId` を備えた操作として表す、次のインターフェイスについて考えます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-217">To demonstrate the difference between the lifetime and registration options, consider the following interfaces that represent tasks as an operation with a unique identifier, `OperationId`.</span></span> <span data-ttu-id="44f1a-218">次のインターフェイスに対して操作のサービスの有効期間がどのように構成されているかに応じて、コンテナーは、クラスに要求されたときに、サービスの同じインスタンスか別のインスタンスを提供します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-218">Depending on how the lifetime of an operations service is configured for the following interfaces, the container provides either the same or a different instance of the service when requested by a class:</span></span>
 
-<span data-ttu-id="a7372-240">アプリケーションに対する 1 つの要求内でのオブジェクトの有効期間および異なる個別の要求間でのオブジェクトの有効期間を示すため、サンプルには、各種類の `IOperation` 型と `OperationService` を要求する `OperationsController` が含まれます。</span><span class="sxs-lookup"><span data-stu-id="a7372-240">To demonstrate the object lifetimes within and between separate individual requests to the application, the sample includes an `OperationsController` that requests each kind of `IOperation` type as well as an `OperationService`.</span></span> <span data-ttu-id="a7372-241">その後、`Index` アクションは、すべてのコント ローラーおよびサービスの `OperationId` の値を表示します。</span><span class="sxs-lookup"><span data-stu-id="a7372-241">The `Index` action then displays all of the controller's and service's `OperationId` values.</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
 
-<span data-ttu-id="a7372-242">ここで、このコントローラー アクションに対して 2 つの異なる要求を行います。</span><span class="sxs-lookup"><span data-stu-id="a7372-242">Now two separate requests are made to this controller action:</span></span>
+::: moniker-end
 
-![最初の要求での Transient、Scoped、Singleton、Instance の各コントローラーと OperationService の操作の操作 ID の値 (GUID) が表示されている、Microsoft Edge で実行する DependencyInjectionSample Web アプリケーションの操作ビュー。](dependency-injection/_static/lifetimes_request1.png)
+::: moniker range="<= aspnetcore-2.0"
 
-![2 番目の要求の操作 ID の値が表示されている操作ビュー。](dependency-injection/_static/lifetimes_request2.png)
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
 
-<span data-ttu-id="a7372-245">要求内および要求間で変化している `OperationId` の値を確認してください。</span><span class="sxs-lookup"><span data-stu-id="a7372-245">Observe which of the `OperationId` values vary within a request, and between requests.</span></span>
+::: moniker-end
 
-* <span data-ttu-id="a7372-246">*Transient* オブジェクトは常に異なります。コントローラーごとおよびサービスごとに、新しいインスタンスが提供されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-246">*Transient* objects are always different; a new instance is provided to every controller and every service.</span></span>
+<span data-ttu-id="44f1a-219">インターフェイスは `Operation` クラス内で実装されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-219">The interfaces are implemented in the `Operation` class.</span></span> <span data-ttu-id="44f1a-220">指定されない場合、`Operation` コンストラクターは GUID を生成します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-220">The `Operation` constructor generates a GUID if one isn't supplied:</span></span>
 
-* <span data-ttu-id="a7372-247">*Scoped* オブジェクトは、要求内では同じですが、異なる要求間では異なります</span><span class="sxs-lookup"><span data-stu-id="a7372-247">*Scoped* objects are the same within a request, but different across different requests</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-* <span data-ttu-id="a7372-248">*Singleton* オブジェクトは、インスタンスが `ConfigureServices` で提供されるかどうかに関係なく、すべてのオブジェクトとすべての要求について同じです</span><span class="sxs-lookup"><span data-stu-id="a7372-248">*Singleton* objects are the same for every object and every request (regardless of whether an instance is provided in `ConfigureServices`)</span></span>
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
 
-## <a name="resolve-a-scoped-service-within-the-application-scope"></a><span data-ttu-id="a7372-249">アプリケーション スコープ内のスコープ サービスを解決する</span><span class="sxs-lookup"><span data-stu-id="a7372-249">Resolve a scoped service within the application scope</span></span>
+::: moniker-end
 
-<span data-ttu-id="a7372-250">[IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) を使用して [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) を作成し、アプリのスコープ内のスコープ サービスを解決します。</span><span class="sxs-lookup"><span data-stu-id="a7372-250">Create an [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) with [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) to resolve a scoped service within the app's scope.</span></span> <span data-ttu-id="a7372-251">この方法は、起動時に初期化タスクを実行するために、スコープ サービスにアクセスするのに便利です。</span><span class="sxs-lookup"><span data-stu-id="a7372-251">This approach is useful to access a scoped service at startup to run initialization tasks.</span></span> <span data-ttu-id="a7372-252">次の例では、`Program.Main` で `MyScopedService` のコンテキストを取得する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="a7372-252">The following example shows how to obtain a context for the `MyScopedService` in `Program.Main`:</span></span>
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-221">`OperationService` が登録されます。これは、その他の `Operation` 型のそれぞれに依存します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-221">An `OperationService` is registered that depends on each of the other `Operation` types.</span></span> <span data-ttu-id="44f1a-222">依存関係の挿入を経由して `OperationService` が要求される場合、これは各サービスの新しいインスタンスか、依存関係のあるサービスの有効期間に基づく既存のインスタンスを受信します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-222">When `OperationService` is requested via dependency injection, it receives either a new instance of each service or an existing instance based on the lifetime of the dependent service.</span></span>
+
+* <span data-ttu-id="44f1a-223">要求時に一時的なサービスを作成する場合、`IOperationTransient` サービスの `OperationsId` と `OperationService` の `OperationsId` は異なります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-223">If transient services are created when requested, the `OperationsId` of the `IOperationTransient` service is different than the `OperationsId` of the `OperationService`.</span></span> <span data-ttu-id="44f1a-224">`OperationService` は `IOperationTransient` クラスの新しいインスタンスを受け取ります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-224">`OperationService` receives a new instance of the `IOperationTransient` class.</span></span> <span data-ttu-id="44f1a-225">新しいインスタンスは異なる `OperationsId` を生成します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-225">The new instance yields a different `OperationsId`.</span></span>
+* <span data-ttu-id="44f1a-226">要求ごとにスコープ サービスを作成する場合、要求内で `IOperationScoped` サービスの `OperationsId` は `OperationService` のものと同じになります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-226">If scoped services are created per request, the `OperationsId` of the `IOperationScoped` service is the same as that of `OperationService` within a request.</span></span> <span data-ttu-id="44f1a-227">要求間で、両方のサービスは異なる `OperationsId` 値を共有します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-227">Across requests, both services share a different `OperationsId` value.</span></span>
+* <span data-ttu-id="44f1a-228">シングルトンとシングルトン インスタンスのサービスが 1 回作成され、すべての要求とすべてのサービス間で使用される場合、`OperationsId` はすべてのサービス要求の間で一定です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-228">If singleton and singleton-instance services are created once and used across all requests and all services, the `OperationsId` is constant across all service requests.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-229">`Startup.ConfigureServices` では、各型が名前で指定されている有効期間に従ってコンテナーに追加されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-229">In `Startup.ConfigureServices`, each type is added to the container according to its named lifetime:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=12-15,18)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-230">`IOperationSingletonInstance` サービスは、`Guid.Empty` の既知の ID を持った特定のインスタンスを使用しています。</span><span class="sxs-lookup"><span data-stu-id="44f1a-230">The `IOperationSingletonInstance` service is using a specific instance with a known ID of `Guid.Empty`.</span></span> <span data-ttu-id="44f1a-231">この型が使用されるタイミングは明らかです (その GUID はすべてゼロです)。</span><span class="sxs-lookup"><span data-stu-id="44f1a-231">It's clear when this type is in use (its GUID is all zeroes).</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+<span data-ttu-id="44f1a-232">サンプル アプリでは、個々の要求内、および個々の要求間におけるオブジェクトの有効期間が示されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-232">The sample app demonstrates object lifetimes within and between individual requests.</span></span> <span data-ttu-id="44f1a-233">サンプル アプリの `IndexModel` には、各種類の `IOperation` 型と `OperationService` が必要です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-233">The sample app's `IndexModel` requests each kind of `IOperation` type and the `OperationService`.</span></span> <span data-ttu-id="44f1a-234">次に、ページ モデル クラスとサービスのすべての `OperationId` 値が、プロパティの割り当てを通じてページに表示されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-234">The page then displays all of the page model class's and service's `OperationId` values through property assignments:</span></span>
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+<span data-ttu-id="44f1a-235">サンプル アプリでは、個々の要求内、および個々の要求間におけるオブジェクトの有効期間が示されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-235">The sample app demonstrates object lifetimes within and between individual requests.</span></span> <span data-ttu-id="44f1a-236">サンプル アプリには、各種類の `IOperation` 型と `OperationService` を要求する `OperationsController` が含まれます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-236">The sample app includes an `OperationsController` that requests each kind of `IOperation` type and the `OperationService`.</span></span> <span data-ttu-id="44f1a-237">`Index` アクションは、サービスの `OperationId` 値の表示のために、サービスを `ViewBag` に設定します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-237">The `Index` action sets the services into the `ViewBag` for display of the service's `OperationId` values:</span></span>
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Controllers/OperationsController.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="44f1a-238">2 つの要求の結果を、以下の 2 つの出力に示します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-238">Two following output shows the results of two requests:</span></span>
+
+<span data-ttu-id="44f1a-239">**最初の要求:**</span><span class="sxs-lookup"><span data-stu-id="44f1a-239">**First request:**</span></span>
+
+<span data-ttu-id="44f1a-240">コントローラーの操作:</span><span class="sxs-lookup"><span data-stu-id="44f1a-240">Controller operations:</span></span>
+
+<span data-ttu-id="44f1a-241">一時的: d233e165-f417-469b-a866-1cf1935d2518</span><span class="sxs-lookup"><span data-stu-id="44f1a-241">Transient: d233e165-f417-469b-a866-1cf1935d2518</span></span>  
+<span data-ttu-id="44f1a-242">スコープ: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span><span class="sxs-lookup"><span data-stu-id="44f1a-242">Scoped: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span></span>  
+<span data-ttu-id="44f1a-243">シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="44f1a-243">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="44f1a-244">インスタンス: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="44f1a-244">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="44f1a-245">`OperationService` の操作:</span><span class="sxs-lookup"><span data-stu-id="44f1a-245">`OperationService` operations:</span></span>
+
+<span data-ttu-id="44f1a-246">一時的: c6b049eb-1318-4e31-90f1-eb2dd849ff64</span><span class="sxs-lookup"><span data-stu-id="44f1a-246">Transient: c6b049eb-1318-4e31-90f1-eb2dd849ff64</span></span>  
+<span data-ttu-id="44f1a-247">スコープ: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span><span class="sxs-lookup"><span data-stu-id="44f1a-247">Scoped: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span></span>  
+<span data-ttu-id="44f1a-248">シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="44f1a-248">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="44f1a-249">インスタンス: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="44f1a-249">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="44f1a-250">**2 番目の要求:**</span><span class="sxs-lookup"><span data-stu-id="44f1a-250">**Second request:**</span></span>
+
+<span data-ttu-id="44f1a-251">コントローラーの操作:</span><span class="sxs-lookup"><span data-stu-id="44f1a-251">Controller operations:</span></span>
+
+<span data-ttu-id="44f1a-252">一時的: b63bd538-0a37-4ff1-90ba-081c5138dda0</span><span class="sxs-lookup"><span data-stu-id="44f1a-252">Transient: b63bd538-0a37-4ff1-90ba-081c5138dda0</span></span>  
+<span data-ttu-id="44f1a-253">スコープ: 31e820c5-4834-4d22-83fc-a60118acb9f4</span><span class="sxs-lookup"><span data-stu-id="44f1a-253">Scoped: 31e820c5-4834-4d22-83fc-a60118acb9f4</span></span>  
+<span data-ttu-id="44f1a-254">シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="44f1a-254">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="44f1a-255">インスタンス: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="44f1a-255">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="44f1a-256">`OperationService` の操作:</span><span class="sxs-lookup"><span data-stu-id="44f1a-256">`OperationService` operations:</span></span>
+
+<span data-ttu-id="44f1a-257">一時的: c4cbacb8-36a2-436d-81c8-8c1b78808aaf</span><span class="sxs-lookup"><span data-stu-id="44f1a-257">Transient: c4cbacb8-36a2-436d-81c8-8c1b78808aaf</span></span>  
+<span data-ttu-id="44f1a-258">スコープ: 31e820c5-4834-4d22-83fc-a60118acb9f4</span><span class="sxs-lookup"><span data-stu-id="44f1a-258">Scoped: 31e820c5-4834-4d22-83fc-a60118acb9f4</span></span>  
+<span data-ttu-id="44f1a-259">シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="44f1a-259">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="44f1a-260">インスタンス: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="44f1a-260">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="44f1a-261">要求内および要求間で、どの `OperationId` 値が変化しているかを確認してください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-261">Observe which of the `OperationId` values vary within a request and between requests:</span></span>
+
+* <span data-ttu-id="44f1a-262">"*一時的な*" オブジェクトは常に異なります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-262">*Transient* objects are always different.</span></span> <span data-ttu-id="44f1a-263">最初の要求と 2 番目の要求の一時的な `OperationId` 値は、`OperationService` 操作と要求間の両方に対して異なります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-263">Note that the transient `OperationId` value for both the first and second requests are different for both `OperationService` operations and across requests.</span></span> <span data-ttu-id="44f1a-264">それぞれのサービスと要求に対して、新しいインスタンスが提供されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-264">A new instance is provided to each service and request.</span></span>
+* <span data-ttu-id="44f1a-265">"*スコープ*" オブジェクトは、要求内では同じですが、要求間では異なります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-265">*Scoped* objects are the same within a request but different across requests.</span></span>
+* <span data-ttu-id="44f1a-266">"*シングルトン*" オブジェクトは、`Operation` インスタンスが `ConfigureServices` で提供されるかどうかに関係なく、すべてのオブジェクトとすべての要求について同じです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-266">*Singleton* objects are the same for every object and every request regardless of whether an `Operation` instance is provided in `ConfigureServices`.</span></span>
+
+## <a name="call-services-from-main"></a><span data-ttu-id="44f1a-267">main からサービスを呼び出す</span><span class="sxs-lookup"><span data-stu-id="44f1a-267">Call services from main</span></span>
+
+<span data-ttu-id="44f1a-268">[IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) を使用して [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) を作成し、アプリのスコープ内のスコープ サービスを解決します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-268">Create an [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) with [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) to resolve a scoped service within the app's scope.</span></span> <span data-ttu-id="44f1a-269">この方法は、起動時に初期化タスクを実行するために、スコープ サービスにアクセスするのに便利です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-269">This approach is useful to access a scoped service at startup to run initialization tasks.</span></span> <span data-ttu-id="44f1a-270">次の例では、`Program.Main` で `MyScopedService` のコンテキストを取得する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-270">The following example shows how to obtain a context for the `MyScopedService` in `Program.Main`:</span></span>
 
 ```csharp
 public static void Main(string[] args)
 {
-    var host = BuildWebHost(args);
+    var host = CreateWebHostBuilder(args).Build();
 
     using (var serviceScope = host.Services.CreateScope())
     {
@@ -221,48 +404,52 @@ public static void Main(string[] args)
 }
 ```
 
-## <a name="scope-validation"></a><span data-ttu-id="a7372-253">スコープの検証</span><span class="sxs-lookup"><span data-stu-id="a7372-253">Scope validation</span></span>
+## <a name="scope-validation"></a><span data-ttu-id="44f1a-271">スコープの検証</span><span class="sxs-lookup"><span data-stu-id="44f1a-271">Scope validation</span></span>
 
-<span data-ttu-id="a7372-254">アプリが ASP.NET Core 2.0 以降の開発環境で実行されている場合、既定のサービス プロバイダーは次を確認するチェックを実行します。</span><span class="sxs-lookup"><span data-stu-id="a7372-254">When the app is running in the Development environment on ASP.NET Core 2.0 or later, the default service provider performs checks to verify that:</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="a7372-255">スコープ サービスが、ルート サービス プロバイダーによって直接的または間接的に解決されない。</span><span class="sxs-lookup"><span data-stu-id="a7372-255">Scoped services aren't directly or indirectly resolved from the root service provider.</span></span>
-* <span data-ttu-id="a7372-256">スコープ サービスが、シングルトンに直接または間接に挿入されない。</span><span class="sxs-lookup"><span data-stu-id="a7372-256">Scoped services aren't directly or indirectly injected into singletons.</span></span>
+<span data-ttu-id="44f1a-272">アプリが開発環境で実行されている場合、既定のサービス プロバイダーは次を確認するためのチェックを実行します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-272">When the app is running in the Development environment, the default service provider performs checks to verify that:</span></span>
 
-<span data-ttu-id="a7372-257">[BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) が呼び出されると、ルート サービス プロバイダーが作成されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-257">The root service provider is created when [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) is called.</span></span> <span data-ttu-id="a7372-258">ルート サービス プロバイダーの有効期間は、プロバイダーがアプリで開始されるとアプリとサーバーの有効期間に対応し、アプリのシャットダウンには破棄されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-258">The root service provider's lifetime corresponds to the app/server's lifetime when the provider starts with the app and is disposed when the app shuts down.</span></span>
+* <span data-ttu-id="44f1a-273">スコープ サービスが、ルート サービス プロバイダーによって直接的または間接的に解決されない。</span><span class="sxs-lookup"><span data-stu-id="44f1a-273">Scoped services aren't directly or indirectly resolved from the root service provider.</span></span>
+* <span data-ttu-id="44f1a-274">スコープ サービスが、シングルトンに直接または間接に挿入されない。</span><span class="sxs-lookup"><span data-stu-id="44f1a-274">Scoped services aren't directly or indirectly injected into singletons.</span></span>
 
-<span data-ttu-id="a7372-259">スコープ サービスは、それを作成したコンテナーによって破棄されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-259">Scoped services are disposed by the container that created them.</span></span> <span data-ttu-id="a7372-260">ルート コンテナーにスコープ サービスが作成されると、サービスはアプリ/サーバーのシャットダウン時に、ルート コンテナーによってのみ破棄されるため、サービスの有効期間は実質的にシングルトンに昇格されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-260">If a scoped service is created in the root container, the service's lifetime is effectively promoted to singleton because it's only disposed by the root container when app/server is shut down.</span></span> <span data-ttu-id="a7372-261">`BuildServiceProvider` が呼び出されると、サービス スコープの検証がこれらの状況をキャッチします。</span><span class="sxs-lookup"><span data-stu-id="a7372-261">Validating service scopes catches these situations when `BuildServiceProvider` is called.</span></span>
+::: moniker-end
 
-<span data-ttu-id="a7372-262">詳細については、[Web ホストのトピックのスコープ検証](xref:fundamentals/host/web-host#scope-validation)に関する説明を参照してください。</span><span class="sxs-lookup"><span data-stu-id="a7372-262">For more information, see [Scope validation in the Web Host topic](xref:fundamentals/host/web-host#scope-validation).</span></span>
+<span data-ttu-id="44f1a-275">[BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) が呼び出されると、ルート サービス プロバイダーが作成されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-275">The root service provider is created when [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) is called.</span></span> <span data-ttu-id="44f1a-276">ルート サービス プロバイダーの有効期間は、プロバイダーがアプリで開始されるとアプリとサーバーの有効期間に対応し、アプリのシャットダウンには破棄されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-276">The root service provider's lifetime corresponds to the app/server's lifetime when the provider starts with the app and is disposed when the app shuts down.</span></span>
 
-## <a name="request-services"></a><span data-ttu-id="a7372-263">要求サービス</span><span class="sxs-lookup"><span data-stu-id="a7372-263">Request Services</span></span>
+<span data-ttu-id="44f1a-277">スコープ サービスは、それを作成したコンテナーによって破棄されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-277">Scoped services are disposed by the container that created them.</span></span> <span data-ttu-id="44f1a-278">ルート コンテナーにスコープ サービスが作成されると、サービスはアプリ/サーバーのシャットダウン時に、ルート コンテナーによってのみ破棄されるため、サービスの有効期間は実質的にシングルトンに昇格されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-278">If a scoped service is created in the root container, the service's lifetime is effectively promoted to singleton because it's only disposed by the root container when app/server is shut down.</span></span> <span data-ttu-id="44f1a-279">`BuildServiceProvider` が呼び出されると、サービス スコープの検証がこれらの状況をキャッチします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-279">Validating service scopes catches these situations when `BuildServiceProvider` is called.</span></span>
 
-<span data-ttu-id="a7372-264">`HttpContext` からの ASP.NET 要求内で使用可能なサービスは、`RequestServices` コレクションを通じて公開されます。</span><span class="sxs-lookup"><span data-stu-id="a7372-264">The services available within an ASP.NET request from `HttpContext` are exposed through the `RequestServices` collection.</span></span>
+<span data-ttu-id="44f1a-280">詳細については、「<xref:fundamentals/host/web-host#scope-validation>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-280">For more information, see <xref:fundamentals/host/web-host#scope-validation>.</span></span>
 
-![要求のサービス コンテナーへのアクセスを提供する IServiceProvider を要求サービスが取得または設定することを示す、HttpContext 要求サービスの Intellisense コンテキスト ダイアログ。](dependency-injection/_static/request-services.png)
+## <a name="request-services"></a><span data-ttu-id="44f1a-281">要求サービス</span><span class="sxs-lookup"><span data-stu-id="44f1a-281">Request Services</span></span>
 
-<span data-ttu-id="a7372-266">要求サービスは、アプリケーションの一部として構成および要求するサービスを表します。</span><span class="sxs-lookup"><span data-stu-id="a7372-266">Request Services represent the services you configure and request as part of your application.</span></span> <span data-ttu-id="a7372-267">オブジェクトで依存関係を指定すると、これらは `ApplicationServices` ではなく `RequestServices` で検出された型で満たされます。</span><span class="sxs-lookup"><span data-stu-id="a7372-267">When your objects specify dependencies, these are satisfied by the types found in `RequestServices`, not `ApplicationServices`.</span></span>
+<span data-ttu-id="44f1a-282">`HttpContext` からの ASP.NET Core 要求内で使用可能なサービスは、[HttpContext.RequestServices](/dotnet/api/microsoft.aspnetcore.http.httpcontext.requestservices) コレクションを通じて公開されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-282">The services available within an ASP.NET Core request from `HttpContext` are exposed through the [HttpContext.RequestServices](/dotnet/api/microsoft.aspnetcore.http.httpcontext.requestservices) collection.</span></span>
 
-<span data-ttu-id="a7372-268">一般に、これらのプロパティを直接使ってはいけません。代わりに、クラスのコンストラクターを使ってクラスで必要な型を要求し、フレームワークにこれらの依存関係を挿入させます。</span><span class="sxs-lookup"><span data-stu-id="a7372-268">Generally, you shouldn't use these properties directly, preferring instead to request the types your classes you require via your class's constructor, and letting the framework inject these dependencies.</span></span> <span data-ttu-id="a7372-269">このようにすると、クラスはテストしやすくなり (「[テストとデバッグ](xref:test/index)」を参照)、より弱い結合になります。</span><span class="sxs-lookup"><span data-stu-id="a7372-269">This yields classes that are easier to test (see [Test and debug](xref:test/index)) and are more loosely coupled.</span></span>
+<span data-ttu-id="44f1a-283">要求サービスは、アプリの一部として構成および要求されるサービスを表します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-283">Request Services represent the services configured and requested as part of the app.</span></span> <span data-ttu-id="44f1a-284">オブジェクトで依存関係を指定すると、これらは `ApplicationServices` ではなく `RequestServices` で検出された型で満たされます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-284">When the objects specify dependencies, these are satisfied by the types found in `RequestServices`, not `ApplicationServices`.</span></span>
+
+<span data-ttu-id="44f1a-285">一般に、アプリから直接これらのプロパティを使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-285">Generally, the app shouldn't use these properties directly.</span></span> <span data-ttu-id="44f1a-286">代わりに、クラスのコンストラクターを介してクラスに必要な型を要求し、フレームワークに依存関係を挿入させます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-286">Instead, request the types that classes require via class constructors and allow the framework inject the dependencies.</span></span> <span data-ttu-id="44f1a-287">このようにすると、クラスのテストが簡単になります (「[テストとデバッグ](xref:test/index)」のトピックを参照)。</span><span class="sxs-lookup"><span data-stu-id="44f1a-287">This yields classes that are easier to test (see the [Test and debug](xref:test/index) topics).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a7372-270">コンストラクターのパラメーターとして依存関係を要求し、`RequestServices` コレクションにアクセスするようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-270">Prefer requesting dependencies as constructor parameters to accessing the `RequestServices` collection.</span></span>
+> <span data-ttu-id="44f1a-288">コンストラクターのパラメーターとして依存関係を要求し、`RequestServices` コレクションにアクセスするようにします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-288">Prefer requesting dependencies as constructor parameters to accessing the `RequestServices` collection.</span></span>
 
-## <a name="designing-services-for-dependency-injection"></a><span data-ttu-id="a7372-271">依存関係の挿入のためのサービスの設計</span><span class="sxs-lookup"><span data-stu-id="a7372-271">Designing services for dependency injection</span></span>
+## <a name="design-services-for-dependency-injection"></a><span data-ttu-id="44f1a-289">依存関係の挿入のためのサービスの設計</span><span class="sxs-lookup"><span data-stu-id="44f1a-289">Design services for dependency injection</span></span>
 
-<span data-ttu-id="a7372-272">依存関係の挿入を使ってコラボレーターを取得するように、サービスを設計する必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-272">You should design your services to use dependency injection to get their collaborators.</span></span> <span data-ttu-id="a7372-273">つまり、ステートフルな静的メソッドの呼び出し ([静的な結び付き](http://deviq.com/static-cling/)として知られるコードの状態になります)、およびサービス内での依存クラスの直接インスタンス化は、使わないようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-273">This means avoiding the use of stateful static method calls (which result in a code smell known as [static cling](http://deviq.com/static-cling/)) and the direct instantiation of dependent classes within your services.</span></span> <span data-ttu-id="a7372-274">型をインスタンス化するか、それとも依存関係の挿入を使って要求するか迷ったときは、"[new は密接な結び付きを生み出す](https://ardalis.com/new-is-glue)" という格言を思い出すと役に立つことがあります。</span><span class="sxs-lookup"><span data-stu-id="a7372-274">It may help to remember the phrase, [New is Glue](https://ardalis.com/new-is-glue), when choosing whether to instantiate a type or to request it via dependency injection.</span></span> <span data-ttu-id="a7372-275">[オブジェクト指向設計の SOLID 原則](http://deviq.com/solid/)に従うことで、クラスは必然的に小さく、十分に考慮された、簡単にテストできるものになる可能性が高くなります。</span><span class="sxs-lookup"><span data-stu-id="a7372-275">By following the [SOLID Principles of Object Oriented Design](http://deviq.com/solid/), your classes will naturally tend to be small, well-factored, and easily tested.</span></span>
+<span data-ttu-id="44f1a-290">ベスト プラクティスは次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-290">Best practices are to:</span></span>
 
-<span data-ttu-id="a7372-276">クラスで挿入される依存関係が多すぎる場合はどうすればよいでしょうか。</span><span class="sxs-lookup"><span data-stu-id="a7372-276">What if you find that your classes tend to have way too many dependencies being injected?</span></span> <span data-ttu-id="a7372-277">これは一般に、クラスで行おうとしていることが多すぎるサインであり、SRP ([単一責任の原則](http://deviq.com/single-responsibility-principle/)) に違反する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-277">This is generally a sign that your class is trying to do too much, and is probably violating SRP - the [Single Responsibility Principle](http://deviq.com/single-responsibility-principle/).</span></span> <span data-ttu-id="a7372-278">責任の一部を新しいクラスに移動することにより、クラスをリファクタリングできるかどうか検討します。</span><span class="sxs-lookup"><span data-stu-id="a7372-278">See if you can refactor the class by moving some of its responsibilities into a new class.</span></span> <span data-ttu-id="a7372-279">`Controller` クラスは UI に関することに集中する必要があり、ビジネス ルールとデータ アクセスの実装の詳細は[問題の分離](http://deviq.com/separation-of-concerns/)に適したクラスに維持する必要があることに留意してください。</span><span class="sxs-lookup"><span data-stu-id="a7372-279">Keep in mind that your `Controller` classes should be focused on UI concerns, so business rules and data access implementation details should be kept in classes appropriate to these [separate concerns](http://deviq.com/separation-of-concerns/).</span></span>
+* <span data-ttu-id="44f1a-291">各依存関係を取得するために依存関係の挿入を使用するようサービスを設計します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-291">Design services to use dependency injection to obtain their dependencies.</span></span>
+* <span data-ttu-id="44f1a-292">ステートフルな静的メソッドの呼び出しを回避します ([静的な結び付き](https://deviq.com/static-cling/)と呼ばれる方法です)。</span><span class="sxs-lookup"><span data-stu-id="44f1a-292">Avoid stateful, static method calls (a practice known as [static cling](https://deviq.com/static-cling/)).</span></span>
+* <span data-ttu-id="44f1a-293">サービス内部で依存関係のあるクラスを直接インスタンス化することを回避します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-293">Avoid direct instantiation of dependent classes within services.</span></span> <span data-ttu-id="44f1a-294">直接のインスタンス化は、コードの固有の実装につながります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-294">Direct instantiation couples the code to a particular implementation.</span></span>
 
-<span data-ttu-id="a7372-280">特にデータ アクセスに関しては、`DbContext` をコントローラーに挿入できます (`ConfigureServices` のサービス コンテナーに EF を追加した場合)。</span><span class="sxs-lookup"><span data-stu-id="a7372-280">With regards to data access specifically, you can inject the `DbContext` into your controllers (assuming you've added EF to the services container in `ConfigureServices`).</span></span> <span data-ttu-id="a7372-281">`DbContext` を直接挿入するより、データベースへのリポジトリ インターフェイスを使う方が好まれる場合があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-281">Some developers prefer to use a repository interface to the database rather than injecting the `DbContext` directly.</span></span> <span data-ttu-id="a7372-282">インターフェイスを使ってデータ アクセス ロジックを 1 か所にカプセル化すると、データベースを変更するときに変更する必要がある場所の数を最少にできます。</span><span class="sxs-lookup"><span data-stu-id="a7372-282">Using an interface to encapsulate the data access logic in one place can minimize how many places you will have to change when your database changes.</span></span>
+<span data-ttu-id="44f1a-295">[オブジェクト指向設計の SOLID 原則](https://deviq.com/solid/)に従うことで、小さく、十分に要素に分割された、テストが簡単なアプリのクラスを実現できる可能性が自然と高くなります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-295">By following the [SOLID Principles of Object Oriented Design](https://deviq.com/solid/), app classes naturally tend to be small, well-factored, and easily tested.</span></span>
 
-### <a name="disposing-of-services"></a><span data-ttu-id="a7372-283">サービスの破棄</span><span class="sxs-lookup"><span data-stu-id="a7372-283">Disposing of services</span></span>
+<span data-ttu-id="44f1a-296">クラスに含まれる挿入される依存関係が多すぎるように見える場合、これは通常、クラスが担当する役割が多すぎて、[単一責任の原則 (SRP)](https://deviq.com/single-responsibility-principle/) に違反していることのサインです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-296">If a class seems to have too many injected dependencies, this is generally a sign that the class has too many responsibilities and is violating the [Single Responsibility Principle (SRP)](https://deviq.com/single-responsibility-principle/).</span></span> <span data-ttu-id="44f1a-297">責任の一部を新しいクラスに移動することにより、クラスのリファクタリングを試みます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-297">Attempt to refactor the class by moving some of its responsibilities into a new class.</span></span> <span data-ttu-id="44f1a-298">Razor Pages のページ モデル クラスと MVC コントローラー クラスは、UI の問題に集中する必要があることに留意します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-298">Keep in mind that Razor Pages page model classes and MVC controller classes should focus on UI concerns.</span></span> <span data-ttu-id="44f1a-299">ビジネス ルールとデータ アクセスの実装の詳細は、これらの[個別の問題](https://deviq.com/separation-of-concerns/)に適したクラスに分離する必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-299">Business rules and data access implementation details should be kept in classes appropriate to these [separate concerns](https://deviq.com/separation-of-concerns/).</span></span>
 
-<span data-ttu-id="a7372-284">コンテナーは、作成する `IDisposable` 型の `Dispose` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="a7372-284">The container will call `Dispose` for `IDisposable` types it creates.</span></span> <span data-ttu-id="a7372-285">ただし、手動でインスタンスをコンテナーに追加した場合は、破棄されません。</span><span class="sxs-lookup"><span data-stu-id="a7372-285">However, if you add an instance to the container yourself, it will not be disposed.</span></span>
+### <a name="disposal-of-services"></a><span data-ttu-id="44f1a-300">サービスの破棄</span><span class="sxs-lookup"><span data-stu-id="44f1a-300">Disposal of services</span></span>
 
-<span data-ttu-id="a7372-286">例:</span><span class="sxs-lookup"><span data-stu-id="a7372-286">Example:</span></span>
+<span data-ttu-id="44f1a-301">コンテナーは、作成する `IDisposable` 型の `Dispose` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-301">The container calls `Dispose` for the `IDisposable` types it creates.</span></span> <span data-ttu-id="44f1a-302">ユーザー コードによってコンテナーに追加されたインスタンスは、自動的に破棄されません。</span><span class="sxs-lookup"><span data-stu-id="44f1a-302">If an instance is added to the container by user code, it isn't disposed automatically.</span></span>
 
 ```csharp
-// Services implement IDisposable:
+// Services that implement IDisposable:
 public class Service1 : IDisposable {}
 public class Service2 : IDisposable {}
 public class Service3 : IDisposable {}
@@ -270,97 +457,102 @@ public class Service3 : IDisposable {}
 public interface ISomeService {}
 public class SomeServiceImplementation : ISomeService, IDisposable {}
 
-
 public void ConfigureServices(IServiceCollection services)
 {
-    // container will create the instance(s) of these types and will dispose them
+    // The container creates the following instances and disposes them automatically:
     services.AddScoped<Service1>();
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container didn't create instance so it will NOT dispose it
+    // The container doesn't create the following instances, so it doesn't dispose of
+    // the instances automatically:
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
-> [!NOTE]
-> <span data-ttu-id="a7372-287">バージョン 1.0 のコンテナーは、コンテナーで作成しなかったものも含めて、"*すべての*" `IDisposable` に対して破棄を呼び出しました。</span><span class="sxs-lookup"><span data-stu-id="a7372-287">In version 1.0, the container called dispose on *all* `IDisposable` objects, including those it didn't create.</span></span>
-
-## <a name="replacing-the-default-services-container"></a><span data-ttu-id="a7372-288">既定のサービス コンテナーの置き換え</span><span class="sxs-lookup"><span data-stu-id="a7372-288">Replacing the default services container</span></span>
-
-<span data-ttu-id="a7372-289">組み込みのサービス コンテナーは、フレームワークと、それを基に構築されたほとんどのコンシューマー アプリケーションの、基本的なニーズに対応することを意図したものです。</span><span class="sxs-lookup"><span data-stu-id="a7372-289">The built-in services container is meant to serve the basic needs of the framework and most consumer applications built on it.</span></span> <span data-ttu-id="a7372-290">ただし、開発者は、組み込みのコンテナーを好みのコンテナーで置き換えることができます。</span><span class="sxs-lookup"><span data-stu-id="a7372-290">However, developers can replace the built-in container with their preferred container.</span></span> <span data-ttu-id="a7372-291">通常、`ConfigureServices` メソッドは `void` を返しますが、`IServiceProvider` を返すようにシグネチャを変更した場合、別のコンテナーを構成して返すことができます。</span><span class="sxs-lookup"><span data-stu-id="a7372-291">The `ConfigureServices` method typically returns `void`, but if its signature is changed to return `IServiceProvider`, a different container can be configured and returned.</span></span> <span data-ttu-id="a7372-292">.NET で使うことができる多くの IOC コンテナーがあります。</span><span class="sxs-lookup"><span data-stu-id="a7372-292">There are many IOC containers available for .NET.</span></span> <span data-ttu-id="a7372-293">この例では、[Autofac](https://autofac.org/) パッケージを使います。</span><span class="sxs-lookup"><span data-stu-id="a7372-293">In this example, the [Autofac](https://autofac.org/) package is used.</span></span>
-
-<span data-ttu-id="a7372-294">最初に、適切なコンテナー パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="a7372-294">First, install the appropriate container package(s):</span></span>
-
-* `Autofac`
-* `Autofac.Extensions.DependencyInjection`
-
-<span data-ttu-id="a7372-295">次に、`ConfigureServices` でコンテナーを構成して、`IServiceProvider` を返します。</span><span class="sxs-lookup"><span data-stu-id="a7372-295">Next, configure the container in `ConfigureServices` and return an `IServiceProvider`:</span></span>
-
-```csharp
-public IServiceProvider ConfigureServices(IServiceCollection services)
-{
-    services.AddMvc();
-    // Add other framework services
-
-    // Add Autofac
-    var containerBuilder = new ContainerBuilder();
-    containerBuilder.RegisterModule<DefaultModule>();
-    containerBuilder.Populate(services);
-    var container = containerBuilder.Build();
-    return new AutofacServiceProvider(container);
-}
-```
+::: moniker range="= aspnetcore-1.0"
 
 > [!NOTE]
-> <span data-ttu-id="a7372-296">サードパーティの DI コンテナーを使うときは、`void` ではなく `IServiceProvider` を返すように、`ConfigureServices` を変更する必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-296">When using a third-party DI container, you must change `ConfigureServices` so that it returns `IServiceProvider` instead of `void`.</span></span>
+> <span data-ttu-id="44f1a-303">ASP.NET Core 1.0 のコンテナーは、コンテナーで作成しなかったものも含めて、"*すべての*" `IDisposable` に対して破棄を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-303">In ASP.NET Core 1.0, the container calls dispose on *all* `IDisposable` objects, including those it didn't create.</span></span>
 
-<span data-ttu-id="a7372-297">最後に、`DefaultModule` で Autofac を通常どおり構成します。</span><span class="sxs-lookup"><span data-stu-id="a7372-297">Finally, configure Autofac as normal in `DefaultModule`:</span></span>
+::: moniker-end
 
-```csharp
-public class DefaultModule : Module
-{
-    protected override void Load(ContainerBuilder builder)
+## <a name="default-service-container-replacement"></a><span data-ttu-id="44f1a-304">既定のサービス コンテナーの置換</span><span class="sxs-lookup"><span data-stu-id="44f1a-304">Default service container replacement</span></span>
+
+<span data-ttu-id="44f1a-305">組み込みのサービス コンテナーは、フレームワークと、それを基に構築されたほとんどのコンシューマー アプリの、基本的なニーズに対応することを意図したものです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-305">The built-in service container is meant to serve the basic needs of the framework and most consumer apps built on it.</span></span> <span data-ttu-id="44f1a-306">ただし、開発者は、組み込みのコンテナーを好みのコンテナーで置き換えることができます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-306">However, developers can replace the built-in container with their preferred container.</span></span> <span data-ttu-id="44f1a-307">通常、`Startup.ConfigureServices` メソッドは `void` を返します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-307">The `Startup.ConfigureServices` method typically returns `void`.</span></span> <span data-ttu-id="44f1a-308">[IServiceProvider](/dotnet/api/system.iserviceprovider) を返すようにメソッドのシグネチャを変更した場合、別のコンテナーを構成して返すことができます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-308">If the method's signature is changed to return an [IServiceProvider](/dotnet/api/system.iserviceprovider), a different container can be configured and returned.</span></span> <span data-ttu-id="44f1a-309">.NET で使うことができる多くの IoC コンテナーがあります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-309">There are many IoC containers available for .NET.</span></span> <span data-ttu-id="44f1a-310">次の例では、[Autofac](https://autofac.org/) コンテナーが使用されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-310">In the following example, the [Autofac](https://autofac.org/) container is used:</span></span>
+
+1. <span data-ttu-id="44f1a-311">適切なコンテナー パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-311">Install the appropriate container package(s):</span></span>
+
+    * [<span data-ttu-id="44f1a-312">Autofac</span><span class="sxs-lookup"><span data-stu-id="44f1a-312">Autofac</span></span>](https://www.nuget.org/packages/Autofac/)
+    * [<span data-ttu-id="44f1a-313">Autofac.Extensions.DependencyInjection</span><span class="sxs-lookup"><span data-stu-id="44f1a-313">Autofac.Extensions.DependencyInjection</span></span>](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
+
+2. <span data-ttu-id="44f1a-314">`Startup.ConfigureServices` でコンテナーを構成して、`IServiceProvider` を返します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-314">Configure the container in `Startup.ConfigureServices` and return an `IServiceProvider`:</span></span>
+
+    ```csharp
+    public IServiceProvider ConfigureServices(IServiceCollection services)
     {
-        builder.RegisterType<CharacterRepository>().As<ICharacterRepository>();
+        services.AddMvc();
+        // Add other framework services
+
+        // Add Autofac
+        var containerBuilder = new ContainerBuilder();
+        containerBuilder.RegisterModule<DefaultModule>();
+        containerBuilder.Populate(services);
+        var container = containerBuilder.Build();
+        return new AutofacServiceProvider(container);
     }
-}
-```
+    ```
 
-<span data-ttu-id="a7372-298">実行時には、Autofac を使って、型の解決と依存関係の挿入が行われます。</span><span class="sxs-lookup"><span data-stu-id="a7372-298">At runtime, Autofac will be used to resolve types and inject dependencies.</span></span> <span data-ttu-id="a7372-299">[Autofac と ASP.NET Core の使用については、こちらをご覧ください](http://docs.autofac.org/en/latest/integration/aspnetcore.html)。</span><span class="sxs-lookup"><span data-stu-id="a7372-299">[Learn more about using Autofac and ASP.NET Core](http://docs.autofac.org/en/latest/integration/aspnetcore.html).</span></span>
+    <span data-ttu-id="44f1a-315">サード パーティのコンテナーを使用するには、`Startup.ConfigureServices` で `IServiceProvider` が返される必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-315">To use a 3rd party container, `Startup.ConfigureServices` must return `IServiceProvider`.</span></span>
 
-### <a name="thread-safety"></a><span data-ttu-id="a7372-300">スレッド セーフ</span><span class="sxs-lookup"><span data-stu-id="a7372-300">Thread safety</span></span>
+3. <span data-ttu-id="44f1a-316">`DefaultModule` で Autofac を構成します。</span><span class="sxs-lookup"><span data-stu-id="44f1a-316">Configure Autofac in `DefaultModule`:</span></span>
 
-<span data-ttu-id="a7372-301">シングルトン サービスは、スレッド セーフである必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-301">Singleton services need to be thread safe.</span></span> <span data-ttu-id="a7372-302">シングルトン サービスに一時的サービスへの依存関係がある場合、シングルトンによる一時的サービスの使い方によっては、一時的サービスもスレッド セーフであることが必要な場合があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-302">If a singleton service has a dependency on a transient service, the transient service may also need to be thread safe depending how it's used by the singleton.</span></span>
+    ```csharp
+    public class DefaultModule : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<CharacterRepository>().As<ICharacterRepository>();
+        }
+    }
+    ```
 
-## <a name="recommendations"></a><span data-ttu-id="a7372-303">推奨事項</span><span class="sxs-lookup"><span data-stu-id="a7372-303">Recommendations</span></span>
+<span data-ttu-id="44f1a-317">実行時には、Autofac を使って、型の解決と依存関係の挿入が行われます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-317">At runtime, Autofac is used to resolve types and inject dependencies.</span></span> <span data-ttu-id="44f1a-318">ASP.NET Core での Autofac の使用について詳しくは、[Autofac のドキュメント](https://docs.autofac.org/en/latest/integration/aspnetcore.html)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-318">To learn more about using Autofac with ASP.NET Core, see the [Autofac documentation](https://docs.autofac.org/en/latest/integration/aspnetcore.html).</span></span>
 
-<span data-ttu-id="a7372-304">依存関係の挿入を使うときは、次の推奨事項に留意してください。</span><span class="sxs-lookup"><span data-stu-id="a7372-304">When working with dependency injection, keep the following recommendations in mind:</span></span>
+### <a name="thread-safety"></a><span data-ttu-id="44f1a-319">スレッド セーフ</span><span class="sxs-lookup"><span data-stu-id="44f1a-319">Thread safety</span></span>
 
-* <span data-ttu-id="a7372-305">DI は、複雑な依存関係のあるオブジェクトのためのものです。</span><span class="sxs-lookup"><span data-stu-id="a7372-305">DI is for objects that have complex dependencies.</span></span> <span data-ttu-id="a7372-306">コントローラー、サービス、アダプター、リポジトリはすべて、DI に追加される可能性があるオブジェクトの例です。</span><span class="sxs-lookup"><span data-stu-id="a7372-306">Controllers, services, adapters, and repositories are all examples of objects that might be added to DI.</span></span>
+<span data-ttu-id="44f1a-320">シングルトン サービスは、スレッド セーフである必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-320">Singleton services need to be thread safe.</span></span> <span data-ttu-id="44f1a-321">シングルトン サービスに一時的サービスへの依存関係がある場合、シングルトンによる一時的サービスの使い方によっては、一時的サービスもスレッド セーフであることが必要な場合があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-321">If a singleton service has a dependency on a transient service, the transient service may also need to be thread safe depending how it's used by the singleton.</span></span>
 
-* <span data-ttu-id="a7372-307">データと構成は、DI に直接格納しないようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-307">Avoid storing data and configuration directly in DI.</span></span> <span data-ttu-id="a7372-308">たとえば、通常、ユーザーのショッピング カートをサービス コンテナーに追加してはいけません。</span><span class="sxs-lookup"><span data-stu-id="a7372-308">For example, a user's shopping cart shouldn't typically be added to the services container.</span></span> <span data-ttu-id="a7372-309">構成では、[オプション パターン](xref:fundamentals/configuration/options)を使う必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-309">Configuration should use the [options pattern](xref:fundamentals/configuration/options).</span></span> <span data-ttu-id="a7372-310">同様に、他のオブジェクトへのアクセスを許可するためだけに存在する "データ ホルダー" オブジェクトは避ける必要があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-310">Similarly, avoid "data holder" objects that only exist to allow access to some other object.</span></span> <span data-ttu-id="a7372-311">可能な場合は、実際に必要なアイテムを DI 経由で要求することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="a7372-311">It's better to request the actual item needed via DI, if possible.</span></span>
+<span data-ttu-id="44f1a-322">1 つのサービスのファクトリ メソッド (例: [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider,TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__) に対する 2 番目の引数) をスレッド セーフにする必要はありません。</span><span class="sxs-lookup"><span data-stu-id="44f1a-322">The factory method of single service, such as the second argument to [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider,TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__), doesn't need to be thread-safe.</span></span> <span data-ttu-id="44f1a-323">型 (`static`) のコンストラクターのように、1 つのスレッドによって 1 回呼び出されることが保証されます。</span><span class="sxs-lookup"><span data-stu-id="44f1a-323">Like a type (`static`) constructor, it's guaranteed to be called once by a single thread.</span></span>
 
-* <span data-ttu-id="a7372-312">サービスへの静的なアクセスを行わないようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-312">Avoid static access to services.</span></span>
+## <a name="recommendations"></a><span data-ttu-id="44f1a-324">推奨事項</span><span class="sxs-lookup"><span data-stu-id="44f1a-324">Recommendations</span></span>
 
-* <span data-ttu-id="a7372-313">サービスの場所をアプリケーション コード内に記述しないようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-313">Avoid service location in your application code.</span></span>
+<span data-ttu-id="44f1a-325">依存関係の挿入を使うときは、次の推奨事項に留意してください。</span><span class="sxs-lookup"><span data-stu-id="44f1a-325">When working with dependency injection, keep the following recommendations in mind:</span></span>
 
-* <span data-ttu-id="a7372-314">`HttpContext` への静的なアクセスを行わないようにします。</span><span class="sxs-lookup"><span data-stu-id="a7372-314">Avoid static access to `HttpContext`.</span></span>
+* <span data-ttu-id="44f1a-326">データと構成をサービス コンテナーに直接格納しないようにします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-326">Avoid storing data and configuration directly in the service container.</span></span> <span data-ttu-id="44f1a-327">たとえば、通常、ユーザーのショッピング カートはサービス コンテナーに追加しません。</span><span class="sxs-lookup"><span data-stu-id="44f1a-327">For example, a user's shopping cart shouldn't typically be added to the service container.</span></span> <span data-ttu-id="44f1a-328">構成では、[オプション パターン](xref:fundamentals/configuration/options)を使う必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-328">Configuration should use the [options pattern](xref:fundamentals/configuration/options).</span></span> <span data-ttu-id="44f1a-329">同様に、他のオブジェクトへのアクセスを許可するためだけに存在する "データ ホルダー" オブジェクトは避ける必要があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-329">Similarly, avoid "data holder" objects that only exist to allow access to some other object.</span></span> <span data-ttu-id="44f1a-330">可能な場合は、実際のアイテムを依存関係の挿入経由で要求することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="44f1a-330">It's better to request the actual item via dependency injection, if possible.</span></span>
 
-<span data-ttu-id="a7372-315">どのような推奨事項でも、無視する必要がある状況が発生する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="a7372-315">Like all sets of recommendations, you may encounter situations where ignoring one is required.</span></span> <span data-ttu-id="a7372-316">例外はまれであることがわかっており、ほとんどはフレームワーク自体内での非常に特殊なケースです。</span><span class="sxs-lookup"><span data-stu-id="a7372-316">We have found exceptions to be rare -- mostly very special cases within the framework itself.</span></span>
+* <span data-ttu-id="44f1a-331">サービスへの静的なアクセスを回避します (たとえば、他所で使用するための [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) の静的な型指定)。</span><span class="sxs-lookup"><span data-stu-id="44f1a-331">Avoid static access to services (for example, statically-typing [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) for use elsewhere).</span></span>
 
-<span data-ttu-id="a7372-317">依存関係の挿入は静的/グローバル オブジェクト アクセス パターンの*代替機能*です。</span><span class="sxs-lookup"><span data-stu-id="a7372-317">Dependency injection is an *alternative* to static/global object access patterns.</span></span> <span data-ttu-id="a7372-318">静的オブジェクト アクセスと併用した場合、DI のメリットを実現することはできません。</span><span class="sxs-lookup"><span data-stu-id="a7372-318">You may not be able to realize the benefits of DI if you mix it with static object access.</span></span>
+* <span data-ttu-id="44f1a-332">サービス ロケーター パターンの使用を回避します (たとえば [IServiceProvider.GetService](/dotnet/api/system.iserviceprovider.getservice))。</span><span class="sxs-lookup"><span data-stu-id="44f1a-332">Avoid using the service locator pattern (for example, [IServiceProvider.GetService](/dotnet/api/system.iserviceprovider.getservice)).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="a7372-319">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="a7372-319">Additional resources</span></span>
+* <span data-ttu-id="44f1a-333">`HttpContext` への静的なアクセスを回避します (たとえば [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext))。</span><span class="sxs-lookup"><span data-stu-id="44f1a-333">Avoid static access to `HttpContext` (for example, [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).</span></span>
 
-* [<span data-ttu-id="a7372-320">ビューへの依存性の注入</span><span class="sxs-lookup"><span data-stu-id="a7372-320">Dependency injection into views</span></span>](xref:mvc/views/dependency-injection)
-* [<span data-ttu-id="a7372-321">コントローラーへの依存性の注入</span><span class="sxs-lookup"><span data-stu-id="a7372-321">Dependency injection into controllers</span></span>](xref:mvc/controllers/dependency-injection)
-* [<span data-ttu-id="a7372-322">要件ハンドラーでの依存性の注入</span><span class="sxs-lookup"><span data-stu-id="a7372-322">Dependency injection in requirement handlers</span></span>](xref:security/authorization/dependencyinjection)
-* [<span data-ttu-id="a7372-323">アプリケーションの起動</span><span class="sxs-lookup"><span data-stu-id="a7372-323">Application Startup</span></span>](xref:fundamentals/startup)
-* [<span data-ttu-id="a7372-324">テストとデバッグ</span><span class="sxs-lookup"><span data-stu-id="a7372-324">Test and debug</span></span>](xref:test/index)
-* [<span data-ttu-id="a7372-325">ファクトリ ベースのミドルウェアのアクティブ化</span><span class="sxs-lookup"><span data-stu-id="a7372-325">Factory-based middleware activation</span></span>](xref:fundamentals/middleware/extensibility)
-* [<span data-ttu-id="a7372-326">依存関係の挿入による ASP.NET Core でのクリーンなコードの作成 (MSDN)</span><span class="sxs-lookup"><span data-stu-id="a7372-326">Writing Clean Code in ASP.NET Core with Dependency Injection (MSDN)</span></span>](https://msdn.microsoft.com/magazine/mt703433.aspx)
-* [<span data-ttu-id="a7372-327">コンテナー管理アプリケーションの設計、前段階: コンテナーはどこに属していますか</span><span class="sxs-lookup"><span data-stu-id="a7372-327">Container-Managed Application Design, Prelude: Where does the Container Belong?</span></span>](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
-* [<span data-ttu-id="a7372-328">明示的な依存関係の原則</span><span class="sxs-lookup"><span data-stu-id="a7372-328">Explicit Dependencies Principle</span></span>](http://deviq.com/explicit-dependencies-principle/)
-* <span data-ttu-id="a7372-329">[制御の反転コンテナーと依存関係の挿入パターン](https://www.martinfowler.com/articles/injection.html) (Fowler)</span><span class="sxs-lookup"><span data-stu-id="a7372-329">[Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html) (Fowler)</span></span>
+<span data-ttu-id="44f1a-334">どのような推奨事項であっても、それを無視する必要がある状況が発生する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-334">Like all sets of recommendations, you may encounter situations where ignoring a recommendation is required.</span></span> <span data-ttu-id="44f1a-335">例外はまれです&mdash;ほとんどがフレームワーク自体の内の特殊なケースです。</span><span class="sxs-lookup"><span data-stu-id="44f1a-335">Exceptions are rare&mdash;mostly special cases within the framework itself.</span></span>
+
+<span data-ttu-id="44f1a-336">依存関係の挿入は静的/グローバル オブジェクト アクセス パターンの*代替機能*です。</span><span class="sxs-lookup"><span data-stu-id="44f1a-336">Dependency injection is an *alternative* to static/global object access patterns.</span></span> <span data-ttu-id="44f1a-337">静的オブジェクト アクセスと併用した場合、依存関係の挿入のメリットを実現できない可能性があります。</span><span class="sxs-lookup"><span data-stu-id="44f1a-337">You may not be able to realize the benefits of dependency injection if you mix it with static object access.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="44f1a-338">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="44f1a-338">Additional resources</span></span>
+
+* <xref:mvc/views/dependency-injection>
+* <xref:mvc/controllers/dependency-injection>
+* <xref:security/authorization/dependencyinjection>
+* <xref:fundamentals/repository-pattern>
+* <xref:fundamentals/startup>
+* <xref:test/index>
+* <xref:fundamentals/middleware/extensibility>
+* [<span data-ttu-id="44f1a-339">依存関係の挿入による ASP.NET Core でのクリーンなコードの作成 (MSDN)</span><span class="sxs-lookup"><span data-stu-id="44f1a-339">Writing Clean Code in ASP.NET Core with Dependency Injection (MSDN)</span></span>](https://msdn.microsoft.com/magazine/mt703433.aspx)
+* [<span data-ttu-id="44f1a-340">コンテナー管理アプリケーションの設計、前段階: コンテナーはどこに属していますか</span><span class="sxs-lookup"><span data-stu-id="44f1a-340">Container-Managed Application Design, Prelude: Where does the Container Belong?</span></span>](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
+* [<span data-ttu-id="44f1a-341">明示的な依存関係の原則</span><span class="sxs-lookup"><span data-stu-id="44f1a-341">Explicit Dependencies Principle</span></span>](https://deviq.com/explicit-dependencies-principle/)
+* [<span data-ttu-id="44f1a-342">制御の反転コンテナーと依存関係の挿入パターン (Martin Fowler)</span><span class="sxs-lookup"><span data-stu-id="44f1a-342">Inversion of Control Containers and the Dependency Injection Pattern (Martin Fowler)</span></span>](https://www.martinfowler.com/articles/injection.html)
+* [<span data-ttu-id="44f1a-343">new は接着剤である (コードを特定の実装に "接着" する)</span><span class="sxs-lookup"><span data-stu-id="44f1a-343">New is Glue ("gluing" code to a particular implementation)</span></span>](https://ardalis.com/new-is-glue)
