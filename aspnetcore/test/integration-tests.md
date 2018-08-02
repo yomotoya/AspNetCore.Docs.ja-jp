@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 2a5adafd30aeca163063ea76857378e97163d0b9
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 8d304397fb7f218b395374c2b8c696fef9d9f8ad
+ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342082"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39410183"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core で統合テスト
 
@@ -209,6 +209,56 @@ clientOptions.HandleCookies = true;
 clientOptions.MaxAutomaticRedirections = 7;
 
 _client = _factory.CreateClient(clientOptions);
+```
+
+## <a name="inject-mock-services"></a>モック サービスを挿入します。
+
+サービスへの呼び出しでのテストでオーバーライドできます[ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices)ホスト ビルダーにします。 **モック サービスを挿入する SUT があります、`Startup`クラス、`Startup.ConfigureServices`メソッド。**
+
+SUT サンプルには、見積もりが返すスコープ化されたサービスが含まれています。 見積もりは、インデックス ページが要求されたときに、インデックス ページ上の非表示フィールドに埋め込まれます。
+
+*Services/IQuoteService.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/IQuoteService.cs?name=snippet1)]
+
+*Services/QuoteService.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/QuoteService.cs?name=snippet1)]
+
+*Startup.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet2)]
+
+*Pages/Index.cshtml.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml.cs?name=snippet1&highlight=4,9,20,26)]
+
+*Pages/Index.cs*:
+
+[!code-cshtml[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml?name=snippet_Quote)]
+
+SUT アプリの実行時に、次のマークアップが生成されます。
+
+```html
+<input id="quote" type="hidden" value="Come on, Sarah. We&#x27;ve an appointment in 
+    London, and we&#x27;re already 30,000 years late.">
+```
+
+統合テストでは、サービスおよび見積もりの挿入をテストするには、モック サービスは、テストによって SUT に組み込まれます。 モック サービスが、アプリの置き換えられます`QuoteService`テスト アプリによって提供されるサービスという`TestQuoteService`:
+
+*IntegrationTests.IndexPageTests.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet4)]
+
+`ConfigureTestServices` 呼び出されると、スコープ化されたサービスが登録されているとします。
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet5&highlight=7-10,17,20-21)]
+
+テストの実行中に生成されたマークアップの反映によって提供される見積もりテキスト`TestQuoteService`、そのため、アサーションのパス。
+
+```html
+<input id="quote" type="hidden" value="Something&#x27;s interfering with time, 
+    Mr. Scarman, and time is my business.">
 ```
 
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>テスト インフラストラクチャが、アプリのコンテンツ ルート パスを推論する方法
