@@ -4,14 +4,14 @@ author: rick-anderson
 description: macOS、Linux、Windows で ASP.NET Core MVC と Visual Studio Code を利用して Web API を構築する
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 4ce808ec4241ab2fc3c2fb81c3fdb15dd853cd90
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216238"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342277"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core と Visual Studio Code で Web API を作成する
 
@@ -61,15 +61,20 @@ VS Code の使用に関するヒントが必要であれば、「[Visual Studio 
 
 ## <a name="add-support-for-entity-framework-core"></a>Entity Framework Core のサポートの追加
 
+:::moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) パッケージ参照が追加されます。 まだ指定されていない場合は、`Version` 属性を追加します。
+
+[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
+
+:::moniker-end
+
 :::moniker range="<= aspnetcore-2.0"
+
 ASP.NET Core 2.0 で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) プロバイダーが追加されます。
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
-:::moniker-end
-:::moniker range=">= aspnetcore-2.1"
-ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) プロバイダーが追加されます。
 
-[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 :::moniker-end
 
 [Entity Framework Core InMemory](/ef/core/providers/in-memory/) データベース プロバイダーを個別にインストールする必要はありません。 このデータベース プロバイダーにより、メモリ内のデータベースで Entity Framework Core を使用することが許可されます。

@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swashbuckle を ASP.NET Core Web API プロジェクトに追加し、Swagger UI を統合する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 07/27/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 70a1503a1ddbfe7f569d12b0034d967b220c9c44
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: 06f0ebae70fe43506d7edecbd0508968d1d00635
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126249"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342316"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle と ASP.NET Core の概要
 
@@ -184,7 +184,7 @@ XML コメントを有効にすると、ドキュメントに未記載のパブ�
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-警告を非表示にするには、*.csproj* ファイルで、無視する警告コードの一覧をセミコロン区切りで定義します。 警告コードを `$(NoWarn);` に追加すると、C# の既定値が適用されます。
+プロジェクト全体で警告を非表示にするには、プロジェクト ファイルで無視する警告コードの一覧をセミコロン区切りで定義します。 警告コードを `$(NoWarn);` に追加すると、C# の既定値が適用されます。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -197,6 +197,26 @@ warning CS1591: Missing XML comment for publicly visible type or member 'TodoCon
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
 
 ::: moniker-end
+
+特定のメンバーに向けた警告のみを非表示にするには、コードを [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) プリプロセッサ ディレクティブで囲みます。 この方法は、API ドキュメント経由で公開すべきではないコードの場合に役立ちます。次の例では、警告コード CS1591 が `Program` クラス全体で無視されます。 警告コードの強制は、クラス定義の終了時に復元されます。 コンマ区切りのリストで複数の警告コードを指定します。
+
+```csharp
+namespace TodoApi
+{
+#pragma warning disable CS1591
+    public class Program
+    {
+        public static void Main(string[] args) =>
+            BuildWebHost(args).Run();
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build();
+    }
+#pragma warning restore CS1591
+}
+```
 
 生成された XML ファイルを使用するように Swagger を構成します。 Linux または Windows 以外のオペレーティング システムでは、ファイル名やパスで大文字小文字が区別されます。 たとえば、*TodoApi.XML* ファイルは Windows では有効ですが、CentOS では無効です。
 
