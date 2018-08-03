@@ -5,12 +5,12 @@ description: このチュートリアルでは、関連データ (Entity Framewo
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202680"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219343"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -69,14 +69,19 @@ Course エンティティには、`Department` エンティティを含むナビ
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>Course モデルのスキャフォールディング
 
-* Visual Studio を終了します。
-* プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
-* 次のコマンドを実行します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Course` を使用します。
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ 次のコマンドを実行します。
 
   ```console
-  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
+
+------
 
 上記のコマンドは、`Course` モデルをスキャフォールディングします。 Visual Studio でプロジェクトを開きます。
 
@@ -150,21 +155,21 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 
 ### <a name="scaffold-the-instructor-model"></a>Instructor モデルのスキャフォールディング
 
-* Visual Studio を終了します。
-* プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
-* 次のコマンドを実行します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Instructor` を使用します。
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ 次のコマンドを実行します。
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-上記のコマンドは、`Instructor` モデルをスキャフォールディングします。 Visual Studio でプロジェクトを開きます。
+------
 
-プロジェクトをビルドします。 ビルドがエラーを生成します。
-
-`_context.Instructor` を `_context.Instructors` にグローバルに変更します (つまり、"s" を `Instructor` に追加します)。 7 回の出現が見つかり、更新されます。
-
-アプリを実行し、Instructors ページに移動します。
+上記のコマンドは、`Instructor` モデルをスキャフォールディングします。 アプリを実行し、Instructors ページに移動します。
 
 *Pages/Instructors/Index.cshtml.cs* を次のコードで置き換えます。
 

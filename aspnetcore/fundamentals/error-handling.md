@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938242"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332276"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
@@ -103,11 +103,11 @@ app.UseStatusCodePages();
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-また、リダイレクトと再実行の拡張メソッドもあります。 リダイレクト メソッドは、クライアントに *302 Found* 状態コードを送信します。
+また、リダイレクトと再実行の拡張メソッドもあります。 リダイレクト メソッドでは、*302 Found* 状態コードをクライアントに送信し、クライアントを指定された場所の URL テンプレートにリダイレクトします。 テンプレートには、状態コードの `{0}` プレースホルダーが含まれる場合があります。 `~` で始まる URL には、先頭に基本パスが付加されています。 `~` で始まっていない URL はそのまま使用されます。
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-再実行メソッドは、元の状態コードをクライアントに返しますが、リダイレクト URL のハンドラーも実行します。
+再実行メソッドでは、元の状態コードをクライアントに返し、代替パスを使用して要求パイプラインを再実行することで、応答本文を生成することを指定します。 このパスには、状態コードの `{0}` プレースホルダーが含まれる場合があります。
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");

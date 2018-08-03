@@ -5,12 +5,12 @@ description: ビューがアプリのデータ表示と、ASP.NET Core MVC で�
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278350"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219369"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
@@ -123,17 +123,17 @@ return View("./About");
 ビューにデータを渡すには、いくつかの方法があります。
 
 * 厳密に型指定されたデータ: viewmodel
-* 弱い型指定のデータ
-  - `ViewData` (`ViewDataAttribute`)
-  - `ViewBag`
+* 弱く型指定されたデータ
+  * `ViewData` (`ViewDataAttribute`)
+  * `ViewBag`
 
 ### <a name="strongly-typed-data-viewmodel"></a>厳密に型指定されたデータ (viewmodel)
 
 最も確実な方法は、ビューで[モデル](xref:mvc/models/model-binding)の型を指定することです。 このモデルは、一般的に *viewmodel* と呼ばれます。 viewmodel 型のインスタンスをアクションからビューに渡します。
 
-viewmodel を使用してデータをビューに渡すことで、ビューで*厳密な*型チェックを利用できるようになります。 *厳密な型指定* (または*厳密に型指定された*) は、すべての変数および定数に明示的に定義された型 (`string`、`int`、または `DateTime` など) があることを意味します。 ビューで使用される型の妥当性は、コンパイル時にチェックされます。
+viewmodel を使用してデータをビューに渡すことで、ビューで*厳密な*型チェックを利用できるようになります。 *厳密な型指定* (または*厳密に型指定された*) は、すべての変数および定数に明示的に定義された型 (`string`、`int`、`DateTime` など) があることを意味します。 ビューで使用される型の妥当性は、コンパイル時にチェックされます。
 
-[Visual Studio](https://www.visualstudio.com/vs/) と [Visual Studio Code](https://code.visualstudio.com/) は、[IntelliSense](/visualstudio/ide/using-intellisense) と呼ばれる機能を使用して、厳密に型指定されたクラス メンバーを一覧表示します。 viewmodel のプロパティを表示する場合は、viewmodel の変数名に続けてピリオド (`.`) を入力します。 これにより、エラーの少ないコードをより早く記述できます。
+[Visual Studio](https://www.visualstudio.com/vs/) と [Visual Studio Code](https://code.visualstudio.com/) では、[IntelliSense](/visualstudio/ide/using-intellisense) と呼ばれる機能を使用して、厳密に型指定されたクラス メンバーを一覧表示します。 viewmodel のプロパティを表示する場合は、viewmodel の変数名に続けてピリオド (`.`) を入力します。 これにより、エラーの少ないコードをより早く記述できます。
 
 `@model` ディレクティブを使用してモデルを指定します。 `@Model` を使用してモデルを使用します。
 
@@ -188,11 +188,11 @@ viewmodel 型とビジネス モデル型の両方に同じクラスを使用す
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>弱い型指定のデータ (ViewData、ViewData 属性、ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>弱く型指定されたデータ (ViewData、ViewData 属性、ViewBag)
 
 `ViewBag`  *は Razor ページでは使用できません。*
 
-厳密に型指定されたビューに加え、ビューはデータの*弱い型指定* (*緩く型指定された*とも呼ばれます) のコレクションにもアクセスできます。 厳密な型とは異なり、*弱い型* (または*緩い型*) は、使用するデータの型を明示的に宣言しないことを意味します。 弱い型指定のデータのコレクションを使用して、少量のデータをコントローラーとビュー間でやり取りすることができます。
+厳密に型指定されたビューに加え、ビューはデータの*弱く型指定された* (*緩く型指定された*ともいう) コレクションにもアクセスできます。 厳密な型とは異なり、*弱い型* (または*緩い型*) は、使用するデータの型を明示的に宣言しないことを意味します。 弱く型指定されたデータのコレクションを使用して、少量のデータをコントローラーとビュー間でやり取りすることができます。
 
 | データをやり取りする相手                        | 例                                                                        |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -200,7 +200,7 @@ viewmodel 型とビジネス モデル型の両方に同じクラスを使用す
 | ビューと[レイアウト ビュー](xref:mvc/views/layout)   | ビュー ファイルからレイアウト ビューの **\<title>** 要素の内容を設定する。  |
 | [部分ビュー](xref:mvc/views/partial)とビュー | ユーザーが要求した Web ページに基づいてデータを表示するウィジェット。      |
 
-このコレクションは、コントローラーおよびビューで `ViewData` または `ViewBag` のいずれかのプロパティを通じて参照できます。 `ViewData` プロパティは、弱い型指定のオブジェクトのディクショナリです。 `ViewBag` プロパティは、基になる `ViewData` コレクションに動的プロパティを提供する `ViewData` をラップするラッパーです。
+このコレクションは、コントローラーおよびビューで `ViewData` または `ViewBag` のいずれかのプロパティを通じて参照できます。 `ViewData` プロパティは、弱く型指定されたオブジェクトのディクショナリです。 `ViewBag` プロパティは、基になる `ViewData` コレクションに動的プロパティを提供する `ViewData` をラップするラッパーです。
 
 `ViewData` および `ViewBag` は実行時に動的に解決されます。 これらはコンパイル時の型チェックを提供していないため、どちらも viewmodel を使用する場合よりも一般的にエラーが発生しやすくなります。 そのため、開発者の中には、`ViewData` および `ViewBag` の使用を最小限に抑えるか、まったく使用しない人もいます。
 
@@ -247,6 +247,7 @@ public IActionResult SomeAction()
 ```
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **ViewData 属性**
 
 [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) を使用するもう 1 つの方法は [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute) です。 コントローラーまたは `[ViewData]` で装飾された Razor ページのモデルのプロパティは、値をディクショナリに格納し、読み込むことができます。
@@ -284,6 +285,7 @@ About ビューでは、モデル プロパティとして `Title` プロパテ�
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 **ViewBag**

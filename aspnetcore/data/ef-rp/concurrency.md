@@ -5,12 +5,12 @@ description: このチュートリアルでは、複数のユーザーが同じ�
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: a010e2ed660bea56b112799e850f2fb0ff37579e
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202693"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219395"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - 同時実行 - 8/8
 
@@ -153,24 +153,23 @@ dotnet ef database update
 <a name="scaffold"></a>
 ## <a name="scaffold-the-departments-model"></a>部署モデルのスキャフォールディング
 
-* Visual Studio を終了します。
-* プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
-* 次のコマンドを実行します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Department` を使用します。
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ 次のコマンドを実行します。
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 
+------
+
 上記のコマンドは、`Department` モデルをスキャフォールディングします。 Visual Studio でプロジェクトを開きます。
 
-プロジェクトをビルドします。 ビルドにより、次のようなエラーが生成されます。
-
-`1>Pages/Departments/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Department' and no extension method 'Department' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- `_context.Department` を `_context.Departments` にグローバルに変更します (つまり、"s" を `Department` に追加します)。 7 回の出現が見つかり、更新されます。
+プロジェクトをビルドします。
 
 ### <a name="update-the-departments-index-page"></a>Departments Index ページを更新する
 
