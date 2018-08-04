@@ -5,12 +5,12 @@ description: Web アプリに ASP.NET Core では、HTTPS や TLS を必要と�
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
+ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356689"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514805"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -113,13 +113,15 @@ WebHost.CreateDefaultBuilder(args)
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP Strict Transport Security プロトコル (HSTS)
 
-あたり[OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)、 [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)は特別な応答ヘッダーを使用して web アプリケーションによって指定されるオプトイン セキュリティ拡張機能です。 サポートされているブラウザーがこのヘッダーを受け取るとは、代わりにすべての通信を HTTPS 経由で送信がもとそのブラウザーは指定されたドメインに HTTP 経由で送信される通信ができなくなります。 HTTPS クリックスルー ブラウザーでのプロンプトも回避されます。
+あたり[OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)、 [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)は特別な応答ヘッダーを使用して web アプリによって指定されるオプトイン セキュリティ拡張機能です。 HSTS をサポートするブラウザーでは、このヘッダーを受信すると、HTTP 経由で通信を送信できないようにし、代わりに HTTPS を介したすべての通信を強制するドメインの構成が保存されます。 また、ユーザーが一時的にこのような証明書を信頼できるようにするブラウザー プロンプトを無効にすると、信頼されていないか無効な証明書を使用してユーザーを防ぎます。
 
 ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。 次のコード呼び出し`UseHsts`でアプリができないときに[開発モード](xref:fundamentals/environments):
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
 `UseHsts` お勧めしません開発 HSTS ヘッダーがキャッシュ可能であるためのブラウザーでします。 既定では、`UseHsts`ローカル ループバック アドレスを除外します。
+
+最初に HTTPS を実装する運用環境では、初期の HSTS 値を小さい値に設定します。 値を設定時間から no により、1 つの 1 日には、HTTP、HTTPS インフラストラクチャに戻す必要がある場合。 HTTPS の構成の持続性に確信したら、HSTS 最長値を増やす一般的に使用される値は、1 年間です。 
 
 コード例を次に示します。
 
