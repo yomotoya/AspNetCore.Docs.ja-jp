@@ -21,32 +21,15 @@
 
 Razor ページは `PageModel` から派生します。 慣例により、`PageModel` 派生クラスは `<PageName>Model` と呼ばれます。 コンストラクターは[依存性の注入](xref:fundamentals/dependency-injection)を使用して、`MovieContext` をページに追加します。 スキャフォールディングされたページではすべてこのパターンに従います。 Entity Framework での非同期プログラミングの詳細については、「[非同期コード](xref:data/ef-rp/intro#asynchronous-code)」を参照してください。
 
-ページに対して要求が行われると、`OnGetAsync` メソッドは Razor ページにムービーのリストを返します。 Razor ページで `OnGetAsync` または `OnGet` が呼び出され、ページの状態が初期化されます。 この場合、`OnGetAsync` でムービーのリストを取得し、表示します。 
+ページに対して要求が行われると、`OnGetAsync` メソッドは Razor ページにムービーのリストを返します。 Razor ページで `OnGetAsync` または `OnGet` が呼び出され、ページの状態が初期化されます。 この場合、`OnGetAsync` でムービーのリストを取得し、表示します。
 
 `OnGet` が `void` を返す場合、または `OnGetAsync` が `Task` を返す場合、return メソッドは使用されません。 戻り値の型が `IActionResult` または `Task<IActionResult>` の場合は、return ステートメントを指定する必要があります。 たとえば、*Pages/Movies/Create.cshtml.cs* `OnPostAsync` メソッドでは、次のようになります。
 
-<!-- TODO - replace with snippet
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
- -->
-
-```csharp
-public async Task<IActionResult> OnPostAsync()
-{
-    if (!ModelState.IsValid)
-    {
-        return Page();
-    }
-
-    _context.Movie.Add(Movie);
-    await _context.SaveChangesAsync();
-
-    return RedirectToPage("./Index");
-}
-```
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
 次のように、*Pages/Movies/Index.cshtml* Razor ページを確認します。
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
 Razor では、HTML から C# または Razor 固有のマークアップに移行できます。 `@` シンボルの後に [Razor で予約済みのキーワード](xref:mvc/views/razor#razor-reserved-keywords)が続いている場合は、Razor 固有のマークアップに移行します。それ以外の場合は、C# に移行します。
 
@@ -63,7 +46,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 <a name="md"></a>
 ### <a name="the-model-directive"></a>@model ディレクティブ
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 `@model` ディレクティブは、Razor ページに渡されるモデルの型を指定します。 前の例の `@model` 行は、Razor ページで `PageModel` 派生クラスを使用できるようにします。 モデルは、ページの `@Html.DisplayNameFor` および `@Html.DisplayName` [HTML ヘルパーで](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers)使用されます。
 
@@ -76,7 +59,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 次のコードがあるとします。
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
 上の強調表示されたコードは、Razor の C# への移行例です。 `{` 文字と `}` 文字で C# コードのブロックを囲みます。
 
@@ -84,7 +67,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 ::: moniker range="= aspnetcore-2.0"
 
-"Title" プロパティは *Pages/_Layout.cshtml* ファイルで使用されます。 次のマークアップは、*Pages/_Layout.cshtml* ファイルの最初の数行を示しています。
+"Title" プロパティは *Pages/Shared/_Layout.cshtml* ファイルで使用されます。 次のマークアップは、*Pages/Shared/_Layout.cshtml* ファイルの最初の数行を示しています。
 
 ::: moniker-end
 
@@ -94,7 +77,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 ::: moniker-end
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 `@*Markup removed for brevity.*@` 行は Razor コメントです。 HTML コメント (`<!-- -->`) とは異なり、Razor コメントはクライアントには送信されません。
 
@@ -105,15 +88,15 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 `Layout` プロパティは *Pages/_ViewStart.cshtml* ファイルで設定されています。
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-上のマークアップでは、*Pages* フォルダーの下のすべての Razor ファイルの *Pages/_Layout.cshtml* にレイアウト ファイルを設定します。 詳細については、「[Layout](xref:razor-pages/index#layout)」 (レイアウト) を参照してください。
+上のマークアップでは、*Pages* フォルダーの下のすべての Razor ファイルに対して、レイアウト ファイルを *Pages/Shared/_Layout.cshtml* に設定します。 詳細については、「[Layout](xref:razor-pages/index#layout)」 (レイアウト) を参照してください。
 
 ### <a name="update-the-layout"></a>レイアウトの更新
 
-より短い文字列を使用するために、*Pages/_Layout.cshtml* ファイルの `<title>` 要素を変更します。
+より短い文字列を使用するために、*Pages/Shared/_Layout.cshtml* ファイルの `<title>` 要素を変更します。
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
 *Pages/_Layout.cshtml* ファイルで次のアンカー要素を見つけます。
 
