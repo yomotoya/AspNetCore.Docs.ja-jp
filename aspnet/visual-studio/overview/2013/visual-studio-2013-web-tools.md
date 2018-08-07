@@ -359,12 +359,12 @@ Web essentials、余分な機能を持つ、HTML エディターが拡張され�
 4. 入力タグは、フィールドのいくつかの説明のラベルによって先行されなければなりません。 入力タグの前に次のラベルを追加します。
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample5.html)]
-5. **の**の属性を**&lt;ラベル&gt;** にラベルをフォーム要素がバインドされているを指定します。 属性の値は、関連する要素の id と同じでなければなりません。 追加、**の**属性を**&lt;ラベル&gt;** 要素。 次の図に示すように、&quot;名前&quot;値が表示されます、[IntelliSense] ボックスで、同じスコープ内の要素の id に基づく (囲んでいる**&lt;フォーム&gt;**)。
+5. **の** の属性を **&lt;ラベル&gt;** にラベルをフォーム要素がバインドされているを指定します。 属性の値は、関連する要素の id と同じでなければなりません。 追加、 **の** 属性を **&lt;ラベル&gt;** 要素。 次の図に示すように、&quot;名前&quot;値が表示されます、[IntelliSense] ボックスで、同じスコープ内の要素の id に基づく (囲んでいる **&lt;フォーム&gt;**)。
 
     ![IntelliSense で、id を示す](visual-studio-2013-web-tools/_static/image35.png "IntelliSense 内の id を表示")
 
     *IntelliSense 内の id を表示*
-6. 最近追加された削除**&lt;フォーム&gt;** 要素とそのコンテンツ。
+6. 最近追加された削除 **&lt;フォーム&gt;** 要素とそのコンテンツ。
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2---using-html-code-snippets"></a>タスク 2 - を使用して HTML コード スニペット

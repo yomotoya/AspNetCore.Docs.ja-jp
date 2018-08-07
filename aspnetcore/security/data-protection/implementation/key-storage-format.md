@@ -63,13 +63,13 @@ ms.locfileid: "39219278"
 
 ## <a name="the-encryptedsecret-element"></a>\<EncryptedSecret > 要素
 
-**&lt;EncryptedSecret&gt;** 秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する可能性がある場合[rest でのシークレットの暗号化が有効になっている](xref:security/data-protection/implementation/key-encryption-at-rest)します。 属性`decryptorType`を実装する型のアセンブリ修飾名は、 [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor)します。 この型は、内部の読み取りを行う**&lt;encryptedKey&gt;** 要素と、元のプレーン テキストを回復する復号化します。
+**&lt;EncryptedSecret&gt;** 秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する可能性がある場合[rest でのシークレットの暗号化が有効になっている](xref:security/data-protection/implementation/key-encryption-at-rest)します。 属性`decryptorType`を実装する型のアセンブリ修飾名は、 [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor)します。 この型は、内部の読み取りを行う **&lt;encryptedKey&gt;** 要素と、元のプレーン テキストを回復する復号化します。
 
 同様\<記述子 > の特定の形式、<encryptedSecret>要素が使用中の保存時暗号化メカニズムに依存します。 上記の例では、Windows DPAPI を使用して、コメント、マスター _ キーが暗号化します。
 
 ## <a name="the-revocation-element"></a>\<失効 > 要素
 
-失効は、キーのリポジトリ内の最上位レベルのオブジェクトとして存在します。 失効規則により、ファイル名がある**失効-{のタイムスタンプ} .xml** (特定の日付までのすべてのキーを取り消す) 用または**失効 - {guid} .xml** (特定のキーを取り消す) 用です。 各ファイルには、1 つ\<失効 > 要素。
+失効は、キーのリポジトリ内の最上位レベルのオブジェクトとして存在します。 失効規則により、ファイル名がある**失効-{のタイムスタンプ}.xml** (特定の日付までのすべてのキーを取り消す) 用または**失効-{guid}.xml** (特定のキーを取り消す) 用です。 各ファイルには、1 つ\<失効> 要素。
 
 ファイルの内容になります個々 のキーを取り消した場合は、次のようです。
 
