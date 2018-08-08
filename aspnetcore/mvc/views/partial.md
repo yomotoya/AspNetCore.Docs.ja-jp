@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 983f3caae34b21b46d8f556e70673cf3c97abbd3
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938460"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378684"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core の部分ビュー
 
 作成者: [Steve Smith](https://ardalis.com/)、[Maher JENDOUBI](https://twitter.com/maherjend)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Scott Sauber](https://twitter.com/scottsauber)
 
-ASP.NET Core MVC では部分ビューがサポートされます。これらのビューは、Web ページの再利用可能な一部をさまざまなビューで共有する場合に便利です。
+ASP.NET Core では部分ビューがサポートされます。 部分ビューは、さまざまなビュー全体で、Web ページの再利用可能な部分を共有するために使用されます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
@@ -35,8 +35,7 @@ ASP.NET Core MVC では部分ビューがサポートされます。これらの
 
 いくつかの論理部分で構成される複雑なページでは、それぞれの部分を独自の部分ビューとして操作する際に役立ちます。 ページの各部分は、ページの残りとは別に表示することができます。 ページ自体のビューには全体のページ構造のみが含まれ、部分ビューのレンダリングの場合は呼び出しが行われるため、単純になります。
 
-> [!TIP]
-> ビューでは [DRY 原則](https://deviq.com/don-t-repeat-yourself/)に従ってください。
+ASP.NET Core MVC のコントローラーは、アクション メソッドから呼び出される [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) メソッドを備えています。 Razor Pages には `PartialView` に相当するメソッドがありません。
 
 ## <a name="declare-partial-views"></a>部分ビューを宣言する
 

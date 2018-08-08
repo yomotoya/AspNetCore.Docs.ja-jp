@@ -3,14 +3,14 @@ title: ASP.NET Core MVC でのモデルの検証
 author: tdykstra
 description: ASP.NET Core MVC でのモデルの検証について説明します。
 ms.author: riande
-ms.date: 12/18/2016
+ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095828"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378668"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -118,7 +118,7 @@ MVC は、エラー数の最大数 (既定値は 200) に達するまで、フ�
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
-[jQuery Unobtrusive Validation](https://github.com/aspnet/jquery-validation-unobtrusive) スクリプトは、人気のある [jQuery Validate](https://jqueryvalidation.org/) プラグインを基に作成された Microsoft のカスタム フロントエンド ライブラリです。 jQuery Unobtrusive Validation を使わないと、同じ検証ロジックを 2 か所でコーディングする必要があります。1 つはモデル プロパティでのサーバー側検証属性で、もう 1 つはクライアント側スクリプトです (jQuery Validate の [`validate()`](https://jqueryvalidation.org/validate/) メソッドの例を見ると、これがどれほど複雑になるかがわかります)。 代わりに、MVC の[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)および [HTML ヘルパー](xref:mvc/views/overview)では、モデル プロパティの検証属性と型メタデータを使って、検証の必要なフォーム要素に HTML 5 の [data- 属性](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes)をレンダリングできます。 MVC は、組み込み属性とカスタム属性の両方に対して、`data-` 属性を生成します。 その後、jQuery Unobtrusive Validation は `data-` 属性を解析し、ロジックを jQuery Validate に渡して、実質的にサーバー側検証ロジックをクライアントに "コピー" します。 次に示すように、関連するタグ ヘルパーを使って、クライアントで検証エラーを表示できます。
+[jQuery Unobtrusive Validation](https://github.com/aspnet/jquery-validation-unobtrusive) スクリプトは、人気のある [jQuery Validate](https://jqueryvalidation.org/) プラグインを基に作成された Microsoft のカスタム フロントエンド ライブラリです。 jQuery Unobtrusive Validation を使わないと、同じ検証ロジックを 2 か所でコーディングする必要があります。1 つはモデル プロパティでのサーバー側検証属性で、もう 1 つはクライアント側スクリプトです (jQuery Validate の [`validate()`](https://jqueryvalidation.org/validate/) メソッドの例を見ると、これがどれほど複雑になるかがわかります)。 代わりに、MVC の[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)および [HTML ヘルパー](xref:mvc/views/overview)では、モデル プロパティの検証属性と型メタデータを使って、検証の必要なフォーム要素に HTML 5 の [data- 属性](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes)をレンダリングできます。 MVC は、組み込み属性とカスタム属性の両方に対して、`data-` 属性を生成します。 その後、jQuery Unobtrusive Validation は `data-` 属性を解析し、ロジックを jQuery Validate に渡して、クライアントにサーバー側検証ロジックを実質的に "コピー" します。 次に示すように、関連するタグ ヘルパーを使って、クライアントで検証エラーを表示できます。
 
 [!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
@@ -208,11 +208,11 @@ $.get({
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メッセージを表示します。 ただし、jQuery が規則やメッセージを認識するのは、jQuery の `validator` オブジェクトにそれらが追加されてからです。 これは下の例で示されています。ここでは、カスタム クライアント検証コードを含む `classicmovie` という名前のメソッドを jQuery の `validator` オブジェクトに追加しています。 unobtrusive.adapters.add メソッドの説明については、[こちら](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)を参照してください。
+Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メッセージを表示します。 ただし、jQuery が規則やメッセージを認識するのは、jQuery の `validator` オブジェクトにそれらが追加されてからです。 次の例でこれを示します。ここでは、カスタムの `classicmovie` クライアント検証メソッドが、jQuery `validator` オブジェクトに追加されます。 `unobtrusive.adapters.add` メソッドの説明については、[ASP.NET MVC での控え目なクライアント検証](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)に関するページをご覧ください。
 
-[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?name=snippet_UnobtrusiveValidation)]
 
-これで、jQuery には、カスタム JavaScript 検証を実行するための情報、およびその検証コードが false を返した場合に表示するエラー メッセージが存在するようになります。
+上のコードでは、`classicmovie` メソッドが映画のリリース日のクライアント側検証を実行しています。 メソッドが `false` を返す場合、エラー メッセージが表示されます。
 
 ## <a name="remote-validation"></a>リモート検証
 
@@ -222,11 +222,14 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 
 [!code-csharp[](validation/sample/User.cs?range=7-8)]
 
-2 番目のステップでは、`[Remote]` 属性で定義されている対応するアクション メソッドに、検証コードを配置します。 jQuery Validate の [`remote()`](https://jqueryvalidation.org/remote-method/) メソッドのドキュメントには次のように記載されています。
+2 番目のステップでは、`[Remote]` 属性で定義されている対応するアクション メソッドに、検証コードを配置します。 Jquery Validate の[リモート](https://jqueryvalidation.org/remote-method/) メソッドに関するドキュメントによれば、サーバーの応答は次のいずれかの JSON 文字列である必要があります。
 
-> サーバー側の応答は、JSON 文字列でなければなりません。そして、有効な要素の場合は `"true"` でなければならず、無効な要素の場合は `"false"`、`undefined`、または `null` と既定のエラー メッセージを使うことができます。 サーバー側の応答が文字列の場合 (例:  `"That name is already taken, try peter123 instead"`)、この文字列が既定値の代わりにカスタム エラー メッセージとして表示されます。
+* 有効な要素の場合は `"true"`。
+* 無効な要素の場合は `"false"`、`undefined`、または `null` (既定のエラー メッセージを使用)。
 
-次に示すように、`VerifyEmail()` メソッドの定義はこれらの規則に従います。 このメソッドは、メール アドレスが使われている場合は検証エラー メッセージを返し、メール アドレスが空いている場合は `true` を返します。また、結果を `JsonResult` オブジェクトにラップします。 クライアント側では、返された値を使って、続行するか、必要な場合はエラーを表示できます。
+サーバーの応答が文字列 (例: `"That name is already taken, try peter123 instead"`) である場合、文字列は既定の文字列の代わりにカスタム エラー メッセージとして表示されます。
+
+次に示すように、`VerifyEmail` メソッドの定義はこれらの規則に従います。 このメソッドは、メール アドレスが使われている場合は検証エラー メッセージを返し、メール アドレスが空いている場合は `true` を返します。また、結果を `JsonResult` オブジェクトにラップします。 クライアント側では、返された値を使って、続行するか、必要な場合はエラーを表示できます。
 
 [!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
@@ -243,7 +246,7 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 ここで、ユーザーが姓と名を入力すると、JavaScript は以下のことを行います。
 
 * リモート呼び出しを行って、その名前のペアが使われているかどうかを確認します。
-* ペアが使われている場合は、エラー メッセージが表示されます。 
+* ペアが使われている場合は、エラー メッセージが表示されます。
 * 使われていない場合は、ユーザーはフォームを送信できます。
 
 複数の追加フィールドを `[Remote]` 属性で検証する必要がある場合は、コンマ区切りのリストとして提供します。 たとえば、`MiddleName` プロパティをモデルに追加するには、`[Remote]` 属性を次のコードのように設定します。

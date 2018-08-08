@@ -5,12 +5,12 @@ description: ASP.NET Core MVC が、モデル ビュー コントローラー �
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: aca34f91e8c7efaa34263ddf830b1662a2518969
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272593"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378639"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -165,8 +165,7 @@ ASP.NET Core には、[依存関係の挿入 (DI)](../fundamentals/dependency-in
 
 ### <a name="filters"></a>フィルター
 
-[フィルター](controllers/filters.md)は、開発者が例外処理や承認など、横断的関心事をカプセル化するのに役立ちます。 フィルターでは、アクション メソッドの前処理と後処理ロジックを実行できるようにします。また、指定した要求の実行パイプライン内のある時点で実行するように構成することもできます。 フィルターは、属性としてコントローラーまたはアクションに適用できます (または、グローバルに実行できます)。 いくつかのフィルター (`Authorize` など) は、フレームワークに含まれます。
-
+[フィルター](controllers/filters.md)は、開発者が例外処理や承認など、横断的関心事をカプセル化するのに役立ちます。 フィルターでは、アクション メソッドの前処理と後処理ロジックを実行できるようにします。また、指定した要求の実行パイプライン内のある時点で実行するように構成することもできます。 フィルターは、属性としてコントローラーまたはアクションに適用できます (または、グローバルに実行できます)。 いくつかのフィルター (`Authorize` など) は、フレームワークに含まれます。 `[Authorize]` は MVC 承認フィルターの作成のために使用される属性です.
 
 ```csharp
 [Authorize]

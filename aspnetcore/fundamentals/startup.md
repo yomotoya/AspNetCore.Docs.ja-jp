@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 285d74c0d12e3aca4d8c33d39467dfda02712993
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: a576f3840e66fc4ed877f7575aa3f3e36b37ae4d
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063261"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356751"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションのスタートアップ
 
@@ -34,10 +34,13 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
 
-`Startup` クラス コンストラクターは、ホストに定義されている依存関係を受け入れます。 `Startup` クラスへの[依存関係挿入](xref:fundamentals/dependency-injection)の一般的な用途は、以下を挿入する場合です。
+Web ホストには、`Startup` クラス コンストラクターに使用できるサービスがいくつか用意されています。 アプリケーションから `ConfigureServices` 経由でサービスが追加されます。 これで、ホスト サービスとアプリケーション サービスの両方が `Configure` 内とアプリ全体で使用できるようになります。
+
+`Startup` クラスへの[依存関係挿入](xref:fundamentals/dependency-injection)の一般的な用途は、以下を挿入する場合です。
 
 * [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) (環境別にサービスを構成するため)。
-* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) (スタートアップ時にアプリケーションを構成するため)。
+* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) (構成を読み取るため)。
+* [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) (`Startup.ConfigureServices` にロガーを作成するため)。
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
@@ -65,7 +68,7 @@ Web ホストでは、`Startup` メソッドが呼び出される前にいくつ
 
 <a name="setcompatibilityversion"></a>
 
-### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>ASP.NET Core MVC の SetCompatibilityVersion 
+### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>ASP.NET Core MVC の SetCompatibilityVersion
 
 `SetCompatibilityVersion` メソッドを使用すると、ASP.NET MVC Core 2.1 以降に導入されている、互換性に影響する重大な変更をオプトインまたはオプトアウトすることができます。 互換性に影響する可能性のあるこれらの重大な変更は、ほとんどの場合、MVC サブシステムの動作方法と、ランタイムで**ユーザーのコード**が呼び出される方法についてです。 オプトインした場合、最新の動作と ASP.NET Core の最新の動作を得ることができます。
 
@@ -73,9 +76,9 @@ Web ホストでは、`Startup` メソッドが呼び出される前にいくつ
 
 [!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
 
-最新のバージョンを使用して (`CompatibilityVersion.Version_2_1`) アプリケーションをテストすることをお勧めします。 ほとんどのアプリケーションには、最新のバージョンを使用しても、互換性に影響する重大な変更はないと見込まれます。 
+最新のバージョン (`CompatibilityVersion.Version_2_1`) を使用してアプリをテストすることをお勧めします。 最新のバージョンを使用しても、ほとんどのアプリで重大な動作変更はないと見込まれます。
 
-`SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` を呼び出すアプリケーションは、ASP.NET Core 2.1 MVC およびそれ以降の 2. バージョンで実装されている、動作が中断する可能性がある変更から保護されています。 この保護とは、次のとおりです。
+`SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` を呼び出すアプリは、ASP.NET Core 2.1 MVC およびそれ以降の 2. バージョンで導入された重大な動作変更の可能性から保護されています。 この保護とは、次のとおりです。
 
 * 2.1 以降のすべての変更には該当しません。これは、MVC サブシステムの ASP.NET Core ランタイムの互換性に影響する可能性のある重大な変更のみを対象としています。
 * 次のメジャー バージョンには適用されません。
@@ -96,13 +99,9 @@ Web ホストでは、`Startup` メソッドが呼び出される前にいくつ
 
 [MvcOptions](https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) クラス ソースのコメントには、変更があった個所とそれらの改善が多くのユーザーに与えるメリットについて説明しています。
 
-将来的に、[ASP.NET Core 3.0 バージョン](https://github.com/aspnet/Home/wiki/Roadmap)がリリースされます。 3.0 バージョンでは、互換性スイッチによってサポートされている古い動作は削除されます。 これらの正の変更は、ほぼすべてのユーザーにとってメリットとなると感じています。 これらの変更を現在導入することにより、ほとんどのアプリでは今メリット享受でき、他ではアプリケーションをアップデートする時間を得られます。
+将来的に、[ASP.NET Core 3.0 バージョン](https://github.com/aspnet/Home/wiki/Roadmap)がリリースされます。 3.0 バージョンでは、互換性スイッチによってサポートされている古い動作は削除されます。 これらの正の変更は、ほぼすべてのユーザーにとってメリットとなると感じています。 これらの変更を導入することにより、ほとんどのアプリでメリットを得られるようになり、またその他のユーザーにはアプリをアップデートするための時間ができます。
 
 ::: moniker-end
-
-## <a name="services-available-in-startup"></a>Startup で使用できるサービス
-
-Web ホストには、`Startup` クラス コンストラクターに使用できるサービスがいくつか用意されています。 アプリケーションから `ConfigureServices` 経由でサービスが追加されます。 これで、ホスト サービスとアプリケーション サービスの両方が `Configure` 内とアプリケーション全体で使用できるようになります。
 
 ## <a name="the-configure-method"></a>Configure メソッド
 
@@ -161,9 +160,9 @@ Web ホストには、`Startup` クラス コンストラクターに使用で�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ホスティング](xref:fundamentals/host/index)
-* [複数の環境の使用](xref:fundamentals/environments)
-* [ミドルウェア](xref:fundamentals/middleware/index)
-* [ログ](xref:fundamentals/logging/index)
-* [構成](xref:fundamentals/configuration/index)
+* <xref:fundamentals/host/index>
+* <xref:fundamentals/environments>
+* <xref:fundamentals/middleware/index>
+* <xref:fundamentals/logging/index>
+* <xref:fundamentals/configuration/index>
 * [StartupLoader クラス: FindStartupType メソッド (参照元)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)
