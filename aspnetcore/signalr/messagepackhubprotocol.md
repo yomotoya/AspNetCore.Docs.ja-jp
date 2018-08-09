@@ -73,7 +73,7 @@ Javascript クライアント MessagePack サポートが提供、 `@aspnet/sign
 npm install @aspnet/signalr-protocol-msgpack
 ```
 
-Npm パッケージをインストールした後、モジュール、JavaScript モジュール ローダーを使用して直接使用したり参照することで、ブラウザーにインポート、 *node_modules\\ @aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* ファイル。 ブラウザーで、`msgpack5`ライブラリが参照することも必要があります。 使用して、`<script>`参照を作成するタグ。 ライブラリに掲載する*node_modules\msgpack5\dist\msgpack5.js*します。
+Npm パッケージをインストールした後、モジュール、JavaScript モジュール ローダーを使用して直接使用したり参照することで、ブラウザーにインポート、 *node_modules\\@aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* ファイル。 ブラウザーで、`msgpack5`ライブラリが参照することも必要があります。 使用して、`<script>`参照を作成するタグ。 ライブラリに掲載する*node_modules\msgpack5\dist\msgpack5.js*します。
 
 > [!NOTE]
 > 使用する場合、`<script>`要素の順序は重要です。 場合*signalr-プロトコル-msgpack.js*する前に参照が*msgpack5.js*MessagePack で接続する際にエラーが発生します。 *signalr.js*する必要がありますも*signalr-プロトコル-msgpack.js*します。
