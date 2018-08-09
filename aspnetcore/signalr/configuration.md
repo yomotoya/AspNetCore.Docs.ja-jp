@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/31/2018
 uid: signalr/configuration
-ms.openlocfilehash: 32c0ad94fba09fa099c2ab4a6b1d6d79a5542d7f
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396063"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722465"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR の構成
 
@@ -234,7 +234,7 @@ let connection = new signalR.HubConnectionBuilder()
 | `Credentials` | 構成できない * | Empty | すべての HTTP 要求を送信する資格情報です。 |
 | `CloseTimeout` | 構成できない * | 5 秒 | Websocket だけです。 最長時間、クライアントは、サーバーが閉じる要求を確認するための終了後に待機します。 サーバーは、この時間内終了を確認は、クライアントが切断されます。 |
 | `Headers` | 構成できない * | Empty | すべての HTTP 要求を送信する追加の HTTP ヘッダーのディクショナリ。 |
-| `HttpMessageHandlerFactory` | 構成できない * | `null` | 構成または置換するために使用するデリゲート、 `HttpMessageHandler` HTTP 要求を送信するために使用します。 WebSocket 接続に使用されません。 このデリゲートは、null 以外の値を返す必要があり、既定値をパラメーターとして受け取ります。 その既定値の設定を変更し、それを返すか返さまったく新しい`HttpMessageHandler`インスタンス。 |
+| `HttpMessageHandlerFactory` | 構成できない * | `null` | 構成または置換するために使用するデリゲート、 `HttpMessageHandler` HTTP 要求を送信するために使用します。 WebSocket 接続に使用されません。 このデリゲートは、null 以外の値を返す必要があり、既定値をパラメーターとして受け取ります。 その既定値の設定を変更し、それを返すかが返さ新しい`HttpMessageHandler`インスタンス。 **ときは、ハンドラーを置き換える、指定したハンドラーから保持する設定をコピーすることを確認して、それ以外の場合、(Cookie やヘッダー) の構成オプションが新しいハンドラーを適用されません。** |
 | `Proxy` | 構成できない * | `null` | HTTP 要求を送信するときに使用する HTTP プロキシ。 |
 | `UseDefaultCredentials` | 構成できない * | `false` | HTTP と Websocket の要求の既定の資格情報を送信するこのブール値を設定します。 これにより、Windows 認証を使用できます。 |
 | `WebSocketConfiguration` | 構成できない * | `null` | 追加の WebSocket オプションを構成するために使用するデリゲート。 インスタンスを受け取る[ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions)オプションを構成できます。 |

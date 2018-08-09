@@ -5,12 +5,12 @@ description: Web アプリに ASP.NET Core では、HTTPS や TLS を必要と�
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: 3bea8661e17fec5128e822d98741d1f8ed7434e5
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514805"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655499"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -67,8 +67,8 @@ ms.locfileid: "39514805"
 
 設定して、ポートを構成することができます、 [https_port Web ホストの構成設定](xref:fundamentals/host/web-host#https-port):
 
-**キー**: https_port**型**:*文字列*
-**既定**: 既定値が設定されていません。
+**キー**: https_port **型**: *string*
+**既定値**: 既定値は設定されません。
 **使用して設定**: `UseSetting` 
 **環境変数**: `<PREFIX_>HTTPS_PORT` (プレフィックスは`ASPNETCORE_`Web ホストを使用する場合)。
 
@@ -113,7 +113,10 @@ WebHost.CreateDefaultBuilder(args)
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP Strict Transport Security プロトコル (HSTS)
 
-あたり[OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)、 [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)は特別な応答ヘッダーを使用して web アプリによって指定されるオプトイン セキュリティ拡張機能です。 HSTS をサポートするブラウザーでは、このヘッダーを受信すると、HTTP 経由で通信を送信できないようにし、代わりに HTTPS を介したすべての通信を強制するドメインの構成が保存されます。 また、ユーザーが一時的にこのような証明書を信頼できるようにするブラウザー プロンプトを無効にすると、信頼されていないか無効な証明書を使用してユーザーを防ぎます。
+あたり[OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)、 [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)は応答ヘッダーを使用して web アプリによって指定されるオプトイン セキュリティ拡張機能です。 HSTS をサポートするブラウザーは、このヘッダーを受信するとします。
+
+* ブラウザーでは、HTTP 経由で通信を送信しないように、ドメインの構成を格納します。 ブラウザーでは、HTTPS 経由ですべての通信を強制します。 
+* ブラウザーでは、ユーザーが信頼されていないか無効な証明書を使用できなくなります。 ブラウザーには、一時的にこのような証明書を信頼するユーザーを許可するプロンプトが無効にします。
 
 ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。 次のコード呼び出し`UseHsts`でアプリができないときに[開発モード](xref:fundamentals/environments):
 

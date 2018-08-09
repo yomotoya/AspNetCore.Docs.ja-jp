@@ -5,12 +5,12 @@ description: 電子メールの確認とパスワードのリセットと ASP.NE
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 3ca6d014245bb2a9bc4b1c90285f47eec7cefe84
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219408"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655473"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -32,7 +32,7 @@ ms.locfileid: "39219408"
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
@@ -78,24 +78,11 @@ dotnet build
 
 アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 登録を送信した後は、アプリにログインします。 チュートリアルの後半では、新しいユーザーが自分の電子メールが検証されるまでにログインできないため、コードが更新されます。
 
-## <a name="view-the-identity-database"></a>Id データベースを表示します。
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* **ビュー**メニューの  **SQL Server オブジェクト エクスプ ローラー** (SSOX)。
-* 移動します **(localdb) (SQL Server 13) MSSQLLocalDB**します。 右クリックして**dbo します。AspNetUsers** > **データを表示する**:
-
-![SQL Server オブジェクト エクスプ ローラー AspNetUsers テーブルのコンテキスト メニュー](accconfirm/_static/ssox.png)
+[!INCLUDE[](~/includes/view-identity-db.md)]
 
 テーブルに注意してください`EmailConfirmed`フィールドは`False`します。
 
 アプリが送信された確認メールを送信するとき、次の手順でこの電子メールをもう一度使用する場合があります。 クリックし、行を右クリックして**削除**します。 電子メール エイリアスを削除する簡単で、次の手順。
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-参照してください[、ASP.NET Core MVC プロジェクトでの SQLite の使用](xref:tutorials/first-mvc-app-xplat/working-with-sql)SQLite データベースを表示する方法の詳細について。
-
-------
 
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>確認の電子メールが必要です。
@@ -113,8 +100,6 @@ Update *Areas/Identity/IdentityHostingStartup.cs*確認された電子メール�
 ### <a name="configure-email-provider"></a>電子メール プロバイダーを構成します。
 
 このチュートリアルで[SendGrid](https://sendgrid.com)電子メールを送信するために使用します。 SendGrid アカウントとキーが電子メールを送信する必要があります。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core の 2.x を含む`System.Net.Mail`、アプリから電子メールを送信できます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。 SMTP では、セキュリティで保護し、設定を正しく困難です。
-
-[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration/index)します。
 
 電子メールをセキュリティで保護されたキーを取得するためのクラスを作成します。 このサンプルでは、次のように作成します*Services/AuthMessageSenderOptions.cs*:。
 
@@ -143,6 +128,8 @@ Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*フ
     "SendGridKey": "<key removed>"
   }
   ```
+ 
+詳細については、次を参照してください。、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)します。
 
 ### <a name="install-sendgrid"></a>SendGrid をインストールします。
 
