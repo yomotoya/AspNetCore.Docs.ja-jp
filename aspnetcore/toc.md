@@ -35,7 +35,7 @@
 ## [Web API の構築](xref:web-api/index)
 ### [Visual Studio Code での Web API の作成](xref:tutorials/web-api-vsc)
 ### [Visual Studio for Mac での Web API の作成](xref:tutorials/first-web-api-mac)
-### [Visual Studio for Windows での Web API の作成](xref:tutorials/first-web-api)
+### [Visual Studio での Web API の作成](xref:tutorials/first-web-api)
 ### [ネイティブ モバイル アプリのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
 ### [Swagger を使用するヘルプ ページ](xref:tutorials/web-api-help-pages-using-swagger)
 #### [NSWag の概要](xref:tutorials/get-started-with-nswag)
@@ -218,7 +218,7 @@
 ## [Visual Studio のスナップショットのデバッグ](/visualstudio/debugger/debug-live-azure-applications)
 ## [トラブルシューティング](xref:test/troubleshoot)
 
-# [EF Core と Azure でのデータ アクセス](data/index.md)
+# [EF Core を使用したデータ アクセス](xref:data/index)
 ## [Visual Studio を使用した Razor ページと EF Core の概要](xref:data/ef-rp/intro)
 ## [Visual Studio を使用した ASP.NET Core と EF Core の概要](data/ef-mvc/index.md)
 ## [ASP.NET Core と EF Core - 新しいデータベース](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
@@ -229,6 +229,15 @@
 ### [Blob Storage と Visual Studio の接続済みサービスの概要](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 ### [Queue Storage と Visual Studio の接続済みサービスの概要](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 ### [Table Storage と Visual Studio の接続済みサービスの概要](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+
+# [Azure ガイダンス](xref:azure/index)
+## ASP.NET Core および Azure を使用した DevOps
+### [はじめに](xref:azure/devops/index)
+### [ツールとダウンロード](xref:azure/devops/tools-and-downloads)
+### [App Service にデプロイする](xref:azure/devops/deploy-to-app-service)
+### [継続的インテグレーションと継続的デプロイ](xref:azure/devops/cicd)
+### [監視とトラブルシューティング](xref:azure/devops/monitor)
+### [次のステップ](xref:azure/devops/next-steps)
 
 # [クライアント側の開発](xref:client-side/index)
 ## [Gulp の使用](xref:client-side/using-gulp)
