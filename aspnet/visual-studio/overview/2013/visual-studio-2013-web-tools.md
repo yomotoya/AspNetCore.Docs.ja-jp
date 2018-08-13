@@ -141,7 +141,7 @@ ms.locfileid: "37807529"
 
 1. Visual Studio に切り替えます。
 2. 開く、 **Index.cshtml**にあるファイル、**ビュー** | **ホーム**フォルダー。
-3. 置換、  **&lt;!--TODO: ここでオプションを追加する&gt;** コメントを次のコード、およびキーを押して**タブ**。
+3. 置換、 **&lt;!--TODO: ここでオプションを追加する&gt;** コメントを次のコード、およびキーを押して**タブ**。
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample1.css)]
 4. コードは、HTML に拡張する必要があります。
@@ -462,7 +462,7 @@ Web Essentials 2013 では、スタイル シートと HTML ページは、Id �
     ![GetElementByTagName メソッドの IntelliSense を示す](visual-studio-2013-web-tools/_static/image45.png "getElementByTagName メソッド用の IntelliSense の表示")
 
     *GetElementsByTagName メソッドを示す IntelliSense*
-13. 選択**&quot;オーディオ&quot;** キーを押して、一覧から**ENTER**します。 結果を次の例に示します。
+13. 選択 **&quot;オーディオ&quot;** キーを押して、一覧から**ENTER**します。 結果を次の例に示します。
 
     ![オーディオの要素を取得する](visual-studio-2013-web-tools/_static/image46.png "オーディオ要素を取得します。")
 
