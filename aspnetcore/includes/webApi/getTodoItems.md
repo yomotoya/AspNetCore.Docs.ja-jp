@@ -39,7 +39,7 @@ To Do アイテムを取得するには、`TodoController` クラスに次のメ
 ]
 ```
 
-[Postman](https://www.getpostman.com/) または [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) を使用して HTTP 応答を表示する方法については、後で説明します。
+[Postman](https://www.getpostman.com/) または [curl](https://curl.haxx.se/docs/manpage.html) を使用して HTTP 応答を表示する方法については、後で説明します。
 
 ### <a name="routing-and-url-paths"></a>ルーティングと URL パス
 
