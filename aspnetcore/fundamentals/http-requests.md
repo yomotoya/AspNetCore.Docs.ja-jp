@@ -5,14 +5,14 @@ description: IHttpClientFactory インターフェイスを使用して、ASP.NE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 08/07/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 87424eaea499ba7ece1e5ef88649fcbb2e297635
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: dd217cfed230ea92c31eeed64ec19838032dd224
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320656"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655233"
 ---
 # <a name="initiate-http-requests"></a>HTTP 要求の開始
 
@@ -20,7 +20,7 @@ ms.locfileid: "39320656"
 
 [IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) を登録し、アプリ内で [HttpClient](/dotnet/api/system.net.http.httpclient) インスタンスを構成して作成するために使用できます。 次のような利点があります。
 
-* 論理 `HttpClient` インスタンスの名前付けと構成を一元化します。 たとえば、"github" クライアントを登録して、GitHub にアクセスするように構成できます。 既定のクライアントは、他の目的に登録できます。
+* 論理 `HttpClient` インスタンスの名前付けと構成を一元化します。 たとえば、*github* クライアントを登録して、GitHub にアクセスするように構成できます。 既定のクライアントは、他の目的に登録できます。
 * `HttpClient` でのハンドラーのデリゲートにより送信ミドルウェアの概念を体系化し、Polly ベースのミドルウェアでそれを利用するための拡張機能を提供します。
 * 基になっている `HttpClientMessageHandler` インスタンスのプールと有効期間を管理し、`HttpClient` の有効期間を手動で管理するときに発生する一般的な DNS の問題を防ぎます。
 * ファクトリによって作成されたクライアントから送信されるすべての要求に対し、(`ILogger` によって) 構成可能なログ エクスペリエンスを追加します。
@@ -52,15 +52,15 @@ ms.locfileid: "39320656"
 
 [!code-csharp[](http-requests/samples/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,20)]
 
-このように `IHttpClientFactory` を使用するのは、既存のアプリをリファクタリングする優れた方法です。 `HttpClient` の使用方法に影響はありません。 現在 `HttpClient` インスタンスが作成されている場所で、それを `CreateClient` の呼び出しに置き換えます。
+このように `IHttpClientFactory` を使用するのは、既存のアプリをリファクタリングする優れた方法です。 `HttpClient` の使用方法に影響はありません。 現在 `HttpClient` インスタンスが作成されている場所で、それを [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient) の呼び出しに置き換えます。
 
 ### <a name="named-clients"></a>名前付きクライアント
 
-それぞれ構成が異なる複数の `HttpClient` をアプリで個別に使用する必要がある場合のオプションは、**名前付きクライアント**を使用することです。 名前付き `HttpClient` の構成は、`Startup.ConfigureServices` での登録時に指定できます。
+それぞれ構成が異なる多数の `HttpClient` をアプリで個別に使用する必要がある場合は、**名前付きクライアント**を使用することができます。 名前付き `HttpClient` の構成は、`Startup.ConfigureServices` での登録時に指定できます。
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
-上記のコードでは、`AddHttpClient` を呼び出して "github" という名前を提供しています。 このクライアントには既定の構成がいくつか適用されています。つまり、GitHub API を使用するために必要なベース アドレスと 2 つのヘッダーです。
+上記のコードでは、*github* という名前を指定して `AddHttpClient` を呼び出しています。 このクライアントには既定の構成がいくつか適用されています。つまり、GitHub API を使用するために必要なベース アドレスと 2 つのヘッダーです。
 
 `CreateClient` を呼び出すたびに、`HttpClient` の新しいインスタンスが作成されて、構成アクションが呼び出されます。
 
@@ -161,13 +161,13 @@ public class ValuesController : ControllerBase
 
 [!code-csharp[Main](http-requests/samples/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
-上記のコードでは、基本的なハンドラーが定義されています。 このコードは、X-API-KEY ヘッダーが要求に含まれていたかどうかを確認します。 ヘッダーがない場合、HTTP 呼び出しを行わずに適切な応答を返すことができます。
+上記のコードでは、基本的なハンドラーが定義されています。 このコードは、`X-API-KEY` ヘッダーが要求に含まれていたかどうかを確認します。 ヘッダーがない場合、HTTP 呼び出しを行わずに適切な応答を返すことができます。
 
-登録の間に、1 つ以上のハンドラーを `HttpClient` の構成に追加することができます。 このタスクは、`IHttpClientBuilder` の拡張メソッドを使用して実行されます。
+登録の間に、1 つ以上のハンドラーを `HttpClient` の構成に追加することができます。 このタスクは、[IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) の拡張メソッドを使用して実行されます。
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet5)]
 
-上記のコードでは、`ValidateHeaderHandler` が DI で登録されます。 ハンドラーは、DI で一時的として登録される**必要があります**。 登録が済むと、`AddHttpMessageHandler` を呼び出してハンドラーの型を渡すことができます。
+上記のコードでは、`ValidateHeaderHandler` が DI で登録されます。 ハンドラーは、DI で一時的として登録される**必要があります**。 登録が済むと、ハンドラーの型を渡して [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler) を呼び出すことができます。
 
 実行する順序で、複数のハンドラーを登録することができます。 最後の `HttpClientHandler` が要求を実行するまで、各ハンドラーは次のハンドラーをラップします。
 
@@ -185,7 +185,7 @@ public class ValuesController : ControllerBase
 
 ### <a name="handle-transient-faults"></a>一時的な障害を処理する
 
-外部 HTTP 呼び出しを行うときに発生する可能性のある最も一般的な障害は、一時的なものです。 `AddTransientHttpErrorPolicy` という便利な拡張メソッドが含まれており、一時的なエラーを処理するためのポリシーを定義できます。 この拡張メソッドで構成されたポリシーは、`HttpRequestException`、HTTP 5xx 応答、および HTTP 408 応答を処理します。
+外部 HTTP を呼び出す際に発生する一般的な障害のほとんどは、一時的なものです。 `AddTransientHttpErrorPolicy` という便利な拡張メソッドが含まれており、一時的なエラーを処理するためのポリシーを定義できます。 この拡張メソッドで構成されたポリシーは、`HttpRequestException`、HTTP 5xx 応答、および HTTP 408 応答を処理します。
 
 `AddTransientHttpErrorPolicy` 拡張メソッドは、`Startup.ConfigureServices` 内で使用できます。 この拡張メソッドは、可能性のある一時的障害を表すエラーを処理するように構成された `PolicyBuilder` オブジェクトへのアクセスを提供します。
 
@@ -215,29 +215,33 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet10)]
 
-上記のコードでは、PolicyRegistry が `ServiceCollection` に追加され、2 つのポリシーがそれに登録されています。 レジストリからポリシーを使用するには、`AddPolicyHandlerFromRegistry` メソッドを使用して、適用するポリシーの名前を渡します。
+上記のコードでは、`PolicyRegistry` が `ServiceCollection` に追加されるときに 2 つのポリシーが登録されています。 レジストリからポリシーを使用するには、適用するポリシーの名前を渡して `AddPolicyHandlerFromRegistry` メソッドを使用します。
 
 `IHttpClientFactory` および Polly の統合について詳しくは、[Polly の Wiki](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory) をご覧ください。
 
 ## <a name="httpclient-and-lifetime-management"></a>HttpClient と有効期間の管理
 
-`IHttpClientFactory` で `CreateClient` を呼び出すたびに、`HttpClient` の新しいインスタンスが返されます。 名前付きクライアントごとに `HttpMessageHandler` が存在するようになります。 `IHttpClientFactory` は、リソースの消費量を減らすため、ファクトリによって作成された `HttpMessageHandler` のインスタンスをプールします。 新しい `HttpClient` インスタンスを作成するとき、プールの `HttpMessageHandler` インスタンスの有効期間が切れていない場合はそれを再利用できます。 
+`IHttpClientFactory` で `CreateClient` を呼び出すたびに、`HttpClient` の新しいインスタンスが返されます。 名前の付いたクライアントごとに [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) があります。 `IHttpClientFactory` は、リソースの消費量を減らすため、ファクトリによって作成された `HttpMessageHandler` のインスタンスをプールします。 新しい `HttpClient` インスタンスを作成するときに、プールの `HttpMessageHandler` インスタンスの有効期間が切れていない場合はそれを再利用する場合があります。
 
-通常各ハンドラーは基になる HTTP 接続を独自に管理しており、必要以上に多くのハンドラーを作成すると接続が遅延する可能性があるため、ハンドラーをプールするのは望ましい方法です。 また、一部のハンドラーは接続を無期限に開いており、DNS の変更にハンドラーが対応できないことがあります。
+通常、各ハンドラーでは基になる HTTP 接続が独自に管理されるため、ハンドラーはプールすることが望まれます。 必要以上のハンドラーを作成すると、接続に遅延が発生する可能性があります。 また、一部のハンドラーは接続を無期限に開いており、DNS の変更にハンドラーが対応できないことがあります。
 
-ハンドラーの既定の有効期間は 2 分です。 名前付きクライアントごとに、既定値をオーバーライドすることができます。 オーバーライドするには、クライアント作成時に返された `IHttpClientBuilder` で `SetHandlerLifetime` を呼び出します。
+ハンドラーの既定の有効期間は 2 分です。 名前付きクライアントごとに、既定値をオーバーライドすることができます。 オーバーライドするには、クライアント作成時に返された `IHttpClientBuilder` で [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) を呼び出します。
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet11)]
 
+クライアントを破棄する必要はありません。 破棄すると送信要求がキャンセルされ、[Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose) 呼び出し後には指定された `HttpClient` インスタンスを使用できなくなります。 `IHttpClientFactory` は、`HttpClient` インスタンスによって使用されたリソースの追跡と破棄を行います。 通常、`HttpClient` インスタンスは、破棄を必要としない .NET オブジェクトとして扱うことができます。
+
+`IHttpClientFactory` の登場以前は、1 つの `HttpClient` インスタンスを長い期間使い続けるパターンが一般的に使用されていました。 `IHttpClientFactory` に移行した後は、このパターンは不要になります。
+
 ## <a name="logging"></a>ログの記録
 
-`IHttpClientFactory` によって作成されたクライアントは、すべての要求のログ メッセージを記録します。 既定のログ メッセージを見るには、ログの構成で適切な情報レベルを有効にする必要があります。 要求ヘッダーのログなどの追加ログは、トレース レベルでのみ含まれます。
+`IHttpClientFactory` によって作成されたクライアントは、すべての要求のログ メッセージを記録します。 既定のログ メッセージを見るには、ログの構成で適切な情報レベルを有効にします。 要求ヘッダーのログなどの追加ログは、トレース レベルでのみ含まれます。
 
-各クライアントに使用されるログのカテゴリには、クライアントの名前が含まれます。 たとえば、"MyNamedClient" という名前のクライアントは、カテゴリ `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler` でメッセージをログに記録します。 "LogicalHandler" というサフィックスのメッセージは、要求ハンドラー パイプラインの外側で発生します。 要求では、パイプライン内の他のハンドラーが要求を処理する前に、メッセージがログに記録されます。 応答では、他のパイプライン ハンドラーが応答を受け取った後で、メッセージがログに記録されます。
+各クライアントに使用されるログのカテゴリには、クライアントの名前が含まれます。 たとえば、*MyNamedClient* という名前のクライアントは、カテゴリ `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler` でメッセージをログに記録します。 *LogicalHandler* というサフィックスが付いたメッセージが、要求ハンドラーのパイプラインの外部で発生します。 要求では、パイプライン内の他のハンドラーが要求を処理する前に、メッセージがログに記録されます。 応答では、他のパイプライン ハンドラーが応答を受け取った後で、メッセージがログに記録されます。
 
-ログ記録は、要求ハンドラー パイプラインの内部でも行われます。 "MyNamedClient" の例の場合、それらのメッセージはログ カテゴリ `System.Net.Http.HttpClient.MyNamedClient.ClientHandler` に対して記録されます。 要求では、他のすべてのハンドラーが実行した後、要求がネットワークに送信される直前に、これが行われます。 応答では、このログ記録には、ハンドラー パイプラインを通じ戻される前の応答の状態が含まれます。
+ログ記録は、要求ハンドラーのパイプラインの内部でも行われます。 *MyNamedClient* の例では、それらのメッセージはログ カテゴリ `System.Net.Http.HttpClient.MyNamedClient.ClientHandler` に対して記録されます。 要求では、他のすべてのハンドラーが実行した後、要求がネットワークに送信される直前に、これが行われます。 応答では、このログ記録には、ハンドラー パイプラインを通じ戻される前の応答の状態が含まれます。
 
-パイプラインの外側および内部でログを有効にすると、他のパイプライン ハンドラーによって行われた変更を検査できます。 これには、たとえば、要求ヘッダーや応答状態コードへの変更を含めることができます。
+パイプラインの外部と内部でログを有効にすると、他のパイプライン ハンドラーによる変更を検査できます。 これには、たとえば、要求ヘッダーや応答状態コードへの変更を含めることができます。
 
 ログのカテゴリにクライアントの名前を含めると、必要に応じて、特定の名前付きクライアントでログをフィルター処理できます。
 
@@ -245,6 +249,6 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 クライアントによって使用される内部 `HttpMessageHandler` の構成を制御することが必要な場合があります。
 
-名前付きクライアントまたは型指定されたクライアントを追加すると、`IHttpClientBuilder` が返されます。 `ConfigurePrimaryHttpMessageHandler` 拡張メソッドを使用して、デリゲートを定義することができます。 デリゲートは、そのクライアントによって使用されるプライマリ `HttpMessageHandler` の作成と構成に使用されます。
+名前付きクライアントまたは型指定されたクライアントを追加すると、`IHttpClientBuilder` が返されます。 デリゲートを定義するために [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) 拡張メソッドを使用できます。 デリゲートは、そのクライアントによって使用されるプライマリ `HttpMessageHandler` の作成と構成に使用されます。
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet12)]

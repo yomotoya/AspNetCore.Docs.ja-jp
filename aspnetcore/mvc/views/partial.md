@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 2223f3c6e42927def4b91ff9da58c228e5904756
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378684"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655324"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core の部分ビュー
 
@@ -35,7 +35,7 @@ ASP.NET Core では部分ビューがサポートされます。 部分ビュー
 
 いくつかの論理部分で構成される複雑なページでは、それぞれの部分を独自の部分ビューとして操作する際に役立ちます。 ページの各部分は、ページの残りとは別に表示することができます。 ページ自体のビューには全体のページ構造のみが含まれ、部分ビューのレンダリングの場合は呼び出しが行われるため、単純になります。
 
-ASP.NET Core MVC のコントローラーは、アクション メソッドから呼び出される [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) メソッドを備えています。 Razor Pages には `PartialView` に相当するメソッドがありません。
+ASP.NET Core MVC のコントローラーは、アクション メソッドから呼び出される [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) メソッドを備えています。 Razor Pages には、[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) 上の `PartialView` に相当するメソッドがありません。
 
 ## <a name="declare-partial-views"></a>部分ビューを宣言する
 
