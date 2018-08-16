@@ -10,7 +10,7 @@ msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 50681dcd89dfed480cf343f753371af384fd3e68
 ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37811738"
@@ -113,7 +113,7 @@ Program.cs ファイルを開き、次を追加するステートメントを使
 
 ## <a name="optional-add-an-http-url-namespace-reservation"></a>(省略可能)HTTP URL Namespace 予約を追加します。
 
-このアプリケーションがリッスン`http://localhost:8080/`します。 既定では、特定の HTTP アドレスでリッスンしている管理者特権が必要です。 このチュートリアルを実行するときにそのため、エラーが発生この:"HTTP URL を登録できませんでしたhttp://+:8080/"はこのエラーを回避するために 2 つの方法があります。
+このアプリケーションがリッスン`http://localhost:8080/`します。 既定では、特定の HTTP アドレスでリッスンしている管理者特権が必要です。 このチュートリアルを実行するときにそのため、エラーが発生この:"HTTP URL を登録できませんでした http://+:8080/" はこのエラーを回避するために 2 つの方法があります。
 
 - Visual Studio を管理者として昇格されたアクセス許可を持つ実行または
 - Netsh.exe を使用して、URL を予約するアカウントのアクセス許可を与えます。
