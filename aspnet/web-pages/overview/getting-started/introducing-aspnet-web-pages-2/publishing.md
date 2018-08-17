@@ -50,7 +50,7 @@ ms.locfileid: "37836986"
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>既定のページの設定
 
-ユーザーは、web サイトのベース アドレスに移動して、ユーザーに、サイトの既定のページが表示されます。 たとえば、www.contoso.com にあるサイトの既定のページとして Default.htm を設定するに移動し <strong>www.contoso.com</strong> に移動することと同じ <strong>www.contoso.com/Default.htm</strong> します。
+ユーザーは、web サイトのベース アドレスに移動して、ユーザーに、サイトの既定のページが表示されます。 たとえば、 www.contoso.com にあるサイトの既定のページとして Default.htm を設定するに移動し <strong>www.contoso.com</strong> に移動することと同じ <strong>www.contoso.com/Default.htm</strong> します。
 
 現時点では、サイトを使用して**Default.cshtml**として既定のページ。 このページは、既定のページでは、問題ありませんが、このチュートリアルではないコンテンツを追加した、そのページに空白のページを表示するためです。 Default.cshtml を開き、内容を次のコードに置き換えます。
 
