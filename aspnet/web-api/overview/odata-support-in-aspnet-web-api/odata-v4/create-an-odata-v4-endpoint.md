@@ -42,13 +42,13 @@ ms.locfileid: "37804213"
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 
-Visual Studio から、**ファイル**メニューの **新規** &gt; **プロジェクト**します。
+Visual Studio で、**ファイル**メニューから **新規** &gt; **プロジェクト** を選択します。
 
-展開**インストール済み** &gt; **テンプレート** &gt; **Visual c#** &gt; **Web**、を選択します。**ASP.NET Web アプリケーション**テンプレート。 プロジェクトに名前を&quot;ProductService&quot;します。
+**インストール済み** &gt; **テンプレート** &gt; **Visual c#** &gt; **Web** を展開し **ASP.NET Web アプリケーション**テンプレートを選択します。。 プロジェクトに &quot;ProductService&quot; と名前をつけます。
 
 [![](create-an-odata-v4-endpoint/_static/image2.png)](create-an-odata-v4-endpoint/_static/image1.png)
 
-**新しいプロジェクト**ダイアログ ボックスで、**空**テンプレート。 [&quot;フォルダーを追加し、コア参照.&quot;、] をクリックして**Web API**します。 **[OK]** をクリックします。
+**新しいプロジェクト**ダイアログ ボックスで、**空**テンプレートを選択します。 [&quot;フォルダーを追加し、コア参照.&quot;、] の下にある **Web API** をクリックします。 **[OK]** をクリックします。
 
 [![](create-an-odata-v4-endpoint/_static/image4.png)](create-an-odata-v4-endpoint/_static/image3.png)
 
