@@ -9,7 +9,7 @@ ms.date: 05/29/2018
 uid: signalr/javascript-client
 ms.openlocfilehash: c13c41b0344b0c880e842f2799d6ee97bd7fff7e
 ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/17/2018
 ms.locfileid: "39095425"
@@ -31,7 +31,7 @@ SignalR JavaScript クライアント ライブラリとして提供される、
    npm install @aspnet/signalr
   ```
 
-Npm のインストール パッケージの内容を*node_modules\\ @aspnet\signalr\dist\browser* フォルダー。 という名前の新しいフォルダーを作成する*signalr*下、 *wwwroot\\lib*フォルダー。 コピー、 *signalr.js*ファイルを*wwwroot\lib\signalr*フォルダー。
+Npm のインストール パッケージの内容を*node_modules\\@aspnet\signalr\dist\browser*フォルダー。 という名前の新しいフォルダーを作成する*signalr*下、 *wwwroot\\lib*フォルダー。 コピー、 *signalr.js*ファイルを*wwwroot\lib\signalr*フォルダー。
 
 ## <a name="use-the-signalr-javascript-client"></a>SignalR JavaScript クライアントを使用します。
 
