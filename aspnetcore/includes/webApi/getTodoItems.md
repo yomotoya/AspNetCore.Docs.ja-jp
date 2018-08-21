@@ -6,7 +6,12 @@
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
-上記のコードでは、メソッドを使用せず、API コントローラー クラスを定義します。 次のセクションでは、API を実装するメソッドを追加します。 いくつかの便利な機能を有効にするには、`[ApiController]` 属性でクラスに注釈を付けます。 属性によって有効にする機能の詳細については、「[ApiControllerAttribute でクラスに注釈を付ける](xref:web-api/index#annotate-class-with-apicontrollerattribute)」を参照してください。
+上のコードでは以下の操作が行われます。
+
+* メソッドを使用せず、API コントローラー クラスを定義します。
+* `TodoItems` が空の場合は、新しい Todo アイテムを作成します。 `TodoItems` が空の場合はコンストラクターが新しいアイテムを作成するため、すべての Todo アイテムを削除することはできません。
+
+次のセクションでは、API を実装するメソッドを追加します。 いくつかの便利な機能を有効にするには、`[ApiController]` 属性でクラスに注釈を付けます。 属性によって有効にする機能の詳細については、「[ApiControllerAttribute でクラスに注釈を付ける](xref:web-api/index#annotate-class-with-apicontrollerattribute)」を参照してください。
 ::: moniker-end
 
 コントローラーのコンストラクターでは、[依存性の挿入](xref:fundamentals/dependency-injection)を使ってデータベース コンテキスト (`TodoContext`) がコントローラーに挿入されています。 データベース コンテキストは、コントローラーの各 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) メソッドで使用されます。 アイテムが存在しない場合は、コンストラクターがメモリ内データベースにアイテムを追加します。
