@@ -3,27 +3,27 @@ uid: web-forms/videos/authentication/asp-forms-login-relocation
 title: ASP フォーム ログイン再配置 |Microsoft Docs
 author: JoeStagner
 description: Joe Stagner では、上記のコード例を使用して、再配置して、ASP のログイン機能の名前を変更して、ASP.NET の認証のカスタマイズを続行します。N..
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/16/2008
 ms.assetid: 0427dd22-7836-4b69-b2c2-66c765ace34f
 msc.legacyurl: /web-forms/videos/authentication/asp-forms-login-relocation
 msc.type: video
-ms.openlocfilehash: a13f4150ed93be4563e8cfb488d14b9fc0eea6bc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 57887785537664c4984bd3b7817c6c288d8d324a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831571"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828864"
 ---
-<a name="asp-forms-login-relocation"></a><span data-ttu-id="78755-103">ASP フォーム ログイン再配置</span><span class="sxs-lookup"><span data-stu-id="78755-103">ASP Forms Login Relocation</span></span>
+<a name="asp-forms-login-relocation"></a><span data-ttu-id="dc55f-103">ASP フォーム ログイン再配置</span><span class="sxs-lookup"><span data-stu-id="dc55f-103">ASP Forms Login Relocation</span></span>
 ====================
-<span data-ttu-id="78755-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="78755-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="dc55f-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="dc55f-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="78755-105">Joe Stagner では、上記のコード例を使用して、再配置して、ASP.NET アプリケーションのログイン機能の名前の ASP.NET 認証のカスタマイズを続行します。</span><span class="sxs-lookup"><span data-stu-id="78755-105">Joe Stagner uses the previous code example to continue customizing the ASP.NET authentication by relocating and renaming the login functionality of the ASP.NET application.</span></span> <span data-ttu-id="78755-106">このデモの詳細については、チュートリアルが配置されている[ここ](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)します。</span><span class="sxs-lookup"><span data-stu-id="78755-106">For more information on this demo, a tutorial is located [here](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span></span>
+<span data-ttu-id="dc55f-105">Joe Stagner では、上記のコード例を使用して、再配置して、ASP.NET アプリケーションのログイン機能の名前の ASP.NET 認証のカスタマイズを続行します。</span><span class="sxs-lookup"><span data-stu-id="dc55f-105">Joe Stagner uses the previous code example to continue customizing the ASP.NET authentication by relocating and renaming the login functionality of the ASP.NET application.</span></span> <span data-ttu-id="dc55f-106">このデモの詳細については、チュートリアルが配置されている[ここ](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)します。</span><span class="sxs-lookup"><span data-stu-id="dc55f-106">For more information on this demo, a tutorial is located [here](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).</span></span>
 
-[<span data-ttu-id="78755-107">&#9654;ビデオ (4 分)</span><span class="sxs-lookup"><span data-stu-id="78755-107">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/asp-forms-login-relocation)
+[<span data-ttu-id="dc55f-107">&#9654;ビデオ (4 分)</span><span class="sxs-lookup"><span data-stu-id="dc55f-107">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/asp-forms-login-relocation)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="78755-108">[前へ](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-> [次へ](forms-login-custom-key-configuration.md)</span><span class="sxs-lookup"><span data-stu-id="78755-108">[Previous](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
+> <span data-ttu-id="dc55f-108">[前へ](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
+> [次へ](forms-login-custom-key-configuration.md)</span><span class="sxs-lookup"><span data-stu-id="dc55f-108">[Previous](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
 [Next](forms-login-custom-key-configuration.md)</span></span>
