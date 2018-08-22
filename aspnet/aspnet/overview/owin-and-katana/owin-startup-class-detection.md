@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
 title: OWIN スタートアップ クラス検出 |Microsoft Docs
 author: Praburaj
 description: このチュートリアルでは、OWIN スタートアップ クラスが読み込まれるを構成する方法を示します。 OWIN の詳細については、「プロジェクト Katana 概要を参照してください。 このチュートリアルがしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 0a4b87192296054bf6aef6c9406c64f19677a061
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 591a04f429284ae73896807a6c2837ad498e8ae1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828294"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41830235"
 ---
 <a name="owin-startup-class-detection"></a>OWIN スタートアップ クラス検出
 ====================

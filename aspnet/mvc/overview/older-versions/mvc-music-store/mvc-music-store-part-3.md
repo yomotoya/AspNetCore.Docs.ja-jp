@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 title: 'パート 3: Views と ViewModels |Microsoft Docs'
 author: jongalloway
 description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 第 3 部では、Views と ViewModels について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 8fd89c2a448877bf13a7828f545ffcd400f63bb1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 828ff18abcc5932f82be71a45ebde589eeb051fa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837411"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827277"
 ---
 <a name="part-3-views-and-viewmodels"></a>パート 3: Views と ViewModels
 ====================
@@ -214,7 +214,7 @@ HomeController の前に行ったように、新しいビュー テンプレー�
 
 ![](mvc-music-store-part-3/_static/image18.png)
 
-"Foreach"ループ内では、Visual Web Developer は、各項目がジャンル、型の各 IntelliSence 確認ため、ジャンル型であるを認識します。
+"Foreach"ループ内では、Visual Web Developer は、各項目がジャンル、型の IntelliSense をそれぞれ確認ため、ジャンル型であるを認識します。
 
 ![](mvc-music-store-part-3/_static/image19.png)
 

@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-de
 title: チームのアクセス許可の構成のビルドの配置 |Microsoft Docs
 author: jrjlee
 description: このトピックでは、自動の b の一部として、コンテンツを web サーバーとデータベース サーバーをデプロイするビルド サーバーを有効にするアクセス許可を構成する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b577d887b4a4476b6796ae9f1df538d16eededa3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0142be694a4e7d601625022f6fbfe39971823d03
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820361"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825839"
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>チームのアクセス許可の構成のビルドの配置
 ====================

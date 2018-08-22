@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-adding-elements-to-a-css-file-
 title: '[How Do i:]Css 要素ファイルを開き、その場で新しい CSS の作成を追加する |Microsoft Docs'
 author: rick-anderson
 description: このビデオは既存のスタイル シートを上に構築し、要素 id が Visual Studio 2008 で新しい CSS 管理ツールを使用するように拡張します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/14/2008
 ms.assetid: 426a5d0f-fde7-447c-ad69-4efe45f8efea
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly
 msc.type: video
-ms.openlocfilehash: 93fdcbe1091694455339490e7363316ea2a81038
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0048108e6237e64daf12e4fec673edaddee73c73
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803880"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831866"
 ---
 <a name="how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly"></a>[How Do i:]CSS 要素を追加するファイルを開き、その場で新しい CSS を作成します。
 ====================

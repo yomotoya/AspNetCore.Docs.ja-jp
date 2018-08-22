@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript クライアントの概要です�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 08/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: c13c41b0344b0c880e842f2799d6ee97bd7fff7e
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
-ms.translationtype: HT
+ms.openlocfilehash: 639c30f1d145a3da5e4f5857f32c1b573c1bfce2
+ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095425"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41825834"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -27,11 +27,11 @@ ASP.NET Core SignalR JavaScript クライアント ライブラリでは、サ�
 SignalR JavaScript クライアント ライブラリとして提供される、 [npm](https://www.npmjs.com/)パッケージ。 Visual Studio を使用している場合は、実行`npm install`から、**パッケージ マネージャー コンソール**ルート フォルダー内で。 Visual Studio Code でからのコマンドを実行、**統合ターミナル**します。
 
   ```console
-   npm init -y
-   npm install @aspnet/signalr
+  npm init -y
+  npm install @aspnet/signalr
   ```
 
-Npm のインストール パッケージの内容を*node_modules\\@aspnet\signalr\dist\browser*フォルダー。 という名前の新しいフォルダーを作成する*signalr*下、 *wwwroot\\lib*フォルダー。 コピー、 *signalr.js*ファイルを*wwwroot\lib\signalr*フォルダー。
+npm のインストール パッケージの内容を*node_modules\\ @aspnet\signalr\dist\browser* フォルダー。 という名前の新しいフォルダーを作成する*signalr*下、 *wwwroot\\lib*フォルダー。 コピー、 *signalr.js*ファイルを*wwwroot\lib\signalr*フォルダー。
 
 ## <a name="use-the-signalr-javascript-client"></a>SignalR JavaScript クライアントを使用します。
 
@@ -57,50 +57,51 @@ SignalR JavaScript クライアントでの参照、`<script>`要素。
 
 ## <a name="call-hub-methods-from-client"></a>クライアントからのハブ メソッドの呼び出し
 
-JavaScript クライアントを使用してのハブでのパブリック メソッドを呼び出す`connection.invoke`します。 `invoke`メソッドは 2 つの引数を受け取ります。
+JavaScript クライアントは、ハブ経由でのパブリック メソッドを呼び出して、[呼び出す](/javascript/api/%40aspnet/signalr/hubconnection#invoke)のメソッド、 [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection)します。 `invoke`メソッドは 2 つの引数を受け取ります。
 
-* ハブ メソッドの名前。 次の例ではハブ名は`SendMessage`します。
+* ハブ メソッドの名前。 次の例では、ハブのメソッド名は`SendMessage`します。
 * ハブ メソッドで定義されている引数。 次の例では引数名は`message`します。
 
-[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
+  [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 
-ハブからメッセージを受信する定義を使用して、メソッド、`connection.on`メソッド。
+ハブからメッセージを受信する定義を使用して、メソッド、[で](/javascript/api/%40aspnet/signalr/hubconnection#on)のメソッド、`HubConnection`します。
 
 * JavaScript クライアント メソッドの名前。 次の例では、メソッド名は`ReceiveMessage`します。
 * 引数は、hub は、メソッドに渡します。 引数の値は、次の例では、`message`します。
 
 [!code-javascript[Receive calls from hub](javascript-client/sample/wwwroot/js/chat.js?range=14-19)]
 
-上記のコードで`connection.on`を使用してサーバー側コードから呼び出すときに実行される、`SendAsync`メソッド。
+上記のコードで`connection.on`を使用してサーバー側コードから呼び出すときに実行される、 [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync)メソッド。
 
 [!code-csharp[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
 
 SignalR を呼び出すメソッド名を照合することによってクライアントの方法を指定してで定義されている引数`SendAsync`と`connection.on`します。
 
 > [!NOTE]
-> ベスト プラクティスとして呼び出す`connection.start`後`connection.on`のため、すべてのメッセージを受信する前に、ハンドラーが登録されます。
+> ベスト プラクティスを呼び出して、[開始](/javascript/api/%40aspnet/signalr/hubconnection#start)メソッドを`HubConnection`後`on`します。 これにより、すべてのメッセージを受信する前に、ハンドラーが登録されます。
 
 ## <a name="error-handling-and-logging"></a>エラー処理とログ記録
 
-チェーンを`catch`メソッドの末尾に、`connection.start`クライアント側のエラーを処理するメソッド。 使用`console.error`ブラウザーのコンソールにエラーを出力します。
+チェーンを`catch`メソッドの末尾に、`start`クライアント側のエラーを処理するメソッド。 使用`console.error`ブラウザーのコンソールにエラーを出力します。
 
 [!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=28)]
 
 接続が行われたときにログに記録するには、logger とイベントの種類を渡すことによって、クライアント側のログ トレースをセットアップします。 指定されたログ レベル以降、メッセージが記録されます。 使用可能なログ レベルは次のとおりです。
 
-* `signalR.LogLevel.Error` : エラー メッセージ。 ログ`Error`メッセージのみです。
-* `signalR.LogLevel.Warning` : 潜在的なエラーに関する警告メッセージ。 ログ`Warning`、および`Error`メッセージ。
-* `signalR.LogLevel.Information` : エラー ステータス メッセージです。 ログ`Information`、 `Warning`、および`Error`メッセージ。
-* `signalR.LogLevel.Trace` : メッセージをトレースします。 ハブとクライアント間で転送されるデータを含め、すべてログに記録します。
+* `signalR.LogLevel.Error` &ndash; エラー メッセージ。 ログ`Error`メッセージのみです。
+* `signalR.LogLevel.Warning` &ndash; 可能性のあるエラーについての警告メッセージ。 ログ`Warning`、および`Error`メッセージ。
+* `signalR.LogLevel.Information` &ndash; ステータス メッセージがエラーなし。 ログ`Information`、 `Warning`、および`Error`メッセージ。
+* `signalR.LogLevel.Trace` &ndash; メッセージをトレースします。 ハブとクライアント間で転送されるデータを含め、すべてログに記録します。
 
-使用して、`configureLogging`メソッド`HubConnectionBuilder`ログ レベルを構成します。 メッセージは、ブラウザーのコンソールに記録されます。
+使用して、 [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging)メソッド[HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder)ログ レベルを構成します。 メッセージは、ブラウザーのコンソールに記録されます。
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ## <a name="related-resources"></a>関連資料
 
+* [JavaScript API リファレンス](/javascript/api/)
 * [ハブ](xref:signalr/hubs)
 * [.NET クライアント](xref:signalr/dotnet-client)
 * [Azure に発行する](xref:signalr/publish-to-azure-web-app)

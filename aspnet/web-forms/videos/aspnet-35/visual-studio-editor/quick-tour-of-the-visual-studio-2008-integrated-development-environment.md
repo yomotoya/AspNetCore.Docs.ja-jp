@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/visual-studio-editor/quick-tour-of-the-visual-st
 title: Visual Studio 2008 のクイック ツアーの統合開発環境 |Microsoft Docs
 author: rick-anderson
 description: Visual Studio 2008 で IDE にで、新機能と変更のツアーに設定します。 新しい web ページ エディタ、WPF フォーム デザイナ、CSS エディター、およびを参照してください。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: f20c5f1c-e49c-4909-b18f-8b5a442eafe3
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/quick-tour-of-the-visual-studio-2008-integrated-development-environment
 msc.type: video
-ms.openlocfilehash: f25baf2dac16473be97c3c25d01d8a004ee3759e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8c94be873fdc7424e66b932f0389ad8738fb3f1f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822111"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826045"
 ---
 <a name="quick-tour-of-the-visual-studio-2008-integrated-development-environment"></a>Visual Studio 2008 の統合開発環境のクイック ツアー
 ====================

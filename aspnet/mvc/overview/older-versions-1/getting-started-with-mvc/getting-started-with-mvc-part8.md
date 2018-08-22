@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with
 title: モデルに列の追加 |Microsoft Docs
 author: shanselman
 description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 7ae696b9-348f-4993-8ebb-a838acbe0c28
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 5dbda1280c073d5d4f2d71918ca31bc44475f64d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 22a6c4e5a07e81d5876cc442e68926094e3a243d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817202"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825856"
 ---
 <a name="adding-a-column-to-the-model"></a>モデルに列を追加します。
 ====================

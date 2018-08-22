@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/adonet-data-services/how-to-work-with-datasets
 title: ASP アプリケーションからのデータセットとフィルターを操作する方法 |Microsoft Docs
 author: JoeStagner
 description: このビデオでは、3、第 3 部では、Joe Stagner は、アプリケーションの全体的なデータセットからデータのフィルター処理されたセットを返す方法を説明します。 追加情報 ab. の
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/07/2008
 ms.assetid: 4ea744fa-ee7f-45a5-a0de-e3b17af67d8c
 msc.legacyurl: /web-forms/videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application
 msc.type: video
-ms.openlocfilehash: ddf7e27372e8f49557dc16996d3d91c809d22a6a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7a5af3cb74c680f8996254b1f8bdfde7e923170f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837614"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826241"
 ---
 <a name="how-to-work-with-datasets-and-filters-from-an-asp-application"></a>ASP アプリケーションからのデータセットとフィルターを操作する方法
 ====================

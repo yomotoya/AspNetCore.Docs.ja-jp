@@ -3,15 +3,15 @@ uid: webhooks/receiving/receivers
 title: ASP.NET Webhook レシーバー |Microsoft Docs
 author: rick-anderson
 description: ASP.NET Webhook レシーバー
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.openlocfilehash: b4b995d5d781576b2b22db51d78e0e303bfdccc4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 376cb3e3fdc0bc7bd248da1f57e1064fb27b3cef
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812146"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826040"
 ---
 # <a name="aspnet-webhooks-receivers"></a>ASP.NET Webhook レシーバー
 

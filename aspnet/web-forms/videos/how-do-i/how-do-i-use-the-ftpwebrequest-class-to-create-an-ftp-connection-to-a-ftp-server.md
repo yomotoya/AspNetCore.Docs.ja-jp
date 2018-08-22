@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-the-ftpwebrequest-class-to-create-an
 title: '[How Do i:]FtpWebRequest クラスを使用して FTP サーバーへの FTP 接続を作成する |Microsoft Docs'
 author: rick-anderson
 description: このビデオの Chris Pels で FtpWebRequest クラスを使用して FTP 接続を作成し、ファイルを転送する方法を示しています。 最初に、選択する単純な .aspx フォームを作成してください.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/18/2008
 ms.assetid: 99a0394d-96aa-445c-a338-43961cc717e8
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-ftpwebrequest-class-to-create-an-ftp-connection-to-a-ftp-server
 msc.type: video
-ms.openlocfilehash: ca465d54024bc26addb7451440c00e9c7ece14e4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9a06fc8b67286d88f14eecbd7e1aa8f107eaddff
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801885"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834314"
 ---
 <a name="how-do-i-use-the-ftpwebrequest-class-to-create-an-ftp-connection-to-a-ftp-server"></a>[How Do i:]FtpWebRequest クラスを使用して FTP サーバーへの FTP 接続を作成するには
 ====================

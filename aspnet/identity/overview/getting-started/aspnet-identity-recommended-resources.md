@@ -3,17 +3,17 @@ uid: identity/overview/getting-started/aspnet-identity-recommended-resources
 title: ASP.NET Identity 推奨リソース |Microsoft Docs
 author: Rick-Anderson
 description: このトピックでは、ASP.NET Identity を使用する方法に関するドキュメント リソースへのリンクを提供します。 優れたブログ記事、stackoverflow スレッド、またはその他の任意の lin 場合.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/09/2015
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 893956f4abcb3f337879ca43c63650d62663aa91
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9937003a23d018ffd7fb4a837fca9d39dcc2a89f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811916"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835144"
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity 推奨リソース
 ====================
