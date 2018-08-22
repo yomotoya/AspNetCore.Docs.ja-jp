@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and
 title: '[How Do i:]操作マスター ページの宣言とプログラミング |Microsoft Docs'
 author: rick-anderson
 description: このビデオの Chris Pels でいくつかの側面を定義して、ASP.NET web サイトでマスター ページの使用が表示されます。 最初に、マスター ページ declarati を作成する方法を参照してください.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 4f5f7805-373f-4dc3-b7f6-219edf7e66a3
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 msc.type: video
-ms.openlocfilehash: dc0569a457e2aea378a0fa49e80d9f1e794c256f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 961a616480db6bd1f632996c27856798c9e92a43
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802423"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829215"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[How Do i:]操作マスター ページの宣言とプログラミング
 ====================

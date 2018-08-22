@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-rep
 title: DataList または Repeater コントロール (c#) データを並べ替える |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは並べ替えを DataList と Repeater、サポートを含める方法と、データが含まれることができます、DataList または Repeater を構築する方法について説明します.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: f52c302a-1b7c-46fe-8a13-8412c95cbf6d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f394487523a7da112d32fb18b622bc73d5077aaa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 05fbc51d5341a4d3d634cbbc05c0e66a827b0394
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839993"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825892"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>DataList または Repeater コントロール (c#) データを並べ替える
 ====================

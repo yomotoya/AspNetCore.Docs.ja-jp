@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-we
 title: Web パッケージの配置 |Microsoft Docs
 author: jrjlee
 description: このトピックでは、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web... を使用して、リモート サーバーに web 配置パッケージを発行する方法について説明します
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 44c3772263cbebaf03e1393542fda32467a97cd8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d7a17a2830ab044f6f7446edc18c394d97b09fa0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825266"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827082"
 ---
 <a name="deploying-web-packages"></a>Web パッケージを展開します。
 ====================

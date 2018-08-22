@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-r
 title: ASP.NET MVC アプリケーション (5/10) で、Entity framework 関連のデータの読み取り |Microsoft Docs
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 0d6fb83b-71f7-425d-8dec-981197d7ec42
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 750c49572e99c6ab8c84d65e4c18f8da9b5d304c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4767b015db0bad09942802827ce54162687fcabc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835247"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826907"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>関連データ (5/10) ASP.NET MVC アプリケーションで Entity Framework での読み取り
 ====================

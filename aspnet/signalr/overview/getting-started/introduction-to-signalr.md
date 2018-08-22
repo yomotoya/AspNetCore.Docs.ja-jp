@@ -3,17 +3,17 @@ uid: signalr/overview/getting-started/introduction-to-signalr
 title: SignalR の概要 |Microsoft Docs
 author: pfletcher
 description: この記事では、SignalR は、いくつかのソリューションを作成するため、デザインされたについて説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 2f4353e88287f0716967362e255d94df0c522475
-ms.sourcegitcommit: 260abb706ed17f07a53288d8a0c3e69fc13e7468
+ms.openlocfilehash: f35e26bc8db2bbdb579836bbc9556ad2147cb8bf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38966745"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826977"
 ---
 <a name="introduction-to-signalr"></a>SignalR の概要
 ====================
@@ -29,7 +29,7 @@ ms.locfileid: "38966745"
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr)します。
 
 
-## <a name="what-is-signalr"></a>SignalR は何ですか。
+## <a name="what-is-signalr"></a>SignalR とは何か
 
 ASP.NET SignalR は、リアルタイム web 機能をアプリケーションに追加するプロセスを簡素化する ASP.NET 開発者向けのライブラリです。 リアルタイム web 機能とは、サーバーの新しいデータを要求するクライアントの待機時間を移動するのではなく、サーバー コード プッシュが接続クライアントに対して瞬時にコンテンツが利用可能にする機能です。
 

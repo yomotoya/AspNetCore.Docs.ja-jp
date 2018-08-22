@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-n
 title: コンテンツ ページ (c#) で ID の名前付けの制御 |Microsoft Docs
 author: rick-anderson
 description: ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindConrol) を使用して困難なコントロールのプログラムで操作を行うために示しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: 1c7d0916-0988-4b4f-9a03-935e4b5af6af
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b7ae15095b972a456f274e1326221d168f323256
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0c8617bb14c7023cfd926022b66c69bb5762758b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805876"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826720"
 ---
 <a name="control-id-naming-in-content-pages-c"></a>コントロール ID の名前付け (c#) のコンテンツ ページ
 ====================

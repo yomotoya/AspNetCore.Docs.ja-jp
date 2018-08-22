@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-r
 title: 接続復元性と、ASP.NET MVC アプリケーションで Entity Framework とコマンド傍受 |Microsoft Docs
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c88247df39460575c28bf827d6a7d2924e9c0ef3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815744"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41830365"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>接続復元性と、ASP.NET MVC アプリケーションで Entity Framework とコマンド傍受
 ====================

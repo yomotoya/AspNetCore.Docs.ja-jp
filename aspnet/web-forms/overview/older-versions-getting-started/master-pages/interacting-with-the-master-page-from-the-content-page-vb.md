@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-
 title: コンテンツ ページ (VB) からマスター ページと対話する |Microsoft Docs
 author: rick-anderson
 description: メソッドを呼び出して、コンテンツ ページのコードからのマスター ページなどのプロパティを設定する方法について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 081fe010-ba0f-4e7d-b4ba-774840b601c2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 451b76b2f6a706c7ca6908434b39492e5cba91b9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 59a00305cdcaf41ac0b37649382b9c3dc9ce1b0c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826495"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829222"
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>コンテンツ ページ (VB) からマスター ページと対話します。
 ====================
@@ -142,7 +142,7 @@ GridView を作成し、SqlDataSource コントロールを構成するには、
 
 ウィザードの完了後は、DetailsView のスマート タグに移動し、"挿入を有効にする チェック ボックスをオンします。 DetailsView を [commandfield] に追加の`ShowInsertButton`プロパティを True に設定します。 データを挿入するためにだけこの DetailsView を使用するための設定、DetailsView の`DefaultMode`プロパティを`Insert`します。
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。 このページをテストしてみましょう。 参照してください`AddProduct.aspx`ブラウザーで、(図 6 参照)、名前と価格を入力します。
+すべてです。 このページをテストしてみましょう。 参照してください`AddProduct.aspx`ブラウザーで、(図 6 参照)、名前と価格を入力します。
 
 
 [![データベースに新しい製品を追加します。](interacting-with-the-master-page-from-the-content-page-vb/_static/image17.png)](interacting-with-the-master-page-from-the-content-page-vb/_static/image16.png)

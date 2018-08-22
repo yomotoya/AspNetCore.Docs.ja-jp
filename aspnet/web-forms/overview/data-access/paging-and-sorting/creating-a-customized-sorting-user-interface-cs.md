@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sor
 title: カスタマイズされた並べ替えユーザー インターフェイス (c#) を作成する |Microsoft Docs
 author: rick-anderson
 description: 長いリストを表示するには、データが並べ替えられたときに、非常に役に立ちます行の区切り記号を導入することで関連するデータをグループ化します。 このチュートリアルで作成する方法.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 6f81b633-9d01-4e52-ae4a-2ea6bc109475
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 96f52b3caf812fcfe82012c2de091acb91b8e0ae
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 28926276e183ae7cf7ed4087d8c73044741389e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842333"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825923"
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>カスタマイズされた並べ替えユーザー インターフェイス (c#) を作成します。
 ====================

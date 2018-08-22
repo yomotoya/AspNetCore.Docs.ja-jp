@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-sto
 title: ストアド プロシージャ (c#) のデバッグ |Microsoft Docs
 author: rick-anderson
 description: Visual Studio Professional および Team System のエディションを使用すると、ブレークポイントを設定し、SQL Server 内のストアド プロシージャにステップ、格納されているデバッグを行う.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: c655c324-2ffa-4c21-8265-a254d79a693d
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1eb9f6ea7d1704061157cca6898ad8330780929
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a377dde0c4ed25aed549ca1f3b8eeeecece79517
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824213"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826550"
 ---
 <a name="debugging-stored-procedures-c"></a>ストアド プロシージャのデバッグ (c#)
 ====================

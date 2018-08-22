@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-st
 title: 非同期とストアド プロシージャ、ASP.NET MVC アプリケーションで Entity Framework の |Microsoft Docs
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/07/2014
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 211c9c8c66f3eed15121b4dd425fa728c39b7de3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c665ff3bd4ce5173ee17ab7e0c4591f72b439eeb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802050"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827171"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>非同期とストアド プロシージャの ASP.NET MVC アプリケーションで Entity Framework
 ====================

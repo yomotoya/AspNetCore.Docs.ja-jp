@@ -3,17 +3,17 @@ uid: whitepapers/overview
 title: ホワイト ペーパー |Microsoft Docs
 author: rick-anderson
 description: このページでは、インストールし、ASP.NET を構成するのに役立つ、セキュリティで保護された、高速で柔軟な ASP.NET アプリケーションを作成することを支援するために、ホワイト ペーパーを紹介します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2011
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
 msc.legacyurl: /whitepapers
 msc.type: content
-ms.openlocfilehash: b2650c9a396b9049d9919a675be40df1ac1338c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5017efc4d141afba206aaca5a8b5e6bab996ebbf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802935"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828949"
 ---
 <a name="whitepapers"></a>ホワイト ペーパー
 ====================

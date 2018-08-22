@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-
 title: 単体テストの ASP.NET MVC アプリケーションの作成 (c#) |Microsoft Docs
 author: StephenWalther
 description: コント ローラー アクションの単体テストを作成する方法について説明します。 このチュートリアルでは、Stephen Walther はコント ローラーのアクションは、parti を返すかどうかをテストする方法を示します.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: d3a270b9-d7b1-47f2-8775-fc3beb518b5c
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f9e6945a379d37f1539c7135041f50dcc7041750
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 08de8a57860886a8f633cacbaae1d63fe08a5a02
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826680"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832109"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>単体テストの ASP.NET MVC アプリケーションの作成 (c#)
 ====================

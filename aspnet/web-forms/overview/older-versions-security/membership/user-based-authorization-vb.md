@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/user-based-authorizat
 title: ユーザー ベースの承認 (VB) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ページへのアクセスを制限して、さまざまな手法によってページ レベルの機能を制限することに注目します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: bc937e9d-5c14-4fc4-aec7-440da924dd18
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 107983494350ddc06b6d3a20557baff4f4e6f9f4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 263b421cbce68cbc9a596e40a6be4ff140edc0d4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834375"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829263"
 ---
 <a name="user-based-authorization-vb"></a>ユーザー ベースの承認 (VB)
 ====================
@@ -133,7 +133,7 @@ ASP.NET では、簡単に、サイト内の別のファイルとフォルダー
 
 [!code-xml[Main](user-based-authorization-vb/samples/sample4.xml)]
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。
+すべてです。
 
 この変更をテストするにブラウザーでホーム ページを参照してください。 し、ログアウトするかどうかを確認します。ASP.NET アプリケーションの既定の動作は、すべての訪問者を許可するため、承認を変更したり、ルート ディレクトリの作成しなかったため`Web.config`ファイル、匿名の訪問者としてのルート ディレクトリ内のファイルにアクセスすることができます。
 

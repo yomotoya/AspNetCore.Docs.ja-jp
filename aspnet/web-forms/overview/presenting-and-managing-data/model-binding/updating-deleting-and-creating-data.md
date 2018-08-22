@@ -3,17 +3,17 @@ uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-dele
 title: 更新、削除、およびモデルのバインディングと web フォームでデータの作成 |Microsoft Docs
 author: tfitzmac
 description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 1cf9873db177b67927b579def1eedd08e3e9a762
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a3e098d7b10ba6218ffa1818ccf8fc8df6912a9e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821633"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825924"
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>更新、削除、およびモデルのバインディングと web フォームでデータを作成します。
 ====================

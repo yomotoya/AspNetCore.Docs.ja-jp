@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with
 title: コント ローラーの追加 |Microsoft Docs
 author: shanselman
 description: このチュートリアルでは、Visual Studio 2013 を使用して、ここで使用可能な場合は、更新されたバージョン。 新しいチュートリアルでは、t に多くの機能強化を提供する ASP.NET MVC 5 を使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: afe1182bca0fe58e1df162c5027df35992eeef38
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 856b7d98ac8bd30982d81b0609bb9c1288e07e49
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809911"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829809"
 ---
 <a name="adding-a-controller"></a>コントローラーを追加する
 ====================

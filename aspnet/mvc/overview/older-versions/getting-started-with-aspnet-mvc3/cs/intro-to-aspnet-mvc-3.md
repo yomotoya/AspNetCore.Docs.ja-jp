@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-as
 title: ASP.NET MVC 3 (c#) の概要 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 86a80b35-88bd-4b7c-bd58-f6e7997197d4
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: b0ff8da1911b36e6e74e5c7057f27d891ad57f61
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fe98ad8a9f7891b3bf17d2da840d0c333d96a210
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832290"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826749"
 ---
 <a name="intro-to-aspnet-mvc-3-c"></a>ASP.NET MVC 3 (c#) の概要
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in
 title: ASP.NET Web API を使用した OData v4 の種類を開く |Microsoft Docs
 author: microsoft
 description: OData v4 のオープン型は、型定義で宣言されている任意のプロパティだけでなく、動的プロパティを含む stuctured 型です。 開く...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/15/2014
 ms.assetid: f25f5ac5-4800-4950-abe5-c97750a27fc6
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 560d47e0dc451847311eb9e2327190eed2209546
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 77771d85532b8b622c2ad4ca219a38990e474c9c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832271"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823755"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API を使用した OData v4 の種類を開く
 ====================

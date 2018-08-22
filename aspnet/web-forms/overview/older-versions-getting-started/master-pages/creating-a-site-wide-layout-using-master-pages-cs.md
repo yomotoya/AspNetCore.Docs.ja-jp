@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-s
 title: マスター ページ (c#) を使用してサイト全体レイアウトの作成 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、マスター ページの基本を説明します。 つまり、マスター ページとはどのように 1 つのマスター ページを作成、1 つの cr はコンテンツのプレース ホルダーでは、どのようにしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/21/2008
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cf9264f6569fe1a5c0369b17a2358c5207cad6ad
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3bdb533c1cb724d57152e676a75af8067a6828d8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829280"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823896"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>マスター ページ (c#) を使用してサイト全体レイアウトを作成します。
 ====================
@@ -65,7 +65,7 @@ ASP.NET version 2.0 では前のページで一般的なマークアップを配
 > ASP.NET version 2.0 以降には、主要な概念とマスター ページの機能が変更されていません。 ただし、Visual Studio 2008 は、Visual Studio 2005 で欠けている機能、入れ子になったマスター ページのデザイン時サポートを提供します。 今後のチュートリアルでは入れ子になったマスター ページを使用して紹介します。
 
 
-図 2 は、 www.asp.net  のマスター ページの外観を示しています。 マスター ページは、web ページごとの一意のコンテンツが配置されている中間、左、プレース ホルダーと - 上部、下部にあるとすべてのページの右側にマークアップの一般的なサイト全体レイアウトを定義に注意してください。
+図 2 は、 www.asp.net のマスター ページの外観を示しています。 マスター ページは、web ページごとの一意のコンテンツが配置されている中間、左、プレース ホルダーと - 上部、下部にあるとすべてのページの右側にマークアップの一般的なサイト全体レイアウトを定義に注意してください。
 
 
 ![マスター ページは、コンテンツ ページのコンテンツをページごとに、サイト全体レイアウトや編集可能な領域を定義します。](creating-a-site-wide-layout-using-master-pages-cs/_static/image4.png)

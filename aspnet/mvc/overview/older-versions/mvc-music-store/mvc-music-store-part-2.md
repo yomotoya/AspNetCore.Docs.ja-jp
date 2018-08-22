@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 title: 'パート 2: コント ローラー |Microsoft Docs'
 author: jongalloway
 description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 第 2 部では、コント ローラーについて説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 8824d5d2f5670aee2df6dc6e74767e4a851dd4ae
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b88aa22ccef04ab03b3a16c42e0a30e45ad11901
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841096"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826519"
 ---
 <a name="part-2-controllers"></a>パート 2: コント ローラー
 ====================

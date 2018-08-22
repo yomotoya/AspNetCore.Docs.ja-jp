@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implement
 title: ASP.NET MVC アプリケーション (10 の 8) で、Entity Framework による継承の実装 |Microsoft Docs
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: a5c3feff-5335-4cdd-a97d-f7a8785c2494
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b39fc609007d437dd0845f9087dd5a32272cebe9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 10ee0be62a1d601e323afc423e9022bed56f4f33
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821277"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827313"
 ---
 <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>ASP.NET MVC アプリケーション (10 の 8) で、Entity Framework による継承の実装
 ====================

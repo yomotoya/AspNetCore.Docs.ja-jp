@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipel
 title: Iis の OWIN ミドルウェア パイプラインの統合 |Microsoft Docs
 author: Praburaj
 description: この記事では、IIS 統合パイプラインで OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を示していて、上、OMC パイプライン イベントを設定する方法で実行します。 必要があります.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: e78ded1dcafd40097d6477a757406c7170dd1bb7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 56bd145688e1ab0a70710cc80cb8f5fa10ee8968
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828099"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825971"
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
 ====================

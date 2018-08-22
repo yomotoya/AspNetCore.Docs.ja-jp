@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-as
 title: ASP.NET MVC 3 (VB) の概要 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: a1b3d789-93b4-487f-b90d-80c9c9b4f8fa
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: 66e267642adabac9a4b4c724b06dc2658ff0ea42
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 92439a6c75e8e106d0c8c99b672dcfb1effd513f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828018"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823885"
 ---
 <a name="intro-to-aspnet-mvc-3-vb"></a>ASP.NET MVC 3 (VB) の概要
 ====================

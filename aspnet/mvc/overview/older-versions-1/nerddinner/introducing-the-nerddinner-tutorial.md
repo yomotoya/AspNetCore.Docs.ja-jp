@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutoria
 title: NerdDinner チュートリアルの紹介 |Microsoft Docs
 author: shanselman
 description: 新しいフレームワークを学習する最善の方法では、何らかの処理を構築します。 このチュートリアル ASP.NE を使用して、サイズは小さいが完了すると、アプリケーションを構築する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 9188df1eca7f488502640bc17d5034f93f4ac82c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5efab525841b5c526aa3b656f27b1c42cc74648
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805111"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826921"
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner チュートリアルの紹介
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-
 title: 'Entity Framework 4.0 と ObjectDataSource コントロールを使用して、パート 1: 作業の開始 |Microsoft Docs'
 author: tdykstra
 description: このチュートリアル シリーズでは、Entity Framework のチュートリアル シリーズの概要を作成した Contoso University web アプリケーションに基づいています。 Yo 場合.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 9eb39d0cf57e114537c76f33e2f4647196b0ff30
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5eaeaa0aa474e1aed86954e6c10dd1703b938944
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837679"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829913"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 と ObjectDataSource コントロールを使用して、パート 1: 作業の開始
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-ex
 title: '[How Do i:]ASP.NET AJAX RoundedCorners エクステンダーを使用しますか。 | Microsoft Docs'
 author: JoeStagner
 description: このビデオでは方法 RoundedCorner エクステンダー コントロールを web ページ、柔軟性の高いルック アンド フィール コンテンツ領域に魅力的な角を丸くを追加することで表示しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/01/2007
 ms.assetid: 2a23e599-2969-4d2a-92c2-4bdfea8f59bc
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-extender
 msc.type: video
-ms.openlocfilehash: 80fb08b2a2a3235be28f159c9701c574deb8ef31
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a7d14486b23b929d7cecf7b914baa83c99b17cd1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818029"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826975"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a>[How Do i:]ASP.NET AJAX RoundedCorners エクステンダーを使用しますか。
 ====================

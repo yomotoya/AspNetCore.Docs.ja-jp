@@ -3,17 +3,17 @@ uid: signalr/overview/testing-and-debugging/troubleshooting
 title: SignalR トラブルシューティング |Microsoft Docs
 author: pfletcher
 description: この記事では、SignalR アプリケーションの開発に関する一般的な問題について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: fbe1ffe7dc816f6470f8bf93e592f0ff4b299145
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 77eedeb962bed06f1375284bcf05c4e4ffcdde3b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803948"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826730"
 ---
 <a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
 ====================

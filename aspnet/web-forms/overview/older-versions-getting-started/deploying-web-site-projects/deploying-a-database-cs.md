@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: データベースを展開する (c#) |Microsoft Docs
 author: rick-anderson
 description: ASP.NET web アプリケーションを展開するには、開発環境から運用環境に必要なファイルとリソースを取得する必要があります。 Da. の
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: baab10b8752af8c971f65df6e67cb77d9ad6518e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca9ce2b41cfd10504304c30bc965e446a7188120
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834337"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826528"
 ---
 <a name="deploying-a-database-c"></a>データベースを展開する (c#)
 ====================

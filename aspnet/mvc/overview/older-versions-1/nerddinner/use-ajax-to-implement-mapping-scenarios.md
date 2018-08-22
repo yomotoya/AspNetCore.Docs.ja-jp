@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scen
 title: AJAX を使用して、マッピングのシナリオを実装する |Microsoft Docs
 author: microsoft
 description: 手順 11 では、作成、編集または表示 dinners l を表示するユーザーを有効にすると、NerdDinner アプリケーションにマッピングの AJAX のサポートを統合する方法を示す.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: f731990a-0a81-4d62-81df-87d676cdedd6
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: f8b9704e966c0211a690156555f4a272a823023a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f7de23ca46e6dc00fe8075e28068a8b3f95d02cd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825980"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827342"
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX を使用して、マッピングのシナリオを実装するには
 ====================

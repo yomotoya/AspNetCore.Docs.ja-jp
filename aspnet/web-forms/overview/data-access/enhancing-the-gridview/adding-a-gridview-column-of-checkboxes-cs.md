@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-col
 title: (C#) のチェック ボックスの GridView 列を追加する |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルを調べ、G. の複数の行を選択した場合の直感的な方法をユーザーに提供する GridView コントロールにチェック ボックスの列を追加する方法.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: f63a9443-2db0-4f80-8246-840d3e86c2a3
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 481ae436ef644bcc4d5a13d060ed87671cfcb4dc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1921ceeb33197299f3cedb0eef082af0fd8fa960
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814794"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826688"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a>(C#) のチェック ボックスの GridView 列を追加します。
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: ASP.NET 状態監視 (VB) によるエラーの詳細をログ記録 |Microsoft Docs
 author: rick-anderson
 description: Microsoft の正常性の監視システムは、ハンドルされない例外などのさまざまな web イベントを記録する簡単かつカスタマイズ可能な方法を提供します。 このチュートリアルでは、そのを使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 09a6c74e-936a-4c04-8547-5bb313a4e4a3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a19c1dc6ad5b3b45501befded4d8f14f7549b019
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f9aeeb0b3d21707324d239efad4deffcf0f7fead
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809924"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823888"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>ASP.NET 状態監視 (VB) によるエラーの詳細をログ記録
 ====================

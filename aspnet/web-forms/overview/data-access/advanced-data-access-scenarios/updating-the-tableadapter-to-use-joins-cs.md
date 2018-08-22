@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-
 title: Join を使用して TableAdapter を更新する (c#) |Microsoft Docs
 author: rick-anderson
 description: データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するには、いずれかを使用しましたできます.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: 675531a7-cb54-4dd6-89ac-2636e4c285a5
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c59ab13eb5e5e548055c6c8c9343a8d5c4cabe7d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5b69b502cf650a477b2841c25ad3f1ab5f8da93
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841122"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829828"
 ---
 <a name="updating-the-tableadapter-to-use-joins-c"></a>Join を使用して TableAdapter を更新する (c#)
 ====================

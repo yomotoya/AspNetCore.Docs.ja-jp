@@ -3,17 +3,17 @@ uid: web-api/overview/advanced/dependency-injection
 title: ASP.NET Web API 2 の依存関係の挿入 |Microsoft Docs
 author: MikeWasson
 description: このチュートリアルでは、ASP.NET Web API コント ローラーに依存関係を挿入する方法を示します。 ソフトウェアのバージョンがチュートリアルの Web API 2 Unity Application Block で使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: a470c778fd5998006a0bf8edb08b62a75d72c48c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 41db1af79ed63ff4dd12be37e9cc76e16f1bf5e4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802676"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834333"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の依存関係の挿入
 ====================
@@ -33,7 +33,7 @@ ms.locfileid: "37802676"
 
 ## <a name="what-is-dependency-injection"></a>依存関係の挿入とは何ですか。
 
-A*依存関係*は任意のオブジェクトを別のオブジェクトが必要です。 たとえば、定義する一般的なは、[リポジトリ](http://martinfowler.com/eaaCatalog/repository.html)データ アクセスを処理します。 例を使って説明しましょう。 最初に、ドメイン モデルを定義します。
+"*依存関係*" とは、他のオブジェクトが必要とする任意のオブジェクトのことです。 たとえば、定義する一般的なは、[リポジトリ](http://martinfowler.com/eaaCatalog/repository.html)データ アクセスを処理します。 例を使って説明しましょう。 最初に、ドメイン モデルを定義します。
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 

@@ -3,17 +3,17 @@ uid: signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 title: SignalR 1.x プロジェクトをバージョン 2 にアップグレード |Microsoft Docs
 author: pfletcher
 description: このトピックでは、SignalR に既存の SignalR 1.x プロジェクトをアップグレードする方法を説明します 2.x、およびアップグレードの処理中に発生する可能性のある問題をトラブルシューティングする方法.。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 393beb1ef696bd2dfae25789f79a67157780a219
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 84155a4c171a2ac2149dbbf4237b6561d2814aa0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824164"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835167"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>SignalR 1.x プロジェクトをバージョン 2 にアップグレードします。
 ====================
