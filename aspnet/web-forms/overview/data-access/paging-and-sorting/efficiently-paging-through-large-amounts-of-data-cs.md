@@ -10,7 +10,7 @@ msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-pa
 msc.type: authoredcontent
 ms.openlocfilehash: bb10524e7973894ea60663da3813673742ae4ab4
 ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/05/2018
 ms.locfileid: "37825841"
@@ -160,7 +160,7 @@ DAL で BLL 開始行インデックスをそのまま使用するメソッド�
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample6.html)]
 
 > [!NOTE]
-> このチュートリアルで後でわかりますが、 *`StartRowIndex`* によって提供される ObjectDataSource のインデックスは、0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`より厳密に大きい*`StartRowIndex`* 以下と等しい、 *`StartRowIndex`*  + *`MaximumRows`*.
+> このチュートリアルで後でわかりますが、 *`StartRowIndex`* によって提供される ObjectDataSource のインデックスは、0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`より厳密に大きい *`StartRowIndex`* 以下と等しい、 *`StartRowIndex`*  + *`MaximumRows`*.
 
 
 これまで方法を説明してきた`ROW_NUMBER()`できる、開始行インデックスと行の最大数の値を指定されたデータの特定のページを取得するため、今すぐ必要があります DAL BLL 内のメソッドとしてこのロジックを実装します。
