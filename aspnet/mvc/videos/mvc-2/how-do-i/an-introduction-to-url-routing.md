@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/how-do-i/an-introduction-to-url-routing
 title: URL ルーティングの概要 |Microsoft Docs
 author: StephenWalther
 description: このチュートリアルでは、Stephen Walther は、ブラウザーの要求 URL ルーティングを介してコント ローラー アクションにマップする方法について説明します。 また、cust を作成する方法を学習します.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/20/2008
 ms.assetid: ad0f4d26-6366-4464-968f-a24a380e6dc6
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/an-introduction-to-url-routing
 msc.type: video
-ms.openlocfilehash: f239bc6e781cf45090e16a197ff5adf9849f6f92
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 632208e44a8494b56fab277e6be253fc1b59587f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839055"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835658"
 ---
 <a name="an-introduction-to-url-routing"></a>URL ルーティングの概要
 ====================

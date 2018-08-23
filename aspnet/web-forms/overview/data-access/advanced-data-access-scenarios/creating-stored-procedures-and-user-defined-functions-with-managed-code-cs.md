@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stor
 title: ストアド プロシージャおよびユーザー定義関数を作成するマネージ コード (c#) |Microsoft Docs
 author: rick-anderson
 description: Microsoft SQL Server 2005 は、開発者がマネージ コードからデータベース オブジェクトを作成する .NET 共通言語ランタイムと統合します。 このチュートリアルには.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: 213eea41-1ab4-4371-8b24-1a1a66c515de
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 33ec7cfbb029c1a0e5200eb61aa4e39b02d991f3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fb4a867d5868e8000fcd10130401a9e169b6f49f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824417"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838975"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>ストアド プロシージャとマネージ コード (c#) でユーザー定義関数を作成します。
 ====================

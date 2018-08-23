@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: 運用データベース (c#) を使用する実稼働 Web アプリケーションの構成 |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアルで既に説明した、これは開発および運用環境間で異なる構成情報珍しくありません。 これは、es.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 559697a08200e43e955697a7ad8613f1a495c073
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e2560ae7a845c27f7fa5f420eaf1d89618397c60
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803017"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828939"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>運用データベース (c#) を使用する実稼働 Web アプリケーションを構成します。
 ====================

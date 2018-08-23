@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/creating-the-membersh
 title: SQL Server (c#) でメンバーシップ スキーマの作成 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、を使用するには、データベースに必要なスキーマを追加するための手法を調べることで開始します。 次に、私たち wi.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: b4ac129d-1b8e-41ca-a38f-9b19d7c7bb0e
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c28e9735884586c43be4cf25fb2a3e5fa597832c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 425dea8233eb6b5be7c3a3945d953ef47056f114
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816653"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826717"
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>SQL Server (c#) でメンバーシップ スキーマの作成
 ====================

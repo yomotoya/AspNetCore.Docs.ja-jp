@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-re
 title: (C#) Repeater コントロールで HoverMenu を使用する |Microsoft Docs
 author: wenz
 description: AJAX Control Toolkit で HoverMenu コントロールには、単純なポップアップの効果が用意されています要素の上にマウス ポインターを移動する姿にポップアップが表示されます。 しています.。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e7700e7b-edc3-4183-a713-70e507cc7490
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f3135eb52bab1550b1c89dd6ce62044640e80198
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 33f65a132ea9f0a939ab70ac249b397ea883ac8c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831998"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829240"
 ---
 <a name="using-hovermenu-with-a-repeater-control-c"></a>(C#) Repeater コントロールで HoverMenu を使用します。
 ====================
