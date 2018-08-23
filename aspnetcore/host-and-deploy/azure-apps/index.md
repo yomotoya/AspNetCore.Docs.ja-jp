@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: ece61a3e362ec5e2ff8f415351a0f9257fc72098
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: 9a7d20378cac597b748d8a60eb0f0bf17c9ba082
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228612"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41750308"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
 
@@ -99,7 +99,7 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 ASP.NET Core プレビュー アプリは、次の方法で Azure App Service に展開できます。
 
 * [プレビュー サイト拡張機能をインストールする](#install-the-preview-site-extension)
-* [自己完結型アプリを展開する](#deploy-the-app-self-contained)
+<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [コンテナー用の Web アプリで Docker を使用する](#use-docker-with-web-apps-for-containers)
 
 プレビュー サイト拡張機能の使用に関する問題が発生した場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
@@ -138,14 +138,16 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-### <a name="deploy-the-app-self-contained"></a>自己完結型アプリを展開する
+<!--
+### Deploy the app self-contained
 
-プレビュー ランタイムが展開に保持される[自己完結型アプリ](/dotnet/core/deploying/#self-contained-deployments-scd) を展開できます。 自己完結型アプリを展開する場合: 
+A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
 
-* サイトを準備する必要はありません。
-* このアプリの発行は、共有ランタイムとホストがサーバー上に置かれるフレームワーク依存の展開に対する発行とは別に行う必要があります。
+* The site doesn't need to be prepared.
+* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
 
-自己完結型アプリは、すべての ASP.NET Core アプリに対するオプションです。
+Self-contained apps are an option for all ASP.NET Core apps.
+-->
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>コンテナー用の Web アプリで Docker を使用する
 
