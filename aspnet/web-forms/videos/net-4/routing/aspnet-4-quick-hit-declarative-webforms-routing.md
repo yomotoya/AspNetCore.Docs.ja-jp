@@ -3,27 +3,27 @@ uid: web-forms/videos/net-4/routing/aspnet-4-quick-hit-declarative-webforms-rout
 title: ASP.NET 4 クイック ヒットの宣言型 WebForms ルーティング
 author: JoeStagner
 description: このビデオでは、WebForms はマークアップで宣言によってルーティングを実行する方法を学習します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: bfeb728e-3216-4310-8303-6cdb79255c15
 msc.legacyurl: /web-forms/videos/net-4/routing/aspnet-4-quick-hit-declarative-webforms-routing
 msc.type: video
-ms.openlocfilehash: 5aca5da2d3b6a5ba92510cd378aeca1be8496c84
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7bfad513040e4140e0058277002d03107dca990f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833939"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835603"
 ---
-<a name="aspnet-4-quick-hit---declarative-webforms-routing"></a><span data-ttu-id="7f84d-103">ASP.NET 4「クイック ヒット」の宣言型 WebForms ルーティング</span><span class="sxs-lookup"><span data-stu-id="7f84d-103">ASP.NET 4 "Quick Hit" - Declarative WebForms Routing</span></span>
+<a name="aspnet-4-quick-hit---declarative-webforms-routing"></a><span data-ttu-id="f46b1-103">ASP.NET 4「クイック ヒット」の宣言型 WebForms ルーティング</span><span class="sxs-lookup"><span data-stu-id="f46b1-103">ASP.NET 4 "Quick Hit" - Declarative WebForms Routing</span></span>
 ====================
-<span data-ttu-id="7f84d-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="7f84d-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="f46b1-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f46b1-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="7f84d-105">このビデオでは、WebForms はマークアップで宣言によってルーティングを実行する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="7f84d-105">In this video you will learn how to do WebForms routing declaratively through markup.</span></span> 
+<span data-ttu-id="f46b1-105">このビデオでは、WebForms はマークアップで宣言によってルーティングを実行する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="f46b1-105">In this video you will learn how to do WebForms routing declaratively through markup.</span></span> 
 
-[<span data-ttu-id="7f84d-106">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="7f84d-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-declarative-webforms-routing)
+[<span data-ttu-id="f46b1-106">&#9654;ビデオ (14 分)</span><span class="sxs-lookup"><span data-stu-id="f46b1-106">&#9654; Watch video (14 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-declarative-webforms-routing)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="7f84d-107">[前へ](aspnet-4-quick-hit-imperative-webforms-routing.md)
-> [次へ](aspnet-4-quick-hit-outbound-webforms-routing.md)</span><span class="sxs-lookup"><span data-stu-id="7f84d-107">[Previous](aspnet-4-quick-hit-imperative-webforms-routing.md)
+> <span data-ttu-id="f46b1-107">[前へ](aspnet-4-quick-hit-imperative-webforms-routing.md)
+> [次へ](aspnet-4-quick-hit-outbound-webforms-routing.md)</span><span class="sxs-lookup"><span data-stu-id="f46b1-107">[Previous](aspnet-4-quick-hit-imperative-webforms-routing.md)
 [Next](aspnet-4-quick-hit-outbound-webforms-routing.md)</span></span>

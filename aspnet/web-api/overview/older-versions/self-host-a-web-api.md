@@ -3,187 +3,187 @@ uid: web-api/overview/older-versions/self-host-a-web-api
 title: セルフホスト ASP.NET Web API 1 (c#) |Microsoft Docs
 author: MikeWasson
 description: ASP.NET Web API では、IIS は必要ありません。 Web API は、独自のホスト プロセスで自己ホストできます。 このチュートリアルでは、アプリのコンソール内で web API をホストする方法を使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 50681dcd89dfed480cf343f753371af384fd3e68
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: HT
+ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811738"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832825"
 ---
-<a name="self-host-aspnet-web-api-1-c"></a><span data-ttu-id="55891-105">ASP.NET Web API 1 (c#) を自己ホストします。</span><span class="sxs-lookup"><span data-stu-id="55891-105">Self-Host ASP.NET Web API 1 (C#)</span></span>
+<a name="self-host-aspnet-web-api-1-c"></a><span data-ttu-id="4ede3-105">ASP.NET Web API 1 (c#) を自己ホストします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-105">Self-Host ASP.NET Web API 1 (C#)</span></span>
 ====================
-<span data-ttu-id="55891-106">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="55891-106">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="4ede3-106">作成者[Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="4ede3-106">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-> <span data-ttu-id="55891-107">ASP.NET Web API では、IIS は必要ありません。</span><span class="sxs-lookup"><span data-stu-id="55891-107">ASP.NET Web API does not require IIS.</span></span> <span data-ttu-id="55891-108">Web API は、独自のホスト プロセスで自己ホストできます。</span><span class="sxs-lookup"><span data-stu-id="55891-108">You can self-host a web API in your own host process.</span></span> <span data-ttu-id="55891-109">このチュートリアルでは、コンソール アプリケーション内部の web API をホストする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="55891-109">This tutorial shows how to host a web API inside a console application.</span></span>
+> <span data-ttu-id="4ede3-107">ASP.NET Web API では、IIS は必要ありません。</span><span class="sxs-lookup"><span data-stu-id="4ede3-107">ASP.NET Web API does not require IIS.</span></span> <span data-ttu-id="4ede3-108">Web API は、独自のホスト プロセスで自己ホストできます。</span><span class="sxs-lookup"><span data-stu-id="4ede3-108">You can self-host a web API in your own host process.</span></span> <span data-ttu-id="4ede3-109">このチュートリアルでは、コンソール アプリケーション内部の web API をホストする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-109">This tutorial shows how to host a web API inside a console application.</span></span>
 > 
-> <span data-ttu-id="55891-110">**新しいアプリケーションは、OWIN を使用して、Web API を自己ホストする必要があります。**</span><span class="sxs-lookup"><span data-stu-id="55891-110">**New applications should use OWIN to self-host Web API.**</span></span> <span data-ttu-id="55891-111">参照してください[OWIN を使用して、ASP.NET Web API 2 をセルフホスト](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)します。</span><span class="sxs-lookup"><span data-stu-id="55891-111">See [Use OWIN to Self-Host ASP.NET Web API 2](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).</span></span>
+> <span data-ttu-id="4ede3-110">**新しいアプリケーションは、OWIN を使用して、Web API を自己ホストする必要があります。**</span><span class="sxs-lookup"><span data-stu-id="4ede3-110">**New applications should use OWIN to self-host Web API.**</span></span> <span data-ttu-id="4ede3-111">参照してください[OWIN を使用して、ASP.NET Web API 2 をセルフホスト](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-111">See [Use OWIN to Self-Host ASP.NET Web API 2](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).</span></span>
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="55891-112">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="55891-112">Software versions used in the tutorial</span></span>
+> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="4ede3-112">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="4ede3-112">Software versions used in the tutorial</span></span>
 > 
 > 
-> - <span data-ttu-id="55891-113">Web API 1</span><span class="sxs-lookup"><span data-stu-id="55891-113">Web API 1</span></span>
-> - <span data-ttu-id="55891-114">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="55891-114">Visual Studio 2012</span></span>
+> - <span data-ttu-id="4ede3-113">Web API 1</span><span class="sxs-lookup"><span data-stu-id="4ede3-113">Web API 1</span></span>
+> - <span data-ttu-id="4ede3-114">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="4ede3-114">Visual Studio 2012</span></span>
 
 
-## <a name="create-the-console-application-project"></a><span data-ttu-id="55891-115">コンソール アプリケーション プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="55891-115">Create the Console Application Project</span></span>
+## <a name="create-the-console-application-project"></a><span data-ttu-id="4ede3-115">コンソール アプリケーション プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-115">Create the Console Application Project</span></span>
 
-<span data-ttu-id="55891-116">Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="55891-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="55891-117">またはから、**ファイル**メニューの **新規**し**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="55891-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
+<span data-ttu-id="4ede3-116">Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="4ede3-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="4ede3-117">またはから、**ファイル**メニューの **新規**し**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="55891-118">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="55891-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="55891-119">**Visual c#**、 **Windows**します。</span><span class="sxs-lookup"><span data-stu-id="55891-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="55891-120">プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**します。</span><span class="sxs-lookup"><span data-stu-id="55891-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="55891-121">プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**します。</span><span class="sxs-lookup"><span data-stu-id="55891-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
+<span data-ttu-id="4ede3-118">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="4ede3-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="4ede3-119">**Visual c#**、 **Windows**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="4ede3-120">プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="4ede3-121">プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image1.png)
 
-## <a name="set-the-target-framework-visual-studio-2010"></a><span data-ttu-id="55891-122">ターゲット フレームワーク (Visual Studio 2010) に設定します。</span><span class="sxs-lookup"><span data-stu-id="55891-122">Set the Target Framework (Visual Studio 2010)</span></span>
+## <a name="set-the-target-framework-visual-studio-2010"></a><span data-ttu-id="4ede3-122">ターゲット フレームワーク (Visual Studio 2010) に設定します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-122">Set the Target Framework (Visual Studio 2010)</span></span>
 
-<span data-ttu-id="55891-123">Visual Studio 2010 を使用している場合は、.NET Framework 4.0 をターゲット フレームワークを変更します。</span><span class="sxs-lookup"><span data-stu-id="55891-123">If you are using Visual Studio 2010, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="55891-124">(既定では、プロジェクト テンプレートの対象として、 [.Net Framework クライアント プロファイル](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile))。</span><span class="sxs-lookup"><span data-stu-id="55891-124">(By default, the project template targets the [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)</span></span>
+<span data-ttu-id="4ede3-123">Visual Studio 2010 を使用している場合は、.NET Framework 4.0 をターゲット フレームワークを変更します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-123">If you are using Visual Studio 2010, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="4ede3-124">(既定では、プロジェクト テンプレートの対象として、 [.Net Framework クライアント プロファイル](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile))。</span><span class="sxs-lookup"><span data-stu-id="4ede3-124">(By default, the project template targets the [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)</span></span>
 
-<span data-ttu-id="55891-125">ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**プロパティ**します。</span><span class="sxs-lookup"><span data-stu-id="55891-125">In Solution Explorer, right-click the project and select **Properties**.</span></span> <span data-ttu-id="55891-126">**ターゲット フレームワーク**ドロップダウン リストで、ターゲット フレームワークを .NET Framework 4.0 に変更します。</span><span class="sxs-lookup"><span data-stu-id="55891-126">In the **Target framework** dropdown list, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="55891-127">変更を適用するメッセージが表示されたら、クリックして**はい**します。</span><span class="sxs-lookup"><span data-stu-id="55891-127">When prompted to apply the change, click **Yes**.</span></span>
+<span data-ttu-id="4ede3-125">ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**プロパティ**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-125">In Solution Explorer, right-click the project and select **Properties**.</span></span> <span data-ttu-id="4ede3-126">**ターゲット フレームワーク**ドロップダウン リストで、ターゲット フレームワークを .NET Framework 4.0 に変更します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-126">In the **Target framework** dropdown list, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="4ede3-127">変更を適用するメッセージが表示されたら、クリックして**はい**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-127">When prompted to apply the change, click **Yes**.</span></span>
 
 ![](self-host-a-web-api/_static/image2.png)
 
-## <a name="install-nuget-package-manager"></a><span data-ttu-id="55891-128">NuGet パッケージ マネージャーをインストールします。</span><span class="sxs-lookup"><span data-stu-id="55891-128">Install NuGet Package Manager</span></span>
+## <a name="install-nuget-package-manager"></a><span data-ttu-id="4ede3-128">NuGet パッケージ マネージャーをインストールします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-128">Install NuGet Package Manager</span></span>
 
-<span data-ttu-id="55891-129">NuGet パッケージ マネージャーは、Web API アセンブリを非 ASP.NET プロジェクトに追加する最も簡単な方法です。</span><span class="sxs-lookup"><span data-stu-id="55891-129">The NuGet Package Manager is the easiest way to add the Web API assemblies to a non-ASP.NET project.</span></span>
+<span data-ttu-id="4ede3-129">NuGet パッケージ マネージャーは、Web API アセンブリを非 ASP.NET プロジェクトに追加する最も簡単な方法です。</span><span class="sxs-lookup"><span data-stu-id="4ede3-129">The NuGet Package Manager is the easiest way to add the Web API assemblies to a non-ASP.NET project.</span></span>
 
-<span data-ttu-id="55891-130">NuGet パッケージ マネージャーがインストールされていることを確認するには、クリックして、**ツール**Visual Studio のメニュー。</span><span class="sxs-lookup"><span data-stu-id="55891-130">To check if NuGet Package Manager is installed, click the **Tools** menu in Visual Studio.</span></span> <span data-ttu-id="55891-131">メニュー項目を表示する場合は**ライブラリ パッケージ マネージャー**、NuGet パッケージ マネージャーがあります。</span><span class="sxs-lookup"><span data-stu-id="55891-131">If you see a menu item called **Library Package Manager**, then you have NuGet Package Manager.</span></span>
+<span data-ttu-id="4ede3-130">NuGet パッケージ マネージャーがインストールされていることを確認するには、クリックして、**ツール**Visual Studio のメニュー。</span><span class="sxs-lookup"><span data-stu-id="4ede3-130">To check if NuGet Package Manager is installed, click the **Tools** menu in Visual Studio.</span></span> <span data-ttu-id="4ede3-131">メニュー項目を表示する場合は**ライブラリ パッケージ マネージャー**、NuGet パッケージ マネージャーがあります。</span><span class="sxs-lookup"><span data-stu-id="4ede3-131">If you see a menu item called **Library Package Manager**, then you have NuGet Package Manager.</span></span>
 
-<span data-ttu-id="55891-132">NuGet パッケージ マネージャーをインストールするには</span><span class="sxs-lookup"><span data-stu-id="55891-132">To install NuGet Package Manager:</span></span>
+<span data-ttu-id="4ede3-132">NuGet パッケージ マネージャーをインストールするには</span><span class="sxs-lookup"><span data-stu-id="4ede3-132">To install NuGet Package Manager:</span></span>
 
-1. <span data-ttu-id="55891-133">Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="55891-133">Start Visual Studio.</span></span>
-2. <span data-ttu-id="55891-134">**[ツール]** メニューから **[拡張機能と更新プログラム]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="55891-134">From the **Tools** menu, select **Extensions and Updates**.</span></span>
-3. <span data-ttu-id="55891-135">**拡張機能と更新**ダイアログ ボックスで、**オンライン**します。</span><span class="sxs-lookup"><span data-stu-id="55891-135">In the **Extensions and Updates** dialog, select **Online**.</span></span>
-4. <span data-ttu-id="55891-136">「NuGet パッケージ マネージャー」が表示されない場合は、検索ボックスに「nuget パッケージ マネージャー」を入力します。</span><span class="sxs-lookup"><span data-stu-id="55891-136">If you don't see "NuGet Package Manager", type "nuget package manager" in the search box.</span></span>
-5. <span data-ttu-id="55891-137">NuGet パッケージ マネージャーを選択し、クリックして**ダウンロード**します。</span><span class="sxs-lookup"><span data-stu-id="55891-137">Select the NuGet Package Manager and click **Download**.</span></span>
-6. <span data-ttu-id="55891-138">ダウンロードの完了後は、インストールを促されます。</span><span class="sxs-lookup"><span data-stu-id="55891-138">After the download completes, you will be prompted to install.</span></span>
-7. <span data-ttu-id="55891-139">インストールの完了後は、Visual Studio を再起動する求め可能性があります。</span><span class="sxs-lookup"><span data-stu-id="55891-139">After the installation completes, you might be prompted to restart Visual Studio.</span></span>
+1. <span data-ttu-id="4ede3-133">Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-133">Start Visual Studio.</span></span>
+2. <span data-ttu-id="4ede3-134">**[ツール]** メニューから **[拡張機能と更新プログラム]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-134">From the **Tools** menu, select **Extensions and Updates**.</span></span>
+3. <span data-ttu-id="4ede3-135">**拡張機能と更新**ダイアログ ボックスで、**オンライン**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-135">In the **Extensions and Updates** dialog, select **Online**.</span></span>
+4. <span data-ttu-id="4ede3-136">「NuGet パッケージ マネージャー」が表示されない場合は、検索ボックスに「nuget パッケージ マネージャー」を入力します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-136">If you don't see "NuGet Package Manager", type "nuget package manager" in the search box.</span></span>
+5. <span data-ttu-id="4ede3-137">NuGet パッケージ マネージャーを選択し、クリックして**ダウンロード**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-137">Select the NuGet Package Manager and click **Download**.</span></span>
+6. <span data-ttu-id="4ede3-138">ダウンロードの完了後は、インストールを促されます。</span><span class="sxs-lookup"><span data-stu-id="4ede3-138">After the download completes, you will be prompted to install.</span></span>
+7. <span data-ttu-id="4ede3-139">インストールの完了後は、Visual Studio を再起動する求め可能性があります。</span><span class="sxs-lookup"><span data-stu-id="4ede3-139">After the installation completes, you might be prompted to restart Visual Studio.</span></span>
 
 ![](self-host-a-web-api/_static/image3.png)
 
-## <a name="add-the-web-api-nuget-package"></a><span data-ttu-id="55891-140">Web API の NuGet パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="55891-140">Add the Web API NuGet Package</span></span>
+## <a name="add-the-web-api-nuget-package"></a><span data-ttu-id="4ede3-140">Web API の NuGet パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-140">Add the Web API NuGet Package</span></span>
 
-<span data-ttu-id="55891-141">NuGet パッケージ マネージャーをインストールした後は、プロジェクトに Web API Self-Host パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="55891-141">After NuGet Package Manager is installed, add the Web API Self-Host package to your project.</span></span>
+<span data-ttu-id="4ede3-141">NuGet パッケージ マネージャーをインストールした後は、プロジェクトに Web API Self-Host パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-141">After NuGet Package Manager is installed, add the Web API Self-Host package to your project.</span></span>
 
-1. <span data-ttu-id="55891-142">**ツール**メニューの **ライブラリ パッケージ マネージャー**します。</span><span class="sxs-lookup"><span data-stu-id="55891-142">From the **Tools** menu, select **Library Package Manager**.</span></span> <span data-ttu-id="55891-143">*注*: かどうかは表示されないこのメニュー項目をその NuGet パッケージ マネージャーが正しくインストールされていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="55891-143">*Note*: If do you not see this menu item, make sure that NuGet Package Manager installed correctly.</span></span>
-2. <span data-ttu-id="55891-144">選択**ソリューションの NuGet パッケージを管理しています.**</span><span class="sxs-lookup"><span data-stu-id="55891-144">Select **Manage NuGet Packages for Solution...**</span></span>
-3. <span data-ttu-id="55891-145">**NugGet パッケージの管理**ダイアログ ボックスで、**オンライン**します。</span><span class="sxs-lookup"><span data-stu-id="55891-145">In the **Manage NugGet Packages** dialog, select **Online**.</span></span>
-4. <span data-ttu-id="55891-146">検索ボックスに「 &quot;Microsoft.AspNet.WebApi.SelfHost&quot;します。</span><span class="sxs-lookup"><span data-stu-id="55891-146">In the search box, type &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.</span></span>
-5. <span data-ttu-id="55891-147">ASP.NET Web API の自己ホスト パッケージを選択し、クリックして**インストール**します。</span><span class="sxs-lookup"><span data-stu-id="55891-147">Select the ASP.NET Web API Self Host package and click **Install**.</span></span>
-6. <span data-ttu-id="55891-148">パッケージをインストールした後にをクリックして**閉じます**ダイアログ ボックスを閉じます。</span><span class="sxs-lookup"><span data-stu-id="55891-148">After the package installs, click **Close** to close the dialog.</span></span>
+1. <span data-ttu-id="4ede3-142">**ツール**メニューの **ライブラリ パッケージ マネージャー**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-142">From the **Tools** menu, select **Library Package Manager**.</span></span> <span data-ttu-id="4ede3-143">*注*: かどうかは表示されないこのメニュー項目をその NuGet パッケージ マネージャーが正しくインストールされていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-143">*Note*: If do you not see this menu item, make sure that NuGet Package Manager installed correctly.</span></span>
+2. <span data-ttu-id="4ede3-144">選択**ソリューションの NuGet パッケージを管理しています.**</span><span class="sxs-lookup"><span data-stu-id="4ede3-144">Select **Manage NuGet Packages for Solution...**</span></span>
+3. <span data-ttu-id="4ede3-145">**NugGet パッケージの管理**ダイアログ ボックスで、**オンライン**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-145">In the **Manage NugGet Packages** dialog, select **Online**.</span></span>
+4. <span data-ttu-id="4ede3-146">検索ボックスに「 &quot;Microsoft.AspNet.WebApi.SelfHost&quot;します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-146">In the search box, type &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.</span></span>
+5. <span data-ttu-id="4ede3-147">ASP.NET Web API の自己ホスト パッケージを選択し、クリックして**インストール**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-147">Select the ASP.NET Web API Self Host package and click **Install**.</span></span>
+6. <span data-ttu-id="4ede3-148">パッケージをインストールした後にをクリックして**閉じます**ダイアログ ボックスを閉じます。</span><span class="sxs-lookup"><span data-stu-id="4ede3-148">After the package installs, click **Close** to close the dialog.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="55891-149">Microsoft.AspNet.WebApi.SelfHost、AspNetWebApi.SelfHost しないという名前のパッケージをインストールしてください。</span><span class="sxs-lookup"><span data-stu-id="55891-149">Make sure to install the package named Microsoft.AspNet.WebApi.SelfHost, not AspNetWebApi.SelfHost.</span></span>
+> <span data-ttu-id="4ede3-149">Microsoft.AspNet.WebApi.SelfHost、AspNetWebApi.SelfHost しないという名前のパッケージをインストールしてください。</span><span class="sxs-lookup"><span data-stu-id="4ede3-149">Make sure to install the package named Microsoft.AspNet.WebApi.SelfHost, not AspNetWebApi.SelfHost.</span></span>
 
 
 ![](self-host-a-web-api/_static/image4.png)
 
-## <a name="create-the-model-and-controller"></a><span data-ttu-id="55891-150">モデルとコント ローラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="55891-150">Create the Model and Controller</span></span>
+## <a name="create-the-model-and-controller"></a><span data-ttu-id="4ede3-150">モデルとコント ローラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-150">Create the Model and Controller</span></span>
 
-<span data-ttu-id="55891-151">このチュートリアルと同じモデルとコント ローラー クラスを使用して、 [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアル。</span><span class="sxs-lookup"><span data-stu-id="55891-151">This tutorial uses the same model and controller classes as the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span>
+<span data-ttu-id="4ede3-151">このチュートリアルと同じモデルとコント ローラー クラスを使用して、 [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアル。</span><span class="sxs-lookup"><span data-stu-id="4ede3-151">This tutorial uses the same model and controller classes as the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span>
 
-<span data-ttu-id="55891-152">という名前のパブリック クラスを追加`Product`します。</span><span class="sxs-lookup"><span data-stu-id="55891-152">Add a public class named `Product`.</span></span>
+<span data-ttu-id="4ede3-152">という名前のパブリック クラスを追加`Product`します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-152">Add a public class named `Product`.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample1.cs)]
 
-<span data-ttu-id="55891-153">という名前のパブリック クラスを追加`ProductsController`します。</span><span class="sxs-lookup"><span data-stu-id="55891-153">Add a public class named `ProductsController`.</span></span> <span data-ttu-id="55891-154">このクラスから派生**System.Web.Http.ApiController**します。</span><span class="sxs-lookup"><span data-stu-id="55891-154">Derive this class from **System.Web.Http.ApiController**.</span></span>
+<span data-ttu-id="4ede3-153">という名前のパブリック クラスを追加`ProductsController`します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-153">Add a public class named `ProductsController`.</span></span> <span data-ttu-id="4ede3-154">このクラスから派生**System.Web.Http.ApiController**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-154">Derive this class from **System.Web.Http.ApiController**.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample2.cs)]
 
-<span data-ttu-id="55891-155">このコント ローラー コードの詳細については、次を参照してください。、 [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアル。</span><span class="sxs-lookup"><span data-stu-id="55891-155">For more information about the code in this controller, see the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span> <span data-ttu-id="55891-156">このコント ローラーには、次の 3 つの GET 操作を定義します。</span><span class="sxs-lookup"><span data-stu-id="55891-156">This controller defines three GET actions:</span></span>
+<span data-ttu-id="4ede3-155">このコント ローラー コードの詳細については、次を参照してください。、 [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)チュートリアル。</span><span class="sxs-lookup"><span data-stu-id="4ede3-155">For more information about the code in this controller, see the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span> <span data-ttu-id="4ede3-156">このコント ローラーには、次の 3 つの GET 操作を定義します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-156">This controller defines three GET actions:</span></span>
 
-| <span data-ttu-id="55891-157">URI</span><span class="sxs-lookup"><span data-stu-id="55891-157">URI</span></span> | <span data-ttu-id="55891-158">説明</span><span class="sxs-lookup"><span data-stu-id="55891-158">Description</span></span> |
+| <span data-ttu-id="4ede3-157">URI</span><span class="sxs-lookup"><span data-stu-id="4ede3-157">URI</span></span> | <span data-ttu-id="4ede3-158">説明</span><span class="sxs-lookup"><span data-stu-id="4ede3-158">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="55891-159">/api/products</span><span class="sxs-lookup"><span data-stu-id="55891-159">/api/products</span></span> | <span data-ttu-id="55891-160">すべての製品の一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="55891-160">Get a list of all products.</span></span> |
-| <span data-ttu-id="55891-161">/api/products/*id*</span><span class="sxs-lookup"><span data-stu-id="55891-161">/api/products/*id*</span></span> | <span data-ttu-id="55891-162">ID によって製品を取得します。</span><span class="sxs-lookup"><span data-stu-id="55891-162">Get a product by ID.</span></span> |
-| <span data-ttu-id="55891-163">/api/products/?category=*category*</span><span class="sxs-lookup"><span data-stu-id="55891-163">/api/products/?category=*category*</span></span> | <span data-ttu-id="55891-164">カテゴリ別、製品の一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="55891-164">Get a list of products by category.</span></span> |
+| <span data-ttu-id="4ede3-159">/api/products</span><span class="sxs-lookup"><span data-stu-id="4ede3-159">/api/products</span></span> | <span data-ttu-id="4ede3-160">すべての製品の一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-160">Get a list of all products.</span></span> |
+| <span data-ttu-id="4ede3-161">/api/products/*id*</span><span class="sxs-lookup"><span data-stu-id="4ede3-161">/api/products/*id*</span></span> | <span data-ttu-id="4ede3-162">ID によって製品を取得します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-162">Get a product by ID.</span></span> |
+| <span data-ttu-id="4ede3-163">/api/products/?category=*category*</span><span class="sxs-lookup"><span data-stu-id="4ede3-163">/api/products/?category=*category*</span></span> | <span data-ttu-id="4ede3-164">カテゴリ別、製品の一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-164">Get a list of products by category.</span></span> |
 
-## <a name="host-the-web-api"></a><span data-ttu-id="55891-165">Web API をホストします。</span><span class="sxs-lookup"><span data-stu-id="55891-165">Host the Web API</span></span>
+## <a name="host-the-web-api"></a><span data-ttu-id="4ede3-165">Web API をホストします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-165">Host the Web API</span></span>
 
-<span data-ttu-id="55891-166">Program.cs ファイルを開き、次を追加するステートメントを使用します。</span><span class="sxs-lookup"><span data-stu-id="55891-166">Open the file Program.cs and add the following using statements:</span></span>
+<span data-ttu-id="4ede3-166">Program.cs ファイルを開き、次を追加するステートメントを使用します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-166">Open the file Program.cs and add the following using statements:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample3.cs)]
 
-<span data-ttu-id="55891-167">次のコードを追加、**プログラム**クラス。</span><span class="sxs-lookup"><span data-stu-id="55891-167">Add the following code to the **Program** class.</span></span>
+<span data-ttu-id="4ede3-167">次のコードを追加、**プログラム**クラス。</span><span class="sxs-lookup"><span data-stu-id="4ede3-167">Add the following code to the **Program** class.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample4.cs)]
 
-## <a name="optional-add-an-http-url-namespace-reservation"></a><span data-ttu-id="55891-168">(省略可能)HTTP URL Namespace 予約を追加します。</span><span class="sxs-lookup"><span data-stu-id="55891-168">(Optional) Add an HTTP URL Namespace Reservation</span></span>
+## <a name="optional-add-an-http-url-namespace-reservation"></a><span data-ttu-id="4ede3-168">(省略可能)HTTP URL Namespace 予約を追加します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-168">(Optional) Add an HTTP URL Namespace Reservation</span></span>
 
-<span data-ttu-id="55891-169">このアプリケーションがリッスン`http://localhost:8080/`します。</span><span class="sxs-lookup"><span data-stu-id="55891-169">This application listens to `http://localhost:8080/`.</span></span> <span data-ttu-id="55891-170">既定では、特定の HTTP アドレスでリッスンしている管理者特権が必要です。</span><span class="sxs-lookup"><span data-stu-id="55891-170">By default, listening at a particular HTTP address requires administrator privileges.</span></span> <span data-ttu-id="55891-171">このチュートリアルを実行するときにそのため、エラーが発生この:"HTTP URL を登録できませんでした http://+:8080/" はこのエラーを回避するために 2 つの方法があります。</span><span class="sxs-lookup"><span data-stu-id="55891-171">When you run the tutorial, therefore, you may get this error: "HTTP could not register URL http://+:8080/" There are two ways to avoid this error:</span></span>
+<span data-ttu-id="4ede3-169">このアプリケーションがリッスン`http://localhost:8080/`します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-169">This application listens to `http://localhost:8080/`.</span></span> <span data-ttu-id="4ede3-170">既定では、特定の HTTP アドレスでリッスンしている管理者特権が必要です。</span><span class="sxs-lookup"><span data-stu-id="4ede3-170">By default, listening at a particular HTTP address requires administrator privileges.</span></span> <span data-ttu-id="4ede3-171">このチュートリアルを実行するときにそのため、エラーが発生この:"HTTP URL を登録できませんでした http://+:8080/" はこのエラーを回避するために 2 つの方法があります。</span><span class="sxs-lookup"><span data-stu-id="4ede3-171">When you run the tutorial, therefore, you may get this error: "HTTP could not register URL http://+:8080/" There are two ways to avoid this error:</span></span>
 
-- <span data-ttu-id="55891-172">Visual Studio を管理者として昇格されたアクセス許可を持つ実行または</span><span class="sxs-lookup"><span data-stu-id="55891-172">Run Visual Studio with elevated administrator permissions, or</span></span>
-- <span data-ttu-id="55891-173">Netsh.exe を使用して、URL を予約するアカウントのアクセス許可を与えます。</span><span class="sxs-lookup"><span data-stu-id="55891-173">Use Netsh.exe to give your account permissions to reserve the URL.</span></span>
+- <span data-ttu-id="4ede3-172">Visual Studio を管理者として昇格されたアクセス許可を持つ実行または</span><span class="sxs-lookup"><span data-stu-id="4ede3-172">Run Visual Studio with elevated administrator permissions, or</span></span>
+- <span data-ttu-id="4ede3-173">Netsh.exe を使用して、URL を予約するアカウントのアクセス許可を与えます。</span><span class="sxs-lookup"><span data-stu-id="4ede3-173">Use Netsh.exe to give your account permissions to reserve the URL.</span></span>
 
-<span data-ttu-id="55891-174">Netsh.exe を使用して、管理者特権でコマンド プロンプトを開きし、次のコマンド: 次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="55891-174">To use Netsh.exe, open a command prompt with administrator privileges and enter the following command:following command:</span></span>
+<span data-ttu-id="4ede3-174">Netsh.exe を使用して、管理者特権でコマンド プロンプトを開きし、次のコマンド: 次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-174">To use Netsh.exe, open a command prompt with administrator privileges and enter the following command:following command:</span></span>
 
 [!code-console[Main](self-host-a-web-api/samples/sample5.cmd)]
 
-<span data-ttu-id="55891-175">場所*machine \username など*は、ユーザー アカウントです。</span><span class="sxs-lookup"><span data-stu-id="55891-175">where *machine\username* is your user account.</span></span>
+<span data-ttu-id="4ede3-175">場所*machine \username など*は、ユーザー アカウントです。</span><span class="sxs-lookup"><span data-stu-id="4ede3-175">where *machine\username* is your user account.</span></span>
 
-<span data-ttu-id="55891-176">自己ホストを終了したら、必ず、予約を削除します。</span><span class="sxs-lookup"><span data-stu-id="55891-176">When you are finished self-hosting, be sure to delete the reservation:</span></span>
+<span data-ttu-id="4ede3-176">自己ホストを終了したら、必ず、予約を削除します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-176">When you are finished self-hosting, be sure to delete the reservation:</span></span>
 
 [!code-console[Main](self-host-a-web-api/samples/sample6.cmd)]
 
-## <a name="call-the-web-api-from-a-client-application-c"></a><span data-ttu-id="55891-177">クライアント アプリケーション (c#) から Web API の呼び出し</span><span class="sxs-lookup"><span data-stu-id="55891-177">Call the Web API from a Client Application (C#)</span></span>
+## <a name="call-the-web-api-from-a-client-application-c"></a><span data-ttu-id="4ede3-177">クライアント アプリケーション (c#) から Web API の呼び出し</span><span class="sxs-lookup"><span data-stu-id="4ede3-177">Call the Web API from a Client Application (C#)</span></span>
 
-<span data-ttu-id="55891-178">Web API を呼び出す単純なコンソール アプリケーションを記述してみましょう。</span><span class="sxs-lookup"><span data-stu-id="55891-178">Let's write a simple console application that calls the web API.</span></span>
+<span data-ttu-id="4ede3-178">Web API を呼び出す単純なコンソール アプリケーションを記述してみましょう。</span><span class="sxs-lookup"><span data-stu-id="4ede3-178">Let's write a simple console application that calls the web API.</span></span>
 
-<span data-ttu-id="55891-179">新しいコンソール アプリケーション プロジェクトをソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="55891-179">Add a new console application project to the solution:</span></span>
+<span data-ttu-id="4ede3-179">新しいコンソール アプリケーション プロジェクトをソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-179">Add a new console application project to the solution:</span></span>
 
-- <span data-ttu-id="55891-180">ソリューション エクスプ ローラーでソリューションを右クリックし、選択**新しいプロジェクトの追加**します。</span><span class="sxs-lookup"><span data-stu-id="55891-180">In Solution Explorer, right-click the solution and select **Add New Project**.</span></span>
-- <span data-ttu-id="55891-181">という名前の新しいコンソール アプリケーションを作成&quot;ClientApp&quot;します。</span><span class="sxs-lookup"><span data-stu-id="55891-181">Create a new console application named &quot;ClientApp&quot;.</span></span>
+- <span data-ttu-id="4ede3-180">ソリューション エクスプ ローラーでソリューションを右クリックし、選択**新しいプロジェクトの追加**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-180">In Solution Explorer, right-click the solution and select **Add New Project**.</span></span>
+- <span data-ttu-id="4ede3-181">という名前の新しいコンソール アプリケーションを作成&quot;ClientApp&quot;します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-181">Create a new console application named &quot;ClientApp&quot;.</span></span>
 
 ![](self-host-a-web-api/_static/image5.png)
 
-<span data-ttu-id="55891-182">ASP.NET Web API のコア ライブラリのパッケージを追加するには、NuGet パッケージ マネージャーを使用します。</span><span class="sxs-lookup"><span data-stu-id="55891-182">Use NuGet Package Manager to add the ASP.NET Web API Core Libraries package:</span></span>
+<span data-ttu-id="4ede3-182">ASP.NET Web API のコア ライブラリのパッケージを追加するには、NuGet パッケージ マネージャーを使用します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-182">Use NuGet Package Manager to add the ASP.NET Web API Core Libraries package:</span></span>
 
-- <span data-ttu-id="55891-183">[ツール] メニューで、次のように選択します。**ライブラリ パッケージ マネージャー**します。</span><span class="sxs-lookup"><span data-stu-id="55891-183">From the Tools menu, select **Library Package Manager**.</span></span>
-- <span data-ttu-id="55891-184">選択**ソリューションの NuGet パッケージを管理しています.**</span><span class="sxs-lookup"><span data-stu-id="55891-184">Select **Manage NuGet Packages for Solution...**</span></span>
-- <span data-ttu-id="55891-185">**NuGet パッケージの管理**ダイアログ ボックスで、**オンライン**します。</span><span class="sxs-lookup"><span data-stu-id="55891-185">In the **Manage NuGet Packages** dialog, select **Online**.</span></span>
-- <span data-ttu-id="55891-186">検索ボックスに「 &quot;Microsoft.AspNet.WebApi.Client&quot;します。</span><span class="sxs-lookup"><span data-stu-id="55891-186">In the search box, type &quot;Microsoft.AspNet.WebApi.Client&quot;.</span></span>
-- <span data-ttu-id="55891-187">Microsoft ASP.NET Web API クライアント ライブラリのパッケージを選択し、クリックして**インストール**します。</span><span class="sxs-lookup"><span data-stu-id="55891-187">Select the Microsoft ASP.NET Web API Client Libraries package and click **Install**.</span></span>
+- <span data-ttu-id="4ede3-183">[ツール] メニューで、次のように選択します。**ライブラリ パッケージ マネージャー**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-183">From the Tools menu, select **Library Package Manager**.</span></span>
+- <span data-ttu-id="4ede3-184">選択**ソリューションの NuGet パッケージを管理しています.**</span><span class="sxs-lookup"><span data-stu-id="4ede3-184">Select **Manage NuGet Packages for Solution...**</span></span>
+- <span data-ttu-id="4ede3-185">**NuGet パッケージの管理**ダイアログ ボックスで、**オンライン**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-185">In the **Manage NuGet Packages** dialog, select **Online**.</span></span>
+- <span data-ttu-id="4ede3-186">検索ボックスに「 &quot;Microsoft.AspNet.WebApi.Client&quot;します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-186">In the search box, type &quot;Microsoft.AspNet.WebApi.Client&quot;.</span></span>
+- <span data-ttu-id="4ede3-187">Microsoft ASP.NET Web API クライアント ライブラリのパッケージを選択し、クリックして**インストール**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-187">Select the Microsoft ASP.NET Web API Client Libraries package and click **Install**.</span></span>
 
-<span data-ttu-id="55891-188">ClientApp で自己ホスト型プロジェクトへの参照を追加します。</span><span class="sxs-lookup"><span data-stu-id="55891-188">Add a reference in ClientApp to the SelfHost project:</span></span>
+<span data-ttu-id="4ede3-188">ClientApp で自己ホスト型プロジェクトへの参照を追加します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-188">Add a reference in ClientApp to the SelfHost project:</span></span>
 
-- <span data-ttu-id="55891-189">ソリューション エクスプ ローラーで、ClientApp プロジェクトを右クリックします。</span><span class="sxs-lookup"><span data-stu-id="55891-189">In Solution Explorer, right-click the ClientApp project.</span></span>
-- <span data-ttu-id="55891-190">**[参照の追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="55891-190">Select **Add Reference**.</span></span>
-- <span data-ttu-id="55891-191">**参照マネージャー**ダイアログで、**ソリューション**を選択します**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="55891-191">In the **Reference Manager** dialog, under **Solution**, select **Projects**.</span></span>
-- <span data-ttu-id="55891-192">自己ホスト型プロジェクトを選択します。</span><span class="sxs-lookup"><span data-stu-id="55891-192">Select the SelfHost project.</span></span>
-- <span data-ttu-id="55891-193">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="55891-193">Click **OK**.</span></span>
+- <span data-ttu-id="4ede3-189">ソリューション エクスプ ローラーで、ClientApp プロジェクトを右クリックします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-189">In Solution Explorer, right-click the ClientApp project.</span></span>
+- <span data-ttu-id="4ede3-190">**[参照の追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-190">Select **Add Reference**.</span></span>
+- <span data-ttu-id="4ede3-191">**参照マネージャー**ダイアログで、**ソリューション**を選択します**プロジェクト**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-191">In the **Reference Manager** dialog, under **Solution**, select **Projects**.</span></span>
+- <span data-ttu-id="4ede3-192">自己ホスト型プロジェクトを選択します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-192">Select the SelfHost project.</span></span>
+- <span data-ttu-id="4ede3-193">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-193">Click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image6.png)
 
-<span data-ttu-id="55891-194">Client/Program.cs ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="55891-194">Open the Client/Program.cs file.</span></span> <span data-ttu-id="55891-195">次の追加**を使用して**ステートメント。</span><span class="sxs-lookup"><span data-stu-id="55891-195">Add the following **using** statement:</span></span>
+<span data-ttu-id="4ede3-194">Client/Program.cs ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="4ede3-194">Open the Client/Program.cs file.</span></span> <span data-ttu-id="4ede3-195">次の追加**を使用して**ステートメント。</span><span class="sxs-lookup"><span data-stu-id="4ede3-195">Add the following **using** statement:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample7.cs)]
 
-<span data-ttu-id="55891-196">追加の静的な**HttpClient**インスタンス。</span><span class="sxs-lookup"><span data-stu-id="55891-196">Add a static **HttpClient** instance:</span></span>
+<span data-ttu-id="4ede3-196">追加の静的な**HttpClient**インスタンス。</span><span class="sxs-lookup"><span data-stu-id="4ede3-196">Add a static **HttpClient** instance:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample8.cs)]
 
-<span data-ttu-id="55891-197">カテゴリ別一覧、製品 ID を使用して、すべての製品と製品の一覧を一覧表示する次のメソッドを追加します。</span><span class="sxs-lookup"><span data-stu-id="55891-197">Add the following methods to list all products, list a product by ID, and list products by category.</span></span>
+<span data-ttu-id="4ede3-197">カテゴリ別一覧、製品 ID を使用して、すべての製品と製品の一覧を一覧表示する次のメソッドを追加します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-197">Add the following methods to list all products, list a product by ID, and list products by category.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample9.cs)]
 
-<span data-ttu-id="55891-198">これらの各メソッドには、同じパターンがとおりです。</span><span class="sxs-lookup"><span data-stu-id="55891-198">Each of these methods follows the same pattern:</span></span>
+<span data-ttu-id="4ede3-198">これらの各メソッドには、同じパターンがとおりです。</span><span class="sxs-lookup"><span data-stu-id="4ede3-198">Each of these methods follows the same pattern:</span></span>
 
-1. <span data-ttu-id="55891-199">呼び出す**HttpClient.GetAsync**適切な URI に GET 要求を送信します。</span><span class="sxs-lookup"><span data-stu-id="55891-199">Call **HttpClient.GetAsync** to send a GET request to the appropriate URI.</span></span>
-2. <span data-ttu-id="55891-200">呼び出す**HttpResponseMessage.EnsureSuccessStatusCode**します。</span><span class="sxs-lookup"><span data-stu-id="55891-200">Call **HttpResponseMessage.EnsureSuccessStatusCode**.</span></span> <span data-ttu-id="55891-201">このメソッドは、HTTP 応答の状態がエラー コードの場合、例外をスローします。</span><span class="sxs-lookup"><span data-stu-id="55891-201">This method throws an exception if the HTTP response status is an error code.</span></span>
-3. <span data-ttu-id="55891-202">呼び出す**ReadAsAsync&lt;T&gt;** を HTTP 応答から CLR 型を逆シリアル化します。</span><span class="sxs-lookup"><span data-stu-id="55891-202">Call **ReadAsAsync&lt;T&gt;** to deserialize a CLR type from the HTTP response.</span></span> <span data-ttu-id="55891-203">このメソッドで定義されている、拡張メソッドは、 **System.Net.Http.HttpContentExtensions**します。</span><span class="sxs-lookup"><span data-stu-id="55891-203">This method is an extension method, defined in **System.Net.Http.HttpContentExtensions**.</span></span>
+1. <span data-ttu-id="4ede3-199">呼び出す**HttpClient.GetAsync**適切な URI に GET 要求を送信します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-199">Call **HttpClient.GetAsync** to send a GET request to the appropriate URI.</span></span>
+2. <span data-ttu-id="4ede3-200">呼び出す**HttpResponseMessage.EnsureSuccessStatusCode**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-200">Call **HttpResponseMessage.EnsureSuccessStatusCode**.</span></span> <span data-ttu-id="4ede3-201">このメソッドは、HTTP 応答の状態がエラー コードの場合、例外をスローします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-201">This method throws an exception if the HTTP response status is an error code.</span></span>
+3. <span data-ttu-id="4ede3-202">呼び出す**ReadAsAsync&lt;T&gt;** を HTTP 応答から CLR 型を逆シリアル化します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-202">Call **ReadAsAsync&lt;T&gt;** to deserialize a CLR type from the HTTP response.</span></span> <span data-ttu-id="4ede3-203">このメソッドで定義されている、拡張メソッドは、 **System.Net.Http.HttpContentExtensions**します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-203">This method is an extension method, defined in **System.Net.Http.HttpContentExtensions**.</span></span>
 
-<span data-ttu-id="55891-204">**GetAsync**と**ReadAsAsync**メソッドは、非同期のどちらもします。</span><span class="sxs-lookup"><span data-stu-id="55891-204">The **GetAsync** and **ReadAsAsync** methods are both asynchronous.</span></span> <span data-ttu-id="55891-205">返される**タスク**非同期操作を表すオブジェクト。</span><span class="sxs-lookup"><span data-stu-id="55891-205">They return **Task** objects that represent the asynchronous operation.</span></span> <span data-ttu-id="55891-206">取得、**結果**プロパティは、操作が完了するまでスレッドをブロックします。</span><span class="sxs-lookup"><span data-stu-id="55891-206">Getting the **Result** property blocks the thread until the operation completes.</span></span>
+<span data-ttu-id="4ede3-204">**GetAsync**と**ReadAsAsync**メソッドは、非同期のどちらもします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-204">The **GetAsync** and **ReadAsAsync** methods are both asynchronous.</span></span> <span data-ttu-id="4ede3-205">返される**タスク**非同期操作を表すオブジェクト。</span><span class="sxs-lookup"><span data-stu-id="4ede3-205">They return **Task** objects that represent the asynchronous operation.</span></span> <span data-ttu-id="4ede3-206">取得、**結果**プロパティは、操作が完了するまでスレッドをブロックします。</span><span class="sxs-lookup"><span data-stu-id="4ede3-206">Getting the **Result** property blocks the thread until the operation completes.</span></span>
 
-<span data-ttu-id="55891-207">非ブロッキング呼び出しを実行する方法など、HttpClient を使用しての詳細については、次を参照してください。 [Web API から、.NET クライアントを呼び出す](../advanced/calling-a-web-api-from-a-net-client.md)します。</span><span class="sxs-lookup"><span data-stu-id="55891-207">For more information about using HttpClient, including how to make non-blocking calls, see [Calling a Web API From a .NET Client](../advanced/calling-a-web-api-from-a-net-client.md).</span></span>
+<span data-ttu-id="4ede3-207">非ブロッキング呼び出しを実行する方法など、HttpClient を使用しての詳細については、次を参照してください。 [Web API から、.NET クライアントを呼び出す](../advanced/calling-a-web-api-from-a-net-client.md)します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-207">For more information about using HttpClient, including how to make non-blocking calls, see [Calling a Web API From a .NET Client](../advanced/calling-a-web-api-from-a-net-client.md).</span></span>
 
-<span data-ttu-id="55891-208">これらのメソッドを呼び出す前に BaseAddress プロパティを設定する HttpClient インスタンス"`http://localhost:8080`"。</span><span class="sxs-lookup"><span data-stu-id="55891-208">Before calling these methods, set the BaseAddress property on the HttpClient instance to "`http://localhost:8080`".</span></span> <span data-ttu-id="55891-209">例えば:</span><span class="sxs-lookup"><span data-stu-id="55891-209">For example:</span></span>
+<span data-ttu-id="4ede3-208">これらのメソッドを呼び出す前に BaseAddress プロパティを設定する HttpClient インスタンス"`http://localhost:8080`"。</span><span class="sxs-lookup"><span data-stu-id="4ede3-208">Before calling these methods, set the BaseAddress property on the HttpClient instance to "`http://localhost:8080`".</span></span> <span data-ttu-id="4ede3-209">例えば:</span><span class="sxs-lookup"><span data-stu-id="4ede3-209">For example:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample10.cs)]
 
-<span data-ttu-id="55891-210">これは、次を出力します。</span><span class="sxs-lookup"><span data-stu-id="55891-210">This should output the following.</span></span> <span data-ttu-id="55891-211">(自己ホスト型アプリケーションを最初に実行してください。)</span><span class="sxs-lookup"><span data-stu-id="55891-211">(Remember to run the SelfHost application first.)</span></span>
+<span data-ttu-id="4ede3-210">これは、次を出力します。</span><span class="sxs-lookup"><span data-stu-id="4ede3-210">This should output the following.</span></span> <span data-ttu-id="4ede3-211">(自己ホスト型アプリケーションを最初に実行してください。)</span><span class="sxs-lookup"><span data-stu-id="4ede3-211">(Remember to run the SelfHost application first.)</span></span>
 
 [!code-console[Main](self-host-a-web-api/samples/sample11.cmd)]
 
