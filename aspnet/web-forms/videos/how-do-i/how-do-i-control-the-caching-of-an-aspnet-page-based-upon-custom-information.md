@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-ba
 title: '[How Do i:]コントロールのカスタム情報に基づいて ASP.NET ページのキャッシュ |Microsoft Docs'
 author: rick-anderson
 description: このビデオの Chris Pels では、カスタム情報に基づいて ASP.NET ページをキャッシュするための条件を制御する方法を示します。 サンプル ページの作成と O. し.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/19/2009
 ms.assetid: f230c316-1313-4b8f-967c-62f9684fe378
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
 msc.type: video
-ms.openlocfilehash: d069b7798d3659e9f6786fb8d63862817fbdd68b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a9ed2baad3460441bc57d97bf74f6de5977db0c9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808695"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832338"
 ---
 <a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[How Do i:]コントロールのカスタム情報に基づいて ASP.NET ページのキャッシュ
 ====================

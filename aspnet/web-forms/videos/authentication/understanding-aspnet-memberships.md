@@ -3,17 +3,17 @@ uid: web-forms/videos/authentication/understanding-aspnet-memberships
 title: ASP.NET メンバーシップについて理解 |Microsoft Docs
 author: JoeStagner
 description: このビデオでは、Joe Stagner はメンバーシップ用の ASP.NET 開発者が利用できる組み込みプロバイダーの操作で検索します。 詳細については、今月は.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/04/2008
 ms.assetid: bccd102b-67d5-4c66-833d-6b5f6f51ca55
 msc.legacyurl: /web-forms/videos/authentication/understanding-aspnet-memberships
 msc.type: video
-ms.openlocfilehash: 373a1c52ac2784ed7a4bab31c0b019a5eae26f5c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 42ad83dfc33484e9475b8d2013bbb3b047d62faa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815279"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832132"
 ---
 <a name="understanding-aspnet-memberships"></a>ASP.NET メンバーシップについて理解
 ====================

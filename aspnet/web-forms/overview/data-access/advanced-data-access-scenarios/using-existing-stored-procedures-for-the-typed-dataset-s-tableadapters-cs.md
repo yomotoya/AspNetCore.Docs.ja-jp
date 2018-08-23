@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/using-existin
 title: 型指定された DataSet の TableAdapters (c#) のストアド プロシージャを既存の使用 |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアルでは、TableAdapter ウィザードを使用して、新しいストアド プロシージャを生成する方法について説明しました。 このチュートリアルで説明する方法と同じ TableAdapter.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: 440bef2a-1641-4238-99e3-8e2d44e7d94c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3057b7c296c82b3db740d9fd345aaa222ca31328
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: df095a7eeac0910078cfa206ed1ba7be9a1334d2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828871"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834762"
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>型指定された DataSet の TableAdapters (c#) のストアド プロシージャを既存の使用
 ====================

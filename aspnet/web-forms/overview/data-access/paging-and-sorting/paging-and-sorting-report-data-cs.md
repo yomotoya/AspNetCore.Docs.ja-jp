@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report
 title: レポート データ (c#) のページングと並べ替え |Microsoft Docs
 author: rick-anderson
 description: ページングと並べ替えは、2 つの非常に一般的な機能は、オンライン アプリケーションでデータを表示する場合です。 このチュートリアルで見ていきますを最初に、並べ替えの追加としています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 811a6ef2-ec66-4c8e-a089-6f795056e288
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 741404bda11fd1d5776a7493b95ffe5d0c61fce2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5ebef919deeda409cfa6805b603f67ef96ff003e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819346"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831935"
 ---
 <a name="paging-and-sorting-report-data-c"></a>レポート データ (c#) のページングと並べ替え
 ====================

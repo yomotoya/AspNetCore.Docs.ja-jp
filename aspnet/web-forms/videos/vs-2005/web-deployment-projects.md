@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/web-deployment-projects
 title: Web 配置プロジェクト |Microsoft Docs
 author: BradleyBartz
 description: Bradley Bartz および Richard Ersek の Web 展開プロジェクトがビルドするための追加の機能を提供する方法が表示され、展開の web サイト アプリケーションを作成しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/21/2006
 ms.assetid: eca1b75a-2f32-4004-842e-aa555175a3ea
 msc.legacyurl: /web-forms/videos/vs-2005/web-deployment-projects
 msc.type: video
-ms.openlocfilehash: b0b5174e5f07e16cea30d743f0e7d8eac5892159
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 43eef4475ccd6f5d2b2222116e538b15fcc522ab
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842206"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834319"
 ---
 <a name="web-deployment-projects"></a>Web Deployment Projects
 ====================

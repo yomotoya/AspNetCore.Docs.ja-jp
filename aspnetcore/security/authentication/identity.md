@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Id を使用します。 パスワ�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 6a23dd4ad78c0695b5724a78204abf6752dfe67d
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: fd5fa2fd1e069bf10f3baea38b1fe9f951dc4a7d
+ms.sourcegitcommit: fd461c60b5e36c7019f81da0138cc859d0fddaa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655311"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41834307"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core Identity の概要
 
@@ -98,7 +98,7 @@ dotnet new webapp --auth Individual -o WebApp1
 
 ## <a name="scaffold-register-login-and-logout"></a>登録、ログイン、およびログアウトをスキャフォールディングします。
 
-に従って、[の id の権限を持つ Razor プロジェクトにスキャフォールディング](xref:security/authentication/scaffold-identity#)指示します。
+に従って、[の id の権限を持つ Razor プロジェクトにスキャフォールディング](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization)指示します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

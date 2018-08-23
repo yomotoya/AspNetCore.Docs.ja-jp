@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-add-aspnet-ajax-features-to-an-existi
 title: '[How Do i:]既存の Web アプリケーションを ASP.NET AJAX の機能を追加しますか。 | Microsoft Docs'
 author: JoeStagner
 description: 既存の ASP.NET アプリケーションを Microsoft ASP.NET AJAX 機能を追加する簡単にする方法について説明します。 このビデオでは、機能を変更する必要はありません.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2007
 ms.assetid: 5ef4c879-aa90-4492-859b-d4568b87bab3
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-add-aspnet-ajax-features-to-an-existing-web-application
 msc.type: video
-ms.openlocfilehash: fbdbdae576944e24f2effb42f7e9c1200de6c31c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fde32e7eeca665bbe9f127a76e8883271bb63d47
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814782"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833935"
 ---
 <a name="how-do-i-add-aspnet-ajax-features-to-an-existing-web-application"></a>[How Do i:]既存の Web アプリケーションを ASP.NET AJAX の機能を追加しますか。
 ====================

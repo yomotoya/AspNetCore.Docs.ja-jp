@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 title: ASP.NET Web Pages の概要 - 一貫性のあるレイアウトを作成する |Microsoft Docs
 author: tfitzmac
 description: このチュートリアルでは、レイアウトを使用して ASP.NET Web Pages を使用しているサイトで、ページの一貫性のある外観を作成する方法を示します。 完了したと想定して、.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 5641b65ab1053ccc039a94f7a591185ff00ff1c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8f3d9e8a6f6a0179224e18faf11db3dc1510a095
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806551"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831886"
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web ページの概要 - 一貫性のあるレイアウトを作成します。
 ====================

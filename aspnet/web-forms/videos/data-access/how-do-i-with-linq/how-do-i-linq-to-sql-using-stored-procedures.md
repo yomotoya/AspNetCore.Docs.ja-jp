@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-
 title: '[How Do i:]LINQ to SQL: ストアド プロシージャの使用 |Microsoft Docs'
 author: scottstanfield
 description: 既存のストアド プロシージャと関数を使用することは LINQ では簡単です。 単にストアド プロシージャを O/R マッピング画面にドラッグし、ge から呼び出すこと.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/10/2008
 ms.assetid: b1abfcaa-3b7d-42b9-be11-38904910ece0
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: 69278d90e218f6a3a076cfca84dcbec7fd85c7e8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5acda503cbdaa6f4e05fddc374745f26a9fb5a6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801958"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832138"
 ---
 <a name="how-do-i-linq-to-sql-using-stored-procedures"></a>[How Do i:]LINQ to SQL: ストアド プロシージャの使用
 ====================

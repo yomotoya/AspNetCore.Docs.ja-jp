@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-de
 title: 提供の CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポート |Microsoft Docs
 author: microsoft
 description: 手順 5 では、編集、作成、およびられて Dinners を削除すると、同様のサポートを有効にして、DinnersController クラスをさらにする方法を示します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: bfb8446ec8b39ad6fc88a0d5b747f0cec33bbd25
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 45d74249a34fc7e37e9776a398615d2f613a7582
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817637"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833556"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>提供の CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポート
 ====================
@@ -184,7 +184,7 @@ ASP.NET MVC には、エラー処理とフォームの再表示を簡単に構�
 
 このアプリケーションでは、適切なエラー エクスペリエンスがあります。 入力に無効なテキスト要素が赤で強調表示し、それらについてエンドユーザーに検証エラー メッセージが表示されます。 フォームも保持しているユーザーの元の入力: 入力データを何も再設定があるないようにします。
 
-方法については、疑問に思うかもしれませんがこれが発生するでしょうか。 方法でした、タイトル、EventDate、および ContactPhone のテキスト ボックス自体を赤で強調表示し、最初に入力したユーザーの値を出力するでしょうか。 方法がエラー メッセージを取得一覧に表示、上部にあるでしょうか。 これで、ViewData とビューモデル クラスを使用できます、フォームでより豊富な UI を有効にする方法を見てみましょう。
+方法については、疑問に思うかもしれませんがこれが発生するでしょうか。 方法でした、タイトル、EventDate、および ContactPhone のテキスト ボックス自体を赤で強調表示し、最初に入力したユーザーの値を出力するでしょうか。 方法がエラー メッセージを取得一覧に表示、上部にあるでしょうか。 良い知らせは、あるマジックでこれが発生しなかったがいくつかの組み込みの ASP.NET MVC 機能を簡単にする入力の検証とエラー処理シナリオを使用しているためではなくです。
 
 #### <a name="understanding-modelstate-and-the-validation-html-helper-methods"></a>ModelState の理解と検証の HTML ヘルパー メソッド
 

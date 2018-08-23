@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-da
 title: データベース プロジェクトの配置 |Microsoft Docs
 author: jrjlee
 description: '注: エンタープライズ展開シナリオの多くは、する必要が配置されたデータベースに増分更新を発行する機能。 代わりでは、再作成しています.'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 1e5af29a91f5f432f9241dc3ba0c8fc0bfcf773f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 43fa197a1d5a3cf521f4d2202754ff0d121cebe3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804984"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833524"
 ---
 <a name="deploying-database-projects"></a>データベース プロジェクトの配置
 ====================
@@ -69,9 +69,9 @@ Contact Manager サンプル ソリューションを開くには、Visual Studi
 
 |  | Visual Studio 2010 | Web 配置 2.0 | VSDBCMD.exe |
 | --- | --- | --- | --- |
-| リモート展開をサポートしますか。 | [はい] | はい | [はい] |
-| 増分更新をサポートしていますか。 | [はい] | いいえ | [はい] |
-| 前/配置スクリプトをサポートしていますか。 | [はい] | はい | [はい] |
+| リモート展開をサポートしますか。 | [はい] | [はい] | [はい] |
+| 増分更新をサポートしていますか。 | [はい] | × | [はい] |
+| 前/配置スクリプトをサポートしていますか。 | [はい] | [はい] | [はい] |
 | マルチ環境の展開をサポートしていますか。 | 制限 | 制限 | [はい] |
 | スクリプト化されたデプロイをサポートしていますか。 | 制限 | [はい] | [はい] |
 

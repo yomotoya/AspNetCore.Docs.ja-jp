@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
 title: Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要 |Microsoft Docs
 author: tfitzmac
 description: この付録概要 ASP.NET Web ページを使用したプログラミングの Visual basic で Razor 構文を使用します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 72f995e62141df4e8f4cd082b4873d82067af8c1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cbec035533c37723afcd5bf4aa0c6e1c83dbae23
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816549"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833549"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -273,30 +273,88 @@ ASP.NET は、データ型を自動的に決定することができます、通
 次の表では、変数の一般的ないくつかの変換とテスト方法を示します。
 
 
-行:: 列:<strong>メソッド</strong>: 列エンド:: 列:<strong>説明</strong>: 列エンド:: 列:<strong>例</strong>: 列終了:: 行の終わり。
+:::row:::
+    :::column:::
+        <strong>メソッド</strong>
+    :::column-end:::
+    :::column:::
+        <strong>説明</strong>
+    :::column-end:::
+    :::column:::
+        <strong>例</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsInt(), IsInt()` : 列エンドツー エンド:: 列: 整数を表す文字列に変換します (など&quot;593&quot;) 整数にします。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsInt(), IsInt()`
+    :::column-end:::
+    :::column:::
+        整数を表す文字列に変換します (など&quot;593&quot;) 整数にします。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsBool(), IsBool()` : 列エンド:: 列: のような文字列に変換します&quot;true&quot;または&quot;false&quot;ブール型にします。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsBool(), IsBool()`
+    :::column-end:::
+    :::column:::
+        などの文字列に変換します&quot;true&quot;または&quot;false&quot;ブール型にします。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsFloat(), IsFloat()` : 列エンド:: 列: のような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsFloat(), IsFloat()`
+    :::column-end:::
+    :::column:::
+        ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsDecimal(), IsDecimal()` : 列エンド:: 列: のような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot; 10 進数。 (ASP.NET では、10 進数、浮動小数点数よりも正確)。列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsDecimal(), IsDecimal()`
+    :::column-end:::
+    :::column:::
+        ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot; 10 進数。 (ASP.NET では、10 進数、浮動小数点数よりも正確)。 :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsDateTime(), IsDateTime()` : 列エンド:: 列: asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsDateTime(), IsDateTime()`
+    :::column-end:::
+    :::column:::
+        Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `ToString()` : 列エンド:: 列: その他の任意のデータ型を文字列に変換します。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `ToString()`
+    :::column-end:::
+    :::column:::
+        その他の任意のデータ型を文字列に変換します。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
+    :::column-end:::
+:::row-end:::
 
 
 ## <a name="operators"></a>演算子
@@ -304,47 +362,137 @@ ASP.NET は、データ型を自動的に決定することができます、通
 演算子は、キーワードまたは式の中で実行するコマンドの種類を ASP.NET に指示する文字です。 Visual Basic は、多くの演算子をサポートしていますが、ASP.NET web ページの開発を開始するいくつかを認識するだけで済みます。 次の表では、最も一般的な演算子をまとめたものです。
 
 
-行:: 列:<strong>演算子</strong>: 列エンド:: 列:<strong>説明</strong>: 列エンド:: 列:<strong>例</strong>: 列エンド:: 行の終わり。
+:::row:::
+    :::column:::
+        <strong>Operator</strong>
+    :::column-end:::
+    :::column:::
+        <strong>説明</strong>
+    :::column-end:::
+    :::column:::
+        <strong>例</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `+ - * /` : 列エンド:: 列: 算術演算子が数値式で使用します。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `+ - * /`
+    :::column-end:::
+    :::column:::
+        算術演算子が数値式で使用します。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `=` : 列エンド:: 列: の割り当てと等しいかどうか。 、コンテキストに応じてはいずれか、左側にあるオブジェクトにステートメントの右側にある値を割り当てるか、値の等価性を確認します。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `=`
+    :::column-end:::
+    :::column:::
+        割り当てと等しいかどうか。 、コンテキストに応じてはいずれか、左側にあるオブジェクトにステートメントの右側にある値を割り当てるか、値の等価性を確認します。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `<>` : 列エンド:: 列: 非等値。 返します`True`値が等しくない場合。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `<>`
+    :::column-end:::
+    :::column:::
+        非等値。 返します`True`値が等しくない場合。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `< > <= >=` : 列エンド:: 列: よりも小さい、多い、少ないよりまたは等しいかとより大きいまたは等しい。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `< > <= >=`
+    :::column-end:::
+    :::column:::
+        未満の場合、多い、少ないよりまたは等しいかと以上。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `&` : 列エンド:: 列: 連結、文字列を結合するために使用します。
-列エンド:: 列。 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `&`
+    :::column-end:::
+    :::column:::
+        連結、文字列を結合するために使用します。
+    :::column-end:::
+    :::column:::
+        [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `+= -=` : 列エンド:: 列: インクリメントおよびデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `+= -=`
+    :::column-end:::
+    :::column:::
+        インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `.` : 列エンド:: 列: ドットです。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `.`
+    :::column-end:::
+    :::column:::
+        ドットです。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `()` : 列エンド:: 列: かっこです。 グループ式の場合に使用すると、メソッド、および配列とコレクションのメンバーにアクセスする、パラメーターを渡します。
-列エンド:: 列。 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `()`
+    :::column-end:::
+    :::column:::
+        かっこです。 グループ式の場合に使用すると、メソッド、および配列とコレクションのメンバーにアクセスする、パラメーターを渡します。
+    :::column-end:::
+    :::column:::
+        [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `Not` : 列エンド:: 列: ありません。 False、またはその逆は真の値を反転させます。 通常のテストを簡略化として使用される`False`(には、いない`True`)。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `Not`
+    :::column-end:::
+    :::column:::
+        じゃない。 False、またはその逆は真の値を反転させます。 通常のテストを簡略化として使用される`False`(には、いない`True`)。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AndAlso OrElse` : 列エンド:: 列: 論理およびまたはと、条件をまとめてリンクに使用されます。
-列エンド:: 列。 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AndAlso OrElse`
+    :::column-end:::
+    :::column:::
+        論理 AND またはと、条件をまとめてリンクに使用されます。
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>ファイルとコード内のフォルダー パスを使用します。
 

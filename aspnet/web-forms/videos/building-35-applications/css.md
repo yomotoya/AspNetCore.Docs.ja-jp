@@ -3,17 +3,17 @@ uid: web-forms/videos/building-35-applications/css
 title: CSS |Microsoft Docs
 author: JoeStagner
 description: カスケード スタイル シートは、最新の web 開発に不可欠な Visual Web Developer 2008 には、強力な CSS の構築に役立つ機能のコレクションが含まれています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/30/2009
 ms.assetid: 50a55e3b-3f5c-429b-baf9-730221e9ef4c
 msc.legacyurl: /web-forms/videos/building-35-applications/css
 msc.type: video
-ms.openlocfilehash: 48054d646e58c09452660067ffd52133fb011976
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f11d3a72db7adc376cf1213eba1f1a820471305f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833982"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831934"
 ---
 <a name="css"></a>CSS
 ====================

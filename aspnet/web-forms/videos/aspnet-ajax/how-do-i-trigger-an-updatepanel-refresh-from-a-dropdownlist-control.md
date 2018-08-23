@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-trigger-an-updatepanel-refresh-from-a
 title: '[How Do i:]DropDownList コントロールから UpdatePanel のリフレッシュをトリガーしますか。 | Microsoft Docs'
 author: JoeStagner
 description: ほとんどの ASP.NET AJAX UpdatePanel で、ビデオを使用してボタン コントロールを UpdatePanel にそのコンテンツの更新が発生します。 まだどのイベントを使用すること.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/22/2007
 ms.assetid: e90defdb-b6b1-4f38-8f6a-7adccbb426ef
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-trigger-an-updatepanel-refresh-from-a-dropdownlist-control
 msc.type: video
-ms.openlocfilehash: 832af51b42312cde51f99fb81943103b525fcfab
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 21dedc5a8d934e9284cf13b2075dbff637a130de
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834836"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832332"
 ---
 <a name="how-do-i-trigger-an-updatepanel-refresh-from-a-dropdownlist-control"></a>[How Do i:]DropDownList コントロールから UpdatePanel のリフレッシュをトリガーしますか。
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 title: 'パート 8: ショッピング カートと Ajax 更新 |Microsoft Docs'
 author: jongalloway
 description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 8 では、ショッピング カートと Ajax 更新について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 881d47b5b4df5a4d310a1b3a7eec6ee97b0d42ea
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cab338e56505c453532a26d794eb7bf4e94555a9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823840"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832327"
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>パート 8: ショッピング カートと Ajax 更新
 ====================

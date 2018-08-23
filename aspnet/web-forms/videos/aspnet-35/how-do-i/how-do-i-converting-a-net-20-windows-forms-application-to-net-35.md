@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-converting-a-net-20-windows-fo
 title: '[How Do i:].NET 2.0 に変換する Windows フォーム アプリケーションを .NET 3.5 |Microsoft Docs'
 author: rick-anderson
 description: Visual Studio 2008 の新しいマルチ ターゲット機能を使用して、プロジェクトを .NET 2.0 から .NET 3.5 にアップグレードを示します。 このビデオでは実行が、.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/14/2008
 ms.assetid: 30274ca7-8dc8-41b2-b5b4-40881046079a
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-converting-a-net-20-windows-forms-application-to-net-35
 msc.type: video
-ms.openlocfilehash: 438ea1f177f8a17db965fed3165af1188e605456
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 93ddac1e0f905c93ce12ef06a4b22e99ac4bd37c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826985"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832115"
 ---
 <a name="how-do-i-converting-a-net-20-windows-forms-application-to-net-35"></a>[How Do i:].NET 3.5 を .NET 2.0 Windows フォーム アプリケーションへの変換
 ====================
