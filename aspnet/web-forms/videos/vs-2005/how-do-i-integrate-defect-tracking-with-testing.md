@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/how-do-i-integrate-defect-tracking-with-testing
 title: '[How Do i:]欠陥追跡とテストを統合しますか。 | Microsoft Docs'
 author: rick-anderson
 description: このビデオを見て、テスト フレームワークの Visual Studio Team System と作業項目追跡システムの間の統合ポイントを実行します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/12/2007
 ms.assetid: 83a849da-fe6c-483a-bc26-73e8a135830f
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-integrate-defect-tracking-with-testing
 msc.type: video
-ms.openlocfilehash: 35d8e956fd25a362c309d8e5e494d68b62429e0c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8e712c1224daede630f83f4754d785426fed1389
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835134"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837423"
 ---
 <a name="how-do-i-integrate-defect-tracking-with-testing"></a>[How Do i:]欠陥追跡とテストを統合しますか。
 ====================

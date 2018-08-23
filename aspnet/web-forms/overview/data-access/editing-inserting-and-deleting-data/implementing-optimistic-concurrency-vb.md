@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implemen
 title: オプティミスティック同時実行制御 (VB) を実装する |Microsoft Docs
 author: rick-anderson
 description: データを編集する複数のユーザーを許可する web アプリケーションの場合、2 人のユーザーは編集、同じデータと同時にリスクがあります。 この tutori にしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 2646968c-2826-4418-b1d0-62610ed177e3
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 63b5a274103851b4b60c92d5fe46125cc4a1b0be
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e33e4b401d957f4aa5560193dd8af0e53ca3b631
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832967"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838861"
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>オプティミスティック同時実行制御 (VB) を実装します。
 ====================

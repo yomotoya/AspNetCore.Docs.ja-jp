@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-password
 title: '[How Do i:]ASP.NET AJAX PasswordStrength エクステンダーを使用しますか。 | Microsoft Docs'
 author: JoeStagner
 description: PasswordStrength エクステンダー コントロールが、選択したパスワードの強度についてユーザーにイミディ エイト ウィンドウと動的なフィードバックを提供する方法について説明します。 フィードバック c.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/01/2007
 ms.assetid: 4acc8d48-845f-4451-8a83-0d6d935c4564
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-passwordstrength-extender
 msc.type: video
-ms.openlocfilehash: 639e7ef3d3a7547ca7e1bc4e6d7634540bc8d17d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 588a7b4c11e74c794d81e203cf4c252dc11f3370
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806963"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838381"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-passwordstrength-extender"></a>[How Do i:]ASP.NET AJAX PasswordStrength エクステンダーを使用しますか。
 ====================

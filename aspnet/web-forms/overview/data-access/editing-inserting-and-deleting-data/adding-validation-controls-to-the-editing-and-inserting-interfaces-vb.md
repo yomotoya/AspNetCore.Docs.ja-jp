@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-v
 title: 検証コントロールを追加、編集および挿入インターフェイス (VB) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、詳細を提供するには、後とデータ Web コントロールの後に検証コントロールを追加するがいかに簡単か見て.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9527cad45e506268a9d5f19a445cae939345540
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d06408717bdf5e7446597ae4330ffb32cf943e7f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839977"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837716"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>検証コントロールを追加、編集および挿入インターフェイス (VB)
 ====================

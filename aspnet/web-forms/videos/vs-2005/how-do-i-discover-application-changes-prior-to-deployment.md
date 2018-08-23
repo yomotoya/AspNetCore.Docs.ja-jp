@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-dep
 title: '[How Do i:]アプリケーションを展開する前に変更を検出しますか。 | Microsoft Docs'
 author: pjhacker
 description: Visual Studio Team System からソース管理エクスプ ローラーを使用して、Web アプリケーションと ensur に加えられた変更を検出する方法について説明してください.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/25/2007
 ms.assetid: 6945a637-cab3-4a13-a678-f6d2d83c2587
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-discover-application-changes-prior-to-deployment
 msc.type: video
-ms.openlocfilehash: f9310d618f5498eb8d2e0641ea9bd9ab100cb712
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c6870e33ba7707ca06633876c1f453576811ce7f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810986"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838963"
 ---
 <a name="how-do-i-discover-application-changes-prior-to-deployment"></a>[How Do i:]アプリケーションを展開する前に変更を検出しますか。
 ====================

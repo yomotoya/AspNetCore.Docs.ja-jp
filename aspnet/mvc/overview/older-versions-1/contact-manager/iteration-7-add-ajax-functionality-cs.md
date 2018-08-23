@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-function
 title: '繰り返し #7 – Ajax 機能を追加 (c#) |Microsoft Docs'
 author: microsoft
 description: 7 番目のイテレーションで改良、応答性と、アプリケーションのパフォーマンスの Ajax のサポートを追加します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9b7a3acefbfeef9da5e45b40f03809b00364de05
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: a51713e57872ccfc3a76cf91fec728fdb6fa1eac
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396157"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838014"
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a>繰り返し #7 – Ajax 機能を追加 (c#)
 ====================

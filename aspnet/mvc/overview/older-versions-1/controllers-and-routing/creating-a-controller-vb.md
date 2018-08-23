@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller
 title: コント ローラー (VB) の作成 |Microsoft Docs
 author: StephenWalther
 description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーションをコント ローラーを追加する方法について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 204b7e86-f560-4611-8adb-785b33e777b9
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b24aeabc6fd4192f44f83e0c0b2150e87ef6f501
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9c14ceff17d15b1a8460bad41429b82cb9504a24
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833064"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838357"
 ---
 <a name="creating-a-controller-vb"></a>コント ローラー (VB) の作成
 ====================

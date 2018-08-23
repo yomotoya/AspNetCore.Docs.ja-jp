@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-after-processing-p
 title: '[How Do i:]パターンを処理した後、AJAX を実装するか。 | Microsoft Docs'
 author: JoeStagner
 description: ASP.NET AJAX フレームワークにより、サーバー側コードにフックし、さまざまなクライアント側のイベントに応答します。 このビデオでは、Aft を実装する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/21/2007
 ms.assetid: 9a382d8e-ea3a-4fa4-bd24-b56f9051f4db
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-after-processing-pattern
 msc.type: video
-ms.openlocfilehash: b9edac497aec78f8a8af6b782120c04975b96b3c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6e10200299b78dcf2d5ae356b302ddddcffb999c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830394"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838670"
 ---
 <a name="how-do-i-implement-the-ajax-after-processing-pattern"></a>[How Do i:]パターンを処理した後、AJAX を実装するか。
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 title: 宣言パラメーター (VB) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、DetailsView コントロールに表示するデータを選択するハード コーディングされた値に設定するパラメーターを使用する方法について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: dc1234a3-114f-4c9a-8d25-50ca03cc8e8e
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 01330d6c743fa9534cdb5dfa42bde5dbbe954c40
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 10ed3a4f019cd78033ecdd61499b1914f403414e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839230"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837734"
 ---
 <a name="declarative-parameters-vb"></a>宣言パラメーター (VB)
 ====================
@@ -45,7 +45,7 @@ ms.locfileid: "37839230"
 ObjectDataSource コントロールのデータ ソースの選択ウィザードが自動的に開始されます。 選択、`ProductsBLL`ウィザードの最初の画面からクラス。
 
 
-[![特別なに感謝します。](declarative-parameters-vb/_static/image5.png)](declarative-parameters-vb/_static/image4.png)
+[![ProductsBLL クラスを選択します。](declarative-parameters-vb/_static/image5.png)](declarative-parameters-vb/_static/image4.png)
 
 **図 2**: 選択、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](declarative-parameters-vb/_static/image6.png))。
 

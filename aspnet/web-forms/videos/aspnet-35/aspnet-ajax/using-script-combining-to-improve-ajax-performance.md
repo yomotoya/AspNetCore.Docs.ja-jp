@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-aj
 title: AJAX のパフォーマンスを向上させるためにスクリプトを結合を使用して |Microsoft Docs
 author: rick-anderson
 description: Betrand Le Roy では、スクリプトを組み合わせて、samp で単純なページを利用すると呼ばれる新しい機能を使用して Ajax アプリケーションのパフォーマンスを向上させる方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: f5445f4a-bc78-4950-b74f-de748bf8b0be
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance
 msc.type: video
-ms.openlocfilehash: 982b4f74f4bf4fc3a44240cc182c86bab0f83d01
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 29bb1e863df148ed5d07a38ccf4f17f4a1a4661e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813169"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838044"
 ---
 <a name="using-script-combining-to-improve-ajax-performance"></a>スクリプトを結合を使用して、AJAX のパフォーマンスを改善するには
 ====================

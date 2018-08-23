@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/how-do-i-handle-business-logic-excepti
 title: ビジネス ロジックの例外を処理する方法は? | Microsoft Docs
 author: shanselman
 description: このビデオでは、データ モデルに検証を追加する方法を示します。 検証ロジックを UI に反映する方法を確認できます。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: f6c73522-4c77-4757-b1af-69f9d1db4fb1
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-handle-business-logic-exceptions
 msc.type: video
-ms.openlocfilehash: 588940658241d08b81bed44c470be24c4b15a69a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a8f623eedeb438341904e5453b4c75bc424825f1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808676"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837139"
 ---
 <a name="how-do-i-handle-business-logic-exceptions"></a>ビジネス ロジックの例外を処理する方法は?
 ====================

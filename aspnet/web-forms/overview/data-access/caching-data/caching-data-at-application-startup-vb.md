@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/caching-data/caching-data-at-application-sta
 title: アプリケーションの起動 (VB) にデータをキャッシュ |Microsoft Docs
 author: rick-anderson
 description: 一部のデータが頻繁に使用する Web アプリケーションで、一部のデータの使用は頻度の低い。 この ASP.NET アプリケーション b のパフォーマンスを改善できる.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: 84afe4ac-cc53-4f2e-a867-27eaf692c2df
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cf63cafbd4fd3937d18afa0d72a48868d76d3888
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9d997cb0af8487b2a9d849f24f3bff8df8611f6d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841384"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838977"
 ---
 <a name="caching-data-at-application-startup-vb"></a>アプリケーションの起動時 (VB) にデータをキャッシュします。
 ====================

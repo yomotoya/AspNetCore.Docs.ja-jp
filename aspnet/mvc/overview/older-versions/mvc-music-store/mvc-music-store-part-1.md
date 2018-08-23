@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 title: 'パート 1: 概要と新しいプロジェクト]-> [ファイル |Microsoft Docs'
 author: jongalloway
 description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 第 1 部では概要とファイルには、新しいプロジェクト]-> [です。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 57856a4a78a650e4abe872004e5be5f8f3b2dbcd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d84a525221e40b79853be55069367134d17fb5ec
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816344"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838868"
 ---
 <a name="part-1-overview-and-file-new-project"></a>パート 1: 概要と新しいプロジェクト]-> [ファイル
 ====================

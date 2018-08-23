@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: 運用データベース (VB) を使用する実稼働 Web アプリケーションの構成 |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアルで既に説明した、これは開発および運用環境間で異なる構成情報珍しくありません。 これは、es.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: a64a7aa0-6608-449e-83bf-1ef8cceee504
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 952bdafd06143ce24e9e8beb0d6e6343400ffdc6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3d6e25de44a7c84ef0919d1cfd8ab4c6b368e0ea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840701"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838048"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>運用データベース (VB) を使用する実稼働 Web アプリケーションを構成します。
 ====================

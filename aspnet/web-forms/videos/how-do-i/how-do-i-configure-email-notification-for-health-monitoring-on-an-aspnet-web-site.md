@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-
 title: '[How Do i:]ASP.NET Web サイトの正常性を監視するための電子メール通知の構成 |Microsoft Docs'
 author: rick-anderson
 description: このビデオの Chris Pels では、ASP.NET web サイトでの監視の正常性の電子メール通知を構成する方法を示します。 最初に、電子メールの送信を構成する方法を参照してください.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/11/2008
 ms.assetid: 1fa884c0-582e-4dc6-abb6-a5ec70d43ffb
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
 msc.type: video
-ms.openlocfilehash: 8bf71273a953edcd61f33af9b40bdd9dd9ff6e9f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 205e02cf5fce8cd80afa15b462e3784be7b40fbf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822743"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838384"
 ---
 <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a>[How Do i:]正常性監視の ASP.NET Web サイトでの電子メール通知を構成します。
 ====================
