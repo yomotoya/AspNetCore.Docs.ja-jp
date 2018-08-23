@@ -28,7 +28,7 @@ Visual Studio 2017 は、.NET Core をターゲットとするコンテナー化
 
 Docker をインストールする場合は、まず、「[Docker for Windows: What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)」 (Docker for Windows: インストール前に知っておくべきこと) の情報を確認します。 次に、[Docker for Windows](https://docs.docker.com/docker-for-windows/install/) をインストールします。
 
-ボリュームのマッピングとデバッグをサポートするように、Docker for Windows で**[共有ドライブ](https://docs.docker.com/docker-for-windows/#shared-drives)** を構成する必要があります。 システム トレイの Docker アイコンを右クリックし、**[設定]**、**[Shared Drives]\(共有ドライブ\)** の順に選択します。 Docker がファイルを保存するドライブを選択します。 **[適用]** をクリックします。
+ボリュームのマッピングとデバッグをサポートするように、Docker for Windows で **[共有ドライブ](https://docs.docker.com/docker-for-windows/#shared-drives)**  を構成する必要があります。 システム トレイの Docker アイコンを右クリックし、**[設定]**、**[Shared Drives]\(共有ドライブ\)** の順に選択します。 Docker がファイルを保存するドライブを選択します。 **[適用]** をクリックします。
 
 ![コンテナーで共有するローカル C ドライブを選択するためのダイアログ](visual-studio-tools-for-docker/_static/settings-shared-drives-win.png)
 
