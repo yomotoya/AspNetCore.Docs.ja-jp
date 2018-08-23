@@ -5,12 +5,12 @@ description: ASP.NET Core での認証、承認、およびセキュリティの
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095763"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41746095"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core Security の概要
 
@@ -35,9 +35,9 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
 * [クロスサイト リクエスト フォージェリ (CSRF)](xref:security/anti-request-forgery)
 * [オープン リダイレクト攻撃](xref:security/preventing-open-redirects)
 
-この他にも知っておく必要がある脆弱性はあります。 詳細については、このドキュメントの「*ASP.NET セキュリティに関するドキュメント*」セクションを参照してください。
+この他にも知っておく必要がある脆弱性はあります。 詳細については、このドキュメントの「*ASP.NET Core セキュリティに関するドキュメント*」セクションを参照してください。
 
-## <a name="aspnet-security-documentation"></a>ASP.NET セキュリティに関するドキュメント
+## <a name="aspnet-core-security-documentation"></a>ASP.NET Core セキュリティに関するドキュメント
 
 *   [認証](xref:security/authentication/index)
     *   [Identity の概要](xref:security/authentication/identity)

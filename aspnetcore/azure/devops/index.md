@@ -5,26 +5,34 @@ description: Azure でホストされる ASP.NET Core アプリの DevOps パイ
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: 09ca835e908e81c6f38f9430fb40638ba6dc3350
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
+ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722539"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41746053"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>ASP.NET Core および Azure を使用した DevOps
+
+[![カバーの画像](./media/cover-large.png)](https://aka.ms/devopsbook)
+
+[Cam Soper](https://twitter.com/camsoper) および [Scott Addie](https://twitter.com/scottaddie) 著
+
+このガイドは、[ダウンロード可能 PDF 電子ブック](https://aka.ms/devopsbook)として入手できます。
+
+## <a name="welcome"></a>ようこそ 
 
 .NET 向けの Azure 開発ライフサイクル ガイドへようこそ。 このガイドでは .NET のツールとプロセスを使用する Azure に関する開発ライフサイクルの構築に関する基本概念を紹介します。 このガイドを完了すると、進化した DevOps ツールチェーンの利点が得られます。
 
 ## <a name="who-this-guide-is-for"></a>このガイドの対象ユーザー
 
-熟練した ASP.NET 開発者 (200-300 レベル) である必要があります。 Azure に関する知識は必要ありません。それについてはこのガイドで説明します。 このガイドは、開発よりも操作に注力する DevOps エンジニアにも役立つ可能性があります。
+熟練した ASP.NET Core 開発者 (200-300 レベル) である必要があります。 Azure に関する知識は必要ありません。それについてはこのガイドで説明します。 このガイドは、開発よりも操作に注力する DevOps エンジニアにも役立つ可能性があります。
 
 このガイドは、Windows 開発者を対象としています。 ただし、.NET Core によって Linux と macOS が完全にサポートされています。 このガイドを Linux/macOS で使用する場合は、吹き出しで Linux/macOS との違いを確認してください。
 
 ## <a name="what-this-guide-doesnt-cover"></a>このガイドに含まれないもの
 
-このガイドは、.NET 開発者向けのエンドツーエンドの継続的デプロイに焦点を当てています。 Azure のすべてを網羅するガイドではなく、Azure サービス向けの .NET API について幅広く取り上げるものでもありません。 特に焦点を当てるのは、継続的インテグレーション、デプロイ、監視、デバッグについてです。 このガイドの終盤には、次のステップとしてお勧めする内容を紹介します。 その内容には ASP.NET 開発者に役立つ Azure プラットフォーム サービスも含まれています。
+このガイドは、.NET 開発者向けのエンドツーエンドの継続的デプロイに焦点を当てています。 Azure のすべてを網羅するガイドではなく、Azure サービス向けの .NET API について幅広く取り上げるものでもありません。 特に焦点を当てるのは、継続的インテグレーション、デプロイ、監視、デバッグについてです。 このガイドの終盤には、次のステップとしてお勧めする内容を紹介します。 その内容には ASP.NET Core 開発者に役立つ Azure プラットフォーム サービスも含まれています。
 
 ## <a name="whats-in-this-guide"></a>このガイドの内容
 
@@ -48,18 +56,9 @@ Azure のツールを使用して、アプリケーションの監視、トラ�
 
 Azure を学習する ASP.NET Core 開発者向けのその他のラーニング パス。
 
-## <a name="acknowledgments"></a>謝辞
+## <a name="additional-introductory-reading"></a>その他の入門資料
 
-このガイドに有用な提案を行っていただいた .NET コミュニティのすべてのユーザーに感謝いたします。 この資料の最終レビューに参加していただいた、以下のコミュニティ メンバーの皆様には、特に感謝しております。
-
-* [Sam Wronski](https://www.youtube.com/c/worldofzerodevelopment)
-* [Jeffrey Palermo](https://twitter.com/jeffreypalermo)
-
-## <a name="conclusion"></a>まとめ
-
-このガイドは、ASP.NET Core および Azure App Service に構築された継続的インテグレーションの開発ライフサイクルの構築を準備するものです。
-
-## <a name="additional-reading"></a>その他の参考資料
+クラウド コンピューティングを初めて使用する場合は、基礎について次の記事を参照してください。
 
 * [クラウド コンピューティングとは](https://azure.microsoft.com/overview/what-is-cloud-computing/)
 * [クラウド コンピューティングの例](https://azure.microsoft.com/overview/examples-of-cloud-computing/)
