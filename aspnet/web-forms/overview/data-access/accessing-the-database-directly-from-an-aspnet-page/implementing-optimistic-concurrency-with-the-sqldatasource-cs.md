@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspn
 title: (C#)、SqlDataSource でオプティミスティック同時実行制御を実装する |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルではオプティミスティック同時実行制御の基礎を確認し、SqlDataSource コントロールを使用して実装する方法を調べます。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2907e05dfa82d44d38217b90d85d5c2192613560
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f2590e8e7712d719eb89403ef839f03066a93d2b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811466"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827638"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>(C#)、SqlDataSource でオプティミスティック同時実行制御を実装します。
 ====================

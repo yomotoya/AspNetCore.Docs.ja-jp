@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scen
 title: Visual Studio 2010 を使用してエンタープライズ シナリオで Web アプリケーションの配置 |Microsoft Docs
 author: jrjlee
 description: この一連のチュートリアルでは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。 最適な使用方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/03/2012
 ms.assetid: 48cfe378-d62a-48c6-a4db-6be3cead6898
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: b55aeb863694ca3ac71f2a1a46d11981e178dcb4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fa06538dcd9e087df52a76588e084a527867bf84
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816588"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837148"
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Visual Studio 2010 を使用してエンタープライズ シナリオで Web アプリケーションを展開します。
 ====================
@@ -46,7 +46,7 @@ Benjamin Curry はプリンシパルの技術者と[コンテンツ マスター
 
 このチュートリアルのセットは ASP.NET web アプリケーションの開発者と Visual Studio 2010 を使用して、エンタープライズ規模の web アプリケーションを作成するソリューション設計者です。 コンテンツからほとんどの値を取得するには、Visual Studio 2010 を使用して快適し、と共に ASP.NET MVC 3、Windows Communication Foundation (WCF)、IIS、SQL などの Microsoft web プラットフォーム テクノロジの認識、TFS での基本的な知識がある必要があります。サーバー、および Visual Studio データベース プロジェクト。 ただし、CI システムを設定する方法を理解する必要がありますまたは展開ツールとテクノロジについて理解する必要はありません。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 次のチュートリアルをこれらのチュートリアルを記述するタスクの実行は、開発用コンピューターにこのソフトウェアをインストールする必要があります。
 
