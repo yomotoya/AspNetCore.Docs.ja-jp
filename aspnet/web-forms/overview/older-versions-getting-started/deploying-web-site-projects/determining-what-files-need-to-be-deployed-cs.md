@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: 展開する必要があるファイルを決定する (c#) |Microsoft Docs
 author: rick-anderson
 description: 開発環境から運用環境にデプロイする必要があるファイルは、ASP.NET アプリケーションのビルドおかどうかに一部依存しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: f8d78a88-cc91-40d8-bce3-3d7954f6033b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3fb54feb32c3c4a4903c65751bf1a4ae4f016a22
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ad759cefc372f6276ce1b16beea7282d9685ef82
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831036"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827846"
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>展開する必要があるファイルを決定する (c#)
 ====================
@@ -48,7 +48,7 @@ ASP.NET web ページは、宣言型マークアップとソース コードに�
 
 | **コンパイル モデル** | **マークアップの部分のファイルを展開しますか。** | **ソース コード ファイルを展開しますか。** | **アセンブリを展開`Bin`ディレクトリでしょうか。** |
 | --- | --- | --- | --- |
-| 明示的なコンパイル | [はい] | いいえ | [はい] |
+| 明示的なコンパイル | [はい] | × | [はい] |
 | 自動のコンパイル | [はい] | [はい] | [はい] (存在する場合) |
 
 **表 1:** を展開するファイルの種類は、使用コンパイル モデルによって異なります。

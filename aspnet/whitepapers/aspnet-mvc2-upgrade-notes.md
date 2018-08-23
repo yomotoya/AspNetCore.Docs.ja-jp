@@ -3,17 +3,17 @@ uid: whitepapers/aspnet-mvc2-upgrade-notes
 title: ASP.NET MVC 2 に、ASP.NET MVC 1.0 アプリケーションのアップグレード |Microsoft Docs
 author: rick-anderson
 description: このドキュメントでは、両方について説明し、ウィザードを使用して、手動で ASP.NET MVC 2 には、ASP.NET MVC 1.0 アプリケーションをアップグレードする方法。 このドキュメントは、d もしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/08/2010
 ms.assetid: f1a01759-d251-4b09-8835-e112e336c6dd
 msc.legacyurl: /whitepapers/aspnet-mvc2-upgrade-notes
 msc.type: content
-ms.openlocfilehash: fe1696cd8f98f2ff253d385b62a6bcd74b536d33
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3de69df7e80037de35c2609232f4574bc9d03c80
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823872"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832003"
 ---
 <a name="upgrading-an-aspnet-mvc-10-application-to-aspnet-mvc-2"></a>ASP.NET MVC 2 に、ASP.NET MVC 1.0 アプリケーションのアップグレード
 ====================

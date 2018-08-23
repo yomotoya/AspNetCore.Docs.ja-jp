@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: 一般的な構成の違いの開発と運用 (c#) |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアルでは、開発環境から運用環境にすべての関連ファイルをコピーすることによって、web サイトをデプロイしました。 ただし、しました.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: 721a5c37-7e21-48e0-832e-535c6351dcae
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3476cdb25a0fc87ce233d7e26de094a0b7b17c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 47060b45cad0e2f15a3c314d608b88c7c1d30809
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808909"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835592"
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>開発と運用 (C++) の一般的な構成の違い
 ====================

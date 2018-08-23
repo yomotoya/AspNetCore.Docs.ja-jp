@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up
 title: Web サービス バックエンド (c#) で、数値のアップダウン コントロールを作成する |Microsoft Docs
 author: wenz
 description: チェック ボックスに値を入力するだけでなく、数値を上げ下げするコントロール (Windows と他のオペレーティング システムに存在) はより多くの c を生じる可能性があります.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: c99bbc72-d4de-41ed-92a4-9a4632368363
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 56ca7f8fec0ed8e746453103ba3410313d5ff975
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ffefed61e259994990315d17a545ef74074092a6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833027"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831367"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web サービス バックエンド (c#) で数値を上げ下げするコントロールを作成します。
 ====================

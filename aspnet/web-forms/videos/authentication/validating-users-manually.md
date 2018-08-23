@@ -3,17 +3,17 @@ uid: web-forms/videos/authentication/validating-users-manually
 title: ユーザーを手動で検証する |Microsoft Docs
 author: JoeStagner
 description: このビデオの Joe Stagner で独自の web フォームとプロセス、認証要求を手動で作成する方法を示します。 詳細については、この vi.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/22/2008
 ms.assetid: c11eec26-25a2-41fb-9330-ddc123c0423a
 msc.legacyurl: /web-forms/videos/authentication/validating-users-manually
 msc.type: video
-ms.openlocfilehash: 421ba60b1fcb6672771c0a832b87f148d1b18291
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b530963dbaad8c03eef87004fb8536063ebc2534
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837057"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835297"
 ---
 <a name="validating-users-manually"></a>ユーザーを手動で検証します。
 ====================

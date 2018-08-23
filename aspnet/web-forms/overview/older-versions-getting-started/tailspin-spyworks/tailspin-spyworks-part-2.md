@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspi
 title: 'パート 2: データ アクセス層 |Microsoft Docs'
 author: JoeStagner
 description: このチュートリアル シリーズでは、すべての Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 2 部では、データ アクセス層を追加することについて説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 5a9d5429-d70b-411c-8474-f42cf7ef8a2b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: c1d61681952cbf1f0587f0e42da21f8436d79ebb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5b5ae08b157054bf0f3231782127ee3110f36d00
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812033"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832380"
 ---
 <a name="part-2-data-access-layer"></a>パート 2: データ アクセス層
 ====================

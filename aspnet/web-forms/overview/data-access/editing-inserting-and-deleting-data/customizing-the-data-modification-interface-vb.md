@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customiz
 title: データ変更インターフェイス (VB) のカスタマイズ |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、標準のテキスト ボックスを置き換えることで、編集可能な GridView のインターフェイスをカスタマイズする方法に注目します チェック ボックス コントロール alternati.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 4830d984-bd2c-4a08-bfe5-2385599f1f7d
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 991f8d07c12c13b1477c2df072847b3730bc1051
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5d2bf8e3b074e846f1071a94884faa40312e507b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840769"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833405"
 ---
 <a name="customizing-the-data-modification-interface-vb"></a>データ変更インターフェイス (VB) のカスタマイズ
 ====================

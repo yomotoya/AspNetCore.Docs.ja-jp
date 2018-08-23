@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s
 title: Entity Framework 4.0 の新機能新機能 |Microsoft Docs
 author: tdykstra
 description: このチュートリアル シリーズでは、Entity Framework 4.0 のチュートリアル シリーズの概要を作成した Contoso University web アプリケーションに基づいています。 ここには.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 393df4a8-b1db-44c4-9db7-2b533ca887d0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 960aaf7aa7c2cff5c51079ecfe50031fa82d5508
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 402e7ace1abad899d32ed179d6b68de4e5a129f5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827842"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835232"
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 の新機能新機能
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages
 title: マスター ページと ASP.NET AJAX (c#) |Microsoft Docs
 author: rick-anderson
 description: ASP.NET AJAX とマスター ページを使用するためのオプションについて説明します。 ScriptManagerProxy クラスを使用して調べるさまざまな JS ファイルに dependi が読み込まれるしくみについて説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 0c55eb66-ba44-4d49-98e8-5c87fd9b1111
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e8a4f9780b41c5ff77b996894d9f91a532877245
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 47201a0cfeb5d1e548721094d11488e9e804dc9c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842485"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835839"
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>マスター ページと ASP.NET AJAX (c#)
 ====================
@@ -149,7 +149,7 @@ ASP.NET AJAX フレームワークには、指定の時刻にポストバック�
 
 [!code-csharp[Main](master-pages-and-asp-net-ajax-cs/samples/sample6.cs)]
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。 ブラウザーを使用してページを再検討します。 最初に、ランダムな製品の情報が表示されます。 気長に画面を監視するが、15 秒後に新しい製品についての情報魔法のように代わる、既存の表示がわかります。
+すべてです。 ブラウザーを使用してページを再検討します。 最初に、ランダムな製品の情報が表示されます。 気長に画面を監視するが、15 秒後に新しい製品についての情報魔法のように代わる、既存の表示がわかります。
 
 何が起こってよりわかりやすく表示、表示が最後に更新された時刻を表示する UpdatePanel に Label コントロールを追加してみましょう。 UpdatePanel 内のラベルの Web コントロールを追加、`ID`に`LastUpdateTime`、オフとその`Text`プロパティ。 次に、UpdatePanel のイベント ハンドラーを作成`Load`イベントと、ラベルに現在の時刻を表示します。 (UpdatePanel の`Load`完全または部分ページ ポストバックごとでイベントが発生しました)。
 

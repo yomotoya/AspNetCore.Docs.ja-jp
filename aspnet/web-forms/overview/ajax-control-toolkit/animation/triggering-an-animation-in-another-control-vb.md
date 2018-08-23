@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-i
 title: アニメーションをトリガーするもう 1 つコントロール (VB) |Microsoft Docs
 author: wenz
 description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 一般に、起動する.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 25ebaf1f-5a9f-423d-98c7-1d694e93664f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d9ef7d35e34bd4f2b1433f7fb02d0c48834b2357
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 132f9f85eccabc890308984b9e78ed1d2212c57a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804893"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831968"
 ---
 <a name="triggering-an-animation-in-another-control-vb"></a>アニメーションをトリガーするもう 1 つコントロール (VB)
 ====================

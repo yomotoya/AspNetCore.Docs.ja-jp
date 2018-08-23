@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-to-dynamically-change-css-using-the-aspnet
 title: ASP.NET AJAX UpdatePanel を使用して、CSS を動的に変更する方法 |Microsoft Docs
 author: JoeStagner
 description: このビデオでは、CSS、および AJAX UpdatePanel を使用して、ページのスタイルを動的に変更する方法を示します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/16/2008
 ms.assetid: 6e0eca38-0344-4732-97de-73acf0551c28
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-to-dynamically-change-css-using-the-aspnet-ajax-updatepanel
 msc.type: video
-ms.openlocfilehash: f635c8e153d17c96684704b1622041b381c5f2a7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c1284d73492d66eecfb7179eb1555fce810f56db
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804660"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835600"
 ---
 <a name="how-to-dynamically-change-css-using-the-aspnet-ajax-updatepanel"></a>ASP.NET AJAX UpdatePanel を使用して、CSS を動的に変更するには、方法
 ====================

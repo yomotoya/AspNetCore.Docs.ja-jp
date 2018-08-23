@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-co
 title: 接続文字列とその他の構成情報 (VB) を保護する |Microsoft Docs
 author: rick-anderson
 description: ASP.NET アプリケーションは、通常、構成情報を Web.config ファイルに格納します。 この情報の一部は小文字が区別し、保護を保証します。 によって定義.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: cd17dbe1-c5e1-4be8-ad3d-57233d52cef1
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7007496ad3aa137d8a6a9d4ba8e486d6b32ec295
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9713bbd983c4e922273a23356cbbb3848a8b7c50
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810905"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828254"
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>接続文字列とその他の構成情報 (VB) を保護します。
 ====================
@@ -28,7 +28,7 @@ ms.locfileid: "37810905"
 
 ASP.NET アプリケーションの構成情報がよくという XML ファイルに格納されている`Web.config`します。 これらのチュートリアルの過程で更新した、`Web.config`いくつかの時間。 作成するときに、`Northwind`で型指定されたデータセット、[最初のチュートリアル](../introduction/creating-a-data-access-layer-vb.md)、たとえば、接続文字列情報を自動的に追加されたに`Web.config`で、`<connectionStrings>`セクション。 後の「、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-vb.md)チュートリアルでは、手動で更新しました`Web.config`を追加する、`<pages>`要素は、すべてのプロジェクト内の ASP.NET ページを使用することを示す、`DataWebControls`テーマ。
 
-`Web.config` 、接続文字列などの機密データを含めることができますが重要ですがの内容`Web.config`安全で承認されていないビューアーから非表示を保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能は、返す ASP.NET エンジンによって処理されます、*この種類のページが提供されない*図 1 に表示されるメッセージ。 つまり、訪問者を表示できない、 `Web.config` s の内容を入力するだけでファイル http://www.YourServer.com/Web.configブラウザーのアドレス バーにします。
+`Web.config` 、接続文字列などの機密データを含めることができますが重要ですがの内容`Web.config`安全で承認されていないビューアーから非表示を保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能は、返す ASP.NET エンジンによって処理されます、*この種類のページが提供されない*図 1 に表示されるメッセージ。 つまり、訪問者を表示できない、 `Web.config` s の内容を入力するだけでファイル http://www.YourServer.com/Web.config ブラウザーのアドレス バーにします。
 
 
 [![Web.config で、ブラウザーを返します。 ページのこの型にアクセスして、メッセージは処理されません。](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)

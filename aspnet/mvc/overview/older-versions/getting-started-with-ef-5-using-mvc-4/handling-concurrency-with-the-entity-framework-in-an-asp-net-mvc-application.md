@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-
 title: ASP.NET MVC アプリケーション (7/10) で Entity Framework での同時実行の処理 |Microsoft Docs
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: eadadd1ac98191d0f802dc742294938eb48d86b3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 07d4d673b7bb6bad6e9d8cbacbc965a60608db2a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809006"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832827"
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>ASP.NET MVC アプリケーション (7/10) で Entity Framework での同時実行の処理
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/database-first-development/enhancing-data-vali
 title: 'EF Database First と ASP.NET MVC: データ検証の拡張 |Microsoft Docs'
 author: tfitzmac
 description: MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの化しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/29/2014
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7c6e200caa72aea61a80d6496ec1a1569e5e48
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: dbff33a1c4f47474adda82e796d9c292392142f2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816319"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832388"
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF Database First と ASP.NET MVC: データ検証の拡張
 ====================

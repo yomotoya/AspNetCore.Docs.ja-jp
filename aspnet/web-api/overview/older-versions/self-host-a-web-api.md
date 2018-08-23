@@ -3,17 +3,17 @@ uid: web-api/overview/older-versions/self-host-a-web-api
 title: セルフホスト ASP.NET Web API 1 (c#) |Microsoft Docs
 author: MikeWasson
 description: ASP.NET Web API では、IIS は必要ありません。 Web API は、独自のホスト プロセスで自己ホストできます。 このチュートリアルでは、アプリのコンソール内で web API をホストする方法を使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 50681dcd89dfed480cf343f753371af384fd3e68
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
-ms.translationtype: HT
+ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811738"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832825"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>ASP.NET Web API 1 (c#) を自己ホストします。
 ====================

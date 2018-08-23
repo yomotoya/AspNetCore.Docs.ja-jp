@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting
 title: データ変更の機能を制限する (VB) のユーザーに基づく |Microsoft Docs
 author: rick-anderson
 description: ユーザー データを編集できるように web アプリケーションを別のユーザー アカウントは別のデータの編集の権限があります。 このチュートリアルではについて説明しますか t.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 9dc264a6-feb8-474b-8b91-008c50708065
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 23e23c288ccceab7f7e1c07aa9a902bef4045de0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8633d6ba5d82dfa2ebbea6858eb89433573a775f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836818"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835809"
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-vb"></a>ユーザー (VB) に基づいてデータ編集機能を制限
 ====================

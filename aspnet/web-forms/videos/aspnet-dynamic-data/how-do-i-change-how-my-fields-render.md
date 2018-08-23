@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 title: フィールドのレンダリング方法を変更する方法 | Microsoft Docs
 author: shanselman
 description: このビデオでは、データ フィールドを表示する方法を変更する方法について説明します。 一部のフィールドのサードパーティ製のコントロールが接続されます。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: f99da654-2148-4e66-867c-6e837b84e9d0
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 msc.type: video
-ms.openlocfilehash: 6fad628748abeaa878051093af921d1ce966b7b7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 521cf514ce2864d4e3631448fed0fb93f92eb37a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822287"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835575"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a>フィールドのレンダリング方法を変更する方法
 ====================

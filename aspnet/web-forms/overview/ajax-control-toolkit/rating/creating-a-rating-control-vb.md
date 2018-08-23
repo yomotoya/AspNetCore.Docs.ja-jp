@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 title: 評価コントロール (VB) を作成する |Microsoft Docs
 author: wenz
 description: 多くの web サイトから e コマース、コミュニティ サイトにユーザーは、レート記事や項目を提供します。 これは、通常コーディング上の工夫が必要ですが、ので、.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cb8bd8ab400bf5633b8218e724ad86cf7271699d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b229d0155fbab0437c644b41424164e4c655f5e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811974"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831322"
 ---
 <a name="creating-a-rating-control-vb"></a>評価コントロール (VB) を作成します。
 ====================

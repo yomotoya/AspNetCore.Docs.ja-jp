@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-
 title: ストアド プロシージャ、型指定されたデータセットの Tableadapter (c#) を新規作成 |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアル、コードで SQL ステートメントを作成し、ステートメントを実行するデータベースに渡されるしました。 その他の方法では、秒を使用する.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/18/2007
 ms.assetid: 751282ca-5870-4d66-84e4-6cefae23eb4a
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 420c4f33a6df2d7d99daeaac7682ede12adfb122
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0932749d6cf1665eedd5f452ab5dd63ed8678962
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824771"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833972"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>ストアド プロシージャ、型指定されたデータセットの Tableadapter (c#) を新規作成
 ====================

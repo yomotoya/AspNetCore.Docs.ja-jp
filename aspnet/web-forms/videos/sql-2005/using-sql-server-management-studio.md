@@ -3,17 +3,17 @@ uid: web-forms/videos/sql-2005/using-sql-server-management-studio
 title: SQL Server Management Studio を使用して |Microsoft Docs
 author: microsoft
 description: SQL Server Management Studio Express と、SQL Server Express にメイン インターフェイスは、通常になります。 このレッスンでは、スキー、基本的な手法について説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/23/2006
 ms.assetid: bf1f345e-55c8-4dc8-b62a-365326bb6ed7
 msc.legacyurl: /web-forms/videos/sql-2005/using-sql-server-management-studio
 msc.type: video
-ms.openlocfilehash: c59dfe7461036da821ccdf102108a65100e01943
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 72e51efaa9de8112c1ce0ae165cf0bf85ab1bd13
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817052"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834427"
 ---
 <a name="using-sql-server-management-studio"></a>SQL Server Management Studio を使用します。
 ====================

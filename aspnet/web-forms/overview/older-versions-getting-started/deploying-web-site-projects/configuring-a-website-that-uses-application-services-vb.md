@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: アプリケーション サービス (VB) を使用する web サイトの構成 |Microsoft Docs
 author: rick-anderson
 description: ASP.NET version 2.0 では、一連の .NET Framework の一部であり、一連のビルディング ブロックされるサービスは、yo として機能するアプリケーション サービスを導入しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 9c31a42f-d8bb-4c0f-9ccc-597d4f70ac42
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d4852fe4a8589ddcb23c7afa4ed5c5e74ef0af1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5fe8dc8486cf08e0aaf0e107069972eee7fbada
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841693"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835594"
 ---
 <a name="configuring-a-website-that-uses-application-services-vb"></a>アプリケーション サービス (VB) を使用する web サイトを構成します。
 ====================

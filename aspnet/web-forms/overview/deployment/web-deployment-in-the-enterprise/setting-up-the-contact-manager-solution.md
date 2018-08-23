@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-t
 title: 連絡先マネージャー ソリューションのセットアップ |Microsoft Docs
 author: jrjlee
 description: このトピックでは、ダウンロードしてローカル開発用ワークステーションで実行する連絡先マネージャー ソリューションを構成する方法について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 200b973c-776b-4a9b-9e82-39fda6120a52
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: 479dbb8d2edbe9fb953ea9e1312ffb8fdbd3e2fe
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d834e6fbd2b46dca8bd7eeadc1eb68b33e62bb38
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802132"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827829"
 ---
 <a name="setting-up-the-contact-manager-solution"></a>連絡先マネージャー ソリューションの設定
 ====================

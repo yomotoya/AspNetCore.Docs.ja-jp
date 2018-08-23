@@ -3,17 +3,17 @@ uid: identity/overview/migrations/migrating-an-existing-website-from-sql-members
 title: 既存の web サイトを SQL メンバーシップから ASP.NET Identity に移行する |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、ユーザーとロールのデータが新しい ASP.NET identity s SQL メンバーシップを使用して作成された既存の web アプリケーションを移行する手順は説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 4acb8c82c9b05de9d587466170f8fac4ef9b6dde
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 51b97ee413ea0304177d5963b5fd9d7253778d4f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812252"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836167"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存の web サイトを SQL メンバーシップから ASP.NET Identity に移行します。
 ====================
@@ -86,7 +86,7 @@ ms.locfileid: "37812252"
 | **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
 | ID | string | ID | RoleId | ProviderKey | ID |
-| ユーザー名 | string | name | ユーザー Id | ユーザー Id | ClaimType |
+| [ユーザー名] | string | name | ユーザー Id | ユーザー Id | ClaimType |
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | string |  |  |  | ユーザー\_Id |
 | 電子メール | string |  |  |  |  |

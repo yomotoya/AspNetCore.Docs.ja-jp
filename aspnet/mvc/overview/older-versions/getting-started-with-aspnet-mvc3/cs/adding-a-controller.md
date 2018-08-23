@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-co
 title: コント ローラー (c#) の追加 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express サービス パック 1、どの i を使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 0b8c56b5-fdf3-42dd-a866-98fbe0ab78a0
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 0c13248960384e8d773f9c5ba3d927b6a8502938
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b31cf3bdf18c144d2735973119367b01de0353fe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805860"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835213"
 ---
 <a name="adding-a-controller-c"></a>コント ローラー (c#) の追加
 ====================

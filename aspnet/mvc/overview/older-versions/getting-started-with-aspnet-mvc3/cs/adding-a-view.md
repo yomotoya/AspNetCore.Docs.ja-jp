@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-vi
 title: 追加すると表示されます (c#) |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: abc7c78d-cb09-4a4c-a887-61bc401d40e3
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4eacfdcb0b53da377e9b6812a7ce50aa94b551
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4254bfa1098ed2d2d850c00a44e94458ad2e7a54
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831707"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833399"
 ---
 <a name="adding-a-view-c"></a>ビュー (c#) を追加します。
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-rou
 title: カスタム ルート制約 (VB) を作成する |Microsoft Docs
 author: StephenWalther
 description: Stephen Walther では、カスタム ルート制約を作成する方法を示します。 単純な実装のルートがされたりすることを防止するカスタムの制約に一致する w.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 72389d11467cbf7baea4cc9452266edb8ab81125
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d088380152adcb025857176b4396cab48fa64b66
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840476"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835780"
 ---
 <a name="creating-a-custom-route-constraint-vb"></a>カスタム ルート制約 (VB) を作成します。
 ====================

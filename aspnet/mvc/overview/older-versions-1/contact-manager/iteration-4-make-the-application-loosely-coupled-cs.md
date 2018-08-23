@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-applicat
 title: '繰り返し #4 – ようにアプリケーションを疎結合 (c#) |Microsoft Docs'
 author: microsoft
 description: この 4 番目のイテレーションで、保守し、Contact Manager アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかの利点を実行します。 .
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c06609afd6f1adf930a377c99d66937885f78e7
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 955991c148d48020c66cbc63ec6da45e3a9cc282
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396035"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828241"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>繰り返し #4 – アプリケーションを疎結合 (c#) を作成します。
 ====================

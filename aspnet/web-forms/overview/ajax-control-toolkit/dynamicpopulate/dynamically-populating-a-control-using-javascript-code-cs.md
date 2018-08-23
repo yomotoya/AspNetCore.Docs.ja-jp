@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populat
 title: JavaScript コード (c#) を使用してコントロールを動的に作成する |Microsoft Docs
 author: wenz
 description: ASP.NET AJAX Control Toolkit で DynamicPopulate コントロールは、web サービス (またはページ メソッド) を呼び出すし、t のターゲット コントロールに、結果の値を入力しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: cc4c2def-e88c-4456-ae8b-a6ae0ff8cc2d
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6fa8e0b91481467c7f53e7323b72e4b345833905
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e8b49f41f132cc31ca458ce0af3b74dbb54f225e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841621"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832174"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-c"></a>JavaScript コード (c#) を使用してコントロールを動的に作成します。
 ====================

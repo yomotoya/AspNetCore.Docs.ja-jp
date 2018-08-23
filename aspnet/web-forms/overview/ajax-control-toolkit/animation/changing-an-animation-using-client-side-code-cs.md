@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-usi
 title: クライアント側コード (c#) を使用してアニメーションを変更する |Microsoft Docs
 author: wenz
 description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 アニメーションこともできます.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 2bfbc5cc-f942-44b7-a62d-a29520f1da9a
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9711e93ee6f119ec1825e32bdad64535435970c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 253377ef6019a672680c6e819349357627ef111b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808957"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835574"
 ---
 <a name="changing-an-animation-using-client-side-code-c"></a>クライアント側コード (c#) を使用してアニメーションを変更します。
 ====================

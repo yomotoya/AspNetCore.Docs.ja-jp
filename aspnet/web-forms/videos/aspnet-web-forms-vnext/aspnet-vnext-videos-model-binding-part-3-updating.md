@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-p
 title: 'ASP.NET vNext ビデオ: バインド モデル: パート 3 - 更新 |Microsoft Docs'
 author: DamianEdwards
 description: このビデオでは、Damian Edwards は、データを更新する方法を紹介してモデル バインドのレビューを完了します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/22/2011
 ms.assetid: 63c42590-08ac-44da-91f8-bd79489b9ecc
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-3-updating
 msc.type: video
-ms.openlocfilehash: 124405cdc01b3722eb07dac21a43da31d90c143a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bc278ae16c120eb62498055fa3753d7d2561e0ea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827117"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832407"
 ---
 <a name="aspnet-vnext-videos-model-binding-part-3---updating"></a>ASP.NET vNext ビデオ: バインド モデル: パート 3 - 更新
 ====================

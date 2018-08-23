@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 title: ASP.NET MVC 4 モバイル機能 |Microsoft Docs
 author: Rick-Anderson
 description: 今すぐ展開 ASP.NET MVC 5 モバイル Web アプリケーションを Azure Websites でのコード サンプルで、このチュートリアルの MVC 5 バージョンがないです。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: c852f4a853d14badb6c9a1c2c1ddb7b069bc3441
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a3cb2414775b2c29617296dcf0c2dc5729153cdd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806588"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832798"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: DataList と Repeater コントロール (VB) によるデータの表示 |Microsoft Docs
 author: rick-anderson
 description: 上記のチュートリアルでは、データを表示する GridView コントロールを使いましたが。 以降このチュートリアルでは、一般的なレポートを使用してパターンを構築を見ています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 58618954-a9ed-4ca0-8c2d-95a5ffd9c03e
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2a6674036500d766e48b33b58f7d7829ea1da28c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4ece899d4c9f3277fc27cdfc9c3f3e25ab7809fb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840333"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835227"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>DataList と Repeater コントロール (VB) によるデータの表示
 ====================

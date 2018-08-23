@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapter
 title: '[How Do i:]CSS Friendly Control Adapters を活用しますか。 | Microsoft Docs'
 author: rick-anderson
 description: CSS Friendly Control Adapters を使用すると、標準の ASP.NET 2.0 サーバー コントロールによって表示される HTML を変更できます。 このビデオで説明します、経歴の持ち主.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/01/2007
 ms.assetid: aa5a29e3-0cc2-4cc0-986d-e845dbf01813
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
 msc.type: video
-ms.openlocfilehash: 5058e445b4929072532cccc0a31d3b616a8abd3b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 288d023e718eb76935ef3c3ccf1adb8e1adcb845
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823055"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832156"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[How Do i:]CSS Friendly Control Adapters を活用しますか。
 ====================

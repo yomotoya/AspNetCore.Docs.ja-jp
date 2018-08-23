@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/10-working-with-video
 title: ページ (Razor) サイトを ASP.NET web ビデオの表示 |Microsoft Docs
 author: tfitzmac
 description: この章では、ビデオ、ASP.NET Web Pages での Razor 構文のページを表示する方法について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 332fb3da-e2a5-460d-bb90-dd911e1e2c95
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 43a806bb5419d32eb8b03e3fc6de05af5d9e2427
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 28884d8c4998ea5b00a60bf094f41b915b565bd8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826103"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828059"
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにビデオを表示します。
 ====================

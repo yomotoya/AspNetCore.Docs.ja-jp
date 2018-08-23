@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-
 title: ASP.NET Web Pages の概要 - データベースのデータの削除 |Microsoft Docs
 author: tfitzmac
 description: このチュートリアルでは、個々 のデータベース エントリを削除する方法を示します。 ASP.NET Web Pa. 内のデータベース データの更新をシリーズを完了したと想定して.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 234b5f99c5d5f580316204c88ea1ab8c1269d452
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3b759a5c88b066640005c823ce0cc3cc3ac89bc2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815357"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832143"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web ページの概要 - データベースのデータを削除します。
 ====================

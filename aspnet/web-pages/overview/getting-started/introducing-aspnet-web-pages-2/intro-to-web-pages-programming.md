@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-
 title: ASP.NET Web Pages の概要 - プログラミングの基本事項 |Microsoft Docs
 author: tfitzmac
 description: "このチュートリアルによって、プログラムでは、ASP.NET Web ページ Razor 構文を使用する方法の概要がわかります。 学習内容: プル要求に使用する基本的な 'Razor' 構文."
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 56268943b09d366b15d3a11e641d6c6b6c95aa16
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 120246fab3e71afeef2e2b7c4388f7c294e6b703
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839750"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834411"
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web Pages のプログラミングの基礎の概要
 ====================

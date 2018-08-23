@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspn
 title: SqlDataSource コントロール (VB) によるデータのクエリ |Microsoft Docs
 author: rick-anderson
 description: 上記のチュートリアルでは、ObjectDataSource コントロールを使用して、データ アクセス層からプレゼンテーション層を完全に分離します。 この家庭教師としてを開始しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: b12f752d-3502-40a4-b695-fc7b7d08cfd3
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2fa26eeb640ddf096d5002b9bffbb48a87cfccd9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 341cd518b5875b6cc7739f88fc1a35687ea0e090
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830533"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828029"
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>SqlDataSource コントロール (VB) によるデータのクエリ
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v
 title: ASP.NET Web API 2.2 を使用して OData v4 エンドポイントの作成 |Microsoft Docs
 author: MikeWasson
 description: Open Data Protocol (OData) は、web 用のデータ アクセス プロトコルです。 OData は、照会および CRUD 操作を介してデータ セットを操作する一貫した方法を提供します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/24/2014
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 04fad9b569972f11256c6b7288db34d4996ca8bf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7f2d0b8fa8ac290e5018cb5237b1fedb5f40eeb0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804213"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831386"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 エンドポイントを作成します。
 ====================
@@ -42,13 +42,13 @@ ms.locfileid: "37804213"
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 
-Visual Studio で、**ファイル**メニューから **新規** &gt; **プロジェクト** を選択します。
+Visual Studio から、**ファイル**メニューの **新規** &gt; **プロジェクト**します。
 
-**インストール済み** &gt; **テンプレート** &gt; **Visual c#** &gt; **Web** を展開し **ASP.NET Web アプリケーション**テンプレートを選択します。。 プロジェクトに &quot;ProductService&quot; と名前をつけます。
+展開**インストール済み** &gt; **テンプレート** &gt; **Visual c#** &gt; **Web**、を選択します。**ASP.NET Web アプリケーション**テンプレート。 プロジェクトに名前を&quot;ProductService&quot;します。
 
 [![](create-an-odata-v4-endpoint/_static/image2.png)](create-an-odata-v4-endpoint/_static/image1.png)
 
-**新しいプロジェクト**ダイアログ ボックスで、**空**テンプレートを選択します。 [&quot;フォルダーを追加し、コア参照.&quot;、] の下にある **Web API** をクリックします。 **[OK]** をクリックします。
+**新しいプロジェクト**ダイアログ ボックスで、**空**テンプレート。 [&quot;フォルダーを追加し、コア参照.&quot;、] をクリックして**Web API**します。 **[OK]** をクリックします。
 
 [![](create-an-odata-v4-endpoint/_static/image4.png)](create-an-odata-v4-endpoint/_static/image3.png)
 
