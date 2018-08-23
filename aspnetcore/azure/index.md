@@ -4,18 +4,22 @@ author: CamSoper
 description: ASP.NET Core で Azure サービスを最大限に活用するためのガイダンスのコレクション。
 ms.author: casoper
 ms.date: 08/07/2018
+layout: LandingPage
+ms.topic: landing-page
 uid: azure/index
-ms.openlocfilehash: 7520d46c94af9ae48d2d770313de573ee7c39811
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: f0a01afb176b155c4eb4ca9a66f56f92b5f802c5
+ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722542"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41746096"
 ---
-# <a name="azure-guidance"></a><span data-ttu-id="9172d-103">Azure ガイダンス</span><span class="sxs-lookup"><span data-stu-id="9172d-103">Azure guidance</span></span>
+# <a name="azure-guidance"></a>Azure ガイダンス
 
-<span data-ttu-id="9172d-104">これは ASP.NET Core で Azure サービスを最大限に活用するためのガイダンスのコレクションです。</span><span class="sxs-lookup"><span data-stu-id="9172d-104">This is a collection of guidance for getting the most out of Azure services with ASP.NET Core.</span></span>
+これは ASP.NET Core で Azure サービスを最大限に活用するためのガイダンスのコレクションです。
 
-## <a name="guides"></a><span data-ttu-id="9172d-105">ガイド</span><span class="sxs-lookup"><span data-stu-id="9172d-105">Guides</span></span>
+## <a name="guides"></a>ガイド
 
-* [<span data-ttu-id="9172d-106">ASP.NET Core および Azure を使用した DevOps</span><span class="sxs-lookup"><span data-stu-id="9172d-106">DevOps with ASP.NET Core and Azure</span></span>](xref:azure/devops/index)
+[![『ASP.NET Core および Azure を使用した DevOps』のカバー](./devops/media/cover-thumb.png)](xref:azure/devops/index) <br />
+**ASP.NET Core および Azure を使用した DevOps** <br />
+[Docs](xref:azure/devops/index) | [PDF](https://aka.ms/devopsbook)
