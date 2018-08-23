@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
-ms.openlocfilehash: 5ab15c841c472e6c9d47bad70fcf5e0c6dc3010f
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894180"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837178"
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET Core でのブラウザー リンク
 
@@ -139,7 +139,7 @@ CSS 自動同期を有効にすると、CSS ファイルを変更するときに
 
 ## <a name="how-it-works"></a>しくみ
 
-ブラウザー リンクでは、SignalR を使用して、Visual Studio とブラウザー間の通信チャネルを作成します。 Browser Link を有効にすると、Visual Studio は、複数のクライアント (ブラウザー) が接続できる SignalR サーバーとして機能します。 また、ブラウザー リンクは、ASP.NET 要求パイプラインでミドルウェア コンポーネントを登録します。 このコンポーネントは特殊な挿入`<script>`ページ要求ごとに、サーバーからの参照。 選択して、スクリプト参照を確認できます**ソースの表示**の末尾にスクロールし、ブラウザーで、`<body>`コンテンツをタグします。
+ブラウザー リンクでは、SignalR を使用して、Visual Studio とブラウザー間の通信チャネルを作成します。 Browser Link を有効にすると、Visual Studio は、複数のクライアント (ブラウザー) が接続できる SignalR サーバーとして機能します。 また、ブラウザー リンクは、ASP.NET Core の要求パイプラインでミドルウェア コンポーネントを登録します。 このコンポーネントは特殊な挿入`<script>`ページ要求ごとに、サーバーからの参照。 選択して、スクリプト参照を確認できます**ソースの表示**の末尾にスクロールし、ブラウザーで、`<body>`コンテンツをタグします。
 
 ```html
     <!-- Visual Studio Browser Link -->

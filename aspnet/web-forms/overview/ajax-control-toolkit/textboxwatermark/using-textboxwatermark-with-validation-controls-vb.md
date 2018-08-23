@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwater
 title: (VB) の検証コントロールと共に TextBoxWatermark を使用する |Microsoft Docs
 author: wenz
 description: AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックしたときに.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e6c2cb98-f745-4bc8-973a-813879c8a891
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 67e7a715545b35c25147c6dbf6684e0e1634027b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 636a9d00b4f699536d2851d3bac5f657c272c80a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811566"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837469"
 ---
 <a name="using-textboxwatermark-with-validation-controls-vb"></a>(VB) の検証コントロールと共に TextBoxWatermark を使用
 ====================

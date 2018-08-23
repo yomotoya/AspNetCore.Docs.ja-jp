@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 title: 単純な検証 (VB) を実行する |Microsoft Docs
 author: StephenWalther
 description: ASP.NET MVC アプリケーションで検証を実行する方法について説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして検証 HTML ヘルパーについて説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: df6cf4b7-0bb3-4c4e-b17a-bd78a759a6bc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a8320e87cb4ef418fe5c8308b9dacceb5d6bbac8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1d0bd6917bab61b17d1cafcf0cd9eb1983275dc8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830786"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838929"
 ---
 <a name="performing-simple-validation-vb"></a>単純な検証 (VB) を実行します。
 ====================

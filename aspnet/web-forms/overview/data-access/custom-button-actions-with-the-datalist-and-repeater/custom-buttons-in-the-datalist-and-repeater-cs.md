@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-
 title: カスタム ボタン DataList と Repeater (c#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、Repeater を使用して、システムでは、各カテゴリがその associ を表示するためのボタンを提供することで、カテゴリを一覧表示するインターフェイスを作成します.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: 1f42e332-78dc-438b-9e35-0c97aa0ad929
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 04dc12ed20fcda0b4074add065022c42343e5ffc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a10acd00dd8243f92c1b255acb8328e2b76e87cc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822122"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838413"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>DataList と Repeater (c#) のカスタム ボタン
 ====================

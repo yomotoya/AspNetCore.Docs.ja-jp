@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/data-source-controls
 title: データ ソース コントロール |Microsoft Docs
 author: microsoft
 description: DataGrid コントロールで ASP.NET 1.x が Web アプリケーションでのデータ アクセスに大きな強化をマークします。 ただし、した可能性がありますと、わかりやすいでした.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 78fd0e92-f9c6-4e96-a5e9-0375b307a828
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 15a09e8ac7da6d23216a92863ae7ce6db7ecd57a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ba00024e93beba6eab226dd0d381d8734061e095
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809355"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827894"
 ---
 <a name="data-source-controls"></a>データ ソース コントロール
 ====================
@@ -74,7 +74,7 @@ CacheKeyDependency プロパティの文字列値を指定すると、その文�
 
 ## <a name="the-sqldatasource-control"></a>SqlDataSource コントロール
 
-詳細を表示する、従業員の編集、従業員を追加する、従業員を削除して、インターフェイスと対話します。 SQL Server データベース、System.Data.OleDb プロバイダー、System.Data.Odbc プロバイダー、または Oracle へのアクセスに System.Data.OracleClient プロバイダーへのアクセスに System.Data.SqlClient プロバイダーを使用できます。 そのため、SqlDataSource は確かにのみ使用されません、SQL Server データベース内のデータにアクセスするため。
+SqlDataSource コントロールは、ADO.NET をサポートする任意のリレーショナル データベースに格納されているデータにアクセスする開発者を使用できます。 SQL Server データベース、System.Data.OleDb プロバイダー、System.Data.Odbc プロバイダー、または Oracle へのアクセスに System.Data.OracleClient プロバイダーへのアクセスに System.Data.SqlClient プロバイダーを使用できます。 そのため、SqlDataSource は確かにのみ使用されません、SQL Server データベース内のデータにアクセスするため。
 
 SqlDataSource を使用するには単に ConnectionString プロパティの値を指定および指定する SQL コマンドかストアド プロシージャ。 SqlDataSource コントロールは、基になる ADO.NET のアーキテクチャの操作の処理されます。 接続を開き、データ ソースをクエリまたはストアド プロシージャを実行、データ、の接続を閉じます。
 

@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-vi
 title: Visual Studio 2012 で Page Inspector の使用 |Microsoft Docs
 author: rick-anderson
 description: このハンズオン ラボでは、検索して、Visual Studio で Page Inspector で web ページの問題を修正する新しいツールを検出します。 Page Inspector は、新しいツール b.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: ac945a23dc6ef060340320d047f13c8e81057138
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ce654eb5abd54613987f2375cc973febc9dc2ad5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833673"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827709"
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012 で Page Inspector の使用
 ====================

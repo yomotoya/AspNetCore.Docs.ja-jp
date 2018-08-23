@@ -3,23 +3,23 @@ uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 title: 単体テストの ASP.NET Web API 2 |Microsoft Docs
 author: tfitzmac
 description: このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テストのプロジェクトを含める方法を使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 701ced855ff2848182fdbf8d4b9e2bcf0c33341b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806216"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828623"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>単体テストの ASP.NET Web API 2
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
+[完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトをソリューションに含めるし、コント ローラー メソッドから返された値をチェックするテスト メソッドを記述する方法を示します。
 > 

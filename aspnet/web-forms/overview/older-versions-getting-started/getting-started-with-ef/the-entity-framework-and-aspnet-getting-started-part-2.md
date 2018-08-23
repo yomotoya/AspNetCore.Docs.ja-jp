@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/t
 title: Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部 |Microsoft Docs
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: fb63a326-a4ae-4b0c-a4f5-412327197216
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: c43e7b9d090b0e25fe1db1ce6a944afea4b081d9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a0b4acca93deee4fb514fa1bc3e2bd13490cf10e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802638"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835630"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォームの第 2 部
 ====================
@@ -46,7 +46,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 指定*Site.Master*のマスター ページとして。 これらのチュートリアルを作成するページのすべては、このマスター ページで使用されます。
 
-[![Image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
+[![image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
 
 **ソース**ビューで、追加、`h2`に見出し、`Content`という名前のコントロール`Content2`次の例のように。
 
@@ -66,7 +66,7 @@ Visual Studio を開いていることを確認し、パート 1 で作成した
 
 注: この時点で、次のダイアログ ボックスが表示される場合がある、続行する前にプロジェクトをビルドします。
 
-[![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
+[![image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
 **構成データの選択**手順で、**人**の値として**EntitySetName**します。 **選択**、ことを確認、 ** を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、クリックして**完了**します。
 

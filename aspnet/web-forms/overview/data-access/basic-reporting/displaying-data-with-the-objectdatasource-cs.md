@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/basic-reporting/displaying-data-with-the-obj
 title: (C#)、ObjectDataSource でデータの表示 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルを調べ、ObjectDataSource コントロールを havi せず、前のチュートリアルで作成した BLL から取得されたデータをバインドするこのコントロールを使用しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: af882aef-56f5-4e9a-8f95-3977fde20e74
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f10745eee9f6ac04e670d710a4ac999c9ddda50b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 45f72cfb06cdd4ee624f9930a360d5a85a98a9c1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814926"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827920"
 ---
 <a name="displaying-data-with-the-objectdatasource-c"></a>(C#)、ObjectDataSource でデータの表示
 ====================
@@ -169,7 +169,7 @@ DataWebControls を GridView のテーマの名前を変更 (GridView フォル�
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-cs/samples/sample5.xml)]
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。 `styleSheetTheme`設定では、テーマで指定したプロパティが必要があることを示します*いない*コントロール レベルで指定されたプロパティを上書きします。 テーマの設定がコントロールの設定を優先する必要がありますを指定するには、使用、`theme`属性の代わりに`styleSheetTheme`、残念ながら、テーマの設定で指定された、`theme`属性は、Visual Studio のデザイン ビューでは表示されません。 参照してください[ASP.NET のテーマおよびスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)と[サーバー側のスタイルを使用してテーマ](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)テーマとスキン; の詳細については、次を参照してください[How To: ASP.NET のテーマの適用](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx)の詳細について。テーマを使用するページを構成します。
+すべてです。 `styleSheetTheme`設定では、テーマで指定したプロパティが必要があることを示します*いない*コントロール レベルで指定されたプロパティを上書きします。 テーマの設定がコントロールの設定を優先する必要がありますを指定するには、使用、`theme`属性の代わりに`styleSheetTheme`、残念ながら、テーマの設定で指定された、`theme`属性は、Visual Studio のデザイン ビューでは表示されません。 参照してください[ASP.NET のテーマおよびスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)と[サーバー側のスタイルを使用してテーマ](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)テーマとスキン; の詳細については、次を参照してください[How To: ASP.NET のテーマの適用](https://msdn.microsoft.com/library/0yy5hxdk(VS.80).aspx)の詳細について。テーマを使用するページを構成します。
 
 
 [![GridView は、製品の名前、カテゴリ、供給業者、価格、および提供が中止された情報が表示されます。](displaying-data-with-the-objectdatasource-cs/_static/image31.png)](displaying-data-with-the-objectdatasource-cs/_static/image30.png)

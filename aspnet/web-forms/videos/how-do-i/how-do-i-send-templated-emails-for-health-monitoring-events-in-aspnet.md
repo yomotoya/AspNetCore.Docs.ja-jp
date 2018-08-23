@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitor
 title: '[How Do i:]ASP.NET のイベントの監視の正常性のテンプレート化された電子メールを送信 |Microsoft Docs'
 author: rick-anderson
 description: このビデオでは、Chris Pels は、TemplatedEmailWebEventProvider を使用して、t のテンプレートを利用する状態監視イベントが発生すると、電子メールを送信する方法を説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/18/2008
 ms.assetid: 5c107c6e-9fb7-4206-bd3f-221cb0767f8a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
 msc.type: video
-ms.openlocfilehash: 2a2a43a06e6280f29740ad5ff653375dbf2dde65
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0556fcde5489821b4d0b83b9de3410e25c9c5a15
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816536"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838417"
 ---
 <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a>[How Do i:]ASP.NET のイベントの監視の正常性のテンプレート化された電子メールを送信します。
 ====================

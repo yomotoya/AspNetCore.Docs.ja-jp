@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
 title: データ バインド コントロール |Microsoft Docs
 author: microsoft
 description: ほとんどの ASP.NET アプリケーションでは、ある程度のバックエンド データ ソースからデータを表示を使用します。 データ バインド コントロールには、相互作用する w のきわめて重要な部分をされている.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: bfee5ed9c786cc8799da108b99781ff6eb508477
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b115109c7307d05dc9e620378a51a71407204740
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833220"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835874"
 ---
 <a name="data-bound-controls"></a>データ バインド コントロール
 ====================

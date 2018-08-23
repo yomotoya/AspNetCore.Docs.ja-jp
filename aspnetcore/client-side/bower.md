@@ -1,60 +1,60 @@
 ---
-title: ASP.NET Core での Bower でクライアント側のパッケージを管理します。
+title: ASP.NET Core での Bower でのクライアント側パッケージを管理します。
 author: rick-anderson
-description: Bower でクライアント側のパッケージを管理します。
+description: Bower でのクライアント側パッケージの管理。
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 23f3dcd06f012f3cf8d9509280b91c4bd1dc84e1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272518"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902720"
 ---
-# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
+# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でのクライアント側パッケージを管理します。
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)、[ノエル ライス](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)、および[Scott Addie](https://scottaddie.com) 
+によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Noel Rice](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)、および[Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
-> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 [ライブラリ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (略して LibMan) は、Visual Studio の新しいクライアント側の静的なコンテンツ管理システム (Visual Studio 15.8 またはそれ以降)。 詳細については、次を参照してください。[ライブラリ マネージャー: web アプリのクライアント側のコンテンツ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/17/library-manager-client-side-content-manager-for-web-apps/)です。 Bower は、Visual Studio のバージョン 15.5 を通じてサポートされます。
+> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 [ライブラリ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (略して LibMan) は、Visual Studio の新しいクライアント側ライブラリ取得ツール (Visual Studio 15.8 またはそれ以降)。 詳細については、「<xref:client-side/libman/index>」を参照してください。 Bower は、Visual studio バージョン 15.5 でサポートされます。
 >
-> Webpack で yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)を利用できます。 
+> Webpack と yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)利用できます。
 
-[Bower](https://bower.io/) 「web のパッケージ マネージャー」自体を呼び出します。 .NET エコシステム内では、NuGet の静的なコンテンツ ファイルを配信できないことによってまま void が挿入されます。 ASP.NET Core プロジェクトでは、これらの静的ファイルはのようにクライアント側のライブラリに固有[jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)です。 .NET ライブラリを使用することも[NuGet](https://www.nuget.org/)パッケージ マネージャーです。
+[Bower](https://bower.io/) 「web 用のパッケージ マネージャー」自体を呼び出すことです。 、.NET エコシステム内で NuGet の静的コンテンツ ファイルを提供できないまま void が挿入されます。 ASP.NET Core プロジェクトでは、これらの静的ファイルはなどのクライアント側ライブラリを本質的な[jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)します。 .NET ライブラリを使用することも[NuGet](https://www.nuget.org/)パッケージ マネージャー。
 
-クライアント側の設定の ASP.NET Core プロジェクト テンプレートで作成した新しいプロジェクトはビルド プロセスです。 [jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)がインストールされている、Bower がサポートされているとします。
+設定するクライアント側の ASP.NET Core プロジェクト テンプレートで作成した新しいプロジェクトはビルド プロセスです。 [jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)がインストールされている場合、Bower はサポートされています。
 
-クライアント側のパッケージに記載されて、 *bower.json*ファイル。 ASP.NET Core プロジェクト テンプレートを構成*bower.json* jQuery、jQuery 検証、およびブートス トラップを使用します。
+クライアント側のパッケージに記載されて、 *bower.json*ファイル。 ASP.NET Core のプロジェクト テンプレートを構成します*bower.json* jQuery、jQuery の検証、およびブートス トラップを使用します。
 
-このチュートリアルではサポートを追加します[フォント優れた](http://fontawesome.io)です。 と共にインストールできる bower パッケージ、 **Bower パッケージの管理**UI または手動で、 *bower.json*ファイル。
+このチュートリアルでは、サポートを追加します[Font Awesome](http://fontawesome.io)します。 Bower パッケージと共にインストールできる、 **Bower パッケージの管理**UI または手動で、 *bower.json*ファイル。
 
 ### <a name="installation-via-manage-bower-packages-ui"></a>Bower パッケージの管理 UI を使用してインストール
 
-* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択**Web アプリケーション**と**認証なし**です。
+* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択**Web アプリケーション**と**認証なし**します。
 
-* ソリューション エクスプ ローラーでプロジェクトを右クリックし  **Bower パッケージの管理**(また、メイン メニューから**プロジェクト** > **Bowerパッケージの管理**).
+* ソリューション エクスプ ローラーでプロジェクトを右クリックして**Bower パッケージの管理**(またはメイン メニューで、**プロジェクト** > **Bower パッケージの管理**).
 
-* **Bower:\<プロジェクト名\>** ウィンドウで、「参照」 タブをクリックし、入力することで、パッケージ の一覧をフィルター`font-awesome`検索ボックスに。
+* **Bower:\<プロジェクト名\>** ウィンドウで、[参照] タブをクリックし、入力して、パッケージ一覧をフィルター`font-awesome`検索ボックスで。
 
   ![bower パッケージを管理します。](bower/_static/manage-bower-packages.png)
 
-* いることを確認します"に変更を保存*bower.json*"チェック ボックスをオンします。 ドロップダウン リストからバージョンを選択し、**インストール**ボタンをクリックします。 **出力**ウィンドウは、インストールの詳細を表示します。
+* いることを確認、"に変更を保存*bower.json*"チェック ボックスをオンします。 ドロップダウン リストからバージョンを選択し、**インストール**ボタンをクリックします。 **出力**ウィンドウには、インストールの詳細が表示されます。
 
-### <a name="manual-installation-in-bowerjson"></a>Bower.json に手動のインストール
+### <a name="manual-installation-in-bowerjson"></a>Bower.json の手動インストール
 
-開く、 *bower.json*ファイルおよび依存関係に「フォント優れた」を追加します。 IntelliSense は、利用可能なパッケージを示しています。 パッケージを選択すると、使用可能なバージョンが表示されます。 次の図は、古いし、表示される内容とも一致しません。
+開く、 *bower.json*ファイルを開き、依存関係に"フォント awesome"を追加します。 IntelliSense は、利用可能なパッケージを示しています。 パッケージを選択すると、使用可能なバージョンが表示されます。 次のイメージは古いし、表示される内容と一致しません。
 
 ![Bower パッケージ エクスプ ローラーの IntelliSense](bower/_static/add-package.png)
 
 ![bower バージョン IntelliSense](bower/_static/version-intelliSense.png)
 
-使用を bower[セマンティック バージョニング](http://semver.org/)の依存関係を整理します。 セマンティック バージョニング、SemVer とも呼ばれる、番号付けスキームでパッケージを識別する\<メジャー >.\<マイナー >。\<パッチ >。 IntelliSense は、いくつかの一般的な選択肢のみを表示することによって、セマンティック バージョニングを簡略化します。 IntelliSense の一覧 (上記の例では 4.6.3) の最上位の項目は、パッケージの最新の安定バージョンと見なされます。 キャレット (^) 記号が最新のメジャー バージョンと一致し、ティルダ (~) には、最新のマイナー バージョンが一致します。
+Bower は[セマンティック バージョニング](http://semver.org/)依存関係を整理します。 セマンティック バージョニング、SemVer とも呼ばれる、パッケージを識別する番号付けスキームで\<メジャー >.\<マイナー >。\<パッチ >。 IntelliSense は、いくつかの一般的な選択肢のみを表示することによって、セマンティック バージョン管理を簡略化します。 IntelliSense の一覧 (上記の例では 4.6.3) の一番上の項目は、パッケージの最新の安定バージョンと見なされます。 キャレット (^) 記号が最新のメジャー バージョンと一致して、一致する最新のマイナー バージョンをティルダ (~)。
 
-保存、 *bower.json*ファイル。 Visual Studio は、監視、 *bower.json*ファイルの変更。 保存時に、 *bower インストール*コマンドを実行します。 出力ウィンドウの表示**npm/Bower**正確なコマンドが実行を表示します。
+保存、 *bower.json*ファイル。 Visual Studio のウォッチ、 *bower.json*ファイルの変更。 保存時に、 *bower のインストール*コマンドを実行します。 出力ウィンドウの表示**bower/npm**正確に実行されるコマンドのビュー。
 
-開く、 *.bowerrc*下にあるファイル*bower.json*です。 `directory`プロパティに設定されている*wwwroot/lib*パッケージ資産をインストールする場所 Bower を示します。
+開く、 *.bowerrc*ファイル*bower.json*します。 `directory`プロパティに設定されて*wwwroot/lib*パッケージ資産をインストール、Bower の場所を示します。
 
 ```json
 {
@@ -62,51 +62,51 @@ ms.locfileid: "36272518"
 }
 ```
 
-ソリューション エクスプ ローラーで、検索ボックスを使用して、見つけてフォント優れたパッケージを表示することができます。
+検索し、フォント awesome パッケージを表示するのには、ソリューション エクスプ ローラーで検索ボックスを使用できます。
 
-開く、 *\shared\_Layout.cshtml*ファイルし、環境にフォント優れた CSS ファイルを追加[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)の`Development`します。 ソリューション エクスプ ローラーからドラッグ アンド ドロップ*フォント awesome.css*内、`<environment names="Development">`要素。
+開く、 *views \shared\_Layout.cshtml*ファイルを開き、フォント awesome の CSS ファイルを環境に追加[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)の`Development`します。 ソリューション エクスプ ローラーからドラッグ アンド ドロップ*フォント awesome.css*内で、`<environment names="Development">`要素。
 
 [!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
-運用アプリにするには追加*フォント awesome.min.css* 、環境タグのヘルパーを`Staging,Production`です。
+運用アプリでは追加*フォント awesome.min.css*の環境タグ ヘルパーを`Staging,Production`します。
 
-内容を置き換える、 *Views\Home\About.cshtml*次のマークアップ Razor ファイル。
+内容を置き換える、 *Views\Home\About.cshtml*次のマークアップでの Razor ファイル。
 
 [!code-html[](bower/sample/About.cshtml)]
 
-アプリを実行し、フォント優れたパッケージの動作の確認 [バージョン情報] ビューに移動します。
+アプリを実行し、フォント awesome パッケージの動作を検証する About ビューに移動します。
 
-## <a name="exploring-the-client-side-build-process"></a>クライアント側のビルド プロセスの検証
+## <a name="exploring-the-client-side-build-process"></a>クライアント側のビルド プロセスを調べる
 
-ほとんどの ASP.NET Core プロジェクト テンプレートは、Bower を使用してように既に構成済みです。 この次のチュートリアルでは、空の ASP.NET Core プロジェクトから開始して、プロジェクトで Bower を使用する方法について理解を取得できるように、手動で各部分を追加します。 プロジェクトの構造と、ランタイムが出力されている各構成の変更が行われたとおりに動作を確認できます。
+ほとんどの ASP.NET Core プロジェクト テンプレートは、Bower を使用して既に構成されます。 この次のチュートリアルでは、空の ASP.NET Core プロジェクトから開始して、プロジェクトでの Bower の使用方法の感覚を取得できるように各部分を手動で追加します。 プロジェクトの構造を出力の各構成の変更が加えられると、ランタイムの動作を確認できます。
 
 Bower でクライアント側のビルド プロセスを使用する一般的な手順は次のとおりです。
 
 * プロジェクトで使用されるパッケージを定義します。 <!-- once defined, you don't need to download them, VS does -->
-* Web ページからのパッケージを参照します。
+* Web ページからパッケージを参照します。
 
 ### <a name="define-packages"></a>パッケージを定義します。
 
-パッケージを一覧表示した後、 *bower.json*ファイル、Visual Studio がダウンロードされます。 次の例で Bower を使用して jQuery とブートス トラップを読み込む、 *wwwroot*フォルダーです。
+パッケージを一覧表示すると、 *bower.json*ファイル、Visual Studio がダウンロードされます。 次の例では、jQuery とブートス トラップを読み込むに Bower を使用して、 *wwwroot*フォルダー。
 
-* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択、**空**プロジェクト テンプレートとクリック**OK**です。
+* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択、**空**プロジェクト テンプレートとクリック**OK**。
 
-* ソリューション エクスプ ローラーでプロジェクトを右クリックして >**新しい項目の追加**選択**Bower 構成ファイル**です。 注: A *.bowerrc*ファイルも追加します。
+* ソリューション エクスプ ローラーでプロジェクトを右クリックして >**新しい項目の追加**選択**Bower 構成ファイル**します。 注: A *.bowerrc*ファイルも追加されます。
 
-* 開いている*bower.json*、jquery を追加しをブートス トラップ、`dependencies`セクションです。 その結果、 *bower.json*ファイルは次の例のようになります。 バージョンは、時間の経過と共にが変更され、下の画像と一致しない可能性があります。
+* 開いている*bower.json*、jquery を追加し、ブートス トラップ、`dependencies`セクション。 その結果、 *bower.json*ファイルは次の例のようになります。 バージョンは、時間の経過と共にが変更され、下の画像が一致しません。
 
 [!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * 保存、 *bower.json*ファイル。
 
-  プロジェクトに含まれることを確認、*ブートス トラップ*と*jQuery*ディレクトリ*wwwroot/lib*です。 Bower 使用して、 *.bowerrc*ファイル内の資産をインストールする*wwwroot/lib*です。
+  プロジェクトを含むことを確認、*ブートス トラップ*と*jQuery*ディレクトリ*wwwroot/lib*します。 Bower は、 *.bowerrc*で資産をインストールするファイル*wwwroot/lib*します。
 
-  注:「Bower パッケージの管理」の UI は、手動ファイルを編集する代わりにを提供します。
+  注:"Bower パッケージの管理 の UI では、手動のファイルを編集する代わりを提供します。
 
-### <a name="enable-static-files"></a>静的なファイルを有効にします。
+### <a name="enable-static-files"></a>静的ファイルを有効にします。
 
-* 追加、 `Microsoft.AspNetCore.StaticFiles` NuGet パッケージをプロジェクトにします。
-* 静的ファイルで配信されることを有効にする、[静的ファイル ミドルウェア](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions)です。 呼び出しを追加して[UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions)を`Configure`メソッドの`Startup`します。
+* 追加、`Microsoft.AspNetCore.StaticFiles`をプロジェクトに NuGet パッケージ。
+* 静的ファイルで処理を有効にする、[静的ファイル ミドルウェア](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions)します。 呼び出しを追加して[UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions)を`Configure`メソッドの`Startup`します。
 
 [!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
@@ -114,12 +114,12 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 このセクションでは、配置したパッケージにアクセスできることを確認する HTML ページを作成します。
 
-* という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダーです。 注: HTML ファイルを追加する必要があります、 *wwwroot*フォルダーです。 既定では、外部の静的なコンテンツを処理できない*wwwroot*です。 参照してください[静的ファイル](xref:fundamentals/static-files)詳細についてはします。
+* という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダー。 注: HTML ファイルを追加する必要があります、 *wwwroot*フォルダー。 既定では、外部の静的コンテンツを提供できない*wwwroot*します。 参照してください[静的ファイル](xref:fundamentals/static-files)詳細についてはします。
 
-  内容を置き換える*Index.html*次のマークアップ。
+  内容を置き換える*Index.html*を次のマークアップ。
 
 [!code-html[](bower/sample/Index.html)]
 
-* アプリを実行してに移動`http://localhost:<port>/Index.html`です。 代わりに、 *Index.html*開くと、キーを押して`Ctrl+Shift+W`です。 Jumbotron スタイルが適用される、jQuery コード応答、ボタンがクリックされたときに、ブートス トラップのボタンが状態を変更することを確認します。
+* アプリを実行しに移動します`http://localhost:<port>/Index.html`します。 代わりに、 *Index.html*開かれると、キーを押して`Ctrl+Shift+W`します。 Jumbotron スタイルが適用される、jQuery コード、ボタンがクリックされたときの応答およびブートス トラップのボタンが状態を変更することを確認します。
 
-  ![適用される jumbotron スタイル](bower/_static/jumbotron.png)
+  ![jumbotron スタイルの適用](bower/_static/jumbotron.png)

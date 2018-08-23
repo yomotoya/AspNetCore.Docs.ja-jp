@@ -3,17 +3,17 @@ uid: signalr/overview/getting-started/supported-platforms
 title: サポートされているプラットフォーム |Microsoft Docs
 author: pfletcher
 description: この記事では、どのようなクライアントとサーバーは、SignalR でサポートされてについて説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 5d77db71c5c6b0c297756921b5b7cb79add03998
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d522602c3523d97a12c74b2d901391bd00d4f2b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805812"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838410"
 ---
 <a name="supported-platforms"></a>サポートされているプラットフォーム
 ====================
@@ -87,7 +87,7 @@ SignalR を使用するさまざまなトランスポートでは特定のブラ
 | Transport | Internet Explorer | Chrome (Windows または iOS) | Firefox | Safari (OSX または iOS) | Android |
 | --- | --- | --- | --- | --- | --- |
 | WebSocket | 10+ | 現在の値-1 | 現在の値-1 | 現在の値-1 | N/A |
-| サーバー送信イベント | N/A | 現在の値-1 | 現在の値-1 | 現在の値-1 | N/A |
+| Server-Sent Events | N/A | 現在の値-1 | 現在の値-1 | 現在の値-1 | N/A |
 | ForeverFrame | 8+ | N/A | N/A | N/A | 4.1 |
 | ロング ポーリング | 8+ | 現在の値-1 | 現在の値-1 | 現在の値-1 | 4.1 |
 
@@ -112,7 +112,7 @@ SignalR を使用可能なトランスポートではオペレーティング �
 | --- | --- | --- |
 | Web ソケット | Windows 8 以降、.NET 4.5 以降 | N/A |
 | 永遠にフレーム | N/A | N/A |
-| サーバー送信イベント | .NET 4+ | 5+ |
+| Server-Sent Events | .NET 4+ | 5+ |
 | ロング ポーリング | .NET 4+ | 5+ |
 
 <a id="android"></a>
@@ -127,7 +127,7 @@ SignalR は、Windows ストア アプリケーションと Windows Phone 8 ア�
 | --- | --- | --- | --- | --- |
 | WebSocket | N/A | Win8 + | 8+ | N/A |
 | 永遠にフレーム | N/A | Win8 + | 7.5+ | N/A |
-| サーバー送信イベント | Win8 + | N/A | N/A | 8+ |
+| Server-Sent Events | Win8 + | N/A | N/A | 8+ |
 | ロング ポーリング | Win8 + | Win8 + | 7.5+ | 8+ |
 
 <a id="updates"></a>

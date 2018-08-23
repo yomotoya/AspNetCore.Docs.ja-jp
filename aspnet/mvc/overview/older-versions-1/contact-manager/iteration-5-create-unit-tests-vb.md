@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests
 title: '繰り返し #5 – 単体テストを作成 (VB) |Microsoft Docs'
 author: microsoft
 description: 5 番目のイテレーションでアプリケーションと簡単に維持単体テストを追加して変更します。 データ モデル クラスをモックして o の単体テストをビルドしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 49e8b3eb6c0e8fb7199816d0c2b0843e0519872a
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 6aee4c01c1555dd2ea95d26a005d61ddab09f6fe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396091"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827689"
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>繰り返し #5 – 単体テストを生成する (VB)
 ====================

@@ -1,166 +1,161 @@
 ---
-title: ASP.NET Core Id を構成します。
+title: ASP.NET Core Identity を構成します。
 author: AdrienTorris
-description: ASP.NET Core Id の既定値を理解し、カスタム値を使用する Id プロパティを構成する方法について説明します。
-ms.author: scaddie
-ms.date: 03/06/2018
+description: ASP.NET Core Identity の既定値を理解し、カスタム値を使用する Id プロパティを構成する方法について説明します。
+ms.author: riande
+ms.date: 08/14/2018
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 914e9b22ed52b560366fdff1f2430d3dd66454c3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c597eacbb21ed0968e6195f7b6dcb46d37ba80a5
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276261"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870918"
 ---
-# <a name="configure-aspnet-core-identity"></a>ASP.NET Core Id を構成します。
+# <a name="configure-aspnet-core-identity"></a>ASP.NET Core Identity を構成します。
 
-ASP.NET Core の Id は、パスワード ポリシー、ロックアウト時間、および cookie の設定などの設定を既定の構成を使用します。 アプリのではこれらの設定をオーバーライドできます`Startup`クラスです。
+ASP.NET Core Identity では、パスワード ポリシー、によってロックアウトされた場合、cookie の構成などの設定の既定値が使用されます。 これらの設定を上書きすることができます、`Startup`クラス。
 
 ## <a name="identity-options"></a>Id オプション
 
-[IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions)クラス Id システムを構成するために使用するオプションを表します。
+[IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions)クラスは、Id システムを構成するために使用できるオプションを表します。 `IdentityOptions` 設定する必要があります**後**呼び出す`AddIdentity`または`AddDefaultIdentity`します。
 
 ### <a name="claims-identity"></a>要求の Id
 
-[IdentityOptions.ClaimsIdentity](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.claimsidentity)を指定します、 [ClaimsIdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions)の表に示すプロパティを持つ。
+[IdentityOptions.ClaimsIdentity](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.claimsidentity)を指定します、 [ClaimsIdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions)次の表に示したプロパティを使用します。
 
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
 | [RoleClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.roleclaimtype) | 取得または使用ロール クレームのクレームの種類を設定します。 | [ClaimTypes.Role](/dotnet/api/system.security.claims.claimtypes.role) |
-| [SecurityStampClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.securitystampclaimtype) | 取得またはセキュリティ スタンプの要求に対して使用される要求の種類を設定します。 | `AspNet.Identity.SecurityStamp` |
+| [SecurityStampClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.securitystampclaimtype) | 取得または設定要求の種類のセキュリティ スタンプ要求のために使用します。 | `AspNet.Identity.SecurityStamp` |
 | [UserIdClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.useridclaimtype) | 取得または使用ユーザー識別子要求の要求の種類を設定します。 | [ClaimTypes.NameIdentifier](/dotnet/api/system.security.claims.claimtypes.nameidentifier) |
 | [UserNameClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.usernameclaimtype) | 取得またはユーザー名要求のために使用するクレームの種類を設定します。 | [ClaimTypes.Name](/dotnet/api/system.security.claims.claimtypes.name) |
 
 ### <a name="lockout"></a>ロックアウト
 
-失敗したアクセスの試行数を指定した後、一定の時間のユーザーをロック (既定値: 5 には、アクセスの試行が失敗した後、5 分間ロックアウト)。 成功した認証は、失敗したアクセス試行数をリセットし、時計をリセットします。
+ロックアウト設定されている、 [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync#Microsoft_AspNetCore_Identity_SignInManager_1_PasswordSignInAsync_System_String_System_String_System_Boolean_System_Boolean_)メソッド。
 
-次の使用例は、既定値を示しています。
+[!code-csharp[](identity-configuration/sample/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=9)]
 
-[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
+上記のコードがに基づいて、 `Login` Id テンプレート。 
 
-いることを確認[PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync)設定`lockoutOnFailure`に`true`:
+ロックアウト オプションで設定`StartUp.ConfigureServices`:
 
-```csharp
-var result = await _signInManager.PasswordSignInAsync(
-                 Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
-```
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_lock)]
 
-[IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout)を指定します、 [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions)の表に示すプロパティを持つ。
+上記のコード セット、 [IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions)既定値を使用します。
+
+成功した認証は失敗したアクセス試行数がリセットされ、時計をリセットします。
+
+[IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout)を指定します、 [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions)表に示したプロパティを使用します。
 
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
-| [AllowedForNewUsers](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.allowedfornewusers) | 新しいユーザーをロックアウトできるかどうかを判断します。 | `true` |
-| [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan) | 時間数、ユーザーがロックアウト ロックアウトが発生するとします。 | 5 分 |
-| [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) | ロックアウトが有効になっている場合、ユーザーがロックされるまで、失敗したアクセス試行の数。 | 5 |
+| [AllowedForNewUsers](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.allowedfornewusers) | 新しいユーザーをロックアウトできるかどうかを決定します。 | `true` |
+| [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan) | 時間数、ユーザーがロックアウト ロックアウトが発生した場合。 | 5 分 |
+| [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) | ロックアウトが有効な場合、ユーザーがロックされるまで、失敗したアクセス試行の数。 | 5 |
 
-### <a name="password"></a>パスワード
+### <a name="password"></a>[Password]
 
-既定では、Id は、パスワードに、大文字、小文字、数字、および英数字以外の文字を含めることが必要です。 パスワードは、少なくとも 6 文字以上にする必要があります。 [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions)で変更できます。`Startup.ConfigureServices`です。
+既定では、Id は、パスワードが、大文字、小文字、数字、および英数字以外の文字を含めることが必要です。 パスワードは、少なくとも 6 文字以上である必要があります。 [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions)で設定できる`Startup.ConfigureServices`します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core 追加 2.0、 [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars)プロパティです。 それ以外の場合、オプションは、ASP.NET Core として同じ 1.x です。
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_pw)]
 
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-37,50-52)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-65,84)]
 
----
+::: moniker-end
 
-[IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password)を指定します、 [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions)の表に示すプロパティを持つ。
+[IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password)を指定します、 [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions)表に示したプロパティを使用します。
 
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
-| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | 0 ~ 9 では、パスワードに数字が必要です。 | `true` |
+| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | パスワードには、0 ~ 9 までの数値が必要です。 | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | パスワードの最小長。 | 6 |
-| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | ASP.NET Core 2.0 またはそれ以降にのみ適用されます。<br><br> パスワードに個別の文字数が必要です。 | 1 |
-| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | パスワードに小文字が必要です。 | `true` |
-| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | パスワードに英数字以外の文字が必要です。 | `true` |
-| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | パスワードに大文字が必要です。 | `true` |
+
+::: moniker range=">= aspnetcore-2.0"
+
+| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) |ASP.NET Core 2.0 以降にのみ適用されます。<br><br> パスワードに個別の文字数が必要です。 |1 |
+
+::: moniker-end
+
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) |パスワードに小文字の文字が必要です。 | `true` | |[RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) |パスワードに英数字以外の文字が必要です。 | `true` | |[RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) |パスワードに大文字が必要です。 | `true` |
 
 ### <a name="sign-in"></a>サインイン
 
-[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
+次のコード セット`SignIn`(既定値) に設定します。
 
-[IdentityOptions.SignIn](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.signin)を指定します、 [SignInOptions](/dotnet/api/microsoft.aspnetcore.identity.signinoptions)の表に示すプロパティを持つ。
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_si)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)] 
+
+::: moniker-end
+
+[IdentityOptions.SignIn](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.signin)を指定します、 [SignInOptions](/dotnet/api/microsoft.aspnetcore.identity.signinoptions)表に示したプロパティを使用します。
 
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
 | [RequireConfirmedEmail](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedemail) | 確認の電子メールにサインインする必要があります。 | `false` |
-| [RequireConfirmedPhoneNumber](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedphonenumber) | 確認の電話番号にサインインする必要があります。 | `false` |
+| [RequireConfirmedPhoneNumber](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedphonenumber) | サインインの確認済みの電話番号が必要です。 | `false` |
 
 ### <a name="tokens"></a>トークン
 
-[IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens)を指定します、 [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions)の表に示すプロパティを持つ。
+[IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens)を指定します、 [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions)表に示したプロパティを使用します。
 
 
 |                                                        プロパティ                                                         |                                                                                      説明                                                                                      |
 |-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider)     |                                       取得または設定、`AuthenticatorTokenProvider`認証によるサインインを 2 つの要素を検証するために使用します。                                       |
-|       [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider)       |                                     取得または設定、`ChangeEmailTokenProvider`電子メール変更の確認メールで使用されるトークンを生成するために使用します。                                     |
-| [ChangePhoneNumberTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changephonenumbertokenprovider) |                                      取得または設定、`ChangePhoneNumberTokenProvider`電話番号を変更するときに使用されるトークンを生成するために使用します。                                      |
-| [EmailConfirmationTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.emailconfirmationtokenprovider) |                                             取得またはアカウントの確認メールで使用されるトークンの生成に使用されるトークン プロバイダーを設定します。                                              |
-|     [PasswordResetTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.passwordresettokenprovider)     | 取得または設定、 [IUserTwoFactorTokenProvider<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactortokenprovider-1)パスワード リセット電子メールで使用されるトークンを生成するために使用します。 |
-|                    [ProviderMap](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.providermap)                    |                構築するために使用される、[ユーザー トークン プロバイダー](/dotnet/api/microsoft.aspnetcore.identity.tokenproviderdescriptor)プロバイダーの名前として使用されるキーを使用します。                 |
+|     [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider)     |                                       取得または設定します、`AuthenticatorTokenProvider`認証子とサインインを 2 つの要素を検証するために使用します。                                       |
+|       [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider)       |                                     取得または設定します、`ChangeEmailTokenProvider`電子メール変更の確認メールで使用されるトークンを生成するために使用します。                                     |
+| [ChangePhoneNumberTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changephonenumbertokenprovider) |                                      取得または設定します、`ChangePhoneNumberTokenProvider`電話番号を変更するときに使用されるトークンを生成するために使用します。                                      |
+| [EmailConfirmationTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.emailconfirmationtokenprovider) |                                             取得または確認メールのアカウントで使用されるトークンを生成するために使用するトークン プロバイダーを設定します。                                              |
+|     [PasswordResetTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.passwordresettokenprovider)     | 取得または設定します、 [IUserTwoFactorTokenProvider<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactortokenprovider-1)パスワード リセット メールで使用されるトークンを生成するために使用します。 |
+|                    [ProviderMap](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.providermap)                    |                構築に使用される、[ユーザー トークン プロバイダー](/dotnet/api/microsoft.aspnetcore.identity.tokenproviderdescriptor)プロバイダーの名前として使用されるキーを持つ。                 |
 
 ### <a name="user"></a>ユーザー
 
-[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_user)]
 
-[IdentityOptions.User](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.user)を指定します、 [UserOptions](/dotnet/api/microsoft.aspnetcore.identity.useroptions)の表に示すプロパティを持つ。
+[IdentityOptions.User](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.user)を指定します、 [UserOptions](/dotnet/api/microsoft.aspnetcore.identity.useroptions)表に示したプロパティを使用します。
 
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
-| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | ユーザー名に許容される文字。 | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-._@+ |
-| [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | 各ユーザーを一意の電子メールを持っている必要があります。 | `false` |
+| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | ユーザー名に許可される文字。 | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-._@+ |
+| [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | 各ユーザーを一意の電子メールを持つ必要があります。 | `false` |
 
-## <a name="cookie-settings"></a>Cookie の設定
+### <a name="cookie-settings"></a>Cookie の設定
 
-アプリの cookie を構成する`Startup.ConfigureServices`:
+内のアプリの cookie を構成する`Startup.ConfigureServices`します。 [ConfigureApplicationCookie](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.configureapplicationcookie#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionExtensions_ConfigureApplicationCookie_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Authentication_Cookies_CookieAuthenticationOptions__)呼び出す必要がある**後**呼び出す`AddIdentity`または`AddDefaultIdentity`します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_cookie)]
+
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?name=snippet_configurecookie)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-59,72-80,84)]
 
----
+::: moniker-end
 
-[CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions)は次のプロパティがあります。
-
-|                                                               プロパティ                                                               |                                                                                                                                                           説明                                                                                                                                                            |
-|--------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath)       |                                                                 送信変更する必要があります、ハンドラーに通知<em>403 アクセス不可</em>にステータス コード、 <em>302 リダイレクト</em>指定されたパスにします。<br><br>既定値は `/Account/AccessDenied` です。                                                                  |
-|             [AuthenticationScheme](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.authenticationscheme)              |                                                                                                                ASP.NET Core にのみ適用されます 1.x です。<br><br> 特定の認証スキームの論理名。                                                                                                                |
-|            [AutomaticAuthenticate](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticauthenticate)             |                                                                       ASP.NET Core にのみ適用されます 1.x です。<br><br> True の場合、cookie 認証を要求ごとに実行しを検証し、作成された任意のシリアル化されたプリンシパルを再構築しようとします。                                                                        |
-|               [AutomaticChallenge](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge)                |                                              ASP.NET Core にのみ適用されます 1.x です。<br><br> True の場合、認証ミドルウェアは自動の課題を処理します。 かどうかは false の場合、認証ミドルウェアが変更されるだけ応答によって明示的に示されたとき、`AuthenticationScheme`です。                                               |
-|               [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer)               |                                                             取得または作成された任意のクレームを使用する発行者を設定 (から継承された[AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions))。                                                             |
-|                             [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain)                              |                                                                                                                                             Cookie を関連付けるドメイン。                                                                                                                                             |
-|                         [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration)                          |                 取得または HTTP クッキー (認証の cookie とは異なる) の有効期間を設定します。 このプロパティはによってオーバーライド[ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan)です。 これは、CookieAuthentication のコンテキストで使用しないでください。                  |
-|                           [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly)                            |                                                                                                               Cookie がクライアント側スクリプトからアクセスできるかどうかを示します。<br><br>既定値は `true` です。                                                                                                                |
-|                               [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name)                                |                                                                                                                            Cookie の名前。<br><br>既定値は `.AspNetCore.Cookies` です。                                                                                                                            |
-|                               [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path)                                |                                                                                                                                                         Cookie のパス。                                                                                                                                                         |
-|                           [Cookie.SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite)                            |                                                                                           `SameSite` Cookie の属性です。<br><br>既定値は[SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode)です。                                                                                            |
-|                       [Cookie.SecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.securepolicy)                        |                                                   [CookieSecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy)構成します。<br><br>既定値は[CookieSecurePolicy.SameAsRequest](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy)です。                                                    |
-|                  [CookieDomain](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiedomain)                   |                                                                                                                      ASP.NET Core にのみ適用されます 1.x です。<br><br> Cookie が提供されたドメイン名です。                                                                                                                       |
-|                [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiehttponly)                 |                                                                                       ASP.NET Core にのみ適用されます 1.x です。<br><br> クッキーはサーバーにのみアクセスできるかどうかを示すフラグ。<br><br>既定値は `true` です。                                                                                        |
-|                    [CookiePath](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiepath)                     |                                                                                                                  ASP.NET Core にのみ適用されます 1.x です。<br><br> 同じホスト名で実行されているアプリを分離するために使用します。                                                                                                                   |
-|                  [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure)                   | ASP.NET Core にのみ適用されます 1.x です。<br><br> 作成された cookie を HTTPS に限られますかどうかを示すフラグ (`CookieSecurePolicy.Always`)、HTTP または HTTPS (`CookieSecurePolicy.None`)、または要求と同じプロトコル (`CookieSecurePolicy.SameAsRequest`)。<br><br>既定値は `CookieSecurePolicy.SameAsRequest` です。 |
-|          [CookieManager](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.cookiemanager)          |                                                                                                                         要求の cookie を取得または応答には設定を使用するコンポーネントです。                                                                                                                          |
-| [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider) |                                                                             かどうか設定すると、プロバイダーが使用して、 [CookieAuthenticationHandler](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationhandler)データ保護のためです。                                                                             |
-|                      [説明](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description)                       |                                                                                                ASP.NET Core にのみ適用されます 1.x です。<br><br> アプリに使用できる認証の種類に関する追加情報。                                                                                                |
-|                 [イベント](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.events)                 |                                                                                                      ハンドラーは、処理が発生している特定の時点でのアプリの制御がプロバイダーでメソッドを呼び出します。                                                                                                       |
-|                 [EventsType](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.eventstype)                 |                                                            かどうか設定すると、サービスに取得する型、`Events`プロパティではなくインスタンス (から継承された[AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions))。                                                            |
-|         [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan)         |                                                                                      どの程度時間、cookie は有効なまま作成された時点からに格納されている認証チケットを制御します。<br><br>既定値は、14 日間です。                                                                                       |
-|              [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath)              |                                                                                                       ユーザーが承認されていない、ときに、ログインにこのパスにリダイレクトしています。<br><br>既定値は `/Account/Login` です。                                                                                                       |
-|             [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath)             |                                                                                                            ユーザーがログアウトするときは、このパスにリダイレクトしています。<br><br>既定値は `/Account/Logout` です。                                                                                                            |
-|     [ReturnUrlParameter](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.returnurlparameter)     |                                              ミドルウェアによって付加されるクエリ文字列パラメーターの名前を指定ときに、 <em>401 Unauthorized</em>にステータス コードを変更、 <em>302 リダイレクト</em>ログイン パスにします。<br><br>既定値は `ReturnUrl` です。                                              |
-|           [SessionStore](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.sessionstore)           |                                                                                                                              要求間で id を格納するための省略可能なコンテナーです。                                                                                                                               |
-|      [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.slidingexpiration)      |                                                                           True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。<br><br>既定値は `true` です。                                                                           |
-|       [TicketDataFormat](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.ticketdataformat)       |                                                                                                 `TicketDataFormat`を保護し、id および cookie の値に格納されているその他のプロパティの保護を解除するために使用します。                                                                                                  |
-
+詳細については、次を参照してください。 [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions)します。

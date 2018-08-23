@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-razor-syntax-c
 title: Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要 |Microsoft Docs
 author: tfitzmac
 description: この章では、するプログラミングの概要 ASP.NET Web ページ Razor 構文を使用します。 動的な web の pa を実行するためのマイクロソフトのテクノロジを ASP.NET には.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 22985b71d39d93b8ad42ee923b872846f2fafa99
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814302"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827715"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -340,84 +340,248 @@ ASP.NET は、データ型を自動的に決定することができます、通
 
 次の表では、変数の一般的ないくつかの変換とテスト方法を示します。
 
-行:: 列:<strong>メソッド</strong>: 列エンド:: 列:<strong>説明</strong>: 列エンド:: 列:<strong>例</strong>: 列終了:: 行の終わり。
+:::row:::
+    :::column:::
+        <strong>メソッド</strong>
+    :::column-end:::
+    :::column:::
+        <strong>説明</strong>
+    :::column-end:::
+    :::column:::
+        <strong>例</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsInt(), IsInt()` : 列エンド:: 列: 整数 (「593」) などの整数を表す文字列に変換します。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsInt(), IsInt()`
+    :::column-end:::
+    :::column:::
+        整数 (「593」) などの整数を表す文字列に変換します。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsBool(), IsBool()` : 列エンド:: 列: のような文字列に変換します&quot;true&quot;または&quot;false&quot;ブール型にします。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsBool(), IsBool()`
+    :::column-end:::
+    :::column:::
+        などの文字列に変換します&quot;true&quot;または&quot;false&quot;ブール型にします。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsFloat(), IsFloat()` : 列エンド:: 列: のような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsFloat(), IsFloat()`
+    :::column-end:::
+    :::column:::
+        ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsDecimal(), IsDecimal()` : 列エンド:: 列: のような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot; 10 進数。 (ASP.NET では、10 進数、浮動小数点数よりも正確)。列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsDecimal(), IsDecimal()`
+    :::column-end:::
+    :::column:::
+        ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot; 10 進数。 (ASP.NET では、10 進数、浮動小数点数よりも正確)。 :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `AsDateTime(), IsDateTime()` : 列エンド:: 列: asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `AsDateTime(), IsDateTime()`
+    :::column-end:::
+    :::column:::
+        Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `ToString()` : 列エンド:: 列: その他の任意のデータ型を文字列に変換します。
-列エンド:: 列。 [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `ToString()`
+    :::column-end:::
+    :::column:::
+        その他の任意のデータ型を文字列に変換します。
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="operators"></a>演算子
 
 演算子は、キーワードまたは式の中で実行するコマンドの種類を ASP.NET に指示する文字です。 C# 言語 (とそれに基づいている Razor 構文) は、多くの演算子をサポートしていますが、開始するいくつかを認識するだけで済みます。 次の表では、最も一般的な演算子をまとめたものです。
 
 
-行:: 列:<strong>演算子</strong>: 列エンド:: 列:<strong>説明</strong>: 列エンド:: 列:<strong>例</strong>: 列エンド:: 行の終わり。
+:::row:::
+    :::column:::
+        <strong>Operator</strong>
+    :::column-end:::
+    :::column:::
+        <strong>説明</strong>
+    :::column-end:::
+    :::column:::
+        <strong>例</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `+` `-` `*` `/` : 列エンド:: 列: 算術演算子が数値式で使用します。
-列エンド:: 列。 [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `+` `-` `*` `/`
+    :::column-end:::
+    :::column:::
+        算術演算子が数値式で使用します。
+    :::column-end:::
+    :::column:::
+        [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `=` : 列エンド:: 列: 割り当て。 左側にあるオブジェクトには、ステートメントの右側にある値を割り当てます。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `=`
+    :::column-end:::
+    :::column:::
+        代入。 左側にあるオブジェクトには、ステートメントの右側にある値を割り当てます。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `==` : 列エンド:: 列: 等しいかどうか。 返します`true`値が等しい場合。 (上での違いに注意してください、`=`演算子と`==`演算子): 列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `==`
+    :::column-end:::
+    :::column:::
+        等値。 返します`true`値が等しい場合。 (上での違いに注意してください、`=`演算子と`==`演算子です)。 :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `!=` : 列エンド:: 列: 非等値。 返します`true`値が等しくない場合。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `!=`
+    :::column-end:::
+    :::column:::
+        非等値。 返します`true`値が等しくない場合。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `< > <= >=` : 列エンド:: 列: Less-より大きい-より、小さいよりも-または-等しく、大きい-よりも-または-等しい。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `< > <= >=`
+    :::column-end:::
+    :::column:::
+        以下のより大きい-より、小さいよりも-または-等しく、大きい-よりも-または-等しい。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `+` : 列エンド:: 列: 連結、文字列を結合するために使用します。 ASP.NET では、この演算子と式のデータ型に基づく加算演算子の違いを認識します。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `+`
+    :::column-end:::
+    :::column:::
+        連結、文字列を結合するために使用します。 ASP.NET では、この演算子と式のデータ型に基づく加算演算子の違いを認識します。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `+=` `-=` : 列エンド:: 列: インクリメントおよびデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `+=` `-=`
+    :::column-end:::
+    :::column:::
+        インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `.` : 列エンド:: 列: ドットです。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `.`
+    :::column-end:::
+    :::column:::
+        ドットです。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `()` : 列エンド:: 列: かっこです。 グループ式をメソッドにパラメーターを渡すために使用します。
-列エンド:: 列。 [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `()`
+    :::column-end:::
+    :::column:::
+        かっこです。 グループ式をメソッドにパラメーターを渡すために使用します。
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `[]` : 列エンド:: 列: 角かっこです。 配列またはコレクション内の値にアクセスするために使用されます。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `[]`
+    :::column-end:::
+    :::column:::
+        角かっこです。 配列またはコレクション内の値にアクセスするために使用されます。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `!` : 列エンド:: 列: ありません。 逆に、`true`値を`false`またはその逆です。 通常のテストを簡略化として使用される`false`(には、いない`true`)。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `!`
+    :::column-end:::
+    :::column:::
+        じゃない。 逆に、`true`値を`false`またはその逆です。 通常のテストを簡略化として使用される`false`(には、いない`true`)。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-行:: 列: `&&` <code>&#124;&#124;</code> : 列エンド:: 列: 論理およびまたはと、条件をまとめてリンクに使用されます。
-列エンド:: 列。 [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
-    列エンド:: 行終了。
+:::row:::
+    :::column:::
+        `&&` <code>&#124;&#124;</code>
+    :::column-end:::
+    :::column:::
+        論理 AND またはと、条件をまとめてリンクに使用されます。
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    :::column-end:::
+:::row-end:::
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>ファイルとコード内のフォルダー パスを使用します。

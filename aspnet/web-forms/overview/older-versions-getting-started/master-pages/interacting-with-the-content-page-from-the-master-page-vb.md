@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-
 title: マスター ページ (VB) からコンテンツ ページと対話する |Microsoft Docs
 author: rick-anderson
 description: メソッドを呼び出す、マスター ページのコードから、[コンテンツ] ページのプロパティなどを設定する方法について説明します。
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41cfd5e65fbe0a5ef4930ce3a4c84556cedcdfd6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7ace3873ecb525afcb64a0aa144742eab467f8f6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807649"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838078"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>マスター ページ (VB) からコンテンツ ページと対話します。
 ====================
@@ -89,7 +89,7 @@ ms.locfileid: "37807649"
 **図 04**: 返す、`ProductName`と`UnitPrice`フィールドから、`Products`テーブル ([フルサイズの画像を表示する をクリックします](interacting-with-the-content-page-from-the-master-page-vb/_static/image12.png))。
 
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。 ウィザードの完了後は、Visual Studio は、GridView が SqlDataSource コントロールによって返される 2 つのフィールドをミラー化するに 2 つの BoundFields を追加します。 GridView と SqlDataSource コントロールのマークアップに従います。 図 5 は、ブラウザーで表示した場合の結果を示します。
+すべてです。 ウィザードの完了後は、Visual Studio は、GridView が SqlDataSource コントロールによって返される 2 つのフィールドをミラー化するに 2 つの BoundFields を追加します。 GridView と SqlDataSource コントロールのマークアップに従います。 図 5 は、ブラウザーで表示した場合の結果を示します。
 
 
 [!code-aspx[Main](interacting-with-the-content-page-from-the-master-page-vb/samples/sample2.aspx)]
