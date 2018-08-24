@@ -480,8 +480,7 @@
 ##### [データ アクセス層の接続レベルとコマンド レベルの設定を構成する (C#)](web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
 ##### [接続文字列とその他の構成情報を保護する (C#)](web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs.md)
 ##### [ストアド プロシージャのデバッグ (C#)](web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs.md)
-##### 
-  [マネージド コードでストアド プロシージャとユーザー定義関数を作成する (C#)](web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
+##### [マネージド コードでストアド プロシージャとユーザー定義関数を作成する (C#)](web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
 ##### [型指定された DataSet の TableAdapters に新しいストアド プロシージャを作成する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
 ##### [型指定された DataSet の TableAdapters に既存のストアド プロシージャを使用する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
 ##### [JOIN を使用するように TableAdapter を更新する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb.md)
@@ -490,8 +489,7 @@
 ##### [データ アクセス層の接続レベルとコマンド レベルの設定を構成する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
 ##### [接続文字列とその他の構成情報を保護する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb.md)
 ##### [ストアド プロシージャのデバッグ (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb.md)
-##### 
-  [マネージド コードでストアド プロシージャとユーザー定義関数を作成する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+##### [マネージド コードでストアド プロシージャとユーザー定義関数を作成する (VB)](web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
 ### [旧バージョン - セキュリティ](web-forms/overview/older-versions-security/index.md)
 #### [ASP.NET 3.5 - セキュリティの概要](web-forms/overview/older-versions-security/introduction/index.md)
 ##### [セキュリティの基礎と ASP.NET のサポート (C#)](web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
