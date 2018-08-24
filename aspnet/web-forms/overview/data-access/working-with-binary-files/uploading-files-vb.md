@@ -236,7 +236,7 @@ FileUpload コントロールは、さまざまなアップロードされたデ
 > 確認するファイルをアップロードすることを確認する、`HasFile`プロパティ場合に警告を表示、s`False`を使用することや、 [RequiredFieldValidator コントロール](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx)代わりにします。
 
 
-FileUpload s`SaveAs(filePath)`を指定したアップロードされたファイルを保存します。 *filePath*します。 *filePath*必要があります、*物理パス*(`C:\Websites\Brochures\SomeFile.pdf`) ではなく*仮想**パス*(`/Brochures/SomeFile.pdf`)。 [ `Server.MapPath(virtPath)`メソッド](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx)仮想パスを受け取り、その対応する物理パスを返します。 仮想パスは、ここでは、`~/Brochures/fileName`ここで、 *fileName*アップロードされたファイルの名前を指定します。 参照してください[を使用して Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml)仮想および物理パスと使用の詳細については`Server.MapPath`します。
+FileUpload s`SaveAs(filePath)`を指定したアップロードされたファイルを保存します。 *filePath*します。 *filePath*必要があります、*物理パス*(`C:\Websites\Brochures\SomeFile.pdf`) ではなく*仮想* *パス*(`/Brochures/SomeFile.pdf`)。 [ `Server.MapPath(virtPath)`メソッド](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx)仮想パスを受け取り、その対応する物理パスを返します。 仮想パスは、ここでは、`~/Brochures/fileName`ここで、 *fileName*アップロードされたファイルの名前を指定します。 参照してください[を使用して Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml)仮想および物理パスと使用の詳細については`Server.MapPath`します。
 
 完了した後、`Click`イベント ハンドラーでは、ブラウザーでページをテストする少し。 [参照] ボタンをクリックして、ハード ドライブからファイルを選択し、選択したファイルのアップロード ボタンをクリックします。 ポストバックに保存する前に、ファイルに関する情報が表示される web サーバーに、選択したファイルの内容を送り、`~/Brochures`フォルダー。 ファイルをアップロードした後は、Visual Studio に戻り、ソリューション エクスプ ローラーで [更新] ボタンをクリックします。 ~/Brochures フォルダーにアップロードしたファイルが表示する必要があります。
 
