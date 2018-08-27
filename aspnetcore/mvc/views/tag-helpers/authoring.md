@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core でのタグ ヘルパーの作成方法を説明します。
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 01/19/2018
+ms.date: 08/20/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 5873c6dbdeba1b5f2bf7ac85d8992480228b7125
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2d39488caeea0c87d2efc79f265de7feb200f096
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275318"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41751557"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
@@ -35,7 +35,7 @@ ms.locfileid: "36275318"
 
 ```html
 <email>Support</email>
-   ```
+```
 
 サーバーは、電子メール タグ ヘルパーを使用して、そのマークアップを以下に変換します。
 
@@ -179,7 +179,7 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
 
 ```csharp
 [HtmlTargetElement("MyBold")]
-   ```
+```
 
 ## <a name="pass-a-model-to-a-tag-helper"></a>タグ ヘルパーにモデルを渡す
 
@@ -245,26 +245,8 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
 
 2. *Views/Home/Index.cshtml* ファイルの内容を次のマークアップに置き換えます。
 
-   ```cshtml
-   @using AuthoringTagHelpers.Models
-   @model WebsiteContext
-    
-   @{
-       ViewData["Title"] = "Home Page";
-   }
-    
-   <div>
-       <h3>Information about our website (outdated):</h3>
-       <website-information info=@Model />
-       <div condition="@Model.Approved">
-           <p>
-               This website has <strong surround="em"> @Model.Approved </strong> been approved yet.
-               Visit www.contoso.com for more information.
-           </p>
-       </div>
-   </div>
-   ```
-    
+   [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Index.cshtml)]
+
 3. `Home` コントローラーの `Index` メソッドを次のコードで置き換えます。
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]

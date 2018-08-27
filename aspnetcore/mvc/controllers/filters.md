@@ -3,14 +3,14 @@ title: ASP.NET Core フィルター
 author: ardalis
 description: フィルターのしくみと ASP.NET Core MVC でそれを使用する方法について説明します。
 ms.author: riande
-ms.date: 4/10/2018
+ms.date: 08/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6b3d5446b1c9aafc02d4c31ad57a234f16513e3f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275646"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751500"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -152,7 +152,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 ### <a name="overriding-the-default-order"></a>既定の順序のオーバーライド
 
-`IOrderedFilter` を実装することで、実行の既定の順序を上書きできます。 このインターフェイスは、実行の順序を決定するために、スコープよりも優先される `Order` プロパティを公開します。 `Order` 値が低いフィルターがその *before* コードを、その `Order` の高い値よりも前に実行させます。 `Order` 値が低いフィルターがその *after* コードを、その高い `Order` の値よりも後に実行させます。 `Order` プロパティは、コンストラクター パラメーターを使用して設定できます。
+`IOrderedFilter` を実装することで、実行の既定の順序をオーバーライドできます。 このインターフェイスは、実行の順序を決定するために、スコープよりも優先される `Order` プロパティを公開します。 `Order` 値が低いフィルターがその *before* コードを、その `Order` の高い値よりも前に実行させます。 `Order` 値が低いフィルターがその *after* コードを、その高い `Order` の値よりも後に実行させます。 `Order` プロパティは、コンストラクター パラメーターを使用して設定できます。
 
 ```csharp
 [MyFilter(Name = "Controller Level Attribute", Order=1)]

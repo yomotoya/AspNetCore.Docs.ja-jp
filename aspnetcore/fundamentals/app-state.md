@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 072699113a45056ec3ea79436ad56896ba0a4197
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095815"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870935"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -105,7 +105,7 @@ ASP.NET Core は、セッション ID を含む Cookie をクライアントに�
 
 ::: moniker-end
 
-ミドルウェアの順序が重要です。 上の例では、`UseMvc` の後で `UseSession` を呼び出すと、`InvalidOperationException` 例外が発生します。 詳細については、[ミドルウェアの順序](xref:fundamentals/middleware/index#ordering)に関するページをご覧ください。
+ミドルウェアの順序が重要です。 上の例では、`UseMvc` の後で `UseSession` を呼び出すと、`InvalidOperationException` 例外が発生します。 詳細については、[ミドルウェアの順序](xref:fundamentals/middleware/index#order)に関するページをご覧ください。
 
 [HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session) は、セッション状態を構成した後で使用できます。
 
@@ -299,7 +299,7 @@ Cookie ベース TempData プロバイダーは既定で有効になります。
 
 ::: moniker-end
 
-ミドルウェアの順序が重要です。 上の例では、`UseMvc` の後で `UseSession` を呼び出すと、`InvalidOperationException` 例外が発生します。 詳細については、[ミドルウェアの順序](xref:fundamentals/middleware/index#ordering)に関するページをご覧ください。
+ミドルウェアの順序が重要です。 上の例では、`UseMvc` の後で `UseSession` を呼び出すと、`InvalidOperationException` 例外が発生します。 詳細については、[ミドルウェアの順序](xref:fundamentals/middleware/index#order)に関するページをご覧ください。
 
 > [!IMPORTANT]
 > .NET Framework が対象で、セッション ベースの TempData プロバイダーを使う場合は、[Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) パッケージをプロジェクトに追加します。

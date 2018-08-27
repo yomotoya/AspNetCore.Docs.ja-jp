@@ -31,7 +31,7 @@ SignalR JavaScript クライアント ライブラリとして提供される、
   npm install @aspnet/signalr
   ```
 
-npm のインストール パッケージの内容を *node_modules\\ @aspnet\signalr\dist\browser* フォルダー。 という名前の新しいフォルダーを作成する*signalr*下、 *wwwroot\\lib*フォルダー。 コピー、 *signalr.js*ファイルを*wwwroot\lib\signalr*フォルダー。
+npm のインストール パッケージの内容を *node_modules\\@aspnet\signalr\dist\browser* フォルダー。 という名前の新しいフォルダーを作成する*signalr*下、 *wwwroot\\lib*フォルダー。 コピー、 *signalr.js*ファイルを*wwwroot\lib\signalr*フォルダー。
 
 ## <a name="use-the-signalr-javascript-client"></a>SignalR JavaScript クライアントを使用します。
 

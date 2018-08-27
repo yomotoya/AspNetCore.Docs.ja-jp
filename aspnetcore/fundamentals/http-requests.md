@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/07/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: dd217cfed230ea92c31eeed64ec19838032dd224
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 2a1bf78edb5068d8b10d66e5ef306b1ad4395da6
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655233"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41751536"
 ---
 # <a name="initiate-http-requests"></a>HTTP 要求の開始
 
@@ -46,11 +46,11 @@ ms.locfileid: "39655233"
 
 `IHttpClientFactory` は、`Startup.ConfigureServices` メソッドの内部で `IServiceCollection` の `AddHttpClient` 拡張メソッドを呼び出すことによって登録できます。
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet1)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
 登録が済むと、コードは、[依存関係の挿入](xref:fundamentals/dependency-injection) (DI) を使用してサービスを挿入できる任意の場所で、`IHttpClientFactory` を受け取ることができます。 `IHttpClientFactory` を使用して、`HttpClient` インスタンスを作成できます。
 
-[!code-csharp[](http-requests/samples/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,20)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
 このように `IHttpClientFactory` を使用するのは、既存のアプリをリファクタリングする優れた方法です。 `HttpClient` の使用方法に影響はありません。 現在 `HttpClient` インスタンスが作成されている場所で、それを [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient) の呼び出しに置き換えます。
 
@@ -58,7 +58,7 @@ ms.locfileid: "39655233"
 
 それぞれ構成が異なる多数の `HttpClient` をアプリで個別に使用する必要がある場合は、**名前付きクライアント**を使用することができます。 名前付き `HttpClient` の構成は、`Startup.ConfigureServices` での登録時に指定できます。
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet2)]
 
 上記のコードでは、*github* という名前を指定して `AddHttpClient` を呼び出しています。 このクライアントには既定の構成がいくつか適用されています。つまり、GitHub API を使用するために必要なベース アドレスと 2 つのヘッダーです。
 
@@ -66,7 +66,7 @@ ms.locfileid: "39655233"
 
 名前付きクライアントを使用するには、文字列パラメーターを `CreateClient` に渡すことができます。 作成するクライアントの名前を指定します。
 
-[!code-csharp[](http-requests/samples/Pages/NamedClient.cshtml.cs?name=snippet1&highlight=20)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/NamedClient.cshtml.cs?name=snippet1&highlight=21)]
 
 上記のコードでは、要求でホスト名を指定する必要はありません。 クライアントに構成されているベース アドレスが使用されるため、パスだけを渡すことができます。
 
@@ -76,25 +76,25 @@ ms.locfileid: "39655233"
 
 型指定されたクライアントは、コンストラクターで `HttpClient` パラメーターを受け取ります。
 
-[!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
 上記のコードでは、構成が型指定されたクライアントに移動されています。 `HttpClient` オブジェクトは、パブリック プロパティとして公開されます。 `HttpClient` 機能を公開する API 固有のメソッドを定義することができます。 `GetAspNetDocsIssues` メソッドは、GitHub リポジトリで最新の未解決の問題をクエリして解析するために必要なコードをカプセル化します。
 
 型指定されたクライアントを登録するには、ジェネリック `AddHttpClient` 拡張メソッドを `Startup.ConfigureServices` 内で使用して、型指定されたクライアントのクラスを指定します。
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet3)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
 型指定されたクライアントは、DI で一時的として登録されます。 型指定されたクライアントは、直接挿入して使用できます。
 
-[!code-csharp[](http-requests/samples/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
 好みに応じて、型指定されたクライアントのコンストラクターではなく、`Startup.ConfigureServices` での登録時に型指定されたクライアントの構成を指定できます。
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet4)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet4)]
 
 型指定されたクライアントの内部に `HttpClient` を完全にカプセル化することができます。 プロパティとして公開するのではなく、`HttpClient` インスタンスを内部的に呼び出すパブリック メソッドとして提供することができます。
 
-[!code-csharp[](http-requests/samples/GitHub/RepoService.cs?name=snippet1&highlight=3)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/GitHub/RepoService.cs?name=snippet1&highlight=4)]
 
 上記のコードでは、`HttpClient` はプライベート フィールドとして格納されます。 外部呼び出しを行うすべてのアクセスは、`GetRepos` メソッドを通して行われます。
 
@@ -159,19 +159,19 @@ public class ValuesController : ControllerBase
 
 ハンドラーを作成するには、`DelegatingHandler` の派生クラスを定義します。 パイプライン内の次のハンドラーに要求を渡す前にコードを実行するように、`SendAsync` メソッドをオーバーライドします。
 
-[!code-csharp[Main](http-requests/samples/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
 上記のコードでは、基本的なハンドラーが定義されています。 このコードは、`X-API-KEY` ヘッダーが要求に含まれていたかどうかを確認します。 ヘッダーがない場合、HTTP 呼び出しを行わずに適切な応答を返すことができます。
 
 登録の間に、1 つ以上のハンドラーを `HttpClient` の構成に追加することができます。 このタスクは、[IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) の拡張メソッドを使用して実行されます。
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet5)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
 上記のコードでは、`ValidateHeaderHandler` が DI で登録されます。 ハンドラーは、DI で一時的として登録される**必要があります**。 登録が済むと、ハンドラーの型を渡して [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler) を呼び出すことができます。
 
 実行する順序で、複数のハンドラーを登録することができます。 最後の `HttpClientHandler` が要求を実行するまで、各ハンドラーは次のハンドラーをラップします。
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet6)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet6)]
 
 ## <a name="use-polly-based-handlers"></a>Polly ベースのハンドラーを使用する
 
@@ -179,7 +179,7 @@ public class ValuesController : ControllerBase
 
 構成されている `HttpClient` インスタンスで Polly ポリシーを使用できるようにするための、拡張メソッドが提供されています。 ポリー拡張機能は、"[Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/)" という NuGet パッケージで利用できます。 このパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれていません。 拡張を使用するには、プロジェクトに明示的な `<PackageReference />` を含める必要があります。
 
-[!code-csharp[](http-requests/samples/HttpClientFactorySample.csproj?highlight=9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=9)]
 
 このパッケージを復元した後は、拡張メソッドを使用してクライアントに Polly ベースのハンドラーを追加できます。
 
@@ -189,7 +189,7 @@ public class ValuesController : ControllerBase
 
 `AddTransientHttpErrorPolicy` 拡張メソッドは、`Startup.ConfigureServices` 内で使用できます。 この拡張メソッドは、可能性のある一時的障害を表すエラーを処理するように構成された `PolicyBuilder` オブジェクトへのアクセスを提供します。
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet7)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet7)]
 
 上記のコードでは、`WaitAndRetryAsync` ポリシーが定義されています。 失敗した要求は最大 3 回再試行され、再試行の間には 600 ミリ秒の遅延が設けられます。
 
@@ -197,7 +197,7 @@ public class ValuesController : ControllerBase
 
 Polly ベースのハンドラーを追加するために使用できる追加の拡張メソッドが存在します。 そのような拡張メソッドの 1 つは `AddPolicyHandler` であり、複数のオーバーロードを持ちます。 1 つのオーバーロードでは、適用するポリシーを定義するときに要求を検査できます。
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet8)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
 上記のコードでは、送信要求が GET の場合は、10 秒のタイムアウトが適用されます。 他の HTTP メソッドの場合は、30 秒のタイムアウトが使用されます。
 
@@ -205,7 +205,7 @@ Polly ベースのハンドラーを追加するために使用できる追加�
 
 Polly ポリシーを入れ子にして拡張機能を提供するのが一般的です。
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet9)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
 
 前の例では、2 つのハンドラーが追加されています。 最初のハンドラーは、`AddTransientHttpErrorPolicy` 拡張メソッドを使用して再試行ポリシーを追加します。 失敗した要求は 3 回まで再試行されます。 `AddTransientHttpErrorPolicy` の 2 番目の呼び出しでは、サーキット ブレーカー ポリシーが追加されています。 試行が連続して 5 回失敗した場合、それ以上の外部要求は 30 秒間ブロックされます。 サーキット ブレーカー ポリシーはステートフルです。 このクライアントからのすべての呼び出しは、同じサーキット状態を共有します。
 
@@ -213,7 +213,7 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 定期的に使用されるポリシーを管理するには、ポリシーを 1 回定義した後、`PolicyRegistry` でポリシーを登録します。 提供されている拡張メソッドを使用することで、レジストリからポリシーを使用してハンドラーを追加できます。
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet10)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet10)]
 
 上記のコードでは、`PolicyRegistry` が `ServiceCollection` に追加されるときに 2 つのポリシーが登録されています。 レジストリからポリシーを使用するには、適用するポリシーの名前を渡して `AddPolicyHandlerFromRegistry` メソッドを使用します。
 
@@ -227,7 +227,7 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 ハンドラーの既定の有効期間は 2 分です。 名前付きクライアントごとに、既定値をオーバーライドすることができます。 オーバーライドするには、クライアント作成時に返された `IHttpClientBuilder` で [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) を呼び出します。
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet11)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
 
 クライアントを破棄する必要はありません。 破棄すると送信要求がキャンセルされ、[Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose) 呼び出し後には指定された `HttpClient` インスタンスを使用できなくなります。 `IHttpClientFactory` は、`HttpClient` インスタンスによって使用されたリソースの追跡と破棄を行います。 通常、`HttpClient` インスタンスは、破棄を必要としない .NET オブジェクトとして扱うことができます。
 
@@ -251,4 +251,4 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 名前付きクライアントまたは型指定されたクライアントを追加すると、`IHttpClientBuilder` が返されます。 デリゲートを定義するために [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) 拡張メソッドを使用できます。 デリゲートは、そのクライアントによって使用されるプライマリ `HttpMessageHandler` の作成と構成に使用されます。
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet12)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
