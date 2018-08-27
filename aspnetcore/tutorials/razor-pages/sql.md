@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 255faf12064aa424d51fb6faa801884c474bd288
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: ef4e1fb3bf1ac1b3695ff89d6692ac6fa1641e31
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889484"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41820160"
 ---
-# <a name="work-with-sql-server-localdb-and-aspnet-core"></a><span data-ttu-id="e3c49-103">SQL Server LocalDB と ASP.NET Core の使用</span><span class="sxs-lookup"><span data-stu-id="e3c49-103">Work with SQL Server LocalDB and ASP.NET Core</span></span>
+# <a name="work-with-sql-server-localdb-and-aspnet-core"></a><span data-ttu-id="fd9d4-103">SQL Server LocalDB と ASP.NET Core の使用</span><span class="sxs-lookup"><span data-stu-id="fd9d4-103">Work with SQL Server LocalDB and ASP.NET Core</span></span>
 
-<span data-ttu-id="e3c49-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Joe Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="e3c49-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span> 
+<span data-ttu-id="fd9d4-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Joe Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="fd9d4-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span> 
 
-<span data-ttu-id="e3c49-105">`MovieContext` オブジェクトは、データベースへの接続と、データベース レコードへの `Movie` オブジェクトのマッピングのタスクを処理します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-105">The `MovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="e3c49-106">データベース コンテキストは、*Startup.cs* ファイルの `ConfigureServices` メソッドで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーに登録されます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-106">The database context is registered with the [Dependency Injection](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in the *Startup.cs* file:</span></span>
+<span data-ttu-id="fd9d4-105">`MovieContext` オブジェクトは、データベースへの接続と、データベース レコードへの `Movie` オブジェクトのマッピングのタスクを処理します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-105">The `MovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="fd9d4-106">データベース コンテキストは、*Startup.cs* ファイルの `ConfigureServices` メソッドで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーに登録されます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-106">The database context is registered with the [Dependency Injection](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in the *Startup.cs* file:</span></span>
 
 ::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
@@ -27,43 +27,43 @@ ms.locfileid: "37889484"
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
 
-<span data-ttu-id="e3c49-107">`ConfigureServices` で使用されているメソッドの詳細については、以下を参照してください。</span><span class="sxs-lookup"><span data-stu-id="e3c49-107">For more information on the methods used in `ConfigureServices`, see:</span></span>
+<span data-ttu-id="fd9d4-107">`ConfigureServices` で使用されているメソッドの詳細については、以下を参照してください。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-107">For more information on the methods used in `ConfigureServices`, see:</span></span>
 
-* <span data-ttu-id="e3c49-108">[ASP.NET Core での `CookiePolicyOptions` 用の EU の一般データ保護規制 (GDPR) のサポート](xref:security/gdpr)</span><span class="sxs-lookup"><span data-stu-id="e3c49-108">[EU General Data Protection Regulation (GDPR) support in ASP.NET Core](xref:security/gdpr) for `CookiePolicyOptions`.</span></span>
-* [<span data-ttu-id="e3c49-109">SetCompatibilityVersion</span><span class="sxs-lookup"><span data-stu-id="e3c49-109">SetCompatibilityVersion</span></span>](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc)
+* <span data-ttu-id="fd9d4-108">[ASP.NET Core での `CookiePolicyOptions` 用の EU の一般データ保護規制 (GDPR) のサポート](xref:security/gdpr)</span><span class="sxs-lookup"><span data-stu-id="fd9d4-108">[EU General Data Protection Regulation (GDPR) support in ASP.NET Core](xref:security/gdpr) for `CookiePolicyOptions`.</span></span>
+* [<span data-ttu-id="fd9d4-109">SetCompatibilityVersion</span><span class="sxs-lookup"><span data-stu-id="fd9d4-109">SetCompatibilityVersion</span></span>](xref:mvc/compatibility-version)
 
 ::: moniker-end
 
-<span data-ttu-id="e3c49-110">ASP.NET Core の[構成](xref:fundamentals/configuration/index)システムは `ConnectionString` を読み取ります。</span><span class="sxs-lookup"><span data-stu-id="e3c49-110">The ASP.NET Core [Configuration](xref:fundamentals/configuration/index) system reads the `ConnectionString`.</span></span> <span data-ttu-id="e3c49-111">ローカルで開発する場合は、*appsettings.json* ファイルから接続文字列を取得します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-111">For local development, it gets the connection string from the *appsettings.json* file.</span></span> <span data-ttu-id="e3c49-112">データベースの名前の値は (`Database={Database name}`) ユーザーが生成したコードでは異なります。</span><span class="sxs-lookup"><span data-stu-id="e3c49-112">The name value for the database (`Database={Database name}`) will be different for your generated code.</span></span> <span data-ttu-id="e3c49-113">名前の値は任意です。</span><span class="sxs-lookup"><span data-stu-id="e3c49-113">The name value is arbitrary.</span></span>
+<span data-ttu-id="fd9d4-110">ASP.NET Core の[構成](xref:fundamentals/configuration/index)システムは `ConnectionString` を読み取ります。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-110">The ASP.NET Core [Configuration](xref:fundamentals/configuration/index) system reads the `ConnectionString`.</span></span> <span data-ttu-id="fd9d4-111">ローカルで開発する場合は、*appsettings.json* ファイルから接続文字列を取得します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-111">For local development, it gets the connection string from the *appsettings.json* file.</span></span> <span data-ttu-id="fd9d4-112">データベースの名前の値は (`Database={Database name}`) ユーザーが生成したコードでは異なります。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-112">The name value for the database (`Database={Database name}`) will be different for your generated code.</span></span> <span data-ttu-id="fd9d4-113">名前の値は任意です。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-113">The name value is arbitrary.</span></span>
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
-<span data-ttu-id="e3c49-114">テストまたは実稼働サーバーにアプリを配置する場合は、環境変数または別の方法を使用して、実際の SQL Server に接続文字列を設定できます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-114">When you deploy the app to a test or production server, you can use an environment variable or another approach to set the connection string to a real SQL Server.</span></span> <span data-ttu-id="e3c49-115">詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e3c49-115">See [Configuration](xref:fundamentals/configuration/index) for more information.</span></span>
+<span data-ttu-id="fd9d4-114">テストまたは実稼働サーバーにアプリを配置する場合は、環境変数または別の方法を使用して、実際の SQL Server に接続文字列を設定できます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-114">When you deploy the app to a test or production server, you can use an environment variable or another approach to set the connection string to a real SQL Server.</span></span> <span data-ttu-id="fd9d4-115">詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-115">See [Configuration](xref:fundamentals/configuration/index) for more information.</span></span>
 
-## <a name="sql-server-express-localdb"></a><span data-ttu-id="e3c49-116">SQL Server Express LocalDB</span><span class="sxs-lookup"><span data-stu-id="e3c49-116">SQL Server Express LocalDB</span></span>
+## <a name="sql-server-express-localdb"></a><span data-ttu-id="fd9d4-116">SQL Server Express LocalDB</span><span class="sxs-lookup"><span data-stu-id="fd9d4-116">SQL Server Express LocalDB</span></span>
 
-<span data-ttu-id="e3c49-117">LocalDB は、プログラム開発を対象にした、SQL Server Express データベース エンジンの軽量版です。</span><span class="sxs-lookup"><span data-stu-id="e3c49-117">LocalDB is a lightweight version of the SQL Server Express Database Engine that's targeted for program development.</span></span> <span data-ttu-id="e3c49-118">LocalDB は要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。</span><span class="sxs-lookup"><span data-stu-id="e3c49-118">LocalDB starts on demand and runs in user mode, so there's no complex configuration.</span></span> <span data-ttu-id="e3c49-119">既定では、LocalDB データベースは *C:/Users/\<user\>* ディレクトリに "\*.mdf" ファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-119">By default, LocalDB database creates "\*.mdf" files in the *C:/Users/\<user\>* directory.</span></span>
+<span data-ttu-id="fd9d4-117">LocalDB は、プログラム開発を対象にした、SQL Server Express データベース エンジンの軽量版です。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-117">LocalDB is a lightweight version of the SQL Server Express Database Engine that's targeted for program development.</span></span> <span data-ttu-id="fd9d4-118">LocalDB は要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-118">LocalDB starts on demand and runs in user mode, so there's no complex configuration.</span></span> <span data-ttu-id="fd9d4-119">既定では、LocalDB データベースは *C:/Users/\<user\>* ディレクトリに "\*.mdf" ファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-119">By default, LocalDB database creates "\*.mdf" files in the *C:/Users/\<user\>* directory.</span></span>
 
 <a name="ssox"></a>
-* <span data-ttu-id="e3c49-120">**[表示]** メニューの **[SQL Server オブジェクト エクスプローラー]** (SSOX) を開きます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-120">From the **View** menu, open **SQL Server Object Explorer** (SSOX).</span></span>
+* <span data-ttu-id="fd9d4-120">**[表示]** メニューの **[SQL Server オブジェクト エクスプローラー]** (SSOX) を開きます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-120">From the **View** menu, open **SQL Server Object Explorer** (SSOX).</span></span>
 
   ![[View] メニュー](sql/_static/ssox.png)
 
-* <span data-ttu-id="e3c49-122">`Movie` テーブルを右クリックし、**[デザイナーの表示]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-122">Right click on the `Movie` table and select **View Designer**:</span></span>
+* <span data-ttu-id="fd9d4-122">`Movie` テーブルを右クリックし、**[デザイナーの表示]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-122">Right click on the `Movie` table and select **View Designer**:</span></span>
 
   ![Movie テーブルで開かれたコンテキスト メニュー](sql/_static/design.png)
 
   ![デザイナーに開かれた Movie テーブル](sql/_static/dv.png)
 
-<span data-ttu-id="e3c49-125">`ID` の横のキー アイコンに注意してください。</span><span class="sxs-lookup"><span data-stu-id="e3c49-125">Note the key icon next to `ID`.</span></span> <span data-ttu-id="e3c49-126">既定では、EF で主キーに `ID` という名前のプロパティが作成されます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-126">By default, EF creates a property named `ID` for the primary key.</span></span>
+<span data-ttu-id="fd9d4-125">`ID` の横のキー アイコンに注意してください。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-125">Note the key icon next to `ID`.</span></span> <span data-ttu-id="fd9d4-126">既定では、EF で主キーに `ID` という名前のプロパティが作成されます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-126">By default, EF creates a property named `ID` for the primary key.</span></span>
 
-* <span data-ttu-id="e3c49-127">`Movie` テーブルを右クリックし、**[データの表示]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-127">Right click on the `Movie` table and select **View Data**:</span></span>
+* <span data-ttu-id="fd9d4-127">`Movie` テーブルを右クリックし、**[データの表示]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-127">Right click on the `Movie` table and select **View Data**:</span></span>
 
   ![開いた Movie テーブルにテーブル データが表示されています](sql/_static/vd22.png)
 
-## <a name="seed-the-database"></a><span data-ttu-id="e3c49-129">データベースのシード</span><span class="sxs-lookup"><span data-stu-id="e3c49-129">Seed the database</span></span>
+## <a name="seed-the-database"></a><span data-ttu-id="fd9d4-129">データベースのシード</span><span class="sxs-lookup"><span data-stu-id="fd9d4-129">Seed the database</span></span>
 
-<span data-ttu-id="e3c49-130">*Models* フォルダーに `SeedData` という名前の新しいクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-130">Create a new class named `SeedData` in the *Models* folder.</span></span> <span data-ttu-id="e3c49-131">生成されたコードを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-131">Replace the generated code with the following:</span></span>
+<span data-ttu-id="fd9d4-130">*Models* フォルダーに `SeedData` という名前の新しいクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-130">Create a new class named `SeedData` in the *Models* folder.</span></span> <span data-ttu-id="fd9d4-131">生成されたコードを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-131">Replace the generated code with the following:</span></span>
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -77,7 +77,7 @@ ms.locfileid: "37889484"
 
 ::: moniker-end
 
-<span data-ttu-id="e3c49-132">DB にムービーがある場合、シード初期化子が返され、ムービーは追加されません。</span><span class="sxs-lookup"><span data-stu-id="e3c49-132">If there are any movies in the DB, the seed initializer returns and no movies are added.</span></span>
+<span data-ttu-id="fd9d4-132">DB にムービーがある場合、シード初期化子が返され、ムービーは追加されません。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-132">If there are any movies in the DB, the seed initializer returns and no movies are added.</span></span>
 
 ```csharp
 if (context.Movie.Any())
@@ -86,15 +86,15 @@ if (context.Movie.Any())
 }
 ```
 <a name="si"></a>
-### <a name="add-the-seed-initializer"></a><span data-ttu-id="e3c49-133">シード初期化子の追加</span><span class="sxs-lookup"><span data-stu-id="e3c49-133">Add the seed initializer</span></span>
+### <a name="add-the-seed-initializer"></a><span data-ttu-id="fd9d4-133">シード初期化子の追加</span><span class="sxs-lookup"><span data-stu-id="fd9d4-133">Add the seed initializer</span></span>
 
-<span data-ttu-id="e3c49-134">*Program.cs* で、次を実行するように `Main` メソッドを変更します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-134">In *Program.cs*, modify the `Main` method to do the following:</span></span>
+<span data-ttu-id="fd9d4-134">*Program.cs* で、次を実行するように `Main` メソッドを変更します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-134">In *Program.cs*, modify the `Main` method to do the following:</span></span>
 
-* <span data-ttu-id="e3c49-135">依存関係挿入コンテナーから DB コンテキスト インスタンスを取得します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-135">Get a DB context instance from the dependency injection container.</span></span>
-* <span data-ttu-id="e3c49-136">seed メソッドを呼び出し、コンテキストを渡します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-136">Call the seed method, passing to it the context.</span></span>
-* <span data-ttu-id="e3c49-137">seed メソッドが完了したら、コンテキストを破棄します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-137">Dispose the context when the seed method completes.</span></span>
+* <span data-ttu-id="fd9d4-135">依存関係挿入コンテナーから DB コンテキスト インスタンスを取得します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-135">Get a DB context instance from the dependency injection container.</span></span>
+* <span data-ttu-id="fd9d4-136">seed メソッドを呼び出し、コンテキストを渡します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-136">Call the seed method, passing to it the context.</span></span>
+* <span data-ttu-id="fd9d4-137">seed メソッドが完了したら、コンテキストを破棄します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-137">Dispose the context when the seed method completes.</span></span>
 
-<span data-ttu-id="e3c49-138">次は、更新された *Program.cs* ファイルのコードです。</span><span class="sxs-lookup"><span data-stu-id="e3c49-138">The following code shows the updated *Program.cs* file.</span></span>
+<span data-ttu-id="fd9d4-138">次は、更新された *Program.cs* ファイルのコードです。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-138">The following code shows the updated *Program.cs* file.</span></span>
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -108,32 +108,32 @@ if (context.Movie.Any())
 
 ::: moniker-end
 
-<span data-ttu-id="e3c49-139">運用アプリは `Database.Migrate` を呼び出しません。</span><span class="sxs-lookup"><span data-stu-id="e3c49-139">A production app would not call `Database.Migrate`.</span></span> <span data-ttu-id="e3c49-140">これは、`Update-Database` が実行されていないとき、前述のコードに追加され、次の例外を阻止します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-140">It's added to the preceding code to prevent the following exception when `Update-Database` has not been run:</span></span>
+<span data-ttu-id="fd9d4-139">運用アプリは `Database.Migrate` を呼び出しません。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-139">A production app would not call `Database.Migrate`.</span></span> <span data-ttu-id="fd9d4-140">これは、`Update-Database` が実行されていないとき、前述のコードに追加され、次の例外を阻止します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-140">It's added to the preceding code to prevent the following exception when `Update-Database` has not been run:</span></span>
 
-<span data-ttu-id="e3c49-141">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.\(SqlException: ログインで要求されている "RazorPagesMovieContext-21" データベースを開くことができませんでした。\)</span><span class="sxs-lookup"><span data-stu-id="e3c49-141">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.</span></span> <span data-ttu-id="e3c49-142">The login failed.\(ログインに失敗しました。\)</span><span class="sxs-lookup"><span data-stu-id="e3c49-142">The login failed.</span></span>
-<span data-ttu-id="e3c49-143">Login failed for user 'user name'.\(ユーザー 'ユーザー名' はログインできませんでした。\)</span><span class="sxs-lookup"><span data-stu-id="e3c49-143">Login failed for user 'user name'.</span></span>
+<span data-ttu-id="fd9d4-141">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.\(SqlException: ログインで要求されている "RazorPagesMovieContext-21" データベースを開くことができませんでした。\)</span><span class="sxs-lookup"><span data-stu-id="fd9d4-141">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.</span></span> <span data-ttu-id="fd9d4-142">The login failed.\(ログインに失敗しました。\)</span><span class="sxs-lookup"><span data-stu-id="fd9d4-142">The login failed.</span></span>
+<span data-ttu-id="fd9d4-143">Login failed for user 'user name'.\(ユーザー 'ユーザー名' はログインできませんでした。\)</span><span class="sxs-lookup"><span data-stu-id="fd9d4-143">Login failed for user 'user name'.</span></span>
 
-### <a name="test-the-app"></a><span data-ttu-id="e3c49-144">アプリのテスト</span><span class="sxs-lookup"><span data-stu-id="e3c49-144">Test the app</span></span>
+### <a name="test-the-app"></a><span data-ttu-id="fd9d4-144">アプリのテスト</span><span class="sxs-lookup"><span data-stu-id="fd9d4-144">Test the app</span></span>
 
-* <span data-ttu-id="e3c49-145">DB 内のすべてのレコードを削除します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-145">Delete all the records in the DB.</span></span> <span data-ttu-id="e3c49-146">これはブラウザーの削除リンクで行うか、[SSOX](xref:tutorials/razor-pages/new-field#ssox) から行うことができます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-146">You can do this with the delete links in the browser or from [SSOX](xref:tutorials/razor-pages/new-field#ssox)</span></span>
-* <span data-ttu-id="e3c49-147">アプリを強制的に初期化して (`Startup` クラスでメソッドを呼び出す)、シード メソッドが実行されるようにします。</span><span class="sxs-lookup"><span data-stu-id="e3c49-147">Force the app to initialize (call the methods in the `Startup` class) so the seed method runs.</span></span> <span data-ttu-id="e3c49-148">強制的に初期化するには、IIS Express を停止してから再起動する必要があります。</span><span class="sxs-lookup"><span data-stu-id="e3c49-148">To force initialization, IIS Express must be stopped and restarted.</span></span> <span data-ttu-id="e3c49-149">これは次の方法のいずれかを使用して行うことができます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-149">You can do this with any of the following approaches:</span></span>
+* <span data-ttu-id="fd9d4-145">DB 内のすべてのレコードを削除します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-145">Delete all the records in the DB.</span></span> <span data-ttu-id="fd9d4-146">これはブラウザーの削除リンクで行うか、[SSOX](xref:tutorials/razor-pages/new-field#ssox) から行うことができます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-146">You can do this with the delete links in the browser or from [SSOX](xref:tutorials/razor-pages/new-field#ssox)</span></span>
+* <span data-ttu-id="fd9d4-147">アプリを強制的に初期化して (`Startup` クラスでメソッドを呼び出す)、シード メソッドが実行されるようにします。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-147">Force the app to initialize (call the methods in the `Startup` class) so the seed method runs.</span></span> <span data-ttu-id="fd9d4-148">強制的に初期化するには、IIS Express を停止してから再起動する必要があります。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-148">To force initialization, IIS Express must be stopped and restarted.</span></span> <span data-ttu-id="fd9d4-149">これは次の方法のいずれかを使用して行うことができます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-149">You can do this with any of the following approaches:</span></span>
 
-  * <span data-ttu-id="e3c49-150">通知領域の IIS Express システム トレイ アイコンを右クリックし、**[終了]** または **[サイトの停止]** をタップします。</span><span class="sxs-lookup"><span data-stu-id="e3c49-150">Right click the IIS Express system tray icon in the notification area and tap **Exit** or **Stop Site**:</span></span>
+  * <span data-ttu-id="fd9d4-150">通知領域の IIS Express システム トレイ アイコンを右クリックし、**[終了]** または **[サイトの停止]** をタップします。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-150">Right click the IIS Express system tray icon in the notification area and tap **Exit** or **Stop Site**:</span></span>
 
     ![IIS Express システム トレイ アイコン](../first-mvc-app/working-with-sql/_static/iisExIcon.png)
 
     ![コンテキスト メニュー](sql/_static/stopIIS.png)
 
-    * <span data-ttu-id="e3c49-153">非デバッグ モードで VS を実行していた場合は、F5 キーを押してデバッグ モードで実行します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-153">If you were running VS in non-debug mode, press F5 to run in debug mode.</span></span>
-    * <span data-ttu-id="e3c49-154">デバッグ モードで VS を実行していた場合は、デバッガーを停止して、F5 キーを押します。</span><span class="sxs-lookup"><span data-stu-id="e3c49-154">If you were running VS in debug mode, stop the debugger and press F5.</span></span>
+    * <span data-ttu-id="fd9d4-153">非デバッグ モードで VS を実行していた場合は、F5 キーを押してデバッグ モードで実行します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-153">If you were running VS in non-debug mode, press F5 to run in debug mode.</span></span>
+    * <span data-ttu-id="fd9d4-154">デバッグ モードで VS を実行していた場合は、デバッガーを停止して、F5 キーを押します。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-154">If you were running VS in debug mode, stop the debugger and press F5.</span></span>
    
-<span data-ttu-id="e3c49-155">アプリにシードされたデータが表示されます。</span><span class="sxs-lookup"><span data-stu-id="e3c49-155">The app shows the seeded data:</span></span>
+<span data-ttu-id="fd9d4-155">アプリにシードされたデータが表示されます。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-155">The app shows the seeded data:</span></span>
 
 ![ムービー データが表示された、Chrome で開かれているムービー アプリケーション](sql/_static/m55.png)
 
-<span data-ttu-id="e3c49-157">次のチュートリアルでは、データの表示をクリーンアップします。</span><span class="sxs-lookup"><span data-stu-id="e3c49-157">The next tutorial will clean up the presentation of the data.</span></span>
+<span data-ttu-id="fd9d4-157">次のチュートリアルでは、データの表示をクリーンアップします。</span><span class="sxs-lookup"><span data-stu-id="fd9d4-157">The next tutorial will clean up the presentation of the data.</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="e3c49-158">[前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)
-> [次: ページの更新](xref:tutorials/razor-pages/da1)</span><span class="sxs-lookup"><span data-stu-id="e3c49-158">[Previous: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)
+> <span data-ttu-id="fd9d4-158">[前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)
+> [次: ページの更新](xref:tutorials/razor-pages/da1)</span><span class="sxs-lookup"><span data-stu-id="fd9d4-158">[Previous: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)
 [Next: Updating the pages](xref:tutorials/razor-pages/da1)</span></span>
