@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overv
 title: 挿入、更新、およびデータ (VB) の削除の概要 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ObjectDataSource の Insert()、Update() にマップする方法を見ていきます、構成する方法についても、BLL のメソッドに Delete() メソッドがクラスとしています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 35b40b8f-2ca8-4ab3-9c19-f361a91a3647
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bd17d87d3fa82d8ef288ce4747876ecb53e3c625
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 55fab6bb7a1041a14f8734a0d2ae1238b3801149
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820299"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833554"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>挿入、更新、およびデータ (VB) の削除の概要
 ====================
@@ -202,7 +202,7 @@ GridView に、[commandfield] を追加するスマート タグから削除を�
 この時点では、信じられないかもしれませんが、終わって GridView に削除のサポートを追加してください。 図 11 に示すようとブラウザーの削除 ボタンの列からこのページにアクセスが存在します。
 
 
-[![Commandfield 列の削除 ボタンを追加します](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
+[![[Commandfield] 列の削除 ボタンを追加します](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image26.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image25.png)
 
 **図 11**: [commandfield] ボタンを追加、列の削除 ([フルサイズの画像を表示する をクリックします](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image27.png))。
 

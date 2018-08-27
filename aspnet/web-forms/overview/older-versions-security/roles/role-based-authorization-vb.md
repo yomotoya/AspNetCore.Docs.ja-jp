@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/roles/role-based-authorization-v
 title: ロール ベースの承認 (VB) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ロールのフレームワークがユーザーのセキュリティ コンテキストでユーザーのロールを関連付ける方法を参照してください。 次に、ロール ベースの URL を適用する方法を確認しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/24/2008
 ms.assetid: 83b4f5a4-4f5a-4380-ba33-f0b5c5ac6a75
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6bf9e1f0832b811ce8e2033dd45f94dc3baaeea6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 593eddfafae7c864a705ce65e6bbb59c9b41ea14
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829646"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832694"
 ---
 <a name="role-based-authorization-vb"></a>ロール ベースの承認 (VB)
 ====================
@@ -321,7 +321,7 @@ GridView 列挙内のレコードでデータが GridView にバインドされ�
 管理者ロールに (ただし、管理者ロールにありません) に属しているユーザーはアクセスすると、彼と編集 ボタンが表示されます。
 
 
-[![削除 ボタンが非表示の編集 ボタンはスーパーバイザーに使用可能が、](role-based-authorization-vb/_static/image41.png)](role-based-authorization-vb/_static/image40.png)
+[![[削除] ボタンが非表示の編集 ボタンはスーパーバイザーに使用可能が、](role-based-authorization-vb/_static/image41.png)](role-based-authorization-vb/_static/image40.png)
 
 **図 14**: 中に、[編集] ボタンはスーパーバイザーに使用可能で、[削除] ボタンが非表示 ([フルサイズの画像を表示する をクリックします](role-based-authorization-vb/_static/image42.png))。
 

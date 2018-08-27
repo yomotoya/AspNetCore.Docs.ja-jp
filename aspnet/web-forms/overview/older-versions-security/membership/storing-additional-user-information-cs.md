@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/storing-additional-us
 title: 追加のユーザー情報 (c#) を格納する |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、非常に基本的なゲストブック アプリケーションを構築することによりこの質問に回答されます。 そのため、modeli のさまざまなオプションを紹介しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: 1642132a-1ca5-4872-983f-ab59fc8865d3
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b73a19758c420f09d178ebd395d5c89ad493505
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76e6cd1ec290cf572023aef35e349b1146b2b432
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819829"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826072"
 ---
 <a name="storing-additional-user-information-c"></a>追加のユーザー情報 (c#) を格納します。
 ====================
@@ -332,7 +332,7 @@ ListView のスマート タグを開き、データ ソースのドロップダ
 
 「定義カスタム ステートメントまたはストアド プロシージャ」画面が表示されます。 クエリをグラフィカルに作成、クエリ ビルダーのボタンをクリックします。 クエリを実行するテーブルを指定することを要求することで、クエリ ビルダーを開始します。 選択、 `GuestbookComments`、 `UserProfiles`、および`aspnet_Users`テーブルし、[ok] をクリックします。 これにより、すべての 3 つのテーブルがデザイン画面に追加されます。 間での外部キー制約があるので、 `GuestbookComments`、 `UserProfiles`、および`aspnet_Users`テーブル、クエリ ビルダーに自動的に`JOIN`s これらのテーブル。
 
-残っているは返される列を指定します。 `GuestbookComments`テーブルの選択、 `Subject`、`Body`と`CommentDate`の列は返された場合、 `HomeTown`、 `HomepageUrl`、および`Signature`からの列、`UserProfiles`テーブルです戻って`UserName`から。`aspnet_Users`. また、追加する"`ORDER BY CommentDate DESC`"の末尾に、`SELECT`最も最近の投稿が最初に返されるようにクエリを実行します。 これらの選択を行った後、クエリ ビルダー インターフェイスは図 18 でスクリーン ショットのようになります。
+残っているは返される列を指定します。 `GuestbookComments`テーブルの選択、 `Subject`、`Body`と`CommentDate`の列は返された場合、 `HomeTown`、 `HomepageUrl`、および`Signature`からの列、`UserProfiles`テーブルです戻って`UserName`から`aspnet_Users`。 また、追加する"`ORDER BY CommentDate DESC`"の末尾に、`SELECT`最も最近の投稿が最初に返されるようにクエリを実行します。 これらの選択を行った後、クエリ ビルダー インターフェイスは図 18 でスクリーン ショットのようになります。
 
 
 [![構築クエリ GuestbookComments、ユーザー、および aspnet_Users テーブルを結合します。](storing-additional-user-information-cs/_static/image53.png)](storing-additional-user-information-cs/_static/image52.png)
@@ -477,7 +477,7 @@ CreateUserWizard コントロールのスマート タグから選択して、"�
 
 [!code-aspx[Main](storing-additional-user-information-cs/samples/sample14.aspx)]
 
-さあ、ブラウザーからこのページを参照してください、出身地、ホーム ページ、および署名の値を指定する、新しいユーザー アカウントを作成します。 完了した後、`CreateUserWizardStep`メンバーシップ フレームワークでは、ユーザー アカウントを作成してくださいおよび`CreatedUser`に新しい行を追加します。 イベント ハンドラーが実行`UserProfiles`、データベースが`NULL`値`HomeTown`、 `HomepageUrl`、と。`Signature`. ホーム町、ホーム ページ、および署名の入力した値は使用されません。 最終的に新しいユーザー アカウントには、`UserProfiles`レコードを`HomeTown`、 `HomepageUrl`、および`Signature`指定するフィールドがまだ必要です。
+さあ、ブラウザーからこのページを参照してください、出身地、ホーム ページ、および署名の値を指定する、新しいユーザー アカウントを作成します。 完了した後、`CreateUserWizardStep`メンバーシップ フレームワークでは、ユーザー アカウントを作成してくださいおよび`CreatedUser`に新しい行を追加します。 イベント ハンドラーが実行`UserProfiles`、データベースが`NULL`値`HomeTown`、 `HomepageUrl`、と`Signature`。 ホーム町、ホーム ページ、および署名の入力した値は使用されません。 最終的に新しいユーザー アカウントには、`UserProfiles`レコードを`HomeTown`、 `HomepageUrl`、および`Signature`指定するフィールドがまだ必要です。
 
 ユーザーが入力したホーム町、honepage、および署名の値を取得し、適切な更新を「設定」手順の後にコードを実行する必要があります`UserProfiles`レコード。 ユーザーは、ウィザードの手順の間で移動するたびにコントロールをウィザードの[`ActiveStepChanged`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.wizard.activestepchanged.aspx)が起動します。 このイベントと更新プログラムのイベント ハンドラーを作成することができます、 `UserProfiles` 「設定の」ステップが完了したときにテーブルです。
 

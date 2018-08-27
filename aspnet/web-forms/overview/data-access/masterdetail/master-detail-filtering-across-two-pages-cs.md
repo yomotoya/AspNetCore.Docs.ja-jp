@@ -129,7 +129,7 @@ ms.locfileid: "41835135"
 **図 10**: ObjectDataSource 呼び出しがある、`GetProductsBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image28.png))。
 
 
-データ ソース構成ウィザードの最後の手順では、ソースを提供するよう求められます、`GetProductsBySupplierID(supplierID)`メソッドの*`supplierID`* パラメーター。 クエリ文字列値を使用するパラメーターのソースをクエリ文字列に設定し、QueryStringField ボックスに、使用するクエリ文字列値の名前を入力します (`SupplierID`)。
+データ ソース構成ウィザードの最後の手順では、ソースを提供するよう求められます、`GetProductsBySupplierID(supplierID)`メソッドの *`supplierID`* パラメーター。 クエリ文字列値を使用するパラメーターのソースをクエリ文字列に設定し、QueryStringField ボックスに、使用するクエリ文字列値の名前を入力します (`SupplierID`)。
 
 
 [![SupplierID SupplierID クエリ文字列値からパラメーター値の設定します。](master-detail-filtering-across-two-pages-cs/_static/image30.png)](master-detail-filtering-across-two-pages-cs/_static/image29.png)

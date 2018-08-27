@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: '付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築) |Microsoft Docs'
 author: MikeWasson
 description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6a0c17f37ed426c04d2b21fd864337d4339fe573
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: baf46a87155e6368d9a81c5c5b777a491117d7b6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824083"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833977"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
@@ -310,7 +310,7 @@ Fix It アプリを実行する 2 つの方法はあります。
 
     名前は azurewebsites.net ドメインで一意である必要があり、パスワードがパスワードの複雑さの SQL データベースの要件を満たす必要があります。 (例 Passw0rd1 が要件を満たしています。)
 
-    コマンドの最初に注意してください"です。\". Windows PowerShell では、悪意のあるスクリプトの実行を防ぐため、スクリプトを実行するときに、スクリプト ファイルへの完全修飾パスを提供することが必要です。 現在のディレクトリを示すために、ドットを使用することができます (".\")または、完全修飾パスを指定します。
+    コマンドの最初に注意してください"です。\" Windows PowerShell では、悪意のあるスクリプトの実行を防ぐため、スクリプトを実行するときに、スクリプト ファイルへの完全修飾パスを提供することが必要です。 現在のディレクトリを示すために、ドットを使用することができます (".\")または、完全修飾パスを指定します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample26.cmd)]
 

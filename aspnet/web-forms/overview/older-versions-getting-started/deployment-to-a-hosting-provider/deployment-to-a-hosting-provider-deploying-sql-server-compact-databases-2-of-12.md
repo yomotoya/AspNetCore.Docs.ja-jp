@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-p
 title: 'SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベースに 12 の 2 |Microsoft Docs'
 author: tdykstra
 description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: dc094211df77e6d3ff5eacb878be901e3552fd13
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 378bcc038335ee852cd1a6c6e545eb72c6e0c78b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803059"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835796"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベースに 12 の 2
 ====================
@@ -66,7 +66,7 @@ Contoso University アプリケーションでデータ アクセスに必要な
 
 一般に、NuGet パッケージのインストールは、アプリケーションにこのソフトウェアを展開するために必要なすべての処理されます。 場合によっては、これには、Web.config ファイルを変更して、ソリューションをビルドするたびに実行する PowerShell スクリプトを追加するなどのタスクが含まれます。 **NuGet を使用せずにこれらの機能 (SQL Server Compact や Entity Framework) のいずれかのサポートを追加する場合は、NuGet パッケージのインストールが、同じ作業を手動で実行できるようににがわかっていることを確認します。**
 
-NuGet が処理するには、展開の成功を保証するために行う必要があるすべてのものを実行しない 1 つの例外があります。 SqlServerCompact NuGet パッケージをプロジェクトにネイティブ アセンブリをコピーするビルド後のスクリプトを追加します*x86*と*amd64*プロジェクトの下のサブフォルダー *bin*フォルダーでは、スクリプトは、プロジェクトでそれらのフォルダーを含みません。 その結果、Web Deploy はコピーしませんそれらのターゲットの web サイト プロジェクトに手動で含める場合を除き。 (この動作は、既定の配置構成の結果は、これらのチュートリアルでは使用しません、別のオプションは、この動作を制御する設定を変更します。 変更できる設定は**アプリケーションの実行に必要なファイルのみ****配置する項目**で、**パッケージ/web の発行**のタブ、**プロジェクトプロパティ**ウィンドウ。 この設定を変更するは一般的に使用しないで運用環境が必要以上に多くの詳細ファイルの展開でしまうためです。 その他の方法の詳細については、次を参照してください、[プロジェクト プロパティを設定する](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)チュートリアルです。)。
+NuGet が処理するには、展開の成功を保証するために行う必要があるすべてのものを実行しない 1 つの例外があります。 SqlServerCompact NuGet パッケージをプロジェクトにネイティブ アセンブリをコピーするビルド後のスクリプトを追加します*x86*と*amd64*プロジェクトの下のサブフォルダー *bin*フォルダーでは、スクリプトは、プロジェクトでそれらのフォルダーを含みません。 その結果、Web Deploy はコピーしませんそれらのターゲットの web サイト プロジェクトに手動で含める場合を除き。 (この動作は、既定の配置構成の結果は、これらのチュートリアルでは使用しません、別のオプションは、この動作を制御する設定を変更します。 変更できる設定は**アプリケーションの実行に必要なファイルのみ** **配置する項目**で、**パッケージ/web の発行**のタブ、**プロジェクトプロパティ**ウィンドウ。 この設定を変更するは一般的に使用しないで運用環境が必要以上に多くの詳細ファイルの展開でしまうためです。 その他の方法の詳細については、次を参照してください、[プロジェクト プロパティを設定する](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)チュートリアルです。)。
 
 プロジェクトをビルドし、**ソリューション エクスプ ローラー**クリックして**ファイルをすべて表示**まだ行っていない場合。 をクリックする必要がありますも**更新**します。
 
@@ -218,7 +218,7 @@ Code First Migrations では、メンバーシップ データベースが管理
 
 このセクションで開発バージョンは、学校 Dev.sdf と aspnet Dev.sdf と実稼働バージョンは学校 Prod.sdf と aspnet Prod.sdf ようにデータベースを変更します。 これは、必要に応じてが行うのために役立つ混乱テストと運用環境のデータベースのバージョンを取得することを防止します。
 
-**ソリューション エクスプ ローラー**、 をクリックして**更新**アプリを展開および\_先ほど作成した School データベースを参照してください右クリックし、選択するデータ フォルダー**プロジェクトに含める。**.
+**ソリューション エクスプ ローラー**、 をクリックして**更新**アプリを展開および\_先ほど作成した School データベースを参照してください右クリックし、選択するデータ フォルダー**プロジェクトに含める**。
 
 ![Including_School.sdf_in_project](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image26.png)
 

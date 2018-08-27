@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 title: Azure Worker ロールで OWIN ホスト |Microsoft Docs
 author: MikeWasson
 description: このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法を示します。 Open Web Interface for .NET (OWIN) は、.NET の web サーバー間の抽象化を定義しています.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: f62b9299a4e369ae3a938c85e60dd6a79108548d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6bead915491c62de809b8625d8071a63c70a6ef5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826482"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828895"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホスト
 ====================
@@ -116,7 +116,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-サービスの展開で、サービスの詳細情報の展開 [id]、[IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動します<em>アドレス</em>ここで、<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`します。 OWIN へようこそ ページを参照する必要があります。
+サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動します<em>アドレス</em>ここで、<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`します。 OWIN へようこそ ページを参照する必要があります。
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 

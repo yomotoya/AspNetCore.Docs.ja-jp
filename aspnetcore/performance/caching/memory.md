@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/22/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 468e85d3b9fddfa045de1725687a464dd2438ca4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
+ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831573"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42899845"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core でメモリ内キャッシュします。
 
@@ -127,11 +127,11 @@ A`MemoryCache`インスタンスが必要に応じて指定し、サイズ制限
 
 次のコードでは`MyMemoryCache`:
 
-[! コード csharp (memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet) [](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet)]
+[!code-csharp[](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet)]
 
 キャッシュ エントリのサイズを設定できます[サイズ](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.size?view=aspnetcore-2.1#Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_Size)または[SetSize](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.setsize?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_MemoryCacheEntryExtensions_SetSize_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_System_Int64_)拡張メソッド。
 
-[! コード csharp (強調表示 (&)、memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet2 9、10、14、15 を =) [](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet2&highlight=9,10,14,15)]
+[!code-csharp[](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet2&highlight=9,10,14,15)]
 
 ::: moniker-end
 
