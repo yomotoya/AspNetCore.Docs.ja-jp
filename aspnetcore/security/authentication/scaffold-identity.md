@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core プロジェクトでの Id をスキャフォールディングする方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 5/16/2018
+ms.date: 08/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 07163941d0bd1fea6f9b3d9867536580d8a9e9d8
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e35836fa9c20729da7c857243410833749b3a595
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063274"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055849"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core プロジェクトでスキャフォールディング Id
 
@@ -26,6 +26,9 @@ ASP.NET Core 2.1 以降では[ASP.NET Core Identity](xref:security/authenticatio
 Identity scaffolder が実行される、 *ScaffoldingReadme.txt*プロジェクト ディレクトリにファイルが作成されます。 *ScaffoldingReadme.txt*ファイルには、一般的な手順について Id スキャフォールディングの更新の完了に必要なものが含まれています。 このドキュメントより詳細な手順が含まれています、 *ScaffoldingReadme.txt*ファイル。
 
 ファイルの相違点を示し、変更をバックアップすることができますをソース管理システムを使用することをお勧めします。 Identity scaffolder を実行した後、変更を検査します。
+
+> [!NOTE]
+> 使用する場合に必要なサービス[2 要素認証](xref:security/authentication/identity-enable-qrcodes)、[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)、および Id を持つその他のセキュリティ機能。 Identity をスキャフォールディングするときにサービスまたはサービスのスタブは生成されません。 これらの機能を有効にするサービスを手動で追加する必要があります。 たとえばを参照してください[確認の電子メールを必要と](xref:security/authentication/accconfirm#require-email-confirmation)します。
 
 ## <a name="scaffold-identity-into-an-empty-project"></a>空のプロジェクトにスキャフォールディング identity
 
@@ -94,7 +97,8 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)] いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
+いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>MVC プロジェクトの既存の承認なしにスキャフォールディング identity
 
