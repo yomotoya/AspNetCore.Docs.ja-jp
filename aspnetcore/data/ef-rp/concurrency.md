@@ -18,7 +18,7 @@ ms.locfileid: "39219395"
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-このチュートリアルでは、複数のユーザーがエンティティを同時に更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8)をダウンロードしてください。
+このチュートリアルでは、複数のユーザーがエンティティをコンカレントに更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8)をダウンロードしてください。
 
 ## <a name="concurrency-conflicts"></a>同時実行の競合
 
@@ -27,7 +27,7 @@ ms.locfileid: "39219395"
 * ユーザーがエンティティの Edit ページに移動した場合。
 * 最初のユーザーの変更がデータベースに書き込まれる前に、別のユーザーが同じエンティティを更新した場合。
 
-同時実行の検出が無効のとき、同時更新が発生すると、次のようになります。
+コンカレンシーの検出が無効のとき、コンカレントな更新が発生すると、次のようになります。
 
 * 最後の更新が有効になります。 つまり、最後に更新された値がデータベースに保存されます。
 * 現在の更新の最初のものは失われます。
