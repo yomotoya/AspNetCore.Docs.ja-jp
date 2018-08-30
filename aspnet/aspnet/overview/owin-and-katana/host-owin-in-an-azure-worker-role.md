@@ -116,7 +116,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動します<em>アドレス</em>ここで、<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`します。 OWIN へようこそ ページを参照する必要があります。
+サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、 http:// に移動します<em>アドレス</em>ここで、<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80` します。 OWIN へようこそ ページを参照する必要があります。
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 

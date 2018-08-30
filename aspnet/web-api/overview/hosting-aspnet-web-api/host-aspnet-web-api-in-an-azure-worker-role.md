@@ -128,7 +128,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動します<em>アドレス</em>/テスト/1、位置<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80/test/1`。 Web API コント ローラーからの応答が表示されます。
+サービスの展開で、サービスの詳細情報の展開 [id]、IP アドレスを検索します。 Web ブラウザーを開き、 http:// に移動します<em>アドレス</em>/テスト/1、位置<em>アドレス</em>は、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、 `http://127.0.0.1:80/test/1` 。 Web API コント ローラーからの応答が表示されます。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 
