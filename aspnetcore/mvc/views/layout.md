@@ -5,18 +5,18 @@ description: 共通レイアウトの使用方法、ディレクティブの共�
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/layout
-ms.openlocfilehash: a99b239a0aeeb14492b1eee962dc1149f056f0eb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274119"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751692"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET Core でのレイアウト
 
 作成者: [Steve Smith](https://ardalis.com/)
 
-ビューは多くの場合、ビジュアルおよびプログラムの要素を共有します。 この記事では、共通レイアウトの使用方法、ディレクティブの共有方法、および ASP.NET アプリでビューをレンダリングする前に共通コードを実行する方法について説明します。
+ビューは多くの場合、ビジュアルおよびプログラムの要素を共有します。 この記事では、共通レイアウトの使用方法、ディレクティブの共有方法、および ASP.NET Core アプリでビューをレンダリングする前に共通コードを実行する方法について説明します。
 
 ## <a name="what-is-a-layout"></a>レイアウトとは
 
@@ -26,7 +26,7 @@ ms.locfileid: "36274119"
 
 スクリプトやスタイルシートなどの共通の HTML 構造体も、アプリ内の多くのページでよく使用されます。 これらの共有要素をすべて *layout* ファイルで定義することで、アプリ内で使用する任意のビューで参照できるようになります。 レイアウトは、[DRY (Don't Repeat Yourself) 原則](http://deviq.com/don-t-repeat-yourself/)に従って、ビュー内の重複するコードを削減します。
 
-規則により、ASP.NET アプリの既定のレイアウトには `_Layout.cshtml` という名前が付けられます。 Visual Studio ASP.NET Core MVC プロジェクト テンプレートには、このレイアウト ファイルが `Views/Shared` フォルダーに含まれています。
+規則により、ASP.NET Core アプリの既定のレイアウトには `_Layout.cshtml` という名前が付けられます。 Visual Studio ASP.NET Core MVC プロジェクト テンプレートには、このレイアウト ファイルが `Views/Shared` フォルダーに含まれています。
 
 ![ソリューション エクスプローラーの Views フォルダー](layout/_static/web-project-views.png)
 

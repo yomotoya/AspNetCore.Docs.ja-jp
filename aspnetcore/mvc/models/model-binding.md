@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC のモデル バインドでは、HTTP 要求からアクション メソッドのパラメーターにデータをマップする方法について説明します。
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 01/22/2018
+ms.date: 08/14/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095734"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751486"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core でのモデル バインド
 
@@ -95,10 +95,34 @@ MVC にはいくつかの属性が含まれています。これらを使用し�
 
 * `[FromBody]`: 構成済みのフォーマッタを使用して、要求本文からデータをバインドします。 フォーマッタは、要求のコンテンツの種類に基づいて選択されます。
 
-* 
-  `[ModelBinder]`: 既定のモデル バインダー、バインディング ソースと名前をオーバーライドする場合に使用します。
+* `[ModelBinder]`: 既定のモデル バインダー、バインディング ソースと名前をオーバーライドする場合に使用します。
 
 属性は、モデル バインドの既定の動作をオーバーライドする必要がある場合にとても便利なツールです。
+
+## <a name="customize-model-binding-and-validation-globally"></a>モデル バインドと検証をグローバルにカスタマイズする
+
+モデル バインドおよび検証システムの動作は、次の内容を記述した [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata) によって駆動されます。
+
+* モデルをバインドする方法。
+* 型とそのプロパティに対して行われる検証の方法。
+
+システムの動作の特性をグローバルに構成するには、[MvcOptions.ModelMetadataDetailsProviders](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.modelmetadatadetailsproviders#Microsoft_AspNetCore_Mvc_MvcOptions_ModelMetadataDetailsProviders) に詳細プロバイダーを追加します。 MVC には組み込みの詳細プロバイダーがいくつか用意されています。これらにより、特定の型に対してモデル バインドまたは検証を無効にするなどの動作を構成することができます。
+
+特定の型のすべてのモデルに対してモデル バインドを無効にするには、`Startup.ConfigureServices` 内に [ExcludeBindingMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.excludebindingmetadataprovider) を追加します。 たとえば、`System.Version` 型のすべてのモデルに対してモデル バインドを無効にするには、次のようにします。
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new ExcludeBindingMetadataProvider(typeof(System.Version))));
+```
+
+特定の型のプロパティに対して検証を無効にするには、`Startup.ConfigureServices` 内に [SuppressChildValidationMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.suppresschildvalidationmetadataprovider) を追加します。 たとえば、`System.Guid` 型のプロパティに対して検証を無効にするには、次のようにします。
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new SuppressChildValidationMetadataProvider(typeof(System.Guid))));
+```
 
 ## <a name="bind-formatted-data-from-the-request-body"></a>書式付きデータを要求本文からバインドする
 
@@ -110,7 +134,7 @@ MVC にはいくつかの属性が含まれています。これらを使用し�
 > [!NOTE]
 > `JsonInputFormatter` は既定のフォーマッタであり、[Json.NET](https://www.newtonsoft.com/json) に基づいています。
 
-ASP.NET は、[Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) ヘッダーとパラメーターの型に基づいて入力フォーマッタを選択します。ただし、他に特に適用された属性がある場合を除きます。 XML または別の形式を使用する場合、*Startup.cs* ファイルでそれを構成する必要がありますが、最初に NuGet を使用して `Microsoft.AspNetCore.Mvc.Formatters.Xml` への参照を取得する必要がある場合があります。 スタートアップ コードは次のようになります。
+ASP.NET Core では、[Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) ヘッダーとパラメーターの型に基づいて入力フォーマッタが選択されます。ただし、他に特に適用された属性がある場合を除きます。 XML または別の形式を使用する場合、*Startup.cs* ファイルでそれを構成する必要がありますが、最初に NuGet を使用して `Microsoft.AspNetCore.Mvc.Formatters.Xml` への参照を取得する必要がある場合があります。 スタートアップ コードは次のようになります。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -120,7 +144,7 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-*Startup.cs* ファイル内のコードには、ASP.NET アプリのサービスを構築するために使用できる、`services` 引数を持つ `ConfigureServices` メソッドが含まれます。 サンプルでは、MVC がこのアプリに提供するサービスとして XML フォーマッタを追加します。 `AddMvc` メソッドに渡された `options` 引数を使用することで、アプリの起動時に MVC からフィルター、フォーマッタ、およびその他のシステム オプションを追加して管理することができます。 その後、`Consumes` 属性をコントローラー クラスまたはアクション メソッドに適用し、必要な書式を操作します。
+*Startup.cs* ファイル内のコードには、`services` 引数を持つ `ConfigureServices` メソッドが含まれます。これを使用することで、ASP.NET Core アプリ用のサービスを構築することができます。 サンプルでは、MVC がこのアプリに提供するサービスとして XML フォーマッタを追加します。 `AddMvc` メソッドに渡された `options` 引数を使用することで、アプリの起動時に MVC からフィルター、フォーマッタ、およびその他のシステム オプションを追加して管理することができます。 その後、`Consumes` 属性をコントローラー クラスまたはアクション メソッドに適用し、必要な書式を操作します。
 
 ### <a name="custom-model-binding"></a>カスタム モデル バインド
 

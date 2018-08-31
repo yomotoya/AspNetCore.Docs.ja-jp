@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342433"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755603"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC と EF Core - CRUD - 2/10
 
@@ -117,7 +117,7 @@ Index ページでは、Razor ビューのタグ ヘルパーのステートメ�
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-このコードは、ASP.NET MVC モデル バインダーによって作成された Student エンティティを Students エンティティ セットに追加した後、変更をデータベースに保存します  (モデル バインダーとは、フォームによって送信されたデータの操作を容易にする ASP.NET MVC の機能です。モデル バインダーは、ポストされたフォーム値を CLR 型に変換して、パラメーター内のアクション メソッドに渡します。 この例のモデル バインダーは、Form コレクションからのプロパティ値を使って、Student エンティティを自動的にインスタンス化します)。
+このコードは、ASP.NET Core MVC モデル バインダーによって作成された Student エンティティを Students エンティティ セットに追加した後、変更をデータベースに保存します  (モデル バインダーとは、フォームによって送信されたデータの操作を容易にする ASP.NET Core MVC の機能です。モデル バインダーは、ポストされたフォーム値を CLR 型に変換して、パラメーター内のアクション メソッドに渡します。 この例のモデル バインダーは、Form コレクションからのプロパティ値を使って、Student エンティティを自動的にインスタンス化します)。
 
 `ID` は行が挿入されるときに SQL Server によって自動的に設定される主キー値であるため、`Bind` 属性から ID を削除しました。 ユーザーからの入力によって ID 値が設定されることはありません。
 
@@ -273,7 +273,7 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 データベース接続が保持しているリソースを解放するには、使い終わったコンテキスト インスタンスをできるだけ早く破棄する必要があります。 ASP.NET Core に組み込まれている[依存関係の挿入](../../fundamentals/dependency-injection.md)が、そのタスクを自動的に行います。
 
-*Startup.cs* で、[AddDbContext 拡張メソッド](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)を呼び出して、ASP.NET DI コンテナー内の `DbContext` クラスをプロビジョニングします。 このメソッドは、サービスの有効期間を既定で `Scoped` に設定します。 `Scoped` はコンテキスト オブジェクトの有効期間が Web 要求の有効期間と一致することを意味し、Web 要求の最後に `Dispose` メソッドが自動的に呼び出されます。
+*Startup.cs* で、[AddDbContext 拡張メソッド](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)を呼び出して、ASP.NET Core DI コンテナー内の `DbContext` クラスをプロビジョニングします。 このメソッドは、サービスの有効期間を既定で `Scoped` に設定します。 `Scoped` はコンテキスト オブジェクトの有効期間が Web 要求の有効期間と一致することを意味し、Web 要求の最後に `Dispose` メソッドが自動的に呼び出されます。
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 

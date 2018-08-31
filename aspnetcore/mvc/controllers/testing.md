@@ -5,22 +5,16 @@ description: Moq と xUnit を使って ASP.NET Core のコントローラーの
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/testing
-ms.openlocfilehash: fc5f10b4d5947a6af114bf00f8b1d955b083a44d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d0b2a25d00187c088671be147844aa892f824c6e
+ms.sourcegitcommit: 64c2ca86fff445944b155635918126165ee0f8aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273924"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41751490"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
 
 作成者: [Steve Smith](https://ardalis.com/)
-
-ASP.NET MVC アプリのコントローラーは、小さく、ユーザー インターフェイスに関係することだけを処理する必要があります。 UI 以外のことも処理する大規模なコントローラーは、テストや保守が困難です。
-
-[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)
-
-## <a name="testing-controllers"></a>コントローラーのテスト
 
 コントローラーは、すべての ASP.NET Core MVC アプリケーションの中心になるものです。 そのため、アプリが意図するとおりに動作するという信頼が必要です。 自動テストを行うと、この信頼が得られ、運用環境に提供する前にエラーを検出できます。 コントローラーに必要のない機能を持たせないようにし、テストではコントローラーの機能だけに注目することが重要です。
 
@@ -35,11 +29,13 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 * ビジネス エンティティを永続化に保存します。
 * 適切な `IActionResult` を返します。
 
-## <a name="unit-testing"></a>単体テスト
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-[単体テスト](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)では、アプリの一部をインフラストラクチャや依存関係から切り離してテストします。 コントローラー ロジックの単体テストを行うときは、それが依存しているものやフレームワーク自体の動作ではなく、単一のアクションの内容のみをテストします。 コントローラーのアクションの単体テストでは、その動作にだけ注目するようにします。 コントローラーの単体テストからは、[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、[モデル バインド](../models/model-binding.md)などに関することは除外します。 1 つの事柄だけに注目してテストすることにより、一般に、単体テストを簡単に作成してすばやく実行できるようになります。 適切に記述された一連の単体テストは、大きなオーバーヘッドなしに頻繁に実行できます。 ただし、単体テストではコンポーネント間の相互作用の問題は検出しません。これは、[統合テスト](xref:mvc/controllers/testing#integration-testing)の目的です。
+## <a name="unit-tests-of-controller-logic"></a>コントローラー ロジックの単体テスト
 
-カスタム フィルターやルートなどを作成している場合は、それらの単体テストを行う必要がありますが、コントローラーの特定のアクションに対するテストの一部としてではありません。 これらは、切り離してテストする必要があります。
+[単体テスト](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)では、アプリの一部をインフラストラクチャや依存関係から切り離してテストすることが必要とされます。 コントローラー ロジックの単体テストを行うときは、それが依存しているものやフレームワーク自体の動作ではなく、単一のアクションの内容のみをテストします。 コントローラーのアクションの単体テストでは、その動作にだけ注目するようにします。 コントローラーの単体テストからは、[フィルター](xref:mvc/controllers/filters)、[ルーティング](xref:fundamentals/routing)、[モデル バインド](xref:mvc/models/model-binding)などに関することは除外します。 1 つの事柄だけに注目してテストすることにより、一般に、単体テストを簡単に作成してすばやく実行できるようになります。 適切に記述された一連の単体テストは、大きなオーバーヘッドなしに頻繁に実行できます。 ただし、単体テストではコンポーネント間の相互作用の問題は検出しません。これは、[統合テスト](xref:test/integration-tests)の目的です。
+
+カスタム フィルターやルートを作成している場合、それらの単体テストは、コントローラーの特定のアクションに対するテストの一部として行うのではなく、分離環境で行う必要があります。
 
 > [!TIP]
 > [Visual Studio で単体テストを作成して実行します](/visualstudio/test/unit-test-your-code)。
@@ -54,7 +50,7 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 `HomeController` `HTTP POST Index` メソッド (上記) では、次のことを確認する必要があります。
 
-* `ModelState.IsValid` が `false` の場合、アクション メソッドが無効な要求の `ViewResult` と適切なデータを返すこと
+* `ModelState.IsValid` が `false` の場合、アクション メソッドが無効な要求の `ViewResult` と適切なデータを返すこと。
 
 * `ModelState.IsValid` が true の場合、リポジトリで `Add` メソッドが呼び出されて、`RedirectToActionResult` が適切な引数と共に返されること
 
@@ -62,7 +58,7 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-最初のテストでは、`ModelState` が有効ではないときに、`GET` 要求の場合と同じ `ViewResult` が返されることを確認します。 テストでは無効なモデルを渡そうとしていないことに注意してください。 モデル バインドが動作していないので、いずれにしてもうまくいきません (ただし、[統合テスト](xref:mvc/controllers/testing#integration-testing)では演習のモデル バインドを使います)。 この場合、モデル バインドはテストされていません。 これらの単体テストでは、アクション メソッドのコードだけをテストしています。
+最初のテストでは、`ModelState` が有効ではないときに、`GET` 要求の場合と同じ `ViewResult` が返されることを確認します。 テストでは無効なモデルを渡そうとしていないことに注意してください。 モデル バインドが動作していないので、いずれにしてもうまくいきません (ただし、[統合テスト](xref:test/integration-tests)では演習のモデル バインドを使います)。 この場合、モデル バインドはテストされていません。 これらの単体テストでは、アクション メソッドのコードだけをテストしています。
 
 2 番目のテストでは、`ModelState` が有効であるときに、新しい `BrainstormSession` が (リポジトリによって) 追加され、メソッドが予期されるプロパティと共に `RedirectToActionResult` を返すことを確認します。 呼び出されないモックの呼び出しは通常は無視されますが、Setup の呼び出しの最後で `Verifiable` を呼び出すと、テスト内で検証できます。 これは `mockRepo.Verify` の呼び出しで行われ、予期されるメソッドが呼び出されないとテストは失敗します。
 
@@ -79,8 +75,6 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 アプリでは、Web API として機能が公開されています (ブレーンストーミング セッションに関連付けられているアイデアの一覧と、新しいアイデアをセッションに追加するためのメソッド)。
 
-<a name="ideas-controller"></a>
-
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 `ForSession` メソッドは、`IdeaDTO` 型の一覧を返します。 API の呼び出しで直接ビジネス ドメイン エンティティを返さないでください。ビジネス ドメイン エンティティには API クライアントが要求しているもの以外のデータが含まれることが多く、アプリの内部ドメイン モデルと外部に公開される API との間に必要のない結合が生じます。 ドメイン エンティティと、ネットワーク経由で戻される型の間のマッピングは、手動で (ここで示すように LINQ `Select` を使って)、または [AutoMapper](https://github.com/AutoMapper/AutoMapper) などのライブラリを使って、行うことができます。
@@ -95,53 +89,6 @@ API メソッド `Create` と `ForSession` の単体テストは次のとおり�
 
 最後のテストでは、リポジトリの `Update` メソッドが呼び出されることを確認します。 前に行ったように、`Verifiable` ではモックが呼び出され、モック リポジトリの `Verify` メソッドが呼び出されて、検証可能なメソッドが実行されたことを確認します。 `Update` メソッドがデータを保存したことを確認するのは、単体テストの役割ではありません。これは、統合テストで実行できます。
 
-## <a name="integration-testing"></a>統合テスト
+## <a name="additional-resources"></a>その他の技術情報
 
-[統合テスト](xref:test/integration-tests)は、アプリ内の異なるモジュールが正常に連携することを確認するために行われます。 一般に、単体テストでテストできるものはすべて、統合テストでもテストできますが、逆は正しくありません。 ただし、統合テストは単体テストより非常に遅い傾向があります。 したがって、可能なものはすべて単体テストで行い、複数のコラボレーターが関係するシナリオには統合テストを使うのが最善の方法です。
-
-モック オブジェクトは、統合テストでも役に立つことはありますが、ほとんど使われません。 単体テストでは、モック オブジェクトは、テスト対象のユニットの外部にいるコラボレーターがテストの目的に関してどのように振る舞うかを制御するのに効果的な方法です。 統合テストでは、実際のコラボレーターを使って、サブシステム全体が正しく連携することを確認します。
-
-### <a name="application-state"></a>アプリケーションの状態
-
-統合テストを実行するときの重要な考慮事項の 1 つは、アプリの状態を設定する方法です。 テストは相互に独立して実行する必要があるので、各テストが既知の状態のアプリで開始する必要があります。 アプリがデータベースまたはいかなる永続化も使っていない場合、これは問題にならないことがあります。 しかし、現実世界のほとんどのアプリは何らかの種類のデータ ストアにその状態が保持するので、データ ストアをリセットしない限り、あるテストによって行われた変更が、別のテストに影響する可能性があります。 組み込みの `TestServer` を使うと、統合テスト内の ASP.NET Core アプリのホストが非常に簡単になりますが、使うデータへのアクセスが許可されない場合があります。 実際のデータベースを使う場合の 1 つの方法は、アプリをテスト データベースに接続することで、テストでアクセスし、各テスト実行の前に既知の状態にリセットすることができます。
-
-このサンプル アプリケーションでは、Entity Framework Core の InMemoryDatabase サポートを使っているので、テスト プロジェクトから単に接続することはできません。 代わりに、アプリの `Startup` クラスから `InitializeDatabase` メソッドを公開し、`Development` 環境のときはアプリの起動時にそのメソッドを呼び出します。 統合テストでは、環境を `Development` に設定しさえすれば、これを自動的に利用できます。 InMemoryDatabase はアプリを再起動するたびにリセットされるので、データベースのリセットについて心配する必要はありません。
-
-`Startup` クラス:
-
-[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
-
-以下の統合テストでは、`GetTestSession` メソッドが頻繁に使われていることがわかります。
-
-### <a name="accessing-views"></a>ビューへのアクセス
-
-各統合テスト クラスでは、ASP.NET Core アプリを実行する `TestServer` が構成されます。 既定では、`TestServer` は実行しているフォルダー (この場合はテスト プロジェクト フォルダー) で Web アプリをホストします。 したがって、`ViewResult` を返すコントローラー アクションをテストしようとすると、次のエラーが発生する可能性があります。
-
-```
-The view 'Index' wasn't found. The following locations were searched:
-(list of locations)
-```
-
-この問題を解決するには、テスト対象プロジェクトのビューを見つけることができるように、サーバーのコンテンツ ルートを構成する必要があります。 これは、次に示すように、`TestFixture` クラスの `UseContentRoot` を呼び出すことによって行います。
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
-
-`TestFixture` クラスは、`TestServer` を構成および作成し、`TestServer` と通信するように `HttpClient` を設定します。 各統合テストは、`Client` プロパティを使ってテスト サーバーに接続し、要求を行います。
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
-
-上の最初のテストでは、`responseString` がビューから実際にレンダリングされた HTML を保持しており、それを調べることによって期待どおりの結果が含まれることを確認できます。
-
-2 番目のテストは、一意のセッション名でフォーム POST を作成し、アプリに POST して、期待されるリダイレクトが返されることを確認します。
-
-### <a name="api-methods"></a>API メソッド
-
-アプリが Web API を公開している場合、API が期待したとおりに実行することを自動テストで確認するのがよいアイデアです。 組み込みの `TestServer` を使うと、Web API のテストが容易になります。 API のメソッドがモデル バインドを使っている場合は、常に `ModelState.IsValid` を確認する必要があり、統合テストはモデルの検証が正しく動作していることを確認するのに適した場所です。
-
-次の一連のテストでは、上で示した [IdeasController](xref:mvc/controllers/testing#ideas-controller) クラスの `Create` メソッドが対象になっています。
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
-
-HTML ビューを返すアクションの統合テストとは異なり、結果を返す Web API メソッドは、通常、上の最後のテストで示されているように、厳密に型指定されたオブジェクトとして逆シリアル化できます。 この場合、テストでは、結果を `BrainstormSession` インスタンスに逆シリアル化して、アイデアのコレクションにアイデアが正しく追加されていることを確認します。
-
-統合テストの他の例については、この記事の[サンプル プロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)をご覧ください。
+* <xref:test/integration-tests>

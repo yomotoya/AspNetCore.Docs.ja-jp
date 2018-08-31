@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 9355d467ca819ea8c6292963b31367ad5ca36d55
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 05ebc2b51401f8ce8d76d7d121e351cd9ca42c80
+ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938538"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42899858"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core での Razor ファイルのコンパイル
 
@@ -39,9 +39,12 @@ Razor ファイルのプリコンパイルの副作用を次に示します。
 ## <a name="deploy-precompiled-files"></a>プリコンパイル済みファイルの展開
 
 ::: moniker range=">= aspnetcore-2.1"
+
 Razor ファイルのビルドおよび発行時のコンパイルは、既定で Razor SDK によって有効になっています。 更新後の Razor ファイルの編集は、ビルド時にサポートされています。 既定では、*.cshtml* ファイルなしのコンパイルされた *Views.dll* のみがアプリケーションと展開されます。
 
 > [!IMPORTANT]
+> このプリコンパイル ツールは、ASP.NET Core 3.0 で削除されます。 [Razor Sdk](xref:razor-pages/sdk) に移行することをお勧めします。
+>
 > Razor SDK は、プロジェクト ファイルにプリコンパイル固有のプロパティが設定されていない場合のみ有効です。 たとえば、*.csproj* ファイルの `MvcRazorCompileOnPublish` プロパティを `true` に設定して、Razor SDK を無効にします。
 ::: moniker-end
 
@@ -55,6 +58,8 @@ Razor ファイルのビルドおよび発行時のコンパイルは、既定�
 ASP.NET Core 2.x プロジェクト テンプレートは既定で、暗黙的に `MvcRazorCompileOnPublish` プロパティを `true` に設定します。 そのため、この要素は *.csproj* ファイルから安全に削除できます。
 
 > [!IMPORTANT]
+> このプリコンパイル ツールは、ASP.NET Core 3.0 で削除されます。 [Razor Sdk](xref:razor-pages/sdk) に移行することをお勧めします。
+>
 > ASP.NET Core 2.0 で[自己完結型の展開 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) を実行する場合、Razor ファイルのプリコンパイルを使用できません。
 ::: moniker-end
 

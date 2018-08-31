@@ -5,12 +5,12 @@ description: このチュートリアルでは、エンティティとリレー�
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194092"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751465"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC と EF Core - データ モデル - 5/10
 
@@ -66,7 +66,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 ### <a name="the-stringlength-attribute"></a>StringLength 属性
 
-属性を使用して、データ検証規則と検証エラー メッセージを指定することもできます。 `StringLength` 属性はデータベースで最大長を設定し、ASP.NET MVC のクライアント側とサーバー側の検証を提供します。 この属性で最小長を指定することもできますが、最小値はデータベース スキーマに影響しません。
+属性を使用して、データ検証規則と検証エラー メッセージを指定することもできます。 `StringLength` 属性では、データベース内の最大長が設定され、ASP.NET Core MVC に対するクライアント側とサーバー側の検証が提供されます。 この属性で最小長を指定することもできますが、最小値はデータベース スキーマに影響しません。
 
 たとえば、ユーザーが 50 文字を超える名前を入力しないようにする必要があるとします。 この制限を追加するには、次の例のように、`StringLength` 属性を `LastName` および `FirstMidName` プロパティに追加します。
 

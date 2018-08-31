@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: be75667f34eed7ba601eee331e3451c5738ef223
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273570"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751647"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー
 
@@ -130,7 +130,7 @@ FQN を使用してビューにタグ ヘルパーを追加するには、最初
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Intellisense でのタグ ヘルパーのサポート
 
-Visual Studio で新しい ASP.NET Web アプリを作成するときに、NuGet パッケージ "Microsoft.AspNetCore.Razor.Tools" が追加されます。 これは、タグ ヘルパー ツールを追加するパッケージです。
+Visual Studio で新しい ASP.NET Core Web アプリを作成するときに、NuGet パッケージ "Microsoft.AspNetCore.Razor.Tools" が追加されます。 これは、タグ ヘルパー ツールを追加するパッケージです。
 
 HTML `<label>` 要素を書き込むことを検討してください。 Visual Studio エディターで `<l` を入力するとすぐに、IntelliSense で一致する要素が表示されます。
 

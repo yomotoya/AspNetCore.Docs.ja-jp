@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216313"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751551"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC と Entity Framework Core - チュートリアル 1 (全 10 回)
 
@@ -35,7 +35,7 @@ EF Core 2.0 は EF の最新版ですが、EF 6.x の一部の機能にまだ対
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE [](~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -80,7 +80,7 @@ Visual Studio を開き、新しい ASP.NET Core C# Web プロジェクトを作
 
 * **[OK]** をクリックします。
 
-  ![[新しい ASP.NET プロジェクト] ダイアログ](intro/_static/new-aspnet.png)
+  ![[新しい ASP.NET Core プロジェクト] ダイアログ](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>サイトのスタイルを設定する
 
@@ -273,7 +273,7 @@ CRUD アクションのメソッドとビューの自動作成は、スキャフ
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
-ASP.NET 依存関係挿入では、`SchoolContext` のインスタンスがコントローラーに渡されます。 それは先に *Startup.cs* ファイルで構成しました。
+ASP.NET Core 依存関係挿入では、`SchoolContext` のインスタンスがコントローラーに渡されます。 それは先に *Startup.cs* ファイルで構成しました。
 
 コントローラーには `Index` アクション メソッドが含まれます。これはデータベースにあるすべての学生を表示します。 このメソッドはデータベース コンテキスト インスタンスの `Students` プロパティを読み取り、Students エンティティ セットから学生の一覧を取得します。
 

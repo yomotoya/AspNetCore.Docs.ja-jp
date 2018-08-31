@@ -5,12 +5,12 @@ description: このチュートリアルでは、Entity Framework Core を使用
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 25916365b4e682a8e296e0affbcddd4f1e5846b1
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194043"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751487"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC と EF Core - 上級 - 10/10
 
@@ -187,7 +187,7 @@ Entity Framework Core のソースは、[https://github.com/aspnet/EntityFramewo
 
 ## <a name="next-steps"></a>次の手順
 
-これで、ASP.NET MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。
+これで、ASP.NET Core MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。
 
 EF Core の詳細については、「[Entity Framework Core 概要](https://docs.microsoft.com/ef/core)」を参照してください。 書籍「[Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action)」も利用できます。
 

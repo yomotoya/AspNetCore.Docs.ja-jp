@@ -5,12 +5,12 @@ description: ASP.NET Core MVC が、モデル ビュー コントローラー �
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378639"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902600"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -251,3 +251,9 @@ MVC の Razor ビューは、モデルを基にして厳密に型指定できま
 ### <a name="view-components"></a>ビュー コンポーネント
 
 [ビュー コンポーネント](views/view-components.md)を使用すると、レンダリング ロジックをパッケージ化し、アプリケーション全体で再利用することができます。 これは[部分ビュー](views/partial.md)と似ていますが、関連するロジックを含みます。
+
+## <a name="compatibility-version"></a>互換バージョン
+
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> メソッドを使用すると、ASP.NET Core MVC 2.1 以降に導入されている、互換性に影響する重大な変更をオプトインまたはオプトアウトすることができます。
+
+詳細については、「<xref:mvc/compatibility-version>」を参照してください。

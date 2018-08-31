@@ -5,12 +5,12 @@ description: キャッシュ タグ ヘルパーを使用する方法を示し�
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 969716e21211513053f52049368a0a7190ffba47
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 425d8c2235f0070665bc0c967d2498f2cff2a4a6
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276553"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751675"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC のキャッシュ タグ ヘルパー
 
@@ -181,7 +181,7 @@ routes.MapRoute(
 | String            | ".AspNetCore.Identity.Application"                |
 |                   | ".AspNetCore.Identity.Application,HairColor" |
 
-ヘッダーの値が変化したときにキャッシュの更新をトリガーする 1 つのヘッダー値またはコンマで区切ったヘッダー値のリストを受け付けます。 次の例では、ASP.NET Identity に関連付けられている Cookie を調べます。 ユーザーが認証されると、キャッシュの更新をトリガーする要求 Cookie が設定されます。
+ヘッダーの値が変化したときにキャッシュの更新をトリガーする 1 つのヘッダー値またはコンマで区切ったヘッダー値のリストを受け付けます。 次の例では、ASP.NET Core ID に関連付けられている Cookie を調べます。 ユーザーが認証されると、キャッシュの更新をトリガーする要求 Cookie が設定されます。
 
 例:
 

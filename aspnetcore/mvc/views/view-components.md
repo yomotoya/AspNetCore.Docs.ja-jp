@@ -5,12 +5,12 @@ description: ASP.NET Core でのビュー コンポーネントの使用方法�
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 2b196d8d46942604d1c85eb5f2f073661e5acb30
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278363"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751533"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -75,8 +75,9 @@ ms.locfileid: "36278363"
 
 ランタイムでは、次のパスでビューを検索します。
 
-   * Views/\<コントローラー名>/Components/\<ビュー コンポーネント名>/\<ビュー名>
-   * Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>
+* /Pages/Components/<component name>/\<view_name>
+* Views/\<コントローラー名>/Components/\<ビュー コンポーネント名>/\<ビュー名>
+* Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>
 
 ビュー コンポーネントの既定のビュー名は、*Default* です。つまり、通常、ビュー ファイルは *Default.cshtml* という名前になるということです。 ビュー コンポーネントの結果を作成したり、`View` メソッドを呼び出したりするときに、別のビュー名を指定することができます。
 
