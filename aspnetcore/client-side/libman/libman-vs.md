@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: b44769f1d0925f38523d6570858de17f37e32c2b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: a653b1a5c07feca8672ba38e0cda3ddc30482c5a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41909875"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312180"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan を Visual Studio で ASP.NET Core を使用します。
 
@@ -100,7 +100,7 @@ LibMan がで定義されている構成ごとにファイルを取得する次�
 
 * サブセットの[jQuery](https://jquery.com/)バージョン 3.3.1 が CDNJS プロバイダーから取得します。 サブセットが定義されている、`files`プロパティ&mdash;*jquery.min.js*、 *jquery.js*、および*jquery.min.map*します。 ファイルはプロジェクトの配置*wwwroot/ライブラリ/jquery*フォルダー。
 * 全体[ブートス トラップ](https://getbootstrap.com/)4.1.3 のバージョンが取得され、配置、*ブートス トラップwwwroot/ライブラリ/* フォルダー。 オブジェクト リテラルの`provider`プロパティのオーバーライド、`defaultProvider`プロパティの値。 LibMan は、unpkg プロバイダーからブートス トラップ ファイルを取得します。
-* サブセットの[Lodash](https://lodash.com/)組織内で管理本体によって承認されました。 *Lodash.js*と*lodash.min.js*からローカル ファイル システムのファイルが取得*c:\\tmp\\*します。 ファイルをプロジェクトのコピーは*wwwroot/ライブラリ/lodash*フォルダー。
+* サブセットの[Lodash](https://lodash.com/)組織内で管理本体によって承認されました。 *Lodash.js*と*lodash.min.js*からローカル ファイル システムのファイルが取得*c:\\temp\\lodash\\*します。 ファイルをプロジェクトのコピーは*wwwroot/ライブラリ/lodash*フォルダー。
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -193,7 +193,7 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-クリーン操作では、ファイルがプロジェクトからのみ削除します。 ライブラリ ファイルは、将来の復元操作に高速な検索のキャッシュに保存します。 ローカル コンピューターのキャッシュに格納されているライブラリ ファイルを管理するには、LibMan CLI を使用します。
+クリーン操作では、ファイルがプロジェクトからのみ削除します。 ライブラリ ファイルは、将来の復元操作に高速な検索のキャッシュに保存します。 ローカル コンピューターのキャッシュに格納されているライブラリ ファイルを管理するには、使用、 [LibMan CLI](xref:client-side/libman/libman-cli)します。
 
 ## <a name="uninstall-library-files"></a>ライブラリ ファイルをアンインストールします。
 
@@ -231,4 +231,5 @@ LibMan は、インストールされているバージョンより新しいバ�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [LibMan GitHub リポジトリ](https://github.com/aspnet/LibraryManager)
+* <xref:client-side/libman/libman-cli>
+* [LibMan の GitHub リポジトリ](https://github.com/aspnet/LibraryManager)

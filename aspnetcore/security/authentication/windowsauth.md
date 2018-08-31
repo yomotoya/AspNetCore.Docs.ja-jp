@@ -5,12 +5,12 @@ description: この記事では、ASP.NET core で IIS Express、IIS、HTTP.sys 
 ms.author: riande
 ms.date: 08/18/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 93b1a1de74ef6554d48709b04870f7e23738846b
-ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
+ms.openlocfilehash: a8066d248c0d4db1d1f61b2a14bdb4656a2f4265
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41838012"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312413"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -97,7 +97,7 @@ Windows 認証が動作していることを確認するアプリを起動しま
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
 > [!NOTE]
-> Kerberos 認証プロトコルでのカーネル モード認証に HTTP.sys のデリゲート。 Kerberos 認証と HTTP.sys は、ユーザー モードの認証はサポートされていません。 コンピューター アカウントを Active Directory から取得した Kerberos のトークン/チケットを復号化するために使用し、ユーザーを認証するサーバーにクライアントによって転送される必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
+> HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モード認証に処理が委任されます。 Kerberos および HTTP.sys ではユーザー モード認証がサポートされていません。 Active Directory から取得され、クライアントによって、ユーザーを認証するサーバーに転送される Kerberos トークン/チケットを暗号化解除するには、コンピューター アカウントを使用する必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
 
 ::: moniker-end
 
@@ -110,7 +110,7 @@ Windows 認証が動作していることを確認するアプリを起動しま
 [!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
 > [!NOTE]
-> Kerberos 認証プロトコルでのカーネル モード認証に WebListener デリゲート。 Kerberos 認証と WebListener は、ユーザー モードの認証はサポートされていません。 コンピューター アカウントを Active Directory から取得した Kerberos のトークン/チケットを復号化するために使用し、ユーザーを認証するサーバーにクライアントによって転送される必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
+> WebListener では、Kerberos 認証プロトコルを使用したカーネル モード認証に処理が委任されます。 Kerberos および WebListener ではユーザー モード認証がサポートされていません。 Active Directory から取得され、クライアントによって、ユーザーを認証するサーバーに転送される Kerberos トークン/チケットを暗号化解除するには、コンピューター アカウントを使用する必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
 
 ::: moniker-end
 
@@ -129,7 +129,7 @@ Windows 認証と匿名アクセスの両方が有効になっているときに
 ASP.NET core 2.x、`[Authorize]`属性に追加の構成が必要です*Startup.cs*匿名要求を Windows 認証チャレンジを。 推奨される構成によって若干異なります、web サーバーが使用されています。
 
 > [!NOTE]
-> 既定では、ページにアクセスするための承認を持たないユーザーには、空の HTTP 403 応答が表示されます。 [StatusCodePages ミドルウェア](xref:fundamentals/error-handling#configuring-status-code-pages)「アクセスが拒否されました」のより優れたエクスペリエンスをユーザーに提供するように構成できます。
+> 既定では、ページにアクセスするための承認を持たないユーザーには、空の HTTP 403 応答が表示されます。 [StatusCodePages ミドルウェア](xref:fundamentals/error-handling#configure-status-code-pages)「アクセスが拒否されました」のより優れたエクスペリエンスをユーザーに提供するように構成できます。
 
 #### <a name="iis"></a>IIS
 

@@ -1,23 +1,24 @@
 ---
 uid: visual-studio/overview/2017/optimize-build-perf
 title: ソリューションのビルドのパフォーマンスを最適化します。
-author: tfitzmac
+author: AngelosP
 description: ソリューションのビルドのパフォーマンスを最適化します。
 ms.author: riande
-ms.date: 08/22/2018
+ms.date: 08/29/2018
 msc.type: authoredcontent
-ms.openlocfilehash: 19f190835e7477e69db470b74edac9e211fd9158
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: c1a5cf5e59374b4c0dd7150c5dd62fbde42af555
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41909894"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312142"
 ---
 # <a name="optimize-build-performance-for-solution"></a>ソリューションのビルドのパフォーマンスを最適化します。
-Visual Studio 2017 15.8年後から 新しいメニュー項目を追加および**ビルド > ASP.NET コンパイル > ソリューションのビルド パフォーマンスの最適化**します。
+
+Visual Studio 2017 15.8年メニュー項目を後から追加または:**ビルド** > **ASP.NET コンパイル** > **ソリューションのビルド パフォーマンスの最適化**します。
 
 ![新しいメニュー項目のスクリーン ショット](optimize-build-perf/_static/optimize-build-performance-for-solution.png)
 
-ASP.NET では、コンパイラのコピーを実行して、ASP.NET プロジェクトは、実行時にそのビューをコンパイルします。 ただし、開発者コンピューターで、コンパイラのコピーは、Visual Studio のコピーと一致しない場合、ビルドのパフォーマンスが影響を受けるインクリメンタル ビルドごとに 1 ~ 3 秒の順序。 この機能では、Visual Studio のインクリメンタル ビルドを高速化する必要がありますが一致するようにコンパイラのプロジェクトのコピーを更新します。
+ASP.NET、ASP.NET プロジェクトを伴って、コンパイラのコピーは、実行時にそのビューをコンパイルします。 ただし、開発者のコンピューターで、コンパイラのコピーは、Visual Studio のコピーと一致しない場合ビルド パフォーマンスに影響インクリメンタル ビルドごとに 1 ~ 3 秒の順序。 この機能は、通常、インクリメンタル ビルドが高速化、Visual Studio の一致するようにコンパイラのプロジェクトのコピーを更新します。
 
-これは ASP.NET フレームワークのプロジェクトのみに適用されます、ASP.NET Core には適用されません。
+**これは ASP.NET Framework 4.7.1 に適用されますまたはプロジェクトが後でのみ、ASP.NET Core には適用されません。**
