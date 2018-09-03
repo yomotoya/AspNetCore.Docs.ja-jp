@@ -5,12 +5,12 @@ description: ASP.NET Core MVC でのモデルの検証について説明しま�
 ms.author: riande
 ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378668"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312155"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -239,7 +239,7 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 
 [!code-csharp[](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields` を文字列 `"FirstName"` および `"LastName"` に明示的に設定することもできますが、[`nameof`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) 演算子をこのように使うと、後のリファクタリングが容易になります。 検証を実行するアクション メソッドには、`FirstName` の値と `LastName` の値のそれぞれに対応する 2 つの引数を指定する必要があります。
+`AdditionalFields` を文字列 `"FirstName"` および `"LastName"` に明示的に設定することもできますが、[`nameof`](/dotnet/csharp/language-reference/keywords/nameof) 演算子をこのように使うと、後のリファクタリングが容易になります。 検証を実行するアクション メソッドには、`FirstName` の値と `LastName` の値のそれぞれに対応する 2 つの引数を指定する必要があります。
 
 [!code-csharp[](validation/sample/UsersController.cs?range=30-39)]
 
