@@ -4,14 +4,14 @@ author: guardrex
 description: 役に立つリソースへのリンクを使用して Azure App Service で ASP.NET Core アプリをホストする方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2018
+ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927829"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312071"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
 
@@ -110,35 +110,55 @@ ASP.NET Core プレビュー アプリは、次の方法で Azure App Service �
 <!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [コンテナー用の Web アプリで Docker を使用する](#use-docker-with-web-apps-for-containers)
 
-プレビュー サイト拡張機能の使用に関する問題が発生した場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
-
 ### <a name="install-the-preview-site-extension"></a>プレビュー サイト拡張機能をインストールする
+
+プレビュー サイト拡張機能の使用に関する問題が発生した場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
 
 1. Azure Portal から [App Service] ブレードに移動します。
 1. Web アプリを選択します。
-1. 検索ボックスに「ex」と入力するか、管理ウィンドウの一覧を **[開発ツール]** までスクロール ダウンします。
+1. 検索ボックスに「ex」と入力するか、管理セクションの一覧を **[開発ツール]** までスクロール ダウンします。
 1. **[開発ツール]** > 、**[拡張機能]** の順に選択します。
 1. **[追加]** を選びます。
-
-   ![前の手順の [Azure App] ブレード](index/_static/x1.png)
-
-1. **[ASP.NET Core Extensions]\(ASP.NET Core 拡張機能\)** を選びます。
+1. **[ASP.NET Core &lt;x.y&gt; (x86) ランタイム]** 拡張機能を一覧から選択します。`<x.y>` は ASP.NET Core のプレビュー バージョンです (**ASP.NET Core 2.2 (x86) ランタイム**など)。 x86 ランタイムは、ASP.NET Core モジュールによるプロセス外ホスティングに依存する[フレームワーク依存のデプロイ](/dotnet/core/deploying/#framework-dependent-deployments-fdd)に適しています。
 1. **[OK]** を選んで法的条項に同意します。
 1. **[OK]** を選択し、拡張機能をインストールします。
 
-追加操作が完了すると、最新の .NET Core プレビューがインストールされます。 コンソールで `dotnet --info` を実行してインストールを確認します。 **[App Service]** ブレードから: 
+操作が完了すると、最新の .NET Core プレビューがインストールされます。 次のようにしてインストールを検証します。
 
-1. 検索ボックスに「con」と入力するか、管理ウィンドウの一覧を **[開発ツール]** までスクロール ダウンします。
-1. **[開発ツール]** > 、**[コンソール]** の順に選択します。
-1. コンソールに `dotnet --info` と入力します。
+1. **[開発ツール]** の下の **[高度なツール]** を選択します。
+1. **[高度なツール]** ブレードの下の **[Go]** を選択します。
+1. **[デバッグ コンソール]** > **[PowerShell]** のメニュー項目を選択します。
+1. PowerShell のプロンプトで次のコマンドを実行します。 コマンドの `<x.y>` を ASP.NET Core ランタイム バージョンに置き換えます。
 
-バージョン `2.1.300-preview1-008174` が最新のプレビュー リリースである場合、コマンド プロンプトで `dotnet --info` を実行すると、次が出力されます。
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
+   ```
+   インストールされているプレビュー ランタイムが ASP.NET Core 2.2 向けである場合、コマンドは次のようになります。
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   ```
+   x64 プレビューのランタイムがインストールされていると、コマンドで `True` が返されます。
 
-![前の手順の [Azure App] ブレード](index/_static/cons.png)
+::: moniker range=">= aspnetcore-2.2"
 
-上の図の ASP.NET Core のバージョン、`2.1.300-preview1-008174` は例です。 `dotnet --info` を実行すると、サイト拡張機能が構成されたときの最新の ASP.NET Core のプレビュー バージョンが表示されます。
+> [!NOTE]
+> App Services アプリのプラットフォーム アーキテクチャ (x86/x64) が、A シリーズ計算、またはより優れたホスティング階層でホストされているアプリの **[全般設定]** の下の **[アプリケーション設定]** に設定されます。 アプリがインプロセス モードで実行されていて、プラットフォーム アーキテクチャが 64 ビット (x64) 向けに構成されている場合は、ASP.NET Core モジュールで 64 ビット プレビュー ランタイム (ある場合) が使用されます。 **ASP.NET Core &lt;x.y&gt; (x64) ランタイム**拡張機能 (たとえば、**ASP.NET Core 2.2 (x64) ランタイム**) をインストールします。
+>
+> x64 プレビュー ランタイムがインストールされたら、Kudu PowerShell コマンド ウィンドウで次のコマンドを実行して、インストールを確認します。 コマンドの `<x.y>` を ASP.NET Core ランタイム バージョンに置き換えます。
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
+> ```
+> インストールされているプレビュー ランタイムが ASP.NET Core 2.2 向けである場合、コマンドは次のようになります。
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> ```
+> x64 プレビューのランタイムがインストールされていると、コマンドで `True` が返されます。
 
-`dotnet --info` では、プレビューがインストールされているサイトの拡張機能へのパスが表示されます。 アプリが既定の *ProgramFiles* の場所ではなく、サイトの拡張機能から実行されていることが示されます。 *ProgramFiles* が表示される場合は、サイトを再起動して、`dotnet --info` を実行してください。
+::: moniker-end
+
+> [!NOTE]
+> **ASP.NET Core 拡張機能**によって、たとえば Azure のログ記録など、Azure App Services での ASP.NET Core の追加機能が有効になります。 この拡張機能は、Visual Studio からデプロイするときに自動的にインストールされます。 拡張機能がインストールされていない場合は、アプリにインストールします。
 
 **ARM テンプレートでプレビュー サイト拡張機能を使用する**
 

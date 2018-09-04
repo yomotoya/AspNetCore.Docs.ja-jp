@@ -5,12 +5,12 @@ description: このチュートリアルでは、OAuth 2.0 と外部の認証プ
 ms.author: riande
 ms.date: 11/01/2016
 uid: security/authentication/social/index
-ms.openlocfilehash: b2176ef40faaee02c5ef53dbb92a802212e58e8b
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 48a01ab241f9a6ad6ad3fb2ee9e210f459075c33
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063326"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336121"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
@@ -97,3 +97,5 @@ OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用す�
 * このキーの順に押します。では、外部認証プロバイダーを紹介し、外部ログインを ASP.NET Core アプリケーションに追加するために必要な前提条件について説明しました。
 
 * アプリケーションに必要なプロバイダーのログインを構成するには、各プロバイダーのページを参照してください。
+
+* ユーザーとそのアクセス トークン許可および更新トークンに関する追加のデータを保持することをお勧めします。 詳細については、「<xref:security/authentication/social/additional-claims>」を参照してください。
