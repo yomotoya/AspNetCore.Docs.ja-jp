@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 0a9a2d9d0de25a4eaab704680c627c1216d146e3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275484"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751461"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置
 
@@ -38,7 +38,7 @@ ms.locfileid: "36275484"
 
 1. Visual Studio を起動します。
 
-1. **[ファイル]** メニューで、**[新規作成]**、**[プロジェクト]** の順に作成します。
+1. **[ファイル]** メニューで、**[新規作成]**、 > **[プロジェクト]** の順に作成します。
 
 1. **[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。 このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。 プロジェクトに `SampleWebAppDemo` という名前を付けます。 **[新しい Git リポジトリの作成]** オプションを選択し、**[OK]** をクリックします。
 
@@ -46,7 +46,7 @@ ms.locfileid: "36275484"
 
 1. **[New ASP.NET Core Project]\(新しい ASP.NET Core プロジェクト\)** ダイアログで、ASP.NET Core の **[空]** テンプレートを選択し、**[OK]** をクリックします。
 
-   ![[新しい ASP.NET プロジェクト] ダイアログ](azure-continuous-deployment/_static/02-web-site-template.png)
+   ![[新しい ASP.NET Core プロジェクト] ダイアログ](azure-continuous-deployment/_static/02-web-site-template.png)
 
 > [!NOTE]
 > .NET Core の最新のリリースは 2.0 です。
