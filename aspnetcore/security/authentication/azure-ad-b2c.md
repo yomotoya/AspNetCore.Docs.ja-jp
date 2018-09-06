@@ -5,12 +5,12 @@ description: ASP.NET Core での Azure Active Directory B2C の認証を設定�
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 731b25cac6f0d56fd34d12114a73e5cb5265dda6
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 73a66cea1533cc835796f673021bfa45c35f5935
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202641"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893195"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>ASP.NET Core での Azure Active Directory B2C でのクラウド認証
 
@@ -29,7 +29,7 @@ ms.locfileid: "39202641"
 > * Visual Studio を使用して、ASP.NET Core web アプリの認証に Azure AD B2C テナントを使用するように構成を作成するには
 > * Azure AD B2C テナントの動作を制御するポリシーを構成します。
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 次に、このチュートリアルでは必須です。
 
@@ -49,8 +49,8 @@ Azure Active Directory B2C テナントの作成[ドキュメント」の説明�
 | 設定                       | [値]                     | メモ                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**                      | *&lt;アプリ名&gt;*        | 入力、**名前**コンシューマーに、アプリについて説明しているアプリ。                                                                                                                                 |
-| **Web アプリを含める/web API** | [はい]                       |                                                                                                                                                                                                    |
-| **暗黙的なフローを許可します。**       | [はい]                       |                                                                                                                                                                                                    |
+| **Web アプリを含める/web API** | はい                       |                                                                                                                                                                                                    |
+| **暗黙的なフローを許可します。**       | はい                       |                                                                                                                                                                                                    |
 | **応答 URL**                 | `https://localhost:44300/signin-oidc` | 応答 Url とは、Azure AD B2C が、アプリが要求したトークンを返すエンドポイントです。 Visual Studio では、使用する応答 URL を提供します。 ここでは、次のように入力します。`https://localhost:44300/signin-oidc`フォームを完了します。 |
 | **アプリ ID URI**                | 空白のままに               | このチュートリアルでは必要ありません。                                                                                                                                                                    |
 | **ネイティブ クライアントを含める**     | いいえ                        |                                                                                                                                                                                                    |
@@ -107,7 +107,7 @@ Visual Studio で。
 
 ## <a name="run-the-app"></a>アプリを実行する
 
-Visual Studio で、キーを押して**F5**アプリをビルドして実行します。 Web アプリが起動後、選択**サインイン**します。
+Visual Studio で、キーを押して**F5**アプリをビルドして実行します。 Web アプリが起動後、選択**Accept** (要求) の場合、cookie の使用に同意し、選択**サインイン**します。
 
 ![アプリにサインインします。](./azure-ad-b2c/_static/signin.png)
 

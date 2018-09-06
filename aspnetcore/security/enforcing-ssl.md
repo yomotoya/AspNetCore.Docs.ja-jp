@@ -5,12 +5,12 @@ description: Web アプリに ASP.NET Core では、HTTPS や TLS を必要と�
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 3bea8661e17fec5128e822d98741d1f8ed7434e5
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 838cd00545f36736461616f806942249aaf6eee0
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655499"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893179"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -20,6 +20,8 @@ ms.locfileid: "39655499"
 
 * すべての要求に HTTPS を必要とさせる。
 * すべての HTTP 要求を HTTPS にリダイレクトさせる。
+
+API ようにするありませんクライアントの最初の要求で機密データを送信します。
 
 > [!WARNING]
 > **いない**使用[RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute)機密情報を受け取る Web Api で。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
@@ -33,7 +35,12 @@ ms.locfileid: "39655499"
 
 ::: moniker range=">= aspnetcore-2.1"
 
-すべての ASP.NET Core web アプリは、HTTPS のリダイレクトのミドルウェアを呼び出すことをお勧めします。 ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) すべての HTTP 要求を HTTPS にリダイレクトします。
+Web アプリの呼び出しすべての実稼働 ASP.NET Core を推奨します。
+
+* HTTPS のリダイレクトのミドルウェア ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) すべての HTTP 要求を HTTPS にリダイレクトします。
+* [UseHsts](#hsts)、HTTP Strict Transport Security プロトコル (HSTS)。
+
+### <a name="usehttpsredirection"></a>UseHttpsRedirection
 
 次のコード呼び出し`UseHttpsRedirection`で、`Startup`クラス。
 
@@ -41,35 +48,48 @@ ms.locfileid: "39655499"
 
 上記の強調表示されたコード。
 
-* 既定値を使用して[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) (`Status307TemporaryRedirect`)。 実稼働アプリを呼び出す必要があります[UseHsts](#hsts)します。
-* 既定値を使用して[HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport) (443)。
+* 既定値を使用して[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) (`Status307TemporaryRedirect`)。
+* 既定値を使用して[HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport)によってオーバーライドされない限り、(null)、`ASPNETCORE_HTTPS_PORT`環境変数または[IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature)します。
 
-次のコード呼び出し[AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection)ミドルウェアのオプションを構成します。
+> [!WARNING] 
+>ポートは、HTTPS にリダイレクトするミドルウェアの使用可能なである必要があります。 ポートが使用できない場合は、HTTPS へのリダイレクトは発生しません。 HTTPS ポートは、次の設定のいずれかで指定できます。
+> 
+>* `HttpsRedirectionOptions.HttpsPort` 
+>* `ASPNETCORE_HTTPS_PORT`環境変数。 
+>* 開発では、HTTPS url で*launchsettings.json*します。 
+>* Kestrel または HttpSys で直接構成されている HTTPS url です。 
+
+次のコードの呼び出しを強調表示されている[AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection)ミドルウェアのオプションを構成します。
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
 
+呼び出す`AddHttpsRedirection`の値を変更するだけで済みます` HttpsPort`または` RedirectStatusCode`;
+
 上記の強調表示されたコード。
 
-* セット[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode)に`Status307TemporaryRedirect`、これは、既定値。 実稼働アプリを呼び出す必要があります[UseHsts](#hsts)します。
+* セット[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode)に`Status307TemporaryRedirect`、これは、既定値。
 * HTTPS ポートを 5001 に設定します。 既定値には 443 です。
 
 次のメカニズムでは、自動的にポートを設定します。
 
 * ミドルウェアを使用したポートを検出できる[IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature)次の条件が適用されます。
-  - Kestrel または HTTP.sys を使用して HTTPS エンドポイントを直接持つ (Visual Studio Code のデバッガーで、アプリを実行中にも適用されます)。
-  - のみ**1 つの HTTPS ポート**アプリによって使用されます。
+
+   * Kestrel または HTTP.sys を使用して HTTPS エンドポイントを直接持つ (Visual Studio Code のデバッガーで、アプリを実行中にも適用されます)。
+   * のみ**1 つの HTTPS ポート**アプリによって使用されます。
+
 * Visual Studio が使用されます。
-  - IIS Express には、HTTPS を有効になっているがあります。
-  - *launchSettings.json*設定、 `sslPort` IIS Express 用です。
+   * IIS Express には、HTTPS を有効になっているがあります。
+   * *launchSettings.json*設定、 `sslPort` IIS Express 用です。
 
 > [!NOTE]
 > アプリを実行したリバース プロキシ (たとえば、IIS、IIS Express) の背後にあるときに`IServerAddressesFeature`は使用できません。 ポートを手動で構成する必要があります。 ポートが設定されていないときに要求をリダイレクトされません。
 
 設定して、ポートを構成することができます、 [https_port Web ホストの構成設定](xref:fundamentals/host/web-host#https-port):
 
-**キー**: https_port **型**: *string*
-**既定値**: 既定値は設定されません。
-**使用して設定**: `UseSetting` 
+**キー**: https_port  
+**型**: *文字列*  
+**既定**: 既定値が設定されていません。  
+**次を使用して設定**: `UseSetting`  
 **環境変数**: `<PREFIX_>HTTPS_PORT` (プレフィックスは`ASPNETCORE_`Web ホストを使用する場合)。
 
 ```csharp
@@ -83,7 +103,7 @@ WebHost.CreateDefaultBuilder(args)
 ポートが設定されていない: 場合
 
 * 要求はリダイレクトされません。
-* ミドルウェアは、警告を記録します。
+* ミドルウェア「をリダイレクト用 https ポートを特定できませんでした」警告をログします。
 
 > [!NOTE]
 > HTTPS のリダイレクトのミドルウェアを使用する代わりに (`UseHttpsRedirection`) は、URL リライト ミドルウェアを使用する (`AddRedirectToHttps`)。 `AddRedirectToHttps` 設定こともできます、ステータス コードとポートのリダイレクトを実行するとします。 さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
@@ -113,16 +133,22 @@ WebHost.CreateDefaultBuilder(args)
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP Strict Transport Security プロトコル (HSTS)
 
-あたり[OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)、 [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)は応答ヘッダーを使用して web アプリによって指定されるオプトイン セキュリティ拡張機能です。 HSTS をサポートするブラウザーは、このヘッダーを受信するとします。
+あたり[OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project)、 [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)は応答ヘッダーを使用して web アプリによって指定されるオプトイン セキュリティ拡張機能です。 ときに、 [HSTS をサポートするブラウザー](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support)このヘッダーを受信します。
 
-* ブラウザーでは、HTTP 経由で通信を送信しないように、ドメインの構成を格納します。 ブラウザーでは、HTTPS 経由ですべての通信を強制します。 
+* ブラウザーでは、HTTP 経由で通信を送信しないように、ドメインの構成を格納します。 ブラウザーでは、HTTPS 経由ですべての通信を強制します。
 * ブラウザーでは、ユーザーが信頼されていないか無効な証明書を使用できなくなります。 ブラウザーには、一時的にこのような証明書を信頼するユーザーを許可するプロンプトが無効にします。
+
+HSTS は、クライアントで強制されるため、いくつかの制限があります。
+
+* クライアントは、HSTS をサポートする必要があります。
+* HSTS では、少なくとも 1 つ HSTS ポリシーを確立するために HTTPS 要求の成功の場合必要があります。
+* アプリケーションは、すべての HTTP 要求を確認し、リダイレクトまたは HTTP 要求を拒否します。
 
 ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。 次のコード呼び出し`UseHsts`でアプリができないときに[開発モード](xref:fundamentals/environments):
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
-`UseHsts` お勧めしません開発 HSTS ヘッダーがキャッシュ可能であるためのブラウザーでします。 既定では、`UseHsts`ローカル ループバック アドレスを除外します。
+`UseHsts` お勧めしません開発 HSTS 設定は、キャッシュ可能であるためのブラウザーでします。 既定では、`UseHsts`ローカル ループバック アドレスを除外します。
 
 最初に HTTPS を実装する運用環境では、初期の HSTS 値を小さい値に設定します。 値を設定時間から no により、1 つの 1 日には、HTTP、HTTPS インフラストラクチャに戻す必要がある場合。 HTTPS の構成の持続性に確信したら、HSTS 最長値を増やす一般的に使用される値は、1 年間です。 
 
@@ -130,9 +156,9 @@ ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
 
-* Strict-トランスポート セキュリティ ヘッダーのプリロード パラメーターを設定します。 プリロードされていないの一部、 [RFC HSTS 仕様](https://tools.ietf.org/html/rfc6797)、HSTS サイトは新規インストールを事前に web ブラウザーでがサポートされています。 詳細については、「[https://hstspreload.org/](https://hstspreload.org/)」を参照してください。
+* Strict-トランスポート セキュリティ ヘッダーのプリロード パラメーターを設定します。 プリロードの一部でない、 [RFC HSTS 仕様](https://tools.ietf.org/html/rfc6797)、HSTS サイトは新規インストールを事前に web ブラウザーでがサポートされています。 詳細については、「[https://hstspreload.org/](https://hstspreload.org/)」を参照してください。
 * により、 [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2)サブドメインのホストに HSTS ポリシーを適用します。 
-* 明示的に 60 日間にする高レベルのトランスポート セキュリティ ヘッダーの最長有効期間パラメーターを設定します。 既定値は 30 日間を設定しない場合。 参照してください、[最長ディレクティブ](https://tools.ietf.org/html/rfc6797#section-6.1.1)詳細についてはします。
+* 60 日間に Strict-トランスポート セキュリティ ヘッダーの最長有効期間パラメーターを明示的に設定します。 既定値は 30 日間を設定しない場合。 参照してください、[最長ディレクティブ](https://tools.ietf.org/html/rfc6797#section-6.1.1)詳細についてはします。
 * 追加`example.com`を除外するホストの一覧にします。
 
 `UseHsts` 次のループバック ホストを除外するには。
@@ -175,8 +201,12 @@ dotnet new webapp --no-https
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="how-to-setup-a-developer-certificate-for-docker"></a>Docker の開発者の証明書をセットアップする方法
+## <a name="how-to-set-up-a-developer-certificate-for-docker"></a>Docker の開発者の証明書を設定する方法
 
 参照してください[この GitHub の問題](https://github.com/aspnet/Docs/issues/6199)します。
 
 ::: moniker-end
+
+## <a name="additional-information"></a>追加情報
+
+* [OWASP HSTS ブラウザー サポート](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support)
