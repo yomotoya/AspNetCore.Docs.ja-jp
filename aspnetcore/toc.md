@@ -393,6 +393,7 @@
 ## [クロスサイト スクリプティングの防止](xref:security/cross-site-scripting)
 ## [クロスオリジン要求 (CORS) の有効化](xref:security/cors)
 ## [アプリ間での Cookie の共有](xref:security/cookie-sharing)
+## [IP セーフリスト](xref:security/ip-safelist)
 
 # [パフォーマンス](xref:performance/index)
 ## [応答のキャッシュ](xref:performance/caching/index)
