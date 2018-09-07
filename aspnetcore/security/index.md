@@ -5,12 +5,12 @@ description: ASP.NET Core での認証、承認、およびセキュリティの
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d371d37690b6d641f8e584f5e51dcc074a581622
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41746095"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040083"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core Security の概要
 
@@ -104,3 +104,4 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
 *   [クロスサイト スクリプティングの防止](xref:security/cross-site-scripting)
 *   [クロスオリジン要求 (CORS) の有効化](xref:security/cors)
 *   [アプリ間での Cookie の共有](xref:security/cookie-sharing)
+*   [IP セーフリスト](xref:security/ip-safelist)
