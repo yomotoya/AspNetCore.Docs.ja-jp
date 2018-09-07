@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Id を使用します。 パスワ�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: bc69b1db56361dc185f582032148a4fb8078fdda
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 96f446ad9ec1ef5d807a8648e68308ee20583365
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893234"
+ms.locfileid: "44040029"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core Identity の概要
 
@@ -56,7 +56,7 @@ dotnet new webapp --auth Individual -o WebApp1
 <a name="pw"></a>
 ### <a name="configure-identity-services"></a>Id サービスを構成します。
 
-サービスを追加`ConfigureServices`します。 次のコードに生成されたテンプレートが含まれていない`CookiePolicyOptions`:
+サービスを追加`ConfigureServices`します。 一般的なパターンはすべて、`Add{Service}`メソッド、および、呼び出し、`services.Configure{Service}`メソッド。 次のコードに生成されたテンプレートが含まれていない`CookiePolicyOptions`:
 
 ::: moniker range=">= aspnetcore-2.1"
 
