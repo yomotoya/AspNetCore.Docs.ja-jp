@@ -6,21 +6,22 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 40fe7b67359efd1692490099c3fb529ba4a6148f
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 362d1ded00bda3f328e029fb467f2b3eeaa01396
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040111"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126710"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>ASP.NET Core 用のクライアント IP のセーフリスト
 
 によって[Damien Bowden](https://twitter.com/damien_bod)と[Tom Dykstra](https://github.com/tdykstra)
  
-この記事では、IP セーフリスト (ホワイト リストとも呼ばれます) を実装する 2 つの方法を示しています。
+この記事では、ASP.NET Core アプリで IP セーフリスト (ホワイト リストとも呼ばれます) を実装するために 3 つの方法を示しています。 使用できます。
 
-* ASP.NET Core のミドルウェアを使用するすべての要求のリモート IP アドレスを確認します。
-* ASP.NET Core のアクション フィルターを使用すると、特定のアクション メソッドの要求のリモート IP アドレスを確認します。
+* すべての要求のリモート IP アドレスを確認するミドルウェア。
+* アクション フィルターが特定のコント ローラーまたはアクション メソッドの要求のリモート IP アドレスを確認します。
+* Razor ページの要求のリモート IP アドレスを確認する razor ページのフィルター。
 
 サンプル アプリでは、両方の方法を示します。 各ケースでは、承認されたクライアントの IP アドレスを含む文字列がアプリ設定に格納されます。 ミドルウェアやフィルターは、一覧に文字列を解析し、リモート ip アドレスの一覧を確認します。 それ以外の場合は、HTTP 403 Forbidden 状態コードが返されます。
 
