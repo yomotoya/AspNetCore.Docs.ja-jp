@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: e82c219635bbbebe1d6f5639308490c37361b286
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 95fd6b7e73cf325674f1c1e03f9eea88cbc1af13
+ms.sourcegitcommit: f3538693a12cf55b7f124a6519677239170b7c43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952956"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43114776"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 用の Microsoft.AspNetCore.App メタパッケージ
 
@@ -53,6 +53,15 @@ ASP.NET Core 用の [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Mi
 
 `Microsoft.AspNetCore.App` 参照のバージョン番号では、共有フレームワークのバージョンが選択されることが保証**されません**。 たとえば、バージョン `2.1.1` が指定されているのに、インストールされているのは `2.1.3` であるものとします。 この場合、アプリは `2.1.3` を使います。 お勧めしませんが、ロールフォワードの動作 (パッチとマイナーの両方または一方) を無効にすることができます。 パッケージ バージョンのロールフォワード動作の詳細については、[dotnet ホストのロールフォワード](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md)に関するページを参照してください。
 
+## <a name="update-aspnet-core"></a>ASP.NET Core の更新
+
 `Microsoft.AspNetCore.App` [メタパッケージ](/dotnet/core/packages#metapackages)は、NuGet から更新される従来型のパッケージではありません。 `Microsoft.NETCore.App` に似て、`Microsoft.AspNetCore.App` は共有ランタイムを表しており、NuGet の外部で処理される特殊なバージョン管理セマンティクスを持ちます。 詳しくは、「[パッケージ、メタパッケージ、フレームワーク](/dotnet/core/packages)」をご覧ください。
+
+ASP.NET Core を更新するには:
+
+* 開発用コンピューターやビルド サーバー上: [.NET Core SDK](https://www.microsoft.com/net/download) をダウンロードしてインストールします。
+* 配置サーバー上: [.NET Core ランタイム](https://www.microsoft.com/net/download)をダウンロードしてインストールします。
+
+ アプリケーションは、アプリケーションの再起動時にインストールされている最新バージョンにロールフォワードされます。 プロジェクト ファイル内で `Microsoft.AspNetCore.App` バージョン番号を更新する必要はありません。 詳細については、「[フレームワーク依存のアプリをロールフォワードする](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward)」を参照してください。
 
 アプリケーションで以前に `Microsoft.AspNetCore.All` を使っていた場合は、「[Microsoft.AspNetCore.All から Microsoft.AspNetCore.App への移行](xref:fundamentals/metapackage#migrate)」をご覧ください。

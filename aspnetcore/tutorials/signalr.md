@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: tutorials/signalr
-ms.openlocfilehash: db7f31963f6a4280069f1f4f82a547e2879e64bb
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: a2573e2817a2d8921954264ca17bc3a7e2a010a8
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41751640"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055833"
 ---
 # <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>チュートリアル: ASP.NET Core 上で SignalR の使用を開始する
 
@@ -95,7 +95,7 @@ ms.locfileid: "41751640"
 
 ## <a name="add-the-signalr-client-library"></a>SignalR クライアント ライブラリを追加する
 
-SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) に含まれています。 しかし、JavaScript クライアント ライブラリについては、npm (Node.js パッケージ マネージャー) から取得する必要があります。
+SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) に含まれています。 しかし、JavaScript クライアント ライブラリについては、[npm (Node.js パッケージ マネージャー)](https://www.npmjs.com/get-npm) から取得する必要があります。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 

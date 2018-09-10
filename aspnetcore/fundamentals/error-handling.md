@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: ff04ebeb6a682ec924afe896fd6716010a63f7cd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 7ea944bc423001aa47ce684443b96104cf9174bf
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751776"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312248"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
@@ -25,7 +25,7 @@ ms.locfileid: "41751776"
 
 ::: moniker range=">= aspnetcore-2.1"
 
-例外に関する詳細情報を表示するページを表示するアプリを構成するには、*開発者例外ページ*を使用します。 このページは [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) で使用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になったページです。 `Startup.Configure` メソッドに次の行を追加します。
+例外に関する詳細情報を表示するページを表示するアプリを構成するには、*開発者例外ページ*を使用します。 このページは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) 内で利用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。 `Startup.Configure` メソッドに次の行を追加します。
 
 ::: moniker-end
 
@@ -45,10 +45,10 @@ ms.locfileid: "41751776"
 
 `app.UseMvc` などの例外をキャッチする任意のミドルウェアの前に [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) の呼び出しを配置します。
 
->[!WARNING]
+> [!WARNING]
 > **アプリを開発環境で実行するときにのみ**、開発者例外ページを有効にします。 アプリを実稼働環境で実行するときは、詳細な例外情報を公開しません。 [環境の構成についてはこちらをご覧ください](xref:fundamentals/environments)。
 
-開発者例外ページを表示するには、環境を `Development` に設定してサンプル アプリを実行し、アプリの基礎 URL に `?throw=true` を追加します。 このページには、例外と要求に関する情報を含むタブがいくつかあります。 最初のタブにはスタック トレースがあります。
+開発者例外ページを表示するには、環境を `Development` に設定してサンプル アプリを実行し、アプリのベース URL に `?throw=true` を追加します。 このページには、例外と要求に関する情報を含むタブがいくつかあります。 最初のタブにはスタック トレースがあります。
 
 ![スタック トレース](error-handling/_static/developer-exception-page.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "41751776"
 
 ![ヘッダー](error-handling/_static/developer-exception-page-headers.png)
 
-## <a name="configuring-a-custom-exception-handling-page"></a>カスタム例外処理ページを構成する
+## <a name="configure-a-custom-exception-handling-page"></a>カスタム例外処理ページを構成する
 
 アプリが `Development` 環境で実行されていないときに使用する例外ハンドラー ページを構成します。
 
@@ -81,13 +81,35 @@ public IActionResult Error()
 }
 ```
 
-## <a name="configuring-status-code-pages"></a>ステータス コード ページを構成する
+## <a name="configure-status-code-pages"></a>状態コード ページを構成する
 
-アプリは既定で、*404 見つかりません*などの HTTP 状態コードのリッチ状態コード ページを表示しません。 状態コード ページを表示するには、`Startup.Configure` メソッドに行を追加して状態コード ページ ミドルウェアを構成します。
+アプリは既定で、*404 見つかりません*などの HTTP 状態コードのリッチ状態コード ページを表示しません。 状態コード ページを提供するには、状態コード ページ ミドルウェアを使用します。
+
+::: moniker range=">= aspnetcore-2.1"
+
+このミドルウェアは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内で使用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+このミドルウェアは、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)内で使用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+このミドルウェアは、プロジェクト ファイルに [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージのパッケージ参照を追加することで使用可能になります。
+
+::: moniker-end
+
+`Startup.Configure` メソッドに次の行を追加します。
 
 ```csharp
 app.UseStatusCodePages();
 ```
+
+パイプラインでは要求処理ミドルウェア (静的ファイル ミドルウェアおよび MVC ミドルウェア) の前に <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> を呼び出す必要があります。
 
 既定では、状態コード ページ ミドルウェアは 404 などの一般的な状態コードにテキストのみのハンドラーを追加します。
 

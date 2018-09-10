@@ -5,12 +5,12 @@ description: 区分は ASP.NET MVC の機能であり、関連する機能を別
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: 3e998af42cd6209271495dd8dd97a8aed35717a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274828"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312219"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core の区分
 
@@ -34,9 +34,9 @@ ms.locfileid: "36274828"
 
 * 各区分には独自のコントローラー、モデル、およびビューがあります。
 
-* 大きな MVC プロジェクトを、個別に使用できる複数の高レベル コンポーネントにまとめることができます。
+* 区分を使用すると、大きな MVC プロジェクトを、個別に使用できる複数の高レベル コンポーネントにまとめることができます。
 
-* 同じ名前の複数のコントローラーをサポートします (ただし、*区分* が異なる場合)。
+* 区分では同じ名前の複数のコントローラーがサポートされます (*区分* が異なる場合のみ)。
 
 区分の作成および使用方法を示す例を見てましょう。 たとえば、ストア アプリに製品とサービスという、コントローラーとビューの 2 つの異なるグループがあるとします。 MVC 区分を使用する場合の一般的なフォルダー構造は次のようになります。
 

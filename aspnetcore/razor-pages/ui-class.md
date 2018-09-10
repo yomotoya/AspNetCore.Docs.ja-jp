@@ -4,16 +4,16 @@ author: Rick-Anderson
 description: クラス ライブラリで再利用可能 Razor UI を作成する方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 07/21/2018
+ms.date: 09/07/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 1f0ef59ce3f3294d6a3bde015ca34800770b1be4
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 7e9ab07a9060b16c09afb1e88950f6a3e55b13cb
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "42909650"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126749"
 ---
-# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core で Razor クラス ライブラリ プロジェクトを使用し、再利用可能 UI を作成します。
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core で Razor クラス ライブラリ プロジェクトを使用して再利用可能な UI を作成します。
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -39,9 +39,9 @@ Razor クラス ライブラリでは、次のプロジェクト ファイルが
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-コマンドラインから `dotnet new razorclasslib` を実行します。 例えば:
+コマンド ラインから `dotnet new razorclasslib` を実行します。 例えば:
 
-``` CLI
+```console
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
@@ -75,15 +75,16 @@ Visual Studio で *.sln* ファイルを開きます。 アプリを実行しま
 
 *cli* ディレクトリのコマンド プロンプトから、RCL と Web アプリをビルドします。
 
-``` CLI
+```console
 dotnet build
 ```
 
 *WebApp1* ディレクトリに移動し、アプリを実行します。
 
-``` CLI
+```console
 dotnet run
 ```
+
 ------
 
 [テスト WebApp1](#test) の指示に従ってください。
@@ -107,7 +108,7 @@ RCL プロジェクトの作成:
 
 コマンド ラインから次を実行します。
 
-``` CLI
+```console
 dotnet new razorclasslib -o RazorUIClassLib
 dotnet new page -n _Message -np -o RazorUIClassLib/Areas/MyFeature/Pages/Shared
 dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -117,33 +118,33 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 * `RazorUIClassLib` Razor クラス ライブラリ (RCL) が作成されます。
 * Razor _Message ページが作成され、RCL に追加されます。 `-np` パラメーターによって、`PageModel` なしでページが作成されます。
-* [viewstart](xref:mvc/views/layout#running-code-before-each-view) ファイルが作成され、RCL に追加されます。
+* 作成、 [_ViewStart.cshtml](xref:mvc/views/layout#running-code-before-each-view)ファイルを開き、RCL に追加します。
 
-(次のセクションで追加される) Razor ページ プロジェクトのレイアウトを使用するには、viewstart ファイルが必要です。
+*_ViewStart.cshtml* (これは、次のセクションに追加されます) Razor ページ プロジェクトのレイアウトを使用するファイルが必要です。
 
 ------
 
-### <a name="add-razor-files-and-folders-to-the-project"></a>Razor のファイルとフォルダーをプロジェクトに追加します。
+### <a name="add-razor-files-and-folders-to-the-project"></a>Razor ファイルおよびフォルダーをプロジェクトに追加します。
 
 * *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* のマークアップを次のコードに変更します。
 
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
+[!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
 
 * *RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml* のマークアップを次のコードに変更します。
 
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
+[!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
 `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` は部分ビュー (`<partial name="_Message" />`) を使用するために必要です。 `@addTagHelper` ディレクティブを含める代わりに、*_ViewImports.cshtml* ファイルを追加できます。 例えば:
 
-``` CLI
+```console
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
 ```
 
-ビューのインポートについては、「[共有ディレクティブのインポート](xref:mvc/views/layout#importing-shared-directives)」を参照してください。
+詳細については *_ViewImports.cshtml*を参照してください[共有ディレクティブのインポート](xref:mvc/views/layout#importing-shared-directives)
 
 * クラス ライブラリをビルドし、コンパイラ エラーがないことを確認します。
 
-``` CLI
+```console
 dotnet build RazorUIClassLib
 ```
 
@@ -202,7 +203,7 @@ Razor UI クラス ライブラリが使用されていることを確認しま�
 
 ## <a name="override-views-partial-views-and-pages"></a>ビュー、部分ビュー、ページのオーバーライド
 
-Web アプリと Razor クラス ライブラリの両方にビュー、部分ビュー、Razor ページがあるとき、Web アプリの Razor マークアップ (*.cshtml* ファイル) が優先されます。 たとえば、*WebApp1/Areas/MyFeature/Pages/Page1.cshtml* を WebApp1 に追加すると、WebApp1 の Page1 は、Razor クラス ライブラリの Page1 に優先します。
+Web アプリと Razor クラス ライブラリの両方にビュー、部分ビュー、Razor ページがあるとき、Web アプリの Razor マークアップ (*.cshtml* ファイル) が優先されます。 たとえば、追加*WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 に、WebApp1 の Page1 は優先 Razor クラス ライブラリの Page1 とします。
 
 サンプル ダウンロードの *WebApp1/Areas/MyFeature2* の名前を *WebApp1/Areas/MyFeature* に変更し、優先設定をテストします。
 
@@ -212,17 +213,17 @@ Web アプリと Razor クラス ライブラリの両方にビュー、部分�
 
 ### <a name="rcl-pages-layout"></a>RCL ページ レイアウト
 
-RCL コンテンツは、web アプリのページのフォルダーの一部である場合と同様に参照するには、次のファイル構造で RCL プロジェクトを作成します。
+参照 RCL コンテンツの web アプリの一部である場合と同様に*ページ*フォルダー、RCL プロジェクト ファイルの構造を作成します。
 
 * *RazorUIClassLib/ページ*
 * *RazorUIClassLib/ページ/共有*
 
-たとえば、 *RazorUIClassLib/ページ/共有*2 つの部分的なファイルが含まれています *_Header.cshtml*と *_Footer.cshtml*。 <partial>タグに追加できる *_Layout.cshtml*ファイル。 
+たとえば*RazorUIClassLib/ページ/共有*2 つの部分的なファイルが含まれています: *_Header.cshtml*と *_Footer.cshtml*します。 `<partial>`タグに追加できる *_Layout.cshtml*ファイル。
   
-```
-  <body>
-    <partial name="_Header">
-    @RenderBody()
-    <partial name="_Footer">
-  </body>
+```cshtml
+<body>
+  <partial name="_Header">
+  @RenderBody()
+  <partial name="_Footer">
+</body>
 ```
