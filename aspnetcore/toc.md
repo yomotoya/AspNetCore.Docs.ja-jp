@@ -287,7 +287,7 @@
 ### [Visual Studio による Azure への公開](xref:tutorials/publish-to-azure-webapp-using-vs)
 ### [CLI ツールによる Azure への公開](xref:tutorials/publish-to-azure-webapp-using-cli)
 ### [Visual Studio と Git による Azure への継続的配置](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-### [VSTS による Azure への継続的配置](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)
+### [Azure Pipelines による Azure への継続的配置](/azure/devops/pipelines/get-started-yaml)
 ### [Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)
 ## [IIS による Windows 上のホスト](xref:host-and-deploy/iis/index)
 ### [IIS での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/iis/troubleshoot)

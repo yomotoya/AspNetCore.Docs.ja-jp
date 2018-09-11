@@ -5,12 +5,12 @@ description: Azure でホストされる ASP.NET Core アプリの DevOps パイ
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
-ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
+ms.openlocfilehash: 53667831f5e33107178a947f23d957ff22e8c1a0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41746053"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340096"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>ASP.NET Core および Azure を使用した DevOps
 
@@ -46,7 +46,7 @@ Azure App Service に ASP.NET Core アプリをデプロイするためのさま
 
 ### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[継続的インテグレーションと継続的デプロイ](xref:azure/devops/cicd)
 
-GitHub、VSTS、Azure で自分の ASP.NET Core アプリにエンドツーエンドの継続的インテグレーションと継続的デプロイ ソリューションを構築します。
+GitHub、Azure DevOps Services、Azure で自分の ASP.NET Core アプリにエンドツーエンドの継続的インテグレーションと継続的デプロイ ソリューションを構築します。
 
 ### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[監視とデバッグ](xref:azure/devops/monitor)
 
