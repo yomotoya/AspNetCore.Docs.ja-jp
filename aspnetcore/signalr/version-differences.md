@@ -4,14 +4,14 @@ author: tdykstra
 description: SignalR と ASP.NET Core SignalR の違い
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 08/20/2018
+ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: b904f57af3700b6e1e2143913dfa08da9bf8bbd2
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 2f3458f27fd7f22339751e0734dd8c5da709a3c0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41823972"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340122"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR、ASP.NET Core SignalR の相違点
 
@@ -132,6 +132,20 @@ connection = new HubConnectionBuilder()
     .WithUrl("url")
     .Build();
 ```
+
+## <a name="scaleout-differences"></a>スケール アウトの違い
+
+ASP.NET SignalR は、SQL Server と Redis の両方をサポートします。 ASP.NET Core SignalR は、Azure SignalR サービスと Redis の両方をサポートします。
+
+### <a name="aspnet"></a>ASP.NET
+
+* [Azure Service Bus による SignalR スケール アウト](/aspnet/signalr/overview/performance/scaleout-with-windows-azure-service-bus)
+* [Redis による SignalR スケール アウト](/aspnet/signalr/overview/performance/scaleout-with-redis)
+* [SQL Server による SignalR スケール アウト](/aspnet/signalr/overview/performance/scaleout-with-sql-server)
+
+### <a name="aspnet-core"></a>ASP.NET Core
+
+* [Azure SignalR サービス](/azure/azure-signalr/)
 
 ## <a name="additional-resources"></a>その他の技術情報
 

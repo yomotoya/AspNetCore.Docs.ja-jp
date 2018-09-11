@@ -5,12 +5,12 @@ description: Azure でホストされる ASP.NET Core アプリの DevOps パイ
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: abd7167b313e131dc8b7ea6a49b774e14ae53bb9
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42909047"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340135"
 ---
 # <a name="deploy-an-app-to-app-service"></a>App Service にアプリをデプロイします。
 
@@ -234,7 +234,7 @@ Visual Studio がビルドされ、アプリを Azure にデプロイします�
 * ステージング スロットに更新プログラムを展開します。
 * ステージングと運用スロットをスワップします。
 
-次のセクションでは、Azure と Visual Studio Team Services の DevOps パイプラインを構築する方法を学習します。
+次のセクションでは、Azure のパイプラインを使用した DevOps パイプラインを構築する方法を学習します。
 
 ## <a name="additional-reading"></a>その他の参考資料
 

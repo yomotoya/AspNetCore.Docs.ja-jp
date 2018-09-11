@@ -5,12 +5,12 @@ description: Azure でホストされる ASP.NET Core アプリの DevOps パイ
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: a63e97d9ab9eb0ed2fbd30e8c2e033f0c048d33e
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312302"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340161"
 ---
 # <a name="tools-and-downloads"></a>ツールとダウンロード
 
@@ -21,7 +21,7 @@ Azure では、いくつかのインターフェイスのプロビジョニン�
 次のサブスクリプションが必要です。
 
 * Azure&mdash;アカウントを持っていない場合[無料試用版を入手](https://azure.microsoft.com/free/)します。
-* Visual Studio Team Services (VSTS)&mdash;第 4 章でこのアカウントが作成されます。
+* Azure DevOps サービス&mdash;第 4 章で、DevOps の Azure サブスクリプションと組織を作成します。
 * GitHub&mdash;アカウントを持っていない場合[無料でサインアップ](https://github.com/join)します。
 
 次のツールが必要です。

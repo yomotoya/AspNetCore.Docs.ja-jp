@@ -5,27 +5,27 @@ description: Azure でホストされる ASP.NET Core アプリの DevOps パイ
 ms.author: scaddie
 ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42909928"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340109"
 ---
 # <a name="continuous-integration-and-deployment"></a>継続的インテグレーションとデプロイ
 
-前の章では、フィード リーダーの簡単なアプリのローカル Git リポジトリを作成します。 この章では、そのコードを GitHub リポジトリに発行し、Visual Studio Team Services (VSTS) の DevOps パイプラインを構築します。 パイプラインは、継続的なビルドとアプリのデプロイに使用できます。 任意のコミットを GitHub リポジトリには、ビルドと Azure Web アプリのステージング スロットにデプロイをトリガーします。
+前の章では、フィード リーダーの簡単なアプリのローカル Git リポジトリを作成します。 この章では、そのコードを GitHub リポジトリに発行し、Azure のパイプラインを使用して、Azure DevOps サービス パイプラインを構築します。 パイプラインは、継続的なビルドとアプリのデプロイに使用できます。 任意のコミットを GitHub リポジトリには、ビルドと Azure Web アプリのステージング スロットにデプロイをトリガーします。
 
 このセクションで、次のタスクを完了します。
 
 * アプリのコードを GitHub に発行します。
 * ローカル Git デプロイを切断します。
-* VSTS アカウントを作成します。
-* VSTS でチーム プロジェクトを作成します。
+* Azure DevOps 組織を作成します。
+* Azure DevOps サービスのチーム プロジェクトを作成します。
 * ビルド定義の作成
 * リリース パイプラインを作成します。
 * GitHub に変更をコミットし、自動的に Azure にデプロイ
-* VSTS の DevOps パイプラインを確認します。
+* Azure のパイプラインのパイプラインを調べる
 
 ## <a name="publish-the-apps-code-to-github"></a>アプリのコードを GitHub に発行します。
 
@@ -53,7 +53,7 @@ ms.locfileid: "42909928"
 
 ## <a name="disconnect-local-git-deployment"></a>ローカル Git デプロイを切断します。
 
-次の手順でローカル Git デプロイを削除します。 VSTS は、置き換え両方、その機能を強化します。
+次の手順でローカル Git デプロイを削除します。 Azure のパイプライン (Azure DevOps サービス) が置き換え両方、その機能を強化します。
 
 1. 開く、 [Azure portal](https://portal.azure.com/)に移動し、*ステージング (mywebapp\<unique_number\>ステージング/)* Web アプリ。 入力して、Web アプリをすばやく配置できます*ステージング*ポータルの検索ボックスをオンにします。
 
@@ -63,26 +63,26 @@ ms.locfileid: "42909928"
 1. 移動し、 *mywebapp < unique_number >* App Service。 念のため、App Service をすばやく検索する、ポータルの検索ボックスを使用できます。
 1. クリックして**展開オプション**します。 新しいパネルが表示されます。 クリックして**切断**前の章で追加されたローカル Git ソース管理構成を削除します。 クリックして、削除操作を確定します、**はい**ボタンをクリックします。
 
-## <a name="create-a-vsts-account"></a>VSTS アカウントを作成します。
+## <a name="create-an-azure-devops-organization"></a>Azure DevOps 組織を作成します。
 
-1. ブラウザーを開きに移動、 [VSTS アカウントの作成ページ](https://go.microsoft.com/fwlink/?LinkId=307137)します。
-1. 一意の名前を入力、**覚えやすい名前を選んで**テキスト ボックスに、VSTS アカウントにアクセスするための URL を作成します。
+1. ブラウザーを開きに移動、 [Azure DevOps 組織の作成ページ](https://go.microsoft.com/fwlink/?LinkId=307137)します。
+1. 一意の名前を入力、**覚えやすい名前を選んで**テキスト ボックスに、Azure DevOps 組織にアクセスするための URL を作成します。
 1. 選択、 **Git**ラジオ ボタン、GitHub リポジトリでコードがホストされているためです。
 1. **[Continue]** をクリックします。 少し待つ、アカウントとチーム プロジェクトの場合は、名前付き*MyFirstProject*が作成されます。
 
-    ![VSTS アカウントの作成 ページ](media/cicd/vsts-account-creation.png)
+    ![Azure DevOps 組織の作成 ページ](media/cicd/vsts-account-creation.png)
 
-1. VSTS アカウントとプロジェクトが使用できることを示す確認の電子メールを開きます。 をクリックして、**プロジェクトを開始する**ボタンをクリックします。
+1. Azure DevOps 組織とプロジェクトが使用できることを示す確認の電子メールを開きます。 をクリックして、**プロジェクトを開始する**ボタンをクリックします。
 
     ![プロジェクト ボタンを開始します。](media/cicd/vsts-start-project.png)
 
 1. ブラウザーに表示する *\<account_name\>. visualstudio.com*します。 をクリックして、 *MyFirstProject*プロジェクトの DevOps パイプラインの構成を開始するリンク。
 
-## <a name="configure-the-devops-pipeline"></a>DevOps パイプラインを構成します。
+## <a name="configure-the-azure-pipelines-pipeline"></a>Azure のパイプラインのパイプラインを構成します。
 
 完了する 3 つの異なる手順があります。 運用の DevOps パイプラインでは、次の 3 つのセクションでは結果の作業を完了します。
 
-### <a name="grant-vsts-access-to-the-github-repository"></a>VSTS、GitHub リポジトリにアクセスします。
+### <a name="grant-azure-devops-access-to-the-github-repository"></a>GitHub リポジトリへのアクセスを与える Azure DevOps
 
 1. 展開、**外部リポジトリからコードをビルドまたは**アコーディオンします。 をクリックして、**セットアップ ビルド**ボタン。
 
@@ -92,12 +92,12 @@ ms.locfileid: "42909928"
 
     ![GitHub のソースを選択します。](media/cicd/vsts-select-source.png)
 
-1. GitHub リポジトリを VSTS にアクセスできる前に、承認が必要です。 入力 *< GitHub_username > GitHub 接続*で、**接続名**テキスト ボックス。 例えば:
+1. GitHub リポジトリにアクセスできる Azure DevOps 前に、承認が必要です。 入力 *< GitHub_username > GitHub 接続*で、**接続名**テキスト ボックス。 例えば:
 
     ![GitHub 接続名](media/cicd/vsts-repo-authz.png)
 
 1. GitHub アカウントで 2 要素認証が有効な場合は、個人用アクセス トークンが必要です。 この場合は、クリックして、 **GitHub 個人用アクセス トークンを使用して承認**リンク。 参照してください、 [GitHub 個人用アクセス トークンの作成手順については公式](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)ヘルプを参照します。 のみ、*リポジトリ*アクセス許可のスコープが必要です。 それ以外の場合、をクリックして、 **OAuth を使用して承認**ボタンをクリックします。
-1. メッセージが表示されたら、GitHub アカウントにサインインします。 VSTS アカウントへのアクセスを許可する承認を選択します。 成功した場合、新しいサービス エンドポイントが作成されます。
+1. メッセージが表示されたら、GitHub アカウントにサインインします。 次に、Azure DevOps 組織へのアクセス許可の承認を選択します。 成功した場合、新しいサービス エンドポイントが作成されます。
 1. 横にある省略記号ボタンをクリックして、**リポジトリ**ボタンをクリックします。 選択、 *< GitHub_username >/フィード リーダーの単純な*リストからのリポジトリ。 をクリックして、**選択**ボタンをクリックします。
 1. 選択、*マスター*からブランチ、**手動スケジュール ビルドの既定のブランチ**ドロップダウンします。 **[Continue]** をクリックします。 テンプレートの選択 ページが表示されます。
 
@@ -205,7 +205,7 @@ ms.locfileid: "42909928"
 
     ![継続的インテグレーションを有効にします。](media/cicd/enable-ci.png)
 
-1. 移動し、**キューに登録済み**のタブ、**ビルドし、リリース** > **ビルド**vsts ページ。 ブランチとコミットのビルドをトリガーしたキューに入っているビルドを示しています。
+1. 移動し、**キューに登録済み**のタブ、 **Azure パイプライン** > **ビルド**Azure DevOps サービス内のページ。 ブランチとコミットのビルドをトリガーしたキューに入っているビルドを示しています。
 
     ![キューに入っているビルド](media/cicd/build-queued.png)
 
@@ -213,7 +213,7 @@ ms.locfileid: "42909928"
 
     ![更新されたアプリ](media/cicd/updated-app-v4.png)
 
-## <a name="examine-the-vsts-devops-pipeline"></a>VSTS の DevOps パイプラインを確認します。
+## <a name="examine-the-azure-pipelines-pipeline"></a>Azure のパイプラインのパイプラインを調べる
 
 ### <a name="build-definition"></a>ビルド定義
 
@@ -275,6 +275,6 @@ Azure サブスクリプション、サービスの種類、web アプリ名、�
 
 ## <a name="additional-reading"></a>その他の参考資料
 
-* [ASP.NET Core アプリをビルドします。](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core)
-* [Azure Web アプリをビルドしてデプロイ](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [GitHub リポジトリの CI ビルド プロセスを定義します。](https://docs.microsoft.com/vsts/pipelines/build/ci-build-github)
+* [Azure Pipelines による最初のパイプラインの作成](/azure/devops/pipelines/get-started-yaml)
+* [ビルドと .NET Core プロジェクト](/azure/devops/pipelines/languages/dotnet-core)
+* [Azure のパイプラインを使用した web アプリをデプロイします。](/azure/devops/pipelines/targets/webapp)

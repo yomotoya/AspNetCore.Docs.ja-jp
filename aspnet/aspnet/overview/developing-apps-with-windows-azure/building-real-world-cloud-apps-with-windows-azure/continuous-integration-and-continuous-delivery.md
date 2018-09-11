@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 787aacfd843f5f72e567670d601fb036a2c474bc
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a92a68ce8bbeec604a22e082975d33f9f3377c1
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826341"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340070"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的デリバリー (Azure で現実世界のクラウド アプリの構築)
 ====================
@@ -40,9 +40,9 @@ ms.locfileid: "41826341"
 
 Azure でこれらのプロセスを自動化することは簡単です。 クラウドですべてを実行している、ために、購入またはビルドまたはテスト環境のサーバーを管理する必要はありません。 サーバーで、テストの実行に使用するを待機する必要はありません。 実行するすべてのビルドは、automation スクリプトや実行の受け入れテストに対して、さらに詳細なテストを使用して Azure でのテスト環境を作成でき、しだけ完了すると破棄でした。 マシンが実際に実行されている時間に対してのみ支払うことしているため、料金が発生する必要がある money の量は最小限で、2 時間、8 時間、1 日にのみそのサーバーを実行する場合。 たとえば、環境に必要な修正プログラムは無料レベルから 1 つの階層を上がる場合基本的に 1 時間あたり約 1% のコストがアプリケーション。 1 か月の過程で、ずつのみ、1 時間の環境を実行した場合、テスト環境はおそらくよりも低コスト、ラテ スターバックスで購入できます。
 
-## <a name="visual-studio-team-services-vsts"></a>Visual Studio Team Services (VSTS)
+## <a name="azure-devops-services"></a>Azure DevOps Services 
 
-VSTS では、さまざまな展開を計画からのアプリケーション開発を支援する機能を提供します。
+Azure DevOps サービスは、さまざまな展開を計画からのアプリケーション開発を支援する機能を提供します。
 
 - (分散) Git と TFVC (集中型) のソース管理の両方をサポートします。
 - 動的に必要になったときに、ビルド サーバーを作成し、ダウン完了したら、ユーザーのことを意味するエラスティック ビルド サービスを提供します。 ソース コードの変更をチェックインすると、割り当てが、ほとんどの時間がアイドル状態にある、独自のビルド サーバーの支払いをする必要はありません、ビルドを自動的に開始できます。 ビルド数を超えない限り、ビルド サービスは無料です。 大量のビルドを実行する場合は、予約済みのビルド サーバーのほとんどの余分なを支払うことができます。
@@ -52,9 +52,9 @@ VSTS では、さまざまな展開を計画からのアプリケーション開
 - アジャイル プロジェクト管理をサポートします。
 
 
-継続的インテグレーションと配信機能を VSTS の詳細については、次を参照してください。 [Visual Studio Team Services](https://www.visualstudio.com/team-services/)します。
+継続的インテグレーションと配信機能を Azure DevOps サービスの詳細については、次を参照してください。 [Azure DevOps ドキュメント](/azure/devops/index)します。
 
-ターン キー プロジェクト管理、チームのコラボレーション、およびソース管理ソリューションでは、チェック アウト VSTS 探している場合。 サービスは最大 5 ユーザーまで、無料でありでにサインアップすることができます[Visual Studio Team Services](https://www.visualstudio.com/team-services/)します。
+ターン キー プロジェクト管理、探している場合は、チーム コラボレーション、およびソース管理ソリューションでは、Azure DevOps サービスを確認します。 サインアップ[Azure DevOps サービス](https://dev.azure.com/)します。
 
 ## <a name="summary"></a>まとめ
 
