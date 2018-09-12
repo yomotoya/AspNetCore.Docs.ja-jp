@@ -19,7 +19,7 @@ Identity scaffolder を実行します。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-ASP.NET scaffolder を以前インストールしていない場合は、今すぐインストールします。
+ASP.NET Core scaffolder を以前インストールしていない場合は、今すぐインストールします。
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
@@ -44,4 +44,9 @@ dotnet aspnet-codegenerator identity -h
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
+Powershell では、コマンドの区切り記号としてセミコロンを使用します。 Powershell を使用する場合は、ファイルの一覧でセミコロンをエスケープまたは二重引用符で囲まれたファイルの一覧を配置します。 例えば:
+
+```cli
+dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
+```
 -------------

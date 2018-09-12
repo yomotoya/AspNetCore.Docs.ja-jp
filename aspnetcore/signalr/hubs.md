@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2018
 uid: signalr/hubs
-ms.openlocfilehash: be39666373e2b099054bb71f4a7fcf17aeb9a01c
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095282"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510338"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET core SignalR のハブの使用
 
@@ -42,9 +42,29 @@ SignalR の機能を ASP.NET Core アプリを追加する場合は、SignalR �
 
 戻り値の型と複合型と配列を含む c# メソッドの場合と、パラメーターを指定できます。 SignalR では、複雑なオブジェクトと、パラメーターと戻り値の配列の逆シリアル化とシリアル化を処理します。
 
+## <a name="the-context-object"></a>コンテキスト オブジェクト
+
+`Hub`クラスには、`Context`接続に関する情報を次のプロパティを含むプロパティ。
+
+| プロパティ | 説明 |
+| ------ | ----------- |
+| `ConnectionId` | SignalR によって割り当てられている接続の一意の ID を取得します。 接続ごとに 1 つの接続 ID があります。|
+| `UserIdentifier` | 取得、[ユーザー識別子](xref:signalr/groups)します。 既定では、SignalR を使用して、`ClaimTypes.NameIdentifier`から、`ClaimsPrincipal`に関連付けられたユーザー識別子として接続します。 |
+| `User` | 取得、`ClaimsPrincipal`現在のユーザーに関連付けられています。 |
+| `Items` | この接続のスコープ内のデータを共有するために使用できるキー/値コレクションを取得します。 このコレクションに格納できるデータおよび接続の別のハブ メソッド呼び出し間で保持されます。 |
+| `Features` | 接続で使用できる機能のコレクションを取得します。 ここでは、このコレクションは必要ありません、ほとんどのシナリオでまだ詳しく記載されていないためです。 |
+| `ConnectionAborted` | 取得、`CancellationToken`接続が中止されたときに通知します。 |
+
+`Hub.Context` また、次のメソッドが含まれます。
+
+| メソッド | 説明 |
+| ------ | ----------- |
+| `GetHttpContext` | 返します、`HttpContext`接続、または`null`接続が HTTP 要求に関連付けられていない場合。 HTTP 接続で HTTP ヘッダーやクエリ文字列などの情報を取得するのにこのメソッドを使用することができます。 |
+| `Abort` | 接続を中止します。 |
+
 ## <a name="the-clients-object"></a>クライアント オブジェクト
 
-各インスタンス、`Hub`クラスという名前のプロパティには`Clients`サーバーとクライアント間の通信は、次のメンバーを格納しています。
+`Hub`クラスには、`Clients`サーバーとクライアント間の通信は、次のプロパティを含むプロパティ。
 
 | プロパティ | 説明 |
 | ------ | ----------- |
@@ -53,7 +73,7 @@ SignalR の機能を ASP.NET Core アプリを追加する場合は、SignalR �
 | `Others` | メソッドを呼び出したクライアントを除くすべての接続されているクライアントのメソッドを呼び出す |
 
 
-さらに、`Hub.Clients`次のメソッドが含まれています。
+`Hub.Clients` また、次のメソッドが含まれます。
 
 | メソッド | 説明 |
 | ------ | ----------- |

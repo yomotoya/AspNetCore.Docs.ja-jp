@@ -11,7 +11,7 @@ Identity scaffolder を実行します。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-ASP.NET scaffolder を以前インストールしていない場合は、今すぐインストールします。
+ASP.NET Core scaffolder を以前インストールしていない場合は、今すぐインストールします。
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
