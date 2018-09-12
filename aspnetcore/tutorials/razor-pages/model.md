@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) を利用し、データベース�
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9e0fd0ee98c84bb2336749640b2a3c103e4639b6
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: fb3a287725fa68ff9feb9935d7e6c5c2b8316517
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938327"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893121"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -103,14 +103,14 @@ Add-Migration Initial
 Update-Database
 ```
 
-代わりに、次の .NET Core CLI コマンドを使用できます。
+代わりに、プロジェクト フォルダーから次の .NET Core CLI コマンドを使用できます。
 
 ```console
 dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-次の警告メッセージは無視してください。次のチュートリアルで修正します。
+次の警告メッセージは無視してください。後のチュートリアルで修正します。
 
 `Microsoft.EntityFrameworkCore.Model.Validation[30000]`
 
@@ -209,7 +209,7 @@ dotnet ef database update
 
 ### <a name="test-the-app"></a>アプリのテスト
 
-* アプリを実行し、ブラウザーで URL に `/Movies` を追加します ( `http://localhost:port/movies` )。
+* アプリを実行し、ブラウザーで URL に `/Movies` を追加します (`http://localhost:port/movies`)。
 * **[作成]** リンクをテストします。
 
   ![[作成] ページ](../../tutorials/razor-pages/model/_static/conan.png)
