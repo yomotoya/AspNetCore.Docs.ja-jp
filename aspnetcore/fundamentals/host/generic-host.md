@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: de9044875c8ebc62c80a129d721e7d37be5d846d
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: e19a8a78b4c02fbae3d3acd23ee357c6003c35cf
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927810"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44039966"
 ---
 # <a name="net-generic-host"></a>.NET での汎用ホスト
 
@@ -196,16 +196,32 @@ var host = new HostBuilder()
 
 ## <a name="extensibility"></a>機能拡張
 
-ホスト拡張機能は、`IHostBuilder` 上の拡張メソッドによって実行されます。 次の例では、拡張メソッドが [RabbitMQ](https://www.rabbitmq.com/) を使って `IHostBuilder` の実装を拡張する方法を示しています。 (アプリの別の場所にある) 拡張メソッドが RabbitMQ の `IHostedService` を登録します。
+ホスト拡張機能は、`IHostBuilder` 上の拡張メソッドによって実行されます。 次の例では、拡張メソッドが <xref:fundamentals/host/hosted-services> で示される [TimedHostedService](xref:fundamentals/host/hosted-services#timed-background-tasks) の例を使って `IHostBuilder` の実装を拡張する方法を示しています。
 
 ```csharp
-// UseRabbitMq is an extension method that sets up RabbitMQ to handle incoming
-// messages.
 var host = new HostBuilder()
-    .UseRabbitMq<MyMessageHandler>()
+    .UseHostedService<TimedHostedService>()
     .Build();
 
 await host.StartAsync();
+```
+
+アプリは `UseHostedService` 拡張メソッドを確率して `T` に渡されたホステッド サービスを登録します。
+
+```csharp
+using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+public static class Extensions
+{
+    public static IHostBuilder UseHostedService<T>(this IHostBuilder hostBuilder)
+        where T : class, IHostedService, IDisposable
+    {
+        return hostBuilder.ConfigureServices(services =>
+            services.AddHostedService<T>());
+    }
+}
 ```
 
 ## <a name="manage-the-host"></a>ホストを管理する
