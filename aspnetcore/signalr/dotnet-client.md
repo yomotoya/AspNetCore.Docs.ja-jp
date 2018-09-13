@@ -7,64 +7,81 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/10/2018
 uid: signalr/dotnet-client
-ms.openlocfilehash: 205ca8ca228dcc2cc77f7e9b6431943851a3b152
-ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
+ms.openlocfilehash: ef84ede2ed45ddc3b64d4ce8f5bd0018a681faf6
+ms.sourcegitcommit: 4db337bd47d70c06fff91000c58bc048a491ccec
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44373320"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44749322"
 ---
-# <a name="aspnet-core-signalr-net-client"></a><span data-ttu-id="f1a4b-103">ASP.NET Core SignalR .NET クライアント</span><span class="sxs-lookup"><span data-stu-id="f1a4b-103">ASP.NET Core SignalR .NET Client</span></span>
+# <a name="aspnet-core-signalr-net-client"></a><span data-ttu-id="e324a-103">ASP.NET Core SignalR .NET クライアント</span><span class="sxs-lookup"><span data-stu-id="e324a-103">ASP.NET Core SignalR .NET Client</span></span>
 
-<span data-ttu-id="f1a4b-104">作成者: [Rachel Appel](http://twitter.com/rachelappel)</span><span class="sxs-lookup"><span data-stu-id="f1a4b-104">By [Rachel Appel](http://twitter.com/rachelappel)</span></span>
-
-<span data-ttu-id="f1a4b-105">ASP.NET Core SignalR .NET クライアント ライブラリでは、.NET アプリからの SignalR ハブと通信できます。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-105">The ASP.NET Core SignalR .NET client library lets you communicate with SignalR hubs from .NET apps.</span></span>
+<span data-ttu-id="e324a-104">ASP.NET Core SignalR .NET クライアント ライブラリでは、.NET アプリからの SignalR ハブと通信できます。</span><span class="sxs-lookup"><span data-stu-id="e324a-104">The ASP.NET Core SignalR .NET client library lets you communicate with SignalR hubs from .NET apps.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="f1a4b-106">Xamarin には、Visual Studio バージョンについての特別な要件があります。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-106">Xamarin has special requirements for Visual Studio version.</span></span> <span data-ttu-id="f1a4b-107">詳細については、次を参照してください。 [Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-107">For more information, see [SignalR Client 2.1.1 in Xamarin](https://github.com/aspnet/Announcements/issues/305).</span></span>
+> <span data-ttu-id="e324a-105">Xamarin には、Visual Studio バージョンについての特別な要件があります。</span><span class="sxs-lookup"><span data-stu-id="e324a-105">Xamarin has special requirements for Visual Studio version.</span></span> <span data-ttu-id="e324a-106">詳細については、次を参照してください。 [Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)します。</span><span class="sxs-lookup"><span data-stu-id="e324a-106">For more information, see [SignalR Client 2.1.1 in Xamarin](https://github.com/aspnet/Announcements/issues/305).</span></span>
 
-<span data-ttu-id="f1a4b-108">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="e324a-107">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="e324a-107">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-<span data-ttu-id="f1a4b-109">この記事のサンプル コードは、ASP.NET Core SignalR .NET クライアントを使用する WPF アプリです。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-109">The code sample in this article is a WPF app that uses the ASP.NET Core SignalR .NET client.</span></span>
+<span data-ttu-id="e324a-108">この記事のサンプル コードは、ASP.NET Core SignalR .NET クライアントを使用する WPF アプリです。</span><span class="sxs-lookup"><span data-stu-id="e324a-108">The code sample in this article is a WPF app that uses the ASP.NET Core SignalR .NET client.</span></span>
 
-## <a name="install-the-signalr-net-client-package"></a><span data-ttu-id="f1a4b-110">SignalR .NET クライアント パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-110">Install the SignalR .NET client package</span></span>
+## <a name="install-the-signalr-net-client-package"></a><span data-ttu-id="e324a-109">SignalR .NET クライアント パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="e324a-109">Install the SignalR .NET client package</span></span>
 
-<span data-ttu-id="f1a4b-111">`Microsoft.AspNetCore.SignalR.Client` SignalR ハブに接続するための .NET クライアント パッケージが必要です。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-111">The `Microsoft.AspNetCore.SignalR.Client` package is needed for .NET clients to connect to SignalR hubs.</span></span> <span data-ttu-id="f1a4b-112">クライアント ライブラリをインストールする、次のコマンドを実行、**パッケージ マネージャー コンソール**ウィンドウ。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-112">To install the client library, run the following command in the **Package Manager Console** window:</span></span>
+<span data-ttu-id="e324a-110">`Microsoft.AspNetCore.SignalR.Client` SignalR ハブに接続するための .NET クライアント パッケージが必要です。</span><span class="sxs-lookup"><span data-stu-id="e324a-110">The `Microsoft.AspNetCore.SignalR.Client` package is needed for .NET clients to connect to SignalR hubs.</span></span> <span data-ttu-id="e324a-111">クライアント ライブラリをインストールする、次のコマンドを実行、**パッケージ マネージャー コンソール**ウィンドウ。</span><span class="sxs-lookup"><span data-stu-id="e324a-111">To install the client library, run the following command in the **Package Manager Console** window:</span></span>
 
 ```powershell
 Install-Package Microsoft.AspNetCore.SignalR.Client
 ```
 
-## <a name="connect-to-a-hub"></a><span data-ttu-id="f1a4b-113">ハブへの接続します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-113">Connect to a hub</span></span>
+## <a name="connect-to-a-hub"></a><span data-ttu-id="e324a-112">ハブへの接続します。</span><span class="sxs-lookup"><span data-stu-id="e324a-112">Connect to a hub</span></span>
 
-<span data-ttu-id="f1a4b-114">接続を確立するには、作成、`HubConnectionBuilder`を呼び出すと`Build`します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-114">To establish a connection, create a `HubConnectionBuilder` and call `Build`.</span></span> <span data-ttu-id="f1a4b-115">接続の作成中には、ハブの URL、プロトコル、トランスポートの種類、ログ レベル、ヘッダー、およびその他のオプションを構成できます。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-115">The hub URL, protocol, transport type, log level, headers, and other options can be configured while building a connection.</span></span> <span data-ttu-id="f1a4b-116">挿入することで、必要なオプションを構成、`HubConnectionBuilder`メソッドに`Build`します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-116">Configure any required options by inserting any of the `HubConnectionBuilder` methods into `Build`.</span></span> <span data-ttu-id="f1a4b-117">接続を開始`StartAsync`します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-117">Start the connection with `StartAsync`.</span></span>
+<span data-ttu-id="e324a-113">接続を確立するには、作成、`HubConnectionBuilder`を呼び出すと`Build`します。</span><span class="sxs-lookup"><span data-stu-id="e324a-113">To establish a connection, create a `HubConnectionBuilder` and call `Build`.</span></span> <span data-ttu-id="e324a-114">接続の作成中には、ハブの URL、プロトコル、トランスポートの種類、ログ レベル、ヘッダー、およびその他のオプションを構成できます。</span><span class="sxs-lookup"><span data-stu-id="e324a-114">The hub URL, protocol, transport type, log level, headers, and other options can be configured while building a connection.</span></span> <span data-ttu-id="e324a-115">挿入することで、必要なオプションを構成、`HubConnectionBuilder`メソッドに`Build`します。</span><span class="sxs-lookup"><span data-stu-id="e324a-115">Configure any required options by inserting any of the `HubConnectionBuilder` methods into `Build`.</span></span> <span data-ttu-id="e324a-116">接続を開始`StartAsync`します。</span><span class="sxs-lookup"><span data-stu-id="e324a-116">Start the connection with `StartAsync`.</span></span>
 
-[!code-csharp[Build hub connection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_MainWindowClass&highlight=14-16,32)]
+[!code-csharp[Build hub connection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_MainWindowClass&highlight=15-17,39)]
 
-## <a name="call-hub-methods-from-client"></a><span data-ttu-id="f1a4b-118">クライアントからのハブ メソッドの呼び出し</span><span class="sxs-lookup"><span data-stu-id="f1a4b-118">Call hub methods from client</span></span>
+## <a name="handle-lost-connection"></a><span data-ttu-id="e324a-117">接続が失われたハンドル</span><span class="sxs-lookup"><span data-stu-id="e324a-117">Handle lost connection</span></span>
 
-<span data-ttu-id="f1a4b-119">`InvokeAsync` ハブのメソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-119">`InvokeAsync` calls methods on the hub.</span></span> <span data-ttu-id="f1a4b-120">ハブ メソッドの名前およびハブ メソッドで定義されている引数を渡す`InvokeAsync`します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-120">Pass the hub method name and any arguments defined in the hub method to `InvokeAsync`.</span></span> <span data-ttu-id="f1a4b-121">SignalR が非同期でこれを使用して、`async`と`await`呼び出しを行うときにします。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-121">SignalR is asynchronous, so use `async` and `await` when making the calls.</span></span>
+<span data-ttu-id="e324a-118">使用して、<xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed>失われた接続に応答するイベントです。</span><span class="sxs-lookup"><span data-stu-id="e324a-118">Use the <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> event to respond to a lost connection.</span></span> <span data-ttu-id="e324a-119">たとえば、再接続を自動化することがあります。</span><span class="sxs-lookup"><span data-stu-id="e324a-119">For example, you might want to automate reconnection.</span></span>
+
+<span data-ttu-id="e324a-120">`Closed`イベントを返すデリゲートが必要です、 `Task`、非同期コードを使用せずに実行することができます`async void`します。</span><span class="sxs-lookup"><span data-stu-id="e324a-120">The `Closed` event requires a delegate that returns a `Task`, which allows async code to run without using `async void`.</span></span> <span data-ttu-id="e324a-121">デリゲートのシグネチャを満たすために、`Closed`イベント ハンドラーの実行を同期的に、返す`Task.CompletedTask`:</span><span class="sxs-lookup"><span data-stu-id="e324a-121">To satisfy the delegate signature in a `Closed` event handler that runs synchronously, return `Task.CompletedTask`:</span></span>
+
+```csharp
+connection.Closed += (error) => {
+    // Do your close logic.
+    return Task.CompletedTask;
+};
+```
+
+<span data-ttu-id="e324a-122">非同期サポートの主な理由とは、接続を再起動するためです。</span><span class="sxs-lookup"><span data-stu-id="e324a-122">The main reason for the async support is so you can restart the connection.</span></span> <span data-ttu-id="e324a-123">非同期アクションは、接続を開始します。</span><span class="sxs-lookup"><span data-stu-id="e324a-123">Starting a connection is an async action.</span></span>
+
+<span data-ttu-id="e324a-124">`Closed`ハンドラー、接続の再起動時は、次の例に示すように、サーバーのオーバー ロードを防ぐためにランダムな時間の待機を検討してください。</span><span class="sxs-lookup"><span data-stu-id="e324a-124">In a `Closed` handler that restarts the connection, consider waiting for some random delay to prevent overloading the server, as shown in the following example:</span></span>
+
+[!code-csharp[Use Closed event handler to automate reconnection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ClosedRestart)]
+
+## <a name="call-hub-methods-from-client"></a><span data-ttu-id="e324a-125">クライアントからのハブ メソッドの呼び出し</span><span class="sxs-lookup"><span data-stu-id="e324a-125">Call hub methods from client</span></span>
+
+<span data-ttu-id="e324a-126">`InvokeAsync` ハブのメソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="e324a-126">`InvokeAsync` calls methods on the hub.</span></span> <span data-ttu-id="e324a-127">ハブ メソッドの名前およびハブ メソッドで定義されている引数を渡す`InvokeAsync`します。</span><span class="sxs-lookup"><span data-stu-id="e324a-127">Pass the hub method name and any arguments defined in the hub method to `InvokeAsync`.</span></span> <span data-ttu-id="e324a-128">SignalR が非同期でこれを使用して、`async`と`await`呼び出しを行うときにします。</span><span class="sxs-lookup"><span data-stu-id="e324a-128">SignalR is asynchronous, so use `async` and `await` when making the calls.</span></span>
 
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
 
-## <a name="call-client-methods-from-hub"></a><span data-ttu-id="f1a4b-122">ハブからのクライアント メソッドを呼び出す</span><span class="sxs-lookup"><span data-stu-id="f1a4b-122">Call client methods from hub</span></span>
+## <a name="call-client-methods-from-hub"></a><span data-ttu-id="e324a-129">ハブからのクライアント メソッドを呼び出す</span><span class="sxs-lookup"><span data-stu-id="e324a-129">Call client methods from hub</span></span>
 
-<span data-ttu-id="f1a4b-123">ハブ呼び出しを使用してメソッドを一切定義`connection.On`しますが、接続を開始する前に、ビルド後にします。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-123">Define methods the hub calls using `connection.On` after building, but before starting the connection.</span></span>
+<span data-ttu-id="e324a-130">ハブ呼び出しを使用してメソッドを一切定義`connection.On`しますが、接続を開始する前に、ビルド後にします。</span><span class="sxs-lookup"><span data-stu-id="e324a-130">Define methods the hub calls using `connection.On` after building, but before starting the connection.</span></span>
 
 [!code-csharp[Define client methods](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ConnectionOn)]
 
-<span data-ttu-id="f1a4b-124">上記のコードで`connection.On`を使用してサーバー側コードから呼び出すときに実行される、`SendAsync`メソッド。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-124">The preceding code in `connection.On` runs when server-side code calls it using the `SendAsync` method.</span></span>
+<span data-ttu-id="e324a-131">上記のコードで`connection.On`を使用してサーバー側コードから呼び出すときに実行される、`SendAsync`メソッド。</span><span class="sxs-lookup"><span data-stu-id="e324a-131">The preceding code in `connection.On` runs when server-side code calls it using the `SendAsync` method.</span></span>
 
 [!code-csharp[Call client method](dotnet-client/sample/signalrchat/hubs/chathub.cs?name=snippet_SendMessage)]
 
-## <a name="error-handling-and-logging"></a><span data-ttu-id="f1a4b-125">エラー処理とログ記録</span><span class="sxs-lookup"><span data-stu-id="f1a4b-125">Error handling and logging</span></span>
+## <a name="error-handling-and-logging"></a><span data-ttu-id="e324a-132">エラー処理とログ記録</span><span class="sxs-lookup"><span data-stu-id="e324a-132">Error handling and logging</span></span>
 
-<span data-ttu-id="f1a4b-126">Try-catch ステートメントでエラーを処理します。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-126">Handle errors with a try-catch statement.</span></span> <span data-ttu-id="f1a4b-127">検査、`Exception`エラーが発生した後に実行する適切なアクションを決定するオブジェクト。</span><span class="sxs-lookup"><span data-stu-id="f1a4b-127">Inspect the `Exception` object to determine the proper action to take after an error occurs.</span></span>
+<span data-ttu-id="e324a-133">Try-catch ステートメントでエラーを処理します。</span><span class="sxs-lookup"><span data-stu-id="e324a-133">Handle errors with a try-catch statement.</span></span> <span data-ttu-id="e324a-134">検査、`Exception`エラーが発生した後に実行する適切なアクションを決定するオブジェクト。</span><span class="sxs-lookup"><span data-stu-id="e324a-134">Inspect the `Exception` object to determine the proper action to take after an error occurs.</span></span>
 
 [!code-csharp[Logging](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ErrorHandling)]
 
-## <a name="additional-resources"></a><span data-ttu-id="f1a4b-128">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="f1a4b-128">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="e324a-135">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="e324a-135">Additional resources</span></span>
 
-* [<span data-ttu-id="f1a4b-129">ハブ</span><span class="sxs-lookup"><span data-stu-id="f1a4b-129">Hubs</span></span>](xref:signalr/hubs)
-* [<span data-ttu-id="f1a4b-130">JavaScript クライアント</span><span class="sxs-lookup"><span data-stu-id="f1a4b-130">JavaScript client</span></span>](xref:signalr/javascript-client)
-* [<span data-ttu-id="f1a4b-131">Azure に発行する</span><span class="sxs-lookup"><span data-stu-id="f1a4b-131">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
+* [<span data-ttu-id="e324a-136">ハブ</span><span class="sxs-lookup"><span data-stu-id="e324a-136">Hubs</span></span>](xref:signalr/hubs)
+* [<span data-ttu-id="e324a-137">JavaScript クライアント</span><span class="sxs-lookup"><span data-stu-id="e324a-137">JavaScript client</span></span>](xref:signalr/javascript-client)
+* [<span data-ttu-id="e324a-138">Azure に発行する</span><span class="sxs-lookup"><span data-stu-id="e324a-138">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
