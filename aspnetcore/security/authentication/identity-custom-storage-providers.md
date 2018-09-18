@@ -3,14 +3,14 @@ title: ASP.NET Core Identity 用のカスタム ストレージ プロバイダ�
 author: ardalis
 description: ASP.NET Core Identity 用のカスタム ストレージ プロバイダーを構成する方法について説明します。
 ms.author: riande
-ms.date: 05/24/2017
+ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 4b210a52ae9761bb838dd5611e86ce8f71345499
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835673"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011262"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Identity 用のカスタム ストレージ プロバイダー
 
@@ -59,7 +59,7 @@ Web アプリと対話する方法、マネージャー ストアとデータ �
 
 ### <a name="users"></a>ユーザー
 
-Web サイトの登録済みユーザー。 [IdentityUser](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser)型を拡張または独自のカスタム型の例として使用する場合があります。 カスタム id ストレージ ソリューションを実装する特定の型から継承する必要はありません。
+Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser)型を拡張または独自のカスタム型の例として使用する場合があります。 カスタム id ストレージ ソリューションを実装する特定の型から継承する必要はありません。
 
 ### <a name="user-claims"></a>ユーザーの信頼性情報
 
@@ -67,11 +67,11 @@ Web サイトの登録済みユーザー。 [IdentityUser](/aspnet/core/api/micr
 
 ### <a name="user-logins"></a>ユーザー ログイン
 
-外部認証プロバイダー (Facebook、Microsoft アカウントなど) については、ユーザーのログイン時に使用します。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+外部認証プロバイダー (Facebook、Microsoft アカウントなど) については、ユーザーのログイン時に使用します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>役割
 
-サイトのグループを承認します。 ロールの Id とロール名 ("Admin"、"Employee"など) が含まれています。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+サイトのグループを承認します。 ロールの Id とロール名 ("Admin"、"Employee"など) が含まれています。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>データ アクセス層
 
@@ -83,11 +83,11 @@ Web サイトの登録済みユーザー。 [IdentityUser](/aspnet/core/api/micr
 
 ### <a name="context-class"></a>Context クラス
 
-永続化メカニズムに接続し、クエリを実行する情報をカプセル化します。 いくつかのデータ クラスには、このクラスは、依存関係の挿入によって提供される通常のインスタンスが必要です。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1)します。
+永続化メカニズムに接続し、クエリを実行する情報をカプセル化します。 いくつかのデータ クラスには、このクラスは、依存関係の挿入によって提供される通常のインスタンスが必要です。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1)します。
 
 ### <a name="user-storage"></a>ユーザーのストレージ
 
-格納し、(ユーザー名とパスワードのハッシュ) などのユーザー情報を取得します。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、(ユーザー名とパスワードのハッシュ) などのユーザー情報を取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>ロールのストレージ
 
@@ -95,15 +95,15 @@ Web サイトの登録済みユーザー。 [IdentityUser](/aspnet/core/api/micr
 
 ### <a name="userclaims-storage"></a>UserClaims ストレージ
 
-格納し、(要求の種類と値の場合) などのユーザー要求の情報を取得します。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、(要求の種類と値の場合) などのユーザー要求の情報を取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>UserLogins ストレージ
 
-格納し、(外部認証プロバイダーの場合) などのユーザー ログイン情報を取得します。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、(外部認証プロバイダーの場合) などのユーザー ログイン情報を取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>UserRole 記憶域
 
-格納し、どのユーザーに割り当てられたロールを取得します。 [例](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、どのユーザーに割り当てられたロールを取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 **ヒント:** のみ、アプリで使用するクラスを実装します。
 
@@ -115,7 +115,7 @@ Web サイトの登録済みユーザー。 [IdentityUser](/aspnet/core/api/micr
 
 ## <a name="customize-the-user-class"></a>ユーザー クラスをカスタマイズします。
 
-記憶域プロバイダーを実装する場合と同じであるユーザー クラスを作成、 [ `IdentityUser`クラス](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser)します。
+記憶域プロバイダーを実装する場合と同じであるユーザー クラスを作成、 [IdentityUser クラス](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser)します。
 
 少なくとも、ユーザー クラスを含める必要があります、`Id`と`UserName`プロパティ。
 
@@ -185,7 +185,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim、IdentityUserLogin、および IdentityUserRole
 
-`Microsoft.AspNet.Identity.EntityFramework`名前空間には実装が含まれています、 [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1)、 [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)、および[IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1)クラス。 これらの機能を使用している場合は、これらのクラスの独自のバージョンを作成し、アプリのプロパティを定義することがあります。 ただし、場合がありますがこれらのエンティティを追加または削除、ユーザーの要求) などの基本的な操作を実行するときにメモリに読み込まれないする方が効率的です。 代わりに、バックエンド ストア クラスには、データ ソースで直接これらの操作を実行できます。 たとえば、`UserStore.GetClaimsAsync`メソッドを呼び出すことができます、`userClaimTable.FindByUserId(user.Id)`でクエリを実行するメソッドは直接テーブルをクレームの一覧を返します。
+`Microsoft.AspNet.Identity.EntityFramework`名前空間には実装が含まれています、 [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1)、 [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)、および[IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1)クラス。 これらの機能を使用している場合は、これらのクラスの独自のバージョンを作成し、アプリのプロパティを定義することがあります。 ただし、場合がありますがこれらのエンティティを追加または削除、ユーザーの要求) などの基本的な操作を実行するときにメモリに読み込まれないする方が効率的です。 代わりに、バックエンド ストア クラスには、データ ソースで直接これらの操作を実行できます。 たとえば、`UserStore.GetClaimsAsync`メソッドを呼び出すことができます、`userClaimTable.FindByUserId(user.Id)`でクエリを実行するメソッドは直接テーブルをクレームの一覧を返します。
 
 ## <a name="customize-the-role-class"></a>Role クラスをカスタマイズします。
 

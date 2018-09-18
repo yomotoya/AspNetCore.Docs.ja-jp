@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/angular
-ms.openlocfilehash: 811e28af2b67c356ff038d8d673e2164bb56578e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 763b4fff7c64432328af660c66e6ff3f8f697f71
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291465"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011360"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core で Angular プロジェクト テンプレートを使用する
 
@@ -34,9 +34,10 @@ ms.locfileid: "36291465"
 ASP.NET Core 2.0 を使用している場合は、[更新された React プロジェクト テンプレートをインストールしている](xref:spa/index#installation)ことを確認します。
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core 2.1 がインストールされている場合は、角運動のプロジェクト テンプレートをインストールする必要はありません。
+ASP.NET Core 2.1 がインストールされている場合は、Angular プロジェクト テンプレートをインストールする必要はありません。
 
 ::: moniker-end
 
