@@ -3,14 +3,14 @@ title: ASP.NET Core の組み込みタグ ヘルパー
 author: pkellner
 description: タグ ヘルパーに組み込まれた ASP.NET Core によって生産性がどのように向上するかをご確認ください。
 ms.author: riande
-ms.date: 09/13/2017
+ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 4f2ebf1600f42847db1c1f9517787b020d2e86c9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279169"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292311"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core の組み込みタグ ヘルパー
 
@@ -59,5 +59,5 @@ ASP.NET Core には、生産性を向上させる組み込みタグ ヘルパー
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [クライアント側の開発](xref:client-side/index)
-* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/th-components>
