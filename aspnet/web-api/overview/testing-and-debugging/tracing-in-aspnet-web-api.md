@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 697e7e91ae2d9d5712d9306a291635793063117b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832807"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292285"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのトレース
 ====================
@@ -114,7 +114,7 @@ Microsoft.AspNet.WebApi.Tracing パッケージは、Web API で一般的なト�
 
 ## <a name="how-web-api-tracing-works"></a>Web API の動作をトレースの方法
 
-Web API の使用例の Web API を使用してトレースを*ファサード*パターン: Web API トレースを有効にすると、トレースの呼び出しを実行するクラスを使用して、要求パイプラインのさまざまな部分が折り返されます。
+Web API でのトレースを使用して、*ファサード*パターン: Web API トレースを有効にすると、トレースの呼び出しを実行するクラスを使用して、要求パイプラインのさまざまな部分が折り返されます。
 
 たとえば、コント ローラーを選択するときに、パイプラインを使用して、 **IHttpControllerSelector**インターフェイス。 実装するクラスを挿入する、pipleline トレースが有効になっている、 **IHttpControllerSelector**が実際の実装を通じて呼び出し。
 
