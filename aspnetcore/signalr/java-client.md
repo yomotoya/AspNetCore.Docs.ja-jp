@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: f110f5391ac34f5cb4a72f64c16d86c8a37369a2
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995416"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482919"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR の Java クライアント
 
@@ -26,12 +26,12 @@ Java クライアントでは、Java のコードは、Android アプリを含�
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR の Java クライアント パッケージをインストールします。
 
-*Signalr 0.1.0 preview1 35029* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。 JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav)します。
+*Signalr 0.1.0 preview2 35174* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。 JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav)します。
 
 Gradle を使用する場合に、次の行を追加、`dependencies`のセクション、 *build.gradle*ファイル。
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview1-35029'
+implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
 ```
 
 内の次の行を追加して Maven を使用した場合、`<dependencies>`の要素、 *pom.xml*ファイル。
@@ -63,12 +63,12 @@ implementation 'com.microsoft.aspnet:signalr:0.1.0-preview1-35029'
 * プリミティブ型だけでは、パラメーターとして受け入れることができ、型を返します。
 * Api は同期的です。
 * 「送信」呼び出しの種類のみが現時点でサポートされています。 「呼び出し」と戻り値のストリーミングはサポートされていません。
-* クライアントがサポートされていない、 [Azure SignalR サービス](/azure/azure-signalr/)します。
 * JSON プロトコルのみがサポートされています。
 * Websocket トランスポートのみがサポートされています。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* [Java API リファレンス](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>

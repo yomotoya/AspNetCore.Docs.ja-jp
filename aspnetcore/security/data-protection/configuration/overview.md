@@ -6,16 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/17/2017
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: fd3e5dff114c81eae07186e735a15314d984dcc3
-ms.sourcegitcommit: 5338b1ed9e2ef225ab565d6cba072b474fd9324d
+ms.openlocfilehash: 0377fe9fbe5a1eeddb384443370751baa3c0ee43
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39243111"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482997"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
-
-作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 データ保護システムが初期化されると、適用[既定の設定](xref:security/data-protection/configuration/default-settings)運用環境に基づきます。 これらの設定は、1 台のコンピューターで実行されているアプリの一般的に適しています。 開発者は、既定の設定を変更する必要のあるケースがあります。
 

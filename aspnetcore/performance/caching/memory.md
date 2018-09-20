@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core でのメモリ内のデータをキャッシュする方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 7/22/2018
+ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899845"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482984"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core でメモリ内キャッシュします。
 
@@ -31,7 +31,19 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 
 メモリ内キャッシュは、すべてのオブジェクトを格納できます。分散キャッシュのインターフェイスに制限されます`byte[]`します。
 
-### <a name="cache-guidelines"></a>キャッシュのガイドライン
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
+
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([NuGet パッケージ](https://www.nuget.org/packages/System.Runtime.Caching/)) で使用できます。
+
+* .NET standard 2.0 以降。
+* すべて[.NET 実装](/dotnet/standard/net-standard#net-implementation-support).NET Standard 2.0 以降をターゲットとします。 たとえば、ASP.NET Core 2.0 以降です。
+* .NET framework 4.5 またはそれ以降。
+
+[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (このトピックで説明) よりもお勧め`System.Runtime.Caching` / `MemoryCache`のため、これは、ASP.NET Core に統合して強化します。 たとえば、 `IMemoryCache` ASP.NET Core では、ネイティブ動作[依存関係の注入](xref:fundamentals/dependency-injection)します。
+
+使用`System.Runtime.Caching` / `MemoryCache` ASP.NET からのコードを移植するときに互換性の仲介役としての ASP.NET core 4.x です。
+
+## <a name="cache-guidelines"></a>キャッシュのガイドライン
 
 * データをフェッチするフォールバック オプションがコードと**いない**利用されているキャッシュされた値に依存します。
 * キャッシュは、メモリ、不足しているリソースを使用します。 キャッシュ拡張を制限するには。
