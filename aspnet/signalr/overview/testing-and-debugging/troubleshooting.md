@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 77eedeb962bed06f1375284bcf05c4e4ffcdde3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826730"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523078"
 ---
 <a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
 ====================
@@ -157,7 +157,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 ## <a name="configuring-iis-websockets-to-pingpong-to-detect-a-dead-client"></a>停止したクライアントを検出するためにピンポン IIS websocket を構成します。
 
-SignalR のサーバーには、クライアントが切れているか、そのに依存している基になるための websocket 接続の失敗をからの通知は、OnClose コールバックがわかりません。 この問題を 1 つのソリューションでは、IIS websocket ping/pong な作業を構成します。 これにより、予期せず中断の場合、接続が閉じられます。 詳細については、次を参照してください。[この stackoverflow の投稿](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss)します。
+SignalR のサーバーがわからないかどうか、クライアントが切れているか、つまりから基になるための websocket 接続の失敗を通知に依存、`OnClose`コールバック。 この問題を 1 つのソリューションでは、IIS websocket ping/pong な作業を構成します。 これにより、予期せず中断の場合、接続が閉じられます。 詳細については、次を参照してください。[この stackoverflow の投稿](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss)します。
 
 <a id="other"></a>
 
