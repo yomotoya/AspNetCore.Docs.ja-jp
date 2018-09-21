@@ -4,14 +4,14 @@ author: ardalis
 description: ASP.NET Core でのログ記録フレームワークについて説明します。 組み込みのログ プロバイダーと、サードパーティ製の一般的なプロバイダーについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/27/2018
+ms.date: 09/19/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: c6e9aae06df6ebec373b1296f86e37380bf08b15
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: e3bf5909edb515a2dabba206abaa160bc431d622
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055762"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46483088"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -116,7 +116,7 @@ ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) 
     },
     "Console":
     {
-      "IncludeScopes": "true"
+      "IncludeScopes": true
     }
   }
 }
