@@ -4,5 +4,7 @@
 * **.NET Core クロスプラットフォームの開発**
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/windows) 以降
+
 ::: moniker-end

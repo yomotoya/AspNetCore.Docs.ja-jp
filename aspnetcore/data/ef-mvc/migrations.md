@@ -5,12 +5,12 @@ description: このチュートリアルでは、ASP.NET Core MVC アプリケ�
 ms.author: tdykstra
 ms.date: 03/15/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: f710b33ac1a6017b0e3d7e8c3e528675a41424bb
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 556d7d4ad05679ebfce6c909b29610482bb3f350
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194171"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011470"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC と EF Core - 移行 - 4/10
 
@@ -165,6 +165,7 @@ PMC コマンドの詳細については、「[パッケージ マネージャ�
 ## <a name="summary"></a>まとめ
 
 このチュートリアルでは、最初の移行を作成して適用する方法が示されました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。 その途中で、追加の移行を作成して適用することになります。
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

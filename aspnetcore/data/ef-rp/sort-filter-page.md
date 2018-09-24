@@ -5,12 +5,12 @@ description: このチュートリアルでは、ASP.NET Core および Entity F
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202615"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011639"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
@@ -281,6 +281,7 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 * [ASP.NET Core 2.x ソースのデバッグ](https://github.com/aspnet/Docs/issues/4155)
 
 次のチュートリアルでは、アプリは移行を使用してデータ モデルを更新します。
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

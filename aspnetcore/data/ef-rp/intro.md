@@ -5,12 +5,12 @@ description: Entity Framework Core を使用して Razor ページ アプリを�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: d74d0909f03fe4d504f21c3880ec2447cadc8b13
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336095"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011459"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
@@ -309,6 +309,7 @@ EF Core を利用する非同期コードの記述で注意すべき点:
 .NET での非同期プログラミングの詳細については、「[非同期の概要](/dotnet/articles/standard/async)」と「[Async および Await を使用した非同期プログラミング (C#)](/dotnet/csharp/programming-guide/concepts/async/)」を参照してください。
 
 次のチュートリアルでは、基本的な CRUD (作成、読み取り、更新、削除) の操作について説明します。
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

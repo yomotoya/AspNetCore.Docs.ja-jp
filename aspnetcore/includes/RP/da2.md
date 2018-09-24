@@ -1,4 +1,5 @@
 ::: moniker range=">= aspnetcore-2.1"
+
 赤の波線を右クリックし、`[Column]` 属性で **[クイック アクションとリファクタリング]** を選択し、`using System.ComponentModel.DataAnnotations.Schema;` を選択します。
 
 `[Column(TypeName = "decimal(18, 2)")]` データ注釈は、Entity Framework Core がデータベースの通貨と `Price` を正しくマッピングできるようにするために必要です。 詳細については、「[Data Types](/ef/core/modeling/relational/data-types)」(データ型) を参照してください。
@@ -51,13 +52,13 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 ::: moniker range="= aspnetcore-2.0"
 
-### <a name="update-concurrency-exception-handling"></a>同時実行制御の例外処理の更新
+### <a name="update-concurrency-exception-handling"></a>コンカレンシーの例外処理の更新
 
 *Pages/Movies/Edit.cshtml.cs* ファイルで `OnPostAsync` メソッドを更新します。 次の強調表示されたコードは変更点を示しています。
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
 
-上のコードでは、最初の同時クライアントがムービーを削除し、2 番目の同時クライアントがムービーに変更を投稿した場合にのみ、同時実行制御の例外を検出します。
+上のコードでは、最初のコンカレント クライアントがムービーを削除し、2 番目のコンカレント クライアントがムービーに変更を投稿した場合にのみ、コンカレンシーの例外を検出します。
 
 `catch` ブロックをテストするには、次の操作を行います。
 
@@ -66,7 +67,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 * 別のブラウザー ウィンドウで、同じムービーの **[削除]** リンクを選択してから、ムービーを削除します。
 * 前のブラウザー ウィンドウで、ムービーに変更を投稿します。
 
-実稼働コードでは、通常、2 つ以上のクライアントが同時にレコードを更新した場合に、同時実行の競合が検出されます。 詳細については、[同時実行の競合の処理](xref:data/ef-rp/concurrency)に関するページを参照してください。
+実稼働コードでは、通常、2 つ以上のクライアントが同時にレコードを更新した場合に、コンカレンシーの競合が検出されます。 詳細については、[コンカレンシーの競合の処理](xref:data/ef-rp/concurrency)に関するページを参照してください。
 
 ::: moniker-end
 
@@ -75,11 +76,13 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 *Pages/Movies/Edit.cshtml.cs* ファイルを確認します。
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
 
 ::: moniker-end

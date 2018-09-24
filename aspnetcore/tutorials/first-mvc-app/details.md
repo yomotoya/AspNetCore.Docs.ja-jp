@@ -5,12 +5,12 @@ description: 基本的な ASP.NET Core MVC アプリの Details コントロー�
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: f7f9a369e3e612542140fcf1091b21037e530a91
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c3fb7ae9507d13f3b8c7d366e333151dc7a7a6d3
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278649"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011435"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>ASP.NET Core アプリの Details メソッドと Delete メソッドの確認
 
@@ -19,10 +19,13 @@ ms.locfileid: "36278649"
 Movie コントローラーを開き、`Details` メソッドを調べます。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_details)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
 
 ::: moniker-end
@@ -36,10 +39,13 @@ EF は、`SingleOrDefaultAsync` メソッドによるデータの検索を簡単
 `Delete` メソッドと `DeleteConfirmed` メソッドを調べます。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_delete)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete)]
 
 ::: moniker-end

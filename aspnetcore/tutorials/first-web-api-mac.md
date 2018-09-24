@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 4caa6d9057de8d0e821c4abefe22985f43ff95ad
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 40f9bd9c57b97826edfddeb00cb4fb38a026d46e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38156141"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011626"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>ASP.NET Core と Visual Studio for Mac で Web API を作成する
 
@@ -126,14 +126,19 @@ Visual Studio で、**[実行]**、**[デバッグありで開始]** の順に�
 ### <a name="create"></a>作成
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 前述のメソッドは、[[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) 属性で示されている HTTP POST に対応します。 MVC は、[[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) 属性により、HTTP 要求の本文から to-do 項目の値を取得するよう指示されます。
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 前述のメソッドは、[[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) 属性で示されている HTTP POST に対応します。 MVC は、HTTP 要求の本文から to-do 項目の値を取得します。
+
 ::: moniker-end
 
 `CreatedAtRoute` メソッドにより、201 の応答があります。 これは、サーバーに新しいリソースを作成する HTTP POST メソッドに対する標準の応答です。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 「[10.2.2 201 Created](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。
@@ -162,8 +167,10 @@ Visual Studio で、**[実行]**、**[デバッグありで開始]** の順に�
 * **[Send]** ボタンをクリックします。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 > [!TIP]
 > **[Send]** をクリックしても応答が表示されない場合、**[SSL certification verification]** オプションを無効にします。 これは、**[File]**、**[Settings]** の下にあります。 設定を無効にした後にもう一度 **[Send]** ボタンをクリックします。
+
 ::: moniker-end
 
 次のように、**[Response]** ウィンドウの **[Headers]** タブをクリックして、**[Location]** ヘッダー値をコピーします。
@@ -179,10 +186,15 @@ Visual Studio で、**[実行]**、**[デバッグありで開始]** の順に�
 ### <a name="update"></a>更新
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
 
 `Update` は `Create` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、デルタのみでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、HTTP PATCH を使用します。

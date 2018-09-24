@@ -14,4 +14,5 @@
 * 新しいアプリケーションの開発で推奨されるアプローチである。
 
 [Razor ページ](xref:data/ef-rp/intro) バージョンではなくこのチュートリアルを選択する場合は、[この GitHub のディスカッション](https://github.com/aspnet/Docs/issues/6146)でその理由をお知らせください。
+
 ::: moniker-end

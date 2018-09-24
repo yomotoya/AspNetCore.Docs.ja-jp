@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core アプリケーションにモデルを追�
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 28a63498bc1a3c7b6ad6be038209dacdb49e44ee
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 5a820789ee3a761025d09aa78f3c42e59fc5fa38
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960669"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011379"
 ---
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
 
@@ -102,6 +102,7 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 PMC で、次のコマンドを入力します。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ``` PMC
 Add-Migration Initial
 Update-Database
@@ -113,6 +114,7 @@ Update-Database
       *エンティティ型 'Movie' の decimal 列 'Price' に型が指定されていません。これにより、値が既定の有効桁数と小数点以下桁数に収まらない場合、自動的に切り捨てられます。'ForHasColumnType()' を使用してすべての値に適合する SQL server 列の型を明示的に指定します。*
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
 
 ``` PMC
@@ -152,10 +154,15 @@ Update-Database
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model3.md)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+
 ::: moniker-end
 
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model4.md)]

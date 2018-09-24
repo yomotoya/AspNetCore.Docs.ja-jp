@@ -32,18 +32,23 @@ ASP.NET Core は、`http://localhost:1234/Movies/Edit/4` を、`Movies` コン�
 `Movies` コントローラーを開き、2 つの `Edit` アクション メソッドを調べます。 次に示すコードの `HTTP GET Edit` メソッドは、ムービーをフェッチし、*Edit.cshtml* Razor ファイルによって生成される編集フォームを設定します。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
 次に示すコードの `HTTP POST Edit` メソッドは、送信されたムービーの値を処理します。
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 次に示すコードの `HTTP POST Edit` メソッドは、送信されたムービーの値を処理します。
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
 
 `[Bind]` 属性は、[オーバーポスティング攻撃](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)を防ぐための 1 つの方法です。 変更する `[Bind]` 属性にだけプロパティを含める必要があります。 詳しくは、[オーバーポスティング攻撃からのコントローラーの保護に関する記事](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)をご覧ください。 [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) は、オーバーポスティング攻撃を防ぐもう 1 つの方法を提供します。
@@ -51,10 +56,15 @@ ASP.NET Core は、`http://localhost:1234/Movies/Edit/4` を、`Movies` コン�
 2 番目の `Edit` アクション メソッドの前に `[HttpPost]` 属性が付いていることに注意してください。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2&highlight=1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+
 ::: moniker-end
 
 `HttpPost` 属性は、`POST` 要求に対して "*のみ*" この `Edit` メソッドを呼び出すことができることを指定します。 1 番目の Edit メソッドにも `[HttpGet]` 属性を適用してもかまいませんが、`[HttpGet]` が既定値なので必要ありません。
@@ -68,10 +78,15 @@ ASP.NET Core は、`http://localhost:1234/Movies/Edit/4` を、`Movies` コン�
 `HttpGet Edit` メソッドは、ムービーの `ID` パラメーターを受け取り、Entity Framework の `SingleOrDefaultAsync` メソッドを使ってムービーを検索して、選択されたムービーを編集ビューに返します。 ムービーが見つからない場合は、`NotFound` (HTTP 404) が返されます。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+
 ::: moniker-end
 
 スキャフォールディング システムが編集ビューを作成したときは、そのシステムが `Movie` クラスを調べて、クラスの各プロパティの `<label>` および `<input>` 要素をレンダリングするコードを作成しました。 次の例では、Visual Studio のスキャフォールディング システムによって生成された編集ビューを示します。
@@ -93,10 +108,15 @@ ASP.NET Core は、`http://localhost:1234/Movies/Edit/4` を、`Movies` コン�
 次のリストでは、`Edit` アクション メソッドの `[HttpPost]` バージョンを示します。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
 
 `[ValidateAntiForgeryToken]` 属性は、[フォーム タグ ヘルパー](xref:mvc/views/working-with-forms)のフォージェリ対策トークン ジェネレーターによって生成された非表示の [XSRF](xref:security/anti-request-forgery) トークンを検証します。

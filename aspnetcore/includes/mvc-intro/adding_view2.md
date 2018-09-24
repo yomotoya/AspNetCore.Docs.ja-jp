@@ -21,12 +21,15 @@
 タイトル要素で、`MvcMovie` を `Movie App` に変更します。 レイアウト テンプレートのアンカー テキストを `MvcMovie` から `Movie App` に変更し、コントローラーを `Home` から `Movies` に変更します。下の強調表示されている箇所をご覧ください。
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+
 ::: moniker-end
 
 >[!WARNING]

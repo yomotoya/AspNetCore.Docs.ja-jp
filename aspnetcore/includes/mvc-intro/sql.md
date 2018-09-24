@@ -37,10 +37,15 @@ if (context.Movie.Any())
 次のように、*Program.cs* ファイルで `Main` メソッドにシード初期化子を追加します。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+
 ::: moniker-end
 
 ### <a name="test-the-app"></a>アプリのテスト
