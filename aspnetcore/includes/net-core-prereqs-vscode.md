@@ -1,12 +1,17 @@
-<span data-ttu-id="c4c89-101">以下をインストールします。</span><span class="sxs-lookup"><span data-stu-id="c4c89-101">Install the following:</span></span>
+<span data-ttu-id="2f3ca-101">以下をインストールします。</span><span class="sxs-lookup"><span data-stu-id="2f3ca-101">Install the following:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
-* <span data-ttu-id="c4c89-102">[!INCLUDE [](~/includes/net-core-sdk-download-link.md) [](~/includes/net-core-sdk-download-link.md)]</span><span class="sxs-lookup"><span data-stu-id="c4c89-102">[!INCLUDE [](~/includes/net-core-sdk-download-link.md) [](~/includes/net-core-sdk-download-link.md)]</span></span>
-* [<span data-ttu-id="c4c89-103">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="c4c89-103">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="c4c89-104">Visual Studio Code 用 C#</span><span class="sxs-lookup"><span data-stu-id="c4c89-104">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+* [<span data-ttu-id="2f3ca-102">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="2f3ca-102">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="2f3ca-103">Visual Studio Code 用 C#</span><span class="sxs-lookup"><span data-stu-id="2f3ca-103">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
-* <span data-ttu-id="c4c89-105">[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]</span><span class="sxs-lookup"><span data-stu-id="c4c89-105">[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]</span></span>
-* [<span data-ttu-id="c4c89-106">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="c4c89-106">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="c4c89-107">Visual Studio Code 用 C#</span><span class="sxs-lookup"><span data-stu-id="c4c89-107">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+
+* [!INCLUDE [](~/includes/2.1-SDK.md)]
+* [<span data-ttu-id="2f3ca-104">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="2f3ca-104">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="2f3ca-105">Visual Studio Code 用 C#</span><span class="sxs-lookup"><span data-stu-id="2f3ca-105">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+
 ::: moniker-end
