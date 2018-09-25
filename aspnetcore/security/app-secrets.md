@@ -4,14 +4,14 @@ author: rick-anderson
 description: 保存して、アプリ シークレットと ASP.NET Core アプリの開発中の機密情報を取得する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 uid: security/app-secrets
-ms.openlocfilehash: 35c316230c19aa69a0dac26ec25a6e017f102237
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 1ecd9b87b9e4aa2c511349fe407c0cea9dc9f921
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41828881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028272"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>ASP.NET Core での開発中のアプリ シークレットの安全な格納
 
@@ -19,7 +19,7 @@ ms.locfileid: "41828881"
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-このドキュメントでは、格納して、ASP.NET Core アプリの開発時に機密データを取得するための手法について説明します。 、ソース コードで、パスワードや他の機密データを格納する必要がありますしないと、開発運用シークレットを使用して、または、モードをテストすることはできません。 [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)により、Azure テストと運用のシークレットを格納し、保護することが可能です。
+このドキュメントでは、格納して、ASP.NET Core アプリの開発時に機密データを取得するための手法について説明します。 ソース コードでパスワードや他の機密データを保存しないでください。 運用シークレットを使用してはならない開発やテストします。 [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)により、Azure テストと運用のシークレットを格納し、保護することが可能です。
 
 ## <a name="environment-variables"></a>環境変数
 
