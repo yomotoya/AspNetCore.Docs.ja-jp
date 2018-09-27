@@ -1,146 +1,147 @@
 ---
 title: ASP.NET Core での SMS で 2 要素認証
 author: rick-anderson
-description: ASP.NET Core のアプリに 2 要素認証 (2 fa) を設定する方法を説明します。
+description: ASP.NET Core アプリで 2 要素認証 (2 fa) を設定する方法について説明します。
 monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 08/15/2017
+ms.date: 09/22/2018
 uid: security/authentication/2fa
-ms.openlocfilehash: 0308b05ebcda1af7f6850549d7a33f1df1a912a0
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.openlocfilehash: 19cc4b5326e8359afd47dd75aca3d661c3f92a30
+ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37089985"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47402121"
 ---
-# <a name="two-factor-authentication-with-sms-in-aspnet-core"></a><span data-ttu-id="45517-103">ASP.NET Core での SMS で 2 要素認証</span><span class="sxs-lookup"><span data-stu-id="45517-103">Two-factor authentication with SMS in ASP.NET Core</span></span>
+# <a name="two-factor-authentication-with-sms-in-aspnet-core"></a><span data-ttu-id="92ad7-103">ASP.NET Core での SMS で 2 要素認証</span><span class="sxs-lookup"><span data-stu-id="92ad7-103">Two-factor authentication with SMS in ASP.NET Core</span></span>
 
-<span data-ttu-id="45517-104">によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[スイス開発者](https://github.com/Swiss-Devs)</span><span class="sxs-lookup"><span data-stu-id="45517-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Swiss-Devs](https://github.com/Swiss-Devs)</span></span>
+<span data-ttu-id="92ad7-104">によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Swiss 開発者](https://github.com/Swiss-Devs)</span><span class="sxs-lookup"><span data-stu-id="92ad7-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Swiss-Devs](https://github.com/Swiss-Devs)</span></span>
 
- <span data-ttu-id="45517-105">使用して、時間ベース ワンタイム パスワード アルゴリズム (TOTP)、2 要素認証 (2 fa) 認証アプリとは、2 fa のアプローチをお勧め業界です。</span><span class="sxs-lookup"><span data-stu-id="45517-105">Two factor authentication (2FA) authenticator apps, using a Time-based One-time Password Algorithm (TOTP), are the industry recommended approach for 2FA.</span></span> <span data-ttu-id="45517-106">2 fa TOTP を使用してを SMS 2 fa をお勧めします。</span><span class="sxs-lookup"><span data-stu-id="45517-106">2FA using TOTP is preferred to SMS 2FA.</span></span> <span data-ttu-id="45517-107">詳細については、次を参照してください。 [ASP.NET Core で TOTP authenticator アプリの QR コードを有効にする生成](xref:security/authentication/identity-enable-qrcodes)ASP.NET Core 2.0 以降。</span><span class="sxs-lookup"><span data-stu-id="45517-107">For more information, see [Enable QR Code generation for TOTP authenticator apps in ASP.NET Core](xref:security/authentication/identity-enable-qrcodes) for ASP.NET Core 2.0 and later.</span></span>
+>[!WARNING]
+> <span data-ttu-id="92ad7-105">時間ベース ワンタイム パスワード アルゴリズム (TOTP) を使用して 2 要素認証 (2 fa) authenticator アプリは、業界の 2 fa のアプローチをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-105">Two factor authentication (2FA) authenticator apps, using a Time-based One-time Password Algorithm (TOTP), are the industry recommended approach for 2FA.</span></span> <span data-ttu-id="92ad7-106">2 fa を SMS 2 fa を TOTP を使用しています。</span><span class="sxs-lookup"><span data-stu-id="92ad7-106">2FA using TOTP is preferred to SMS 2FA.</span></span> <span data-ttu-id="92ad7-107">詳細については、次を参照してください。 [TOTP 認証アプリが ASP.NET Core での QR コードを有効にする生成](xref:security/authentication/identity-enable-qrcodes)ASP.NET Core 2.0 以降。</span><span class="sxs-lookup"><span data-stu-id="92ad7-107">For more information, see [Enable QR Code generation for TOTP authenticator apps in ASP.NET Core](xref:security/authentication/identity-enable-qrcodes) for ASP.NET Core 2.0 and later.</span></span>
 
-<span data-ttu-id="45517-108">このチュートリアルでは、SMS を使用した 2 要素認証 (2 fa) を設定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="45517-108">This tutorial shows how to set up two-factor authentication (2FA) using SMS.</span></span> <span data-ttu-id="45517-109">手順が示されて[twilio](https://www.twilio.com/)と[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)、他の SMS プロバイダーを使用することができます。</span><span class="sxs-lookup"><span data-stu-id="45517-109">Instructions are given for [twilio](https://www.twilio.com/) and [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), but you can use any other SMS provider.</span></span> <span data-ttu-id="45517-110">完了したことをお勧め[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)このチュートリアルを開始する前にします。</span><span class="sxs-lookup"><span data-stu-id="45517-110">We recommend you complete [Account Confirmation and Password Recovery](xref:security/authentication/accconfirm) before starting this tutorial.</span></span>
+<span data-ttu-id="92ad7-108">このチュートリアルでは、SMS を使用して 2 要素認証 (2 fa) を設定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-108">This tutorial shows how to set up two-factor authentication (2FA) using SMS.</span></span> <span data-ttu-id="92ad7-109">手順が示されて[twilio](https://www.twilio.com/)と[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)、他の SMS プロバイダーを使用することができます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-109">Instructions are given for [twilio](https://www.twilio.com/) and [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), but you can use any other SMS provider.</span></span> <span data-ttu-id="92ad7-110">完了したことをお勧めします。[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)このチュートリアルを開始する前にします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-110">We recommend you complete [Account Confirmation and Password Recovery](xref:security/authentication/accconfirm) before starting this tutorial.</span></span>
 
-<span data-ttu-id="45517-111">ビュー、[完成したサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA)です。</span><span class="sxs-lookup"><span data-stu-id="45517-111">View the [completed sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA).</span></span> <span data-ttu-id="45517-112">[ダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)です。</span><span class="sxs-lookup"><span data-stu-id="45517-112">[How to download](xref:tutorials/index#how-to-download-a-sample).</span></span>
+<span data-ttu-id="92ad7-111">ビュー、[完全なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA)します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-111">View the [completed sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA).</span></span> <span data-ttu-id="92ad7-112">[ダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-112">[How to download](xref:tutorials/index#how-to-download-a-sample).</span></span>
 
-## <a name="create-a-new-aspnet-core-project"></a><span data-ttu-id="45517-113">新しい ASP.NET Core プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="45517-113">Create a new ASP.NET Core project</span></span>
+## <a name="create-a-new-aspnet-core-project"></a><span data-ttu-id="92ad7-113">新しい ASP.NET Core プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="92ad7-113">Create a new ASP.NET Core project</span></span>
 
-<span data-ttu-id="45517-114">という名前の新しい ASP.NET Core web アプリを作成する`Web2FA`個々 のユーザー アカウントにします。</span><span class="sxs-lookup"><span data-stu-id="45517-114">Create a new ASP.NET Core web app named `Web2FA` with individual user accounts.</span></span> <span data-ttu-id="45517-115">指示に従って、 [ASP.NET Core アプリケーションでは SSL を強制](xref:security/enforcing-ssl)を設定し、SSL を要求します。</span><span class="sxs-lookup"><span data-stu-id="45517-115">Follow the instructions in [Enforce SSL in an ASP.NET Core app](xref:security/enforcing-ssl) to set up and require SSL.</span></span>
+<span data-ttu-id="92ad7-114">という名前の新しい ASP.NET Core web アプリ作成`Web2FA`個々 のユーザー アカウントを使用します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-114">Create a new ASP.NET Core web app named `Web2FA` with individual user accounts.</span></span> <span data-ttu-id="92ad7-115">指示に従って、 [ASP.NET Core アプリでの強制 SSL](xref:security/enforcing-ssl)を設定し、SSL を要求します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-115">Follow the instructions in [Enforce SSL in an ASP.NET Core app](xref:security/enforcing-ssl) to set up and require SSL.</span></span>
 
-### <a name="create-an-sms-account"></a><span data-ttu-id="45517-116">SMS アカウントを作成します</span><span class="sxs-lookup"><span data-stu-id="45517-116">Create an SMS account</span></span>
+### <a name="create-an-sms-account"></a><span data-ttu-id="92ad7-116">SMS アカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-116">Create an SMS account</span></span>
 
-<span data-ttu-id="45517-117">例については、SMS アカウントの作成[twilio](https://www.twilio.com/)または[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)です。</span><span class="sxs-lookup"><span data-stu-id="45517-117">Create an SMS account, for example, from [twilio](https://www.twilio.com/) or [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/).</span></span> <span data-ttu-id="45517-118">認証資格情報を記録 (twilio の: accountSid と ASPSMS 用の authToken: ユーザー キーとパスワード)。</span><span class="sxs-lookup"><span data-stu-id="45517-118">Record the authentication credentials (for twilio: accountSid and authToken, for ASPSMS: Userkey and Password).</span></span>
+<span data-ttu-id="92ad7-117">例については、SMS アカウントの作成[twilio](https://www.twilio.com/)または[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-117">Create an SMS account, for example, from [twilio](https://www.twilio.com/) or [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/).</span></span> <span data-ttu-id="92ad7-118">認証資格情報を記録 (twilio: accountSid および authToken、ASPSMS の: 別子-Userkey とパスワード)。</span><span class="sxs-lookup"><span data-stu-id="92ad7-118">Record the authentication credentials (for twilio: accountSid and authToken, for ASPSMS: Userkey and Password).</span></span>
 
-#### <a name="figuring-out-sms-provider-credentials"></a><span data-ttu-id="45517-119">SMS プロバイダーの資格情報を見つけ出し</span><span class="sxs-lookup"><span data-stu-id="45517-119">Figuring out SMS Provider credentials</span></span>
+#### <a name="figuring-out-sms-provider-credentials"></a><span data-ttu-id="92ad7-119">SMS プロバイダーの資格情報を見極める</span><span class="sxs-lookup"><span data-stu-id="92ad7-119">Figuring out SMS Provider credentials</span></span>
 
-<span data-ttu-id="45517-120">**Twilio:** 、Twilio アカウントの [ダッシュ ボード] タブから、コピー、**アカウント SID**と**認証トークン**です。</span><span class="sxs-lookup"><span data-stu-id="45517-120">**Twilio:** From the Dashboard tab of your Twilio account, copy the **Account SID** and **Auth token**.</span></span>
+<span data-ttu-id="92ad7-120">**Twilio:** 、Twilio アカウントのダッシュ ボード タブで、コピー、**アカウント SID**と**Auth トークン**します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-120">**Twilio:** From the Dashboard tab of your Twilio account, copy the **Account SID** and **Auth token**.</span></span>
 
-<span data-ttu-id="45517-121">**ASPSMS:** 、アカウントの設定に移動**ユーザー キー**コピーと共に使用して、**パスワード**です。</span><span class="sxs-lookup"><span data-stu-id="45517-121">**ASPSMS:** From your account settings, navigate to **Userkey** and copy it together with your **Password**.</span></span>
+<span data-ttu-id="92ad7-121">**ASPSMS:** 、アカウントの設定からに移動します。**別子-Userkey**と共にそれをコピーし、**パスワード**します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-121">**ASPSMS:** From your account settings, navigate to **Userkey** and copy it together with your **Password**.</span></span>
 
-<span data-ttu-id="45517-122">キー内のシークレット マネージャー ツールを使用してこれらの値は後で格納`SMSAccountIdentification`と`SMSAccountPassword`です。</span><span class="sxs-lookup"><span data-stu-id="45517-122">We will later store these values in with the secret-manager tool within the keys `SMSAccountIdentification` and `SMSAccountPassword`.</span></span>
+<span data-ttu-id="92ad7-122">キー内 secret manager ツールを使用してこれらの値を後で保存`SMSAccountIdentification`と`SMSAccountPassword`します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-122">We will later store these values in with the secret-manager tool within the keys `SMSAccountIdentification` and `SMSAccountPassword`.</span></span>
 
-#### <a name="specifying-senderid--originator"></a><span data-ttu-id="45517-123">SenderID を指定する/発信元</span><span class="sxs-lookup"><span data-stu-id="45517-123">Specifying SenderID / Originator</span></span>
+#### <a name="specifying-senderid--originator"></a><span data-ttu-id="92ad7-123">SenderID を指定する/発信元</span><span class="sxs-lookup"><span data-stu-id="92ad7-123">Specifying SenderID / Originator</span></span>
 
-<span data-ttu-id="45517-124">**Twilio:** 番号 タブで、コピー、Twilio**電話番号**です。</span><span class="sxs-lookup"><span data-stu-id="45517-124">**Twilio:** From the Numbers tab, copy your Twilio **phone number**.</span></span>
+<span data-ttu-id="92ad7-124">**Twilio:** 番号 タブで、コピー、Twilio**電話番号**します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-124">**Twilio:** From the Numbers tab, copy your Twilio **phone number**.</span></span>
 
-<span data-ttu-id="45517-125">**ASPSMS:** のロックを解除発信者メニュー内で 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。</span><span class="sxs-lookup"><span data-stu-id="45517-125">**ASPSMS:** Within the Unlock Originators Menu, unlock one or more Originators or choose an alphanumeric Originator (Not supported by all networks).</span></span>
+<span data-ttu-id="92ad7-125">**ASPSMS:** のロックを解除発信者メニュー内で 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-125">**ASPSMS:** Within the Unlock Originators Menu, unlock one or more Originators or choose an alphanumeric Originator (Not supported by all networks).</span></span>
 
-<span data-ttu-id="45517-126">キー内のシークレット マネージャー ツールを使用してこの値は後で格納`SMSAccountFrom`です。</span><span class="sxs-lookup"><span data-stu-id="45517-126">We will later store this value with the secret-manager tool within the key `SMSAccountFrom`.</span></span>
+<span data-ttu-id="92ad7-126">キー内のシークレット マネージャー ツールを使用してこの値を後で保存`SMSAccountFrom`します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-126">We will later store this value with the secret-manager tool within the key `SMSAccountFrom`.</span></span>
 
 
-### <a name="provide-credentials-for-the-sms-service"></a><span data-ttu-id="45517-127">SMS サービスの資格を情報します。</span><span class="sxs-lookup"><span data-stu-id="45517-127">Provide credentials for the SMS service</span></span>
+### <a name="provide-credentials-for-the-sms-service"></a><span data-ttu-id="92ad7-127">SMS サービスの資格情報を提供します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-127">Provide credentials for the SMS service</span></span>
 
-<span data-ttu-id="45517-128">使用して、[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスします。</span><span class="sxs-lookup"><span data-stu-id="45517-128">We'll use the [Options pattern](xref:fundamentals/configuration/options) to access the user account and key settings.</span></span>
+<span data-ttu-id="92ad7-128">使用して、[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-128">We'll use the [Options pattern](xref:fundamentals/configuration/options) to access the user account and key settings.</span></span>
 
-   * <span data-ttu-id="45517-129">セキュリティで保護された SMS キーを取得するクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="45517-129">Create a class to fetch the secure SMS key.</span></span> <span data-ttu-id="45517-130">このサンプルで、`SMSoptions`でクラスを作成、 *Services/SMSoptions.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="45517-130">For this sample, the `SMSoptions` class is created in the *Services/SMSoptions.cs* file.</span></span>
+   * <span data-ttu-id="92ad7-129">セキュリティで保護された SMS キーを取得するためのクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-129">Create a class to fetch the secure SMS key.</span></span> <span data-ttu-id="92ad7-130">このサンプルで、`SMSoptions`でクラスを作成、 *Services/SMSoptions.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="92ad7-130">For this sample, the `SMSoptions` class is created in the *Services/SMSoptions.cs* file.</span></span>
 
 [!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
-<span data-ttu-id="45517-131">設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、[シークレット マネージャー ツール](xref:security/app-secrets)です。</span><span class="sxs-lookup"><span data-stu-id="45517-131">Set the `SMSAccountIdentification`, `SMSAccountPassword` and `SMSAccountFrom` with the [secret-manager tool](xref:security/app-secrets).</span></span> <span data-ttu-id="45517-132">例えば:</span><span class="sxs-lookup"><span data-stu-id="45517-132">For example:</span></span>
+<span data-ttu-id="92ad7-131">設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、 [secret manager ツール](xref:security/app-secrets)します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-131">Set the `SMSAccountIdentification`, `SMSAccountPassword` and `SMSAccountFrom` with the [secret-manager tool](xref:security/app-secrets).</span></span> <span data-ttu-id="92ad7-132">例えば:</span><span class="sxs-lookup"><span data-stu-id="92ad7-132">For example:</span></span>
 
 ```none
 C:/Web2FA/src/WebApp1>dotnet user-secrets set SMSAccountIdentification 12345
 info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 ```
-* <span data-ttu-id="45517-133">SMS プロバイダーの NuGet パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="45517-133">Add the NuGet package for the SMS provider.</span></span> <span data-ttu-id="45517-134">パッケージ マネージャー コンソール (PMC) を実行します。</span><span class="sxs-lookup"><span data-stu-id="45517-134">From the Package Manager Console (PMC) run:</span></span>
+* <span data-ttu-id="92ad7-133">SMS プロバイダーの NuGet パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-133">Add the NuGet package for the SMS provider.</span></span> <span data-ttu-id="92ad7-134">パッケージ マネージャー コンソール (PMC) を実行します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-134">From the Package Manager Console (PMC) run:</span></span>
 
-<span data-ttu-id="45517-135">**Twilio:**
-`Install-Package Twilio`</span><span class="sxs-lookup"><span data-stu-id="45517-135">**Twilio:**
+<span data-ttu-id="92ad7-135">**Twilio:**
+`Install-Package Twilio`</span><span class="sxs-lookup"><span data-stu-id="92ad7-135">**Twilio:**
 `Install-Package Twilio`</span></span>
 
-<span data-ttu-id="45517-136">**ASPSMS:**
-`Install-Package ASPSMS`</span><span class="sxs-lookup"><span data-stu-id="45517-136">**ASPSMS:**
+<span data-ttu-id="92ad7-136">**ASPSMS:**
+`Install-Package ASPSMS`</span><span class="sxs-lookup"><span data-stu-id="92ad7-136">**ASPSMS:**
 `Install-Package ASPSMS`</span></span>
 
 
-* <span data-ttu-id="45517-137">コードを追加、 *Services/MessageServices.cs* SMS を有効にするファイル。</span><span class="sxs-lookup"><span data-stu-id="45517-137">Add code in the *Services/MessageServices.cs* file to enable SMS.</span></span> <span data-ttu-id="45517-138">Twilio または ASPSMS セクションのいずれかを使用します。</span><span class="sxs-lookup"><span data-stu-id="45517-138">Use either the Twilio or the ASPSMS section:</span></span>
+* <span data-ttu-id="92ad7-137">内のコードを追加、 *Services/MessageServices.cs* SMS が有効にするファイル。</span><span class="sxs-lookup"><span data-stu-id="92ad7-137">Add code in the *Services/MessageServices.cs* file to enable SMS.</span></span> <span data-ttu-id="92ad7-138">Twilio または ASPSMS セクションのいずれかを使用します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-138">Use either the Twilio or the ASPSMS section:</span></span>
 
 
-<span data-ttu-id="45517-139">**Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]</span><span class="sxs-lookup"><span data-stu-id="45517-139">**Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]</span></span>
+<span data-ttu-id="92ad7-139">**Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]</span><span class="sxs-lookup"><span data-stu-id="92ad7-139">**Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]</span></span>
 
-<span data-ttu-id="45517-140">**ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]</span><span class="sxs-lookup"><span data-stu-id="45517-140">**ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]</span></span>
+<span data-ttu-id="92ad7-140">**ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]</span><span class="sxs-lookup"><span data-stu-id="92ad7-140">**ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]</span></span>
 
-### <a name="configure-startup-to-use-smsoptions"></a><span data-ttu-id="45517-141">使用するスタートアップを構成します。 `SMSoptions`</span><span class="sxs-lookup"><span data-stu-id="45517-141">Configure startup to use `SMSoptions`</span></span>
+### <a name="configure-startup-to-use-smsoptions"></a><span data-ttu-id="92ad7-141">使用するスタートアップを構成します。 `SMSoptions`</span><span class="sxs-lookup"><span data-stu-id="92ad7-141">Configure startup to use `SMSoptions`</span></span>
 
-<span data-ttu-id="45517-142">追加`SMSoptions`のサービス コンテナーに、`ConfigureServices`メソッドで、 *Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="45517-142">Add `SMSoptions` to the service container in the `ConfigureServices` method in the *Startup.cs*:</span></span>
+<span data-ttu-id="92ad7-142">追加`SMSoptions`でサービス コンテナーに、`ConfigureServices`メソッドで、 *Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="92ad7-142">Add `SMSoptions` to the service container in the `ConfigureServices` method in the *Startup.cs*:</span></span>
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
 
-### <a name="enable-two-factor-authentication"></a><span data-ttu-id="45517-143">2 要素認証を有効にします。</span><span class="sxs-lookup"><span data-stu-id="45517-143">Enable two-factor authentication</span></span>
+### <a name="enable-two-factor-authentication"></a><span data-ttu-id="92ad7-143">2 要素認証を有効にします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-143">Enable two-factor authentication</span></span>
 
-<span data-ttu-id="45517-144">開く、 *Views/Manage/Index.cshtml* Razor ファイルの表示と削除 で、コメント文字 (つまり、マークアップには、除外したりはありません)。</span><span class="sxs-lookup"><span data-stu-id="45517-144">Open the *Views/Manage/Index.cshtml* Razor view file and remove the comment characters (so no markup is commnted out).</span></span>
+<span data-ttu-id="92ad7-144">開く、 *Views/Manage/Index.cshtml* Razor ビュー ファイルと、コメント文字 (マークアップには、空欄はありません)、削除します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-144">Open the *Views/Manage/Index.cshtml* Razor view file and remove the comment characters (so no markup is commnted out).</span></span>
 
-## <a name="log-in-with-two-factor-authentication"></a><span data-ttu-id="45517-145">2 要素認証を使用してログインします。</span><span class="sxs-lookup"><span data-stu-id="45517-145">Log in with two-factor authentication</span></span>
+## <a name="log-in-with-two-factor-authentication"></a><span data-ttu-id="92ad7-145">2 要素認証をログインします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-145">Log in with two-factor authentication</span></span>
 
-* <span data-ttu-id="45517-146">アプリを実行して、新しいユーザーの登録</span><span class="sxs-lookup"><span data-stu-id="45517-146">Run the app and register a new user</span></span>
+* <span data-ttu-id="92ad7-146">アプリを実行し、新しいユーザーの登録</span><span class="sxs-lookup"><span data-stu-id="92ad7-146">Run the app and register a new user</span></span>
 
-![Web アプリケーション登録の Microsoft Edge でビューを開く](2fa/_static/login2fa1.png)
+![Web アプリケーションの登録が Microsoft Edge でビューを開く](2fa/_static/login2fa1.png)
 
-* <span data-ttu-id="45517-148">アクティブ化するユーザー名をタップして、`Index`管理コント ローラー アクション メソッド。</span><span class="sxs-lookup"><span data-stu-id="45517-148">Tap on your user name, which activates the `Index` action method in Manage controller.</span></span> <span data-ttu-id="45517-149">電話番号の順にタップ**追加**リンクします。</span><span class="sxs-lookup"><span data-stu-id="45517-149">Then tap the phone number **Add** link.</span></span>
+* <span data-ttu-id="92ad7-148">アクティブ化するユーザー名をタップして、`Index`管理コント ローラー アクション メソッド。</span><span class="sxs-lookup"><span data-stu-id="92ad7-148">Tap on your user name, which activates the `Index` action method in Manage controller.</span></span> <span data-ttu-id="92ad7-149">電話番号の順にタップ**追加**リンク。</span><span class="sxs-lookup"><span data-stu-id="92ad7-149">Then tap the phone number **Add** link.</span></span>
 
 ![ビューを管理します。](2fa/_static/login2fa2.png)
 
-* <span data-ttu-id="45517-151">確認コードを受信してタップ、する電話番号を追加する**確認コードを送信**です。</span><span class="sxs-lookup"><span data-stu-id="45517-151">Add a phone number that will receive the verification code, and tap **Send verification code**.</span></span>
+* <span data-ttu-id="92ad7-151">確認コードを受信してタップ、する電話番号を追加**確認コードを送信**します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-151">Add a phone number that will receive the verification code, and tap **Send verification code**.</span></span>
 
 ![ページの 電話番号を追加します。](2fa/_static/login2fa3.png)
 
-* <span data-ttu-id="45517-153">確認コードと共にテキスト メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="45517-153">You will get a text message with the verification code.</span></span> <span data-ttu-id="45517-154">タップし、それを入力**送信**</span><span class="sxs-lookup"><span data-stu-id="45517-154">Enter it and tap **Submit**</span></span>
+* <span data-ttu-id="92ad7-153">確認コードを含むテキスト メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-153">You will get a text message with the verification code.</span></span> <span data-ttu-id="92ad7-154">入力し、タップ**送信**</span><span class="sxs-lookup"><span data-stu-id="92ad7-154">Enter it and tap **Submit**</span></span>
 
-![ページの 電話番号を確認してください。](2fa/_static/login2fa4.png)
+![ページの 電話番号を確認します。](2fa/_static/login2fa4.png)
 
-<span data-ttu-id="45517-156">テキスト メッセージが表示されない場合は、twilio ログ ページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="45517-156">If you don't get a text message, see twilio log page.</span></span>
+<span data-ttu-id="92ad7-156">テキスト メッセージが表示されない場合は、twilio ログ ページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="92ad7-156">If you don't get a text message, see twilio log page.</span></span>
 
-* <span data-ttu-id="45517-157">電話番号が正常に追加された、管理ビューを示しています。</span><span class="sxs-lookup"><span data-stu-id="45517-157">The Manage view shows your phone number was added successfully.</span></span>
+* <span data-ttu-id="92ad7-157">電話番号が正常に追加された、管理ビューを示しています。</span><span class="sxs-lookup"><span data-stu-id="92ad7-157">The Manage view shows your phone number was added successfully.</span></span>
 
 ![ビューを管理します。](2fa/_static/login2fa5.png)
 
-* <span data-ttu-id="45517-159">タップ**を有効にする**2 要素認証を有効にします。</span><span class="sxs-lookup"><span data-stu-id="45517-159">Tap **Enable** to enable two-factor authentication.</span></span>
+* <span data-ttu-id="92ad7-159">タップ**を有効にする**2 要素認証を有効にします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-159">Tap **Enable** to enable two-factor authentication.</span></span>
 
 ![ビューを管理します。](2fa/_static/login2fa6.png)
 
-### <a name="test-two-factor-authentication"></a><span data-ttu-id="45517-161">2 要素認証のテスト</span><span class="sxs-lookup"><span data-stu-id="45517-161">Test two-factor authentication</span></span>
+### <a name="test-two-factor-authentication"></a><span data-ttu-id="92ad7-161">2 要素認証のテスト</span><span class="sxs-lookup"><span data-stu-id="92ad7-161">Test two-factor authentication</span></span>
 
-* <span data-ttu-id="45517-162">ログオフします。</span><span class="sxs-lookup"><span data-stu-id="45517-162">Log off.</span></span>
+* <span data-ttu-id="92ad7-162">ログオフします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-162">Log off.</span></span>
 
-* <span data-ttu-id="45517-163">ログイン。</span><span class="sxs-lookup"><span data-stu-id="45517-163">Log in.</span></span>
+* <span data-ttu-id="92ad7-163">ログイン。</span><span class="sxs-lookup"><span data-stu-id="92ad7-163">Log in.</span></span>
 
-* <span data-ttu-id="45517-164">認証の 2 番目の要素を提供する必要があるために、ユーザー アカウントは、2 要素認証を有効になります。</span><span class="sxs-lookup"><span data-stu-id="45517-164">The user account has enabled two-factor authentication, so you have to provide the second factor of authentication .</span></span> <span data-ttu-id="45517-165">このチュートリアルでは、電話番号の検証を有効にします。</span><span class="sxs-lookup"><span data-stu-id="45517-165">In this tutorial you have enabled phone verification.</span></span> <span data-ttu-id="45517-166">組み込みのテンプレートを使用して、2 つ目の要素として電子メールで送信を設定することもします。</span><span class="sxs-lookup"><span data-stu-id="45517-166">The built in templates also allow you to set up email as the second factor.</span></span> <span data-ttu-id="45517-167">QR コードなど、認証の他の 2 番目の要素を設定することができます。</span><span class="sxs-lookup"><span data-stu-id="45517-167">You can set up additional second factors for authentication such as QR codes.</span></span> <span data-ttu-id="45517-168">タップ**送信**です。</span><span class="sxs-lookup"><span data-stu-id="45517-168">Tap **Submit**.</span></span>
+* <span data-ttu-id="92ad7-164">認証の 2 番目の要素を提供する必要があるために、ユーザー アカウントは、2 要素認証を有効になります。</span><span class="sxs-lookup"><span data-stu-id="92ad7-164">The user account has enabled two-factor authentication, so you have to provide the second factor of authentication .</span></span> <span data-ttu-id="92ad7-165">このチュートリアルでは、電話番号の検証を有効にします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-165">In this tutorial you have enabled phone verification.</span></span> <span data-ttu-id="92ad7-166">組み込みのテンプレートでは、2 番目の要素として電子メールを設定することもできます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-166">The built in templates also allow you to set up email as the second factor.</span></span> <span data-ttu-id="92ad7-167">QR コードなど、認証の他の 2 番目の要素を設定することができます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-167">You can set up additional second factors for authentication such as QR codes.</span></span> <span data-ttu-id="92ad7-168">タップ**送信**します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-168">Tap **Submit**.</span></span>
 
-![確認コード ビューを送信します。](2fa/_static/login2fa7.png)
+![ビューの確認コードを送信します。](2fa/_static/login2fa7.png)
 
-* <span data-ttu-id="45517-170">SMS メッセージで取得するコードを入力します。</span><span class="sxs-lookup"><span data-stu-id="45517-170">Enter the code you get in the SMS message.</span></span>
+* <span data-ttu-id="92ad7-170">SMS メッセージを取得するコードを入力します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-170">Enter the code you get in the SMS message.</span></span>
 
-* <span data-ttu-id="45517-171">クリックすると、**このブラウザーに覚えて** チェック ボックスの除外を 2 fa を使用して、同じデバイスおよびブラウザーを使用するときにログオンする必要があるからです。</span><span class="sxs-lookup"><span data-stu-id="45517-171">Clicking on the **Remember this browser** check box will exempt you from needing to use 2FA to log on when using the same device and browser.</span></span> <span data-ttu-id="45517-172">2 fa を有効にしてをクリックすると**このブラウザーに覚えて**が提供されます 2 fa の強力な保護で悪意のあるユーザーがデバイスへのアクセスがあるない限り、アカウントにアクセスしようとしているからです。</span><span class="sxs-lookup"><span data-stu-id="45517-172">Enabling 2FA and clicking on **Remember this browser** will provide you with strong 2FA protection from malicious users trying to access your account, as long as they don't have access to your device.</span></span> <span data-ttu-id="45517-173">これは、定期的に使用する任意のプライベート デバイスで行うことができます。</span><span class="sxs-lookup"><span data-stu-id="45517-173">You can do this on any private device you regularly use.</span></span> <span data-ttu-id="45517-174">設定して**このブラウザーに覚えて**を定期的に使用しないデバイスから 2 fa の追加のセキュリティを取得する、および独自のデバイスで 2 fa を通過する必要がないで利便性を取得します。</span><span class="sxs-lookup"><span data-stu-id="45517-174">By setting  **Remember this browser**, you get the added security of 2FA from devices you don't regularly use, and you get the convenience on not having to go through 2FA on your own devices.</span></span>
+* <span data-ttu-id="92ad7-171">クリックすると、**このブラウザーを記憶する** チェック ボックスの除外 2 fa を使用して、同じデバイスとブラウザーを使用するときにログオンする必要がなくなります。</span><span class="sxs-lookup"><span data-stu-id="92ad7-171">Clicking on the **Remember this browser** check box will exempt you from needing to use 2FA to log on when using the same device and browser.</span></span> <span data-ttu-id="92ad7-172">2 fa を有効にし、**このブラウザーを記憶する**は 2 fa の強力な保護実現デバイスへのアクセスがあるない限り、アカウントにアクセスしようとした悪意のあるユーザーから。</span><span class="sxs-lookup"><span data-stu-id="92ad7-172">Enabling 2FA and clicking on **Remember this browser** will provide you with strong 2FA protection from malicious users trying to access your account, as long as they don't have access to your device.</span></span> <span data-ttu-id="92ad7-173">これは、定期的に使用するプライベートあらゆるデバイスで行うことができます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-173">You can do this on any private device you regularly use.</span></span> <span data-ttu-id="92ad7-174">設定して**このブラウザーを記憶する**2 fa の追加のセキュリティを定期的に使用しないデバイスから取得した、独自のデバイスで 2 fa を経由する必要があるの利便性を取得します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-174">By setting  **Remember this browser**, you get the added security of 2FA from devices you don't regularly use, and you get the convenience on not having to go through 2FA on your own devices.</span></span>
 
-![ビューを確認してください。](2fa/_static/login2fa8.png)
+![ビューを確認します。](2fa/_static/login2fa8.png)
 
-## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a><span data-ttu-id="45517-176">ブルート フォース攻撃から保護するためのアカウントのロックアウト</span><span class="sxs-lookup"><span data-stu-id="45517-176">Account lockout for protecting against brute force attacks</span></span>
+## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a><span data-ttu-id="92ad7-176">ブルート フォース攻撃から保護するためのアカウントのロックアウト</span><span class="sxs-lookup"><span data-stu-id="92ad7-176">Account lockout for protecting against brute force attacks</span></span>
 
-<span data-ttu-id="45517-177">2 fa では、アカウントのロックアウトをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="45517-177">Account lockout is recommended with 2FA.</span></span> <span data-ttu-id="45517-178">ユーザーがローカル アカウントやソーシャル アカウントでサインイン 2 fa に失敗した場合はそれぞれが格納されます。</span><span class="sxs-lookup"><span data-stu-id="45517-178">Once a user signs in through a local account or social account, each failed attempt at 2FA is stored.</span></span> <span data-ttu-id="45517-179">ユーザーをロックアウトする最大の失敗したアクセス試行回数に達した場合 (既定: 5 アクセス試行の失敗後 5 分間ロックアウト)。</span><span class="sxs-lookup"><span data-stu-id="45517-179">If the maximum failed access attempts is reached, the user is locked out (default: 5 minute lockout after 5 failed access attempts).</span></span> <span data-ttu-id="45517-180">成功した認証は、失敗したアクセス試行数をリセットし、時計をリセットします。</span><span class="sxs-lookup"><span data-stu-id="45517-180">A successful authentication resets the failed access attempts count and resets the clock.</span></span> <span data-ttu-id="45517-181">失敗したアクセス試行の最大とでのロックアウト時間を設定できる[MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts)と[DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan)です。</span><span class="sxs-lookup"><span data-stu-id="45517-181">The maximum failed access attempts and lockout time can be set with [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) and [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan).</span></span> <span data-ttu-id="45517-182">次は、アクセスの試行が 10 回失敗後 10 分のアカウントのロックアウトを構成します。</span><span class="sxs-lookup"><span data-stu-id="45517-182">The following configures account lockout for 10 minutes after 10 failed access attempts:</span></span>
+<span data-ttu-id="92ad7-177">2 fa では、アカウントのロックアウトをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-177">Account lockout is recommended with 2FA.</span></span> <span data-ttu-id="92ad7-178">ユーザーがローカル アカウントまたはソーシャル アカウントでサインインすると、2 fa に失敗した場合は各が格納されます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-178">Once a user signs in through a local account or social account, each failed attempt at 2FA is stored.</span></span> <span data-ttu-id="92ad7-179">ユーザーがロックアウトされた場合は、最大の失敗したアクセス試行に達すると、(既定値: 5 アクセス試行の失敗後に 5 分間ロックアウト)。</span><span class="sxs-lookup"><span data-stu-id="92ad7-179">If the maximum failed access attempts is reached, the user is locked out (default: 5 minute lockout after 5 failed access attempts).</span></span> <span data-ttu-id="92ad7-180">成功した認証は失敗したアクセス試行数がリセットされ、時計をリセットします。</span><span class="sxs-lookup"><span data-stu-id="92ad7-180">A successful authentication resets the failed access attempts count and resets the clock.</span></span> <span data-ttu-id="92ad7-181">失敗したアクセス試行の最大値とロックアウト時刻で設定できる[MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts)と[DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan)します。</span><span class="sxs-lookup"><span data-stu-id="92ad7-181">The maximum failed access attempts and lockout time can be set with [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) and [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan).</span></span> <span data-ttu-id="92ad7-182">次で 10 アクセス試行の失敗後 10 分間のアカウントのロックアウトが構成されます。</span><span class="sxs-lookup"><span data-stu-id="92ad7-182">The following configures account lockout for 10 minutes after 10 failed access attempts:</span></span>
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)]
 
-<span data-ttu-id="45517-183">いることを確認[PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync)設定`lockoutOnFailure`に`true`:</span><span class="sxs-lookup"><span data-stu-id="45517-183">Confirm that [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) sets `lockoutOnFailure` to `true`:</span></span>
+<span data-ttu-id="92ad7-183">確認します[PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync)設定`lockoutOnFailure`に`true`:</span><span class="sxs-lookup"><span data-stu-id="92ad7-183">Confirm that [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) sets `lockoutOnFailure` to `true`:</span></span>
 
 ```csharp
 var result = await _signInManager.PasswordSignInAsync(
