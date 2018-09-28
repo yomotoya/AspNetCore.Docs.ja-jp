@@ -19,15 +19,15 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
 ms.locfileid: "26508991"
 ---
-<a name="aspnet-web-api-overview-and-getting-started-videos"></a><span data-ttu-id="d35b8-103">ASP.NET Web API の概要と作業の開始のビデオ</span><span class="sxs-lookup"><span data-stu-id="d35b8-103">ASP.NET Web API Overview and Getting Started Videos</span></span>
+<a name="aspnet-web-api-overview-and-getting-started-videos"></a><span data-ttu-id="72ed7-103">ASP.NET Web API の概要と作業の開始のビデオ</span><span class="sxs-lookup"><span data-stu-id="72ed7-103">ASP.NET Web API Overview and Getting Started Videos</span></span>
 ====================
-> <span data-ttu-id="d35b8-104">これは、一連の ASP.NET Web API の使用を開始するためのビデオです。</span><span class="sxs-lookup"><span data-stu-id="d35b8-104">This is a series of videos to get you started with ASP.NET Web API.</span></span>
+> <span data-ttu-id="72ed7-104">これは、一連の ASP.NET Web API の使用を開始するためのビデオです。</span><span class="sxs-lookup"><span data-stu-id="72ed7-104">This is a series of videos to get you started with ASP.NET Web API.</span></span>
 
 
-- [<span data-ttu-id="d35b8-105">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="d35b8-105">ASP.NET Web API</span></span>](aspnet-web-api.md)
-- [<span data-ttu-id="d35b8-106">ASP.NET Web API、パート 1: 最初 Web API</span><span class="sxs-lookup"><span data-stu-id="d35b8-106">ASP.NET Web API, Part 1: Your First Web API</span></span>](your-first-web-api.md)
-- [<span data-ttu-id="d35b8-107">ASP.NET Web API、第 2 部: データの取得</span><span class="sxs-lookup"><span data-stu-id="d35b8-107">ASP.NET Web API, Part 2: Getting Data</span></span>](getting-data.md)
-- [<span data-ttu-id="d35b8-108">ASP.NET Web API、パート 3: 削除および更新</span><span class="sxs-lookup"><span data-stu-id="d35b8-108">ASP.NET Web API, Part 3: Delete and Update</span></span>](delete-and-update.md)
-- [<span data-ttu-id="d35b8-109">ページングと、クエリを実行する ASP.NET Web API、パート 4:</span><span class="sxs-lookup"><span data-stu-id="d35b8-109">ASP.NET Web API, Part 4: Paging and Querying</span></span>](paging-and-querying.md)
-- [<span data-ttu-id="d35b8-110">ASP.NET Web API、パート 5: カスタム検証</span><span class="sxs-lookup"><span data-stu-id="d35b8-110">ASP.NET Web API, Part 5: Custom Validation</span></span>](custom-validation.md)
-- [<span data-ttu-id="d35b8-111">ASP.NET Web API、パート 6: 承認</span><span class="sxs-lookup"><span data-stu-id="d35b8-111">ASP.NET Web API, Part 6: Authorization</span></span>](authorization.md)
+- [<span data-ttu-id="72ed7-105">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="72ed7-105">ASP.NET Web API</span></span>](aspnet-web-api.md)
+- [<span data-ttu-id="72ed7-106">ASP.NET Web API、パート 1: 最初 Web API</span><span class="sxs-lookup"><span data-stu-id="72ed7-106">ASP.NET Web API, Part 1: Your First Web API</span></span>](your-first-web-api.md)
+- [<span data-ttu-id="72ed7-107">ASP.NET Web API、パート 2: データの取得</span><span class="sxs-lookup"><span data-stu-id="72ed7-107">ASP.NET Web API, Part 2: Getting Data</span></span>](getting-data.md)
+- [<span data-ttu-id="72ed7-108">ASP.NET Web API、パート 3: 削除および更新</span><span class="sxs-lookup"><span data-stu-id="72ed7-108">ASP.NET Web API, Part 3: Delete and Update</span></span>](delete-and-update.md)
+- [<span data-ttu-id="72ed7-109">ASP.NET Web API、パート 4: ページングと、クエリを実行する</span><span class="sxs-lookup"><span data-stu-id="72ed7-109">ASP.NET Web API, Part 4: Paging and Querying</span></span>](paging-and-querying.md)
+- [<span data-ttu-id="72ed7-110">ASP.NET Web API、パート 5: カスタム検証</span><span class="sxs-lookup"><span data-stu-id="72ed7-110">ASP.NET Web API, Part 5: Custom Validation</span></span>](custom-validation.md)
+- [<span data-ttu-id="72ed7-111">ASP.NET Web API、パート 6: 承認</span><span class="sxs-lookup"><span data-stu-id="72ed7-111">ASP.NET Web API, Part 6: Authorization</span></span>](authorization.md)
