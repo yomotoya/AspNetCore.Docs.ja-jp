@@ -26,8 +26,8 @@ ms.locfileid: "26508991"
 
 - [ASP.NET Web API](aspnet-web-api.md)
 - [ASP.NET Web API、パート 1: 最初 Web API](your-first-web-api.md)
-- [ASP.NET Web API、第 2 部: データの取得](getting-data.md)
+- [ASP.NET Web API、パート 2: データの取得](getting-data.md)
 - [ASP.NET Web API、パート 3: 削除および更新](delete-and-update.md)
-- [ページングと、クエリを実行する ASP.NET Web API、パート 4:](paging-and-querying.md)
+- [ASP.NET Web API、パート 4: ページングと、クエリを実行する](paging-and-querying.md)
 - [ASP.NET Web API、パート 5: カスタム検証](custom-validation.md)
 - [ASP.NET Web API、パート 6: 承認](authorization.md)
