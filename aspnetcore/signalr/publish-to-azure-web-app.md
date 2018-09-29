@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: b0126771a9ba3a28a7af14adf5b5959c7591e5fb
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a6a0e44f5c67fefdac6bd26b3772c23e75f8bfc1
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095295"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454727"
 ---
 # <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>発行、ASP.NET Core SignalR アプリケーションを Azure Web アプリ
 
@@ -23,7 +23,7 @@ ms.locfileid: "39095295"
 
 ## <a name="publish-the-app"></a>アプリの発行
 
-Visual Studio は、Azure Web App に発行のための組み込みのツールを提供します。 Visual Studio Code のユーザーが使用できる[Azure CLI](/cli/azure)アプリを Azure に発行するコマンド。 この記事では、Visual Studio でツールを使用して公開について説明します。 Azure CLI を使用してアプリを発行するを参照してください。[コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを発行](xref:tutorials/publish-to-azure-webapp-using-cli)します。
+Visual Studio は、Azure Web App に発行のための組み込みのツールを提供します。 Visual Studio Code のユーザーが使用できる[Azure CLI](/cli/azure)アプリを Azure に発行するコマンド。 この記事では、Visual Studio でツールを使用して公開について説明します。 Azure CLI を使用してアプリを発行するを参照してください。[コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを発行](/azure/app-service/app-service-web-get-started-dotnet)します。
 
 プロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**発行**します。 確認します**新規作成**がチェックイン、**発行先を選択**ダイアログ、および選択**発行**します。
 
@@ -63,6 +63,6 @@ Azure portal に移動します**アプリ設定**web アプリ。 設定**Webso
 
 ## <a name="related-resources"></a>関連資料
 
-* [コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを発行します。](xref:tutorials/publish-to-azure-webapp-using-cli?tabs=windows)
+* [コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを発行します。](/azure/app-service/app-service-web-get-started-dotnet)
 * [Visual Studio を使用した Azure への ASP.NET Core アプリを発行します。](xref:tutorials/publish-to-azure-webapp-using-vs)
 * [ホストし、Azure で ASP.NET Core プレビュー アプリを展開します。](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
