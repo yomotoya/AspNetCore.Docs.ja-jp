@@ -17,6 +17,6 @@ ms.locfileid: "41833397"
 ---
 <a name="aspnet-web-api"></a>ASP.NET Web API
 ====================
-によって[Scott Hanselman](https://github.com/shanselman)
+[Scott Hanselman](https://github.com/shanselman)による
 
 [&#9654;ビデオ (6 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-web-api)

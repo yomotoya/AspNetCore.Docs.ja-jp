@@ -1,4 +1,4 @@
----
+﻿---
 uid: web-api/videos/getting-started/index
 title: ASP.NET Web API の概要と取得は、ビデオを開始 |Microsoft ドキュメント
 author: rick-anderson
