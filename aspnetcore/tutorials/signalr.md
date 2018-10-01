@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8581628b3f0cf878b8cc1d0684046d22a8374af9
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 6f93d6dc664f68425ef0fa0d02f9011e4875bc33
+ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523221"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47402134"
 ---
 # <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>チュートリアル: ASP.NET Core 上で SignalR の使用を開始する
 
@@ -123,7 +123,7 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
 * 次のコマンドを実行して、LibMan を使用して SignalR クライアント ライブラリを取得します。 出力が表示されるまでに数秒待機する必要がある場合があります。
 
   ```console
-  libman install @aspnet/signalr -p unpkg -d wwwroot\lib\signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   パラメーターによって次のオプションが指定されます。
@@ -136,7 +136,7 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot\lib\signalr"
+  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
@@ -152,7 +152,7 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
 * 次のコマンドを実行して、LibMan を使用して SignalR クライアント ライブラリを取得します。
 
   ```console
-  libman install @aspnet/signalr -p unpkg -d wwwroot\lib\signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   パラメーターによって次のオプションが指定されます。
@@ -165,7 +165,7 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot\lib\signalr"
+  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
   ```
 
 ---

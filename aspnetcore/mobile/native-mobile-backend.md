@@ -5,12 +5,12 @@ description: ASP.NET Core MVC を使用してネイティブ モバイル アプ
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 27051cd3c4e2c3aa1ebf6d5510db4645651120e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3ebd30ad1ffbd66b256e7f3954a07d682f76a754
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276127"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230179"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>ASP.NET Core を使用してネイティブ モバイル アプリのバックエンド サービスを作成する
 
@@ -151,3 +151,7 @@ Postman を使用してテストするには、動詞を PUT に変更します�
 アプリのバックエンド サービスを開発する場合は、横断的な懸案事項を処理するための一連の規約やポリシーが必要になります。 たとえば、前述のサービスでは、見つからなかった特定のレコードに対する要求は、`BadRequest` 応答ではなく `NotFound` 応答を受け取りました。 同様に、モデルにバインドされた種類で渡されたこのサービスに対するコマンドは、常に `ModelState.IsValid` を確認し、無効なモデルの種類の場合に `BadRequest` を返していました。
 
 API の共通ポリシーを特定した場合、通常はそのポリシーを[フィルター](../mvc/controllers/filters.md)にカプセル化できます。 詳細については、[ASP.NET Core MVC アプリケーションで一般的な API ポリシーをカプセル化する方法](https://msdn.microsoft.com/magazine/mt767699.aspx)に関するページを参照してください。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [認証と承認](/xamarin/xamarin-forms/enterprise-application-patterns/authentication-and-authorization)
