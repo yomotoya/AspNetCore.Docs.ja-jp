@@ -17,7 +17,7 @@ ms.locfileid: "41827431"
 ---
 <a name="aspnet-web-api-part-6-authorization"></a>ASP.NET Web API、パート 6: 承認
 ====================
-によって[Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) による
 
 > [!NOTE]
 > このビデオには、ASP.NET Web API のリリース前のバージョンからの情報が含まれています。 変更点についてで更新済みサンプル コードを参照してください。 [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)

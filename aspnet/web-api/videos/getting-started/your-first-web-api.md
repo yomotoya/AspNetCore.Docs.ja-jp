@@ -17,7 +17,7 @@ ms.locfileid: "41836749"
 ---
 <a name="aspnet-web-api-part-1-your-first-web-api"></a>ASP.NET Web API、パート 1 です。 Web API の入門
 ====================
-によって[Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) による
 
 > [!NOTE]
 > このビデオには、ASP.NET Web API のリリース前のバージョンからの情報が含まれています。 変更点についてで更新済みサンプル コードを参照してください。 [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)
