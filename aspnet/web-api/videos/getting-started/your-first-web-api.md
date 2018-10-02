@@ -15,11 +15,11 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41836749"
 ---
-<a name="aspnet-web-api-part-1-your-first-web-api"></a><span data-ttu-id="57d09-103">ASP.NET Web API、パート 1 です。 Web API の入門</span><span class="sxs-lookup"><span data-stu-id="57d09-103">ASP.NET Web API, Part 1: Your First Web API</span></span>
+<a name="aspnet-web-api-part-1-your-first-web-api"></a><span data-ttu-id="5b9ac-103">ASP.NET Web API、パート 1 です。 Web API の入門</span><span class="sxs-lookup"><span data-stu-id="5b9ac-103">ASP.NET Web API, Part 1: Your First Web API</span></span>
 ====================
-<span data-ttu-id="57d09-104">によって[Jon Galloway](https://github.com/jongalloway)</span><span class="sxs-lookup"><span data-stu-id="57d09-104">by [Jon Galloway](https://github.com/jongalloway)</span></span>
+<span data-ttu-id="5b9ac-104">[Jon Galloway](https://github.com/jongalloway) による</span><span class="sxs-lookup"><span data-stu-id="5b9ac-104">by [Jon Galloway](https://github.com/jongalloway)</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="57d09-105">このビデオには、ASP.NET Web API のリリース前のバージョンからの情報が含まれています。</span><span class="sxs-lookup"><span data-stu-id="57d09-105">This video contains information from a pre-release version of ASP.NET Web API.</span></span> <span data-ttu-id="57d09-106">変更点についてで更新済みサンプル コードを参照してください。 [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)</span><span class="sxs-lookup"><span data-stu-id="57d09-106">For information on what changed, see the updated sample code at [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)</span></span>
+> <span data-ttu-id="5b9ac-105">このビデオには、ASP.NET Web API のリリース前のバージョンからの情報が含まれています。</span><span class="sxs-lookup"><span data-stu-id="5b9ac-105">This video contains information from a pre-release version of ASP.NET Web API.</span></span> <span data-ttu-id="5b9ac-106">変更点についてで更新済みサンプル コードを参照してください。 [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)</span><span class="sxs-lookup"><span data-stu-id="5b9ac-106">For information on what changed, see the updated sample code at [https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)</span></span>
 
-[<span data-ttu-id="57d09-107">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="57d09-107">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/your-first-web-api)
+[<span data-ttu-id="5b9ac-107">&#9654;ビデオ (3 分)</span><span class="sxs-lookup"><span data-stu-id="5b9ac-107">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/your-first-web-api)

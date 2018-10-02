@@ -15,8 +15,8 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41833397"
 ---
-<a name="aspnet-web-api"></a><span data-ttu-id="0589a-103">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="0589a-103">ASP.NET Web API</span></span>
+<a name="aspnet-web-api"></a><span data-ttu-id="66e79-103">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="66e79-103">ASP.NET Web API</span></span>
 ====================
-<span data-ttu-id="0589a-104">によって[Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="0589a-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="66e79-104">[Scott Hanselman](https://github.com/shanselman)による</span><span class="sxs-lookup"><span data-stu-id="66e79-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="0589a-105">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="0589a-105">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-web-api)
+[<span data-ttu-id="66e79-105">&#9654;ビデオ (6 分)</span><span class="sxs-lookup"><span data-stu-id="66e79-105">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-web-api)
