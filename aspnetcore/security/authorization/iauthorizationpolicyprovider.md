@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: e3a534d3c3da5af4cfd3f72d105fac83e15135f0
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: fdd8f9232c4332aa8307b9dbdfba6af48dfafa72
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41839038"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045498"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>ASP.NET Core で IAuthorizationPolicyProvider を使用してカスタム承認ポリシー プロバイダー 
 
@@ -151,7 +151,7 @@ public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
 * カスタム登録`IAuthorizationPolicyProvider`アプリの依存関係注入サービス コレクション内の型 (で`Startup.ConfigureServices`) を既定のポリシー プロバイダーを置き換えます。
 
 ```csharp
-services.AddTransient<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
+services.AddSingleton<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
 完全なカスタム`IAuthorizationPolicyProvider`サンプルは、 [aspnet/AuthSamples GitHub リポジトリ](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider)します。

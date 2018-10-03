@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Id を使用します。 パスワ�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: ca83d07f7d93bd0cc61cd17cc373096b8e6aa2e1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010976"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860954"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core Identity の概要
 
@@ -45,7 +45,7 @@ Id は、ユーザー名、パスワード、およびプロファイル デー�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。 
+* **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。
 * **[ASP.NET Core Web アプリケーション]** を選択します。 プロジェクトに名前を**WebApp1**にプロジェクトのダウンロードとして同じ名前空間。 **[OK]** をクリックします。
 * ASP.NET Core を選択します。 **Web アプリケーション**ASP.NET Core 2.1 では、を選択し、**認証の変更**します。
 * 選択**個々 のユーザー アカウント** をクリック**OK**します。
@@ -119,15 +119,12 @@ dotnet new webapp --auth Individual -o WebApp1
 
 登録、ログイン、ログアウト ファイルを追加します。
 
-
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 名前のプロジェクトを作成する場合**WebApp1**、次のコマンドを実行します。 それ以外の場合、正しい名前空間を使用して、 `ApplicationDbContext`:
 
-
 ```cli
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
-
 ```
 
 PowerShell では、コマンドの区切り記号としてセミコロンを使用します。 PowerShell を使用する場合は、ファイルの一覧でセミコロンをエスケープまたはファイルのリストを前の例のように、二重引用符に配置します。
@@ -163,7 +160,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 ログイン フォームが表示されるとき。
 
 * **ログイン** リンクを選択します。
-* ユーザーがいないに認証されるページにアクセスするときに**または**承認されると、ログイン ページにリダイレクトされます。 
+* ユーザーがいないに認証されるページにアクセスするときに**または**承認されると、ログイン ページにリダイレクトされます。
 
 ログイン ページのフォームが送信されたときに、`OnPostAsync`アクションが呼び出されます。 `PasswordSignInAsync` 呼び出される、 `_signInManager` (依存関係の挿入によって提供される) オブジェクト。
 
@@ -254,7 +251,6 @@ Identity をさらに詳しく調査。
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
 * <xref:security/authentication/identity-enable-qrcodes>
-* [Id の主キーのデータ型を構成する](xref:security/authentication/identity-primary-key-configuration)します。
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>

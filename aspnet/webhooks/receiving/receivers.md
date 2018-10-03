@@ -6,12 +6,12 @@ description: ASP.NET Webhook レシーバー
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.openlocfilehash: 376cb3e3fdc0bc7bd248da1f57e1064fb27b3cef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d771a588b23abcd7b1b33e694af17b219683fc48
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826040"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860915"
 ---
 # <a name="aspnet-webhooks-receivers"></a>ASP.NET Webhook レシーバー
 
@@ -33,7 +33,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 セキュリティ上の理由から、多くの WebHook レシーバーことが要求 URI、 *https* URI によっても含める必要があります、意図したパーティは上記の URI に Webhook を送信することができますのみを適用するために使用する追加のクエリ パラメーターと.
 
-<em> <receiver> </em>コンポーネントは、受信者の名前、たとえば<em>github</em>または<em>slack</em>します。
+`<receiver>`コンポーネントは、受信者の名前、たとえば`github`または`slack`します。
 
 *{Id}* 特定の WebHook レシーバー構成を識別するために使用できる省略可能な識別子です。 特定の受信側に n 個の Webhook を登録するために使用できます。 たとえば、次の 3 つの独立した Webhook を登録する次の 3 つの Uri を使用できます。
 
