@@ -1,5 +1,5 @@
 ---
-title: ASP.NET core Identity の概要
+title: ASP.NET Core Identity の概要
 author: rick-anderson
 description: ASP.NET Core アプリでは、Id を使用します。 パスワードの要件 (RequireDigit、RequiredLength、RequiredUniqueChars など) を設定する方法について説明します。
 ms.author: riande
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/01/2018
 ms.locfileid: "47860954"
 ---
-# <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core Identity の概要
+# <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core Identity の概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
