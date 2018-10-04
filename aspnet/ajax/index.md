@@ -19,7 +19,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
 ms.locfileid: "26496091"
 ---
-<a name="aspnet-ajax--enhanced-interactivity-and-responsiveness"></a>ASP.NET Ajax: 対話機能を拡張し、応答性
+<a name="aspnet-ajax--enhanced-interactivity-and-responsiveness"></a>ASP.NET Ajax: インタラクティブ性と応答性の強化
 ====================
 - [AJAX コントロールのツールキット](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_ASP_AJAX_Index.aspx)
 - [jQuery](http://jquery.com/)
