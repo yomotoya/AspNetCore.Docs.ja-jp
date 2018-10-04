@@ -1,27 +1,23 @@
 ---
 uid: web-forms/videos/net-4/seo/index
-title: SEO |Microsoft ドキュメント
+title: SEO |Microsoft Docs
 author: rick-anderson
 description: このビデオでは、検索エンジン最適化 (SEO) ASP.NET 4 の新機能について説明します。
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 5462f2d0-e9de-45e4-8c8e-6110d62aaccc
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/seo
 msc.type: chapter
-ms.openlocfilehash: a16311736d8d051b05b4f9e9ea00a47dc502db20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 69862430a2e28d1df0af7f4711eb96acfa8c51bd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525541"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255832"
 ---
-<a name="seo"></a><span data-ttu-id="68021-103">SEO</span><span class="sxs-lookup"><span data-stu-id="68021-103">SEO</span></span>
+<a name="seo"></a><span data-ttu-id="93458-103">SEO</span><span class="sxs-lookup"><span data-stu-id="93458-103">SEO</span></span>
 ====================
-> <span data-ttu-id="68021-104">このビデオでは、検索エンジン最適化 (SEO) ASP.NET 4 の新機能について説明します。</span><span class="sxs-lookup"><span data-stu-id="68021-104">This video describes new features for Search Engine Optimization (SEO) in ASP.NET 4.</span></span>
+> <span data-ttu-id="93458-104">このビデオでは、検索エンジン最適化 (SEO) ASP.NET 4 の新機能について説明します。</span><span class="sxs-lookup"><span data-stu-id="93458-104">This video describes new features for Search Engine Optimization (SEO) in ASP.NET 4.</span></span>
 
 
-- [<span data-ttu-id="68021-105">動的メタデータ</span><span class="sxs-lookup"><span data-stu-id="68021-105">Dynamic Metadata</span></span>](aspnet-4-quick-hit-dynamic-metadata.md)
+- [<span data-ttu-id="93458-105">動的メタデータ</span><span class="sxs-lookup"><span data-stu-id="93458-105">Dynamic Metadata</span></span>](aspnet-4-quick-hit-dynamic-metadata.md)

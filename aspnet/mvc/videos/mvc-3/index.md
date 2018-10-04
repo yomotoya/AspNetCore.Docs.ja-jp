@@ -1,28 +1,24 @@
 ---
 uid: mvc/videos/mvc-3/index
-title: ASP.NET MVC 3 |Microsoft ドキュメント
+title: ASP.NET MVC 3 |Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 3 のクイック ヒット数
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: b3384347-2f88-4fb4-a775-7b96bf88b9d8
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-3
 msc.type: chapter
-ms.openlocfilehash: e5388ba664e50bd3786b1ce3f923f20dfab80972
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: bd024be3a9aa7152378b1e78d76ac2f05e65f0c7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503531"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255905"
 ---
-<a name="aspnet-mvc-3"></a><span data-ttu-id="7860f-103">ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="7860f-103">ASP.NET MVC 3</span></span>
+<a name="aspnet-mvc-3"></a><span data-ttu-id="e8fbb-103">ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="e8fbb-103">ASP.NET MVC 3</span></span>
 ====================
-> <span data-ttu-id="7860f-104">ASP.NET MVC 3 のクイック ヒット数</span><span class="sxs-lookup"><span data-stu-id="7860f-104">ASP.NET MVC 3 Quick Hits</span></span>
+> <span data-ttu-id="e8fbb-104">ASP.NET MVC 3 のクイック ヒット数</span><span class="sxs-lookup"><span data-stu-id="e8fbb-104">ASP.NET MVC 3 Quick Hits</span></span>
 
 
-- [<span data-ttu-id="7860f-105">MVC 3 の Razor ビュー エンジン</span><span class="sxs-lookup"><span data-stu-id="7860f-105">MVC 3 - Razor View Engine</span></span>](mvc-3-razor-view-engine.md)
-- [<span data-ttu-id="7860f-106">MVC 3 の Razor ヘルパー</span><span class="sxs-lookup"><span data-stu-id="7860f-106">MVC 3 - Razor Helpers</span></span>](mvc-3-razor-helpers.md)
+- [<span data-ttu-id="e8fbb-105">MVC 3 - Razor ビュー エンジン</span><span class="sxs-lookup"><span data-stu-id="e8fbb-105">MVC 3 - Razor View Engine</span></span>](mvc-3-razor-view-engine.md)
+- [<span data-ttu-id="e8fbb-106">MVC 3 - Razor ヘルパー</span><span class="sxs-lookup"><span data-stu-id="e8fbb-106">MVC 3 - Razor Helpers</span></span>](mvc-3-razor-helpers.md)

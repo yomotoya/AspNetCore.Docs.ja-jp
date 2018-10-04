@@ -1,28 +1,24 @@
 ---
 uid: signalr/overview/deployment/index
-title: SignalR の展開とホスト |Microsoft ドキュメント
+title: SignalR のデプロイとホスティング |Microsoft Docs
 author: rick-anderson
-description: 展開する方法、および SignalR アプリケーションをホストします。
-ms.author: aspnetcontent
-manager: wpickett
+description: デプロイする方法と SignalR アプリケーションをホストします。
+ms.author: riande
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: 62482bdd-e2a4-46e5-b909-6d0c6bc07114
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: 8c018a2fe92c90e3264326116cb4b21a0070bff4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: df56c36ba757192169fa6aac0fa48a120dfc717c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26504071"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256153"
 ---
-<a name="signalr-deployment-and-hosting"></a><span data-ttu-id="c84ed-103">SignalR の展開とホスト</span><span class="sxs-lookup"><span data-stu-id="c84ed-103">SignalR Deployment and Hosting</span></span>
+<a name="signalr-deployment-and-hosting"></a><span data-ttu-id="42f3d-103">SignalR のデプロイとホスティング</span><span class="sxs-lookup"><span data-stu-id="42f3d-103">SignalR Deployment and Hosting</span></span>
 ====================
-> <span data-ttu-id="c84ed-104">展開する方法、および SignalR アプリケーションをホストします。</span><span class="sxs-lookup"><span data-stu-id="c84ed-104">How to deploy and host SignalR applications.</span></span>
+> <span data-ttu-id="42f3d-104">デプロイする方法と SignalR アプリケーションをホストします。</span><span class="sxs-lookup"><span data-stu-id="42f3d-104">How to deploy and host SignalR applications.</span></span>
 
 
-- [<span data-ttu-id="c84ed-105">チュートリアル: SignalR の自己ホスト</span><span class="sxs-lookup"><span data-stu-id="c84ed-105">Tutorial: SignalR Self-Host</span></span>](tutorial-signalr-self-host.md)
-- [<span data-ttu-id="c84ed-106">Azure App Service で Web アプリを使用して SignalR を使用します。</span><span class="sxs-lookup"><span data-stu-id="c84ed-106">Using SignalR with Web Apps in Azure App Service</span></span>](using-signalr-with-azure-web-sites.md)
+- [<span data-ttu-id="42f3d-105">チュートリアル: SignalR セルフホスト</span><span class="sxs-lookup"><span data-stu-id="42f3d-105">Tutorial: SignalR Self-Host</span></span>](tutorial-signalr-self-host.md)
+- [<span data-ttu-id="42f3d-106">Azure App Service の Web アプリで SignalR を使用する</span><span class="sxs-lookup"><span data-stu-id="42f3d-106">Using SignalR with Web Apps in Azure App Service</span></span>](using-signalr-with-azure-web-sites.md)

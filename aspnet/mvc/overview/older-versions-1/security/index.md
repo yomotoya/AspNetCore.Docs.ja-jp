@@ -1,32 +1,28 @@
 ---
 uid: mvc/overview/older-versions-1/security/index
-title: セキュリティ |Microsoft ドキュメント
+title: セキュリティ |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルは、カバーを設定する方法をパスワード保護する一部のページを ASP.NET MVC アプリケーションに作成し、ユーザーおよびロールを管理する方法です。
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルの設定ではどのようにパスワードを作成し、ユーザーとロールの管理方法と、ASP.NET MVC アプリケーションの一部のページで保護します。
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 346c6b44-0ff4-49af-ac94-6e74d952b4eb
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security
 msc.type: chapter
-ms.openlocfilehash: 827802db011995cb8728f51d5c967e50669045e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: d2579a917e9f83fbc16a649d37bcf23d4324e3dd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26500651"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254957"
 ---
-<a name="security"></a><span data-ttu-id="a7739-103">セキュリティ</span><span class="sxs-lookup"><span data-stu-id="a7739-103">Security</span></span>
+<a name="security"></a><span data-ttu-id="e5b96-103">セキュリティ</span><span class="sxs-lookup"><span data-stu-id="e5b96-103">Security</span></span>
 ====================
-> <span data-ttu-id="a7739-104">このチュートリアルは、カバーを設定する方法をパスワード保護する一部のページを ASP.NET MVC アプリケーションに作成し、ユーザーおよびロールを管理する方法です。</span><span class="sxs-lookup"><span data-stu-id="a7739-104">This tutorial set covers how to password protect some pages in your ASP.NET MVC application and how to create and manage users and roles.</span></span>
+> <span data-ttu-id="e5b96-104">このチュートリアルの設定ではどのようにパスワードを作成し、ユーザーとロールの管理方法と、ASP.NET MVC アプリケーションの一部のページで保護します。</span><span class="sxs-lookup"><span data-stu-id="e5b96-104">This tutorial set covers how to password protect some pages in your ASP.NET MVC application and how to create and manage users and roles.</span></span>
 
 
-- [<span data-ttu-id="a7739-105">フォーム認証 (c#) でユーザーの認証</span><span class="sxs-lookup"><span data-stu-id="a7739-105">Authenticating Users with Forms Authentication (C#)</span></span>](authenticating-users-with-forms-authentication-cs.md)
-- [<span data-ttu-id="a7739-106">Windows 認証 (c#) を使用してユーザーを認証</span><span class="sxs-lookup"><span data-stu-id="a7739-106">Authenticating Users with Windows Authentication (C#)</span></span>](authenticating-users-with-windows-authentication-cs.md)
-- [<span data-ttu-id="a7739-107">JavaScript インジェクション攻撃の防止 (c#)</span><span class="sxs-lookup"><span data-stu-id="a7739-107">Preventing JavaScript Injection Attacks (C#)</span></span>](preventing-javascript-injection-attacks-cs.md)
-- [<span data-ttu-id="a7739-108">フォーム認証 (VB) でユーザーの認証</span><span class="sxs-lookup"><span data-stu-id="a7739-108">Authenticating Users with Forms Authentication (VB)</span></span>](authenticating-users-with-forms-authentication-vb.md)
-- [<span data-ttu-id="a7739-109">Windows 認証 (VB) を使用してユーザーを認証</span><span class="sxs-lookup"><span data-stu-id="a7739-109">Authenticating Users with Windows Authentication (VB)</span></span>](authenticating-users-with-windows-authentication-vb.md)
-- [<span data-ttu-id="a7739-110">JavaScript インジェクション攻撃 (VB) の防止</span><span class="sxs-lookup"><span data-stu-id="a7739-110">Preventing JavaScript Injection Attacks (VB)</span></span>](preventing-javascript-injection-attacks-vb.md)
+- [<span data-ttu-id="e5b96-105">フォーム認証でユーザーを認証する (C#)</span><span class="sxs-lookup"><span data-stu-id="e5b96-105">Authenticating Users with Forms Authentication (C#)</span></span>](authenticating-users-with-forms-authentication-cs.md)
+- [<span data-ttu-id="e5b96-106">Windows 認証でユーザーを認証する (C#)</span><span class="sxs-lookup"><span data-stu-id="e5b96-106">Authenticating Users with Windows Authentication (C#)</span></span>](authenticating-users-with-windows-authentication-cs.md)
+- [<span data-ttu-id="e5b96-107">JavaScript インジェクション攻撃を防ぐ (C#)</span><span class="sxs-lookup"><span data-stu-id="e5b96-107">Preventing JavaScript Injection Attacks (C#)</span></span>](preventing-javascript-injection-attacks-cs.md)
+- [<span data-ttu-id="e5b96-108">フォーム認証でユーザーを認証する (VB)</span><span class="sxs-lookup"><span data-stu-id="e5b96-108">Authenticating Users with Forms Authentication (VB)</span></span>](authenticating-users-with-forms-authentication-vb.md)
+- [<span data-ttu-id="e5b96-109">Windows 認証でユーザーを認証する (VB)</span><span class="sxs-lookup"><span data-stu-id="e5b96-109">Authenticating Users with Windows Authentication (VB)</span></span>](authenticating-users-with-windows-authentication-vb.md)
+- [<span data-ttu-id="e5b96-110">JavaScript インジェクション攻撃を防ぐ (VB)</span><span class="sxs-lookup"><span data-stu-id="e5b96-110">Preventing JavaScript Injection Attacks (VB)</span></span>](preventing-javascript-injection-attacks-vb.md)

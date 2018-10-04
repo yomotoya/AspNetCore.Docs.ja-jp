@@ -1,37 +1,33 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/index
-title: ASP.NET 4 - エンタープライズ展開シリーズ 2 サーバーの設定 |Microsoft ドキュメント
+title: ASP.NET 4 - エンタープライズ展開シリーズ 2 の構成サーバー |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、1 回のクリック、または自動のサポート、web サイトを展開し、さまざまな異なるシナリオで発行するサーバー環境を設定する方法を説明しています.
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルでは、1 回のクリック、または自動のサポート、web サイトの配置、およびさまざまな異なるシナリオで発行するサーバー環境を設定する方法を説明しています.
+ms.author: riande
 ms.date: 05/16/2012
-ms.topic: article
 ms.assetid: 489b414b-2322-4385-8638-04e08c0b6c90
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 48281541d8337daf9cf252bc4601c8b1e75fd398
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 559718b0ddb4ffc892ea166c7c3a4dfaf36e3691
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26515231"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256049"
 ---
-<a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a><span data-ttu-id="2c4ea-103">ASP.NET 4 - エンタープライズ展開シリーズ 2 サーバーの設定</span><span class="sxs-lookup"><span data-stu-id="2c4ea-103">ASP.NET 4 - Enterprise Deployment Series 2 Configuring Servers</span></span>
+<a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a><span data-ttu-id="5dfc0-103">ASP.NET 4 - エンタープライズ展開シリーズ 2 の構成サーバー</span><span class="sxs-lookup"><span data-stu-id="5dfc0-103">ASP.NET 4 - Enterprise Deployment Series 2 Configuring Servers</span></span>
 ====================
-> <span data-ttu-id="2c4ea-104">このチュートリアルでは、サーバー環境に 1 回のクリック、または自動のサポート、web サイトを展開およびさまざまなさまざまなシナリオでの発行を設定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="2c4ea-104">This tutorial will show you how to set up server environments to support one-click, or automated, website deployment and publishing in various different scenarios.</span></span>
+> <span data-ttu-id="5dfc0-104">このチュートリアルでは、1 回のクリック、または自動のサポート、web サイトの配置、およびさまざまなさまざまなシナリオで発行するサーバー環境を設定する方法を説明します。</span><span class="sxs-lookup"><span data-stu-id="5dfc0-104">This tutorial will show you how to set up server environments to support one-click, or automated, website deployment and publishing in various different scenarios.</span></span>
 
 
-- [<span data-ttu-id="2c4ea-105">Web 配置のサーバー環境の構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-105">Configuring Server Environments for Web Deployment</span></span>](configuring-server-environments-for-web-deployment.md)
-- [<span data-ttu-id="2c4ea-106">Web 配置の適切なアプローチを選択します。</span><span class="sxs-lookup"><span data-stu-id="2c4ea-106">Choosing the Right Approach to Web Deployment</span></span>](choosing-the-right-approach-to-web-deployment.md)
-- [<span data-ttu-id="2c4ea-107">シナリオ: Web 配置用のテスト環境の構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-107">Scenario: Configuring a Test Environment for Web Deployment</span></span>](scenario-configuring-a-test-environment-for-web-deployment.md)
-- [<span data-ttu-id="2c4ea-108">シナリオ: Web 配置用のステージング環境の構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-108">Scenario: Configuring a Staging Environment for Web Deployment</span></span>](scenario-configuring-a-staging-environment-for-web-deployment.md)
-- [<span data-ttu-id="2c4ea-109">シナリオ: Web 配置用の実稼働環境の構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-109">Scenario: Configuring a Production Environment for Web Deployment</span></span>](scenario-configuring-a-production-environment-for-web-deployment.md)
-- [<span data-ttu-id="2c4ea-110">Web デプロイの発行 (リモート エージェント) 用の Web サーバーの構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-110">Configuring a Web Server for Web Deploy Publishing (Remote Agent)</span></span>](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-- [<span data-ttu-id="2c4ea-111">デプロイの発行設定 Web 用 Web サーバーの構成 (Web Deploy ハンドラー)</span><span class="sxs-lookup"><span data-stu-id="2c4ea-111">Configuring a Web Server for Web Deploy Publishing (Web Deploy Handler)</span></span>](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-- [<span data-ttu-id="2c4ea-112">Web デプロイの発行 (オフライン展開) 用の Web サーバーの構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-112">Configuring a Web Server for Web Deploy Publishing (Offline Deployment)</span></span>](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-- [<span data-ttu-id="2c4ea-113">Web デプロイの発行用のデータベース サーバーの構成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-113">Configuring a Database Server for Web Deploy Publishing</span></span>](configuring-a-database-server-for-web-deploy-publishing.md)
-- [<span data-ttu-id="2c4ea-114">Web Farm Framework によるサーバー ファームの作成</span><span class="sxs-lookup"><span data-stu-id="2c4ea-114">Creating a Server Farm with the Web Farm Framework</span></span>](creating-a-server-farm-with-the-web-farm-framework.md)
-- [<span data-ttu-id="2c4ea-115">ターゲット環境の展開のプロパティを構成します。</span><span class="sxs-lookup"><span data-stu-id="2c4ea-115">Configuring Deployment Properties for a Target Environment</span></span>](configuring-deployment-properties-for-a-target-environment.md)
+- [<span data-ttu-id="5dfc0-105">Web 展開のサーバー環境を構成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-105">Configuring Server Environments for Web Deployment</span></span>](configuring-server-environments-for-web-deployment.md)
+- [<span data-ttu-id="5dfc0-106">適切な Web 展開手法を選択する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-106">Choosing the Right Approach to Web Deployment</span></span>](choosing-the-right-approach-to-web-deployment.md)
+- [<span data-ttu-id="5dfc0-107">シナリオ: Web 展開のテスト環境を構成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-107">Scenario: Configuring a Test Environment for Web Deployment</span></span>](scenario-configuring-a-test-environment-for-web-deployment.md)
+- [<span data-ttu-id="5dfc0-108">シナリオ: Web 展開のステージング環境を構成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-108">Scenario: Configuring a Staging Environment for Web Deployment</span></span>](scenario-configuring-a-staging-environment-for-web-deployment.md)
+- [<span data-ttu-id="5dfc0-109">シナリオ: Web 展開の運用環境を構成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-109">Scenario: Configuring a Production Environment for Web Deployment</span></span>](scenario-configuring-a-production-environment-for-web-deployment.md)
+- [<span data-ttu-id="5dfc0-110">Web 配置発行の Web サーバーを構成する (リモート エージェント)</span><span class="sxs-lookup"><span data-stu-id="5dfc0-110">Configuring a Web Server for Web Deploy Publishing (Remote Agent)</span></span>](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+- [<span data-ttu-id="5dfc0-111">Web 配置発行の Web サーバーを構成する (Web 配置ハンドラー)</span><span class="sxs-lookup"><span data-stu-id="5dfc0-111">Configuring a Web Server for Web Deploy Publishing (Web Deploy Handler)</span></span>](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+- [<span data-ttu-id="5dfc0-112">Web 配置発行の Web サーバーを構成する (オフライン展開)</span><span class="sxs-lookup"><span data-stu-id="5dfc0-112">Configuring a Web Server for Web Deploy Publishing (Offline Deployment)</span></span>](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+- [<span data-ttu-id="5dfc0-113">Web 配置発行のデータベース サーバーを構成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-113">Configuring a Database Server for Web Deploy Publishing</span></span>](configuring-a-database-server-for-web-deploy-publishing.md)
+- [<span data-ttu-id="5dfc0-114">Web Farm Framework でサーバー ファームを作成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-114">Creating a Server Farm with the Web Farm Framework</span></span>](creating-a-server-farm-with-the-web-farm-framework.md)
+- [<span data-ttu-id="5dfc0-115">ターゲット環境の展開プロパティを構成する</span><span class="sxs-lookup"><span data-stu-id="5dfc0-115">Configuring Deployment Properties for a Target Environment</span></span>](configuring-deployment-properties-for-a-target-environment.md)

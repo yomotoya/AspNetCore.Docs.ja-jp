@@ -1,28 +1,24 @@
 ---
 uid: mvc/overview/older-versions-1/deployment/index
-title: 展開 |Microsoft ドキュメント
+title: 展開 |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、ASP.NET MVC と IIS の別のバージョンとルーティングを使用する方法を学習します。
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルでは、ASP.NET MVC と別のバージョンの IIS でのルーティングを使用する方法について説明します。
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 1e9204db-664c-4376-aa50-1fb9e245a4d9
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment
 msc.type: chapter
-ms.openlocfilehash: bc88ac685e9d776b7cbf4ffd6e15231e4a932de2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f6ad66f93e0bc4efbd85c2d0b25ff70eef9deee0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26499671"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255307"
 ---
-<a name="deployment"></a><span data-ttu-id="c11ce-103">配置</span><span class="sxs-lookup"><span data-stu-id="c11ce-103">Deployment</span></span>
+<a name="deployment"></a><span data-ttu-id="71bad-103">配置</span><span class="sxs-lookup"><span data-stu-id="71bad-103">Deployment</span></span>
 ====================
-> <span data-ttu-id="c11ce-104">このチュートリアルでは、ASP.NET MVC と IIS の別のバージョンとルーティングを使用する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="c11ce-104">In this tutorial you learn how to use ASP.NET MVC and routing with different versions of IIS.</span></span>
+> <span data-ttu-id="71bad-104">このチュートリアルでは、ASP.NET MVC と別のバージョンの IIS でのルーティングを使用する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="71bad-104">In this tutorial you learn how to use ASP.NET MVC and routing with different versions of IIS.</span></span>
 
 
-- [<span data-ttu-id="c11ce-105">ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#)</span><span class="sxs-lookup"><span data-stu-id="c11ce-105">Using ASP.NET MVC with Different Versions of IIS (C#)</span></span>](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
-- [<span data-ttu-id="c11ce-106">別のバージョンの IIS (VB) での ASP.NET MVC の使用</span><span class="sxs-lookup"><span data-stu-id="c11ce-106">Using ASP.NET MVC with Different Versions of IIS (VB)</span></span>](using-asp-net-mvc-with-different-versions-of-iis-vb.md)
+- [<span data-ttu-id="71bad-105">さまざまなバージョンの IIS と共に ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="71bad-105">Using ASP.NET MVC with Different Versions of IIS (C#)</span></span>](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+- [<span data-ttu-id="71bad-106">さまざまなバージョンの IIS と共に ASP.NET MVC (VB)</span><span class="sxs-lookup"><span data-stu-id="71bad-106">Using ASP.NET MVC with Different Versions of IIS (VB)</span></span>](using-asp-net-mvc-with-different-versions-of-iis-vb.md)

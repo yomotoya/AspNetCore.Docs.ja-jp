@@ -1,29 +1,25 @@
 ---
 uid: visual-studio/index
-title: Visual Studio 2012 および 2013 with ASP.NET |Microsoft ドキュメント
+title: Visual Studio 2012 および 2013 ASP.NET with |Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 06/25/2013
-ms.topic: article
 ms.assetid: 7356f644-2b54-4d9f-8863-9d59b9f75532
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio
 msc.type: categoryindex
-ms.openlocfilehash: 8e6d239b9774436dd0c662c559aab562ad703638
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 563381b3594f873d681bc1a48205167047210948
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506441"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256004"
 ---
-# <a name="visual-studio-2012-and-2013-with-aspnet"></a><span data-ttu-id="f8968-102">Visual Studio 2012 および 2013 with ASP.NET</span><span class="sxs-lookup"><span data-stu-id="f8968-102">Visual Studio 2012 and 2013 with ASP.NET</span></span>
+# <a name="visual-studio-2012-and-2013-with-aspnet"></a><span data-ttu-id="623be-102">Visual Studio 2012 および 2013 with ASP.NET</span><span class="sxs-lookup"><span data-stu-id="623be-102">Visual Studio 2012 and 2013 with ASP.NET</span></span>
 
-<span data-ttu-id="f8968-103">Visual Studio に関する最新情報についてに移動[visualstudio.com](https://www.visualstudio.com)です。</span><span class="sxs-lookup"><span data-stu-id="f8968-103">For current information about Visual Studio, go to [visualstudio.com](https://www.visualstudio.com).</span></span>
+<span data-ttu-id="623be-103">Visual Studio については現在を参照してください[visualstudio.com](https://www.visualstudio.com)します。</span><span class="sxs-lookup"><span data-stu-id="623be-103">For current information about Visual Studio, go to [visualstudio.com](https://www.visualstudio.com).</span></span>
 
-<span data-ttu-id="f8968-104">次のページは、ASP.NET で古いバージョンの Visual Studio を使用する方法に関する情報にリンクします。</span><span class="sxs-lookup"><span data-stu-id="f8968-104">The following pages link to information about how to use older versions of Visual Studio with ASP.NET.</span></span>
+<span data-ttu-id="623be-104">次のページは、ASP.NET を使用した古いバージョンの Visual Studio を使用する方法についての情報をリンクします。</span><span class="sxs-lookup"><span data-stu-id="623be-104">The following pages link to information about how to use older versions of Visual Studio with ASP.NET.</span></span>
 
-- [<span data-ttu-id="f8968-105">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="f8968-105">Visual Studio 2013</span></span>](overview/2013/index.md)
-- [<span data-ttu-id="f8968-106">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="f8968-106">Visual Studio 2012</span></span>](overview/2012/index.md)
+- [<span data-ttu-id="623be-105">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="623be-105">Visual Studio 2013</span></span>](overview/2013/index.md)
+- [<span data-ttu-id="623be-106">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="623be-106">Visual Studio 2012</span></span>](overview/2012/index.md)
