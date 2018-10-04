@@ -8,16 +8,16 @@ ms.date: 02/20/2013
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d5d055d90b263050ef6defa1b98b139c4f8e4dee
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a45b0ad2b61c2b78f7f06e85fe5e92193d73041d
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829271"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577510"
 ---
 <a name="windows-azure-authentication"></a>Windows Azure の認証
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Windows Azure Active Directory でホストされている web アプリケーションの認証を有効にする単純な用のツールは Microsoft ASP.NET [Windows Azure Websites](https://www.windowsazure.com/home/features/web-sites/)します。 Windows Azure の認証を使用して、組織、オンプレミスの Active Directory から同期された会社のアカウントまたはカスタムの Windows Azure Active Directory ドメインで作成されたユーザーから Office 365 ユーザーを認証することができます。 Windows Azure Authentication を有効にすると、1 つを使用してユーザーを認証するアプリケーションを構成します[Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナント。
 > 

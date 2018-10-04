@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: 3a01c2d572c0026944347f736f9658a7872e6c35
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028285"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578147"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core で応答の圧縮
 
@@ -150,9 +150,21 @@ public class Startup
 
 ![Fiddler のウィンドウが Accept-encoding ヘッダーなしの要求の結果を表示します。 応答は圧縮されません。](response-compression/_static/request-uncompressed.png)
 
+::: moniker range=">= aspnetcore-2.2"
+
+使ってサンプル アプリに要求を送信、`Accept-Encoding: br`ヘッダー (Brotli 圧縮) し、応答を圧縮することを確認します。 `Content-Encoding`と`Vary`ヘッダーが応答に存在します。
+
+![Accept-encoding ヘッダーで要求の結果と br の値を示す fiddler ウィンドウ。 Vary と Content-encoding ヘッダーは、応答に追加されます。 応答を圧縮します。](response-compression/_static/request-compressed-br.png)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 使ってサンプル アプリに要求を送信、`Accept-Encoding: gzip`ヘッダー応答を圧縮することを確認します。 `Content-Encoding`と`Vary`ヘッダーが応答に存在します。
 
 ![Accept-encoding ヘッダーで要求の結果と gzip の値を示す fiddler ウィンドウ。 Vary と Content-encoding ヘッダーは、応答に追加されます。 応答を圧縮します。](response-compression/_static/request-compressed.png)
+
+::: moniker-end
 
 ## <a name="providers"></a>プロバイダー
 

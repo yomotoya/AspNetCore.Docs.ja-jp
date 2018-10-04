@@ -8,16 +8,16 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: a3cb2414775b2c29617296dcf0c2dc5729153cdd
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8b82b8b9b1ee6646072931da889c643afb34d474
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832798"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578160"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > コード サンプルで、このチュートリアルの MVC 5 バージョンがないようになりました[ASP.NET MVC 5 モバイル Web アプリケーションを Azure Websites をデプロイ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/)します。
 

@@ -8,16 +8,16 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: cec29e27e834317661f80eed93cb8b81a0786644
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f4dae827627103e5cfb9981b6c3b9342cdc34c13
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838630"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578004"
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視とテレメトリ (Azure で現実世界のクラウド アプリの構築)
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://github.com/Rick-Anderson)、 [Tom Dykstra](https://github.com/tdykstra)
+によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -29,7 +29,7 @@ ms.locfileid: "41838630"
 ## <a name="buy-or-rent-a-telemetry-solution"></a>新規購入またはレンタル テレメトリ ソリューション
 
 > [!NOTE]
-> この記事では、以前に書かれました[Application Insights](https://azure.microsoft.com/services/application-insights/)リリースされました。 Application Insights は、Azure での製品利用統計情報ソリューションに対して推奨されるアプローチです。 参照してください[ASP.NET web サイトの Application Insights を設定](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net)詳細についてはします。
+> この記事では、以前に書かれました[Application Insights](/azure/application-insights/app-insights-overview)リリースされました。 Application Insights は、Azure での製品利用統計情報ソリューションに対して推奨されるアプローチです。 参照してください[ASP.NET web サイトの Application Insights を設定](/azure/application-insights/app-insights-asp-net)詳細についてはします。
 
 
 クラウド環境に関する優れた点の 1 つは、購入またはレンタル勝利に非常に簡単であります。 製品利用統計情報は、例を示します。 多大な労力なし、非常に低コストで、実行中に本当に適切なテレメトリ システムを取得できます。 一連の Azure と統合される優れたパートナーがあり、無料のプランがある一部の何もの基本的なテレメトリを取得できます。 ここで、のほんの一部現在利用 on Azure:
@@ -38,7 +38,7 @@ ms.locfileid: "41838630"
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-2015 年 3 月の時点で[for Visual Studio Online、Microsoft Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-get-started/)まだリリースされていませんが、プレビューを試すが利用可能です。[Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#)も監視機能が含まれています。
+[Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#)も監視機能が含まれています。
 
 テレメトリ システムを使用することができます簡単であるかを表示する New Relic の設定を簡単にします。
 

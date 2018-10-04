@@ -8,16 +8,16 @@ ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 51b97ee413ea0304177d5963b5fd9d7253778d4f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 393d14799973e9126379743f63f79a7131206f38
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836167"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577614"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>既存の web サイトを SQL メンバーシップから ASP.NET Identity に移行します。
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)、 [Suhas Joshi](https://github.com/suhasj)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Suhas Joshi](https://github.com/suhasj)
 
 > このチュートリアルでは、ユーザーとロールのデータが新しい ASP.NET Identity のシステムに SQL メンバーシップを使用して作成された既存の web アプリケーションを移行する手順を説明します。 このアプローチでは、ASP.NET Identity と古いまたは新しいクラスでフックで必要な 1 つに、既存のデータベース スキーマを変更する必要があります。 後、データベースが移行した後に、このアプローチを採用する Id に今後の更新プログラムを簡単に処理されます。
 
@@ -86,7 +86,7 @@ ms.locfileid: "41836167"
 | **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
 | ID | string | ID | RoleId | ProviderKey | ID |
-| [ユーザー名] | string | name | ユーザー Id | ユーザー Id | ClaimType |
+| [ユーザー名] | string | 名前 | ユーザー Id | ユーザー Id | ClaimType |
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | string |  |  |  | ユーザー\_Id |
 | 電子メール | string |  |  |  |  |

@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: cd1b8de51c180471ab273c4541959368ffbd48a3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836764"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577939"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC と Web ページの XSRF/CSRF 防止
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > サイト間の要求が偽造 (XSRF または CSRF) は、悪意のある web サイトがクライアント ブラウザーとそのブラウザーが信頼する web サイト間のやり取りに影響するという、web でホストされるアプリケーションに対する攻撃です。 Web ブラウザーがすべての要求で自動的に認証トークンを web サイトに送信するため、これらの攻撃が可能になります。 標準的な例は、ASP などの認証クッキーです。NET のフォーム認証チケット。 ただし、(Windows 認証、Basic、およびなど) などの任意の永続的な認証メカニズムを使用する web サイトの場合は、これらの攻撃対象となることができます。
 > 
@@ -143,7 +143,7 @@ ANTI-XSRF システムには"anonymous"が定義されているユーザーと�
 
 ### <a name="oauth--openid-authentication"></a>OAuth と OpenID 認証
 
-最後に、ANTI-XSRF 施設 OAuth または OpenID 認証を使用しているアプリケーション用の特別なサポートしています。 このサポートは、ヒューリスティックに基づく: 場合、現在*IIdentity.Name*はユーザー名の比較を実行し、http:// または https:// で始まる既定 OrdinalIgnoreCase の比較子ではなく序数の比較子を使用します。
+最後に、ANTI-XSRF 施設 OAuth または OpenID 認証を使用しているアプリケーション用の特別なサポートしています。 このサポートは、ヒューリスティックに基づく: 場合、現在*IIdentity.Name*はユーザー名の比較を実行し、 http:// または https:// で始まる既定 OrdinalIgnoreCase の比較子ではなく序数の比較子を使用します。
 
 <a id="_Configuration_and_extensibility"></a>
 

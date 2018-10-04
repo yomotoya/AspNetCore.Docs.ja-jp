@@ -8,23 +8,22 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 8402b73f5f9d063d958df39f98267468e4aef746
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831988"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577796"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure で現実世界のクラウド アプリの構築)
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://github.com/Rick-Anderson)、 [Tom Dykstra](https://github.com/tdykstra)
+によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [ダウンロードその修正プロジェクト](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)または[電子書籍をダウンロード](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
 
-
-ソース管理は、すべてのクラウド開発プロジェクト、チーム環境だけでなくに不可欠です。 ソース コードの編集を検討するでしょうかも、Word ドキュメントを元に戻す関数と自動バックアップ、およびソース管理なしでは、問題が発生したときにさらに多くの時間を乗り越えるのにプロジェクト レベルでこれらの関数。 クラウド ソースの管理サービスでされなく複雑のセットアップについて心配する必要があるし、5 ユーザーまで無料の Visual Studio Online のソース管理を使用することができます。
+ソース管理は、すべてのクラウド開発プロジェクト、チーム環境だけでなくに不可欠です。 ソース コードの編集を検討するでしょうかも、Word ドキュメントを元に戻す関数と自動バックアップ、およびソース管理なしでは、問題が発生したときにさらに多くの時間を乗り越えるのにプロジェクト レベルでこれらの関数。 クラウド ソースの管理サービスでされなく複雑のセットアップについて心配する必要があるし、最大 5 ユーザーまで無料の Azure リポジトリ ソース管理を使用することができます。
 
 この章の最初の部分では、留意する 3 つのキーのベスト プラクティスについて説明します。
 
@@ -32,11 +31,11 @@ ms.locfileid: "41831988"
 - [機密情報を確認しない](#secrets)(資格情報などの機密データ) のソース コード リポジトリに格納します。
 - [ソース ブランチを設定](#devops)DevOps ワークフローを有効にします。
 
-章の残りの部分では、Visual Studio、Azure、および Visual Studio Online でこれらのパターンの一部のサンプル実装を示します。
+」の章の残りの部分では、Visual Studio、Azure、および Azure リポジトリでこれらのパターンの一部のサンプル実装を示します。
 
 - [スクリプトを Visual Studio でソース管理に追加します。](#vsscripts)
 - [Azure での機密データを格納します。](#appsettings)
-- [Visual Studio と Visual Studio Online で Git を使用](#gittfs)
+- [Visual Studio と Azure リポジトリに Git を使用して、](#gittfs)
 
 <a id="scripts"></a>
 ## <a name="treat-automation-scripts-as-source-code"></a>自動化スクリプトをソース コードとして扱う
@@ -73,7 +72,7 @@ ms.locfileid: "41831988"
 
 なしの運用と開発分岐には、その分離を使用したこのような分岐構造、運用環境の問題に配置する、運用環境の修正と共に新しい機能のコードを昇格することの位置にします。 新しい機能のコードを徹底的にテストと準備の運用できない可能性があり、多くの準備ができていない変更をバックアップする作業を実行する必要があります。 または、変更をテストし、それらをデプロイする準備が取得するには、修正プログラムを遅延する必要があります。
 
-次に、Visual Studio、Azure、および Visual Studio Online でのこれら 3 つのパターンを実装する方法の例を確認します。 これらは、詳細な手順の方法を操作を行います it について; ではなく、例すべての必要なコンテキストを提供の詳細については、次を参照してください。、[リソース](#resources)章の最後のセクション。
+次に、Visual Studio、Azure、および Azure リポジトリにこれら 3 つのパターンを実装する方法の例を確認します。 これらは、詳細な手順の方法を操作を行います it について; ではなく、例すべての必要なコンテキストを提供の詳細については、次を参照してください。、[リソース](#resources)章の最後のセクション。
 
 <a id="vsscripts"></a>
 ## <a name="add-scripts-to-source-control-in-visual-studio"></a>スクリプトを Visual Studio でソース管理に追加します。
@@ -128,17 +127,17 @@ Azure Web サイトでアプリケーションを実行する場合でソース�
 開発環境でローカルに実行すると、アプリを読み取り、ローカルの Web.config ファイルとの接続文字列で SQL Server の LocalDB データベースを指して、*アプリ\_データ*web プロジェクトのフォルダー。 Azure でアプリを実行すると、アプリが Web.config ファイルからこれらの値を読み取ろうと、失意こと確認し、使用は、格納されているとは限りません実際に Web.config ファイルで、Web サイトの値です。
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Visual Studio と Visual Studio Online で Git を使用
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Visual Studio および Azure DevOps で Git を使用して、
 
 前に示した DevOps 分岐構造を実装するのに任意のソース管理の環境を使用できます。 分散チームの[分散バージョン コントロール システム](http://en.wikipedia.org/wiki/Distributed_revision_control)(DVCS) が最も適切に機能があります。 他のチームの、[システムを集中管理](http://en.wikipedia.org/wiki/Revision_control)より適切に動作可能性があります。
 
-[Git](http://git-scm.com/)はある DVCS が非常に人気のあるになります。 ソース管理に Git を使用するときに、ローカル コンピューターに、そのすべての履歴を含むリポジトリの完全なコピーを用意します。 多くの人は、こと簡単だから、ネットワークに接続していない--を続行できるときの作業を続行するには、コミット、ロールバック、作成し、分岐を切り替えるしなどを使用します。 ネットワークに接続している場合でもブランチを作成し、すべてのものがローカル分岐を切り替えた方が手軽な容易になります。 他の開発者に影響を与えず、ローカル コミットとロールバックを実行することもできます。 サーバーに送信する前にコミットをバッチ処理できます。
+[Git](http://git-scm.com/)人気のある分散型バージョン コントロール システムです。 ソース管理に Git を使用するときに、ローカル コンピューターに、そのすべての履歴を含むリポジトリの完全なコピーを用意します。 多くの人は、こと簡単だから、ネットワークに接続していない--を続行できるときの作業を続行するには、コミット、ロールバック、作成し、分岐を切り替えるしなどを使用します。 ネットワークに接続している場合でもブランチを作成し、すべてのものがローカル分岐を切り替えた方が手軽な容易になります。 他の開発者に影響を与えず、ローカル コミットとロールバックを実行することもできます。 サーバーに送信する前にコミットをバッチ処理できます。
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO)、以前 Team Foundation Service と呼ばれるは、両方の Git と[Team Foundation バージョン管理](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx)(TFVC; ソース管理を一元化する)。 ここでは Microsoft Azure のグループ内でチームによって使用、一元的なソース管理、配布された場合、いくつかの使用と混在 (一部のプロジェクトに集中型および他のプロジェクトの分散) があります。 VSO サービスでは、最大 5 ユーザーまで無料です。 無料プランにサインアップすることができます[ここ](https://go.microsoft.com/fwlink/?LinkId=307137)します。
+[Azure リポジトリ](/azure/devops/repos/index?view=vsts)両方を提供[Git](/azure/devops/repos/git/?view=vsts)と[Team Foundation バージョン管理](/azure/devops/repos/tfvc/index?view=vsts)(TFVC; ソース管理を一元化する)。 Azure DevOps の概要[ここ](https://app.vsaex.visualstudio.com/signup)します。
 
-Visual Studio 2013 には、組み込みファースト クラスにはが含まれています。 [Git サポート](https://msdn.microsoft.com/library/hh850437.aspx); ここでは、簡単に、その動作のデモ。
+Visual Studio 2017 には、組み込みファースト クラスにはが含まれています。 [Git サポート](https://msdn.microsoft.com/library/hh850437.aspx)します。 ここでは、簡単に、その動作のデモです。
 
-プロジェクトを Visual Studio 2013 で開き、ソリューションを右クリックして**ソリューション エクスプ ローラー**、選択**ソリューションをソース管理に追加**します。
+プロジェクトを Visual Studio で開き、ソリューションを右クリックして**ソリューション エクスプ ローラー**を選び、**ソリューションをソース管理に追加**します。
 
 ![ソリューションをソース管理に追加します。](source-control/_static/image9.png)
 
@@ -184,7 +183,7 @@ Visual Studio が自動的にすべてのコミットのプロジェクト フ�
 
 このことができますすばやくの作成方法、ブランチとブランチ間を行き来反転の簡単な例です。 この機能により、分岐構造を使用して、高度なアジャイル ワークフローと自動化スクリプトを示した、[自動化すべて](automate-everything.md)」の章。 たとえばに Development 分岐で作業しているマスターから修正プログラムの分岐を作成、新しいブランチを切り替える、そこに変更を行うと、それらをコミットし Development 分岐に戻りますおよび元の作業を続行します。
 
-Visual Studio でローカル Git リポジトリを使用する方法は、ここで説明しました。 チーム環境で通常も変更をプッシュする共通のリポジトリ。 Visual Studio tools では、リモート Git リポジトリを指すこともできます。 GitHub.com を使用するにはそのため、または使用することができます[Visual Studio Online における Git](https://msdn.microsoft.com/library/hh850437.aspx)作業項目とバグの追跡などその他のすべての Visual Studio Online 機能と統合します。
+Visual Studio でローカル Git リポジトリを使用する方法は、ここで説明しました。 チーム環境で通常も変更をプッシュする共通のリポジトリ。 Visual Studio tools では、リモート Git リポジトリを指すこともできます。 GitHub.com を使用するにはそのため、または使用することができます[Git と Azure リポジトリ](/azure/devops/repos/git/overview?view=vsts)作業項目とバグの追跡など他のすべての Azure DevOps 機能と統合します。
 
 そうでは、唯一の方法はもちろん、アジャイルな分岐戦略を実装することができます。 一元的なソース管理リポジトリを使用して、同じアジャイル ワークフローを有効にすることができます。
 
@@ -194,13 +193,6 @@ Visual Studio でローカル Git リポジトリを使用する方法は、こ�
 
 <a id="resources"></a>
 ## <a name="resources"></a>リソース
-
-[Visual Studio Online](https://www.visualstudio.com/)ポータル ドキュメントとサポートのサービスを提供して、アカウントにサインアップすることができます。 Visual Studio 2012 を持って、Git を使用する場合を参照してください。 [Visual Studio Tools for Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c)します。
-
-(集中型バージョン コントロール) の TFVC と Git (分散型バージョン コントロール) の詳細については、次のリソースを参照してください。
-
-- [適切なバージョン コントロール システムを使用する必要があります: TFVC または Git でしょうか。](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN のドキュメントには、TFVC と Git の違いを要約した表が含まれています。
-- [私は Team Foundation Server と Git を好きですが、どちらが優れているでしょうか。](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Git と TFVC の比較。
 
 分岐戦略の詳細については、次のリソースを参照してください。
 

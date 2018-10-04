@@ -8,16 +8,16 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 57997241afc0a326d5381c7dcef15122fb04ab7d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829904"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578184"
 ---
 <a name="mvc-recommended-resources"></a>MVC 推奨リソース
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このトピックでは、ASP.NET MVC 5 に関するドキュメント リソースへのリンクを提供します。 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com/)に便利です送信があるその他リンクやスレッド[me](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link)リンクを使用して電子メール。 ここで指定したリンクは、定期的に更新されます。 古いを見つけることができます (ただし多くの場合も引き続き該当) 上の ASP.NET MVC のリンク、 [MSDN コンテンツ マップ](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx)します。
 > 

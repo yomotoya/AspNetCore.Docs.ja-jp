@@ -8,16 +8,16 @@ ms.date: 08/14/2014
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: e2df906d220d738c45006de8b3c92e157ca9e57e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 96a6b8d1c258e742907b649b631f8a6c2c4bbf98
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829852"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577471"
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory と ASP.NET アプリの開発
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Azure Active Directory でホストされる web アプリの認証を有効化を簡素化用のツールは Microsoft ASP.NET [Azure](https://www.windowsazure.com/home/features/web-sites/)します。 Azure 認証を使用して、組織、オンプレミスの Active Directory から同期された会社のアカウントまたはカスタムの Azure Active Directory ドメインで作成されたユーザーから Office 365 ユーザーを認証することができます。 Windows Azure Authentication を有効にすると、1 つを使用してユーザーを認証するアプリケーションを構成します[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナント。
 

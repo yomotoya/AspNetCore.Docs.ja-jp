@@ -3,14 +3,14 @@ title: クロス サイト スクリプティング (XSS) ASP.NET Core での回
 author: rick-anderson
 description: クロス サイト スクリプティング (XSS) と ASP.NET Core アプリでこの脆弱性に対処する方法について説明します。
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342212"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577445"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>クロス サイト スクリプティング (XSS) ASP.NET Core での回避します。
 
@@ -36,9 +36,9 @@ ms.locfileid: "39342212"
 
 MVC での使用を自動的に Razor エンジンがすべてをエンコード大変そうように作業する場合を除き、変数の出力に属しています。 HTML 属性を使用するたびに、ルールのエンコードを使用して、 *@* ディレクティブ。 HTML として HTML エンコード、つまり、HTML エンコードまたは HTML 属性エンコードを使用する必要があるかどうかを検討することをお持ちのスーパー セットは、属性のエンコーディングします。 のみを使用するコンテキストでは、HTML、JavaScript に直接信頼されていない入力を挿入しようとしています。 ときではなくすることを確認する必要があります。 タグ ヘルパーは、タグのパラメーターで使用する入力をエンコードしても。
 
-次の Razor ビューを取得します。
+次の Razor ビューを実行します。
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -59,7 +59,7 @@ MVC での使用を自動的に Razor エンジンがすべてをエンコード
 
 ビューで処理する JavaScript に値を挿入することがあります。 これには、2 つの方法があります。 値を挿入する最も安全な方法では、タグのデータ属性に値を配置し、JavaScript で取得します。 例えば:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -114,9 +114,9 @@ MVC での使用を自動的に Razor エンジンがすべてをエンコード
    <"123">
    ```
 
-を直接 JavaScript エンコーダーを呼び出すこともできます。
+JavaScript エンコーダーを直接呼び出すことができます。
 
-```none
+```cshtml
 @using System.Text.Encodings.Web;
    @inject JavaScriptEncoder encoder;
 
@@ -225,4 +225,4 @@ services.AddSingleton<HtmlEncoder>(
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>XSS 防止手法として検証
 
-検証では、XSS 攻撃を制限することで便利なツールを指定できます。 たとえば、文字 0 ~ 9 のみを含む数値文字列では、XSS 攻撃をトリガーしません。 検証がより複雑なユーザーの入力 - で HTML をそのまま使用する必要がありますは HTML 入力を解析不可能でない場合は困難になります。 MarkDown およびその他のテキスト形式を豊富な入力をより安全なオプションとなります。 単独で検証に依存しないようにします。 どのような検証を行うことに関係なく、出力する前に信頼されていない入力は常にエンコードします。
+検証では、XSS 攻撃を制限することで便利なツールを指定できます。 たとえば、文字 0 ~ 9 のみを含む数値文字列では、XSS 攻撃をトリガーしません。 ユーザー入力に HTML を受け入れるときに、検証が複雑になります。 HTML 入力を解析することは、不可能でない場合は困難です。 埋め込みの HTML を取り除くパーサーと組み合わせると、markdown は、豊富な入力を受け入れるためのより安全なオプションです。 単独で検証に依存しないようにします。 どのような検証または消去が実行されても、出力する前に信頼されていない入力は常にエンコードします。

@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: f5d174ff6823d654a24dcb2c90f10a3cbd24f1e7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827678"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577289"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>プロファイルし、Glimpse による ASP.NET MVC アプリのデバッグ
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Glimpse に関する情報は盛況し詳細なパフォーマンスを提供するオープン ソースの NuGet パッケージのファミリを拡大し、デバッグ、および ASP.NET アプリの診断情報。 インストールする単純な軽量で、超高速には、すべてのページの下部にある主要なパフォーマンス メトリックを表示します。 サーバーで起こっていることを確認する必要がある場合、アプリにドリルダウンすることができます。 Glimpse に関する情報など、Azure テスト環境、開発サイクル全体で使用することをお勧めします。 非常に貴重な情報を提供します。 中に[Fiddler](http://www.telerik.com/fiddler)と[F-12 開発ツール](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx)クライアント側の提供ビュー、glimpse に関する情報がサーバーから詳細ビューを提供します。 Glimpse ASP.NET MVC と EF のパッケージを使用してこのチュートリアルを取り上げますが、その他の多くのパッケージを使用できます。 適切なリンクが可能な限り[Glimpse の docs](http://getglimpse.com/Docs/)を維持するためです。 Glimpse に関する情報は、オープン ソース プロジェクト、ソース コードとドキュメントにも寄与できます。
 

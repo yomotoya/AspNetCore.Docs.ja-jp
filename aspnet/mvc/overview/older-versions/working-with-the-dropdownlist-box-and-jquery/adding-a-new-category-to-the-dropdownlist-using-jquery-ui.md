@@ -8,16 +8,16 @@ ms.date: 01/12/2012
 ms.assetid: 44aa1ac4-6ea2-48a2-972d-52710c48eae5
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 9a893bf55070adde575d223cd527b02d6f0d470c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9fb95d22be473a4318520a391fa424106246a054
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831925"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48576353"
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>JQuery UI を使用した DropDownList に新しいカテゴリを追加します。
 ====================
-によって[Rick Anderson](https://github.com/Rick-Anderson)
+によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 HTML`Select`タグは、固定のカテゴリのデータの一覧を表示するのに最適ですが、新しいカテゴリを追加する必要があることがよくあります。 ジャンル"Opera"をデータベース内のカテゴリに追加することにしますか。 このセクションを使用して、新しいカテゴリの追加 ダイアログ ボックスを追加するのに、jQuery UI を使用します。 次の図は、ブラウザーで、UI を提示する方法を示します。
 
