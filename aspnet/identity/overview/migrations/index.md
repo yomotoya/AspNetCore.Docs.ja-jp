@@ -1,28 +1,26 @@
 ---
 uid: identity/overview/migrations/index
-title: ASP.NET Id への移行 |Microsoft ドキュメント
+title: ASP.NET Identity に移行する |Microsoft Docs
 author: rick-anderson
-description: ASP.NET の Id を他のメンバーシップ プロバイダーからの移行
-ms.author: aspnetcontent
-manager: wpickett
+description: その他のメンバーシップ プロバイダーから ASP.NET Identity に移行
+ms.author: riande
 ms.date: 10/02/2013
-ms.topic: article
 ms.assetid: 4a54fee1-d064-4d67-837a-87143a9205fd
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations
 msc.type: chapter
-ms.openlocfilehash: 7e7b3d999bac106959017e5c9562f81fad03a7b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 27f5913631ed2fc12c53c7dcb027512c51c1a97d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497921"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255157"
 ---
-<a name="migrating-to-aspnet-identity"></a>ASP.NET Id への移行
+<a name="migrating-to-aspnet-identity"></a>ASP.NET Identity に移行します。
 ====================
-> ASP.NET の Id を他のメンバーシップ プロバイダーからの移行
+> その他のメンバーシップ プロバイダーから ASP.NET Identity に移行
 
 
-- [SQL メンバーシップから ASP.NET Identity に既存の web サイトを移行します。](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [メンバーシップと ASP.NET Identity (c#) するユーザー プロファイル用のユニバーサル プロバイダー データの移行](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [メンバーシップとユーザー プロファイルのユニバーサル プロバイダー データを ASP.NET Identity に移行する (C#)](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]

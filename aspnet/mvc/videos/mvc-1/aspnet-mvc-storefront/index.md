@@ -1,23 +1,19 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/index
-title: ASP.NET MVC Storefront |Microsoft ドキュメント
+title: ASP.NET MVC Storefront |Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC Storefront スタート キット
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 296b3a7a-483d-4937-ba2f-3f9c1319616a
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront
 msc.type: chapter
-ms.openlocfilehash: 78b42135d38918fb1d5c1d7a9dcdae1da9b660f1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: b6030c14980bfe86b04284160d2c1e4a5ccc8bf7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29153243"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255102"
 ---
 <a name="aspnet-mvc-storefront"></a>ASP.NET MVC Storefront
 ====================
@@ -42,7 +38,7 @@ ms.locfileid: "29153243"
 - [ASP.NET MVC Storefront パート 16: メンバーシップ変更と OpenID](aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
 - [ASP.NET MVC Storefront パート 17: 精算と Jeff Atwood](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
 - [ASP.NET MVC Storefront パート 18: 顧客体験を生み出す](aspnet-mvc-storefront-part-18-creating-an-experience.md)
-- [ASP.NET MVC Storefront 一部 19: Windows ワークフローの注文の処理](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+- [ASP.NET MVC Storefront パート 19: 注文処理と Windows ワークフロー](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 - [ASP.NET MVC Storefront パート 19a: Windows ワークフローの続き](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
 - [ASP.NET MVC Storefront パート 20: ログに記録する](aspnet-mvc-storefront-part-20-logging.md)
 - [ASP.NET MVC Storefront パート 21: 発注管理とパーソナル化](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

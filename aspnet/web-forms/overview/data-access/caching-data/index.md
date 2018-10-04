@@ -1,34 +1,30 @@
 ---
 uid: web-forms/overview/data-access/caching-data/index
-title: データのキャッシュ |Microsoft ドキュメント
+title: データのキャッシュ |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルのセットは、サイト パフォーマンス、および、ObjectDataSource コントロールを使用してプレゼンテーション層へのキャッシュを適用する方法を向上することができます、キャッシュを説明しています.
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルのセットは、ObjectDataSource コントロールを使用して、プレゼンテーション層にキャッシュを適用する方法と、サイトのパフォーマンスを向上させることができますが、キャッシュを説明しています.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 7d7ee56c-a867-4777-9407-ec8f73a605a3
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
-ms.openlocfilehash: 0b14ecdd4a8cab1d61bf9b7c238fc32330d54e52
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: daa92182f2c28a7fd79d584c0a647f6a15700d12
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26512621"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255052"
 ---
 <a name="caching-data"></a>キャッシュされたデータ
 ====================
-> このチュートリアルのセットは、サイト パフォーマンス、および、ObjectDataSource コントロールを使用してプレゼンテーション層へのキャッシュを適用する方法を向上させることができますが、キャッシュを説明します。
+> このチュートリアルのセットは、ObjectDataSource コントロールを使用して、プレゼンテーション層にキャッシュを適用する方法と、サイトのパフォーマンスを向上させることができますが、キャッシュ機能を説明します。
 
 
-- [ObjectDataSource (c#) を使用してデータをキャッシュ](caching-data-with-the-objectdatasource-cs.md)
-- [(C#)、アーキテクチャのデータのキャッシュ](caching-data-in-the-architecture-cs.md)
-- [(C#) アプリケーションの起動時にデータのキャッシュ](caching-data-at-application-startup-cs.md)
-- [SQL キャッシュ依存関係 (c#) を使用します。](using-sql-cache-dependencies-cs.md)
-- [ObjectDataSource (VB) を使用してデータをキャッシュ](caching-data-with-the-objectdatasource-vb.md)
-- [アーキテクチャ (VB) でデータのキャッシュ](caching-data-in-the-architecture-vb.md)
-- [アプリケーションの起動 (VB) でデータのキャッシュ](caching-data-at-application-startup-vb.md)
-- [SQL キャッシュ依存関係 (VB) を使用します。](using-sql-cache-dependencies-vb.md)
+- [ObjectDataSource でデータをキャッシュする (C#)](caching-data-with-the-objectdatasource-cs.md)
+- [アーキテクチャでデータをキャッシュする (C#)](caching-data-in-the-architecture-cs.md)
+- [アプリケーションの起動時にデータをキャッシュする (C#)](caching-data-at-application-startup-cs.md)
+- [SQL キャッシュ依存関係を使用する (C#)](using-sql-cache-dependencies-cs.md)
+- [ObjectDataSource でデータをキャッシュする (VB)](caching-data-with-the-objectdatasource-vb.md)
+- [アーキテクチャでデータをキャッシュする (VB)](caching-data-in-the-architecture-vb.md)
+- [アプリケーションの起動時にデータをキャッシュする (VB)](caching-data-at-application-startup-vb.md)
+- [SQL キャッシュ依存関係を使用する (VB)](using-sql-cache-dependencies-vb.md)

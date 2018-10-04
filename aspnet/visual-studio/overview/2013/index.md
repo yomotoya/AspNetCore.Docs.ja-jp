@@ -1,23 +1,19 @@
 ---
 uid: visual-studio/overview/2013/index
-title: ASP.NET と Visual Studio 2013 |Microsoft ドキュメント
+title: ASP.NET と Visual Studio 2013 |Microsoft Docs
 author: rick-anderson
 description: Visual Studio 2013
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 06/25/2013
-ms.topic: article
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
-ms.openlocfilehash: fad379374814c794754605a2aab193ec625e2182
-ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
-ms.translationtype: HT
+ms.openlocfilehash: 74793becba663d163a31cb1b02654b7b6cb021af
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/20/2018
-ms.locfileid: "27980164"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255117"
 ---
 <a name="aspnet-and-visual-studio-2013"></a>ASP.NET と Visual Studio 2013
 ====================
@@ -35,6 +31,6 @@ ms.locfileid: "27980164"
 - [Visual Studio 2013 の ASP.NET スキャフォールディング](aspnet-scaffolding-overview.md)
 - [ブラウザー リンク](using-browser-link.md)
 - [Visual Studio 2013 の ASP.NET と Web ツールのリリース ノート](release-notes.md)
-- [ASP.NET および Web ツール 2013.2 for Visual Studio 2013 のリリース ノート](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
+- [ASP.NET and Web Tools 2013.2 Visual Studio 2013 リリース ノート](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
 - [ハンズ オン ラボ: Visual Studio 2013 Web ツール](visual-studio-2013-web-tools.md)
 - [ハンズ オン ラボ: One ASP.NET: ASP.NET Web フォーム、MVC、Web API の統合](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md)

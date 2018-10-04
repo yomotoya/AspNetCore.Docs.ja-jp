@@ -1,34 +1,30 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/index
-title: バッチ化されたデータを扱う |Microsoft ドキュメント
+title: バッチ化されたデータを扱う |Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルは、更新、削除、およびトランザクションを使用してデータのバッチの挿入を見てください。
-ms.author: aspnetcontent
-manager: wpickett
+description: これらのチュートリアルでは、更新、削除、およびトランザクションを使用してデータのバッチを挿入することを確認します。
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 95a1d7d3-7fc2-44ac-b27b-912e0e045ee5
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data
 msc.type: chapter
-ms.openlocfilehash: 1a6af028c2d4ac8b6085a34bec16893d1e1632af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 6f62a21af3b85bc341c202b7b44d6703c2da655c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26514761"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255557"
 ---
-<a name="working-with-batched-data"></a>バッチ化されたデータの操作
+<a name="working-with-batched-data"></a>バッチ化されたデータの使用
 ====================
-> これらのチュートリアルは、更新、削除、およびトランザクションを使用してデータのバッチの挿入を見てください。
+> これらのチュートリアルでは、更新、削除、およびトランザクションを使用してデータのバッチを挿入することを確認します。
 
 
-- [(C#)、トランザクション内での折り返しデータベースの変更](wrapping-database-modifications-within-a-transaction-cs.md)
-- [一括更新 (c#)](batch-updating-cs.md)
-- [バッチを削除する (c#)](batch-deleting-cs.md)
-- [バッチ挿入する (c#)](batch-inserting-cs.md)
-- [トランザクション (VB) 内での折り返しデータベースの変更](wrapping-database-modifications-within-a-transaction-vb.md)
+- [トランザクション内のデータベース変更をラップする (C#)](wrapping-database-modifications-within-a-transaction-cs.md)
+- [一括更新 (C#)](batch-updating-cs.md)
+- [一括削除 (C#)](batch-deleting-cs.md)
+- [一括挿入 (C#)](batch-inserting-cs.md)
+- [トランザクション内のデータベース変更をラップする (VB)](wrapping-database-modifications-within-a-transaction-vb.md)
 - [一括更新 (VB)](batch-updating-vb.md)
-- [バッチ (VB) を削除します。](batch-deleting-vb.md)
-- [バッチ (VB) を挿入します。](batch-inserting-vb.md)
+- [一括削除 (VB)](batch-deleting-vb.md)
+- [一括挿入 (VB)](batch-inserting-vb.md)

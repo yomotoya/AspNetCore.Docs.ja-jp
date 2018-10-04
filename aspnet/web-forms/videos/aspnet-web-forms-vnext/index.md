@@ -1,35 +1,31 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/index
-title: ASP.NET 4.5 |Microsoft ドキュメント
+title: ASP.NET 4.5 |Microsoft Docs
 author: rick-anderson
-description: 新しい Web フォームの機能 ASP.NET 4.5 で導入されましたについて。
-ms.author: aspnetcontent
-manager: wpickett
+description: 新しい Web フォームの機能 ASP.NET 4.5 で導入されました詳細について。
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 98c78dad-22bf-45cd-807e-c2f3f59011b9
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext
 msc.type: chapter
-ms.openlocfilehash: 7b4c1e39dcc1b93c40cff69e6e5337d55b5607ba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: acf0e31e487733a99b1c7b02a1a773c61ffc12b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26521291"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255377"
 ---
 <a name="aspnet-45"></a>ASP.NET 4.5
 ====================
-> 新しい Web フォームの機能 ASP.NET 4.5 で導入されましたについて。
+> 新しい Web フォームの機能 ASP.NET 4.5 で導入されました詳細について。
 
 
 - [厳密に型指定されたデータ コントロール](aspnet-vnext-videos-strongly-typed-data-controls.md)
-- [モデル バインディング Part 1 - データの選択](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
-- [モデル バインディング パート 2 - フィルタ リング](aspnet-vnext-videos-model-binding-part-2-filtering.md)
-- [モデル バインディング パート 3 - 更新](aspnet-vnext-videos-model-binding-part-3-updating.md)
-- [ASP.NET 4.5 Web フォーム モデルのバインディング](aspnet-45-web-forms-model-binding.md)
-- [ASP.NET 4.5 Web フォームの厳密な型のデータ コントロール](aspnet-45-web-forms-strong-typed-data-controls.md)
+- [モデルのバインディング第 1 部 - データの選択](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
+- [モデルのバインディング第 2 部 - フィルタリング](aspnet-vnext-videos-model-binding-part-2-filtering.md)
+- [モデルのバインディング第 3 部 - 更新](aspnet-vnext-videos-model-binding-part-3-updating.md)
+- [ASP.NET 4.5 Web フォーム モデル バインド](aspnet-45-web-forms-model-binding.md)
+- [ASP.NET 4.5 Web フォームの厳密に型指定されたデータ コントロール](aspnet-45-web-forms-strong-typed-data-controls.md)
 - [バンドルと縮小](aspnet-vnext-videos-bundling-and-minification.md)
 - [次のバージョンの ASP.NET の概要](getting-started-with-the-next-version-of-aspnet.md)
-- [ASP.NET および Web ツール 2012.2](aspnet-and-web-tools-20122.md)
+- [ASP.NET と Web ツール 2012.2](aspnet-and-web-tools-20122.md)

@@ -1,23 +1,19 @@
 ---
 uid: mvc/videos/index
-title: ビデオ |Microsoft ドキュメント
+title: ビデオ |Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 06/24/2011
-ms.topic: article
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: 03e8129816a2fb8b9261618207b0e1795fb7cf23
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: 1f284bb52bb45880d656592f173b3e57fbc47118
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29152964"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255860"
 ---
 <a name="videos"></a>ビデオ
 ====================
@@ -50,7 +46,7 @@ ms.locfileid: "29152964"
         - [ASP.NET MVC: 使い方。開発者向けの技術的な動画。10 分。](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
         - [ASP.NET MVC Web アプリケーションで AJAX 呼び出しに対して JSON 形式のデータを返す](mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
         - [ASP.NET MVC 部分的ビューのデータを操作する](mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-        - [ASP.NET MVC ビューのデータを管理するモデルの表示を実装します。](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
+        - [ASP.NET MVC ビューのデータを管理するビュー モデルを実装します。](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
         - [MVC アプリケーションのカスタム HTML ヘルパーを作成する](mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
         - [MVC アプリケーションのモデル バインダーを使用する](mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application.md)
         - [MVC アプリケーションで HttpVerbs 属性を使用する](mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)
@@ -95,7 +91,7 @@ ms.locfileid: "29152964"
         - [ASP.NET MVC Storefront パート 16: メンバーシップ変更と OpenID](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
         - [ASP.NET MVC Storefront パート 17: 精算と Jeff Atwood](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
         - [ASP.NET MVC Storefront パート 18: 顧客体験を生み出す](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-        - [ASP.NET MVC Storefront 一部 19: Windows ワークフローの注文の処理](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+        - [ASP.NET MVC Storefront パート 19: 注文処理と Windows ワークフロー](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
         - [ASP.NET MVC Storefront パート 19a: Windows ワークフローの続き](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
         - [ASP.NET MVC Storefront パート 20: ログに記録する](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
         - [ASP.NET MVC Storefront パート 21: 発注管理とパーソナル化](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

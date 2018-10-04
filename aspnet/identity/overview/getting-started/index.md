@@ -1,31 +1,27 @@
 ---
 uid: identity/overview/getting-started/index
-title: ASP.NET Id の概要 |Microsoft ドキュメント
+title: ASP.NET Identity の概要 |Microsoft Docs
 author: rick-anderson
-description: ASP.NET Identity システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 これには、プロファイルのサポート、OAuth integrat が含まれます。
-ms.author: aspnetcontent
-manager: wpickett
+description: ASP.NET の Id システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 プロファイルのサポート、OAuth integrat が含まれています.
+ms.author: riande
 ms.date: 10/02/2013
-ms.topic: article
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: c798b7fd79591ad4dffba21b4a3c110590edc7a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 5e124c3ae59cabcdb90872bbf5470964aed148c8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497891"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255492"
 ---
-<a name="getting-started-with-aspnet-identity"></a>ASP.NET Id の概要
+<a name="getting-started-with-aspnet-identity"></a>ASP.NET Identity の概要
 ====================
-> ASP.NET Identity システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 OWIN で動作、およびは Visual Studio 2013 と同梱 ASP.NET テンプレートに含まれて、プロファイルのサポート、OAuth の統合が含まれています。
+> ASP.NET の Id システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 プロファイルのサポート、OAuth 統合が含まれています、OWIN を使用機能しは Visual Studio 2013 に付属の ASP.NET テンプレートに含まれています。
 
 
-- [ASP.NET Id の概要](introduction-to-aspnet-identity.md)
-- [ASP.NET の Id がリソースを推奨](aspnet-identity-recommended-resources.md)
-- [追加の ASP.NET Identity 空であるか既存の web プロジェクトをフォームします。](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-- [Azure Active Directory と ASP.NET アプリの開発](developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [(C#) EntityFramework MySQL プロバイダーと MySQL の記憶域を使用して ASP.NET Id:](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+- [ASP.NET Identity 入門](introduction-to-aspnet-identity.md)
+- [ASP.NET Identity 推奨リソース](aspnet-identity-recommended-resources.md)
+- [ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- [Azure Active Directory を使った ASP.NET アプリの開発](developing-aspnet-apps-with-windows-azure-active-directory.md)
+- [ASP.NET Identity: EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)

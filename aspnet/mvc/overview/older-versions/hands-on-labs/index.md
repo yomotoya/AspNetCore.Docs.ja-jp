@@ -1,27 +1,23 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/index
-title: ASP.NET MVC 4 ハンズオン ラボ |Microsoft ドキュメント
+title: ASP.NET MVC 4 ハンズオン ラボ |Microsoft Docs
 author: rick-anderson
-description: これらの手でラボでの ASP.NET MVC で開発する方法します。
-ms.author: aspnetcontent
-manager: wpickett
+description: これらの手でラボでの ASP.NET MVC で開発する方法について説明します
+ms.author: riande
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: eb23eb99-bfca-4043-9b48-2cf7838dd754
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs
 msc.type: chapter
-ms.openlocfilehash: bfdab4cfd3945401213bcc0b6f282dd5ffbedc5d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
-ms.translationtype: HT
+ms.openlocfilehash: 02ef51cd3320df200920cba19a59d8ab23836c95
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29727172"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254744"
 ---
 # <a name="aspnet-mvc-4-hands-on-labs"></a>ASP.NET MVC 4 ハンズオン ラボ
 
-これらの手でラボでの ASP.NET MVC で開発する方法します。
+これらの手でラボでの ASP.NET MVC で開発する方法について説明します
 
 - [ASP.NET MVC 4 の新機能](whats-new-in-aspnet-mvc-4.md)
 - [ASP.NET MVC 4 の基礎](aspnet-mvc-4-fundamentals.md)

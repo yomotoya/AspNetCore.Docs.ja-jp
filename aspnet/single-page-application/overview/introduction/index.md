@@ -1,28 +1,24 @@
 ---
 uid: single-page-application/overview/introduction/index
-title: ASP.NET の単一ページ アプリケーションの概要 |Microsoft ドキュメント
+title: ASP.NET Single Page Application の概要 |Microsoft Docs
 author: rick-anderson
-description: 学習について ASP.NET 単一ページ アプリケーション ASP.NET 単一ページ アプリケーション (SPA) を使用して、重要なのクライアント側 interacti を含むアプリケーションを作成できます.
-ms.author: aspnetcontent
-manager: wpickett
+description: について説明しますについて ASP.NET シングル ページ アプリケーション ASP.NET シングル ページ アプリケーション (SPA) を使用して、重要なクライアント側 interacti を含むアプリケーションを構築できます.
+ms.author: riande
 ms.date: 11/14/2012
-ms.topic: article
 ms.assetid: f0643c61-c310-4906-a238-dfc86f09b940
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction
 msc.type: chapter
-ms.openlocfilehash: 550bf971f4d262ba59537c6541d4f73f18c04432
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 8607e1d11aa087216a70e6aefb720308743d17c6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505661"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254864"
 ---
-<a name="introduction-to-aspnet-single-page-application"></a>ASP.NET の単一ページ アプリケーションの概要
+<a name="introduction-to-aspnet-single-page-application"></a>ASP.NET Single Page Application の概要
 ====================
 > Knockoutjs と新しい SPA テンプレートを使用するためのコンテンツ。
 
 
-- [Single Page Application: KnockoutJS テンプレート](knockoutjs-template.md)
-- [Knockout 以外のライブラリを認識しますか。](other-libraries.md)
+- [シングル ページ アプリケーション: KnockoutJS テンプレート](knockoutjs-template.md)
+- [Knockout 以外のライブラリを知っていますか?](other-libraries.md)

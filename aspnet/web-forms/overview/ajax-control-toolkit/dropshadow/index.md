@@ -1,30 +1,26 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/index
-title: DropShadow |Microsoft ドキュメント
+title: DropShadow |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、パネルの内側にドロップ シャドウを描画 DropShadow コントロールを使用する方法を示します。
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルでは、DropShadow コントロールには、パネルの背後にあるドロップ シャドウを描画する方法を示します。
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: ccd48877-ed83-43fe-9b3b-ed8855e58833
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow
 msc.type: chapter
-ms.openlocfilehash: 60725a1fa9d23831ecbe639d09b54ab57384e384
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: be935a4fd87767b83d5692e683db800a4e5d5801
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510411"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255217"
 ---
 <a name="dropshadow"></a>DropShadow
 ====================
-> このチュートリアルでは、パネルの内側にドロップ シャドウを描画 DropShadow コントロールを使用する方法を示します。
+> このチュートリアルでは、DropShadow コントロールには、パネルの背後にあるドロップ シャドウを描画する方法を示します。
 
 
-- [(C#)、DropShadow の Z インデックスを調整します。](adjusting-the-z-index-of-a-dropshadow-cs.md)
-- [クライアント コード (c#) から DropShadow プロパティを操作します。](manipulating-dropshadow-properties-from-client-code-cs.md)
-- [DropShadow (VB) の Z インデックスを調整します。](adjusting-the-z-index-of-a-dropshadow-vb.md)
-- [クライアント コード (VB) から DropShadow プロパティを操作します。](manipulating-dropshadow-properties-from-client-code-vb.md)
+- [DropShadow の Z インデックスを調整する (C#)](adjusting-the-z-index-of-a-dropshadow-cs.md)
+- [クライアント コードから DropShadow プロパティを操作する (C#)](manipulating-dropshadow-properties-from-client-code-cs.md)
+- [DropShadow の Z インデックスを調整する (VB)](adjusting-the-z-index-of-a-dropshadow-vb.md)
+- [クライアント コードから DropShadow プロパティを操作する (VB)](manipulating-dropshadow-properties-from-client-code-vb.md)

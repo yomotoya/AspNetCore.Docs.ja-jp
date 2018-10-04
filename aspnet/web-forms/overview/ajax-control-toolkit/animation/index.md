@@ -1,52 +1,48 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/index
-title: アニメーション |Microsoft ドキュメント
+title: アニメーション |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルでは、アニメーション コントロールおよびアニメーションのフレームワークを使用してアニメーションを作成する方法を示します。
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルでは、アニメーション コントロールとアニメーション フレームワークを使用してアニメーションを作成する方法を示します。
+ms.author: riande
 ms.date: 11/11/2011
-ms.topic: article
 ms.assetid: 90b3a37e-2694-41c4-8b10-d6893b53a9d4
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation
 msc.type: chapter
-ms.openlocfilehash: 96a27f734e616022e17dc073ac0467b88eddced3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: b835d4e24b938a8ed192f21709cbde771af9c896
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26509511"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255137"
 ---
 <a name="animation"></a>アニメーション
 ====================
-> このチュートリアルでは、アニメーション コントロールおよびアニメーションのフレームワークを使用してアニメーションを作成する方法を示します。
+> このチュートリアルでは、アニメーション コントロールとアニメーション フレームワークを使用してアニメーションを作成する方法を示します。
 
 
-- [アニメーションをコントロール (c#) に追加します。](adding-animation-to-a-control-cs.md)
-- [(C#) 同時に複数のアニメーションを実行します。](executing-several-animations-at-the-same-time-cs.md)
-- [他の (c#) の後にいくつかのアニメーションを実行します。](executing-several-animations-after-each-other-cs.md)
-- [アニメーションによっては、条件 (c#)](animation-depending-on-a-condition-cs.md)
-- [選択リスト (c#) から 1 つのアニメーション](picking-one-animation-out-of-a-list-cs.md)
-- [ユーザーの操作 (c#) への応答をアニメーション化します。](animating-in-response-to-user-interaction-cs.md)
-- [アニメーション (c#) 中のアクションを無効にします。](disabling-actions-during-animation-cs.md)
-- [別のコントロール (c#) でのアニメーションをトリガーします。](triggering-an-animation-in-another-control-cs.md)
-- [サーバー側 (c#) からのアニメーションを変更します。](modifying-animations-from-the-server-side-cs.md)
-- [クライアント側のコード (c#) を使用して実行中のアニメーション](executing-animations-using-client-side-code-cs.md)
-- [クライアント側のコード (c#) を使用してアニメーションを変更します。](changing-an-animation-using-client-side-code-cs.md)
-- [UpdatePanel コントロール (c#) をアニメーション化](animating-an-updatepanel-control-cs.md)
-- [UpdatePanel のアニメーションに動的に制御する (c#)](dynamically-controlling-updatepanel-animations-cs.md)
-- [アニメーションをコントロール (VB) に追加します。](adding-animation-to-a-control-vb.md)
-- [同時に (VB) のいくつかのアニメーションの実行](executing-several-animations-at-the-same-time-vb.md)
-- [他の (VB) の後にいくつかのアニメーションを実行します。](executing-several-animations-after-each-other-vb.md)
-- [条件 (VB) によってアニメーション](animation-depending-on-a-condition-vb.md)
-- [選択リスト (VB) から 1 つのアニメーション](picking-one-animation-out-of-a-list-vb.md)
-- [ユーザーとの対話 (VB) への応答をアニメーション化します。](animating-in-response-to-user-interaction-vb.md)
-- [アニメーション (VB) 中のアクションを無効にします。](disabling-actions-during-animation-vb.md)
-- [アニメーション別コントロール (VB) をトリガーします。](triggering-an-animation-in-another-control-vb.md)
-- [サーバー側 (VB) からのアニメーションを変更します。](modifying-animations-from-the-server-side-vb.md)
-- [クライアント側コード (VB) を使用して実行中のアニメーション](executing-animations-using-client-side-code-vb.md)
-- [クライアント側コード (VB) を使用してアニメーションを変更します。](changing-an-animation-using-client-side-code-vb.md)
-- [UpdatePanel コントロール (VB) をアニメーション化](animating-an-updatepanel-control-vb.md)
-- [UpdatePanel アニメーション (VB) を動的に制御します。](dynamically-controlling-updatepanel-animations-vb.md)
+- [コントロールにアニメーションを追加する (C#)](adding-animation-to-a-control-cs.md)
+- [複数のアニメーションを同時に実行する (C#)](executing-several-animations-at-the-same-time-cs.md)
+- [複数のアニメーションを順番に実行する (C#)](executing-several-animations-after-each-other-cs.md)
+- [条件に基づくアニメーション (C#)](animation-depending-on-a-condition-cs.md)
+- [一覧からアニメーションを 1 つ選択する (C#)](picking-one-animation-out-of-a-list-cs.md)
+- [ユーザー操作に対してアニメーションを返す (C#)](animating-in-response-to-user-interaction-cs.md)
+- [アニメーション中のアクションを無効にする (C#)](disabling-actions-during-animation-cs.md)
+- [別のコントロールでアニメーションをトリガーする (C#)](triggering-an-animation-in-another-control-cs.md)
+- [サーバー側からアニメーションを変更する (C#)](modifying-animations-from-the-server-side-cs.md)
+- [クライアント側コードを使用してアニメーションを実行する (C#)](executing-animations-using-client-side-code-cs.md)
+- [クライアント側コードを使用してアニメーションを変更する (C#)](changing-an-animation-using-client-side-code-cs.md)
+- [UpdatePanel コントロールをアニメーションにする (C#)](animating-an-updatepanel-control-cs.md)
+- [UpdatePanel アニメーションを動的に制御する (C#)](dynamically-controlling-updatepanel-animations-cs.md)
+- [コントロールにアニメーションを追加する (VB)](adding-animation-to-a-control-vb.md)
+- [複数のアニメーションを同時に実行する (VB)](executing-several-animations-at-the-same-time-vb.md)
+- [複数のアニメーションを順番に実行する (VB)](executing-several-animations-after-each-other-vb.md)
+- [条件に基づくアニメーション (VB)](animation-depending-on-a-condition-vb.md)
+- [一覧からアニメーションを 1 つ選択する (VB)](picking-one-animation-out-of-a-list-vb.md)
+- [ユーザー操作に対してアニメーションを返す (VB)](animating-in-response-to-user-interaction-vb.md)
+- [アニメーション中のアクションを無効にする (VB)](disabling-actions-during-animation-vb.md)
+- [別のコントロールでアニメーションをトリガーする (VB)](triggering-an-animation-in-another-control-vb.md)
+- [サーバー側からアニメーションを変更する (VB)](modifying-animations-from-the-server-side-vb.md)
+- [クライアント側コードを使用してアニメーションを実行する (VB)](executing-animations-using-client-side-code-vb.md)
+- [クライアント側コードを使用してアニメーションを変更する (VB)](changing-an-animation-using-client-side-code-vb.md)
+- [UpdatePanel コントロールをアニメーションにする (VB)](animating-an-updatepanel-control-vb.md)
+- [UpdatePanel アニメーションを動的に制御する (VB)](dynamically-controlling-updatepanel-animations-vb.md)

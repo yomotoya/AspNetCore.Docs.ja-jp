@@ -1,39 +1,35 @@
 ---
 uid: web-pages/videos/introduction/index
-title: Web ページのビデオの概要 |Microsoft ドキュメント
+title: Web ページのビデオの概要 |Microsoft Docs
 author: rick-anderson
-description: どのビデオ Web ページおよび WebMatrix の基本についての詳細を表示できます。
-ms.author: aspnetcontent
-manager: wpickett
+description: どのビデオ Web ページおよび WebMatrix に関する基本事項を表示できます。
+ms.author: riande
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: b8a43660-177f-4a00-bb51-be887364c607
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
-ms.openlocfilehash: d128715483de83125166d75988181e729d5207bf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f645e05deb334346ed7199b804387a29e9538165
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529971"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256193"
 ---
 <a name="introduction-to-web-pages-videos"></a>Web ページのビデオの概要
 ====================
-> どのビデオ Web ページおよび WebMatrix の基本についての詳細を表示できます。
+> どのビデオ Web ページおよび WebMatrix に関する基本事項を表示できます。
 
 > [!NOTE] 
-> WebMatrix は推奨されなくなりました統合開発環境として ASP.NET Web Pages のです。 使用して[Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)です。
+> WebMatrix は推奨されなくの統合開発環境として ASP.NET Web Pages の。 使用[Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)します。
 
 
-- [ASP.NET Web Pages を 5 分 (入門)](5-minute-introduction-to-aspnet-web-pages.md)
-- [インストールして、Microsoft WebMatrix のツールを使用](install-and-use-the-microsoft-webmatrix-tool.md)
-- [WebMatrix を使用して web サイトを作成します。](create-a-website-using-webmatrix.md)
-- [Web ページの視覚スタイルを変更します。](change-the-visual-style-of-a-web-page.md)
-- [WebMatrix のレイアウト機能を使用します。](use-the-layout-features-in-webmatrix.md)
-- [データ ドリブン動的 Web ページを作成します。](create-a-data-driven-dynamic-web-page.md)
-- [WebMatrix で Web インターフェイスを作成します。](create-a-web-interface-in-webmatrix.md)
-- [WebMatrix で、[データの編集] ページを作成します。](create-an-edit-data-page-in-webmatrix.md)
-- [WebMatrix で Delete データ ページを作成します。](create-a-delete-data-page-in-webmatrix.md)
-- [WebMatrix を使用したインターネットへの web サイトを発行します。](publish-a-website-to-the-internet-using-webmatrix.md)
+- [5 分で学ぶ ASP.NET Web ページ](5-minute-introduction-to-aspnet-web-pages.md)
+- [Microsoft WebMatrix ツールをインストールし、使用する](install-and-use-the-microsoft-webmatrix-tool.md)
+- [WebMatrix を使用して Web サイトを作成する](create-a-website-using-webmatrix.md)
+- [Web ページのビジュアル スタイルを変更する](change-the-visual-style-of-a-web-page.md)
+- [WebMatrix のレイアウト機能を使用する](use-the-layout-features-in-webmatrix.md)
+- [データ駆動型動的 Web ページを作成する](create-a-data-driven-dynamic-web-page.md)
+- [WebMatrix で Web インターフェイスを作成する](create-a-web-interface-in-webmatrix.md)
+- [WebMatrix でデータ編集ページを作成する](create-an-edit-data-page-in-webmatrix.md)
+- [WebMatrix でデータ削除ページを作成する](create-a-delete-data-page-in-webmatrix.md)
+- [WebMatrix を使用してインターネットに Web サイトを公開する](publish-a-website-to-the-internet-using-webmatrix.md)

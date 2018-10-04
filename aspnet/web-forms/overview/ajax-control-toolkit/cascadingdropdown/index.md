@@ -1,27 +1,23 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
-title: CascadingDropdown |Microsoft ドキュメント
+title: CascadingDropdown |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルで使用する方法、ユーザーが、選択を行うときに、CascadingDropDown 作成するコントロールを関連するドロップダウンがその更新プログラムを一覧表示します。
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルでは、CascadingDropDown コントロールを使用して、ユーザーが選択を行うときに更新関連のドロップダウン リストを作成する方法を示します。
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 5cc304e2-0013-4c26-8fe6-e897a533809f
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: 200dc5ce3f27b5123edea2ac63f0a86b8502605d
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: 1bda628940da180288875c43ade92aad45101596
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29152853"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "48256316"
 ---
 <a name="cascadingdropdown"></a>CascadingDropdown
 ====================
-> このチュートリアルでは、CascadingDropDown コントロールを使用して、ユーザーが、選択を行うときに更新関連のドロップダウン リストを作成する方法を示します。
+> このチュートリアルでは、CascadingDropDown コントロールを使用して、ユーザーが選択を行うときに更新関連のドロップダウン リストを作成する方法を示します。
 
 
 - [CascadingDropDown を使用して一覧に入力する (C#)](filling-a-list-using-cascadingdropdown-cs.md)

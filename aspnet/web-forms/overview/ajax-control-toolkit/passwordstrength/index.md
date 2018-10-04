@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/index
-title: PasswordStrength |Microsoft ドキュメント
+title: PasswordStrength |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルには表示方法 PasswordStrength コントロール厳密な方法を確認するには、パスワードがユーザーとして作成されます。
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアルの表示方法 PasswordStrength コントロールに厳密な方法を確認するためにパスワードがユーザーとして作成されます。
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: bdbeb8f7-90e7-4bc5-aeb6-0f928660fb4f
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength
 msc.type: chapter
-ms.openlocfilehash: 8bed18ed3d711c09e27ff6b0b04cb7ee769460ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 08a4dab55e5084286e6ae6c397c018ce5030dbce
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510631"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255940"
 ---
 <a name="passwordstrength"></a>PasswordStrength
 ====================
-> このチュートリアルには表示方法 PasswordStrength コントロール厳密な方法を確認するには、パスワードがユーザーとして作成されます。
+> このチュートリアルの表示方法 PasswordStrength コントロールに厳密な方法を確認するためにパスワードがユーザーとして作成されます。
 
 
-- [テスト (c#) パスワードの強度](testing-the-strength-of-a-password-cs.md)
-- [テスト (VB) のパスワードの強度](testing-the-strength-of-a-password-vb.md)
+- [パスワードの強度をテストする (C#)](testing-the-strength-of-a-password-cs.md)
+- [パスワードの強度をテストする (VB)](testing-the-strength-of-a-password-vb.md)

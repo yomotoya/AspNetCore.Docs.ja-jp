@@ -1,25 +1,21 @@
 ---
 uid: web-pages/readme/index
-title: WebMatrix Readme |Microsoft ドキュメント
+title: WebMatrix のリリース ノート |Microsoft Docs
 author: rick-anderson
 description: WebMatrix と ASP.NET Web Pages (Razor) 1.0 リリースの Readme
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 01/06/2011
-ms.topic: article
 ms.assetid: 9ded2fdb-ac4c-448f-9774-10bff657514c
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 1ca87090d6dc8f4050e8a017777edb530533218a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 3039249e002dff314efd522ac7e72de746546553
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529641"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254696"
 ---
 <a name="webmatrix-readme"></a>WebMatrix の Readme
 ====================
-- [WebMatrix の Readme](overview.md)
-- [Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme](beta3.md)
+- [WebMatrix Readme](overview.md)
+- [Web Matrix と ASP.NET Web ページ (Razor) Beta 3 リリース Readme](beta3.md)

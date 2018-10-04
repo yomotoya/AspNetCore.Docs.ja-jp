@@ -1,29 +1,25 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/index
-title: Visual Studio 2012 ハンズオン ラボ |Microsoft ドキュメント
+title: Visual Studio 2012 ハンズ オン ラボ |Microsoft Docs
 author: rick-anderson
-description: これらの手でラボでの ASP.NET Web フォームで開発する方法します。
-ms.author: aspnetcontent
-manager: wpickett
+description: これらのラボの手で ASP.NET Web フォームで開発する方法について説明します
+ms.author: riande
 ms.date: 02/13/2013
-ms.topic: article
 ms.assetid: d0b8ff04-70e0-4453-a331-a4a4f57d72a8
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs
 msc.type: chapter
-ms.openlocfilehash: fcfb9d1f4b1cdd55dbc9472e2b74cab7a4c7d84b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 1e77dcc59856f622d50ebd4e9c26e9a3ca2774e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26516551"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256209"
 ---
-<a name="visual-studio-2012-hands-on-labs"></a>Visual Studio 2012 ハンズオン ラボ
+<a name="visual-studio-2012-hands-on-labs"></a>Visual Studio 2012 ハンズ オン ラボ
 ====================
-> これらの手でラボでの ASP.NET Web フォームで開発する方法します。
+> これらのラボの手で ASP.NET Web フォームで開発する方法について説明します
 
 
-- [ASP.NET および Visual Studio 2012 での Web 開発の新機能](whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
-- [Asp.net 4.5 Web フォームの新機能](whats-new-in-web-forms-in-aspnet-45.md)
-- [Visual Studio 2012 での Page Inspector の使用](using-page-inspector-in-visual-studio-2012.md)
+- [Visual Studio 2012 の ASP.NET と Web 開発の新機能](whats-new-in-aspnet-and-web-development-in-visual-studio-2012.md)
+- [ASP.NET 4.5 の Web フォームの新機能](whats-new-in-web-forms-in-aspnet-45.md)
+- [Visual Studio 2012 で Page Inspector を使用する](using-page-inspector-in-visual-studio-2012.md)

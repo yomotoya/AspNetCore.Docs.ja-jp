@@ -1,29 +1,25 @@
 ---
 uid: mvc/overview/performance/index
-title: ASP.NET MVC のパフォーマンス |Microsoft ドキュメント
+title: ASP.NET MVC のパフォーマンス |Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC アプリケーションのパフォーマンスを最適化するためのリソース。
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 10/09/2014
-ms.topic: article
 ms.assetid: 388c048e-a285-4d1a-851a-caace21aa988
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance
 msc.type: chapter
-ms.openlocfilehash: 9c0e41e7356dca788f4e144dd211fd1483da8465
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 23aee2f8884a4a0383d23d86ab6fca44ff8ad3f0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503181"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255312"
 ---
 <a name="aspnet-mvc-performance"></a>ASP.NET MVC のパフォーマンス
 ====================
 > ASP.NET MVC アプリケーションのパフォーマンスを最適化するためのリソース。
 
 
-- [ASP.NET MVC 4 で非同期メソッドの使用](using-asynchronous-methods-in-aspnet-mvc-4.md)
-- [プロファイルし、Glimpse による ASP.NET MVC アプリのデバッグ](profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+- [ASP.NET MVC 4 での非同期メソッドの使用](using-asynchronous-methods-in-aspnet-mvc-4.md)
+- [Glimpse で ASP.NET MVC アプリをプロファイリングし、デバッグする](profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
 - [バンドルと縮小](bundling-and-minification.md)

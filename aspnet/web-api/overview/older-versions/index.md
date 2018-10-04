@@ -1,38 +1,34 @@
 ---
 uid: web-api/overview/older-versions/index
-title: Web API の以前のバージョンのドキュメント |Microsoft ドキュメント
+title: 以前のバージョンの Web API のドキュメント |Microsoft Docs
 author: rick-anderson
-description: 古いバージョンの Web API に関するドキュメントです。
-ms.author: aspnetcontent
-manager: wpickett
+description: 以前のバージョンの Web API に関するドキュメントです。
+ms.author: riande
 ms.date: 10/23/2014
-ms.topic: article
 ms.assetid: f5bc7426-27c6-492c-914f-b9d2eb49753d
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: e3cb215e60ba11ec23f4e0c8d03dd08aa39a174f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: ac59f28d61cf2dceb030ee782069679ee7e1fab0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508191"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255047"
 ---
-<a name="documentation-on-older-versions-of-web-api"></a>以前のバージョンの Web API に関するドキュメント
+<a name="documentation-on-older-versions-of-web-api"></a>以前のバージョンの Web API のドキュメント
 ====================
-> 古いバージョンの Web API に関するドキュメントです。
+> 以前のバージョンの Web API に関するドキュメントです。
 
 
-- [Web API 1 での CRUD 操作を有効にします。](creating-a-web-api-that-supports-crud-operations.md)
-- [Entity Framework 5 と ASP.NET Web API 1 の使用](using-web-api-1-with-entity-framework-5/index.md)
+- [Web API 1 で CRUD 操作を有効にする](creating-a-web-api-that-supports-crud-operations.md)
+- [ASP.NET Web API 1 と Entity Framework 5 を使用する](using-web-api-1-with-entity-framework-5/index.md)
 
-    - [概要と、プロジェクトを作成します。](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1.md)
-    - [ドメイン モデルを作成します。](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2.md)
-    - [管理者のコント ローラーを作成します。](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3.md)
+    - [概要とプロジェクトの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1.md)
+    - [ドメイン モデルの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2.md)
+    - [管理者コントローラーの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3.md)
     - [管理ビューの追加](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4.md)
-    - [Knockout.js にダイナミック UI を作成します。](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5.md)
-    - [製品と順序コント ローラーを作成します。](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
-    - [メインの作成 ページ](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
-- [自己ホスト Web API 1 (c#)](self-host-a-web-api.md)
-- [ASP.NET web API の rest ベースの API をビルドします。](build-restful-apis-with-aspnet-web-api.md)
+    - [Knockout.js で動的 UI を作成する](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5.md)
+    - [Product コントローラーと Order コントローラーの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
+    - [メイン ページの作成](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
+- [Web API 1 をセルフホストする (C#)](self-host-a-web-api.md)
+- [ASP.NET Web API で RESTful API をビルドする ](build-restful-apis-with-aspnet-web-api.md)

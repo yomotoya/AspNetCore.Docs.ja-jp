@@ -1,34 +1,30 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/index
-title: ASP.NET ページから直接データベースにアクセス |Microsoft ドキュメント
+title: ASP.NET ページから直接、データベースへのアクセス |Microsoft Docs
 author: rick-anderson
-description: これらのチュートリアルでは、SqlDataSource コントロールを使用して、プレゼンテーション層とデータを明確に分離する必要はない時にデータベースを直接照会する方法を表示しています.
-ms.author: aspnetcontent
-manager: wpickett
+description: これらのチュートリアルでは、SqlDataSource コントロールを使用して、プレゼンテーションとデータを厳密に分離が不要な場合は、データベースを直接照会する方法を説明しています.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 134a202f-4eef-41fc-8e91-70efba338389
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page
 msc.type: chapter
-ms.openlocfilehash: ec6474ccfd2aadc76dc21596fa1e4a5dc7bf01f8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 6836b02937ebdf3110390260633317e2d3fef43a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26511721"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255752"
 ---
 <a name="accessing-the-database-directly-from-an-aspnet-page"></a>ASP.NET ページから直接データベースにアクセスします。
 ====================
-> これらのチュートリアルでは、SqlDataSource コントロールを使用して、プレゼンテーション層とデータ アクセス層を明確に分離する必要はない時にデータベースを直接照会する方法を示します。
+> これらのチュートリアルでは、SqlDataSource コントロールを使用して、プレゼンテーション層とデータ アクセス層の厳密な分離が不要な場合は、データベースを直接照会する方法を説明します。
 
 
-- [SqlDataSource コントロール (c#) を使用してデータのクエリを実行します。](querying-data-with-the-sqldatasource-control-cs.md)
-- [SqlDataSource (c#) でパラメーター化クエリの使用](using-parameterized-queries-with-the-sqldatasource-cs.md)
-- [挿入、更新、および (c#)、SqlDataSource によるデータの削除](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
-- [SqlDataSource (c#) によるオプティミスティック同時実行制御を実装します。](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
-- [SqlDataSource コントロール (VB) を使用してデータのクエリを実行します。](querying-data-with-the-sqldatasource-control-vb.md)
-- [SqlDataSource (VB) でパラメーター化クエリの使用](using-parameterized-queries-with-the-sqldatasource-vb.md)
-- [挿入、更新、および (VB) SqlDataSource によるデータの削除](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
-- [SqlDataSource (VB) によるオプティミスティック同時実行制御を実装します。](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+- [SqlDataSource コントロールでデータにクエリを実行する (C#)](querying-data-with-the-sqldatasource-control-cs.md)
+- [パラメーター化されたクエリと SqlDataSource を使用する (C#)](using-parameterized-queries-with-the-sqldatasource-cs.md)
+- [SqlDataSource でデータを挿入、更新、削除する (C#)](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
+- [SqlDataSource でオプティミスティック コンカレンシーを実装する (C#)](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+- [SqlDataSource コントロールでデータにクエリを実行する (VB)](querying-data-with-the-sqldatasource-control-vb.md)
+- [パラメーター化されたクエリと SqlDataSource を使用する (VB)](using-parameterized-queries-with-the-sqldatasource-vb.md)
+- [SqlDataSource でデータを挿入、更新、削除する (VB)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
+- [SqlDataSource でオプティミスティック コンカレンシーを実装する (VB)](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)

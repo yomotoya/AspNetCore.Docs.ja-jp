@@ -1,23 +1,19 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: ASP.NET Razor ページ |Microsoft ドキュメント
+title: ASP.NET Razor Pages |Microsoft Docs
 author: rick-anderson
 description: どのビデオ Web ページおよび WebMatrix にドリル ダウンを表示できます。
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
-ms.openlocfilehash: c2656e666e3267895ced67562e0b3e6292d83d3d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: e0c0c719ef628a4e5050e908d45421d5bfd6d983
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529931"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254944"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web ページ
 =================
@@ -25,19 +21,19 @@ ms.locfileid: "26529931"
 
 
 - [WebMatrix と ASP.NET Web ページの概要](getting-started-with-webmatrix-and-aspnet-web-pages.md)
-- [ASP.NET Web Razor 構文のプログラミングの概要](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
-- [一貫した外観 (パート 1) を作成します。](creating-a-consistent-look-part-1.md)
-- [一貫した外観 (パート 2) を作成します。](creating-a-consistent-look-part-2.md)
-- [フォーム (パート 1) の使用](working-with-forms-part-1.md)
-- [フォーム (パート 2) の使用](working-with-forms-part-2.md)
-- [データ (パート 1) の使用](working-with-data-part-1.md)
-- [データ (パート 2) の使用](working-with-data-part-2.md)
-- [グリッド内のデータの表示](displaying-data-in-a-grid.md)
-- [グラフ (パート 1) でデータを表示します。](displaying-data-in-a-chart-part-1.md)
-- [グラフ (パート 2) 内のデータの表示](displaying-data-in-a-chart-part-2.md)
+- [ASP.NET Web プログラミング Razor 構文入門](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+- [一貫性のある外観を作成する (パート 1)](creating-a-consistent-look-part-1.md)
+- [一貫性のある外観を作成する (パート 2)](creating-a-consistent-look-part-2.md)
+- [フォームの操作 (パート 1)](working-with-forms-part-1.md)
+- [フォームの操作 (パート 2)](working-with-forms-part-2.md)
+- [データの操作 (パート 1)](working-with-data-part-1.md)
+- [データの操作 (パート 2)](working-with-data-part-2.md)
+- [グリッドでデータを表示する](displaying-data-in-a-grid.md)
+- [グラフでデータを表示する (パート 1)](displaying-data-in-a-chart-part-1.md)
+- [グラフでデータを表示する (パート 2)](displaying-data-in-a-chart-part-2.md)
 - [ファイルの処理](working-with-files.md)
 - [イメージの処理](working-with-images.md)
 - [ビデオの操作](working-with-video.md)
-- [Web サイトへの電子メールの追加](adding-email-to-your-web-site.md)
-- [Web サイトに追加の検索](adding-search-to-your-web-site.md)
-- [Web サイトへのソーシャル ネットワー キングの追加](adding-social-networking-to-your-website.md)
+- [Web サイトに電子メールを追加する](adding-email-to-your-web-site.md)
+- [Web サイトに検索を追加する](adding-search-to-your-web-site.md)
+- [Web サイトにソーシャル ネットワーキングを追加する](adding-social-networking-to-your-website.md)

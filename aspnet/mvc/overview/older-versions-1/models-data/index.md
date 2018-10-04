@@ -1,40 +1,36 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/index
-title: モデル (データ) |Microsoft ドキュメント
+title: モデル (データ) |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルの系列では、Microsoft の Entity Framework での ASP.NET MVC を使用する方法を学習します。 このチュートリアルの過程で、web アプリケーションを構築しています.
-ms.author: aspnetcontent
-manager: wpickett
+description: このチュートリアル シリーズでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 このチュートリアルの過程で、web アプリケーションを構築しています.
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
-ms.openlocfilehash: b531a5ad6924840487985a57c178d18d945a0b06
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: aee92dffc059d984bc9e5d5a93fc03ed4a2f8136
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26499981"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254973"
 ---
 <a name="models-data"></a>モデル (データ)
 ====================
-> このチュートリアルの系列では、Microsoft の Entity Framework での ASP.NET MVC を使用する方法を学習します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションをビルドします。
+> このチュートリアル シリーズでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 このチュートリアルの過程で、選択、挿入、更新、および Entity Framework を使用してデータベースのデータを削除する方法について説明する web アプリケーションをビルドします。
 
 
-- [Entity Framework (c#) でモデル クラスを作成します。](creating-model-classes-with-the-entity-framework-cs.md)
-- [LINQ to SQL (c#) でモデル クラスを作成します。](creating-model-classes-with-linq-to-sql-cs.md)
-- [データベースのデータ (c#) のテーブルを表示します。](displaying-a-table-of-database-data-cs.md)
-- [単純な検証 (c#) を実行します。](performing-simple-validation-cs.md)
-- [IDataErrorInfo インターフェイス (c#) を検証します。](validating-with-the-idataerrorinfo-interface-cs.md)
-- [サービス層 (c#)](validating-with-a-service-layer-cs.md)
-- [データ注釈検証コントロール (c#) を使用した検証](validation-with-the-data-annotation-validators-cs.md)
-- [Entity Framework (VB) でモデル クラスを作成します。](creating-model-classes-with-the-entity-framework-vb.md)
-- [LINQ to SQL (VB) でモデル クラスを作成します。](creating-model-classes-with-linq-to-sql-vb.md)
-- [データベースのデータ (VB) のテーブルを表示します。](displaying-a-table-of-database-data-vb.md)
-- [単純な検証 (VB) を実行します。](performing-simple-validation-vb.md)
-- [IDataErrorInfo インターフェイス (VB) の検証](validating-with-the-idataerrorinfo-interface-vb.md)
-- [サービス層 (VB) の検証](validating-with-a-service-layer-vb.md)
-- [データ注釈検証コントロール (VB) を使用した検証](validation-with-the-data-annotation-validators-vb.md)
+- [Entity Framework でモデル クラスを作成する (C#)](creating-model-classes-with-the-entity-framework-cs.md)
+- [LINQ to SQL でモデル クラスを作成する (C#)](creating-model-classes-with-linq-to-sql-cs.md)
+- [データベース データの表を表示する (C#)](displaying-a-table-of-database-data-cs.md)
+- [簡易検証を実行する (C#)](performing-simple-validation-cs.md)
+- [IDataErrorInfo インターフェイスの検証 (C#)](validating-with-the-idataerrorinfo-interface-cs.md)
+- [サービス層の検証 (C#)](validating-with-a-service-layer-cs.md)
+- [データ検証注釈コントロールの検証 (C#)](validation-with-the-data-annotation-validators-cs.md)
+- [Entity Framework でモデル クラスを作成する (VB)](creating-model-classes-with-the-entity-framework-vb.md)
+- [LINQ to SQL でモデル クラスを作成する (VB)](creating-model-classes-with-linq-to-sql-vb.md)
+- [データベース データの表を表示する (VB)](displaying-a-table-of-database-data-vb.md)
+- [簡易検証を実行する (VB)](performing-simple-validation-vb.md)
+- [IDataErrorInfo インターフェイスの検証 (VB)](validating-with-the-idataerrorinfo-interface-vb.md)
+- [サービス層の検証 (VB)](validating-with-a-service-layer-vb.md)
+- [データ検証注釈コントロールの検証 (VB)](validation-with-the-data-annotation-validators-vb.md)
