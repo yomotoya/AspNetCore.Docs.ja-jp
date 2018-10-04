@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f13720c5e9de99fb4ae5b27a757c257cac881f89
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834847"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795552"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性のルーティング
 ====================
@@ -25,10 +25,9 @@ ms.locfileid: "41834847"
 
 このトピックでは、属性ルーティングを有効にする方法を示していて、属性ルーティングのさまざまなオプションについて説明します。 属性ルーティングを使用するエンド ツー エンド チュートリアルでは、次を参照してください。[属性ルーティングで Web API 2 で REST API の作成](create-a-rest-api-with-attribute-routing.md)です。
 
-
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community、Professional、または Enterprise Edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community、Professional、または Enterprise edition
 
 または、NuGet パッケージ マネージャーを使用して、必要なパッケージをインストールします。 **ツール** メニューの選択 Visual Studio で**ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
@@ -55,21 +54,21 @@ ms.locfileid: "41834847"
 
 この例では、「/api/v1/製品」より別のコント ローラーにルーティング「/api/v2/製品」になります。
 
-`/api/v1/products`  
+`/api/v1/products`
 `/api/v2/products`
 
 **オーバー ロードされた URI セグメント**
 
 この例では、「1」は、注文番号がコレクションに「保留中」にマップされます。
 
-`/orders/1`  
+`/orders/1`
 `/orders/pending`
 
 **複数のパラメーター型**
 
 この例では、「1」は、注文番号が「2013/06/16」を日付を指定します。
 
-`/orders/1`  
+`/orders/1`
 `/orders/2013/06/16`
 
 <a id="enable"></a>
@@ -251,7 +250,7 @@ Web api では、すべてのルート名を持ちます。 ルート名は、HT
 合計の順序を決定する方法を次に示します。
 
 1. 比較、 **RouteOrder**ルート属性のプロパティ。
-2. ルート テンプレートでは、各 URI セグメントを確認します。 セグメントごとに次のように順序します。 
+2. ルート テンプレートでは、各 URI セグメントを確認します。 セグメントごとに次のように順序します。
 
     1. リテラルのセグメント。
     2. ルート制約を持つパラメーター。

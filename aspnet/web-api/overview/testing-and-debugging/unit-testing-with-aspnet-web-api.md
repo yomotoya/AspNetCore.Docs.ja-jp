@@ -8,12 +8,12 @@ ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828623"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795435"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>単体テストの ASP.NET Web API 2
 ====================
@@ -22,17 +22,15 @@ ms.locfileid: "41828623"
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトをソリューションに含めるし、コント ローラー メソッドから返された値をチェックするテスト メソッドを記述する方法を示します。
-> 
+>
 > このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、次を参照してください。 [ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
-> 
+>
 > このトピックの「単体テストは、単純なデータ シナリオに意図的に制限されます。 単体テストより高度なデータ シナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)します。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web API 2
-
 
 ## <a name="in-this-topic"></a>このトピックの内容
 
@@ -41,7 +39,6 @@ ms.locfileid: "41828623"
 - [前提条件](#prereqs)
 - [コードをダウンロードします。](#download)
 - [単体テスト プロジェクトでアプリケーションを作成します。](#appwithunittest)
-
     - [アプリケーションを作成するときに、単体テスト プロジェクトを追加します。](#whencreate)
     - [単体テスト プロジェクトを既存のアプリケーションに追加します。](#addtoexisting)
 - [Web API 2 アプリケーションを設定します。](#setupproject)
@@ -52,7 +49,7 @@ ms.locfileid: "41828623"
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>必須コンポーネント
 
-Visual Studio 2017 Community、Professional または Enterprise edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community、Professional または Enterprise edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>コードをダウンロードします。

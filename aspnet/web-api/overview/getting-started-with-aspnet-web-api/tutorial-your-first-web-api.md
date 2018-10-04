@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 14796ce31187a0f6a6331b46477fadc77e281c3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 62e99a41ba935470c39476c9aea8ee4193543425
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826458"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795294"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要します。
 ====================
@@ -21,14 +21,13 @@ ms.locfileid: "41826458"
 [完成したプロジェクトのダウンロード](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
 HTTP は web ページを提供するためだけではありません。 HTTP は、サービスとデータを公開する Api を構築するための強力なプラットフォームではまたです。 HTTP は、シンプルかつ柔軟なユビキタスです。 考えることができ、ほとんどすべてのプラットフォームでは、HTTP ライブラリを持つため、HTTP サービスがクライアント、ブラウザー、モバイル デバイスは、従来のデスクトップ アプリケーションなどの広範な範囲に到達できます。
- 
+
 ASP.NET Web API とは、web Api、.NET Framework 上に構築するためのフレームワークです。 このチュートリアルでは、web を製品の一覧を返す API を作成するのに ASP.NET Web API を使用します。
 
- 
- ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-  
- - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
- - Web API 2
+## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+- Web API 2
 
 参照してください[ASP.NET Core と Windows の Visual Studio で web API の作成](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api)のこのチュートリアルの最新バージョン。
 

@@ -8,38 +8,38 @@ ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: da04158c58054a8c0b8e31d3a55bea2dcbae7a05
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fb9a69d568e10ddafd71e2b9600b3dae21576807
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834327"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794990"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>ページ (Razor) サイトを ASP.NET Web のデバッグの概要
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > この記事では、ASP.NET Web Pages (Razor) の web サイトのページをデバッグするさまざまな方法について説明します。 デバッグは、検出とコード ページ内エラーを修正のプロセスです。
-> 
-> **学習内容。** 
-> 
+>
+> **学習内容。**
+>
 > - 役立つ情報を表示する方法は、分析し、ページをデバッグします。
 > - デバッグを使用する方法は、Visual Studio のツールです。
->   
-> 
+>
+>
 > この記事で導入された ASP.NET 機能を次に示します。
-> 
+>
 > - `ServerInfo`ヘルパー。
 > - `ObjectInfo` ヘルパー。
->   
-> 
+>
+>
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
-> 
-> 
+>
+>
 > - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
->   
-> 
+>
+>
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。 WebMatrix 3 を使用できますが、統合デバッガーがサポートされていません。
 
 
@@ -54,8 +54,8 @@ ms.locfileid: "41834327"
 
     追加することができます、`ServerInfo`ページ内の任意の場所のコード。 末尾に追加するには、出力から分離して他のページのコンテンツを読みやすくなります。
 
-    > [!NOTE] 
-    > 
+    > [!NOTE]
+    >
     > **重要な**実稼働サーバーへの web ページを移動する前に、web ページから診断コードを削除する必要があります。 これに適用されます、`ServerInfo`ヘルパーとこの記事でコード ページへの追加に関連するその他の診断技法。 この種の情報が悪意のある方に役立つ可能性があるため、web サイトの訪問者、server、および同様の詳細については、サーバー名、ユーザー名、パスを参照してください。 には必要ありません。
 3. ページを保存し、ブラウザーで実行します。
 
@@ -119,7 +119,7 @@ ms.locfileid: "41834327"
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio でのデバッグ ツールの使用
 
-包括的なデバッグ エクスペリエンスでは、Visual Studio 2013 または、無料使用[Visual Studio Express 2013 for Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express)します。 Visual Studio を使用して検査する行で、コードでブレークポイントを設定できます。
+デバッグ エクスペリエンスをより包括的な使用[Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)します。 Visual Studio を使用して検査する行で、コードでブレークポイントを設定できます。
 
 ![ブレークポイントの設定](introduction-to-debugging/_static/image1.png)
 

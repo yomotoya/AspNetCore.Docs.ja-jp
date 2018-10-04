@@ -8,30 +8,28 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292285"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795281"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのトレース
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > Web ベースのアプリケーションをデバッグするときは、適切な一連のトレース ログの代替はありません。 このチュートリアルでは、ASP.NET Web API でのトレースを有効にする方法を示します。 Web API フレームワークが、コント ローラーを呼び出す前後にはトレースには、この機能を使用することができます。 独自のコードをトレースに使用できます。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/downloads/) (Visual Studio 2015 でも機能します)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) (Visual Studio 2015 でも機能します)
 > - Web API 2
 > - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
-
 ## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>System.Diagnostics Web API でのトレースを有効にします。
 
-最初に新しい ASP.NET Web アプリケーション プロジェクトを作成します。 Visual Studio から、**ファイル**メニューの **新規**、し**プロジェクト**します。 **テンプレート**、 **Web**、 **ASP.NET Web アプリケーション**します。
+最初に新しい ASP.NET Web アプリケーション プロジェクトを作成します。 Visual Studio から、**ファイル**メニューの **新規** > **プロジェクト**します。 **テンプレート**、 **Web**、 **ASP.NET Web アプリケーション**します。
 
 [![](tracing-in-aspnet-web-api/_static/image2.png)](tracing-in-aspnet-web-api/_static/image1.png)
 

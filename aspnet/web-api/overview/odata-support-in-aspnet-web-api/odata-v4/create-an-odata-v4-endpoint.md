@@ -8,37 +8,34 @@ ms.date: 06/24/2014
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 7f2d0b8fa8ac290e5018cb5237b1fedb5f40eeb0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 48c1a78c96cb0ebfa0b053dfef84e76433112650
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831386"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795419"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 エンドポイントを作成します。
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > Open Data Protocol (OData) は、web 用のデータ アクセス プロトコルです。 OData クエリおよび CRUD 操作を介してデータ セットを操作する一貫した方法を提供します (作成、読み取り、更新、および削除) します。
-> 
+>
 > ASP.NET Web API には、v3 と v4 のプロトコルの両方がサポートしています。 サイド バイ サイドで実行される v4 エンドポイントを持つこともできます v3 エンドポイントを使用します。
-> 
+>
 > このチュートリアルでは、CRUD 操作をサポートする OData v4 エンドポイントを作成する方法を示します。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
+>
 > - Web API 2.2
 > - OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Visual Studio 2017 ダウンロード[ここ](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
-> 
+>
 > OData バージョン 3 では、次を参照してください。 [OData v3 エンドポイントの作成](../odata-v3/creating-an-odata-endpoint.md)です。
-
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 

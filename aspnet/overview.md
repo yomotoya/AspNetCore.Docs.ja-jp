@@ -9,12 +9,12 @@ ms.date: 03/12/2010
 ms.technology: aspnet
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 5bdebcc226050afc2469840dc4a4dc97ec6b80b2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2dc48e1262b1807a77a9889f7e0e62c9b9ea463e
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829691"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794812"
 ---
 # <a name="aspnet-overview"></a>ASP.NET の概要
 
@@ -24,7 +24,7 @@ ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript
 
 ## <a name="get-started"></a>作業開始
 
-[Visual Studio Community 2017](https://www.visualstudio.com/downloads/)Windows 上の ASP.NET の無料の IDE です。
+インストール[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community edition、Windows 上の ASP.NET の無料の IDE です。
 
 ## <a name="websites-and-web-applications"></a>Web サイトと web アプリケーション
 
@@ -34,7 +34,7 @@ ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript
 
 それらの間を選択する方法のいくつかのアイデアと各フレームワークの概要を次に示します。 動画で紹介する場合を参照してください[ASP.NET を使用した web サイトの作成](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET)と[Web ツールとは何ですか?。](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)
 
-|   | 経験がある場合 | 開発スタイル | 専門知識 | 
+|   | 経験がある場合 | 開発スタイル | 専門知識 |
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Web フォーム | Win フォーム、WPF、.NET | HTML マークアップをカプセル化するコントロールの豊富なライブラリを使用して迅速な開発 | 中程度、高度な RAD |
 | MVC       | Ruby on Rails、.NET  | 完全に制御 HTML マークアップ、コードとマークアップ、分離された、簡単にテストを記述できます。 モバイルおよび単一ページ アプリケーション (SPA) に最適です。 | 中程度、高度です |
@@ -42,13 +42,13 @@ ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript
 
 ### <a name="web-forms"></a>Web フォーム
 
-ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトを構築できます。 デザイン サーフェスや数百のコントロールとコンポーネントを洗練された強力な UI 駆動型サイトとデータ アクセスを迅速に構築できます。 
+ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトを構築できます。 デザイン サーフェスや数百のコントロールとコンポーネントを洗練された強力な UI 駆動型サイトとデータ アクセスを迅速に構築できます。
 
 [Web フォームを詳細します。](web-forms/index.md)
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC には、懸念事項の明確に分離できるようにしてを提供するマークアップを完全に制御楽しいもののアジャイル開発のための動的な web サイトを構築する強力なパターンに基づく方法。 ASP.NET MVC には、最新の web 標準を使用して、高度なアプリケーションを作成するための高速、tdd 向けの開発が可能な多くの機能が含まれています。 
+ASP.NET MVC には、懸念事項の明確に分離できるようにしてを提供するマークアップを完全に制御楽しいもののアジャイル開発のための動的な web サイトを構築する強力なパターンに基づく方法。 ASP.NET MVC には、最新の web 標準を使用して、高度なアプリケーションを作成するための高速、tdd 向けの開発が可能な多くの機能が含まれています。
 
 [MVC を詳細します。](mvc/index.md)
 
@@ -80,7 +80,7 @@ ASP.NET SignalR は、ASP.NET 開発者向けの新しいライブラリをリ�
 
 <!-- Put first under SignalR TOC:  Watch video (6 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/signalr-and-the-real-time-web -->
 
-## <a name="mobile-apps-and-sites"></a>モバイル アプリとサイト 
+## <a name="mobile-apps-and-sites"></a>モバイル アプリとサイト
 
 ASP.NET に電源、レスポンシブ デザイン Twitter Bootstrap フレームワークを使用して、モバイル web サイトと同様に Web API バック エンドでは、ネイティブ モバイル アプリを使用できます。 ネイティブ モバイル アプリを構築する場合は、ハンドルのデータ アクセス、認証、およびアプリのプッシュ通知を JSON ベースの Web API の作成が容易になります。 応答性の高いモバイル サイトを構築する場合は、任意の CSS フレームワークまたはオープンのグリッド システムするか、jQuery Mobile または Sencha や PhoneGap の優れたモバイル アプリケーションなどの強力なモバイル システムを選択を使用することができます。
 
@@ -88,7 +88,7 @@ ASP.NET に電源、レスポンシブ デザイン Twitter Bootstrap フレー�
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
-## <a name="single-page-applications"></a>シングル ページ アプリケーション 
+## <a name="single-page-applications"></a>シングル ページ アプリケーション
 
 ASP.NET Single Page Application (SPA) を使用して、HTML 5、CSS 3、JavaScript を使用して重要なクライアント側の対話を含むアプリケーションを構築できます。 Visual Studio には、knockout.js と ASP.NET Web API を使用してシングル ページ アプリケーションを構築するためのテンプレートが含まれています。 組み込みの SPA テンプレートだけでなくコミュニティによって作成された SPA テンプレートもダウンロードできます。
 

@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: da3ca8f89f823fcb2c4ab74af6ddf4f61d4e663a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41825947"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795519"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性ルーティングで REST API を作成します。
 ====================
@@ -46,13 +46,13 @@ ms.locfileid: "41825947"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community、Professional または Enterprise edition。
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community、Professional または Enterprise edition。
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 
 Visual Studio を実行して開始します。 **ファイル**メニューの **新規**選び**プロジェクト**します。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;BooksAPI&quot;します。
+展開、**インストール済み** > **Visual c#** カテゴリ。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;BooksAPI&quot;します。
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 

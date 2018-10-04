@@ -8,41 +8,37 @@ ms.date: 06/26/2014
 ms.assetid: 72657550-ec09-4779-9bfc-2fb15ecd51c7
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 80173519f1c8abd77b4138b7d29f780ffc60a188
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d07ddab83462ee1bc84ba8ab15fe906937f506e6
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838943"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795393"
 ---
 <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 のエンティティ関係
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > ほとんどのデータ セットは、エンティティ間のリレーションシップを定義します。 顧客が設定されている順序。ブックの「複数の作者により;製品では、仕入先があります。 クライアントは OData を使用して、エンティティ関係を移動できます。 製品を指定するには、業者を検索できます。 作成またはのリレーションシップを削除することもできます。 たとえば、製品の仕入先を設定できます。
-> 
+>
 > このチュートリアルでは、ASP.NET Web API を使用しての OData v4 のこれらの操作をサポートする方法を示します。 チュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用して ASP.NET Web API 2 の作成](create-an-odata-v4-endpoint.md)です。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
+>
 > - Web API 2.1
 > - OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Visual Studio 2017 ダウンロード[ここ](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
-> 
+>
 > OData バージョン 3 では、次を参照してください。 [OData v3 のエンティティ関係をサポートしている](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations)します。
-
 
 ## <a name="add-a-supplier-entity"></a>Supplier エンティティを追加します。
 
 > [!NOTE]
 > チュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用して ASP.NET Web API 2 の作成](create-an-odata-v4-endpoint.md)です。
-
 
 最初に、関連エンティティ必要があります。 という名前のクラスを追加`Supplier`Models フォルダーにします。
 

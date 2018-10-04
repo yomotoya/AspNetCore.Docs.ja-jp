@@ -4,18 +4,18 @@ author: scottaddie
 description: バンドルと縮小の手法を適用することで、ASP.NET Core web アプリケーションで静的なリソースを最適化する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/10/2018
+ms.date: 10/04/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: 152f3c810b587d734c1b1076a09ea38d13872e2d
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028142"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795406"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>バンドルし、縮小の ASP.NET Core で静的なアセット
 
-作成者: [Scott Addie](https://twitter.com/Scott_Addie)
+によって[Scott Addie](https://twitter.com/Scott_Addie)と[David 松](https://twitter.com/davidpine7)
 
 この記事では、バンドルや縮小、これらの機能を使用して ASP.NET Core web アプリの使用方法などを適用する利点について説明します。
 
