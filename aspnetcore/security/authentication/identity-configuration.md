@@ -79,18 +79,26 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 
 [IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password)を指定します、 [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions)表に示したプロパティを使用します。
 
+::: moniker range=">= aspnetcore-2.0"
+
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
 | [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | パスワードには、0 ~ 9 までの数値が必要です。 | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | パスワードの最小長。 | 6 |
-
-::: moniker range=">= aspnetcore-2.0"
-
 | [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) |ASP.NET Core 2.0 以降にのみ適用されます。<br><br> パスワードに個別の文字数が必要です。 |1 |
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) |パスワードに小文字の文字が必要です。 | `true` | |[RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) |パスワードに英数字以外の文字が必要です。 | `true` | |[RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) |パスワードに大文字が必要です。 | `true` |
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-2.0"
+
+| プロパティ | 説明 | 既定値 |
+| -------- | ----------- | :-----: |
+| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | パスワードには、0 ~ 9 までの数値が必要です。 | `true` |
+| [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | パスワードの最小長。 | 6 |
 | [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) |パスワードに小文字の文字が必要です。 | `true` | |[RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) |パスワードに英数字以外の文字が必要です。 | `true` | |[RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) |パスワードに大文字が必要です。 | `true` |
+
+::: moniker-end
 
 ### <a name="sign-in"></a>サインイン
 
