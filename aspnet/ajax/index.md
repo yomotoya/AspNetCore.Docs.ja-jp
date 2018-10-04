@@ -1,4 +1,4 @@
----
+﻿---
 uid: ajax/index
 title: 'ASP.NET Ajax: 対話性と応答性の強化 |Microsoft Docs'
 author: rick-anderson
