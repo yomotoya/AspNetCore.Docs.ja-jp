@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: baf46a87155e6368d9a81c5c5b777a491117d7b6
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
-ms.translationtype: MT
+ms.openlocfilehash: 6f4fa7cf3746da0a6cdd4bd037fea509d488a59d
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833977"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578017"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson](https://github.com/Rick-Anderson)、 [Tom Dykstra](https://github.com/tdykstra)
+によって[Mike Wasson](https://github.com/MikeWasson)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 [プロジェクトに修正プログラムをダウンロードします。](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
@@ -310,7 +310,7 @@ Fix It アプリを実行する 2 つの方法はあります。
 
     名前は azurewebsites.net ドメインで一意である必要があり、パスワードがパスワードの複雑さの SQL データベースの要件を満たす必要があります。 (例 Passw0rd1 が要件を満たしています。)
 
-    コマンドの最初に注意してください"です。\" Windows PowerShell では、悪意のあるスクリプトの実行を防ぐため、スクリプトを実行するときに、スクリプト ファイルへの完全修飾パスを提供することが必要です。 現在のディレクトリを示すために、ドットを使用することができます (".\")または、完全修飾パスを指定します。
+    コマンドの最初に注意してくださいです".\"。 Windows PowerShell では、悪意のあるスクリプトの実行を防ぐため、スクリプトを実行するときに、スクリプト ファイルへの完全修飾パスを提供することが必要です。 現在のディレクトリを示すために、ドットを使用することができます (".\")または、完全修飾パスを指定します。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample26.cmd)]
 
