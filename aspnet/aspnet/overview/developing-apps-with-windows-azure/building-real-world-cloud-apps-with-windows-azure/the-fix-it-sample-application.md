@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6f4fa7cf3746da0a6cdd4bd037fea509d488a59d
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
-ms.translationtype: HT
+ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578017"
+ms.locfileid: "48795539"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
@@ -22,7 +22,6 @@ ms.locfileid: "48578017"
 [プロジェクトに修正プログラムをダウンロードします。](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
 > **構築現実世界の Cloud Apps with Azure**電子書籍は Scott Guthrie が開発したプレゼンテーションに基づきます。 13 のパターンについて説明しするのに役立つプラクティスは、クラウドの web アプリの開発が成功します。 電子書籍の詳細については、次を参照してください。[第 1 章](introduction.md)します。
-
 
 Azure 電子書籍で構築実世界クラウド アプリには、この付録には、Fix It サンプル アプリケーションをダウンロードすることに関する追加情報を提供する次のセクションが含まれています。
 
@@ -177,11 +176,11 @@ Fix It アプリの元のバージョンの単純なコードを表示するた�
 
 非同期メソッドが値を返す必要がある場合を返す、`Task`型なく`void`します。
 
-この例は、`FixItQueueManager`クラス。 
+この例は、`FixItQueueManager`クラス。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-使用する必要があります`async void`最上位レベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元ができない**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、次を参照してください。[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)します。 
+使用する必要があります`async void`最上位レベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元ができない**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、次を参照してください。[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)します。
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>キャンセル トークンを使用して、ワーカー ロールのループを中断するには
 
@@ -216,8 +215,8 @@ Fix It アプリを実行する 2 つの方法はあります。
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>ベースのアプリケーションを実行します。
 
-1. インストール[Visual Studio 2013 または Visual Studio 2013 Express for Web](https://www.visualstudio.com/downloads)します。
-2. インストール、 [Azure SDK for .NET for Visual Studio 2013。](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
+1. インストール[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)します。
+2. インストール、 [Azure SDK for .NET for Visual Studio](https://azure.microsoft.com/downloads/)します。
 3. .Zip ファイルをダウンロード、 [MSDN コード ギャラリー](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)します。
 4. ファイル エクスプ ローラーで .zip ファイルを右クリックして、プロパティ をクリックし、プロパティ ウィンドウで ブロック解除 をクリックします。
 5. ファイルを解凍します。
@@ -225,7 +224,7 @@ Fix It アプリを実行する 2 つの方法はあります。
 7. [ツール] メニューで、ライブラリ パッケージ マネージャーでは、そのパッケージ マネージャー コンソールをクリックします。
 8. パッケージ マネージャー コンソール (PMC) では、復元をクリックします。
 9. Visual Studio を終了します。
-10. 開始、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx)します。
+10. 開始、 [Azure ストレージ エミュレーター](/azure/storage/common/storage-use-emulator)します。
 11. 前の手順で終了するソリューション ファイルを開き、Visual Studio を再起動します。
 12. FixIt プロジェクトがスタートアップ プロジェクトとして設定されていることを確認し、プロジェクトを実行するには、CTRL + F5 キーを押します。
 
@@ -234,24 +233,24 @@ Fix It アプリを実行する 2 つの方法はあります。
 
 1. 指示に従い[ベースのアプリケーションを実行](#runbase)ブラウザーを終了して、Visual Studio を閉じます。
 2. 管理者特権で Visual Studio を起動します。 (Azure コンピューティング エミュレーターを使用して管理者特権が必要です)。
-3. アプリケーションで*Web.config*ファイル、 *MyFixIt* (web プロジェクト) をプロジェクトでの値を変更、 `appSettings/UseQueues` "true"に。 
+3. アプリケーションで*Web.config*ファイル、 *MyFixIt* (web プロジェクト) をプロジェクトでの値を変更、 `appSettings/UseQueues` "true"に。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
 4. 場合、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx)がまだ実行中、もう一度開始します。
 5. FixIt web プロジェクトと MyFixItCloudService プロジェクトを同時に実行します。
 
-    Visual Studio 2013 を使用します。
+    Visual Studio を使用します。
 
-   1. F5 キーを押して、FixIt プロジェクトを実行します。
-   2. **ソリューション エクスプ ローラー**MyFixItCloudService プロジェクトを右クリックし、クリックして**デバッグ** -- **新しいインスタンスを開始**します。
+   1. キーを押して**F5** FixIt プロジェクトを実行します。
+   2. **ソリューション エクスプ ローラー**MyFixItCloudService プロジェクトを右クリックし、クリックして**デバッグ** > **新しいインスタンスを開始**します。
 
-      Visual Studio 2013 Express for Web の使用。
+    Visual Studio 2013 Express for Web の使用。
 
    3. ソリューション エクスプ ローラーでは、FixIt ソリューションを右クリックして**プロパティ**します。
-   4. 選択**マルチ スタートアップ プロジェクト**.
+   4. 選択**マルチ スタートアップ プロジェクト**します。
    5. **アクション**MyFixIt と MyFixItCloudService、下のドロップダウン リストで選択**開始**します。
    6. **[OK]** をクリックします。
-   7. F5 キーを押して、両方のプロジェクトを実行します。
+   7. キーを押して**F5**両方のプロジェクトを実行します。
 
       MyFixItCloudService プロジェクトを実行すると、Visual Studio は、Azure コンピューティング エミュレーターを起動します。 ファイアウォールの構成によっては、ファイアウォール経由のエミュレーターを許可する必要があります。
 
@@ -354,8 +353,7 @@ Fix It アプリを実行する 2 つの方法はあります。
 
 - `Get-AzureWebsite`
 - `Get-AzureSqlDatabaseServer`
-- `Get-AzureSqlDatabase`: このコマンドレットを実行するにはデータベース サーバーの名前をパイプ`Get-AzureSqlDatabase`:  
-    `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
+- `Get-AzureSqlDatabase`: このコマンドレットを実行するにはデータベース サーバーの名前をパイプ`Get-AzureSqlDatabase`:   `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
 
 これらのリソースを削除するには、次のコマンドを使用します。 場合は、データベース サーバーを削除すると、自動的にデータベースを削除するサーバーに関連付けられているに注意してください。
 
@@ -366,7 +364,7 @@ Fix It アプリを実行する 2 つの方法はあります。
 <a id="deployqueues"></a>
 ## <a name="how-to-deploy-the-app-with-queue-processing-to-azure-app-service-web-apps-and-an-azure-cloud-service"></a>Azure App Service Web Apps と Azure クラウド サービスを処理キューに、アプリをデプロイする方法
 
-キューを有効にするには、MyFixIt\Web.config ファイルで、次の変更を行います。 `appSettings`の値を変更`UseQueues`"true"にします。 
+キューを有効にするには、MyFixIt\Web.config ファイルで、次の変更を行います。 `appSettings`の値を変更`UseQueues`"true"にします。
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample31.xml)]
 
