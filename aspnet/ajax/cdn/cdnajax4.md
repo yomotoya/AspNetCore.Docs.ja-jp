@@ -15,9 +15,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41829250"
 ---
-<a name="aspnet-web-forms-and-ajax-4"></a><span data-ttu-id="7dcd0-102">ASP.NET Web Forms および Ajax 4</span><span class="sxs-lookup"><span data-stu-id="7dcd0-102">ASP.NET Web Forms and Ajax 4</span></span>
+<a name="aspnet-web-forms-and-ajax-4"></a><span data-ttu-id="df8cb-102">ASP.NET Web Forms および Ajax 4</span><span class="sxs-lookup"><span data-stu-id="df8cb-102">ASP.NET Web Forms and Ajax 4</span></span>
 ====================
-<span data-ttu-id="7dcd0-103">次のファイルは、CDN にホストされます。</span><span class="sxs-lookup"><span data-stu-id="7dcd0-103">The following files are hosted on the CDN:</span></span>
+<span data-ttu-id="df8cb-103">次のファイルは、CDN にホストされます。</span><span class="sxs-lookup"><span data-stu-id="df8cb-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/4.0/1/Date.HijriCalendar.debug.js
 - https://ajax.aspnetcdn.com/ajax/4.0/1/Date.HijriCalendar.js
@@ -56,6 +56,6 @@ ms.locfileid: "41829250"
 - https://ajax.aspnetcdn.com/ajax/4.0/1/WebParts.js
 - https://ajax.aspnetcdn.com/ajax/4.0/1/WebUIValidation.js
 
-<span data-ttu-id="7dcd0-104">注: fr-FR.js など、グローバリゼーション スクリプトは、次のフォルダーに格納されたことができます。</span><span class="sxs-lookup"><span data-stu-id="7dcd0-104">Note: The globalization scripts, such as fr-FR.js, can be found in the following folder:</span></span>
+<span data-ttu-id="df8cb-104">注: fr-FR.js など、グローバリゼーション スクリプトは、次のフォルダーに格納されています。</span><span class="sxs-lookup"><span data-stu-id="df8cb-104">Note: The globalization scripts, such as fr-FR.js, can be found in the following folder:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/4.0/1/globalization/
