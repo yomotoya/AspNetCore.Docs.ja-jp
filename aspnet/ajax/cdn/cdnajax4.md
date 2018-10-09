@@ -56,6 +56,6 @@ ms.locfileid: "41829250"
 - https://ajax.aspnetcdn.com/ajax/4.0/1/WebParts.js
 - https://ajax.aspnetcdn.com/ajax/4.0/1/WebUIValidation.js
 
-注: fr-FR.js など、グローバリゼーション スクリプトは、次のフォルダーに格納されたことができます。
+注: fr-FR.js など、グローバリゼーション スクリプトは、次のフォルダーに格納されています。
 
 - https://ajax.aspnetcdn.com/ajax/4.0/1/globalization/
