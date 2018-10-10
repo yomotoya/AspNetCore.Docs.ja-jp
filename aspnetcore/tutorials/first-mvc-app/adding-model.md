@@ -1,5 +1,5 @@
 ---
-title: .ASP.NET Core MVC アプリへのモデルの追加
+title: ASP.NET Core MVC アプリへのモデルの追加
 author: rick-anderson
 description: 単純な ASP.NET Core アプリケーションにモデルを追加します。
 ms.author: riande
