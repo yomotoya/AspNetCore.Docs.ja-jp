@@ -8,32 +8,32 @@ ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: c99b38e9326ee60bfedbd7ec2f383685343cf3c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7d9acfc8ed2dd692f36528a8a9700d92d86a4203
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836762"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910448"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>SQL Server による SignalR スケール アウト
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
 
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -50,16 +50,16 @@ Microsoft SQL Server 2005 以降。 バック プレーンには、SQL Server �
 詳細なチュートリアルを始める前に、作業内容の簡単な概要を示します。
 
 1. 新しい空のデータベースを作成します。 バック プレーンはこのデータベースに必要なテーブルを作成します。
-2. これらの NuGet パッケージをアプリケーションに追加します。 
+2. これらの NuGet パッケージをアプリケーションに追加します。
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
     - [Microsoft.AspNet.SignalR.SqlServer](http://nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
 3. SignalR アプリケーションを作成します。
-4. Startup.cs バック プレーンを構成するには、次のコードを追加します。 
+4. Startup.cs バック プレーンを構成するには、次のコードを追加します。
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
-   このコードでは、バック プレーンを構成の既定値を持つ[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス: スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。 
+   このコードでは、バック プレーンを構成の既定値を持つ[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス: スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。
 
 ## <a name="configure-the-database"></a>データベースを構成します。
 
@@ -96,7 +96,7 @@ Service Broker を有効にするには、次の SQL クエリを使用します
 - [SignalR 2.0 の概要](../getting-started/tutorial-getting-started-with-signalr.md)
 - [SignalR 2.0 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-次に、私たちと SQL Server のスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.SqlServer NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、私たちと SQL Server のスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.SqlServer NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: 31dd3239e2e0cd919c23419459bc43ae8e1a6437
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 75ef2998efe4d9bcea62c4a42a2043e2dabd6d85
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829242"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911511"
 ---
 <a name="working-with-groups-in-signalr"></a>SignalR でグループの操作
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
-> このトピックでは、ユーザーをグループに追加し、グループのメンバーシップ情報を保持する方法について説明します。 
-> 
+> このトピックでは、ユーザーをグループに追加し、グループのメンバーシップ情報を保持する方法について説明します。
+>
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -81,13 +81,13 @@ SignalR でグループは、接続されているクライアントのサブセ
 
 次の例に示すように、すべてのグループのメンバーまたはグループの唯一の指定したメンバーにメッセージを送信できます。
 
-- **すべて**指定したグループ内のクライアントを接続します。 
+- **すべて**指定したグループ内のクライアントを接続します。
 
     [!code-css[Main](working-with-groups/samples/sample3.css)]
-- 指定したグループ内のクライアントが接続されているすべて **、指定されたクライアントを除く**接続 ID によって識別されます。 
+- 指定したグループ内のクライアントが接続されているすべて **、指定されたクライアントを除く**接続 ID によって識別されます。
 
     [!code-csharp[Main](working-with-groups/samples/sample4.cs)]
-- 指定したグループ内のクライアントが接続されているすべて**呼び出し元のクライアントを除く**します。 
+- 指定したグループ内のクライアントが接続されているすべて**呼び出し元のクライアントを除く**します。
 
     [!code-css[Main](working-with-groups/samples/sample5.css)]
 

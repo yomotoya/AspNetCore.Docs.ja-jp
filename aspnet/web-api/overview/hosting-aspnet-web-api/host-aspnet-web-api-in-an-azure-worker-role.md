@@ -8,27 +8,27 @@ ms.date: 04/02/2014
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: cabf88e4e6c946f92a9e4534a4db5ae15dd8cae5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 40cb1a4514beaf81e7ed75bbd3e478f2ba146fe5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828885"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910747"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 では、Azure Worker ロールをホストします。
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。
-> 
+>
 > [.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションの分離 – Azure worker ロール内など。
-> 
+>
 > このチュートリアルでは、Microsoft.Owin.Host.HttpListener パッケージを使用します OWIN アプリケーションを自己ホストするために使用する HTTP サーバーを提供します。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
 
@@ -56,7 +56,7 @@ ms.locfileid: "41828885"
 
 ## <a name="add-the-web-api-and-owin-packages"></a>Web API と OWIN パッケージを追加します。
 
-**ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
+**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
 
 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 

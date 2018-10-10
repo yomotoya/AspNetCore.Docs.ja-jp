@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795519"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912892"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性ルーティングで REST API を作成します。
 ====================
@@ -104,7 +104,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 ### <a name="seed-the-database"></a>データベースをシードします。
 
-ツール メニューで、次のように選択します。**ライブラリ パッケージ マネージャー**、し、**パッケージ マネージャー コンソール**します。
+ツール メニューで、次のように選択します。 **NuGet パッケージ マネージャー**、し、**パッケージ マネージャー コンソール**します。
 
 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 

@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 4ba029b6-ee7c-4e45-a0e7-b703c37e5d9a
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 037f67d679762a037eaef9f0a4060156b94d97b1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: b691f718258f98e03513a089ca26b286f284765e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838911"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913236"
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC アプリケーション (1 の 10) の Entity Framework データ モデルを作成します。
 ====================
@@ -142,7 +142,7 @@ Visual Studio を開き、新しいプロジェクトを作成 (C#) という名
 
 `StudentID` プロパティは、このクラスに相当するデータベース テーブルの主キー列になります。 既定では、Entity Framework がという名前のプロパティを解釈`ID`または*classname* `ID`主キーとして。
 
-`Enrollments`プロパティは、*ナビゲーション プロパティ*します。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティが含まれます。 ここで、`Enrollments`のプロパティを`Student`すべてのエンティティを保持、`Enrollment`に関連付けられているエンティティ`Student`エンティティ。 つまり場合、指定された`Student`データベース内の行が 2 つの関連`Enrollment`行 (その学生の主キーを含む行の値で、`StudentID`外部キー列)、その`Student`エンティティの`Enrollments`ナビゲーション プロパティこれら 2 つが含まれます`Enrollment`エンティティ。
+`Enrollments` プロパティは*ナビゲーション プロパティ*です。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティが含まれます。 ここで、`Enrollments`のプロパティを`Student`すべてのエンティティを保持、`Enrollment`に関連付けられているエンティティ`Student`エンティティ。 つまり場合、指定された`Student`データベース内の行が 2 つの関連`Enrollment`行 (その学生の主キーを含む行の値で、`StudentID`外部キー列)、その`Student`エンティティの`Enrollments`ナビゲーション プロパティこれら 2 つが含まれます`Enrollment`エンティティ。
 
 ナビゲーション プロパティは、通常、として定義`virtual`などの特定の Entity Framework の機能を利用を行うことができるように*遅延読み込み*します。 (遅延読み込みについては説明後の「、[関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズの後半のチュートリアル。
 
@@ -210,7 +210,7 @@ Visual Studio 2012 およびそれ以降のバージョンでは、LocalDB は�
 
 ### <a name="enable-code-first-migrations"></a>Code First Migrations を有効にします。
 
-1. **ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
+1. **ツール** メニューのをクリックして**NuGet パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
 
     ![Selecting_Package_Manager_Console](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image10.png)
 2. `PM>`プロンプトは、次のコマンドを入力します。

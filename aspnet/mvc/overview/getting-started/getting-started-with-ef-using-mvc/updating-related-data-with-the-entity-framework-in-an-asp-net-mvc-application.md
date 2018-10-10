@@ -8,20 +8,20 @@ ms.date: 05/01/2015
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e7f5fd725a0d151f19f49be9ceaf52b049d459c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 647793a65dec8feaf37de561ad77b4585bb869a8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831989"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912216"
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework で関連データの更新
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
+> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 
 前のチュートリアルには、関連データが表示されます。このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは外部キー フィールドまたはナビゲーション プロパティを更新することで行うことができます。 多対多のリレーションシップで Entity Framework は結合テーブルを直接公開を追加し、該当するナビゲーション プロパティからエンティティを削除するようにします。
@@ -214,8 +214,8 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 一部のコース割り当てを変更し、クリックして**保存**します。 行った変更が Index ページに反映されます。
 
- 注: インストラクター コース データを編集するのには、ここアプローチは、コースの数に制限がある場合にも動作します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。  
- 
+ 注: インストラクター コース データを編集するのには、ここアプローチは、コースの数に制限がある場合にも動作します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。
+
 
 ## <a name="update-the-deleteconfirmed-method"></a>Update DeleteConfirmed メソッド
 
@@ -269,7 +269,7 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 この概要に関連するデータの操作が完了しました。 これまでにこれらのチュートリアルで、同期 I/O を実行するコードで作業したことです。 非同期のコードを実装することで、web サーバーのリソースをより効率的に使用するアプリケーションを行いは、次のチュートリアルで何があります。
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。 また、新しいトピックを要求することもできます。[表示 Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)します。
+このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
 
 その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 

@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 8b82b8b9b1ee6646072931da889c643afb34d474
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6fe55a14b40f8c50dee91cdc7f59d0378f2a1ea2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578160"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912333"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 ====================
@@ -184,7 +184,7 @@ ASP.NET MVC 4 の重要な新機能は、モバイル ブラウザー全般、�
 
 インストール、 *jQuery.Mobile.MVC*これにより、NuGet パッケージ。
 
-1. **ツール**メニューの **ライブラリ パッケージ マネージャー**、し、**パッケージ マネージャー コンソール**します。
+1. **ツール**メニューの  **NuGet パッケージ マネージャー**、し、**パッケージ マネージャー コンソール**します。
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
 2. **パッケージ マネージャー コンソール**を入力します `Install-Package jQuery.Mobile.MVC -version 1.0.0`
@@ -245,11 +245,11 @@ ASP.NET MVC 4 の重要な新機能は、モバイル ブラウザー全般、�
 
 > [!NOTE]
 > デバッグに注意してください: 次のコードを追加するには、views \shared の末尾に\\_ViewSwitcher.cshtml ブラウザー ユーザー エージェント文字列を使用してモバイル デバイスに設定されている場合は、ビューをデバッグする際にします。
-> 
+>
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
-> 
->  次の見出しを追加して、 *views \shared\\_Layout.cshtml*ファイル。  
-> 
+>
+>  次の見出しを追加して、 *views \shared\\_Layout.cshtml*ファイル。
+>
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 
 

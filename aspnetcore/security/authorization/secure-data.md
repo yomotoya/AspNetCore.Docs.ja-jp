@@ -5,12 +5,12 @@ description: 承認によって保護されたユーザー データと Razor �
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010937"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912632"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -350,6 +350,7 @@ dotnet ef database update
 
 ### <a name="additional-resources"></a>その他の技術情報
 
+* [Azure App Service で .NET Core および SQL Database web アプリを構築します。](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core 承認ラボ](https://github.com/blowdart/AspNetAuthorizationWorkshop)します。 このラボでは、このチュートリアルで導入されたセキュリティ機能の詳細に移動します。
 * [ASP.NET Core での承認: 単純、ロール、クレーム ベース、およびカスタム](xref:security/authorization/index)
 * [カスタム ポリシー ベースの承認](xref:security/authorization/policies)

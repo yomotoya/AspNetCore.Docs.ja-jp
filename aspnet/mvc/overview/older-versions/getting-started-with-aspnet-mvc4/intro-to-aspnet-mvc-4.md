@@ -8,39 +8,39 @@ ms.date: 08/15/2012
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 62f67d0d0dfe7a3c9d04eacfbcac56f7fd03ef07
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: ea3d1517192ded0e5372c49897bb1fec33324b6f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577367"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912398"
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4 の概要
 ====================
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> このチュートリアルでは、使用可能な場合は、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)します。 新しいチュートリアルでは、このチュートリアルで多くの機能強化を提供する ASP.NET MVC 5 を使用します。
-> 
+> このチュートリアルでは、使用可能な場合は、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)します。 新しいチュートリアルでは、このチュートリアルで多くの機能強化を提供する ASP.NET MVC 5 を使用します。
+>
 > このチュートリアルが Microsoft を使用して ASP.NET MVC 4 Web アプリケーションの構築の基礎を講義[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)または Visual Web Developer 2010 Express Service Pack 1。 Visual Studio 2012 がお勧め、チュートリアルを完了する何もインストールする必要はありません。 Visual Studio 2010 を使用している場合は、以下のコンポーネントをインストールする必要があります。 次のリンクをクリックして、それらのすべてをインストールできます。
-> 
+>
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [ASP.NET MVC 4 の WPI インストーラー](https://go.microsoft.com/fwlink/?LinkId=243392)
 > - [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
 > - [SSDT](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)
-> 
+>
 > Visual Web Developer 2010 ではなく Visual Studio 2010 を使用する場合は、インストール、 [ASP.NET MVC 4 の WPI インストーラー](https://go.microsoft.com/fwlink/?LinkId=243392)と: [Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
-> 
+>
 > C# ソース コードでの Visual Web Developer プロジェクトは、このトピックと共に使用できます。 [C# バージョンをダウンロード](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip)します。
-> 
+>
 > チュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーへのデプロイで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[無料試用版アカウントを Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)します。 Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法については、次を参照してください。[作成し、ASP.NET web サイトと Visual Studio での SQL Database のデプロイ](https://docs.microsoft.com/dotnet/azure/)します。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL Database (旧 SQL Azure) に、SQL Server データベースをデプロイする方法も示します。
-> 
+>
 > このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )。
 
 
 ## <a name="what-youll-build"></a>構築します
 
 > [!NOTE]
-> このチュートリアルでは、使用可能な場合は、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)します。 新しいチュートリアルでは、このチュートリアルで多くの機能強化を提供する ASP.NET MVC 5 を使用します。
+> このチュートリアルでは、使用可能な場合は、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)します。 新しいチュートリアルでは、このチュートリアルで多くの機能強化を提供する ASP.NET MVC 5 を使用します。
 
 
 作成、編集、検索、およびデータベースからムービーを一覧表示をサポートする単純なムービーの一覧をアプリケーションを実装します。 アプリケーションをビルドの 2 つのスクリーン ショットを次に示します。 データベースからムービーの一覧を表示するページが含まれています。

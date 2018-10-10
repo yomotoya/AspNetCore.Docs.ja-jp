@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 3fca46ac1e73905063afec9fc1eb9cf8df3aee24
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a58b95adfb5d0165887b95abd3247d3a829aa882
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831494"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912229"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>チュートリアル: SignalR 2 と MVC 5 の概要
 ====================
@@ -21,35 +21,35 @@ ms.locfileid: "41831494"
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
-> このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加し、チャットを送信し、メッセージを表示するビューを作成します。 
-> 
+> このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加し、チャットを送信し、メッセージを表示するビューを作成します。
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - MVC 5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>このチュートリアルで Visual Studio 2012 の使用
-> 
-> 
+>
+>
 > このチュートリアルでは、Visual Studio 2012 を使用するには、次の操作を行います。
-> 
+>
 > - 更新プログラム、[パッケージ マネージャー](http://docs.nuget.org/docs/start-here/installing-nuget)最新バージョンにします。
 > - インストール、 [Web プラットフォーム インストーラー](https://www.microsoft.com/web/downloads/platform.aspx)します。
 > - Web Platform Installer で検索してインストール**ASP.NET と Visual Studio 2012 for Web Tools 2013.1**します。 SignalR クラスの Visual Studio テンプレートなどのインストールはこの**ハブ**します。
 > - 一部のテンプレート (など**OWIN Startup クラス**) はできなくなります。 これらの場合には、クラス ファイルを代わりに使用します。
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -97,7 +97,7 @@ ms.locfileid: "41831494"
     > [!NOTE]
     > アプリケーションのさまざまな認証プロバイダーを選択した場合、`Startup.cs`クラスが作成されます。 独自に作成する必要はありません`Startup.cs`10 以下の手順でクラス。
 4. クリックして**OK**で、**新しい ASP.NET プロジェクト**ダイアログ。
-5. 開く、**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**し、次のコマンドを実行します。 この手順では、一連のスクリプト ファイルと SignalR の機能を有効にするアセンブリ参照をプロジェクトに追加します。
+5. 開く、**ツール > NuGet パッケージ マネージャー > パッケージ マネージャー コンソール**し、次のコマンドを実行します。 この手順では、一連のスクリプト ファイルと SignalR の機能を有効にするアセンブリ参照をプロジェクトに追加します。
 
     `install-package Microsoft.AspNet.SignalR`
 6. **ソリューション エクスプ ローラー**、Scripts フォルダーを展開します。 SignalR のスクリプト ライブラリがプロジェクトに追加されていることに注意してください。

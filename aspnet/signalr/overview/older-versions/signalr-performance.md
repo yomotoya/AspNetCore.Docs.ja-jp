@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 4fba0cc79046f5f3fd1dc50e5b69ddb78d98c23d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835573"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912762"
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR パフォーマンス (SignalR 1.x)
 ====================
@@ -119,7 +119,7 @@ SignalR は、さまざまなトランスポートを使用して、クライア
 
 SignalR.exe というユーティリティを使用してサーバーには、パフォーマンス カウンターを追加できます。 このユーティリティをインストールするには、次の手順を実行します。
 
-1. Visual Studio アプリケーションで次のように選択します**ツール**、**ライブラリ パッケージ マネージャー**、 **Manage NuGet Packages for Solution しています。**
+1. Visual Studio で、次のように選択します**ツール** > **NuGet パッケージ マネージャー** > **ソリューションの NuGet パッケージの管理。**
 2. 検索**signalr.utils**インストールを選択します。
 
     ![](signalr-performance/_static/image1.png)

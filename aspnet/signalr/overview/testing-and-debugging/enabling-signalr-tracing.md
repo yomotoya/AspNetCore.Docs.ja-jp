@@ -8,32 +8,32 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: ee62a7b01ff357262aa89dbac4f49180b4c58fe0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 89b27267bec5edb0692fe75061d08b4688df5a8c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826996"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912068"
 ---
 <a name="enabling-signalr-tracing"></a>SignalR トレースを有効にします。
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このドキュメントでは、有効にして、SignalR のサーバーとクライアントのトレースを構成する方法について説明します。 トレースでは、SignalR アプリケーションでのイベントに関する診断情報を表示することができます。
-> 
+>
 > このトピックでは、Patrick Fletcher によって作成当初されました。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET Framework 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -134,7 +134,7 @@ ms.locfileid: "41826996"
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Windows Phone 8 クライアントでトレースを有効にします。
 
-Windows Phone アプリ用の SignalR アプリケーションとデスクトップ アプリは、同じ .NET クライアントを使用してが[Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx)ファイルへの書き込みと[StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx)は使用できません。 代わりに、カスタムの実装を作成する必要があります[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)トレースします。 
+Windows Phone アプリ用の SignalR アプリケーションとデスクトップ アプリは、同じ .NET クライアントを使用してが[Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx)ファイルへの書き込みと[StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx)は使用できません。 代わりに、カスタムの実装を作成する必要があります[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)トレースします。
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>UI を Windows Phone クライアント イベントのログ記録

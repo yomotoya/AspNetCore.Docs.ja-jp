@@ -8,49 +8,49 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c2248e68b3c9411687ab6410f12ec85488fe0738
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838354"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911543"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>チュートリアル: SignalR 2 によるサーバーがブロードキャスト
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
 > このチュートリアルでは、ASP.NET SignalR 2 を使用してサーバー ブロードキャストの機能を提供する web アプリケーションを作成する方法を示します。 サーバー ブロードキャストでは、クライアントに送信される通信が、サーバーによって開始されたことを意味します。 このシナリオでは、チャット アプリケーションをクライアントに送信される通信が 1 つまたは複数のクライアントによって開始されたなどのピア ツー ピア シナリオよりもさまざまなプログラミングのアプローチが必要です。
-> 
+>
 > このチュートリアルで作成するアプリケーションでは、株価情報、サーバー ブロードキャストの機能の一般的なシナリオをシミュレートします。
-> 
+>
 > このトピックでは、Patrick Fletcher によって作成当初されました。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>このチュートリアルで Visual Studio 2012 の使用
-> 
-> 
+>
+>
 > このチュートリアルでは、Visual Studio 2012 を使用するには、次の操作を行います。
-> 
+>
 > - 更新プログラム、[パッケージ マネージャー](http://docs.nuget.org/docs/start-here/installing-nuget)最新バージョンにします。
 > - インストール、 [Web プラットフォーム インストーラー](https://www.microsoft.com/web/downloads/platform.aspx)します。
 > - Web Platform Installer で検索してインストール**ASP.NET と Visual Studio 2012 for Web Tools 2013.1**します。 SignalR クラスの Visual Studio テンプレートなどのインストールはこの**ハブ**します。
 > - 一部のテンプレート (など**OWIN Startup クラス**) はできなくなります。 これらの場合には、クラス ファイルを代わりに使用します。
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -66,14 +66,14 @@ ms.locfileid: "41838354"
 
 このチュートリアルには、次のセクションが含まれています。
 
-- [前提条件](#prerequisites)
+- [必須コンポーネント](#prerequisites)
 - [プロジェクトを作成します。](#createproject)
 - [サーバー コードを設定します。](#server)
 - [クライアント コードを設定します。](#client)
 - [アプリケーションをテストします。](#test)
 - [ログ記録を有効にします。](#enablelogging)
 - [インストールして、完全な StockTicker サンプルを確認してください。](#fullsample)
-- [次のステップ](#nextsteps)
+- [次の手順](#nextsteps)
 
 [Microsoft.AspNet.SignalR.Sample](http://nuget.org/packages/microsoft.aspnet.signalr.sample) NuGet パッケージは、Visual Studio プロジェクトにサンプルのシミュレートされた株価表示器アプリケーションをインストールします。
 

@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 16bef0094406f3f45307eabd19c0872e90ecf7ef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837087"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913204"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>関連する ASP.NET MVC アプリケーションで Entity Framework でのデータの読み取り
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
+> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 
 前のチュートリアルでは、School データ モデルを完了しました。 このチュートリアルでを読み取るし、関連データを表示、つまり、Entity Framework がナビゲーション プロパティに読み込まれるデータ。
@@ -36,7 +36,7 @@ ms.locfileid: "41837087"
 
 いくつかの方法が、Entity Framework がエンティティのナビゲーション プロパティに関連するデータを読み込むことができます。
 
-- *遅延読み込み*。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ただし、ナビゲーション プロパティに初めてアクセスしようとすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 これは、データベースに送信する複数のクエリ結果: 1 つ、エンティティ自体は、1 つに関連したエンティティのデータを毎回を取得する必要があります。 `DbContext`クラスは、既定で遅延読み込みを使用できます。 
+- *遅延読み込み*。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ただし、ナビゲーション プロパティに初めてアクセスしようとすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 これは、データベースに送信する複数のクエリ結果: 1 つ、エンティティ自体は、1 つに関連したエンティティのデータを毎回を取得する必要があります。 `DbContext`クラスは、既定で遅延読み込みを使用できます。
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
 - *一括読み込み*。 エンティティが読み取られるときに、関連データがエンティティと共に取得されます。 これは通常、必要なデータをすべて取得する 1 つの結合クエリになります。 一括読み込みを使用して指定する、`Include`メソッド。
@@ -69,7 +69,7 @@ Dto を使用していない場合は、遅延読み込みを無効にして、�
 ここでは、その他[遅延読み込みを無効にする](https://msdn.microsoft.com/data/jj574232):
 
 - 特定のナビゲーション プロパティでは、省略、`virtual`キーワード、プロパティを宣言するときにします。
-- すべてのナビゲーション プロパティの設定`LazyLoadingEnabled`に`false`、コンテキスト クラスのコンス トラクターに次のコードを配置します。 
+- すべてのナビゲーション プロパティの設定`LazyLoadingEnabled`に`false`、コンテキスト クラスのコンス トラクターに次のコードを配置します。
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -183,10 +183,10 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 
 - モデル クラスが `InstructorIndexData` に変更されました。
 - **Index** のページ タイトルが **Instructors** に変更されました。
-- 追加、 **Office**を表示する列`item.OfficeAssignment.Location`場合にのみ`item.OfficeAssignment`が null でないです。 (これは 0 または 1 に 1 つのリレーションシップであるためがない場合、関連する`OfficeAssignment`エンティティです)。 
+- 追加、 **Office**を表示する列`item.OfficeAssignment.Location`場合にのみ`item.OfficeAssignment`が null でないです。 (これは 0 または 1 に 1 つのリレーションシップであるためがない場合、関連する`OfficeAssignment`エンティティです)。
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- 動的に追加する追加コード`class="success"`を`tr`選択したインストラクターの要素。 これにより、設定を使用して、選択した行の背景色、[ブートス トラップ](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap)クラス。 
+- 動的に追加する追加コード`class="success"`を`tr`選択したインストラクターの要素。 これにより、設定を使用して、選択した行の背景色、[ブートス トラップ](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap)クラス。
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 - 新しい追加`ActionLink`というラベルの付いた**選択**これにより、各行の他のリンクの直前に送信される、選択したインストラクターの ID、`Index`メソッド。
@@ -243,7 +243,7 @@ Instructor インデックス ページを今すぐ実行してわかります�
 
 ナビゲーション プロパティに関連するデータを読み込むすべての 3 つ方法 (レイジー、意欲、および明示的な) を使用したようになりました。 次のチュートリアルでは、関連データの更新方法を学習します。
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。 また、新しいトピックを要求することもできます。[表示 Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)します。
+このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 

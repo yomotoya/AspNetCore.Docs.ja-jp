@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835267"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910857"
 ---
 <a name="introduction-to-signalr-security"></a>SignalR セキュリティ入門
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、SignalR アプリケーションを開発する際に考慮する必要があるセキュリティの問題について説明します。 
-> 
+> この記事では、SignalR アプリケーションを開発する際に考慮する必要があるセキュリティの問題について説明します。
+>
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -108,7 +108,7 @@ CSRF 攻撃の例を次に示します。
 
 1. www.example.com にユーザーが、フォーム認証の使用します。
 2. サーバーは、ユーザーを認証します。 サーバーからの応答には、認証 cookie が含まれています。
-3. ログアウトすると、しなくてもユーザー悪意のある web サイトにアクセスします。 この悪意のあるサイトには、次の HTML フォームが含まれています。 
+3. ログアウトすると、しなくてもユーザー悪意のある web サイトにアクセスします。 この悪意のあるサイトには、次の HTML フォームが含まれています。
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
@@ -124,12 +124,9 @@ CSRF 攻撃の例を次に示します。
 
 SignalR は、悪意のあるサイトが、アプリケーションに有効な要求を作成するを防ぐために、次の手順を受け取ります。 SignalR は、次の手順を既定では、コードで何もする必要はありません。
 
-- **クロス ドメイン要求を無効にします。**  
- SignalR には、ユーザーが、外部ドメインから SignalR エンドポイントを呼び出すことを防止するクロス ドメイン要求が無効にします。 SignalR では、無効である、外部ドメインのすべての要求を考慮し、要求をブロックします。 この既定の動作を維持することをお勧めします。それ以外の場合、悪意のあるサイトでは、サイトにコマンドを送信するのにユーザーをだましてでした。 クロス ドメイン要求を使用する必要がある場合は、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。
-- **クエリ文字列、cookie ではない接続トークンを渡す**  
- SignalR は、代わりにクエリ文字列の値として接続トークンを cookie として渡します。 悪意のあるコードが発生した場合に、ブラウザーは接続トークンを転送誤ってできるため、接続トークンを cookie に格納するセーフはありません。 また、クエリ文字列で接続トークンを渡すの現在の接続を超える永続化接続トークンが防止します。 そのため、悪意のあるユーザーは、別のユーザーの認証の資格情報で要求を作成することはできません。
-- **接続トークンを確認します。**  
- 」の説明に従って、[接続トークン](#connectiontoken) セクションで、サーバーでは、どの接続 id が各認証済みユーザーに関連付けられたがわかっています。 サーバーは、ユーザー名と一致しない接続 id からの要求を処理しません。 悪意のあるユーザーは、ユーザー名と、現在の接続をランダムに生成された id を知っている必要があるために、悪意のあるユーザーは有効な要求を推測でした可能性が高いことはできません。接続が終了するとすぐに、その接続 id が無効になります。 匿名ユーザーには、機密情報へのアクセスはありません。
+- **クロス ドメイン要求を無効にする**SignalR は、ユーザーが、外部ドメインから SignalR エンドポイントを呼び出すことを防止するクロス ドメイン要求を無効にします。 SignalR では、無効である、外部ドメインのすべての要求を考慮し、要求をブロックします。 この既定の動作を維持することをお勧めします。それ以外の場合、悪意のあるサイトでは、サイトにコマンドを送信するのにユーザーをだましてでした。 クロス ドメイン要求を使用する必要がある場合は、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)します。
+- **クエリ文字列、cookie ではない接続トークンを渡す**SignalR は、の代わりにクエリ文字列の値として接続トークンを cookie として渡します。 悪意のあるコードが発生した場合に、ブラウザーは接続トークンを転送誤ってできるため、接続トークンを cookie に格納するセーフはありません。 また、クエリ文字列で接続トークンを渡すの現在の接続を超える永続化接続トークンが防止します。 そのため、悪意のあるユーザーは、別のユーザーの認証の資格情報で要求を作成することはできません。
+- **接続トークンを確認します。** 」の説明に従って、[接続トークン](#connectiontoken) セクションで、サーバーでは、どの接続 id が各認証済みユーザーに関連付けられたがわかっています。 サーバーは、ユーザー名と一致しない接続 id からの要求を処理しません。 悪意のあるユーザーは、ユーザー名と、現在の接続をランダムに生成された id を知っている必要があるために、悪意のあるユーザーは有効な要求を推測でした可能性が高いことはできません。接続が終了するとすぐに、その接続 id が無効になります。 匿名ユーザーには、機密情報へのアクセスはありません。
 
 <a id="recommendations"></a>
 

@@ -8,12 +8,12 @@ ms.date: 09/27/2013
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: f400ec887bdee123084f582d18016fb5ed3f2165
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9920861da0e67d9304a944cacfb8ff8685267cd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41830253"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913178"
 ---
 <a name="getting-started-with-owin-and-katana"></a>OWIN と Katana の概要
 ====================
@@ -39,7 +39,7 @@ OWIN は、実装ではなく、コミュニティが所有している仕様で
 
 ### <a name="add-nuget-packages"></a>NuGet パッケージを追加します。
 
-次に、必要な NuGet パッケージを追加します。 **ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、必要な NuGet パッケージを追加します。 **ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 `install-package Microsoft.Owin.Host.SystemWeb –Pre`
 

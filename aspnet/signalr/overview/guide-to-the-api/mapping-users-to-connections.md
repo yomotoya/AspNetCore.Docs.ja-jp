@@ -8,36 +8,36 @@ ms.date: 12/30/2014
 ms.assetid: f80c08b1-3f1f-432c-980c-c7b6edeb31b1
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 765f85a4e07966d32bdfc9a0b533040f14a2843e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a3598eee30b29a95673cbc313adfb8f5b068ea24
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826892"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912580"
 ---
 <a name="mapping-signalr-users-to-connections"></a>接続に SignalR ユーザーのマッピング
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
 > このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。
-> 
+>
 > Patrick Fletcher は、このトピックに記述できました。
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 

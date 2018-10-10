@@ -8,33 +8,33 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578043"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912268"
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 承認サーバー
 ====================
 によって[Hongye Sun](https://github.com/hongyes)、 [Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、OAuth の OWIN ミドルウェアを使用して OAuth 2.0 承認サーバーを実装する方法について説明します。 これは、のみ OWIN OAuth 2.0 承認サーバーを作成する手順が説明されている、高度なチュートリアルです。 これは、ステップ バイ ステップ チュートリアルではありません。 [サンプル コードをダウンロード](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip)します。
-> 
+>
 > > [!NOTE]
 > > このアウトラインは、セキュリティで保護された実稼働アプリを作成するために使用されるされないものする必要があります。 このチュートリアルの目的は、OAuth の OWIN ミドルウェアを使用して OAuth 2.0 承認サーバーを実装する方法のアウトラインのみを提供します。
-> 
-> 
+>
+>
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
-> 
+>
 > | **このチュートリアルで示すように** | **でも使用できます。** |
 > | --- | --- |
 > | Windows 8.1 | Windows 8、Windows 7 |
-> | [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) | [Visual Studio 2013 Express for Desktop](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express)します。 Visual Studio 2012 と最新の更新プログラムが動作する必要がありますが、このチュートリアルは、テストされていないといくつかのメニューとダイアログ ボックスが異なる。 |
+> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Visual Studio 2013 Express for Desktop](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express)します。 Visual Studio 2012 と最新の更新プログラムが動作する必要がありますが、このチュートリアルは、テストされていないといくつかのメニューとダイアログ ボックスが異なる。 |
 > | .NET 4.5 |  |
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > チュートリアルに直接関連付けられていない質問がある場合でこれらを投稿[Katana プロジェクト github](https://github.com/aspnet/AspNetKatana/)します。 チュートリアルに関する意見やご質問は、ページの下部にあるコメント セクションを参照してください。
 
 
@@ -81,11 +81,11 @@ ms.locfileid: "48578043"
 
 - `AuthorizeEndpointPath`: クライアント アプリケーションがユーザーを取得するために、ユーザー エージェントをリダイレクト場所の要求パスは、コードまたはトークン発行に同意します。 たとえば、先頭のスラッシュで始める必要があります"`/Authorize`"。
 - `TokenEndpointPath`要求パスのクライアント アプリケーションは、アクセス トークンを取得する直接通信します。 "/Token"のように、先頭にスラッシュが始まる必要があります。 クライアントが発行されている場合、[クライアント\_シークレット](http://tools.ietf.org/html/rfc6749#appendix-A.2)、このエンドポイントに指定する必要があります。
-- `ApplicationCanDisplayErrors`: に設定します。 `true` web アプリケーションがクライアントの検証エラーのカスタム エラー ページを生成する必要がある場合`/Authorize`エンドポイント。 たとえばバックアップ、クライアント アプリケーションに、ブラウザーがリダイレクトしない場合にのみ必要です、ときに、`client_id`または`redirect_uri`が正しくありません。 `/Authorize`エンドポイントが"oauth を表示することが予想されます。エラー"、"oauth します。ErrorDescription"、および"oauth します。ErrorUri"プロパティは、OWIN 環境に追加されます。 
+- `ApplicationCanDisplayErrors`: に設定します。 `true` web アプリケーションがクライアントの検証エラーのカスタム エラー ページを生成する必要がある場合`/Authorize`エンドポイント。 たとえばバックアップ、クライアント アプリケーションに、ブラウザーがリダイレクトしない場合にのみ必要です、ときに、`client_id`または`redirect_uri`が正しくありません。 `/Authorize`エンドポイントが"oauth を表示することが予想されます。エラー"、"oauth します。ErrorDescription"、および"oauth します。ErrorUri"プロパティは、OWIN 環境に追加されます。
 
     > [!NOTE]
     > 指定しない場合、true の場合、承認サーバーは既定のエラー ページとエラーの詳細が返すされます。
-- `AllowInsecureHttp`: 承認し、HTTP URI アドレスに到着して、受信を許可するトークンが要求を許可する True を`redirect_uri`要求パラメーターが HTTP URI アドレスを承認します。 
+- `AllowInsecureHttp`: 承認し、HTTP URI アドレスに到着して、受信を許可するトークンが要求を許可する True を`redirect_uri`要求パラメーターが HTTP URI アドレスを承認します。
 
     > [!WARNING]
     > セキュリティ - これは開発専用の。
@@ -107,9 +107,9 @@ OAuth は、ユーザー アカウント情報の管理や場所、方法に関�
 
 ![](owin-oauth-20-authorization-server/_static/image1.png)
 
-IETF の OAuth 2 の確認[認証コード付与](http://tools.ietf.org/html/rfc6749#section-4.1)セクションのようになりました。 
+IETF の OAuth 2 の確認[認証コード付与](http://tools.ietf.org/html/rfc6749#section-4.1)セクションのようになりました。
 
-**プロバイダー** (次の表では) 機能は[OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx)します。型のプロバイダー、 `OAuthAuthorizationServerProvider`、OAuth サーバーのすべてのイベントが含まれています。 
+**プロバイダー** (次の表では) 機能は[OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx)します。型のプロバイダー、 `OAuthAuthorizationServerProvider`、OAuth サーバーのすべてのイベントが含まれています。
 
 | 認証コード付与セクションからフローのステップ | サンプルのダウンロードでは、これらの手順を実行します。 |
 | --- | --- |
@@ -134,13 +134,13 @@ IETF の OAuth 2 の確認[認証コード付与](http://tools.ietf.org/html/rfc
 
 ![](owin-oauth-20-authorization-server/_static/image2.png)
 
-場合、 **Grant**ボタンが選択されている、`Authorize`アクションは、新しい"Bearer"の id と、サインインを作成します。 ベアラー トークンを生成し、JSON ペイロードをクライアントに送信する承認サーバーのトリガーとなります。 
+場合、 **Grant**ボタンが選択されている、`Authorize`アクションは、新しい"Bearer"の id と、サインインを作成します。 ベアラー トークンを生成し、JSON ペイロードをクライアントに送信する承認サーバーのトリガーとなります。
 
 ### <a name="implicit-grant"></a>暗黙的な許可
 
 IETF の OAuth 2 を参照してください[Implicit Grant](http://tools.ietf.org/html/rfc6749#section-4.2)セクションのようになりました。
 
- [Implicit Grant](http://tools.ietf.org/html/rfc6749#section-4.2)フロー図 4 は、フローとマッピングする OWIN OAuth ミドルウェアに依存します。  
+ [Implicit Grant](http://tools.ietf.org/html/rfc6749#section-4.2)フロー図 4 は、フローとマッピングする OWIN OAuth ミドルウェアに依存します。
 
 | 暗黙的な許可 セクションからフローのステップ | サンプルのダウンロードでは、これらの手順を実行します。 |
 | --- | --- |
@@ -159,7 +159,7 @@ IETF の OAuth 2 を参照してください[Implicit Grant](http://tools.ietf.o
 
 IETF の OAuth 2 を参照してください[リソース所有者パスワード資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.3)セクションのようになりました。
 
- [リソース所有者パスワード資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.3)フロー図 5 に示すは、フローとマッピングする OWIN OAuth ミドルウェアに依存します。  
+ [リソース所有者パスワード資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.3)フロー図 5 に示すは、フローとマッピングする OWIN OAuth ミドルウェアに依存します。
 
 | リソース所有者パスワード資格情報の付与 セクションからフローのステップ | サンプルのダウンロードでは、これらの手順を実行します。 |
 | --- | --- |
@@ -182,7 +182,7 @@ IETF の OAuth 2 を参照してください[リソース所有者パスワー�
 
 IETF の OAuth 2 を参照してください[クライアント資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.4)セクションのようになりました。
 
- [クライアント資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.4)フロー図 6 に示すようには、フローとマッピングする OWIN OAuth ミドルウェアに依存します。  
+ [クライアント資格情報付与](http://tools.ietf.org/html/rfc6749#section-4.4)フロー図 6 に示すようには、フローとマッピングする OWIN OAuth ミドルウェアに依存します。
 
 | クライアント資格情報の付与 セクションからフローのステップ | サンプルのダウンロードでは、これらの手順を実行します。 |
 | --- | --- |
@@ -203,7 +203,7 @@ IETF の OAuth 2 を参照してください[クライアント資格情報付�
 
 IETF の OAuth 2 を参照してください[更新トークン](http://tools.ietf.org/html/rfc6749#section-1.5)セクションのようになりました。
 
- [更新トークン](http://tools.ietf.org/html/rfc6749#section-1.5)フロー図 2 は、フローとマッピングする OWIN OAuth ミドルウェアに依存します。  
+ [更新トークン](http://tools.ietf.org/html/rfc6749#section-1.5)フロー図 2 は、フローとマッピングする OWIN OAuth ミドルウェアに依存します。
 
 | クライアント資格情報の付与 セクションからフローのステップ | サンプルのダウンロードでは、これらの手順を実行します。 |
 | --- | --- |
@@ -212,7 +212,7 @@ IETF の OAuth 2 を参照してください[更新トークン](http://tools.ie
 |  |  |
 | (H)、承認サーバーは、クライアントを認証し、更新トークンを検証しますと、有効な場合は、新しいアクセス トークン (および、必要に応じて、新しい更新トークン) を発行します。 |  |
 
-サンプルの実装を次に示します`Provider.GrantRefreshToken`: 
+サンプルの実装を次に示します`Provider.GrantRefreshToken`:
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample9.cs)]
 

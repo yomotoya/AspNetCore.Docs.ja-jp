@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: f35e26bc8db2bbdb579836bbc9556ad2147cb8bf
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d103573fb31bb3b08d054cbf65ff906bd5d151d3
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826977"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912801"
 ---
 <a name="introduction-to-signalr"></a>SignalR の概要
 ====================
@@ -51,9 +51,7 @@ SignalR はオープン ソース、使用してアクセス[GitHub](https://git
 
 ## <a name="signalr-and-websocket"></a>SignalR と WebSocket
 
-SignalR では、使用可能な場合、新しい WebSocket トランスポートを使用し、必要に応じて、古いトランスポートにフォールバックします。 確かに、アプリケーションを作成できますが WebSocket を直接使用して、SignalR を使用して実装することになる追加機能の多くは既にことを意味が実行されていること。 最も重要なは、WebSocket の古いクライアントの別のコード パスの作成について心配することがなく利用するアプリケーションをコーディングすることがこれを意味します。 SignalR では、SignalR は引き続き、基になるトランスポートに変更をサポートするために更新する WebSocket のバージョン間で、アプリケーションの一貫したインターフェイスを提供するために、WebSocket への更新について心配することからしても保護します。
-
-単独で WebSocket を使用してソリューションを作成することが確かに、SignalR はすべての他のトランスポートと WebSocket の実装に更新プログラム、アプリケーションへのフォールバックなどを自分で記述する必要があります機能を提供します。
+SignalR では、使用可能な場合、新しい WebSocket トランスポートを使用し、必要に応じて、古いトランスポートにフォールバックします。 確かに、WebSocket を直接使用して、SignalR を実装する必要がありますが、追加の機能の多くは既に実施することを意味を使用してアプリを作成できますが。 最も重要なは、WebSocket の古いクライアントの別のコード パスの作成について心配することがなく利用するアプリをコーディングすることがこれを意味します。 SignalR も明らかにならないようにする、アプリケーションが WebSocket のバージョン間での一貫性のあるインターフェイスを提供する、基になるトランスポートに変更をサポートするために SignalR が更新されるため、WebSocket への更新について心配する必要がなくなります。
 
 <a id="transports"></a>
 

@@ -8,12 +8,12 @@ ms.date: 07/15/2014
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: eddf61a4468807f5efd658438c1c27a1d2f9c486
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dc95c39af0821c2f456f5a312de5532c5aeb3c10
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826348"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912203"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのクロス オリジン要求を有効にします。
 ====================
@@ -102,7 +102,7 @@ Visual Studio を起動し、新しい作成**ASP.NET Web アプリケーショ�
 <a id="enable-cors"></a>
 ## <a name="enable-cors"></a>CORS を有効にします。
 
-これで web サービス アプリで CORS を有効にしてみましょう。 最初に、CORS の NuGet パッケージを追加します。 Visual Studio から、**ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+これで web サービス アプリで CORS を有効にしてみましょう。 最初に、CORS の NuGet パッケージを追加します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](enabling-cross-origin-requests-in-web-api/samples/sample3.ps1)]
 

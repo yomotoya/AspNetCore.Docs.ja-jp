@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b6ac0dca92ab3d75eb871099882dcea549264354
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c18911680b59448cd67190f71e951a3fcf3d0478
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823777"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912736"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ: One ASP.NET: ASP.NET Web フォーム、MVC、Web API の統合
 ====================
@@ -372,7 +372,7 @@ Web API フレームワークは、ASP.NET スタックの一部であり、容�
 
 Web API を作成するときに、他の開発者は、API を呼び出す方法を認識できるように、ヘルプ ページを作成すると便利です。 作成し、ドキュメント ページを手動で更新しますが、自動生成すると、メンテナンス作業を実行しなくてもすむようにすることをお勧めします。 このタスクでは、ソリューションに Web API のヘルプ ページを自動的に生成するのに Nuget パッケージを使用します。
 
-1. **ツール** メニューの選択 Visual Studio で**ライブラリ パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
+1. **ツール** メニューの選択 Visual Studio で**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
 2. **パッケージ マネージャー コンソール**ウィンドウで、次のコマンドを実行します。
 
     [!code-powershell[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample7.ps1)]

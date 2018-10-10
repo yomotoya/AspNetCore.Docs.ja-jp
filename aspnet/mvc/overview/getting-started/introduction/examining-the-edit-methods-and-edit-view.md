@@ -8,12 +8,12 @@ ms.date: 05/22/2015
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 27c4bcc6dd127fe1a430aaec462e2c19a5fb7851
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 29ece7754bc6e25ea968c25a99a2f48ab837e12c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577380"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911546"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Edit メソッドと編集ビューの確認
 ====================
@@ -99,16 +99,15 @@ ms.locfileid: "48577380"
 > [!NOTE]
 > コンマを使用するロケールを英語以外の jQuery の検証をサポートするために (&quot;、&quot;) する必要があります、小数点と英語 (米国) 以外の日付形式は、 *globalize.js*と特定*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`します。 JQuery の英語以外の検証は、NuGet から取得できます。 (インストールしないでください Globalize 英語ロケールを使用している場合。)
 
+1. **ツール**ボタンをクリックし**NuGet パッケージ マネージャー**、 をクリックし、**ソリューションの NuGet パッケージの管理**します。
 
-1. **ツール**ボタンをクリックし**NuGetLibrary パッケージ マネージャー**、 をクリックし、**ソリューションの NuGet パッケージの管理**します。  
-  
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
 2. 左側のウィンドウで次のように選択します<strong>参照 *。</strong> 。*(下図を参照してください)。
-3. 入力ボックスに、次のように入力します。 * Globalize * *。  
-  
+3. 入力ボックスに、次のように入力します。 * Globalize * *。
+
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) 選択`jQuery.Validation.Globalize`、選択`MvcMovie`クリック**インストール**。 *Scripts\jquery.globalize\globalize.js*ファイルがプロジェクトに追加されます。 *Scripts\jquery.globalize\cultures\*フォルダーが多数のカルチャの JavaScript ファイルに格納されます。 このパッケージをインストールするために 5 分かかる可能性がありますに注意してください。
 
-   次のコードは、Views\Movies\Edit.cshtml ファイルへの変更を示しています。 
+   次のコードは、Views\Movies\Edit.cshtml ファイルへの変更を示しています。
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 

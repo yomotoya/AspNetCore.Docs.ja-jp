@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: 57666c69-2b0f-423a-a61d-be49547fa585
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 7ecd180b7608e82ea143575c6590574b92843dcf
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6768472b0c75757c9f368cfea58d5084c26719e1
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577497"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913165"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>ASP.NET MVC - パート 4 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -76,13 +76,13 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 最初に、jQuery UI ライブラリをインストールする必要があります。 そのためには、SP1 バージョンの Visual Studio 2010 と Visual Web Developer に含まれているパッケージ マネージャーは、NuGet を使用します。
 
-Visual Web developer でから、**ツール**メニューの **ライブラリ パッケージ マネージャー**選び**NuGet パッケージの管理**します。
+Visual Web developer でから、**ツール**メニューの  **NuGet パッケージ マネージャー**選び**NuGet パッケージの管理**します。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image3.png)
 
-注: 場合、**ツール**メニューが表示されない、**ライブラリ パッケージ マネージャー**コマンド次の手順で NuGet をインストールする必要がある、[をインストールする NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)のページNuGet の web サイト。   
+注: 場合、**ツール**メニューが表示されない、 **NuGet パッケージ マネージャー**コマンド次の手順で NuGet をインストールする必要がある、[をインストールする NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)のページNuGet の web サイト。   
   
-Visual Web Developer ではなく Visual Studio を使用しているかどうか、**ツール**メニューの **ライブラリ パッケージ マネージャー**選び**ライブラリ パッケージ参照の追加**します。
+Visual Web Developer ではなく Visual Studio を使用しているかどうか、**ツール**メニューの  **NuGet パッケージ マネージャー**選び**ライブラリ パッケージ参照の追加**します。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image4.png)
 

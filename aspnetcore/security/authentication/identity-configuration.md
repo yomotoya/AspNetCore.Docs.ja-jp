@@ -5,12 +5,12 @@ description: ASP.NET Core Identity の既定値を理解し、カスタム値を
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 0faab001b981c79f6afa16b2a8cf80c1ef141b11
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 02441cd28c2a99eda7b50ed54f4437d4b52ca5d9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011301"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911946"
 ---
 # <a name="configure-aspnet-core-identity"></a>ASP.NET Core Identity を構成します。
 
@@ -85,8 +85,10 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 | -------- | ----------- | :-----: |
 | [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | パスワードには、0 ~ 9 までの数値が必要です。 | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | パスワードの最小長。 | 6 |
-| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) |ASP.NET Core 2.0 以降にのみ適用されます。<br><br> パスワードに個別の文字数が必要です。 |1 |
-| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) |パスワードに小文字の文字が必要です。 | `true` | |[RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) |パスワードに英数字以外の文字が必要です。 | `true` | |[RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) |パスワードに大文字が必要です。 | `true` |
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | パスワードに小文字の文字が必要です。 | `true` |
+| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | パスワードに英数字以外の文字が必要です。 | `true` |
+| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | ASP.NET Core 2.0 以降にのみ適用されます。<br><br> パスワードに個別の文字数が必要です。 | 1 |
+| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | パスワードに大文字が必要です。 | `true` |
 
 ::: moniker-end
 
@@ -96,7 +98,9 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 | -------- | ----------- | :-----: |
 | [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | パスワードには、0 ~ 9 までの数値が必要です。 | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | パスワードの最小長。 | 6 |
-| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) |パスワードに小文字の文字が必要です。 | `true` | |[RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) |パスワードに英数字以外の文字が必要です。 | `true` | |[RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) |パスワードに大文字が必要です。 | `true` |
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | パスワードに小文字の文字が必要です。 | `true` |
+| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | パスワードに英数字以外の文字が必要です。 | `true` |
+| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | パスワードに大文字が必要です。 | `true` |
 
 ::: moniker-end
 
@@ -145,7 +149,7 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 
 | プロパティ | 説明 | 既定値 |
 | -------- | ----------- | :-----: |
-| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | ユーザー名に許可される文字。 | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-._@+ |
+| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | ユーザー名に許可される文字。 | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-.\_@+ |
 | [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | 各ユーザーを一意の電子メールを持つ必要があります。 | `false` |
 
 ### <a name="cookie-settings"></a>Cookie の設定

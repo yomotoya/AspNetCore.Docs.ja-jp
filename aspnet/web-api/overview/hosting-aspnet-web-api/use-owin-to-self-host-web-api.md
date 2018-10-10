@@ -8,25 +8,25 @@ ms.date: 07/09/2013
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0d16498e94ac0a66c117ed057db398c14080beaa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 06fd13fe9b12d172d615ae76a71d246a89f5386d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835619"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910487"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a>OWIN を使用して、ASP.NET Web API 2 を自己ホスト
 ====================
 によって[Kanchan Mehrotra](https://twitter.com/kanchanmeh)
 
 > このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストするコンソール アプリケーションで ASP.NET Web API をホストする方法を示します。
-> 
+>
 > [.NET 用 Web インターフェイスを開き](http://owin.org)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションを分離します。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (また、Visual Studio 2012 で動作する)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (また、Visual Studio 2012 で動作する)
 > - Web API 2
 
 
@@ -42,7 +42,7 @@ ms.locfileid: "41835619"
 
 ## <a name="add-the-web-api-and-owin-packages"></a>Web API と OWIN パッケージを追加します。
 
-**ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 `Install-Package Microsoft.AspNet.WebApi.OwinSelfHost`
 

@@ -8,27 +8,27 @@ ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 6bead915491c62de809b8625d8071a63c70a6ef5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dbf0964695dd2592d063b05c0778923edffe8e2e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828895"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910775"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Azure Worker ロールで OWIN をホスト
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > このチュートリアルでは、Microsoft Azure worker ロールで OWIN を自己ホストする方法を示します。
-> 
+>
 > [.NET 用 Web インターフェイスを開き](http://owin.org/)(OWIN) .NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN により、OWIN の IIS の外部の独自のプロセスで web アプリケーションを自己ホストするために最適ですが、サーバーから web アプリケーションの分離 – Azure worker ロール内など。
-> 
+>
 > このチュートリアルでは、Microsoft Azure worker ロール内での OWIN アプリケーションを自己ホストする方法を学習します。 ワーカー ロールの詳細については、次を参照してください。 [Azure 実行モデル](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)します。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
@@ -56,7 +56,7 @@ ms.locfileid: "41828895"
 
 ## <a name="add-the-owin-self-host-packages"></a>OWIN 自己ホスト パッケージを追加します。
 
-**ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
+**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**します。
 
 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 

@@ -8,12 +8,12 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 53cc35d819c0d3a9bd84e8bfc44098a3b62e6db3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c677bcbc78eac6056c035c2b34fe659caac9c6fa
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837413"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912281"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR による高頻度リアルタイム メッセージング 1.x
 ====================
@@ -42,7 +42,7 @@ ms.locfileid: "41837413"
 
 このチュートリアルには、次のセクションが含まれています。
 
-- [前提条件](#prerequisites)
+- [必須コンポーネント](#prerequisites)
 - [プロジェクトを作成します。](#createtheproject)
 - [ASP.NET SignalR と JQuery.UI NuGet パッケージを追加します。](#nugetpackages)
 - [ベースのアプリケーションを作成します。](#baseapp)
@@ -79,7 +79,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
 プロジェクトに SignalR の機能を追加するには、NuGet パッケージをインストールします。 このチュートリアルは、図形をドラッグし、アニメーション化を許可する JQuery.UI パッケージを使用してもします。
 
-1. クリックして**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**します。
+1. クリックして**ツール |NuGet パッケージ マネージャー |パッケージ マネージャー コンソール**します。
 2. パッケージ マネージャーで、次のコマンドを入力します。
 
     [!code-powershell[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.ps1)]

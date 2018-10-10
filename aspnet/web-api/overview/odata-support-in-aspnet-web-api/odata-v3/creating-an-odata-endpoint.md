@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 654f697c8d095d45ba31e2808c52f9ad24b606c8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2e0d3b45fd51192d227d852dc2f05b45ca42944c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832378"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910916"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 エンドポイントの作成
 ====================
@@ -22,18 +22,18 @@ ms.locfileid: "41832378"
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > [Open Data Protocol](http://www.odata.org/) (OData) は、web のデータ アクセス プロトコル。 OData データ構造体、データを照会および CRUD 操作を通じてデータ セットを操作する一貫した方法を提供します (作成、読み取り、更新、および削除) します。 OData では、AtomPub (XML) と JSON 形式の両方をサポートします。 OData では、データに関するメタデータを公開する方法も定義します。 クライアントは、型情報と、データ セットの関係を検出するのにメタデータを使用できます。
-> 
+>
 > ASP.NET Web API では、簡単にデータ セットの OData エンドポイントを作成できます。 OData 操作正確にエンドポイントがサポートを制御できます。 非 OData エンドポイントと共に、複数の OData エンドポイントをホストすることができます。 完全に制御、データ モデル、バック エンドのビジネス ロジック、およびデータ層があります。
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - OData バージョン 3
 > - Entity Framework 6
 > - [Fiddler の Web デバッグ プロキシ (省略可能)](http://www.fiddler2.com)
-> 
+>
 > Web API OData のサポートが追加された[ASP.NET および Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=282650)します。 ただし、このチュートリアルでは、Visual Studio 2013 で追加されたスキャフォールディングを使用します。
 
 
@@ -154,7 +154,7 @@ EDM は、データの抽象モデルです。 EDM は、メタデータ ドキ�
 
 この手順では、何らかのテスト データでデータベースをシードするのに Entity Framework を使用します。 この手順は省略可能でも、すぐ OData エンドポイントをテストできます。
 
-**ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
@@ -240,7 +240,7 @@ OData は、いくつかのシリアル化形式をサポートしています�
 - JSON (OData v3 で導入) の"light"
 - JSON の"verbose"(OData v2)
 
-既定では、Web API は、AtomPubJSON"light"の形式を使用します。 
+既定では、Web API は、AtomPubJSON"light"の形式を使用します。
 
 AtomPub 形式を取得するには、「アプリケーション フィードおよび atom + xml」に Accept ヘッダーを設定します。 応答本文の例を次に示します。
 

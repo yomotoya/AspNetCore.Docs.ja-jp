@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 1dca7967-8296-444a-9533-837eb284e78c
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: cd0e3d4bdb4d2eb78e5c41167a17f8673584f654
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d68196aa8e4d0c60570a0e36ccc75a2a080d57bc
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826272"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912749"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a>SQL Server による SignalR スケール アウト (SignalR 1.x)
 ====================
@@ -66,7 +66,6 @@ Service Broker を有効にするには、次の SQL クエリを使用します
 > [!NOTE]
 > このクエリは、デッドロックを確認が表示された場合、DB に接続されているアプリケーションはありません。
 
-
 トレースを有効にした場合、トレースが表示されます Service Broker が有効になっているかどうか。
 
 ## <a name="create-a-signalr-application"></a>SignalR アプリケーションを作成します。
@@ -76,7 +75,7 @@ Service Broker を有効にするには、次の SQL クエリを使用します
 - [SignalR の概要](../getting-started/tutorial-getting-started-with-signalr.md)
 - [SignalR と MVC 4 の概要](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-次に、私たちと SQL Server のスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.SqlServer NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、私たちと SQL Server のスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.SqlServer NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

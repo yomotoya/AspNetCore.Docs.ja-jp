@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 0aa578020a1f02fa68c74e758014c642219b4265
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8afa2c9dfbe03a9874513f7d083adf7608f4218f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827315"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910461"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Katana で Windows 認証を有効にします。
 ====================
@@ -36,7 +36,6 @@ Katana には、Windows 統合認証をサポートする 2 つのサーバー�
 > [!NOTE]
 > Katana は提供されていません OWIN ミドルウェアの Windows 認証では、この機能は、サーバーで使用可能な既にあるため。
 
-
 ## <a name="windows-authentication-in-iis"></a>IIS で Windows 認証
 
 Microsoft.Owin.Host.SystemWeb を使用して、単に、IIS で Windows 認証を有効にできます。
@@ -45,7 +44,7 @@ Microsoft.Owin.Host.SystemWeb を使用して、単に、IIS で Windows 認証�
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-次に、NuGet パッケージを追加します。 **ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、NuGet パッケージを追加します。 **ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
@@ -75,7 +74,7 @@ Visual Studio からアプリケーションを実行するときに IIS Express
 
 直接は Windows 認証を有効にする Microsoft.Owin.Host.HttpListener Katana を自己ホストを使用している場合、 **HttpListener**インスタンス。
 
-最初に、新しいコンソール アプリケーションを作成します。 次に、NuGet パッケージを追加します。 **ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+最初に、新しいコンソール アプリケーションを作成します。 次に、NuGet パッケージを追加します。 **ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 

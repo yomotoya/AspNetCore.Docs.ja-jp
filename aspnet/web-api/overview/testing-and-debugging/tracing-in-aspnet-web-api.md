@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e0d525e497cf41a79820417a9c832fa6b5cd7f8a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795281"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912840"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのトレース
 ====================
@@ -37,7 +37,7 @@ Web API プロジェクト テンプレートを選択します。
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-**ツール**メニューの **ライブラリ パッケージ マネージャー**、し**Package Manage Console**します。
+**ツール**メニューの  **NuGet パッケージ マネージャー**、し**Package Manage Console**します。
 
 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
@@ -47,7 +47,6 @@ Web API プロジェクト テンプレートを選択します。
 
 > [!NOTE]
 > Web API の特定のバージョンを対象とする場合を使用して、バージョン フラグは、トレースのパッケージをインストールするときにします。
-
 
 アプリで WebApiConfig.cs ファイルを開く\_開始フォルダー。 次のコードを追加、**登録**メソッド。
 

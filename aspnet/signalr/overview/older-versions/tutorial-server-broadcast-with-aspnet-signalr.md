@@ -8,12 +8,12 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 76dc2f4d54f6ab4cebbde06dfd611a9b5ee5ae64
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7d604af11ade848358e291d1df25f2f8df850132
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41825948"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911982"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>チュートリアル: ASP.NET SignalR のサーバーがブロードキャスト 1.x
 ====================
@@ -40,7 +40,7 @@ ms.locfileid: "41825948"
 
 このチュートリアルには、次のセクションが含まれています。
 
-- [前提条件](#prerequisites)
+- [必須コンポーネント](#prerequisites)
 - [プロジェクトを作成します。](#createproject)
 - [SignalR の NuGet パッケージを追加します。](#nugetpackages)
 - [サーバー コードを設定します。](#server)
@@ -48,7 +48,7 @@ ms.locfileid: "41825948"
 - [アプリケーションをテストします。](#test)
 - [ログ記録を有効にします。](#enablelogging)
 - [インストールして、完全な StockTicker サンプルを確認してください。](#fullsample)
-- [次のステップ](#nextsteps)
+- [次の手順](#nextsteps)
 
 > [!NOTE]
 > 新しい SignalR.Sample パッケージをインストールするには、アプリケーションの構築の手順を実行しない場合は、**空の ASP.NET Web アプリケーション**プロジェクト、およびコードの説明を取得する次の手順を通読します。 このチュートリアルの最初の部分が、SignalR.Sample コードのサブセットについて説明し、2 番目の部分が SignalR.Sample パッケージの追加機能の主な機能を説明します。
@@ -80,7 +80,7 @@ Visual Studio 2010 があれば、以下のことを確認[NuGet](https://visual
 
 プロジェクトに SignalR の機能を追加するには、NuGet パッケージをインストールします。
 
-1. クリックして**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**します。
+1. クリックして**ツール |NuGet パッケージ マネージャー |パッケージ マネージャー コンソール**します。
 2. パッケージ マネージャーで、次のコマンドを入力します。
 
     [!code-powershell[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample1.ps1)]

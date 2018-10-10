@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 6abecf80-8ffa-41ba-b0d9-1d9edbe7687b
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 4f587b129a1a22e64625d2ab0fc7655984262ebe
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 90f1f1429dcdf8f1015365e5aa337371c6307715
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826342"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910721"
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a>Redis による SignalR スケール アウト (SignalR 1.x)
 ====================
@@ -94,7 +94,7 @@ Redis の既定のポートが開かれたポート 6379 をリッスンしま�
 - [SignalR の概要](../getting-started/tutorial-getting-started-with-signalr.md)
 - [SignalR と MVC 4 の概要](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-次に、私たち Redis によるスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.Redis NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、私たち Redis によるスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.Redis NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 

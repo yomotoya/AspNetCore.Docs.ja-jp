@@ -8,21 +8,20 @@ ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41830365"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911787"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>接続復元性と、ASP.NET MVC アプリケーションで Entity Framework とコマンド傍受
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
+> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 これまでに、アプリケーションを実行したローカル IIS Express で開発用コンピューターにします。 で実際のアプリケーションをインターネット経由で使用するには、他のユーザーに使用できるように、web ホスティング プロバイダーにデプロイする必要があるし、データベース サーバーにデータベースを展開します。
 
@@ -73,7 +72,7 @@ Entity Framework プロバイダーでサポートされている任意のデー
 
 ### <a name="create-a-logging-interface-and-class"></a>ログ記録のインターフェイスとクラスを作成します。
 
-A[ベスト プラクティスのログ記録](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)インターフェイスを使用して、ハード コーディング System.Diagnostics.Trace または logging クラスの呼び出しではなく。 これによりを実行する必要が生じた場合、後で、ログ記録メカニズムを変更します。 このセクションでは、ログ記録のインターフェイスとその/p を実装するクラスを作成しますように > 
+A[ベスト プラクティスのログ記録](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)インターフェイスを使用して、ハード コーディング System.Diagnostics.Trace または logging クラスの呼び出しではなく。 これによりを実行する必要が生じた場合、後で、ログ記録メカニズムを変更します。 このセクションでは、ログ記録のインターフェイスとその/p を実装するクラスを作成しますように >
 
 1. プロジェクトのフォルダーを作成し、名前*ログ*します。
 2. *ログ*フォルダー、という名前のクラス ファイルを作成する*ILogger.cs*、テンプレート コードを次のコードに置き換えます。
@@ -138,7 +137,7 @@ A[ベスト プラクティスのログ記録](../../../../aspnet/overview/devel
 
 ## <a name="test-logging-and-connection-resiliency"></a>テストのログ記録と接続の回復性
 
-1. デバッグ モードでアプリケーションを実行し、をクリックし、f5 キーを押して、**学生**タブ。
+1. キーを押して**f5 キーを押して**デバッグ モードでアプリケーションを実行し、**学生**タブ。
 2. Visual Studio を見て**出力**トレース出力を表示するウィンドウ。 一部の JavaScript エラー、ロガーによって書き込まれたログを表示するスクロールする必要があります。
 
     データベースに送信される実際の SQL クエリを表示できることに注意してください。 最初のクエリと Entity Framework で開始するには、データベースのバージョンをチェックするコマンドと (学習の移行に関する次のチュートリアルで) 移行履歴テーブルを参照してください。 クエリ ページング、受講者の数を確認するを参照してくださいし、受講者データを取得するクエリが最後に表示します。
@@ -172,7 +171,7 @@ A[ベスト プラクティスのログ記録](../../../../aspnet/overview/devel
 
 このチュートリアルでは、接続の回復を有効にして、Entity Framework は、作成し、データベースに送信する SQL コマンドをログする方法を説明しました。 次のチュートリアルでは、Code First Migrations を使用して、データベースを展開する、インターネットにアプリケーションをデプロイします。
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。 また、新しいトピックを要求することもできます。[表示 Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)します。
+このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
 
 その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 

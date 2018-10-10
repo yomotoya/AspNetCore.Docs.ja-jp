@@ -8,38 +8,38 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: de47593e7f54757d4f91a6e92485567e74b829ed
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9edb7fd100a3f4c5331454045ac206d2f7a81961
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833980"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912450"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>ASP.NET SignalR ハブ API ガイド - JavaScript クライアント
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
 
 > このドキュメントでは、ブラウザーや Windows ストア (WinJS) アプリケーションなど、JavaScript クライアントで、バージョン 2 の SignalR ハブ API を使用するように紹介します。
-> 
+>
 > SignalR ハブの API では、サーバーからに接続されているクライアントとサーバーのクライアントからのリモート プロシージャ コール (Rpc) を作成することができます。 サーバー コードで、クライアントから呼び出すことができるメソッドを定義して、クライアント上で実行されるメソッドを呼び出します。 クライアント コードで、サーバーから呼び出すことができるメソッドを定義して、サーバー上で実行されるメソッドを呼び出します。 SignalR は、のすべてのクライアントとサーバーが処理されます。
-> 
+>
 > SignalR では、永続的な接続と呼ばれる下位レベル API も提供します。 SignalR、ハブ、および永続的な接続の概要については、次を参照してください。 [SignalR 入門](../getting-started/introduction-to-signalr.md)します。
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -234,7 +234,7 @@ SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCross
 
 ### <a name="calling-usecors"></a>UseCors を呼び出す
 
- 次のコード スニペットでは、SignalR 2 のドメイン間の接続を実装する方法を示します。 
+ 次のコード スニペットでは、SignalR 2 のドメイン間の接続を実装する方法を示します。
 
 **SignalR 2 のクロス ドメイン要求を実装します。**
 
@@ -242,12 +242,12 @@ SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCross
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample11.cs)]
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > - 設定しない`jQuery.support.cors`コードで true に設定します。
-> 
+>
 >     ![JQuery.support.cors を true に設定しないでください。](hubs-api-guide-javascript-client/_static/image7.png)
-> 
+>
 >     SignalR では、CORS の使用を処理します。 設定`jQuery.support.cors`に SignalR、ブラウザーは、CORS をサポートするいると仮定する原因になるので true JSONP を無効にします。
 > - に localhost の URL に接続するときに Internet Explorer 10 は見なされませんが、ドメイン間の接続を、アプリケーションは、ローカルで IE 10 サーバー上のドメイン間の接続を有効にしていない場合でも、。
 > - Internet Explorer 9 を使用したドメイン間の接続方法の詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/13573397/siganlr-ie9-cross-domain-request-dont-work)します。

@@ -8,12 +8,12 @@ ms.date: 09/30/2015
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 24ab1c470a22b5b328d1f3bc400400978eb31600
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3c3557bb2be2807b11874937fcc629b5b773e463
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823922"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912255"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ: ASP.NET Web API と Angular.js で単一ページ アプリケーション (SPA) のビルドします。
 ====================
@@ -308,7 +308,7 @@ Visual Studio のパッケージ マネージャー コンソールから Angula
 
 
 1. 開く**Visual Studio Express 2013 for Web**を開くと、 **GeekQuiz.sln**ソリューション、**ソース/Ex2-CreatingASPAInterface/開始**フォルダー。 または、前の手順で取得したソリューションを続行できます。
-2. 開く、**パッケージ マネージャー コンソール**から**ツール** | **ライブラリ パッケージ マネージャー**します。 インストールするには、次のコマンドを入力、 **AngularJS.Core** NuGet パッケージ。
+2. 開く、**パッケージ マネージャー コンソール**から**ツール** > **NuGet パッケージ マネージャー**します。 インストールするには、次のコマンドを入力、 **AngularJS.Core** NuGet パッケージ。
 
     [!code-powershell[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample16.ps1)]
 3. **ソリューション エクスプ ローラー**を右クリックし、**スクリプト**のフォルダー、 **GeekQuiz**順に選択して**追加 |新しいフォルダー**します。 フォルダーの名前**アプリ**キーを押します**Enter**します。

@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523078"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911692"
 ---
 <a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)
 
 > このドキュメントでは、SignalR を使って一般的な問題のトラブルシューティングについて説明します。
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR 2 のバージョン
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
-> 
+>
 > SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
-> 
+>
 > ## <a name="questions-and-comments"></a>意見やご質問
-> 
+>
 > このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
@@ -294,7 +294,7 @@ Silverlight でイベントを送信するサーバーを使用する場合、�
 
 ## <a name="compilation-and-server-side-errors"></a>コンパイルとサーバー側のエラー
 
- 次のセクションには、コンパイラとサーバー側のランタイム エラーの考えられる解決策が含まれています。 
+ 次のセクションには、コンパイラとサーバー側のランタイム エラーの考えられる解決策が含まれています。
 
 ### <a name="reference-to-hub-instance-is-null"></a>ハブ インスタンスへの参照が null
 
