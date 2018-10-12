@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751461"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340200"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置
 
@@ -21,7 +21,7 @@ ms.locfileid: "41751461"
 
 このチュートリアルでは、Visual Studio で ASP.NET Core Web アプリを作成し、それを Visual Studio から Azure App Service に継続的に配置する方法について説明します。
 
-「[Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)」 (VSTS と継続的配置で Azure Web アプリをビルドし、公開する) も併せてご覧ください。Visual Studio Team Services を利用した、[Azure App Service](/azure/app-service/app-service-web-overview) の継続的デリバリー (CD) ワークフローの構成方法を紹介しています。 チーム サービスの Azure 継続的デリバリーを利用すると、Azure App Service でホストされているアプリの更新プログラムを公開するための堅牢な配置パイプラインの設定が簡単になります。 Azure Portal で、このパイプラインのビルド、テスト実行、ステージング スロットへの配置、運用への配置を構成できます。
+[Azure Pipelines を使用した初めてのパイプラインの作成](/azure/devops/pipelines/get-started-yaml)に関する記事を参照してください。記事では、Azure DevOps Services を使用した [Azure App Service](/azure/app-service/app-service-web-overview) 向けの継続的デリバリー (CD) ワークフローの構成方法が示されています。 Azure Pipelines (Azure DevOps Services サービス) を利用すると、Azure App Service でホストされているアプリの更新プログラムを公開するための堅牢な配置パイプラインの設定が簡単になります。 Azure Portal で、このパイプラインのビルド、テスト実行、ステージング スロットへの配置、運用への配置を構成できます。
 
 > [!NOTE]
 > このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントを持っていない場合は、[MSDN サブスクライバー特典を有効にする](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F)か、[無料試用版にサインアップ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)してください。
@@ -228,5 +228,5 @@ Web アプリが Azure に展開されたら、アプリを実行します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [VSTS で継続的配置を使用して Azure Web アプリをビルドし、発行する](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
+* [Azure Pipelines による最初のパイプラインの作成](/azure/devops/pipelines/get-started-yaml)
 * [プロジェクト Kudu](https://github.com/projectkudu/kudu/wiki)
