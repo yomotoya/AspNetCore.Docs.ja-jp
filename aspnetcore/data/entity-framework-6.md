@@ -5,12 +5,12 @@ description: この記事では、ASP.NET Core アプリケーションで Entit
 ms.author: tdykstra
 ms.date: 02/24/2017
 uid: data/entity-framework-6
-ms.openlocfilehash: 500954bdf8ea592e0ed706943e0f5ba4f4594dbc
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ba3ee137bfefd53cf2b7be2f328651ad38104ab5
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274080"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601744"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core と Entity Framework 6 の概要
 
@@ -66,9 +66,10 @@ Core プロジェクトの *Startup.cs* ファイルで、`ConfigureServices` �
 
 * ソリューションを作成します。
 
-* **[新しいプロジェクトの追加] > [Web] > [ASP.NET Core Web アプリケーション (.NET Framework)]**
+* **[追加]** > **[新しいプロジェクト]** > **[Web]** > **[ASP.NET Core Web アプリケーション]**
+  * プロジェクト テンプレートの選択ダイアログで、ドロップダウンの [API] と [.NET Framework] を選択します。
 
-* **[新しいプロジェクトの追加] > [Windows クラシック デスクトップ] > [クラス ライブラリ (.NET Framework)]**
+* **[追加]** > **[新しいプロジェクト]** > **[Windows デスクトップ]** > **[クラス ライブラリ (.NET Framework)]**
 
 * 両方のプロジェクトの**パッケージ マネージャー コンソール** (PMC) ウィンドウで、`Install-Package Entityframework` コマンドを実行します。
 

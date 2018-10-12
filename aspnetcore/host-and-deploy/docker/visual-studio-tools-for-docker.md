@@ -4,14 +4,14 @@ author: spboyer
 description: Visual Studio 2017 ツールと Docker for Windows を使用して、ASP.NET Core アプリをコンテナー化する方法を説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/26/2018
+ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 962c35cb1487dacd93fd78d09e2417ef77387e42
-ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
+ms.openlocfilehash: 4bb28e7644997c50c14046bc0c89338fa35a5f14
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39275864"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538480"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker と ASP.NET Core
 
@@ -102,6 +102,10 @@ Visual Studio Tools for Docker では、ソリューションに *docker-compose
 上の例では、`image: hellodockertools` によって、アプリが**デバッグ** モードで実行されるときに、イメージ `hellodockertools:dev` が生成されます。 `hellodockertools:latest` イメージは、アプリが**リリース** モードで実行されるときに生成されます。
 
 イメージがレジストリにプッシュされる場合は、イメージ名の前に [Docker Hub](https://hub.docker.com/) のユーザー名を付けます (例: `dockerhubusername/hellodockertools`)。 または、構成に応じて、プライベート レジストリ URL を含めるようにイメージ名を変更します (例: `privateregistry.domain.com/hellodockertools`)。
+
+ビルド構成に基づいて動作を別にしたい場合 (デバッグやリリースなど)、構成固有の*docker-compose* ファイルを追加します。 ビルド構成に基づいて (たとえば、*docker-compose.vs.debug.yml* および *docker-compose.vs.release.yml*) ファイル名を指定して、*docker-compose-override.yml* ファイルと同じ場所にそのファイルを配置する必要があります。 
+
+構成固有の上書きファイルを使用して、デバッグおよびリリース ビルド構成に対して、さまざまな構成設定 (環境変数やエンドポイントなど) を指定できます。
 
 ### <a name="service-fabric"></a>Service Fabric
 
@@ -227,6 +231,7 @@ microsoft/aspnetcore        2.0     c69d39472da9  13 days ago     347MB
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* [Visual Studio によるコンテナー開発](/visualstudio/containers)
 * [Azure Service Fabric: 開発環境を準備する](/azure/service-fabric/service-fabric-get-started)
 * [Windows コンテナー内の .NET アプリケーションを Azure Service Fabric にデプロイする](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Docker を使用した Visual Studio 2017 開発のトラブルシューティング](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
