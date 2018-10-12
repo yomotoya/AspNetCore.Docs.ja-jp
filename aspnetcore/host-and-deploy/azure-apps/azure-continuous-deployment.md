@@ -6,165 +6,165 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751461"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340200"
 ---
-# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a><span data-ttu-id="fb90c-103">Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置</span><span class="sxs-lookup"><span data-stu-id="fb90c-103">Continuous deployment to Azure with Visual Studio and Git with ASP.NET Core</span></span>
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a><span data-ttu-id="c08d5-103">Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置</span><span class="sxs-lookup"><span data-stu-id="c08d5-103">Continuous deployment to Azure with Visual Studio and Git with ASP.NET Core</span></span>
 
-<span data-ttu-id="fb90c-104">作成者: [Erik Reitan](https://github.com/Erikre)</span><span class="sxs-lookup"><span data-stu-id="fb90c-104">By [Erik Reitan](https://github.com/Erikre)</span></span>
+<span data-ttu-id="c08d5-104">作成者: [Erik Reitan](https://github.com/Erikre)</span><span class="sxs-lookup"><span data-stu-id="c08d5-104">By [Erik Reitan](https://github.com/Erikre)</span></span>
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-<span data-ttu-id="fb90c-105">このチュートリアルでは、Visual Studio で ASP.NET Core Web アプリを作成し、それを Visual Studio から Azure App Service に継続的に配置する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-105">This tutorial shows how to create an ASP.NET Core web app using Visual Studio and deploy it from Visual Studio to Azure App Service using continuous deployment.</span></span>
+<span data-ttu-id="c08d5-105">このチュートリアルでは、Visual Studio で ASP.NET Core Web アプリを作成し、それを Visual Studio から Azure App Service に継続的に配置する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-105">This tutorial shows how to create an ASP.NET Core web app using Visual Studio and deploy it from Visual Studio to Azure App Service using continuous deployment.</span></span>
 
-<span data-ttu-id="fb90c-106">「[Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)」 (VSTS と継続的配置で Azure Web アプリをビルドし、公開する) も併せてご覧ください。Visual Studio Team Services を利用した、[Azure App Service](/azure/app-service/app-service-web-overview) の継続的デリバリー (CD) ワークフローの構成方法を紹介しています。</span><span class="sxs-lookup"><span data-stu-id="fb90c-106">See also [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic), which shows how to configure a continuous delivery (CD) workflow for [Azure App Service](/azure/app-service/app-service-web-overview) using Visual Studio Team Services.</span></span> <span data-ttu-id="fb90c-107">チーム サービスの Azure 継続的デリバリーを利用すると、Azure App Service でホストされているアプリの更新プログラムを公開するための堅牢な配置パイプラインの設定が簡単になります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-107">Azure Continuous Delivery in Team Services simplifies setting up a robust deployment pipeline to publish updates for apps hosted in Azure App Service.</span></span> <span data-ttu-id="fb90c-108">Azure Portal で、このパイプラインのビルド、テスト実行、ステージング スロットへの配置、運用への配置を構成できます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-108">The pipeline can be configured from the Azure portal to build, run tests, deploy to a staging slot, and then deploy to production.</span></span>
+<span data-ttu-id="c08d5-106">[Azure Pipelines を使用した初めてのパイプラインの作成](/azure/devops/pipelines/get-started-yaml)に関する記事を参照してください。記事では、Azure DevOps Services を使用した [Azure App Service](/azure/app-service/app-service-web-overview) 向けの継続的デリバリー (CD) ワークフローの構成方法が示されています。</span><span class="sxs-lookup"><span data-stu-id="c08d5-106">See also [Create your first pipeline with Azure Pipelines](/azure/devops/pipelines/get-started-yaml), which shows how to configure a continuous delivery (CD) workflow for [Azure App Service](/azure/app-service/app-service-web-overview) using Azure DevOps Services.</span></span> <span data-ttu-id="c08d5-107">Azure Pipelines (Azure DevOps Services サービス) を利用すると、Azure App Service でホストされているアプリの更新プログラムを公開するための堅牢な配置パイプラインの設定が簡単になります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-107">Azure Pipelines (an Azure DevOps Services service) simplifies setting up a robust deployment pipeline to publish updates for apps hosted in Azure App Service.</span></span> <span data-ttu-id="c08d5-108">Azure Portal で、このパイプラインのビルド、テスト実行、ステージング スロットへの配置、運用への配置を構成できます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-108">The pipeline can be configured from the Azure portal to build, run tests, deploy to a staging slot, and then deploy to production.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="fb90c-109">このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。</span><span class="sxs-lookup"><span data-stu-id="fb90c-109">To complete this tutorial, a Microsoft Azure account is required.</span></span> <span data-ttu-id="fb90c-110">アカウントを持っていない場合は、[MSDN サブスクライバー特典を有効にする](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F)か、[無料試用版にサインアップ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)してください。</span><span class="sxs-lookup"><span data-stu-id="fb90c-110">To obtain an account, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) or [sign up for a free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).</span></span>
+> <span data-ttu-id="c08d5-109">このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。</span><span class="sxs-lookup"><span data-stu-id="c08d5-109">To complete this tutorial, a Microsoft Azure account is required.</span></span> <span data-ttu-id="c08d5-110">アカウントを持っていない場合は、[MSDN サブスクライバー特典を有効にする](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F)か、[無料試用版にサインアップ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)してください。</span><span class="sxs-lookup"><span data-stu-id="c08d5-110">To obtain an account, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) or [sign up for a free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="fb90c-111">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="fb90c-111">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="c08d5-111">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="c08d5-111">Prerequisites</span></span>
 
-<span data-ttu-id="fb90c-112">このチュートリアルでは、次のソフトウェアがインストールされていることを前提としています。</span><span class="sxs-lookup"><span data-stu-id="fb90c-112">This tutorial assumes the following software is installed:</span></span>
+<span data-ttu-id="c08d5-112">このチュートリアルでは、次のソフトウェアがインストールされていることを前提としています。</span><span class="sxs-lookup"><span data-stu-id="c08d5-112">This tutorial assumes the following software is installed:</span></span>
 
-* [<span data-ttu-id="fb90c-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fb90c-113">Visual Studio</span></span>](https://www.visualstudio.com)
+* [<span data-ttu-id="c08d5-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="c08d5-113">Visual Studio</span></span>](https://www.visualstudio.com)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
-* <span data-ttu-id="fb90c-114">[Git](https://git-scm.com/downloads) for Windows</span><span class="sxs-lookup"><span data-stu-id="fb90c-114">[Git](https://git-scm.com/downloads) for Windows</span></span>
+* <span data-ttu-id="c08d5-114">[Git](https://git-scm.com/downloads) for Windows</span><span class="sxs-lookup"><span data-stu-id="c08d5-114">[Git](https://git-scm.com/downloads) for Windows</span></span>
 
-## <a name="create-an-aspnet-core-web-app"></a><span data-ttu-id="fb90c-115">ASP.NET Core Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="fb90c-115">Create an ASP.NET Core web app</span></span>
+## <a name="create-an-aspnet-core-web-app"></a><span data-ttu-id="c08d5-115">ASP.NET Core Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="c08d5-115">Create an ASP.NET Core web app</span></span>
 
-1. <span data-ttu-id="fb90c-116">Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-116">Start Visual Studio.</span></span>
+1. <span data-ttu-id="c08d5-116">Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-116">Start Visual Studio.</span></span>
 
-1. <span data-ttu-id="fb90c-117">**[ファイル]** メニューで、**[新規作成]**、 > **[プロジェクト]** の順に作成します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-117">From the **File** menu, select **New** > **Project**.</span></span>
+1. <span data-ttu-id="c08d5-117">**[ファイル]** メニューで、**[新規作成]**、 > **[プロジェクト]** の順に作成します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-117">From the **File** menu, select **New** > **Project**.</span></span>
 
-1. <span data-ttu-id="fb90c-118">**[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-118">Select the **ASP.NET Core Web Application** project template.</span></span> <span data-ttu-id="fb90c-119">このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-119">It appears under **Installed** > **Templates** > **Visual C#** > **.NET Core**.</span></span> <span data-ttu-id="fb90c-120">プロジェクトに `SampleWebAppDemo` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-120">Name the project `SampleWebAppDemo`.</span></span> <span data-ttu-id="fb90c-121">**[新しい Git リポジトリの作成]** オプションを選択し、**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-121">Select the **Create new Git repository** option and click **OK**.</span></span>
+1. <span data-ttu-id="c08d5-118">**[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-118">Select the **ASP.NET Core Web Application** project template.</span></span> <span data-ttu-id="c08d5-119">このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-119">It appears under **Installed** > **Templates** > **Visual C#** > **.NET Core**.</span></span> <span data-ttu-id="c08d5-120">プロジェクトに `SampleWebAppDemo` という名前を付けます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-120">Name the project `SampleWebAppDemo`.</span></span> <span data-ttu-id="c08d5-121">**[新しい Git リポジトリの作成]** オプションを選択し、**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-121">Select the **Create new Git repository** option and click **OK**.</span></span>
 
    ![[新しいプロジェクト] ダイアログ](azure-continuous-deployment/_static/01-new-project.png)
 
-1. <span data-ttu-id="fb90c-123">**[New ASP.NET Core Project]\(新しい ASP.NET Core プロジェクト\)** ダイアログで、ASP.NET Core の **[空]** テンプレートを選択し、**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-123">In the **New ASP.NET Core Project** dialog, select the ASP.NET Core **Empty** template, then click **OK**.</span></span>
+1. <span data-ttu-id="c08d5-123">**[New ASP.NET Core Project]\(新しい ASP.NET Core プロジェクト\)** ダイアログで、ASP.NET Core の **[空]** テンプレートを選択し、**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-123">In the **New ASP.NET Core Project** dialog, select the ASP.NET Core **Empty** template, then click **OK**.</span></span>
 
    ![[新しい ASP.NET Core プロジェクト] ダイアログ](azure-continuous-deployment/_static/02-web-site-template.png)
 
 > [!NOTE]
-> <span data-ttu-id="fb90c-125">.NET Core の最新のリリースは 2.0 です。</span><span class="sxs-lookup"><span data-stu-id="fb90c-125">The most recent release of .NET Core is 2.0.</span></span>
+> <span data-ttu-id="c08d5-125">.NET Core の最新のリリースは 2.0 です。</span><span class="sxs-lookup"><span data-stu-id="c08d5-125">The most recent release of .NET Core is 2.0.</span></span>
 
-### <a name="running-the-web-app-locally"></a><span data-ttu-id="fb90c-126">Web アプリのローカル実行</span><span class="sxs-lookup"><span data-stu-id="fb90c-126">Running the web app locally</span></span>
+### <a name="running-the-web-app-locally"></a><span data-ttu-id="c08d5-126">Web アプリのローカル実行</span><span class="sxs-lookup"><span data-stu-id="c08d5-126">Running the web app locally</span></span>
 
-1. <span data-ttu-id="fb90c-127">Visual Studio でアプリの作成が完了したら、**[デバッグ]**、**[デバッグの開始]** の順に選択し、アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-127">Once Visual Studio finishes creating the app, run the app by selecting **Debug** > **Start Debugging**.</span></span> <span data-ttu-id="fb90c-128">または、**F5** キーを押します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-128">As an alternative, press **F5**.</span></span>
+1. <span data-ttu-id="c08d5-127">Visual Studio でアプリの作成が完了したら、**[デバッグ]**、**[デバッグの開始]** の順に選択し、アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-127">Once Visual Studio finishes creating the app, run the app by selecting **Debug** > **Start Debugging**.</span></span> <span data-ttu-id="c08d5-128">または、**F5** キーを押します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-128">As an alternative, press **F5**.</span></span>
 
-   <span data-ttu-id="fb90c-129">Visual Studio と新しいアプリの初期化に時間がかかる場合があります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-129">It may take time to initialize Visual Studio and the new app.</span></span> <span data-ttu-id="fb90c-130">完了すると、ブラウザーに実行中のアプリが表示されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-130">Once it's complete, the browser shows the running app.</span></span>
+   <span data-ttu-id="c08d5-129">Visual Studio と新しいアプリの初期化に時間がかかる場合があります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-129">It may take time to initialize Visual Studio and the new app.</span></span> <span data-ttu-id="c08d5-130">完了すると、ブラウザーに実行中のアプリが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-130">Once it's complete, the browser shows the running app.</span></span>
 
    ![ブラウザー ウィンドウの実行中のアプリに 'Hello World!' と表示されます。](azure-continuous-deployment/_static/04-browser-runapp.png)
 
-1. <span data-ttu-id="fb90c-132">実行中の Web アプリを確認したら、ブラウザーを閉じ、Visual Studio のツール バーにある "デバッグの停止" アイコンを選択してアプリを停止します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-132">After reviewing the running Web app, close the browser and select the "Stop Debugging" icon in the toolbar of Visual Studio to stop the app.</span></span>
+1. <span data-ttu-id="c08d5-132">実行中の Web アプリを確認したら、ブラウザーを閉じ、Visual Studio のツール バーにある "デバッグの停止" アイコンを選択してアプリを停止します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-132">After reviewing the running Web app, close the browser and select the "Stop Debugging" icon in the toolbar of Visual Studio to stop the app.</span></span>
 
-## <a name="create-a-web-app-in-the-azure-portal"></a><span data-ttu-id="fb90c-133">Azure Portal で Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="fb90c-133">Create a web app in the Azure Portal</span></span>
+## <a name="create-a-web-app-in-the-azure-portal"></a><span data-ttu-id="c08d5-133">Azure Portal で Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="c08d5-133">Create a web app in the Azure Portal</span></span>
 
-<span data-ttu-id="fb90c-134">Azure Portal で次の手順を実行して Web アプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-134">The following steps create a web app in the Azure Portal:</span></span>
+<span data-ttu-id="c08d5-134">Azure Portal で次の手順を実行して Web アプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-134">The following steps create a web app in the Azure Portal:</span></span>
 
-1. <span data-ttu-id="fb90c-135">[Azure Portal](https://portal.azure.com) にログインします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-135">Log in to the [Azure Portal](https://portal.azure.com).</span></span>
+1. <span data-ttu-id="c08d5-135">[Azure Portal](https://portal.azure.com) にログインします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-135">Log in to the [Azure Portal](https://portal.azure.com).</span></span>
 
-1. <span data-ttu-id="fb90c-136">Portal インターフェイスの左上にある **[新規作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-136">Select **NEW** at the top left of the portal interface.</span></span>
+1. <span data-ttu-id="c08d5-136">Portal インターフェイスの左上にある **[新規作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-136">Select **NEW** at the top left of the portal interface.</span></span>
 
-1. <span data-ttu-id="fb90c-137">**[Web + モバイル]** > **[Web アプリ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-137">Select **Web + Mobile** > **Web App**.</span></span>
+1. <span data-ttu-id="c08d5-137">**[Web + モバイル]** > **[Web アプリ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-137">Select **Web + Mobile** > **Web App**.</span></span>
 
    ![Microsoft Azure Portal: [新規作成] ボタン: [Marketplace] の [Web + モバイル]: [おすすめアプリ] の [Web アプリ] ボタン](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
-1. <span data-ttu-id="fb90c-139">**[Web アプリ]** ブレードに **[App Service の名前]** の一意の名前を入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-139">In the **Web App** blade, enter a unique value for the **App Service Name**.</span></span>
+1. <span data-ttu-id="c08d5-139">**[Web アプリ]** ブレードに **[App Service の名前]** の一意の名前を入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-139">In the **Web App** blade, enter a unique value for the **App Service Name**.</span></span>
 
    ![[Web アプリ] ブレード](azure-continuous-deployment/_static/06-azure-newappblade.png)
 
    > [!NOTE]
-   > <span data-ttu-id="fb90c-141">**[App Service の名前]** の名前は一意にする必要があります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-141">The **App Service Name** name must be unique.</span></span> <span data-ttu-id="fb90c-142">名前を入力する場合、この規則が適用されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-142">The portal enforces this rule when the name is provided.</span></span> <span data-ttu-id="fb90c-143">別の値を入力する場合は、このチュートリアルで **SampleWebAppDemo** が出てくるたびに、その値を置き換えてください。</span><span class="sxs-lookup"><span data-stu-id="fb90c-143">If providing a different value, substitute that value for each occurrence of **SampleWebAppDemo** in this tutorial.</span></span>
+   > <span data-ttu-id="c08d5-141">**[App Service の名前]** の名前は一意にする必要があります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-141">The **App Service Name** name must be unique.</span></span> <span data-ttu-id="c08d5-142">名前を入力する場合、この規則が適用されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-142">The portal enforces this rule when the name is provided.</span></span> <span data-ttu-id="c08d5-143">別の値を入力する場合は、このチュートリアルで **SampleWebAppDemo** が出てくるたびに、その値を置き換えてください。</span><span class="sxs-lookup"><span data-stu-id="c08d5-143">If providing a different value, substitute that value for each occurrence of **SampleWebAppDemo** in this tutorial.</span></span>
 
-   <span data-ttu-id="fb90c-144">**[Web アプリ]** ブレードではまた、既存の **[App Service プラン/場所]** を選択するか、新しい App Service プラン/場所を作成できます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-144">Also in the **Web App** blade, select an existing **App Service Plan/Location** or create a new one.</span></span> <span data-ttu-id="fb90c-145">新しいプランを作成した場合、価格レベル、場所、その他のオプションを選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-145">If creating a new plan, select the pricing tier, location, and other options.</span></span> <span data-ttu-id="fb90c-146">App Service プランに関する詳細については、「[Azure App Service プランの概要](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="fb90c-146">For more information on App Service plans, see [Azure App Service plans in-depth overview](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).</span></span>
+   <span data-ttu-id="c08d5-144">**[Web アプリ]** ブレードではまた、既存の **[App Service プラン/場所]** を選択するか、新しい App Service プラン/場所を作成できます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-144">Also in the **Web App** blade, select an existing **App Service Plan/Location** or create a new one.</span></span> <span data-ttu-id="c08d5-145">新しいプランを作成した場合、価格レベル、場所、その他のオプションを選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-145">If creating a new plan, select the pricing tier, location, and other options.</span></span> <span data-ttu-id="c08d5-146">App Service プランに関する詳細については、「[Azure App Service プランの概要](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="c08d5-146">For more information on App Service plans, see [Azure App Service plans in-depth overview](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).</span></span>
 
-1. <span data-ttu-id="fb90c-147">**[作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-147">Select **Create**.</span></span> <span data-ttu-id="fb90c-148">Web アプリがプロビジョニングされ、起動します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-148">Azure will provision and start the web app.</span></span>
+1. <span data-ttu-id="c08d5-147">**[作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-147">Select **Create**.</span></span> <span data-ttu-id="c08d5-148">Web アプリがプロビジョニングされ、起動します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-148">Azure will provision and start the web app.</span></span>
 
    ![Azure Portal: サンプル Web アプリ デモ 01 の [要点] ブレード](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
-## <a name="enable-git-publishing-for-the-new-web-app"></a><span data-ttu-id="fb90c-150">新しい Web アプリに対して Git 公開を有効にする</span><span class="sxs-lookup"><span data-stu-id="fb90c-150">Enable Git publishing for the new web app</span></span>
+## <a name="enable-git-publishing-for-the-new-web-app"></a><span data-ttu-id="c08d5-150">新しい Web アプリに対して Git 公開を有効にする</span><span class="sxs-lookup"><span data-stu-id="c08d5-150">Enable Git publishing for the new web app</span></span>
 
-<span data-ttu-id="fb90c-151">Git は分散型バージョン管理システムであり、これを利用して Azure App Service Web アプリを展開できます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-151">Git is a distributed version control system that can be used to deploy an Azure App Service web app.</span></span> <span data-ttu-id="fb90c-152">Web アプリ コードはローカルの Git リポジトリに格納されます。また、コードはリモート リポジトリにプッシュすることによって Azure に展開されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-152">Web app code is stored in a local Git repository, and the code is deployed to Azure by pushing to a remote repository.</span></span>
+<span data-ttu-id="c08d5-151">Git は分散型バージョン管理システムであり、これを利用して Azure App Service Web アプリを展開できます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-151">Git is a distributed version control system that can be used to deploy an Azure App Service web app.</span></span> <span data-ttu-id="c08d5-152">Web アプリ コードはローカルの Git リポジトリに格納されます。また、コードはリモート リポジトリにプッシュすることによって Azure に展開されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-152">Web app code is stored in a local Git repository, and the code is deployed to Azure by pushing to a remote repository.</span></span>
 
-1. <span data-ttu-id="fb90c-153">[Azure Portal](https://portal.azure.com) にログインします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-153">Log into the [Azure Portal](https://portal.azure.com).</span></span>
+1. <span data-ttu-id="c08d5-153">[Azure Portal](https://portal.azure.com) にログインします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-153">Log into the [Azure Portal](https://portal.azure.com).</span></span>
 
-1. <span data-ttu-id="fb90c-154">**[App Services]** を選択し、Azure サブスクリプションに関連付けられているアプリ サービスの一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-154">Select **App Services** to view a list of the app services associated with the Azure subscription.</span></span>
+1. <span data-ttu-id="c08d5-154">**[App Services]** を選択し、Azure サブスクリプションに関連付けられているアプリ サービスの一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-154">Select **App Services** to view a list of the app services associated with the Azure subscription.</span></span>
 
-1. <span data-ttu-id="fb90c-155">このチュートリアルの前のセクションで作成した Web アプリを選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-155">Select the web app created in the previous section of this tutorial.</span></span>
+1. <span data-ttu-id="c08d5-155">このチュートリアルの前のセクションで作成した Web アプリを選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-155">Select the web app created in the previous section of this tutorial.</span></span>
 
-1. <span data-ttu-id="fb90c-156">**[デプロイ]** ブレードで、**[デプロイ オプション]** > **[ソースの選択]** > **[ローカル Git リポジトリ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-156">In the **Deployment** blade, select **Deployment options** > **Choose Source** > **Local Git Repository**.</span></span>
+1. <span data-ttu-id="c08d5-156">**[デプロイ]** ブレードで、**[デプロイ オプション]** > **[ソースの選択]** > **[ローカル Git リポジトリ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-156">In the **Deployment** blade, select **Deployment options** > **Choose Source** > **Local Git Repository**.</span></span>
 
    ![[設定] ブレード: [展開元] ブレード: [ソースの選択] ブレード](azure-continuous-deployment/_static/deployment-options.png)
 
-1. <span data-ttu-id="fb90c-158">**[OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-158">Select **OK**.</span></span>
+1. <span data-ttu-id="c08d5-158">**[OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-158">Select **OK**.</span></span>
 
-1. <span data-ttu-id="fb90c-159">Web アプリや他の App Service アプリを公開するための展開の資格情報を設定していない場合は、ここで設定してください。</span><span class="sxs-lookup"><span data-stu-id="fb90c-159">If deployment credentials for publishing a web app or other App Service app haven't previously been set up, set them up now:</span></span>
+1. <span data-ttu-id="c08d5-159">Web アプリや他の App Service アプリを公開するための展開の資格情報を設定していない場合は、ここで設定してください。</span><span class="sxs-lookup"><span data-stu-id="c08d5-159">If deployment credentials for publishing a web app or other App Service app haven't previously been set up, set them up now:</span></span>
 
-   * <span data-ttu-id="fb90c-160">**[設定]** > **[デプロイ資格情報]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-160">Select **Settings** > **Deployment credentials**.</span></span> <span data-ttu-id="fb90c-161">**[デプロイ資格情報の設定]** ブレードが表示されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-161">The **Set deployment credentials** blade is displayed.</span></span>
-   * <span data-ttu-id="fb90c-162">ユーザー名とパスワードを作成します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-162">Create a user name and password.</span></span> <span data-ttu-id="fb90c-163">後で Git を設定するときに使用するパスワードを保存します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-163">Save the password for later use when setting up Git.</span></span>
-   * <span data-ttu-id="fb90c-164">**[保存]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-164">Select **Save**.</span></span>
+   * <span data-ttu-id="c08d5-160">**[設定]** > **[デプロイ資格情報]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-160">Select **Settings** > **Deployment credentials**.</span></span> <span data-ttu-id="c08d5-161">**[デプロイ資格情報の設定]** ブレードが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-161">The **Set deployment credentials** blade is displayed.</span></span>
+   * <span data-ttu-id="c08d5-162">ユーザー名とパスワードを作成します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-162">Create a user name and password.</span></span> <span data-ttu-id="c08d5-163">後で Git を設定するときに使用するパスワードを保存します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-163">Save the password for later use when setting up Git.</span></span>
+   * <span data-ttu-id="c08d5-164">**[保存]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-164">Select **Save**.</span></span>
 
-1. <span data-ttu-id="fb90c-165">**[Web アプリ]** ブレードで、**[設定]** > **[プロパティ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-165">In the **Web App** blade, select **Settings** > **Properties**.</span></span> <span data-ttu-id="fb90c-166">展開するリモート Git リポジトリの URL が **[GIT URL]** の下に表示されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-166">The URL of the remote Git repository to deploy to is shown under **GIT URL**.</span></span>
+1. <span data-ttu-id="c08d5-165">**[Web アプリ]** ブレードで、**[設定]** > **[プロパティ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-165">In the **Web App** blade, select **Settings** > **Properties**.</span></span> <span data-ttu-id="c08d5-166">展開するリモート Git リポジトリの URL が **[GIT URL]** の下に表示されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-166">The URL of the remote Git repository to deploy to is shown under **GIT URL**.</span></span>
 
-1. <span data-ttu-id="fb90c-167">**GIT URL** の値をコピーします。後で使用します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-167">Copy the **GIT URL** value for later use in the tutorial.</span></span>
+1. <span data-ttu-id="c08d5-167">**GIT URL** の値をコピーします。後で使用します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-167">Copy the **GIT URL** value for later use in the tutorial.</span></span>
 
    ![Azure Portal: アプリケーションの [プロパティ] ブレード](azure-continuous-deployment/_static/09-azure-giturl.png)
 
-## <a name="publish-the-web-app-to-azure-app-service"></a><span data-ttu-id="fb90c-169">Azure App Service に Web アプリを発行する</span><span class="sxs-lookup"><span data-stu-id="fb90c-169">Publish the web app to Azure App Service</span></span>
+## <a name="publish-the-web-app-to-azure-app-service"></a><span data-ttu-id="c08d5-169">Azure App Service に Web アプリを発行する</span><span class="sxs-lookup"><span data-stu-id="c08d5-169">Publish the web app to Azure App Service</span></span>
 
-<span data-ttu-id="fb90c-170">このセクションでは、Visual Studio でローカル Git リポジトリを作成し、そのリポジトリから Azure にプッシュし、Web アプリを展開します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-170">In this section, create a local Git repository using Visual Studio and push from that repository to Azure to deploy the web app.</span></span> <span data-ttu-id="fb90c-171">実行する必要がある手順は、次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="fb90c-171">The steps involved include the following:</span></span>
+<span data-ttu-id="c08d5-170">このセクションでは、Visual Studio でローカル Git リポジトリを作成し、そのリポジトリから Azure にプッシュし、Web アプリを展開します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-170">In this section, create a local Git repository using Visual Studio and push from that repository to Azure to deploy the web app.</span></span> <span data-ttu-id="c08d5-171">実行する必要がある手順は、次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="c08d5-171">The steps involved include the following:</span></span>
 
-* <span data-ttu-id="fb90c-172">ローカル リポジトリを Azure に展開できるように、GIT URL 値を使用してリモート リポジトリ設定を追加します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-172">Add the remote repository setting using the GIT URL value, so the local repository can be deployed to Azure.</span></span>
-* <span data-ttu-id="fb90c-173">プロジェクトの変更をコミットします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-173">Commit project changes.</span></span>
-* <span data-ttu-id="fb90c-174">ローカル リポジトリから Azure のリモート リポジトリにプロジェクトの変更をプッシュします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-174">Push project changes from the local repository to the remote repository on Azure.</span></span>
+* <span data-ttu-id="c08d5-172">ローカル リポジトリを Azure に展開できるように、GIT URL 値を使用してリモート リポジトリ設定を追加します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-172">Add the remote repository setting using the GIT URL value, so the local repository can be deployed to Azure.</span></span>
+* <span data-ttu-id="c08d5-173">プロジェクトの変更をコミットします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-173">Commit project changes.</span></span>
+* <span data-ttu-id="c08d5-174">ローカル リポジトリから Azure のリモート リポジトリにプロジェクトの変更をプッシュします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-174">Push project changes from the local repository to the remote repository on Azure.</span></span>
 
-1. <span data-ttu-id="fb90c-175">**ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-175">In **Solution Explorer** right-click **Solution 'SampleWebAppDemo'** and select **Commit**.</span></span> <span data-ttu-id="fb90c-176">**チーム エクスプローラー**が表示されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-176">The **Team Explorer** is displayed.</span></span>
+1. <span data-ttu-id="c08d5-175">**ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-175">In **Solution Explorer** right-click **Solution 'SampleWebAppDemo'** and select **Commit**.</span></span> <span data-ttu-id="c08d5-176">**チーム エクスプローラー**が表示されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-176">The **Team Explorer** is displayed.</span></span>
 
    ![[チーム エクスプローラー接続] タブ](azure-continuous-deployment/_static/10-team-explorer.png)
 
-1. <span data-ttu-id="fb90c-178">**チーム エクスプローラー**で、**[ホーム]** (ホーム アイコン)、**[設定]**、**[リポジトリ設定]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-178">In **Team Explorer**, select the **Home** (home icon) > **Settings** > **Repository Settings**.</span></span>
+1. <span data-ttu-id="c08d5-178">**チーム エクスプローラー**で、**[ホーム]** (ホーム アイコン)、**[設定]**、**[リポジトリ設定]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-178">In **Team Explorer**, select the **Home** (home icon) > **Settings** > **Repository Settings**.</span></span>
 
-1. <span data-ttu-id="fb90c-179">**[リポジトリ設定]** の **[リモート]** セクションで、**[追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-179">In the **Remotes** section of the **Repository Settings**, select **Add**.</span></span> <span data-ttu-id="fb90c-180">**[リモートの追加]** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-180">The **Add Remote** dialog box is displayed.</span></span>
+1. <span data-ttu-id="c08d5-179">**[リポジトリ設定]** の **[リモート]** セクションで、**[追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-179">In the **Remotes** section of the **Repository Settings**, select **Add**.</span></span> <span data-ttu-id="c08d5-180">**[リモートの追加]** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-180">The **Add Remote** dialog box is displayed.</span></span>
 
-1. <span data-ttu-id="fb90c-181">リモートの **[名前]** を **[Azure-SampleApp]** に設定します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-181">Set the **Name** of the remote to **Azure-SampleApp**.</span></span>
+1. <span data-ttu-id="c08d5-181">リモートの **[名前]** を **[Azure-SampleApp]** に設定します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-181">Set the **Name** of the remote to **Azure-SampleApp**.</span></span>
 
-1. <span data-ttu-id="fb90c-182">**[フェッチ]** の値を先にこのチュートリアルで Azure からコピーした **Git URL** に設定します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-182">Set the value for **Fetch** to the **Git URL** that copied from Azure earlier in this tutorial.</span></span> <span data-ttu-id="fb90c-183">これは **.git** で終わる URL であることにご注意ください。</span><span class="sxs-lookup"><span data-stu-id="fb90c-183">Note that this is the URL that ends with **.git**.</span></span>
+1. <span data-ttu-id="c08d5-182">**[フェッチ]** の値を先にこのチュートリアルで Azure からコピーした **Git URL** に設定します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-182">Set the value for **Fetch** to the **Git URL** that copied from Azure earlier in this tutorial.</span></span> <span data-ttu-id="c08d5-183">これは **.git** で終わる URL であることにご注意ください。</span><span class="sxs-lookup"><span data-stu-id="c08d5-183">Note that this is the URL that ends with **.git**.</span></span>
 
    ![[リモートの編集] ダイアログ](azure-continuous-deployment/_static/11-add-remote.png)
 
    > [!NOTE]
-   > <span data-ttu-id="fb90c-185">あるいは、**コマンド ウィンドウ**からリモート リポジトリを指定できます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、コマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-185">As an alternative, specify the remote repository from the **Command Window** by opening the **Command Window**, changing to the project directory, and entering the command.</span></span> <span data-ttu-id="fb90c-186">例:</span><span class="sxs-lookup"><span data-stu-id="fb90c-186">Example:</span></span>
+   > <span data-ttu-id="c08d5-185">あるいは、**コマンド ウィンドウ**からリモート リポジトリを指定できます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、コマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-185">As an alternative, specify the remote repository from the **Command Window** by opening the **Command Window**, changing to the project directory, and entering the command.</span></span> <span data-ttu-id="c08d5-186">例:</span><span class="sxs-lookup"><span data-stu-id="c08d5-186">Example:</span></span>
    >
    > `git remote add Azure-SampleApp https://me@sampleapp.scm.azurewebsites.net:443/SampleApp.git`
 
-1. <span data-ttu-id="fb90c-187">**[ホーム]** (ホーム アイコン)、**[設定]**、**[グローバル設定]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-187">Select the **Home** (home icon) > **Settings** > **Global Settings**.</span></span> <span data-ttu-id="fb90c-188">名前と電子メール アドレスが設定されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-188">Confirm that the name and email address are set.</span></span> <span data-ttu-id="fb90c-189">必要に応じて **[更新]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-189">Select **Update** if required.</span></span>
+1. <span data-ttu-id="c08d5-187">**[ホーム]** (ホーム アイコン)、**[設定]**、**[グローバル設定]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-187">Select the **Home** (home icon) > **Settings** > **Global Settings**.</span></span> <span data-ttu-id="c08d5-188">名前と電子メール アドレスが設定されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-188">Confirm that the name and email address are set.</span></span> <span data-ttu-id="c08d5-189">必要に応じて **[更新]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-189">Select **Update** if required.</span></span>
 
-1. <span data-ttu-id="fb90c-190">**[ホーム]**、**[変更]** の順に選択し、**[変更]** ビューに戻ります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-190">Select **Home** > **Changes** to return to the **Changes** view.</span></span>
+1. <span data-ttu-id="c08d5-190">**[ホーム]**、**[変更]** の順に選択し、**[変更]** ビューに戻ります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-190">Select **Home** > **Changes** to return to the **Changes** view.</span></span>
 
-1. <span data-ttu-id="fb90c-191">「**Initial Push #1**」のようなコミット メッセージを入力し、**[コミット]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-191">Enter a commit message, such as **Initial Push #1** and select **Commit**.</span></span> <span data-ttu-id="fb90c-192">このアクションによりローカルで*コミット*されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-192">This action creates a *commit* locally.</span></span>
+1. <span data-ttu-id="c08d5-191">「**Initial Push #1**」のようなコミット メッセージを入力し、**[コミット]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-191">Enter a commit message, such as **Initial Push #1** and select **Commit**.</span></span> <span data-ttu-id="c08d5-192">このアクションによりローカルで*コミット*されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-192">This action creates a *commit* locally.</span></span>
 
    ![[チーム エクスプローラー接続] タブ](azure-continuous-deployment/_static/12-initial-commit.png)
 
    > [!NOTE]
-   > <span data-ttu-id="fb90c-194">あるいは、**コマンド ウィンドウ**から変更をコミットできます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、git コマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-194">As an alternative, commit changes from the **Command Window** by opening the **Command Window**, changing to the project directory, and entering the git commands.</span></span> <span data-ttu-id="fb90c-195">例:</span><span class="sxs-lookup"><span data-stu-id="fb90c-195">Example:</span></span>
+   > <span data-ttu-id="c08d5-194">あるいは、**コマンド ウィンドウ**から変更をコミットできます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、git コマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-194">As an alternative, commit changes from the **Command Window** by opening the **Command Window**, changing to the project directory, and entering the git commands.</span></span> <span data-ttu-id="c08d5-195">例:</span><span class="sxs-lookup"><span data-stu-id="c08d5-195">Example:</span></span>
    >
    > `git add .`
    >
    > `git commit -am "Initial Push #1"`
 
-1. <span data-ttu-id="fb90c-196">**[ホーム]**、**[同期]**、**[アクション]**、**[コマンド プロンプトを開く]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-196">Select **Home** > **Sync** > **Actions** > **Open Command Prompt**.</span></span> <span data-ttu-id="fb90c-197">コマンド プロンプトでプロジェクト ディレクトリが開きます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-197">The command prompt opens to the project directory.</span></span>
+1. <span data-ttu-id="c08d5-196">**[ホーム]**、**[同期]**、**[アクション]**、**[コマンド プロンプトを開く]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-196">Select **Home** > **Sync** > **Actions** > **Open Command Prompt**.</span></span> <span data-ttu-id="c08d5-197">コマンド プロンプトでプロジェクト ディレクトリが開きます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-197">The command prompt opens to the project directory.</span></span>
 
-1. <span data-ttu-id="fb90c-198">コマンド ウィンドウで次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-198">Enter the following command in the command window:</span></span>
+1. <span data-ttu-id="c08d5-198">コマンド ウィンドウで次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-198">Enter the following command in the command window:</span></span>
 
    `git push -u Azure-SampleApp master`
 
-1. <span data-ttu-id="fb90c-199">Azure で先に作成した Azure **デプロイ資格情報**パスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-199">Enter the Azure **deployment credentials** password created earlier in Azure.</span></span>
+1. <span data-ttu-id="c08d5-199">Azure で先に作成した Azure **デプロイ資格情報**パスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-199">Enter the Azure **deployment credentials** password created earlier in Azure.</span></span>
 
-   <span data-ttu-id="fb90c-200">このコマンドによりローカル プロジェクト ファイルを Azure にプッシュするプロセスが開始されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-200">This command starts the process of pushing the local project files to Azure.</span></span> <span data-ttu-id="fb90c-201">上記のコマンドからの出力は、展開が成功したというメッセージで終わります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-201">The output from the above command ends with a message that the deployment was successful.</span></span>
+   <span data-ttu-id="c08d5-200">このコマンドによりローカル プロジェクト ファイルを Azure にプッシュするプロセスが開始されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-200">This command starts the process of pushing the local project files to Azure.</span></span> <span data-ttu-id="c08d5-201">上記のコマンドからの出力は、展開が成功したというメッセージで終わります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-201">The output from the above command ends with a message that the deployment was successful.</span></span>
 
    ```
    remote: Finished successfully.
@@ -176,57 +176,57 @@ ms.locfileid: "41751461"
    ```
 
    > [!NOTE]
-   > <span data-ttu-id="fb90c-202">プロジェクトのコラボレーションが必要な場合は、Azure にプッシュする前に [GitHub](https://github.com) にプッシュすることを検討してください。</span><span class="sxs-lookup"><span data-stu-id="fb90c-202">If collaboration on the project is required, consider pushing to [GitHub](https://github.com) before pushing to Azure.</span></span>
+   > <span data-ttu-id="c08d5-202">プロジェクトのコラボレーションが必要な場合は、Azure にプッシュする前に [GitHub](https://github.com) にプッシュすることを検討してください。</span><span class="sxs-lookup"><span data-stu-id="c08d5-202">If collaboration on the project is required, consider pushing to [GitHub](https://github.com) before pushing to Azure.</span></span>
  
-### <a name="verify-the-active-deployment"></a><span data-ttu-id="fb90c-203">アクティブ デプロイを検証する</span><span class="sxs-lookup"><span data-stu-id="fb90c-203">Verify the Active Deployment</span></span>
+### <a name="verify-the-active-deployment"></a><span data-ttu-id="c08d5-203">アクティブ デプロイを検証する</span><span class="sxs-lookup"><span data-stu-id="c08d5-203">Verify the Active Deployment</span></span>
 
-<span data-ttu-id="fb90c-204">ローカル環境から Azure への Web アプリの転送が成功していることを確認します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-204">Verify that the web app transfer from the local environment to Azure is successful.</span></span>
+<span data-ttu-id="c08d5-204">ローカル環境から Azure への Web アプリの転送が成功していることを確認します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-204">Verify that the web app transfer from the local environment to Azure is successful.</span></span>
 
-<span data-ttu-id="fb90c-205">[Azure Portal](https://portal.azure.com) で、Web アプリを選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-205">In the [Azure Portal](https://portal.azure.com), select the web app.</span></span> <span data-ttu-id="fb90c-206">**[デプロイ]** > **[デプロイ オプション]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-206">Select **Deployment** > **Deployment options**.</span></span>
+<span data-ttu-id="c08d5-205">[Azure Portal](https://portal.azure.com) で、Web アプリを選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-205">In the [Azure Portal](https://portal.azure.com), select the web app.</span></span> <span data-ttu-id="c08d5-206">**[デプロイ]** > **[デプロイ オプション]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-206">Select **Deployment** > **Deployment options**.</span></span>
 
 ![Azure Portal: [設定] ブレード: [デプロイ] ブレードにデプロイ成功が表示されています](azure-continuous-deployment/_static/13-verify-deployment.png)
 
-## <a name="run-the-app-in-azure"></a><span data-ttu-id="fb90c-208">Azure でアプリを実行する</span><span class="sxs-lookup"><span data-stu-id="fb90c-208">Run the app in Azure</span></span>
+## <a name="run-the-app-in-azure"></a><span data-ttu-id="c08d5-208">Azure でアプリを実行する</span><span class="sxs-lookup"><span data-stu-id="c08d5-208">Run the app in Azure</span></span>
 
-<span data-ttu-id="fb90c-209">Web アプリが Azure に展開されたら、アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-209">Now that the web app is deployed to Azure, run the app.</span></span>
+<span data-ttu-id="c08d5-209">Web アプリが Azure に展開されたら、アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-209">Now that the web app is deployed to Azure, run the app.</span></span>
 
-<span data-ttu-id="fb90c-210">その方法は 2 つあります。</span><span class="sxs-lookup"><span data-stu-id="fb90c-210">This can be accomplished in two ways:</span></span>
+<span data-ttu-id="c08d5-210">その方法は 2 つあります。</span><span class="sxs-lookup"><span data-stu-id="c08d5-210">This can be accomplished in two ways:</span></span>
 
-* <span data-ttu-id="fb90c-211">Azure Portal で、Web アプリ用の Web アプリ ブレードを探します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-211">In the Azure Portal, locate the web app blade for the web app.</span></span> <span data-ttu-id="fb90c-212">**[参照]** を選択して、既定のブラウザーでアプリを表示します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-212">Select **Browse** to view the app in the default browser.</span></span>
-* <span data-ttu-id="fb90c-213">ブラウザーを開き、Web アプリの URL を入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-213">Open a browser and enter the URL for the web app.</span></span> <span data-ttu-id="fb90c-214">例 : `http://SampleWebAppDemo.azurewebsites.net`</span><span class="sxs-lookup"><span data-stu-id="fb90c-214">Example: `http://SampleWebAppDemo.azurewebsites.net`</span></span>
+* <span data-ttu-id="c08d5-211">Azure Portal で、Web アプリ用の Web アプリ ブレードを探します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-211">In the Azure Portal, locate the web app blade for the web app.</span></span> <span data-ttu-id="c08d5-212">**[参照]** を選択して、既定のブラウザーでアプリを表示します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-212">Select **Browse** to view the app in the default browser.</span></span>
+* <span data-ttu-id="c08d5-213">ブラウザーを開き、Web アプリの URL を入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-213">Open a browser and enter the URL for the web app.</span></span> <span data-ttu-id="c08d5-214">例 : `http://SampleWebAppDemo.azurewebsites.net`</span><span class="sxs-lookup"><span data-stu-id="c08d5-214">Example: `http://SampleWebAppDemo.azurewebsites.net`</span></span>
 
-## <a name="update-the-web-app-and-republish"></a><span data-ttu-id="fb90c-215">Web アプリを更新し、再発行する</span><span class="sxs-lookup"><span data-stu-id="fb90c-215">Update the web app and republish</span></span>
+## <a name="update-the-web-app-and-republish"></a><span data-ttu-id="c08d5-215">Web アプリを更新し、再発行する</span><span class="sxs-lookup"><span data-stu-id="c08d5-215">Update the web app and republish</span></span>
 
-<span data-ttu-id="fb90c-216">ローカル コードを変更した後は、再発行します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-216">After making changes to the local code, republish:</span></span>
+<span data-ttu-id="c08d5-216">ローカル コードを変更した後は、再発行します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-216">After making changes to the local code, republish:</span></span>
 
-1. <span data-ttu-id="fb90c-217">Visual Studio の**ソリューション エクスプローラー**で、*Startup.cs* ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-217">In **Solution Explorer** of Visual Studio, open the *Startup.cs* file.</span></span>
+1. <span data-ttu-id="c08d5-217">Visual Studio の**ソリューション エクスプローラー**で、*Startup.cs* ファイルを開きます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-217">In **Solution Explorer** of Visual Studio, open the *Startup.cs* file.</span></span>
 
-1. <span data-ttu-id="fb90c-218">`Configure` メソッドで、次のように表示されるように `Response.WriteAsync` メソッドを変更します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-218">In the `Configure` method, modify the `Response.WriteAsync` method so that it appears as follows:</span></span>
+1. <span data-ttu-id="c08d5-218">`Configure` メソッドで、次のように表示されるように `Response.WriteAsync` メソッドを変更します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-218">In the `Configure` method, modify the `Response.WriteAsync` method so that it appears as follows:</span></span>
 
    ```csharp
    await context.Response.WriteAsync("Hello World! Deploy to Azure.");
    ```
 
-1. <span data-ttu-id="fb90c-219">変更を *Startup.cs* に保存します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-219">Save the changes to *Startup.cs*.</span></span>
+1. <span data-ttu-id="c08d5-219">変更を *Startup.cs* に保存します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-219">Save the changes to *Startup.cs*.</span></span>
 
-1. <span data-ttu-id="fb90c-220">**ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-220">In **Solution Explorer**, right-click **Solution 'SampleWebAppDemo'** and select **Commit**.</span></span> <span data-ttu-id="fb90c-221">**チーム エクスプローラー**が表示されます。</span><span class="sxs-lookup"><span data-stu-id="fb90c-221">The **Team Explorer** is displayed.</span></span>
+1. <span data-ttu-id="c08d5-220">**ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-220">In **Solution Explorer**, right-click **Solution 'SampleWebAppDemo'** and select **Commit**.</span></span> <span data-ttu-id="c08d5-221">**チーム エクスプローラー**が表示されます。</span><span class="sxs-lookup"><span data-stu-id="c08d5-221">The **Team Explorer** is displayed.</span></span>
 
-1. <span data-ttu-id="fb90c-222">`Update #2` のようなコミット メッセージを入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-222">Enter a commit message, such as `Update #2`.</span></span>
+1. <span data-ttu-id="c08d5-222">`Update #2` のようなコミット メッセージを入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-222">Enter a commit message, such as `Update #2`.</span></span>
 
-1. <span data-ttu-id="fb90c-223">**[コミット]** ボタンを押し、プロジェクトの変更をコミットします。</span><span class="sxs-lookup"><span data-stu-id="fb90c-223">Press the **Commit** button to commit the project changes.</span></span>
+1. <span data-ttu-id="c08d5-223">**[コミット]** ボタンを押し、プロジェクトの変更をコミットします。</span><span class="sxs-lookup"><span data-stu-id="c08d5-223">Press the **Commit** button to commit the project changes.</span></span>
 
-1. <span data-ttu-id="fb90c-224">**[ホーム]**、**[同期]**、**[アクション]**、**[プッシュ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-224">Select **Home** > **Sync** > **Actions** > **Push**.</span></span>
+1. <span data-ttu-id="c08d5-224">**[ホーム]**、**[同期]**、**[アクション]**、**[プッシュ]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-224">Select **Home** > **Sync** > **Actions** > **Push**.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="fb90c-225">あるいは、**コマンド ウィンドウ**から変更をプッシュできます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、git コマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-225">As an alternative, push the changes from the **Command Window** by opening the **Command Window**, changing to the project directory, and entering a git command.</span></span> <span data-ttu-id="fb90c-226">例:</span><span class="sxs-lookup"><span data-stu-id="fb90c-226">Example:</span></span>
+> <span data-ttu-id="c08d5-225">あるいは、**コマンド ウィンドウ**から変更をプッシュできます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、git コマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-225">As an alternative, push the changes from the **Command Window** by opening the **Command Window**, changing to the project directory, and entering a git command.</span></span> <span data-ttu-id="c08d5-226">例:</span><span class="sxs-lookup"><span data-stu-id="c08d5-226">Example:</span></span>
 > 
 > `git push -u Azure-SampleApp master`
 
-## <a name="view-the-updated-web-app-in-azure"></a><span data-ttu-id="fb90c-227">Azure で更新後の Web アプリを表示する</span><span class="sxs-lookup"><span data-stu-id="fb90c-227">View the updated web app in Azure</span></span>
+## <a name="view-the-updated-web-app-in-azure"></a><span data-ttu-id="c08d5-227">Azure で更新後の Web アプリを表示する</span><span class="sxs-lookup"><span data-stu-id="c08d5-227">View the updated web app in Azure</span></span>
 
-<span data-ttu-id="fb90c-228">更新後の Web アプリを表示します。Azure Portal の Web アプリ ブレードから **[参照]** を選択するか、ブラウザーを開き、Web アプリの URL を入力します。</span><span class="sxs-lookup"><span data-stu-id="fb90c-228">View the updated web app by selecting **Browse** from the web app blade in the Azure Portal or by opening a browser and entering the URL for the web app.</span></span> <span data-ttu-id="fb90c-229">例 : `http://SampleWebAppDemo.azurewebsites.net`</span><span class="sxs-lookup"><span data-stu-id="fb90c-229">Example: `http://SampleWebAppDemo.azurewebsites.net`</span></span>
+<span data-ttu-id="c08d5-228">更新後の Web アプリを表示します。Azure Portal の Web アプリ ブレードから **[参照]** を選択するか、ブラウザーを開き、Web アプリの URL を入力します。</span><span class="sxs-lookup"><span data-stu-id="c08d5-228">View the updated web app by selecting **Browse** from the web app blade in the Azure Portal or by opening a browser and entering the URL for the web app.</span></span> <span data-ttu-id="c08d5-229">例 : `http://SampleWebAppDemo.azurewebsites.net`</span><span class="sxs-lookup"><span data-stu-id="c08d5-229">Example: `http://SampleWebAppDemo.azurewebsites.net`</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="fb90c-230">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="fb90c-230">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="c08d5-230">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="c08d5-230">Additional resources</span></span>
 
-* [<span data-ttu-id="fb90c-231">VSTS で継続的配置を使用して Azure Web アプリをビルドし、発行する</span><span class="sxs-lookup"><span data-stu-id="fb90c-231">Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment</span></span>](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
-* [<span data-ttu-id="fb90c-232">プロジェクト Kudu</span><span class="sxs-lookup"><span data-stu-id="fb90c-232">Project Kudu</span></span>](https://github.com/projectkudu/kudu/wiki)
+* [<span data-ttu-id="c08d5-231">Azure Pipelines による最初のパイプラインの作成</span><span class="sxs-lookup"><span data-stu-id="c08d5-231">Create your first pipeline with Azure Pipelines</span></span>](/azure/devops/pipelines/get-started-yaml)
+* [<span data-ttu-id="c08d5-232">プロジェクト Kudu</span><span class="sxs-lookup"><span data-stu-id="c08d5-232">Project Kudu</span></span>](https://github.com/projectkudu/kudu/wiki)
