@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410157"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913217"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET Core でのファイル プロバイダー
 
@@ -141,7 +141,7 @@ var physicalProvider = _env.ContentRootFileProvider;
 アセンブリ内に埋め込まれているファイルにアクセスするために、[ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) が使用されます。 `ManifestEmbeddedFileProvider` では、アセンブリにコンパイルされたマニフェストを使用して、埋め込まれたファイルの元のパスを再構築します。
 
 > [!NOTE]
-> `ManifestEmbeddedFileProvider` は、ASP.NET Core 2.1 以降で使用できます。 ASP.NET Core 2.0 以前のアセンブリに埋め込まれたファイルにアクセスする方法については、[このトピックの ASP.NET Core 1.x バージョン](xref:fundamentals/file-providers?view=aspnetcore-1.1)に関する記事をご覧ください。
+> `ManifestEmbeddedFileProvider` は、ASP.NET Core 2.1 以降で使用できます。 ASP.NET Core 2.0 以前のアセンブリに埋め込まれたファイルにアクセスする方法については、[このトピックの ASP.NET Core 1.x バージョン](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1)に関する記事をご覧ください。
 
 埋め込みファイルのマニフェストを生成するには、`<GenerateEmbeddedFilesManifest>` プロパティを `true` に設定します。 [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) を使用して埋め込むファイルを指定します。
 
