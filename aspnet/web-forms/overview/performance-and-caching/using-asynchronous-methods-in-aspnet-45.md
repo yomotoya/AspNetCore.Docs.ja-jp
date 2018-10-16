@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: eeb8ac4402b5e3d233082a749ad16ed98d4a71fc
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 61bb977af9dca6fc080151ffd6ea3d966f1b1592
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577809"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325420"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 で非同期メソッドの使用
 ====================
@@ -62,7 +62,7 @@ Web アプリケーションの起動時に同時要求の数が多いを参照�
 - 簡潔さが効率性よりも重要です。
 - 操作は、膨大なディスクやネットワークのオーバーヘッドを伴う操作ではなく主に CPU 操作です。 CPU バインド操作で非同期メソッドを使用して、利点はなく、オーバーヘッドが大きくなります。
 
-  一般に、非同期メソッドを使用して、次の条件。
+一般に、非同期メソッドを使用して、次の条件。
 
 - 非同期のメソッドで使用できるサービスを呼び出しているし、.NET 4.5 以降を使用しています。
 - 操作は、ネットワーク バインドまたは O バウンド CPU バインドではなくです。
