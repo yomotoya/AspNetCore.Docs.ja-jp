@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912153"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348482"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性のルーティング
 ====================
@@ -245,11 +245,11 @@ Web api では、すべてのルート名を持ちます。 ルート名は、HT
 <a id="order"></a>
 ## <a name="route-order"></a>ルートの順序
 
-フレームワークでは、ルートの URI と照合しようとして、特定の順序でルートを評価します。 順序を指定するには、設定、 **RouteOrder**ルート属性のプロパティ。 下位の値は、最初に評価されます。 既定の順序の値には 0 です。
+フレームワークでは、ルートの URI と照合しようとして、特定の順序でルートを評価します。 順序を指定するには、設定、**順序**ルート属性のプロパティ。 下位の値は、最初に評価されます。 既定の順序の値には 0 です。
 
 合計の順序を決定する方法を次に示します。
 
-1. 比較、 **RouteOrder**ルート属性のプロパティ。
+1. 比較、**順序**ルート属性のプロパティ。
 2. ルート テンプレートでは、各 URI セグメントを確認します。 セグメントごとに次のように順序します。
 
     1. リテラルのセグメント。
@@ -271,4 +271,4 @@ Web api では、すべてのルート名を持ちます。 ルート名は、HT
 4. orders/{\*date}
 5. orders/保留中
 
-「詳細」リテラルのセグメントは、および"{id}"、前に表示されますが「保留中」が表示されます最後ため、 **RouteOrder**プロパティが 1 にします。 (この例ではお客様が指定されていない"details"が「保留中」またはします。 一般に、あいまいなルートを回避するためにお試しください。 この例では、より優れたルート テンプレートで`GetByCustomer`は、"顧客/{customerName}")
+「詳細」リテラルのセグメントは、および"{id}"、前に表示されますが「保留中」が表示されます最後ため、**順序**プロパティが 1 にします。 (この例ではお客様が指定されていない"details"が「保留中」またはします。 一般に、あいまいなルートを回避するためにお試しください。 この例では、より優れたルート テンプレートで`GetByCustomer`は、"顧客/{customerName}")

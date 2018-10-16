@@ -4,14 +4,14 @@ author: guardrex
 description: ルートとアプリ モデル プロバイダーの規則が、ページのルーティング、検出、および処理の制御にどのように役立つかについて確認します。
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011863"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348534"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>ASP.NET Core での Razor ページのルートとアプリの規則
 
@@ -87,13 +87,13 @@ public void ConfigureServices(IServiceCollection services)
 
 可能であれば、確立されたルートの処理順序に応じてしないでください。 一般に、ルーティングが URL に一致する適切なルートを選択します。 ルートを設定する必要がありますと`Order`をルーティングするプロパティの要求を正しく、アプリのルーティング スキームは、おそらくクライアントに混乱を維持するために脆弱です。 アプリのルーティング スキームを簡略化しようとしてください。 サンプル アプリでは、明示的なルートを 1 つのアプリを使用してルーティングのシナリオをいくつかを示すために注文の処理が必要です。 ただし、設定のルートのプラクティスを回避しようとする必要があります`Order`運用アプリでします。
 
-ルーティングの razor ページと MVC コント ローラーのルーティングの共有を実装します。 MVC のトピックでルートの順序については、「[コント ローラー アクションへのルーティング: 属性ルートの順序付け](xref:mvc/controllers/routing#ordering-attribute-routes)します。
+Razor Pages ルーティングと MVC コントローラー ルーティングは、実装を共有します。 MVC のトピックでルートの順序については、「[コント ローラー アクションへのルーティング: 属性ルートの順序付け](xref:mvc/controllers/routing#ordering-attribute-routes)します。
 
 ## <a name="model-conventions"></a>モデルの規則
 
 [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) の委任を追加して、Razor ページに適用する[モデル規則](xref:mvc/controllers/application-model#conventions)を追加します。
 
-**すべてのページにルート モデル規則を追加する**
+### <a name="add-a-route-model-convention-to-all-pages"></a>すべてのページにルート モデル規則を追加します。
 
 [規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を使用して、[IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) を作成し、ページ ルート モデルの構築中に適用される [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) インスタンスのコレクションに追加します。
 
@@ -117,7 +117,7 @@ Razor ページ オプション ([規則](/dotnet/api/microsoft.aspnetcore.mvc.r
 
 ![[About] ページは、GlobalRouteValue のルート セグメントで要求されます。 レンダリングされたページは、ルート データの値がページの OnGet メソッドでキャプチャされたことを示しています。](razor-pages-conventions/_static/about-page-global-template.png)
 
-**すべてのページにアプリ モデル規則を追加する**
+### <a name="add-an-app-model-convention-to-all-pages"></a>すべてのページに、アプリ モデル規則を追加します。
 
 [規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を使用して、[IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) を作成し、ページ アプリ モデルの構築中に適用される [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) インスタンスのコレクションに追加します。
 
@@ -137,12 +137,12 @@ Razor ページ オプション ([規則](/dotnet/api/microsoft.aspnetcore.mvc.r
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**すべてのページにハンドラー モデル規則を追加する**
+### <a name="add-a-handler-model-convention-to-all-pages"></a>すべてのページに、ハンドラーのモデル規則を追加します。
 
 [規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を使用して、[IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) を作成し、ページ ハンドラー モデルの構築中に適用される [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) インスタンスのコレクションに追加します。
 
 ```csharp
-public class GlobalPageHandlerModelConvention 
+public class GlobalPageHandlerModelConvention
     : IPageHandlerModelConvention
 {
     public void Apply(PageHandlerModel model)
@@ -168,7 +168,7 @@ services.AddMvc()
 
 [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) から派生する既定のルート モデル プロバイダーは、ページ ルートを構成するための拡張ポイントを提供するようにデザインされた規則を呼び出します。
 
-**フォルダー ルート モデル規則**
+### <a name="folder-route-model-convention"></a>フォルダー ルート モデル規則
 
 [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) を使用して、指定したフォルダーのページにある [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) のアクションを呼び出す、[IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) を作成して追加します。
 
@@ -184,7 +184,7 @@ services.AddMvc()
 
 ![OtherPages フォルダーの Page1 は、GlobalRouteValue と OtherPagesRouteValue のルート セグメントで要求されます。 レンダリングされたページは、ルート データの値がページの OnGet メソッドでキャプチャされたことを示しています。](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**ページ ルート モデル規則**
+### <a name="page-route-model-convention"></a>ページ ルート モデル規則
 
 [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) を使用して、指定した名前でページの [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) のアクションを呼び出す、[IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) を作成して追加します。
 
@@ -199,6 +199,44 @@ services.AddMvc()
 `localhost:5000/About/GlobalRouteValue/AboutRouteValue` でサンプルの [About] ページを要求し、その結果を調べます。
 
 ![[About] ページは、GlobalRouteValue と AboutRouteValue のルート セグメントで要求されます。 レンダリングされたページは、ルート データの値がページの OnGet メソッドでキャプチャされたことを示しています。](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>パラメーターのトランスフォーマーを使用して、ページ ルートをカスタマイズするには
+
+ASP.NET Core によって生成されたページのルートは、パラメーターのトランスフォーマーを使用してカスタマイズできます。 パラメーターのトランスフォーマーの実装`IOutboundParameterTransformer`パラメーターの値を変換します。 たとえば、カスタム`SlugifyParameterTransformer`パラメーター トランスフォーマーの変更、`SubscriptionManagement`ルート値`subscription-management`します。
+
+`PageRouteTransformerConvention`ページ ルート モデル規則では、アプリのルートを自動的に生成されたページのフォルダーとファイル名のセグメントにパラメーターのトランスフォーマーが適用されます。 たとえば、Razor ページのファイルを */Pages/SubscriptionManagement/ViewAll.cshtml*のルートから書き直す必要が`/SubscriptionManagement/ViewAll`に`/subscription-management/view-all`。
+
+`PageRouteTransformerConvention` Razor ページのフォルダーとファイル名から取得したページ ルートを自動的に生成されたセグメントを変換するだけです。 使用して追加のルート セグメントを変換されません、`@page`ディレクティブ。 規則もによって追加されたルートを変換しない<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>します。
+
+`PageRouteTransformerConvention`オプションとして登録されて`Startup.ConfigureServices`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.Add(
+                    new PageRouteTransformerConvention(
+                        new SlugifyParameterTransformer()));
+            });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 ## <a name="configure-a-page-route"></a>ページ ルートの構成
 
