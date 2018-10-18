@@ -5,12 +5,12 @@ description: ASP.NET Core アプリケーションの開発方法を学習する
 ms.author: riande
 ms.date: 10/14/2017
 uid: tutorials/index
-ms.openlocfilehash: 3d2fbb453c8f6510806d8dc263ea344023aa4cda
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: c7c17da1bc5fdc2f8e451ad11ebd8b42d1723a31
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454792"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391077"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -73,7 +73,6 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * [Gulp の使用](xref:client-side/using-gulp)
 * [Grunt の使用](xref:client-side/using-grunt)
 * [Bower でのクライアント側パッケージの管理](xref:client-side/bower)
-* [Bootstrap による応答性のよい Web サイトの構築](xref:client-side/bootstrap)
 
 ## <a name="test"></a>テスト
 
