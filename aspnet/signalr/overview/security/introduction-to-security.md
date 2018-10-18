@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6336d9608f41c367c46d5b9552141546bc782b7d
+ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910857"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49401869"
 ---
 <a name="introduction-to-signalr-security"></a>SignalR セキュリティ入門
 ====================
@@ -85,6 +85,14 @@ SignalR では、送信者の id を検証することで悪意のあるコマ�
 ![](introduction-to-security/_static/image4.png)
 
 接続 id が検証プロセスの一部であるため、他のユーザーに 1 つのユーザーの接続 id を表示または cookie などのクライアントでは、値を格納しない必要があります。
+
+#### <a name="connection-tokens-vs-other-token-types"></a>その他のトークンの種類との接続トークン
+
+セッション トークンや認証トークンは、公開されている場合の危険にするため、セキュリティ ツールで接続トークンはフラグが場合があります。
+
+SignalR の接続トークンは、認証トークンはありません。 この要求を行ったユーザーが接続を作成したものと同じであることを確認に使用されます。 接続トークンは、ASP.NET SignalR のサーバー間で移動する接続を許可するために必要があります。 トークンは、接続が特定のユーザーに関連付けられますが、要求を行ったユーザーの id をアサートしません。 SignalR 要求の認証が正しくが、他の cookie など、ユーザーの id をアサートするトークンまたはベアラー トークンが必要です。 ただし、接続トークン自体はそのユーザーに関連付けられた接続 ID は、トークン内に含まれるそれだけで、そのユーザーが、要求が行われた要求はありません。
+
+接続トークンは、独自の認証要求を提供しないため、見なさなかった「セッション」または"authentication"トークンです。 指定したユーザーの接続のトークンを取得し、別のユーザーとして認証された要求 (または、要求を認証されていない) でそれを再生するため失敗します、要求のユーザー id とトークンに格納されている id が一致しません。
 
 <a id="rejoingroup"></a>
 

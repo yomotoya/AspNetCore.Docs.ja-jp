@@ -8,12 +8,12 @@ ms.date: 03/02/2009
 ms.assetid: 21383c9d-6aea-4bad-a99b-b5f2c9d6503f
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 14d7857c64268df3b998e05797f749f03509dd4b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8ee1d892cd58534c2b64455efed01aa8c2dfdcce
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837696"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391179"
 ---
 <a name="performing-simple-validation-c"></a>単純な検証 (c#) を実行します。
 ====================
@@ -90,7 +90,7 @@ HTML の外観は、検証エラーがある場合にもフィールドが変更
 
 - 適用される入力の検証エラー -、&lt;入力&gt;タグ Html.TextBox() ヘルパーによってレンダリングされます。
 - 適用されるフィールドの検証エラー -、 &lt;span&gt;タグ Html.ValidationMessage() ヘルパーによってレンダリングされます。
-- 適用される検証の概要-エラー -、 &lt;ul&gt;タグ Html.ValidationSumamry() ヘルパーによってレンダリングされます。
+- 適用される検証の概要-エラー -、 &lt;ul&gt;タグ Html.ValidationSummary() ヘルパーによってレンダリングされます。
 
 これらカスケード スタイル シートのクラスを変更し、コンテンツのフォルダーにある Site.css ファイルを変更することでそのため、検証エラーの外観を変更できます。
 

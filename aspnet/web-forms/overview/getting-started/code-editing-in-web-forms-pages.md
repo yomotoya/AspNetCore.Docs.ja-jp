@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 5bf10a78b106475ffc01b732b21088bad67eb93d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41839013"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391220"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013 でのコード編集の ASP.NET Web フォームします。
 ====================
@@ -42,9 +42,6 @@ ms.locfileid: "41839013"
     > Microsoft Visual Studio 2013 および Microsoft Visual Studio Express 2013 for Web は多くの場合、呼びます Visual Studio とこのチュートリアル シリーズです。  
     >   
     > Visual Studio を使用している場合は、このチュートリアルの前提条件が選択されている、 **Web 開発**設定のコレクションを初めて Visual Studio を起動します。 詳細については、次を参照してください。[方法: Web 開発環境の設定の選択](https://msdn.microsoft.com/library/ff521558.aspx)します。
-
-  Visual Studio および ASP.NET の概要については、次を参照してください。 [Visual Studio 2013 で基本的な ASP.NET 4.5 Web フォーム ページを作成する](creating-a-basic-web-forms-page.md)します。   
- 
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Web アプリケーション プロジェクトと、ページの作成
 

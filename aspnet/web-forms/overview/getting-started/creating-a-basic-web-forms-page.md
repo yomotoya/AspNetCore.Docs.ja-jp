@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: 基本的な ASP.NET 4.5 Web フォーム ページの作成では、Visual Studio 2013 |Microsoft Docs
+title: Visual Studio 2013 を使用して基本的な ASP.NET 4.5 Web フォーム ページを作成するには
 author: Erikre
 description: ''
 ms.author: riande
@@ -8,16 +8,16 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: fda6922c0703ca442d4f1ebc5b39dabeb5ee58cd
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: eb1a4632caf00097012bd1757da44016a076630f
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483023"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391285"
 ---
-<a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>基本的な ASP.NET 4.5 Web フォーム ページの作成では、Visual Studio 2013
-====================
-によって[Erik Reitan](https://github.com/Erikre)
+# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Visual Studio 2013 を使用して基本的な ASP.NET 4.5 Web フォーム ページを作成するには
+
+ステージで[Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -33,7 +33,6 @@ ms.locfileid: "46483023"
 - 実行していると、Visual Studio からページをテストします。
 
 ## <a name="prerequisites"></a>必須コンポーネント
-
 
 このチュートリアルを完了するための要件は次のとおりです。
 

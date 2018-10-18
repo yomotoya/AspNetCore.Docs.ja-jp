@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/security
-ms.openlocfilehash: b66c7fbfbaee4c70a68f3132875fbc81018c3e20
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 98b5eb7be87920aacf7a941f76ff652ae7905303
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095133"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391259"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core SignalR でのセキュリティに関する考慮事項
 
@@ -57,6 +57,58 @@ public void Configure(IApplicationBuilder app)
 
 > [!NOTE]
 > SignalR は、Azure App Service での組み込み CORS 機能と互換性がありません。
+
+### <a name="websocket-origin-restriction"></a>WebSocket の配信元の制限
+
+Websocket に CORS によって提供される保護は適用されません。 ブラウザーが CORS 事前要求を実行しないでで指定された制限を考慮しないで`Access-Control`WebSocket 要求を行うときにヘッダー。 ただし、ブラウザーを送信しないでください、 `Origin` WebSocket 要求を発行するときにヘッダー。 許可されるはずのオリジンからのみ Websocket ことを確認するためにこれらのヘッダーを検証するアプリケーションを構成する必要があります。
+
+ASP.NET Core 2.1 では、これを実現することができますを配置するカスタム ミドルウェアを使用して**上`UseSignalR`、およびすべての認証ミドルウェア**で、`Configure`メソッド。
+
+```csharp
+// In your Startup class, add a static field listing the allowed Origin values:
+private static readonly HashSet<string> _allowedOrigins = new HashSet<string>()
+{
+    // Add allowed origins here. For example:
+    "http://www.mysite.com",
+    "http://mysite.com",
+};
+
+// In your Configure method:
+public void Configure(IApplicationBuilder app)
+{
+    // ... other middleware ...
+
+    // Validate Origin header on WebSocket requests to prevent unexpected cross-site WebSocket requests
+    app.Use((context, next) =>
+    {
+        // Check for a WebSocket request.
+        if(string.Equals(context.Request.Headers["Upgrade"], "websocket"))
+        {
+            var origin = context.Request.Headers["Origin"];
+
+            // If there is no origin header, or if the origin header doesn't match an allowed value:
+            if(string.IsNullOrEmpty(origin) && !_allowedOrigins.Contains(origin))
+            {
+                // The origin is not allowed, reject the request
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                return Task.CompletedTask;
+            }
+        }
+
+        // The request is not a WebSocket request or is a valid Origin, so let it continue
+        return next();
+    });
+
+    // ... other middleware ...
+
+    app.UseSignalR();
+
+    // ... other middleware ...
+}
+```
+
+> [!NOTE]
+> `Origin`ヘッダーは、クライアントと同様、完全に制御、`Referer`ヘッダーを送んだことができます。 認証メカニズムとして、これらのヘッダーを使用しない必要があります。
 
 ### <a name="access-token-logging"></a>アクセス トークンのログ記録
 
