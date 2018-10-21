@@ -1,97 +1,97 @@
 ---
 title: ASP.NET Core で応答のキャッシュ
 author: rick-anderson
-description: ASP.NET Core アプリケーションのパフォーマンスを向上させるし、応答の下の帯域幅要件にキャッシュを使用する方法について説明します。
+description: ASP.NET Core アプリのパフォーマンスを向上させるし、応答の帯域幅要件が低くするキャッシュを使用する方法を説明します。
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: c53ae3f6ab8d26588533772dd4fdacb36ec12059
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077765"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477490"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
 によって[John Luo](https://github.com/JunTaoLuo)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Steve Smith](https://ardalis.com/)、および[Luke Latham](https://github.com/guardrex)
 
 > [!NOTE]
-> Razor ページの応答のキャッシュは、ASP.NET Core 2.1 で利用可能な以降です。
+> Razor ページの応答のキャッシュは、ASP.NET Core 2.1 で使用できる以降です。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-応答のキャッシュ クライアントまたはプロキシ web サーバーに、要求の数を削減します。 応答のキャッシュ量を削減しても、応答を生成する作業の web サーバーを実行します。 応答のキャッシュは、クライアント、プロキシ、およびミドルウェアが応答をキャッシュする方法を指定できるヘッダーによって制御されます。
+応答のキャッシュ クライアントまたはプロキシは、web サーバーに要求の数が減少します。 応答のキャッシュ量が減少も、応答を生成する作業の web サーバーを実行します。 応答のキャッシュは、クライアント、プロキシ、およびミドルウェアが応答をキャッシュする方法を指定するヘッダーによって制御されます。
 
-追加するときに、web サーバーは応答をキャッシュできます[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)です。
+追加すると、web サーバーが応答をキャッシュできます[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)します。
 
 ## <a name="http-based-response-caching"></a>応答の HTTP ベースのキャッシュ
 
-[仕様の HTTP 1.1 キャッシュ](https://tools.ietf.org/html/rfc7234)インターネット キャッシュの動作方法について説明します。 キャッシュに使用するプライマリ HTTP ヘッダーは[Cache-control](https://tools.ietf.org/html/rfc7234#section-5.2)、キャッシュの指定に使用される*ディレクティブ*です。 ディレクティブは、回答のサーバーからクライアントには、その方法を変更すると、要求のクライアントからサーバーには、その方法を変更すると、キャッシュ動作を制御します。 要求および応答がプロキシ サーバーで移動し、プロキシ サーバーが HTTP 1.1 キャッシュ仕様に準拠する必要がありますもします。
+[仕様の HTTP 1.1 キャッシュ](https://tools.ietf.org/html/rfc7234)インターネット キャッシュの動作方法について説明します。 キャッシュに使用される主な HTTP ヘッダーが[Cache-control](https://tools.ietf.org/html/rfc7234#section-5.2)、キャッシュの指定に使用される*ディレクティブ*します。 ディレクティブは、要求で利用できるようクライアントからサーバーへと応答に届けられますサーバーからクライアントに返送時のキャッシュ動作を制御します。 要求と応答は、プロキシ サーバーを介して移動し、プロキシ サーバーが HTTP 1.1 キャッシュの仕様に準拠する必要がありますもします。
 
-一般的な`Cache-Control`ディレクティブが次の表に示すようにします。
+一般的な`Cache-Control`ディレクティブは、次の表に表示されます。
 
 | ディレクティブ                                                       | アクション |
 | --------------------------------------------------------------- | ------ |
-| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | キャッシュは、応答を格納できます。 |
-| [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | キャッシュを共有して応答を格納する必要がありません。 プライベート キャッシュは、格納し、応答を再利用可能性があります。 |
-| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | クライアントが年齢が指定した秒数よりも大きい応答を受け付けませんでした。 例: `max-age=60` (60 秒) `max-age=2592000` (1 か月) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **要求に**: 要求を満たせませんストアド応答がキャッシュでは使用しないでください。 注: は、元のサーバーでは、クライアントの場合、応答を再生成し、ミドルウェアがストアド応答をキャッシュを更新します。<br><br>**応答で**: 元のサーバーで検証を伴わない後続の要求の応答を使用しないでください。 |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **要求に**: キャッシュは、要求を格納しないでください。<br><br>**応答で**: キャッシュは、応答の任意の部分を格納しないでください。 |
+| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | キャッシュは、応答を格納することができます。 |
+| [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | 共有キャッシュで応答を格納する必要がありません。 プライベート キャッシュを格納および応答を再利用できます。 |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | クライアントは応答として、年齢が指定した秒数より大きいを受け付けません。 例: `max-age=60` (60 秒) `max-age=2592000` (1 か月) |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **要求で**: キャッシュでは、要求を満たすためストアド応答を使用する必要があります。 注: は、配信元サーバーがクライアントの場合、応答を再生成し、ミドルウェアがストアドのキャッシュに応答を更新します。<br><br>**応答に**: 後続の要求、配信元サーバーの検証を行わず、応答を使用しない必要があります。 |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **要求で**: キャッシュが要求を格納する必要があります。<br><br>**応答に**: キャッシュでは、応答の一部を格納する必要があります。 |
 
-その他のキャッシュでは、役割を果たすキャッシュ ヘッダーは、次の表に表示されます。
+次の表は、キャッシュ内の役割を果たすその他のキャッシュ ヘッダーに表示されます。
 
 | Header                                                     | 関数 |
 | ---------------------------------------------------------- | -------- |
-| [経過時間](https://tools.ietf.org/html/rfc7234#section-5.1)     | 応答の生成または送信元のサーバーに正常に検証されてからの秒単位で時間の推定値。 |
-| [有効期限が切れる](https://tools.ietf.org/html/rfc7234#section-5.3) | その後、応答は古いと見なされます日付/時刻。 |
-| [プラグマ](https://tools.ietf.org/html/rfc7234#section-5.4)  | Http/1.0 との互換性は設定をキャッシュする下位存在`no-cache`動作します。 場合、`Cache-Control`ヘッダーが含まれている、`Pragma`ヘッダーは無視されます。 |
-| [異なる](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | 指定するキャッシュされた応答する必要がありますいない送信しない限り、すべての`Vary`ヘッダー フィールドにキャッシュされた応答の元の要求と、新しい要求の両方に一致します。 |
+| [経過時間](https://tools.ietf.org/html/rfc7234#section-5.1)     | 生成された応答からの経過時間の推定値、または配信元サーバーに正常に検証します。 |
+| [有効期限が切れます](https://tools.ietf.org/html/rfc7234#section-5.3) | その後、応答が古いと見なされます日付/時刻。 |
+| [プラグマ](https://tools.ietf.org/html/rfc7234#section-5.4)  | Http/1.0 との互換性設定は、キャッシュ内を後方に向かって存在`no-cache`動作します。 場合、`Cache-Control`ヘッダーが存在する、`Pragma`ヘッダーは無視されます。 |
+| [異なる](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | 指定するキャッシュされた応答する必要がありますいない送信しない限り、すべての`Vary`ヘッダー フィールドに、キャッシュされた応答の元の要求と、新しい要求の両方に一致します。 |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>HTTP ベースのキャッシュは要求のキャッシュ制御ディレクティブ
 
-[Cache-control ヘッダーの HTTP 1.1 キャッシュ仕様](https://tools.ietf.org/html/rfc7234#section-5.2)に従う、有効なキャッシュを必要と`Cache-Control`クライアントによって送信されたヘッダー。 クライアントが要求を行うことができます、`no-cache`ヘッダーの値と force 要求ごとに新しい応答を生成するサーバー。
+[Cache-control ヘッダーの HTTP 1.1 キャッシュ仕様](https://tools.ietf.org/html/rfc7234#section-5.2)を優先する有効なキャッシュを必要と`Cache-Control`クライアントによって送信されたヘッダー。 クライアントがで要求を行うことができます、`no-cache`ヘッダーの値と force、サーバー要求のたびに新しい応答を生成します。
 
-常にクライアントを受け付けたり`Cache-Control`HTTP キャッシュの目標を考慮する場合に要求ヘッダーを意味します。 公式の仕様では、下にあるキャッシュはクライアント、プロキシ、およびサーバー、ネットワーク経由で要求を満たすの待機時間とネットワークのオーバーヘッドを削減を意図したものです。 必ずしも元のサーバーの負荷を制御する方法です。
+クライアントを常に受け入れること`Cache-Control`HTTP キャッシュの目的を検討する場合に要求ヘッダーを意味します。 公式の仕様では、キャッシュは、クライアント、プロキシ、およびサーバーのネットワーク要求を満たすの待機時間とネットワークのオーバーヘッドを削減するもの。 必ずしも、配信元サーバーの負荷を制御する方法はありません。
 
-使用する場合、このキャッシュ動作上の現在の開発者コントロールはありません、[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)ミドルウェアが公式の仕様をキャッシュに準拠しているためです。 [ミドルウェアは将来拡張](https://github.com/aspnet/ResponseCaching/issues/96)を無視する要求のミドルウェアの構成を許可する`Cache-Control`ヘッダーを提供するキャッシュされた応答を決定するとき。 これが提供されますをサーバーに適切に制御負荷営業案件、ミドルウェアを使用するとします。
+使用する場合、このキャッシュの動作に対する現在の開発者コントロールがない、[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)ミドルウェアは、公式のキャッシュの仕様に準拠しているためです。 [ミドルウェアは将来拡張](https://github.com/aspnet/ResponseCaching/issues/96)要求を無視するミドルウェアを構成するを許可する`Cache-Control`ヘッダー キャッシュされた応答を処理するために決定する際にします。 これが提供されますが、サーバーの管理、負荷を改善する機会、ミドルウェアを使用する場合。
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>ASP.NET Core でのキャッシュの他のテクノロジ
 
 ### <a name="in-memory-caching"></a>メモリ内キャッシュ
 
-キャッシュされたデータを格納するのにサーバーのメモリを使用するメモリ内キャッシュします。 この種類のキャッシュは 1 台のサーバーまたは複数のサーバーを使用するのに適した*スティッキー セッション*です。 スティッキー セッションでは、クライアントからの要求を処理するため、同じサーバーに常にルーティングされることを意味します。
+メモリ内キャッシュでは、サーバー メモリを使用して、キャッシュされたデータを格納します。 この種のキャッシュは 1 台のサーバーまたは複数のサーバーに適した*スティッキー セッション*します。 スティッキー セッションでは、クライアントからの要求を処理するため、同じサーバーに常にルーティングされることを意味します。
 
-詳細については、次を参照してください。[メモリ内キャッシュ](xref:performance/caching/memory)です。
+詳細については、次を参照してください。[メモリ内キャッシュ](xref:performance/caching/memory)します。
 
 ### <a name="distributed-cache"></a>分散キャッシュ
 
-分散キャッシュを使用して、アプリが、クラウド サーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントは、クライアントのキャッシュされたデータが使用可能な場合は、グループ内のサーバーによって処理される要求を送信できます。 ASP.NET Core は、SQL Server と分散 Redis キャッシュを提供します。
+分散キャッシュを使用して、アプリがクラウドまたはサーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントでは、クライアントのキャッシュされたデータが使用可能な場合は、グループ内のサーバーによって処理される要求を送信できます。 ASP.NET Core には、SQL Server 分散 Redis キャッシュが提供しています。
 
-詳細については、次を参照してください。[分散キャッシュを使用して作業](xref:performance/caching/distributed)です。
+詳細については、[分散キャッシュの使用](xref:performance/caching/distributed)に関するページを参照してください。
 
 ### <a name="cache-tag-helper"></a>キャッシュ タグ ヘルパー
 
-キャッシュ タグ ヘルパーの MVC ビューまたは Razor ページからコンテンツをキャッシュできます。 キャッシュ タグ ヘルパーは、メモリ内キャッシュを使用してデータを格納します。
+キャッシュ タグ ヘルパーでは、MVC ビューまたは Razor ページからコンテンツをキャッシュできます。 キャッシュ タグ ヘルパーは、メモリ内キャッシュを使用してデータを格納します。
 
-詳細については、次を参照してください。 [ASP.NET Core MVC でのキャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)です。
+詳細については、次を参照してください。 [ASP.NET Core MVC でのキャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)します。
 
 ### <a name="distributed-cache-tag-helper"></a>分散キャッシュ タグ ヘルパー
 
-分散キャッシュ タグ ヘルパーの MVC ビューまたは分散クラウドまたは web ファームのシナリオに Razor ページからコンテンツをキャッシュできます。 分散キャッシュ タグ ヘルパーは、データを格納するのに SQL Server または Redis を使用します。
+分散キャッシュ タグ ヘルパーでは、MVC ビューまたは分散クラウドまたは web ファームのシナリオでの Razor ページからコンテンツをキャッシュできます。 分散キャッシュ タグ ヘルパーは、データを格納するのに SQL Server または Redis を使用します。
 
-詳細については、次を参照してください。[キャッシュ タグ ヘルパーの分散](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)です。
+詳細については、次を参照してください。[分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)します。
 
 ## <a name="responsecache-attribute"></a>ResponseCache 属性
 
-[ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute)応答のキャッシュでは、適切なヘッダーを設定するために必要なパラメーターを指定します。
+[ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute)応答のキャッシュで適切なヘッダーを設定するために必要なパラメーターを指定します。
 
 > [!WARNING]
-> 認証されたクライアントに関する情報を含むコンテンツのキャッシュを無効にします。 キャッシュのみ有効にするユーザーの id またはユーザーがサインインしているかどうかに基づいてコンテンツは変更されません。
+> 認証されたクライアントの情報を含むコンテンツのキャッシュを無効にします。 キャッシュは、ユーザーの id またはユーザーがサインインしているかどうかに基づいて変更されないコンテンツのみ有効にします。
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys)ストアドの応答を指定された一連のクエリ キーの値によって異なります。 1 つの値のときに`*`すべてからの応答は要求クエリ文字列パラメーターが用意されて、ミドルウェアによって異なります。 `VaryByQueryKeys` ASP.NET Core 1.1 以降が必要です。
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys)ストアドの応答を指定した一連のクエリ キーの値によって異なります。 1 つの値のときに`*`応答により、すべての要求クエリ文字列パラメーターが指定されて、ミドルウェアによって異なります。 `VaryByQueryKeys` ASP.NET Core 1.1 以降が必要です。
 
-設定するには、応答のキャッシュ ミドルウェアを有効にする必要があります、`VaryByQueryKeys`プロパティです。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティです。 プロパティは、応答のキャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を提供するミドルウェアをクエリ文字列とクエリ文字列の値必要がありますと一致前の要求。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
+応答キャッシュ ミドルウェアは、設定を有効にする必要があります、`VaryByQueryKeys`プロパティ。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティ。 プロパティは、応答キャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を処理するためにミドルウェアのクエリ文字列とクエリ文字列の値は、前の要求に一致する必要があります。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
 
 | 要求                          | 結果                   |
 | -------------------------------- | ------------------------ |
@@ -99,13 +99,13 @@ ms.locfileid: "37077765"
 | `http://example.com?key1=value1` | ミドルウェアから返される |
 | `http://example.com?key1=value2` | サーバーから返される     |
 
-最初の要求がサーバーによって返され、ミドルウェア内でキャッシュします。 2 番目の要求は、クエリ文字列が、前回の要求と一致するので、ミドルウェアによって返されます。 クエリ文字列の値は、前の要求と一致しないため、ミドルウェア キャッシュでは、3 番目の要求がありません。 
+最初の要求は、サーバーによって返され、ミドルウェアにキャッシュされています。 2 番目の要求は、クエリ文字列には、前の要求が一致するためにミドルウェアによって返されます。 3 番目の要求は、クエリ文字列の値は、前の要求と一致しないために、ミドルウェアのキャッシュではありません。 
 
-`ResponseCacheAttribute`構成を作成するために使用 (を介して`IFilterFactory`)、 [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter)です。 `ResponseCacheFilter`適切な HTTP ヘッダーと応答の機能の更新の処理を実行します。 フィルター:
+`ResponseCacheAttribute`構成し、作成に使用されます (を使用して`IFilterFactory`)、 [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter)します。 `ResponseCacheFilter`適切な HTTP ヘッダーと応答の機能の更新の作業を実行します。 フィルター:
 
-* 既存のすべてのヘッダーを削除`Vary`、 `Cache-Control`、および`Pragma`です。 
-* 設定されたプロパティに基づいて、適切なヘッダーを書き込みます、`ResponseCacheAttribute`です。 
-* 更新プログラムの応答の場合は、HTTP 機能をキャッシュ`VaryByQueryKeys`が設定されています。
+* 任意の既存のヘッダーを削除します。 `Vary`、 `Cache-Control`、および`Pragma`します。 
+* 設定されたプロパティに基づいて、適切なヘッダーを書き込みます、`ResponseCacheAttribute`します。 
+* 更新プログラムの応答の場合は、HTTP の機能をキャッシュ`VaryByQueryKeys`設定されます。
 
 ### <a name="vary"></a>異なる
 
@@ -123,20 +123,20 @@ ms.locfileid: "37077765"
 
 ::: moniker-end
 
-ブラウザーのネットワーク ツールを使用して応答ヘッダーを表示することができます。 次の図は出力エッジ F12、**ネットワーク** タブのときに、`About2`アクション メソッドが更新されます。
+ブラウザーのネットワーク ツールを使用して、応答ヘッダーを表示できます。 次の図は、出力で Edge の f12 キー、**ネットワーク**ときにタブ、`About2`アクション メソッドが更新されます。
 
 ![About2 アクション メソッドが呼び出されたときに、[ネットワーク] タブで F12 出力をエッジします。](response/_static/vary.png)
 
 ### <a name="nostore-and-locationnone"></a>NoStore と Location.None
 
-`NoStore` ほとんどの他のプロパティをオーバーライドします。 このプロパティに設定するときに`true`、`Cache-Control`ヘッダーに設定されて`no-store`です。 場合`Location`に設定されている`None`:
+`NoStore` ほとんどの他のプロパティをオーバーライドします。 このプロパティに設定しているときに`true`、`Cache-Control`にヘッダーが設定されている`no-store`します。 場合`Location`に設定されている`None`:
 
 * `Cache-Control` が `no-store,no-cache` に設定されます。
 * `Pragma` が `no-cache` に設定されます。
 
-場合`NoStore`は`false`と`Location`は`None`、`Cache-Control`と`Pragma`に設定されている`no-cache`です。
+場合`NoStore`は`false`と`Location`は`None`、`Cache-Control`と`Pragma`に設定されている`no-cache`します。
 
-通常は設定`NoStore`に`true`エラー ページにします。 例えば:
+通常は設定`NoStore`に`true`エラー ページ。 例えば:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -150,21 +150,21 @@ ms.locfileid: "37077765"
 
 ::: moniker-end
 
-これは、結果、次のヘッダーになります。
+これは、次のヘッダーが得られます。
 
 ```
 Cache-Control: no-store,no-cache
 Pragma: no-cache
 ```
 
-### <a name="location-and-duration"></a>位置と長さ
+### <a name="location-and-duration"></a>場所と期間
 
-キャッシュを有効にする`Duration`正の値に設定する必要がありますと`Location`いずれかである必要があります`Any`(既定) または`Client`です。 ここで、`Cache-Control`場所の値の後にヘッダーが設定されている、`max-age`応答のです。
+キャッシュを有効にする`Duration`正の値に設定する必要がありますと`Location`いずれかである必要があります`Any`(既定値) または`Client`します。 ここで、`Cache-Control`ヘッダー後に場所の値に設定されて、`max-age`応答の。
 
 > [!NOTE]
-> `Location`オプションの`Any`と`Client`変換`Cache-Control`のヘッダー値`public`と`private`、それぞれします。 前述のように、設定`Location`に`None`設定両方`Cache-Control`と`Pragma`ヘッダーを`no-cache`です。
+> `Location`オプションの`Any`と`Client`変換`Cache-Control`のヘッダー値`public`と`private`、それぞれします。 前述のように、設定`Location`に`None`両方設定`Cache-Control`と`Pragma`ヘッダーを`no-cache`します。
 
-次のヘッダーを示す例によって生成される設定`Duration`し、既定のままにして`Location`値。
+以下は、ヘッダーを示す例によって生成された設定`Duration`し、既定のままにして`Location`値。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -186,9 +186,9 @@ Cache-Control: public,max-age=60
 
 ### <a name="cache-profiles"></a>キャッシュ プロファイル
 
-複製ではなく`ResponseCache`で MVC を設定するとき、オプションとしてコント ローラー アクションの多くの属性でキャッシュ プロファイルの設定を構成できます、`ConfigureServices`メソッド`Startup`です。 によって既定値として参照されているキャッシュ プロファイル内の値が使用されます、`ResponseCache`属性および属性に指定したプロパティによって上書きされます。
+複製ではなく`ResponseCache`で MVC をセットアップするときに、オプションとしてコント ローラー アクションの多くの属性、キャッシュ プロファイルの設定を構成できます、`ConfigureServices`メソッド`Startup`します。 値が参照されているキャッシュ プロファイルによって既定値として使用する、`ResponseCache`属性し、属性に指定したプロパティによってオーバーライドされます。
 
-キャッシュ プロファイルを設定します。
+キャッシュ プロファイルの設定。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -216,11 +216,11 @@ Cache-Control: public,max-age=60
 
 ::: moniker-end
 
-`ResponseCache` (メソッド) のアクションとコント ローラー (クラス) の両方に属性を適用できます。 メソッド レベルの属性は、クラス レベルの属性で指定された設定をオーバーライドします。
+`ResponseCache`属性は、アクション (メソッド) とコント ローラー (クラス) の両方に適用できます。 メソッド レベルの属性は、クラス レベルの属性で指定された設定をオーバーライドします。
 
-上記の例では、クラス レベルの属性は、メソッド レベルの属性は、継続時間が 60 秒に設定するキャッシュ プロファイルを参照中に 30 秒の期間を指定します。
+上記の例では、メソッド レベルの属性は、継続時間が 60 秒に設定キャッシュ プロファイルを参照中に、クラス レベルの属性は 30 秒の期間を指定します。
 
-結果として得られるヘッダー。
+結果として得られるヘッダー:
 
 ```
 Cache-Control: public,max-age=60
@@ -228,11 +228,11 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [応答のキャッシュに格納](https://tools.ietf.org/html/rfc7234#section-3)
+* [応答をキャッシュに格納します。](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
+* [変更トークンを使用する変更の検出](xref:fundamentals/change-tokens)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

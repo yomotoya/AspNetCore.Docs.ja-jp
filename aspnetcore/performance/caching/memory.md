@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 960aa18f9d14f633118ccd716201e61464085c05
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: be2e81d1aa6a89d65414d53a70ca2d2fb5d2d3a3
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325927"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477190"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core でメモリ内キャッシュします。
 
@@ -173,7 +173,7 @@ A`MemoryCache`インスタンスが必要に応じて指定し、サイズ制限
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
+* [変更トークンを使用する変更の検出](xref:fundamentals/change-tokens)
 * [応答キャッシュ](xref:performance/caching/response)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
