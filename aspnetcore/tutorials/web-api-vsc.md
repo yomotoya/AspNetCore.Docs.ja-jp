@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 4ce808ec4241ab2fc3c2fb81c3fdb15dd853cd90
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: b8e5c8b7d3dc04513997997d903295853dd1ff46
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342277"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348430"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core と Visual Studio Code で Web API を作成する
 
@@ -33,6 +33,8 @@ ms.locfileid: "39342277"
 
 [!INCLUDE[prerequisites](~/includes/net-core-prereqs-vscode.md)]
 
+VS Code の使用に関するヒントが必要であれば、「[Visual Studio Code ヘルプ](#visual-studio-code-help)」を参照してください。
+
 ## <a name="create-the-project"></a>プロジェクトの作成
 
 コンソールから、次のコマンドを実行します。
@@ -51,19 +53,19 @@ Visual Studio Code (VS Code) で *TodoApi* フォルダーが開きます。 *St
 
 !['TodoApi' に作成とデバッグに必要な資産がありません。 追加しますか?" という警告メッセージが表示された VS Code 今後このメッセージを表示しない, 後で, はい](web-api-vsc/_static/vsc_restore.png)
 
-**[デバッグ]** (F5) を押してプログラムをビルドし、実行します。 ブラウザーで、http://localhost:5000/api/values に移動します。 次のような出力が表示されます。
+**[デバッグ]** (F5) を押してプログラムをビルドし、実行します。 ブラウザーで、 http://localhost:5000/api/values に移動します。 次のような出力が表示されます。
 
 ```json
 ["value1","value2"]
 ```
 
-VS Code の使用に関するヒントが必要であれば、「[Visual Studio Code ヘルプ](#visual-studio-code-help)」を参照してください。
+
 
 ## <a name="add-support-for-entity-framework-core"></a>Entity Framework Core のサポートの追加
 
 :::moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) パッケージ参照が追加されます。 まだ指定されていない場合は、`Version` 属性を追加します。
+ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) プロバイダーが追加されます。
 
 [!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 

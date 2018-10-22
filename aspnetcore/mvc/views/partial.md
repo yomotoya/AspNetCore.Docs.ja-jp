@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: a836ed073dfe769fc3cc0cd0622b17937747928b
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: d3d2f55645881dd05f7663e0a9d3e45d6bb6d77f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601757"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477684"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core の部分ビュー
 
@@ -44,7 +44,7 @@ ms.locfileid: "45601757"
 
 ## <a name="declare-partial-views"></a>部分ビューを宣言する
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.0"
 
 部分ビューは、*Views* フォルダー (MVC) または *Pages* フォルダー (Razor Pages) 内で保持される *.cshtml* マークアップ ファイルです。
 
@@ -52,11 +52,11 @@ ASP.NET Core MVC では、コントローラーの <xref:Microsoft.AspNetCore.Mv
 
 MVC ビューやページ レンダリングとは異なり、部分ビューは *_ViewStart.cshtml* を実行しません。 *_ViewStart.cshtml* の詳細については、<xref:mvc/views/layout> を参照してください。
 
-部分ビューのファイル名は、多くの場合アンダースコア (`_`) から始まります。 この名前付け規則は必須ではありませんが、ビューおよびページと部分ビューを視覚的に区別するのに役立ちます。 ファイル名がアンダースコアで始まる場合、ファイルのマークアップに `@page` ディレクティブが含まれていても、Razor Pages はマークアップ ファイルを Razor Pages ページとして処理しません。
+部分ビューのファイル名は、多くの場合アンダースコア (`_`) から始まります。 この名前付け規則は必須ではありませんが、ビューおよびページと部分ビューを視覚的に区別するのに役立ちます。
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.0"
 
 部分ビューは、*Views* フォルダー内で保持される *.cshtml* マークアップ ファイルです。
 

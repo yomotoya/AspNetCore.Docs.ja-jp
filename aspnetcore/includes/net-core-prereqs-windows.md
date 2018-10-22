@@ -1,4 +1,4 @@
-以下のワークロードで [Visual Studio 2017 バージョン 15.7.3 以降](https://www.microsoft.com/net/download/windows):
+以下のワークロードで [Visual Studio 2017 バージョン 15.7.3 以降](https://visualstudio.microsoft.com/downloads/):
 
 * **ASP.NET と Web 開発**
 * **.NET Core クロスプラットフォームの開発**
