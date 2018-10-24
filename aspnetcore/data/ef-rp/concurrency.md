@@ -1,40 +1,40 @@
 ---
-title: ASP.NET Core の Razor ページと EF Core - 同時実行 - 8/8
+title: ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 author: rick-anderson
 description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a010e2ed660bea56b112799e850f2fb0ff37579e
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219395"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523260"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - 同時実行 - 8/8
+# <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-このチュートリアルでは、複数のユーザーがエンティティをコンカレントに更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8)をダウンロードしてください。
+このチュートリアルでは、複数のユーザーがエンティティをコンカレントに更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
 
-## <a name="concurrency-conflicts"></a>同時実行の競合
+## <a name="concurrency-conflicts"></a>コンカレンシーの競合
 
-同時実行の競合は、次のような場合に発生します。
+コンカレンシーの競合は、次のような場合に発生します。
 
 * ユーザーがエンティティの Edit ページに移動した場合。
 * 最初のユーザーの変更がデータベースに書き込まれる前に、別のユーザーが同じエンティティを更新した場合。
 
-コンカレンシーの検出が無効のとき、コンカレントな更新が発生すると、次のようになります。
+コンカレンシーの検出が無効のとき、コンカレント更新が発生すると、次のようになります。
 
 * 最後の更新が有効になります。 つまり、最後に更新された値がデータベースに保存されます。
 * 現在の更新の最初のものは失われます。
 
-### <a name="optimistic-concurrency"></a>オプティミスティック同時実行制御
+### <a name="optimistic-concurrency"></a>オプティミスティック コンカレンシー
 
-オプティミスティック同時実行制御では、同時実行競合の発生が許可され、それが発生した場合に適切に対処されます。 たとえば、Jane が Department Edit ページにアクセスし、English 部署の予算を $350,000.00 から $0.00 に変更するとします。
+オプティミスティック コンカレンシーでは、コンカレンシーの競合の発生が許可され、それが発生した場合に適切に対処されます。 たとえば、Jane が Department Edit ページにアクセスし、English 部署の予算を $350,000.00 から $0.00 に変更するとします。
 
 ![予算を 0 に変更する](concurrency/_static/change-budget.png)
 
@@ -46,9 +46,9 @@ Jane が **[保存]** を先にクリックすると、ブラウザーの Index 
 
 ![予算が 0 に変更された](concurrency/_static/budget-zero.png)
 
-John が Edit ページの **[保存]** をクリックします。このとき、予算は $350,000.00 と表示されています。 この後の動作は、同時実行競合の処理方法によって決定されます。
+John が Edit ページの **[保存]** をクリックします。このとき、予算は $350,000.00 と表示されています。 この後の動作は、コンカレンシーの競合の処理方法によって決定します。
 
-オプティミスティック同時実行制御には、次のオプションがあります。
+オプティミスティック コンカレンシーには、次のオプションがあります。
 
 * ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新します。
 
@@ -56,11 +56,11 @@ John が Edit ページの **[保存]** をクリックします。このとき�
  
   * 競合する変更が同じプロパティに加えられた場合、データの損失を回避することはできません。
   * Web アプリでは、一般的に実用的ではありません。 フェッチされたすべての値と新しい値を追跡するために、かなりのステータスを維持することが必要になります。 大量のステータスを保守管理することになると、アプリケーションのパフォーマンスに影響が出ます。
-  * エンティティでの同時実行の検出と比較して、アプリは複雑になります。
+  * エンティティでのコンカレンシーの検出と比較して、アプリは複雑になります。
 
 * John の変更で Jane の変更を上書きするように指定できます。
 
-  今度誰かが English 部署を閲覧すると、9/1/2013 の日付と、フェッチされた $350,000.00 の値が表示されます。 このアプローチは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントからの値がすべて、データ ストアの値より優先されます。)同時実行処理に対してコーディングを行わない場合、自動的にクライアント側に合わせられます。
+  今度誰かが English 部署を閲覧すると、9/1/2013 の日付と、フェッチされた $350,000.00 の値が表示されます。 このアプローチは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントからの値がすべて、データ ストアの値より優先されます。)コンカレンシー処理に対してコーディングを行わない場合、自動的にクライアント側に合わせられます。
 
 * データベースで John の変更が更新されないようにできます。 通常、アプリの動作は次のようになります。
 
@@ -70,24 +70,24 @@ John が Edit ページの **[保存]** をクリックします。このとき�
 
   これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)このチュートリアルでは、Store Wins シナリオを実装します。 この手法では、変更が上書きされるとき、それが必ずユーザーに警告されます。
 
-## <a name="handling-concurrency"></a>同時実行の処理 
+## <a name="handling-concurrency"></a>コンカレンシーの処理 
 
-プロパティが[同時実行トークン](https://docs.microsoft.com/ef/core/modeling/concurrency)として構成されている場合、次が実行されます。
+プロパティが[コンカレンシー トークン](https://docs.microsoft.com/ef/core/modeling/concurrency)として構成されている場合、次が実行されます。
 
 * EF Core によって、フェッチ後にプロパティが変更されていないことが確認されます。 このチェックは、[SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) または [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) が呼び出されたときに発生します。
 * フェッチ後にプロパティが変更されていると、[DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) がスローされます。 
 
 データベースとデータ モデルは、`DbUpdateConcurrencyException` のスローをサポートするように構成される必要があります。
 
-### <a name="detecting-concurrency-conflicts-on-a-property"></a>プロパティの同時実行競合の検出
+### <a name="detecting-concurrency-conflicts-on-a-property"></a>プロパティのコンカレンシーの競合の検出
 
-同時実行の競合は、[ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) 属性を使用し、プロパティ レベルで検出できます。 この属性は、モデルの複数のプロパティに適用できます。 詳細については、「[データの注釈 - ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations)」を参照してください。
+コンカレンシーの競合は、[ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) 属性を使用し、プロパティ レベルで検出できます。 この属性は、モデルの複数のプロパティに適用できます。 詳細については、「[データの注釈 - ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations)」を参照してください。
 
 このチュートリアルでは、`[ConcurrencyCheck]` 属性は使用しません。
 
-### <a name="detecting-concurrency-conflicts-on-a-row"></a>行の同時実行競合の検出
+### <a name="detecting-concurrency-conflicts-on-a-row"></a>行のコンカレンシーの競合の検出
 
-同時実行競合を検出するために、モデルに [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) 追跡列が追加されました。  `rowversion` は、次のとおりです。
+コンカレンシーの競合を検出するために、モデルに [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) 追跡列が追加されました。  `rowversion` は、次のとおりです。
 
 * SQL Server 専用です。 他のデータベースには、似たような機能がない場合があります。
 * データベースからフェッチされた以降、エンティティに変更がないことを決定するために使用されます。 
@@ -98,7 +98,7 @@ John が Edit ページの **[保存]** をクリックします。このとき�
  * `Where` 句にフェッチされた `rowversion` が含まれるので、`Update` または `Delete` コマンドでは行が検索されません。
  * `DbUpdateConcurrencyException` がスローされます。
 
-EF Core では、`Update` または `Delete` コマンドで行が更新されない場合、同時実行競合がスローされます。
+EF Core では、`Update` または `Delete` コマンドで行が更新されない場合、コンカレンシー競合がスローされます。
 
 ### <a name="add-a-tracking-property-to-the-department-entity"></a>Department エンティティにトラッキング プロパティを追加する
 
@@ -173,7 +173,7 @@ dotnet ef database update
 
 ### <a name="update-the-departments-index-page"></a>Departments Index ページを更新する
 
-スキャフォールディング エンジンにより Index ページに `RowVersion` 列が作成されましたが、このフィールドは表示すべきではありません。 このチュートリアルでは、同時実行を理解するために、`RowVersion` の最後のバイトが表示されています。 最後のバイトは、一意であるとは限りません。 実際のアプリでは、`RowVersion` や `RowVersion` の最後のバイトは表示されません。
+スキャフォールディング エンジンにより Index ページに `RowVersion` 列が作成されましたが、このフィールドは表示すべきではありません。 このチュートリアルでは、コンカレンシーを理解するために、`RowVersion` の最後のバイトが表示されています。 最後のバイトは、一意であるとは限りません。 実際のアプリでは、`RowVersion` や `RowVersion` の最後のバイトは表示されません。
 
 Index ページを更新するために、次を実行します。
 
@@ -191,7 +191,7 @@ Index ページを更新するために、次を実行します。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-同時実行の問題を検出するために、フェッチされたエンティティの [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) が `rowVersion` 値で更新されます。 EF Core では、WHERE 句に元の `RowVersion` 値が含まれる、SQL の UPDATE コマンドが生成されます。 UPDATE コマンドの影響を受ける行がない場合 (元の `RowVersion` 値が含まれる行がない)、`DbUpdateConcurrencyException` 例外がスローされます。
+コンカレンシーの問題を検出するために、フェッチされたエンティティの [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) が `rowVersion` 値で更新されます。 EF Core では、WHERE 句に元の `RowVersion` 値が含まれる、SQL の UPDATE コマンドが生成されます。 UPDATE コマンドの影響を受ける行がない場合 (元の `RowVersion` 値が含まれる行がない)、`DbUpdateConcurrencyException` 例外がスローされます。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
@@ -205,7 +205,7 @@ Index ページを更新するために、次を実行します。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_err)]
 
-次の強調表示されたコードによって、データベースから取得された新しい値に `RowVersion` 値が設定されます。 次にユーザーが **[保存]** をクリックしたとき、Edit ページが最後に表示されたときの同時実行エラーのみが検出されます。
+次の強調表示されたコードによって、データベースから取得された新しい値に `RowVersion` 値が設定されます。 次にユーザーが **[保存]** をクリックしたとき、Edit ページが最後に表示されたときのコンカレンシー エラーのみが検出されます。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_try&highlight=23)]
 
@@ -224,7 +224,7 @@ Index ページを更新するために、次を実行します。
 * デバッグのために、`RowVersion` の最後のバイトが表示されます。
 * `ViewData` を厳密に型指定された `InstructorNameSL` と置換します。
 
-## <a name="test-concurrency-conflicts-with-the-edit-page"></a>Edit ページでの同時実行競合のテスト
+## <a name="test-concurrency-conflicts-with-the-edit-page"></a>Edit ページでのコンカレンシーの競合のテスト
 
 English 部署の 2 つの Edit のブラウザー インスタンスを開きます。
 
@@ -260,7 +260,7 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Delete.cshtml.cs)]
 
-フェッチ後にエンティティに変更があった場合、Delete ページによって同時実行の競合が検出されます。 `Department.RowVersion` は、エンティティがフェッチされたときの行バージョンです。 EF Core が SQL DELETE コマンドを作成するとき、それには `RowVersion` 句が含まれる WHERE 句が含まれます。 SQL DELETE コマンドで影響を受ける行がゼロの場合、次が発生します。
+フェッチ後にエンティティに変更があった場合、Delete ページによってコンカレンシーの競合が検出されます。 `Department.RowVersion` は、エンティティがフェッチされたときの行バージョンです。 EF Core が SQL DELETE コマンドを作成するとき、それには `RowVersion` 句が含まれる WHERE 句が含まれます。 SQL DELETE コマンドで影響を受ける行がゼロの場合、次が発生します。
 
 * SQL DELETE コマンドの `RowVersion` がデータベースの `RowVersion` と一致しません。
 * DbUpdateConcurrencyException 例外がスローされます。
@@ -281,7 +281,7 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 * 最後のバイトを表示するよう、`RowVersion` を変更します。
 * 非表示の行バージョンが追加されます。 ポストバックが値をバインドするように、`RowVersion` を追加する必要があります。
 
-### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Delete ページでの同時実行競合のテスト
+### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Delete ページでのコンカレンシーの競合のテスト
 
 テスト部署を作成します。
 
@@ -297,14 +297,14 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 
 Index ページが、値が変更され、rowVersion インジケーターが更新され、ブラウザーに表示されます。 更新された rowVersion インジケーターに注意してください。これは、他方のタブの 2 番目のポストバックに表示されています。
 
-2 番目のタブから、テスト部署を削除します。データベースからの現在の値で、同時実行エラーが表示されます。 **[削除]** をクリックすると、`RowVersion` が更新され、部署が削除されていない限り、エンティティは削除されます。
+2 番目のタブから、テスト部署を削除します。データベースからの現在の値で、コンカレンシー エラーが表示されます。 **[削除]** をクリックすると、`RowVersion` が更新され、部署が削除されていない限り、エンティティは削除されます。
 
 データ モデルを継承する方法については、「[継承](xref:data/ef-mvc/inheritance)」を参照してください。
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-* [同時実行制御トークン](/ef/core/modeling/concurrency)
-* [EF Core の同時実行の処理](/ef/core/saving/concurrency)
+* [コンカレンシー トークン](/ef/core/modeling/concurrency)
+* [EF Core のコンカレンシーの処理](/ef/core/saving/concurrency)
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/update-related-data)

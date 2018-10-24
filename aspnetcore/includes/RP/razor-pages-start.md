@@ -20,10 +20,10 @@
 
 *_Layout.cshtml* ファイルは共通の HTML 要素 (スクリプトとスタイルシート) を含み、アプリケーションのレイアウトを設定します。 たとえば、**[RazorPagesMovie]**、**[ホーム]**、**[バージョン情報]** または **[連絡先]** をクリックすると、同じ要素が表示されます。 共通の要素には、ウィンドウの下部のヘッダーと上部のナビゲーション メニューが含まれます。 詳細については、「[Layout](xref:mvc/views/layout)」 (レイアウト) を参照してください。
 
-*_ViewStart.cshtml* では、*_Layout.cshtml* ファイルを使用するように Razor ページの `Layout` プロパティを設定します。 詳細については、「[Layout](xref:mvc/views/layout)」 (レイアウト) を参照してください。
-
 *_ViewImports.cshtml* ファイルには、各 Razor ページにインポートされた Razor ディレクティブが含まれています。 詳細については、「[Importing Shared Directives](xref:mvc/views/layout#importing-shared-directives)」 (共有ディレクティブのインポート) を参照してください。
+
+*_ViewStart.cshtml* では、*_Layout.cshtml* ファイルを使用するように Razor ページの `Layout` プロパティを設定します。 詳細については、「[Layout](xref:mvc/views/layout)」 (レイアウト) を参照してください。
 
 *_ValidationScriptsPartial.cshtml* ファイルでは、[jQuery](https://jquery.com/) 検証スクリプトへの参照が提供されます。 チュートリアルの後半で `Create` および `Edit` ページを追加するときに、*_ValidationScriptsPartial.cshtml* ファイルが使用されます。
 
-`About`、`Contact` および `Index` ページは基本ページで、アプリを起動する場合に使用できます。 エラー情報を表示する場合は `Error` ページを使用します。
+`About`、`Contact` および `Index` ページは基本ページで、アプリを起動する場合に使用できます。 エラー情報を表示する場合は `Error` ページを使用します。 `Privacy` ページでは、ご利用のサイトのプライバシー ポリシーに関する詳細を指定できます。

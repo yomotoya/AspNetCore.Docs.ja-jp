@@ -1,28 +1,29 @@
 ---
-title: 'チュートリアル: ASP.NET Core 上で SignalR の使用を開始する'
+title: ASP.NET Core SignalR の概要
 author: tdykstra
-description: このチュートリアルでは、ASP.NET Core 用 SignalR を使用するチャット アプリを作成します。
+description: このチュートリアルでは、ASP.NET Core SignalR を使用するチャット アプリを作成します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6f93d6dc664f68425ef0fa0d02f9011e4875bc33
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402134"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578030"
 ---
-# <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>チュートリアル: ASP.NET Core 上で SignalR の使用を開始する
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>チュートリアル: ASP.NET Core SignalR の概要
 
 このチュートリアルでは、SignalR を使用してリアルタイム アプリをビルドするための基礎について説明します。 以下の方法について説明します。
 
 > [!div class="checklist"]
-> * ASP.NET Core 上で SignalR を使用する Web アプリを作成します。
-> * サーバー上で SignalR ハブを作成します。
-> * JavaScript クライアントから SignalR ハブに接続します。
-> * ハブを使用して、任意のクライアントから、接続されているすべてのクライアントにメッセージを送信します。
+> * Web アプリ プロジェクトを作成する。
+> * SignalR クライアント ライブラリを追加する。
+> * SignalR ハブを作成する。
+> * SignalR を使用するようにプロジェクトを構成する。
+> * ハブを使用して任意のクライアントから接続済みのすべてのクライアントにメッセージを送信する、コードを追加する。
 
 最後には、次のように動作するチャット アプリが作成されます。
 
@@ -50,7 +51,7 @@ ms.locfileid: "47402134"
 
 ---
 
-## <a name="create-the-project"></a>プロジェクトの作成
+## <a name="create-a-web-project"></a>Web プロジェクトを作成する
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -90,7 +91,7 @@ ms.locfileid: "47402134"
 
 ## <a name="add-the-signalr-client-library"></a>SignalR クライアント ライブラリを追加する
 
-SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) に含まれています。 JavaScript クライアント ライブラリはプロジェクトに自動的に含まれません。 このチュートリアルでは、[ライブラリ マネージャー (LibMan)](xref:client-side/libman/index) を使用して *unpkg* からクライアント ライブラリを取得します。 [unpkg](https://unpkg.com/#/) は、[npm (Node.js パッケージ マネージャー)](https://www.npmjs.com/get-npm) で見つかるものすべてを配信できる[コンテンツ配信ネットワーク](https://wikipedia.org/wiki/Content_delivery_network)です。
+SignalR サーバー ライブラリは、`Microsoft.AspNetCore.App` メタパッケージに含まれています。 JavaScript クライアント ライブラリはプロジェクトに自動的に含まれません。 このチュートリアルでは、ライブラリ マネージャー (LibMan) を使用して *unpkg* からクライアント ライブラリを取得します。 unpkg は、npm (Node.js パッケージ マネージャー) で見つかるものすべてを配信できるコンテンツ配信ネットワーク (CDN) です。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -98,7 +99,7 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
 
 * **[Add Client-Side Library]\(クライアント側のライブラリの追加\)** ダイアログで、**[プロバイダー]** に対して **[unpkg]** を選択します。 
 
-* **[ライブラリ]** に対して「_@aspnet/signalr@1_」を入力し、プレビューでない最新のバージョンを選択します。
+* **[ライブラリ]** に対して「`@aspnet/signalr@1`」を入力し、プレビューでない最新のバージョンを選択します。
 
   ![クライアント側のライブラリの追加ダイアログ - ライブラリの選択](signalr/_static/libman1.png)
 
@@ -108,7 +109,7 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
 
   ![クライアント側のライブラリの追加ダイアログ - ファイルと保存先の選択](signalr/_static/libman2.png)
 
-  [LibMan](xref:client-side/libman/index) によって *wwwroot/lib/signalr* フォルダーが作成され、そこに選択したファイルがコピーされます。
+  LibMan によって *wwwroot/lib/signalr* フォルダーが作成され、そこに選択したファイルがコピーされます。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -170,9 +171,9 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
 
 ---
 
-## <a name="create-the-signalr-hub"></a>SignalR ハブを作成する
+## <a name="create-a-signalr-hub"></a>SignalR ハブを作成する
 
-[ハブ](xref:signalr/hubs)はクライアント サーバー通信を処理するハイレベル パイプラインとして機能するクラスです。
+*ハブ*はクライアント サーバー通信を処理するハイレベル パイプラインとして機能するクラスです。
 
 * SignalRChat プロジェクト フォルダー内で、*Hubs* フォルダーを作成します。
 
@@ -180,11 +181,11 @@ SignalR サーバー ライブラリは、[Microsoft.AspNetCore.App メタパッ
 
   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
-  `ChatHub` クラスは、SignalR [Hub](/dotnet/api/microsoft.aspnetcore.signalr.hub) クラスを継承します。 `Hub` クラスでは、接続、グループ、およびメッセージングが管理されます。
+  `ChatHub` クラスは、SignalR `Hub` クラスを継承します。 `Hub` クラスでは、接続、グループ、およびメッセージングが管理されます。
 
   `SendMessage` メソッドは、接続されている任意のクライアントによって呼び出すことができます。 それによって、受信したメッセージがすべてのクライアントに送信されます。 最大のスケーラビリティを実現するために、SignalR コードは非同期になっています。
 
-## <a name="configure-the-project-to-use-signalr"></a>SignalR を使用するようにプロジェクトを構成する
+## <a name="configure-signalr"></a>SignalR を構成する
 
 SignalR 要求が SignalR に渡されるように SignalR サーバーを構成する必要があります。
 
@@ -192,9 +193,9 @@ SignalR 要求が SignalR に渡されるように SignalR サーバーを構成
 
   [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
 
-  これらの変更によって、SignalR が[依存関係挿入](xref:fundamentals/dependency-injection)システムと[ミドルウェア](xref:fundamentals/middleware/index) パイプラインに追加されます。
+  これらの変更によって、SignalR が ASP.NET Core 依存関係挿入システムとミドルウェア パイプラインに追加されます。
 
-## <a name="create-the-signalr-client-code"></a>SignalR クライアント コードを作成する
+## <a name="add-signalr-client-code"></a>SignalR クライアント コードを追加する
 
 * *Pages\Index.cshtml* のコンテンツを次のコードに変更します。
 
@@ -246,10 +247,16 @@ SignalR 要求が SignalR に渡されるように SignalR サーバーを構成
 
 ## <a name="next-steps"></a>次の手順
 
-クライアントが別のドメインから SignalR アプリに接続するようにしたい場合は、クロス オリジン リソース共有 (CORS) を有効にする必要です。 詳細については、「[クロス オリジン リソース共有](xref:signalr/security?view=aspnetcore-2.1#cross-origin-resource-sharing)」を参照してください。
+このチュートリアルでは、次の作業を行う方法を学びました。
 
-SignalR、ハブ、および JavaScript クライアントの詳細については、次のリソースを参照してください。
+> [!div class="checklist"]
+> * Web アプリ プロジェクトを作成する。
+> * SignalR クライアント ライブラリを追加する。
+> * SignalR ハブを作成する。
+> * SignalR を使用するようにプロジェクトを構成する。
+> * ハブを使用して任意のクライアントから接続済みのすべてのクライアントにメッセージを送信する、コードを追加する。
 
-* [ASP.NET Core 用 SignalR の概要](xref:signalr/introduction)
-* [ASP.NET Core 用 SignalR 内でハブを使用する](xref:signalr/hubs)
-* [ASP.NET Core SignalR JavaScript クライアント](xref:signalr/javascript-client)
+SignalR の詳細については、次の概要を参照してください。
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core SignalR の概要](xref:signalr/introduction)

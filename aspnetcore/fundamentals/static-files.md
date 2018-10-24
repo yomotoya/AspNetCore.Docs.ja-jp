@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41751691"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861006"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイル
 
@@ -216,7 +216,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 
 ## <a name="non-standard-content-types"></a>非標準のコンテンツ タイプ
 
-静的ファイル ミドルウェアでは、約 400 の既知のファイル コンテンツ タイプが認識されています。 ユーザーが不明なタイプのファイルを要求した場合、静的ファイル ミドルウェアにより、HTTP 404 (Not Found) の応答が返されます。 ディレクトリ参照が有効になっている場合、ファイルへのリンクが表示されます。 URI によって、HTTP 404 エラーが返されます。
+静的ファイル ミドルウェアでは、約 400 個の既知のファイル コンテンツ タイプが認識されます。 ユーザーがファイルの種類が不明なファイルを要求した場合、静的ファイル ミドルウェアでその要求がパイプラインの次のミドルウェアに渡されます。 ミドルウェアで要求が処理されない場合、*404 見つかりません* という応答が返されます。 ディレクトリ参照が有効になっている場合、ディレクトリ一覧にファイルへのリンクが表示されます。
 
 次のコードによって、不明なタイプを提供できるようにし、不明なファイルをイメージとしてレンダリングします。
 

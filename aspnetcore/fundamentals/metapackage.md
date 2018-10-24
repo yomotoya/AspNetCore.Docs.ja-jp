@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core 2.0 用の Microsoft.AspNetCore.All メタパッケージ
 author: Rick-Anderson
-description: Microsoft.AspNetCore.All メタパッケージには、サポートされているすべての ASP.NET Core および Entity Framework Core パッケージがその依存関係と共に含まれています。
+description: Microsoft.AspNetCore.All メタパッケージは、ASP.NET Core 2.1 以降では推奨されていません。
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: fbc0f5465dc37a612b81c293f1a58b53ea4b2238
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123828"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454740"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>ASP.NET Core 2.0 用の Microsoft.AspNetCore.All メタパッケージ
 
@@ -65,3 +65,11 @@ ASP.NET Core の [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Micro
 
 * `Microsoft.Extensions.Caching.Redis` の依存関係としての `StackExchange.Redis`
 * `Microsoft.AspNetCore.ApplicationInsights.HostingStartup` の依存関係としての `Microsoft.ApplicationInsights`
+
+## <a name="update-aspnet-core-21"></a>ASP.NET Core 2.1 を更新する
+
+2.1 以降用の `Microsoft.AspNetCore.App` メタパッケージに移行することをお勧めします。 `Microsoft.AspNetCore.All` メタパッケージを引き続き使用し、最新のバージョンの修正プログラムが配置されていることを確認するには、次のようにします。
+
+* 開発用コンピューターやビルド サーバー上: 最新の [.NET Core SDK](https://www.microsoft.com/net/download) をインストールします。
+* 展開サーバー上: 最新の [.NET Core ランタイム](https://www.microsoft.com/net/download)をインストールします。
+ ご利用のアプリは、アプリケーションの再起動時にインストールされている最新バージョンにロールフォワードされます。

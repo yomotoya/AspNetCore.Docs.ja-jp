@@ -1,21 +1,24 @@
 ---
 title: ASP.NET Core のパフォーマンス
-author: ardalis
+author: guardrex
 description: ASP.NET Core アプリのパフォーマンスに関連するトピックについて説明します。
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 09/16/2018
 uid: performance/index
-ms.openlocfilehash: e168432280f40f9d3b918a11deb55959c9ffeb70
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: da400078f4e8899ce41ff395c86fdea14bc3c376
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028100"
 ---
 # <a name="performance-in-aspnet-core"></a>ASP.NET Core のパフォーマンス
 
-* [応答のキャッシュ](caching/index.md)
-  * [メモリ内キャッシュ](caching/memory.md)
-  * [分散キャッシュの使用](caching/distributed.md)
-  * [応答キャッシュ](caching/response.md)
-* [応答圧縮ミドルウェア](response-compression.md)
+次のトピック エリアでは、ASP.NET Core のパフォーマンス シナリオを取り上げます。
+
+[応答のキャッシュ](xref:performance/caching/index)  
+ASP.NET Core でデータと応答をキャッシュする方法について説明します。
+
+[応答圧縮](xref:performance/response-compression)  
+応答圧縮と ASP.NET Core アプリで応答圧縮ミドルウェアを使用する方法について説明します。

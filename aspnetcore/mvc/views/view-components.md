@@ -5,12 +5,12 @@ description: ASP.NET Core でのビュー コンポーネントの使用方法�
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751533"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211066"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -75,9 +75,9 @@ ms.locfileid: "41751533"
 
 ランタイムでは、次のパスでビューを検索します。
 
-* /Pages/Components/<component name>/\<view_name>
-* Views/\<コントローラー名>/Components/\<ビュー コンポーネント名>/\<ビュー名>
-* Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>
+* /Pages/Components/\<ビュー コンポーネント名>/\<ビュー名>
+* /Views/\<コントローラー名>/Components/\<ビュー コンポーネント名>/\<ビュー名>
+* /Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>
 
 ビュー コンポーネントの既定のビュー名は、*Default* です。つまり、通常、ビュー ファイルは *Default.cshtml* という名前になるということです。 ビュー コンポーネントの結果を作成したり、`View` メソッドを呼び出したりするときに、別のビュー名を指定することができます。
 
@@ -95,6 +95,8 @@ ms.locfileid: "41751533"
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
+::: moniker range=">= aspnetcore-1.1"
+
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>タグ ヘルパーとしてビュー コンポーネントを呼び出す
 
 ASP.NET Core 1.1 以降の場合は、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)としてビュー コンポーネントを呼び出すことができます。
@@ -110,7 +112,7 @@ ASP.NET Core 1.1 以降の場合は、[タグ ヘルパー](xref:mvc/views/tag-h
 </vc:[view-component-name]>
 ```
 
-注: ビュー コンポーネントをタグ ヘルパーとして使用するには、`@addTagHelper` ディレクティブを使用して、ビュー コンポーネントを含むアセンブリを登録する必要があります。 たとえば、ビュー コンポーネントが "MyWebApp" と呼ばれるアセンブリにある場合は、次のディレクティブを `_ViewImports.cshtml` ファイルに追加します。
+ビュー コンポーネントをタグ ヘルパーとして使用するには、`@addTagHelper` ディレクティブを使用して、ビュー コンポーネントを含むアセンブリを登録します。 ビュー コンポーネントが `MyWebApp` と呼ばれるアセンブリにある場合は、次のディレクティブを *_ViewImports.cshtml* ファイルに追加します。
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -127,6 +129,8 @@ ASP.NET Core 1.1 以降の場合は、[タグ ヘルパー](xref:mvc/views/tag-h
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 上記のサンプルでは、`PriorityList` ビュー コンポーネントは `priority-list` になります。 ビュー コンポーネントに対するパラメーターは、小文字のケバブ ケースの属性として渡されます。
+
+::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>ビュー コンポーネントをコントローラーから直接呼び出す
 
@@ -243,6 +247,76 @@ PVC ビューがレンダリングされない場合は、4 以上の優先順�
 `using` ステートメントを Razor ビュー ファイルに追加して、`nameof` 演算子を使用します。
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
+
+## <a name="perform-synchronous-work"></a>同期作業を実行する
+
+非同期作業を実行する必要がない場合は、フレームワークで同期 `Invoke` メソッドの呼び出しが処理されます。 次のメソッドでは同期 `Invoke` ビュー コンポーネントを作成します。
+
+```csharp
+public class PriorityList : ViewComponent
+{
+    public IViewComponentResult Invoke(int maxPriority, bool isDone)
+    {
+        var items = new List<string> { $"maxPriority: {maxPriority}", $"isDone: {isDone}" };
+        return View(items);
+    }
+}
+```
+
+ビュー コンポーネントの Razor ファイルに、`Invoke` メソッドに渡された文字列が一覧表示されます (*Views/Home/Components/PriorityList/Default.cshtml*)。
+
+```cshtml
+@model List<string>
+
+<h3>Priority Items</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+次のいずれかの方法を使用して、Razor ファイルでビュー コンポーネントが呼び出されます (たとえば、*Views/Home/Index.cshtml*)。
+
+* <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
+* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)
+
+<xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> の方法を使用するには、`Component.InvokeAsync` を呼び出します。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-1.1"
+
+<xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> を使用して、Razor ファイルでビュー コンポーネントが呼び出されます (たとえば、*Views/Home/Index.cshtml*)。
+
+`Component.InvokeAsync` を呼び出します。
+
+::: moniker-end
+
+```cshtml
+@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+タグ ヘルパーを使用するには、`@addTagHelper` ディレクティブを使用して、ビュー コンポーネントを含むアセンブリを登録します (ビュー コンポーネントは、`MyWebApp` と呼ばれるアセンブリ内にあります)。
+
+```cshtml
+@addTagHelper *, MyWebApp
+```
+
+Razor マークアップ ファイルでビュー コンポーネントのタグ ヘルパーを使用します。
+
+```cshtml
+<vc:priority-list max-priority="999" is-done="false">
+</vc:priority-list>
+```
+::: moniker-end
+
+`PriorityList.Invoke` のメソッド署名は同期的ですが、Razor ではマークアップ ファイルで `Component.InvokeAsync` を使用してメソッドを見つけて呼び出します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

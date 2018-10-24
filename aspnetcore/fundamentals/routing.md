@@ -4,14 +4,14 @@ author: ardalis
 description: ASP.NET Core のルーティング機能が受信要求をルート ハンドラーにマッピングするしくみについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 94fa6a278466c8cc9926d7893d1ef71d83b865df
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870852"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861058"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -37,7 +37,7 @@ ms.locfileid: "41870852"
 
 ### <a name="url-matching"></a>URL 一致
 
-URL 一致というプロセスでは、ルーティングによって、受信要求が*ハンドラー*に配布されます。 このプロセスは通常、URL パスのデータに基づきますが、要求内のあらゆるデータを考慮することもできます。 アプリの規模を大きくしたり、より複雑にしたりするとき、要求を個別のハンドラーに配布する機能が鍵となります。
+URL 一致というプロセスでは、ルーティングによって、受信要求が*ハンドラー*に配布されます。 このプロセスは URL パスのデータに基づきますが、要求内のあらゆるデータを考慮することもできます。 アプリの規模を大きくしたり、より複雑にしたりするとき、要求を個別のハンドラーに配布する機能が鍵となります。
 
 受信要求は `RouterMiddleware` に入ります。これが各ルートで順に <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> メソッドを呼び出します。 <xref:Microsoft.AspNetCore.Routing.IRouter> インスタンスでは、[RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) を非 null の <xref:Microsoft.AspNetCore.Http.RequestDelegate> に設定することで、要求を*処理する*かどうかを選択します。 要求に適したハンドラーがルートに見つかると、ルート処理が停止します。ハンドラーが呼び出され、要求を処理します。 すべてのルートが試され、要求に適したハンドラーが見つからなかった場合、ミドルウェアは*次*を呼び出し、要求パイプラインの次のミドルウェアが呼び出されます。
 
@@ -169,12 +169,12 @@ routes.MapRoute(
 
 ルート値が `{ controller = Products, action = List }` のとき、このルートは URL `/Products/List` を生成します。 ルート値が対応ルート パラメーターの代替となり、URL パスが作られます。 `id` は任意のルート パラメーターであるため、値がなくても問題ありません。
 
-ルート値が `{ controller = Home, action = Index }` のとき、このルートは URL `/` を生成します。 与えられたルート値が既定値に一致することで、その値に対応するセグメントを省略しても問題が発生しません。 生成されたいずれの URL もこのルート定義でラウンドトリップし、URL の生成に利用された同じルート値を生成することに注意してください。
+ルート値が `{ controller = Home, action = Index }` のとき、このルートは URL `/` を生成します。 与えられたルート値が既定値に一致することで、その値に対応するセグメントを省略しても問題が発生しません。 生成された両方の URL では、このルート定義でラウンドトリップされ、URL の生成に使用された同じルート値が生成されます。
 
 > [!TIP]
 > アプリで ASP.NET Core MVC が使用される場合、ルーティングを直接呼び出す代わりに、<xref:Microsoft.AspNetCore.Mvc.Routing.UrlHelper> を使用して URL を生成する必要があります。
 
-URL 生成処理の詳細については、「[URL 生成参照](#url-generation-reference)」を参照してください。
+URL の生成の詳細については、「[URL 生成参照](#url-generation-reference)」を参照してください。
 
 ## <a name="use-routing-middleware"></a>ルーティング ミドルウェアの使用
 
@@ -269,9 +269,31 @@ URL パターンで任意のファイル拡張子が付いたファイル名を�
 
 ルート パラメーターのプレフィックスとして `*` 文字を使用し、URI の残りの部分にバインドできます。 これは*キャッチオール* パラメーターと呼ばれています。 たとえば、`blog/{*slug}` は、`/blog` で始まり、その後に (ルート値 `slug` に割り当てられる) 任意の値が続くあらゆる URI に一致します。 キャッチオール パラメーターは空の文字列に一致することもあります。
 
+::: moniker range=">= aspnetcore-2.2"
+
+キャッチオール パラメーターでは、パス区切り (`/`) 文字を含め、URL の生成にルートが使用されるときに適切な文字がエスケープされます。 たとえば、ルート値が `{ path = "my/path" }` のルート `foo/{*path}` では、`foo/my%2Fpath` が生成されます。 エスケープされたスラッシュに注意してください。 パス区切り文字をラウンドトリップさせるには、`**` ルート パラメーター プレフィックスを使用します。 `{ path = "my/path" }` のルート `foo/{**path}` では、`foo/my/path` が生成されます。
+
+::: moniker-end
+
 ルート パラメーターには、*既定値*が含まれることがあります。パラメーター名の後に既定値を指定し、等号 (`=`) で区切ることで指名されます。 たとえば、`{controller=Home}` では、`controller` の既定値として `Home` が定義されます。 パラメーターの URL に値がない場合、既定値が使用されます。 既定値だけでなく、ルート パラメーターもオプションになることがあります。`id?` のように、パラメーター名の終わりに疑問符 (`?`) を追加して指定します。 オプション値と既定ルート パラメーターの違いは、既定値を含むルート パラメーターは常に値を生成するのに対し、オプションのパラメーターには、要求 URL によって値が指定されたときにのみ値が与えられることにあります。
 
-ルート パラメーターには、URL からバインドされるルート値に一致しなければならないという制約も含まれることがあります。 コロン `:` と制約名をルート パラメーター名の後に追加すると、ルート パラメーターの*インライン制約*が指定されます。 その制約で引数が要求される場合、制約名の後に括弧 `( )` で指定されます。 別のコロン `:` と制約名を追加することで、複数のインライン制約を指定できます。 制約名が <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> サービスに渡され、URL 処理で使用する <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> のインスタンスが作成されます。 たとえば、ルート テンプレート `blog/{article:minlength(10)}` によって、制約 `minlength` と引数 `10` が指定されます。 ルート制約の詳細とこのフレームワークで与えられる制約の一覧については、「[ルート制約参照](#route-constraint-reference)」セクションを参照してください。
+::: moniker range=">= aspnetcore-2.2"
+
+ルート パラメーターには、URL からバインドされるルート値に一致しなければならないという制約が含まれることがあります。 コロン (`:`) と制約名をルート パラメーター名の後に追加すると、ルート パラメーターの*インライン制約*が指定されます。 その制約で引数が要求される場合、制約名の後にかっこ `( )` で囲まれます。 別のコロン (`:`) と制約名を追加することで、複数のインライン制約を指定できます。 制約名と引数が <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> サービスに渡され、URL 処理で使用する <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> のインスタンスが作成されます。 制約コンストラクターでサービスを必要とする場合、依存関係挿入のアプリ サービスから解決されます。 たとえば、ルート テンプレート `blog/{article:minlength(10)}` によって、制約 `minlength` と引数 `10` が指定されます。 ルート制約の詳細とこのフレームワークで与えられる制約の一覧については、「[ルート制約参照](#route-constraint-reference)」セクションを参照してください。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+ルート パラメーターには、URL からバインドされるルート値に一致しなければならないという制約が含まれることがあります。 コロン (`:`) と制約名をルート パラメーター名の後に追加すると、ルート パラメーターの*インライン制約*が指定されます。 その制約で引数が要求される場合、制約名の後にかっこ `( )` で囲まれます。 別のコロン (`:`) と制約名を追加することで、複数のインライン制約を指定できます。 制約名と引数が <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> サービスに渡され、URL 処理で使用する <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> のインスタンスが作成されます。 たとえば、ルート テンプレート `blog/{article:minlength(10)}` によって、制約 `minlength` と引数 `10` が指定されます。 ルート制約の詳細とこのフレームワークで与えられる制約の一覧については、「[ルート制約参照](#route-constraint-reference)」セクションを参照してください。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+ルート パラメーターには、リンクを生成し、ページおよびアクションを URI と一致させるときにパラメーターの値を変換する、パラメーター トランスフォーマーが含まれている場合もあります。 制約と同様に、パラメーター トランスフォーマーをルート パラメーターにインラインで追加することができます。その場合、ルート パラメーター名の後にコロン (`:`) とトランスフォーマー名を追加します。 たとえば、ルート テンプレート `blog/{article:slugify}` では、`slugify` トランスフォーマーが指定されます。
+
+::: moniker-end
 
 次の表は、一部のルート テンプレートとその動作をまとめたものです。
 
@@ -301,7 +323,7 @@ URL パターンで任意のファイル拡張子が付いたファイル名を�
 
 ## <a name="route-constraint-reference"></a>ルート制約参照
 
-ルート制約は、`Route` が入ってきた URL の構文に一致し、URL パスをルート値にトークン化したときに実行されます。 ルート制約では、通常、ルート テンプレート経由で関連付けらるルート値を調べ、値が許容できるかどうかを単純な「はい/いいえ」で決定します。 一部のルート制約では、ルート値以外のデータを使用し、要求をルーティングできるかどうかが考慮されます。 たとえば、<xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> はその HTTP Verb に基づいて要求を承認または却下します。
+ルート制約は、`Route` が入ってきた URL の構文に一致し、URL パスをルート値にトークン化したときに実行されます。 ルート制約では、通常、ルート テンプレート経由で関連付けられるルート値を調べ、値が許容できるかどうかをはい/いいえで決定します。 一部のルート制約では、ルート値以外のデータを使用し、要求をルーティングできるかどうかが考慮されます。 たとえば、<xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> はその HTTP Verb に基づいて要求を承認または却下します。
 
 > [!WARNING]
 > **入力検証**には制約を使用しないでください。無効な入力に起因し、*400 - Bad Request* と適切なエラー メッセージではなく、*404 - Not Found* が表示されます。 ルート制約は、特定のルートに対する入力の妥当性を検証するためではなく、似たようなルートの**違いを明らかにする**ために使用してください。
@@ -325,7 +347,7 @@ URL パターンで任意のファイル拡張子が付いたファイル名を�
 | `min(value)` | `{age:min(18)}` | `19` | 18 以上の整数値であることが必要 |
 | `max(value)` | `{age:max(120)}` | `91` | 120 以下の整数値であることが必要 |
 | `range(min,max)` | `{age:range(18,120)}` | `91` | 18 以上、120 以下の整数値であることが必要 |
-| `alpha` | `{name:alpha}` | `Rick` | 1 つまたは複数のアルファベット文字で構成される文字列が必要 (`a`-`z`、大文字と小文字を区別しません) |
+| `alpha` | `{name:alpha}` | `Rick` | 1 つまたは複数のアルファベット文字で構成される文字列が必要 (`a`-`z`、大文字と小文字を区別) |
 | `regex(expression)` | `{ssn:regex(^\\d{{3}}-\\d{{2}}-\\d{{4}}$)}` | `123-45-6789` | 正規表現に一致する文字列が必要 (正規表現の定義についてはヒントを参照) |
 | `required` | `{name:required}` | `Rick` |  URL 生成中、非パラメーターが提示されるように強制する |
 
@@ -343,7 +365,7 @@ public User GetUserById(int id) { }
 
 ASP.NET Core フレームワークでは、正規表現コンストラクターに `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` が追加されます。 これらのメンバーの詳細については、「<xref:System.Text.RegularExpressions.RegexOptions>」を参照してください。
 
-正規表現では、ルーティングや C# 言語で使用されるものに似た区切り記号とトークンが使用されます。 正規表現トークンはエスケープする必要があります。 ルーティングで正規表現 `^\d{3}-\d{2}-\d{4}$` を使用するには、C# ソース ファイルで `\` 文字を `\\` のように入力し、文字列エスケープ文字である `\` をエスケープする必要があります ([逐語的な文字列リテラル](/dotnet/csharp/language-reference/keywords/string)を使用しない限り)。 `{`、`}`、`[`、`]` 文字は、二回入力することでエスケープし、ルーティング パラメーター区切り文字をエスケープする必要があります。 次の表は、正規表現とエスケープ適用後の表示をまとめたものです。
+正規表現では、ルーティングや C# 言語で使用されるものに似た区切り記号とトークンが使用されます。 正規表現トークンはエスケープする必要があります。 ルーティングで正規表現 `^\d{3}-\d{2}-\d{4}$` を使用するには、C# ソース ファイルで `\` 文字を `\\` のように入力し、文字列エスケープ文字である `\` をエスケープする必要があります ([逐語的な文字列リテラル](/dotnet/csharp/language-reference/keywords/string)を使用しない限り)。 `{`、`}`、`[`、`]` の各文字は、2 回入力してエスケープし、ルーティング パラメーター区切り文字をエスケープする必要があります。 次の表は、正規表現とエスケープ適用後の表示をまとめたものです。
 
 | 正規表現            | エスケープ適用後                        |
 | --------------------- | ------------------------------ |
@@ -361,9 +383,29 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 | `^[a-z]{2}$` |  hello    | ×    | 上の `^` と `$` を参照 |
 | `^[a-z]{2}$` | 123abc456 | ×    | 上の `^` と `$` を参照 |
 
-正規表現構文の詳細については、「[.NET Framework 正規表現](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)」を参照してください。
+正規表現構文の詳細については、[.NET Framework 正規表現](/dotnet/standard/base-types/regular-expression-language-quick-reference)に関するページを参照してください。
 
 既知の入力可能値の集まりにパラメーターを制限するには、正規表現を使用します。 たとえば、`{action:regex(^(list|get|create)$)}` の場合、`action` ルート値は `list`、`get`、`create` とのみ照合されます。 制約ディクショナリに渡された場合、文字列 `^(list|get|create)$` で同じものになります。 (テンプレート内でインラインではなく) 制約ディクショナリに渡された制約が既知の制約に一致しない場合も、正規表現として扱われます。
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="parameter-transformer-reference"></a>パラメーター トランスフォーマー参照
+
+`Route` のリンクの生成時にパラメーター トランスフォーマーが実行されます。 パラメーター トランスフォーマーではパラメーターのルート値を取得し、それを新しい文字列値に変換します。 変換された値は生成されたリンクで使用されます。 たとえば、`Url.Action(new { article = "MyTestArticle" })` のルート パターン `blog\{article:slugify}` のカスタム `slugify` パラメーター トランスフォーマーでは、`blog\my-test-article` が生成されます。 パラメーター トランスフォーマーで `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` が実装されます。このトランスフォーマーは <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> を使用して構成されます。
+
+パラメーター トランスフォーマーは、エンドポイントが解決される URI を変換するためにフレームワークでも使用されます。 たとえば、ASP.NET Core MVC ではパラメーター トランスフォーマーを使用して、`area`、`controller`、`action`、`page` を照合するために使用されるルート値を変換します。
+
+```csharp
+routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+```
+
+上記のルートでは、アクション `SubscriptionManagementController.GetAll()` は URI `/subscription-management/get-all` と一致します。 パラメーター トランスフォーマーでは、リンクを生成するために使用されるルート値は変更されません。 `Url.Action("GetAll", "SubscriptionManagement")` では `/subscription-management/get-all` が出力されます。
+
+ASP.NET Core MVC には、`Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` API 規則も付随します。 この規則では、指定されたパラメーター トランスフォーマーがアプリ内のすべての属性ルート トークンに適用されます。
+
+::: moniker-end
 
 ## <a name="url-generation-reference"></a>URL 生成参照
 

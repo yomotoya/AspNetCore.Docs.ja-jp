@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 87df1b8cf57509ddf80ce845d85a9b3f30673c35
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396235"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912036"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -341,7 +341,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* 記事で使用されている [Localization.StarterWeb プロジェクト](https://github.com/aspnet/entropy)。
-* [Visual Studio のリソース ファイル](/cpp/windows/resource-files-visual-studio)
+* 記事で使用されている [Localization.StarterWeb プロジェクト](https://github.com/aspnet/Entropy/tree/master/samples/Localization.StarterWeb)。
+* [.NET アプリケーションのグローバライズとローカライズ](/dotnet/standard/globalization-localization/index)
 * [.resx ファイル内のリソース](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft 多言語アプリ ツールキット](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)

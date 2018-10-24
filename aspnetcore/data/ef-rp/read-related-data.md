@@ -5,12 +5,12 @@ description: このチュートリアルでは、関連データ (Entity Framewo
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219343"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912326"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -20,7 +20,7 @@ ms.locfileid: "39219343"
 
 このチュートリアルでは、関連データが読み取られ、表示されます。 関連データとは、EF Core がナビゲーション プロパティに読み込むデータのことです。
 
-解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part6-related)をダウンロードしてください。
+解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
 
 以下の図は、このチュートリアルの完成したページを示しています。
 
@@ -51,7 +51,7 @@ EF Core がエンティティのナビゲーション プロパティに関連�
 
   ![明示的読み込みの例](read-related-data/_static/explicit-loading.png)
 
-* [遅延読み込み](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading)。 [EF Core では、現在、遅延読み込みをサポートしていません](https://github.com/aspnet/EntityFrameworkCore/issues/3797)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ナビゲーション プロパティに初めてアクセスすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 初めてナビゲーション プロパティにアクセスされるたびに、クエリが DB に送信されます。
+* [遅延読み込み](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading)。 [遅延読み込みがバージョン 2.1 内の EF Core に追加されました](/ef/core/querying/related-data#lazy-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ナビゲーション プロパティに初めてアクセスすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 初めてナビゲーション プロパティにアクセスされるたびに、クエリが DB に送信されます。
 
 * `Select` 演算子は必要な関連データのみを読み込みます。
 

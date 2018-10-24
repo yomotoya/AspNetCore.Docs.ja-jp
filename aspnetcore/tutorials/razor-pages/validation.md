@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e27253e3f02fa808136494ed5373059ef6e0df0d
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011593"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045524"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
@@ -27,7 +27,7 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルに追加する
 
-*Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、書式設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
+*Models/Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、書式設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
 
 `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
 
@@ -79,7 +79,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 必要に応じて、サーバー側の検証をテストします。
 
-* ブラウザーで JavaScript を無効にします。 ブラウザーで JavaScript を無効にすることができない場合は、別のブラウザーを試してください。
+* ブラウザーで JavaScript を無効にします。 ブラウザーの開発者ツールを使用して、これを行うことができます。 ブラウザーで JavaScript を無効にすることができない場合は、別のブラウザーを試してください。
 * [Create] または [Edit] ページの `OnPostAsync` メソッドにブレークポイントを設定します。
 * 検証エラーがあるフォームを送信します。
 * モデルの状態が無効であることを確認します。
@@ -160,7 +160,7 @@ public DateTime ReleaseDate { get; set; }
 
 ### <a name="publish-to-azure"></a>Azure に発行する
 
-このアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。
+Azure へのデプロイについては、「[チュートリアル: SQL Database を使用して Azure に ASP.NET アプリを作成する](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)」を参照してください。 指示は ASP.NET Core アプリではなく、ASP.NET アプリに関するものですが、手順は同じです。
 
 このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 貴重なご意見をお寄せいただき心より感謝いたします。 このチュートリアルの後は、[Razor ページと EF Core の概要](xref:data/ef-rp/intro)に関するページにお進みいただくことが推奨されます。
 

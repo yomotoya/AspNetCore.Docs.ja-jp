@@ -4,14 +4,14 @@ author: guardrex
 description: Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/04/2018
+ms.date: 09/25/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 68afe77b05a717cffecc32188f18e9fde208b81f
-ms.sourcegitcommit: 3ca20ed63bf1469f4365f0c1fbd00c98a3191c84
+ms.openlocfilehash: eb88b0bb2e9ce4cfd3a7db2081ad7d62d5dcb08e
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41751760"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211040"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -21,13 +21,13 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="get-started"></a>作業開始
+## <a name="convert-a-project-into-a-windows-service"></a>プロジェクトを Windows サービスに変換する
 
-サービスで実行する既存の ASP.NET Core プロジェクトを設定するために必要な最小の変更は、次のとおりです。
+サービスでとして実行する既存の ASP.NET Core プロジェクトを設定するために必要な最小の変更は、次のとおりです。
 
 1. プロジェクト ファイルで次を実行します。
 
-   1. ランタイム識別子があることを確認するか、それをターゲット フレームワークを含む **\<PropertyGroup>** に追加します。
+   * Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) があることを確認するか、それをターゲット フレームワークを含む `<PropertyGroup>` に追加します。
 
       ::: moniker range=">= aspnetcore-2.1"
 
@@ -62,7 +62,14 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
       ::: moniker-end
 
-   1. [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/) のパッケージ参照を追加します。
+      複数の RID を発行するには、次の処理を実行します。
+
+      * セミコロンで区切られたリストの形式で RID を指定します。
+      * プロパティ名 `<RuntimeIdentifiers>` (複数形) を使用します。
+
+      詳細については、「[.NET Core の RID カタログ](/dotnet/core/rid-catalog)」を参照してください。
+
+   * [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices) のパッケージ参照を追加します。
 
 1. `Program.Main` で次の変更を行います。
 
@@ -84,10 +91,10 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
 1. アプリの発行 [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) または [Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)を使用します。 Visual Studio を使用する場合は、**FolderProfile** を選択します。
 
-   コマンド ラインからサンプル アプリを発行する場合、コンソール ウィンドウでプロジェクト フォルダーから次のコマンドを実行します。
+   コマンド ライン インターフェイス (CLI) ツールを使用してサンプル アプリを発行するには、プロジェクト フォルダーからコマンド プロンプトで [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行します。 プロジェクト ファイルの `<RuntimeIdenfifier>` (または `<RuntimeIdentifiers>`) プロパティに RID を指定する必要があります。 次の例では、アプリが `win7-x64` ランタイムのリリース構成で発行されます。
 
    ```console
-   dotnet publish --configuration Release
+   dotnet publish --configuration Release --runtime win7-x64
    ```
 
 1. [sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) とパスの開始の引用符文字の間にはスペースが必要です。**
@@ -98,7 +105,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    プロジェクト フォルダーに発行されるサービスの場合は、*publish* フォルダーへのパスを使用してサービスを作成します。 次に例を示します。
 
-   * プロジェクトは `c:\my_services\AspNetCoreService` フォルダーに存在します。
+   * プロジェクトは *c:\\my_services\\AspNetCoreService* フォルダーに存在します。
    * プロジェクトは `Release` 構成で発行されます。
    * ターゲット フレームワーク モニカー (TFM) は `netcoreapp2.1` です。
    * ランタイム識別子 (RID) は `win7-x64` です。
@@ -110,14 +117,14 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
    ```console
    sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
-   
+
    > [!IMPORTANT]
    > `binPath=` 引数とその値の間には、空白を必ず含めてください。
-   
+
    別のフォルダーからサービスを発行および開始するには
-   
-      1. `dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。 Visual Studio を使用するには、**[発行]** ボタンを選択する前に、**[FolderProfile]** 発行プロパティ ページの **[ターゲットの場所]** を構成します。
-   1. 出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。 `binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。
+
+      * `dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。 Visual Studio を使用するには、**[発行]** ボタンを選択する前に、**[FolderProfile]** 発行プロパティ ページの **[ターゲットの場所]** を構成します。
+      * 出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。 `binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。
 
 1. サービスを `sc start <SERVICE_NAME>` コマンドで開始します。
 
@@ -129,7 +136,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    このコマンドでサービスを開始するには数秒かかります。
 
-1. `sc query <SERVICE_NAME>` コマンドは、そのサービスの状態を確認し、その状態を判断するために使用できます。
+1. サービスの状態を確認するには、`sc query <SERVICE_NAME>` コマンドを使用します。 この状態は、次のいずれかの値として報告されます。
 
    * `START_PENDING`
    * `RUNNING`
@@ -168,7 +175,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
    sc delete MyService
    ```
 
-## <a name="provide-a-way-to-run-outside-of-a-service"></a>サービスの外部で実行するための方法の提供
+## <a name="run-the-app-outside-of-a-service"></a>サービスの外部でアプリを実行する
 
 サービスの外部で実行する場合のほうがテストおよびデバッグは簡単です。このため、特定の条件下でのみ `RunAsService` を呼び出すコードを追加することが一般的です。 たとえば、`--console` コマンドライン引数を使用してアプリをコンソール アプリとしてアプリを実行できます。または、デバッガーがアタッチされている場合は、以下を実行します。
 
@@ -232,7 +239,7 @@ ASP.NET Core の構成では、コマンドライン引数に名前と値の組�
 
 ## <a name="current-directory-and-content-root"></a>現在のディレクトリとコンテンツのルート
 
-Windows サービスに対して `Directory.GetCurrentDirectory()` を呼び出して返される現在の作業ディレクトリは *C:\WINDOWS\system32* フォルダーです。 *system32* フォルダーは、サービスのファイル (設定ファイルなど) を保存するために適した場所ではありません。 [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) を使用する場合、次のいずれかの方法を使用して、サービスの資産と設定ファイルを [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) に格納し、アクセスします。
+Windows サービスに対して `Directory.GetCurrentDirectory()` を呼び出して返される現在の作業ディレクトリは *C:\\WINDOWS\\system32* フォルダーです。 *system32* フォルダーは、サービスのファイル (設定ファイルなど) を保存するために適した場所ではありません。 [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) を使用する場合、次のいずれかの方法を使用して、サービスの資産と設定ファイルを [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) に格納し、アクセスします。
 
 * コンテンツのルート パスを使用します。 `IHostingEnvironment.ContentRootPath` は、サービスの作成時に `binPath` 引数に指定されたものと同じパスです。 `Directory.GetCurrentDirectory()` を使用して設定ファイルのパスを作成する代わりに、コンテンツのルートパスを使用して、アプリのコンテンツ ルートにファイルを格納します。
 * ディスク上の適切な場所にファイルを格納します。 ファイルを含むフォルダーを示す絶対パスを `SetBasePath` で指定します。
