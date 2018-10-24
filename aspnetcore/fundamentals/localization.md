@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912036"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326005"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -206,9 +206,9 @@ Visual Studio で、ファイル名にカルチャを指定せずにリソース
 
 ### <a name="configure-localization"></a>ローカリゼーションを構成する
 
-ローカリゼーションは、`ConfigureServices` メソッドで構成されます。
+ローカリゼーションは、`Startup.ConfigureServices` メソッドで構成されます。
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet1)]
 
 * `AddLocalization` ローカリゼーション サービスをサービス コンテナーに追加します。 上記のコードは、リソース パスを "Resources" に設定します。
 
@@ -218,9 +218,9 @@ Visual Studio で、ファイル名にカルチャを指定せずにリソース
 
 ### <a name="localization-middleware"></a>ローカリゼーション ミドルウェア
 
-要求時に現在のカルチャが、ローカリゼーション [ミドルウェア](xref:fundamentals/middleware/index)で設定されます。 ローカリゼーション ミドルウェアは、`Configure` メソッドで有効になります。 要求のカルチャをチェックする可能性があるすべてのミドルウェア (たとえば `app.UseMvcWithDefaultRoute()`) の前に、ローカリゼーション ミドルウェアを構成する必要があります。
+要求時に現在のカルチャが、ローカリゼーション [ミドルウェア](xref:fundamentals/middleware/index)で設定されます。 ローカリゼーション ミドルウェアは、`Startup.Configure` メソッドで有効になります。 要求のカルチャをチェックする可能性があるすべてのミドルウェア (たとえば `app.UseMvcWithDefaultRoute()`) の前に、ローカリゼーション ミドルウェアを構成する必要があります。
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
 
 `UseRequestLocalization` は `RequestLocalizationOptions` オブジェクトを初期化します。 すべての要求で、`RequestLocalizationOptions` の `RequestCultureProvider` のリストが列挙され、要求のカルチャを正常に決定できる最初のプロバイダーが使用されます。 既定のプロバイダーは `RequestLocalizationOptions` クラスから派生します。
 

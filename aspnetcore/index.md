@@ -5,12 +5,12 @@ description: インターネットに接続された最新のクラウド ベー
 ms.author: riande
 ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 69ab702e9d9f8d746b7bc546d4f2bbb831ff59c7
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3bb86fa255548ff66592ac14c1020e0c6b47959c
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911704"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391158"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -43,7 +43,7 @@ ASP.NET Core MVC は、[Web API](xref:tutorials/index#build-web-apis) と [Web �
 
 ## <a name="client-side-development"></a>クライアント側の開発
 
-ASP.NET Core は、人気のあるクライアント側のフレームワークとライブラリ ([Angular](xref:spa/angular)、[React](xref:spa/react)、[Bootstrap](xref:client-side/bootstrap) など) をシームレスに統合します。 詳しくは、「[クライアント側の開発](xref:client-side/index)」をご覧ください。
+ASP.NET Core は、人気のあるクライアント側のフレームワークとライブラリ ([Angular](xref:spa/angular)、[React](xref:spa/react)、[Bootstrap](https://getbootstrap.com/) など) をシームレスに統合します。 詳しくは、「[クライアント側の開発](xref:client-side/index)」をご覧ください。
 
 <a name="target-framework"></a>
 
