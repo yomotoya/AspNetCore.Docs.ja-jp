@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) を利用し、データベース�
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5cd1e08ac52d352be23a280419d7456f685a03ad
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011366"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045602"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -22,9 +22,7 @@ ms.locfileid: "46011366"
 
 ソリューション エクスプローラーで、**RazorPagesMovie** プロジェクトを右クリックし、**[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
-*Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **Movie** という名前を付けて、次のプロパティを追加します。
-
-`Movie` クラスの内容を次のコードに置き換えます。
+*Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **Movie** という名前を付け、その `Movie` クラスの内容を次のコードに置き換えます。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie21/Models/Movie1.cs?name=snippet)]
 
@@ -41,7 +39,7 @@ ms.locfileid: "46011366"
 
 ![前の手順からのイメージ。](model/_static/sca.png)
 
-**[スキャフォールディングを追加]** ダイアログで、**[Razor Pages using Entity Framework (CRUD)]\(Entity Framework を使用する Razor Pages (CRUD)\)** > **[追加]** の順に選択します。
+**[スキャフォールディングを追加]** ダイアログで、**[Entity Framework を使用する Razor ページ (CRUD)]** > **[追加]** の順に選択します。
 
 ![前の手順からのイメージ。](model/_static/add_scaffold.png)
 
@@ -58,10 +56,10 @@ ms.locfileid: "46011366"
 
 ### <a name="files-created"></a>作成されたファイル
 
-* *Pages/Movies* 作成、削除、詳細、編集、インデックス。 これらのページを次のチュートリアルで詳しく説明します。
+* *Pages/Movies*: 作成、削除、詳細、編集、インデックス。 これらのページを次のチュートリアルで詳しく説明します。
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="files-updates"></a>更新されたファイル
+### <a name="file-updates"></a>ファイルの更新
 
 * *Startup.cs*: このファイルに対しての変更を次のセクションで詳しく説明します。
 * *appsettings.json*: ローカル データベースへの接続に使用される接続文字列を追加します。
@@ -122,8 +120,8 @@ dotnet ef database update
 
 エラーが発生した場合は、次のようにします。
 
-SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login.\(SqlException: ログインで要求されている "RazorPagesMovieContext-GUID" データベースを開くことができませんでした。\) The login failed.\(ログインに失敗しました。\)
-Login failed for user 'User-name'.\(ユーザー 'ユーザー名' はログインできませんでした。\)
+`SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.`
 
 [移行手順](#pmc)を失敗しました。
 
