@@ -3,14 +3,15 @@ title: ASP.NET Core の概要
 author: rick-anderson
 description: インターネットに接続された最新のクラウド ベース アプリケーションを構築するための、クロス プラットフォームで高パフォーマンスのオープン ソース フレームワークである ASP.NET Core について説明します。
 ms.author: riande
-ms.date: 9/28/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: 3bb86fa255548ff66592ac14c1020e0c6b47959c
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391158"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090655"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -21,11 +22,11 @@ ASP.NET Core は、インターネットに接続された最新のクラウド 
 * Web アプリ、Web サービス、[IoT](https://www.microsoft.com/internet-of-things/) アプリ、モバイル バックエンドを構築する。
 * Windows、macOS、Linux で好みの開発ツールを使う。
 * クラウドまたはオンプレミスに展開する。
-* [.NET Core または .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server) 上で実行する。
+* [.NET Core または .NET Framework](/dotnet/articles/standard/choosing-core-framework-server) 上で実行する。
 
 ## <a name="why-use-aspnet-core"></a>ASP.NET Core を使う理由
 
-何百万人もの開発者が、これまで、そして現在も、Web アプリの作成に [ASP.NET 4.x](https://docs.microsoft.com/aspnet/overview) を使っています。 ASP.NET Core は ASP.NET 4.x を設計し直したものであり、無駄のないモジュール形式のフレームワークになるようにアーキテクチャが変更されています。
+何百万人もの開発者が、これまで、そして現在も、Web アプリの作成に [ASP.NET 4.x](/aspnet/overview) を使っています。 ASP.NET Core は ASP.NET 4.x を設計し直したものであり、無駄のないモジュール形式のフレームワークになるようにアーキテクチャが変更されています。
 
 [!INCLUDE[](~/includes/benefits.md)]
 
