@@ -5,7 +5,7 @@ Identity scaffolder を実行します。
 * **ソリューション エクスプ ローラー**、プロジェクトを右クリックして >**追加** > **スキャフォールディングされた新しい項目**します。
 * 左側のウィンドウから、**スキャフォールディングの追加**ダイアログ ボックスで、 **Identity** > **追加**します。
 * **ADD アイデンティティ**ダイアログ ボックスで、オプションを選択します。
-  * 既存のレイアウト ページを選択するか、不適切なマークアップで、レイアウト ファイルが上書きされます。 既存の _Layout.cshtml ファイルを選択した場合は**いない**上書きします。
+  * 既存のレイアウト ページを選択するか、不適切なマークアップで、レイアウト ファイルが上書きされます。 既存 *\_Layout.cshtml*ファイルが選択されている場合は**いない**上書きされます。
 
  たとえば`~/Pages/Shared/_Layout.cshtml`Razor ページの`~/Views/Shared/_Layout.cshtml`MVC プロジェクト
 * 既存のデータ コンテキストを使用するには、少なくとも 1 つのファイルを上書きするを選択します。 データ コンテキストを追加するには少なくとも 1 つのファイルを選択する必要があります。
@@ -49,4 +49,7 @@ Powershell では、コマンドの区切り記号としてセミコロンを使
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
+
+Identity scaffolder を指定せずに実行する場合、`--files`フラグまたは`--useDefaultUI`プロジェクトで使用可能なの Identity の UI ページが作成されるすべてのフラグします。
+
 -------------

@@ -1,16 +1,16 @@
 ---
 title: ASP.NET Core で応答のキャッシュ
 author: rick-anderson
-description: ASP.NET Core アプリのパフォーマンスを向上させるし、応答の帯域幅要件が低くするキャッシュを使用する方法を説明します。
+description: 応答キャッシュを使用し、帯域幅要件を下げ、ASP.NET Core アプリのパフォーマンスを上げる方法について説明します。
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477490"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090694"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -68,7 +68,7 @@ ms.locfileid: "49477490"
 
 分散キャッシュを使用して、アプリがクラウドまたはサーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントでは、クライアントのキャッシュされたデータが使用可能な場合は、グループ内のサーバーによって処理される要求を送信できます。 ASP.NET Core には、SQL Server 分散 Redis キャッシュが提供しています。
 
-詳細については、[分散キャッシュの使用](xref:performance/caching/distributed)に関するページを参照してください。
+詳細については、「 <xref:performance/caching/distributed> 」を参照してください。
 
 ### <a name="cache-tag-helper"></a>キャッシュ タグ ヘルパー
 
@@ -230,9 +230,9 @@ Cache-Control: public,max-age=60
 
 * [応答をキャッシュに格納します。](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [メモリ内キャッシュ](xref:performance/caching/memory)
-* [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更トークンを使用する変更の検出](xref:fundamentals/change-tokens)
-* [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

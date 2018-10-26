@@ -3,18 +3,19 @@ title: ASP.NET Core および Azure を使用した DevOps |App Service にア�
 author: CamSoper
 description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340135"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090938"
 ---
 # <a name="deploy-an-app-to-app-service"></a>App Service にアプリをデプロイします。
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/)は Azure の web ホスティング プラットフォーム。 手動または自動のプロセスによって、web アプリを Azure App Service にデプロイを実行できます。 このガイドのこのセクションでは、手動か、コマンドラインを使用してスクリプトをトリガーできるまたは Visual Studio を使用して手動でトリガーされた配置方法について説明します。
+[Azure App Service](/azure/app-service/)は Azure の web ホスティング プラットフォーム。 手動または自動のプロセスによって、web アプリを Azure App Service にデプロイを実行できます。 このガイドのこのセクションでは、手動か、コマンドラインを使用してスクリプトをトリガーできるまたは Visual Studio を使用して手動でトリガーされた配置方法について説明します。
 
 このセクションでは、次のタスクを実行します。
 
@@ -70,7 +71,7 @@ ms.locfileid: "44340135"
 
 ## <a name="create-the-azure-app-service-web-app"></a>Azure App Service Web アプリを作成します。
 
-アプリを展開するには、アプリ サービスを作成する必要があります[Web アプリ](https://docs.microsoft.com/azure/app-service/app-service-web-overview)します。 Web アプリの作成後は、Git を使用して、ローカル コンピューターからをデプロイします。
+アプリを展開するには、アプリ サービスを作成する必要があります[Web アプリ](/azure/app-service/app-service-web-overview)します。 Web アプリの作成後は、Git を使用して、ローカル コンピューターからをデプロイします。
 
 1. サインイン、 [Azure Cloud Shell](https://shell.azure.com/bash)します。 注: 最初にサインインすると Cloud Shell の構成ファイルのストレージ アカウントを作成する求められます。 既定値を受け入れるか、一意の名前を指定します。
 
@@ -88,7 +89,7 @@ ms.locfileid: "44340135"
     az group create --location centralus --name AzureTutorial
     ```
 
-    `az`コマンドを呼び出す、 [Azure CLI](https://docs.microsoft.com/cli/azure/)します。 CLI をローカルで実行することができますが、Cloud Shell で使用する時間と構成を保存します。
+    `az`コマンドを呼び出す、 [Azure CLI](/cli/azure/)します。 CLI をローカルで実行することができますが、Cloud Shell で使用する時間と構成を保存します。
 
     c. S1 レベルでは、App Service プランを作成します。 App Service プランは、同じ価格レベルを共有する web アプリのグループです。 S1 レベルが無料ではありませんが、ステージング スロットの機能は必要です。
 
@@ -238,7 +239,7 @@ Visual Studio がビルドされ、アプリを Azure にデプロイします�
 
 ## <a name="additional-reading"></a>その他の参考資料
 
-* [Web Apps の概要](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Azure App Service で .NET Core および SQL Database web アプリを構築します。](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [Azure App Service のデプロイ資格情報を構成します。](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)
-* [Azure App Service でステージング環境を設定します。](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)
+* [Web Apps の概要](/azure/app-service/app-service-web-overview)
+* [Azure App Service で .NET Core および SQL Database web アプリを構築します。](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [Azure App Service のデプロイ資格情報を構成します。](/azure/app-service/app-service-deployment-credentials)
+* [Azure App Service でステージング環境を設定します。](/azure/app-service/web-sites-staged-publishing)

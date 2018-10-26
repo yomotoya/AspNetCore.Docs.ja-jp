@@ -3,14 +3,14 @@ title: ASP.NET Core および Azure を使用した DevOps |継続的インテ�
 author: CamSoper
 description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
 ms.author: scaddie
-ms.date: 08/17/2018
+ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340109"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090538"
 ---
 # <a name="continuous-integration-and-deployment"></a>継続的インテグレーションとデプロイ
 
@@ -230,7 +230,7 @@ ms.locfileid: "44340109"
     > [!NOTE]
     > テスト作業の単位を確認するには、変更*SimpleFeedReader.Tests\Services\NewsServiceTests.cs*テストの 1 つを意図的に分割します。 たとえば、変更`Assert.True(result.Count > 0);`に`Assert.False(result.Count > 0);`で、`Returns_News_Stories_Given_Valid_Uri`メソッド。 コミットし、GitHub に変更をプッシュします。 ビルドがトリガーされ、失敗します。 ビルド パイプラインの状態に変わります**失敗**します。 変更、commit、およびプッシュを再び元に戻します。 ビルドは成功します。
 
-1. **発行**&mdash;実行、`dotnet publish --configuration release --output <local_path_on_build_agent>`を生成するコマンド、 *.zip*デプロイするアーティファクトを含むファイル。 `--output`の発行場所を指定するオプション、 *.zip*ファイル。 渡すことによって場所が指定されている、[定義済み変数](https://docs.microsoft.com/vsts/pipelines/build/variables)という`$(build.artifactstagingdirectory)`します。 など、ローカル パスにその変数を展開*c:\agent\_work\1\a*、ビルド エージェントにします。
+1. **発行**&mdash;実行、`dotnet publish --configuration release --output <local_path_on_build_agent>`を生成するコマンド、 *.zip*デプロイするアーティファクトを含むファイル。 `--output`の発行場所を指定するオプション、 *.zip*ファイル。 渡すことによって場所が指定されている、[定義済み変数](/azure/devops/pipelines/build/variables)という`$(build.artifactstagingdirectory)`します。 など、ローカル パスにその変数を展開*c:\agent\_work\1\a*、ビルド エージェントにします。
 1. **成果物の公開** &mdash; Publishes、 *.zip*で生成されるファイル、**発行**タスク。 タスクを受け入れる、 *.zip*ファイルの場所、定義済みの変数をパラメーターとして`$(build.artifactstagingdirectory)`します。 *.Zip*という名前のフォルダーとファイルをパブリッシュ*ドロップ*します。
 
 ビルド定義のクリックして**概要**定義と共にビルドの履歴を表示するリンク。

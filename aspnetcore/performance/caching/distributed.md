@@ -1,103 +1,95 @@
 ---
-title: ASP.NET Core での分散キャッシュを使用します。
-author: ardalis
-description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法について説明します。
+title: ASP.NET Core でのキャッシュを分散
+author: guardrex
+description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるために、ASP.NET Core の分散キャッシュを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2017
+ms.date: 10/19/2018
 uid: performance/caching/distributed
-ms.openlocfilehash: 85da734f3ae7bcf0936888edfb6ac91d4362eef2
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 46a93125e8b25a66b5a1ead3b72c55db146b5a10
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477477"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090564"
 ---
-# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュを使用します。
+# <a name="distributed-caching-in-aspnet-core"></a>ASP.NET Core でのキャッシュを分散
 
-作成者: [Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)、[Luke Latham](https://github.com/guardrex)
 
-分散キャッシュでは、クラウドまたはサーバー ファームでホストされている場合は特に、パフォーマンスと、ASP.NET Core アプリのスケーラビリティを向上できます。
+分散キャッシュは、通常、外部サービスにアクセスするアプリケーション サーバーとして保守管理されて複数のアプリ サーバーによって共有キャッシュです。 分散キャッシュでは、アプリがクラウド サービスまたはサーバー ファームでホストされている場合に特に、パフォーマンスと ASP.NET Core アプリのスケーラビリティを向上できます。
+
+分散キャッシュは、個々 のアプリのサーバーでのキャッシュされたデータの格納の他のキャッシュ シナリオのいくつかのメリットです。
+
+キャッシュされたデータを分散するときに、データ:
+
+* *一貫性のある*複数のサーバーへの要求内では (一貫性)。
+* サーバーを再起動し、アプリの展開は存続します。
+* ローカル メモリを使用しません。
+
+分散キャッシュの構成は、特定の実装です。 この記事では、SQL Server を構成し、Redis cache を分散する方法について説明します。 サード パーティ製の実装はなどに使用できるも[NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([github NCache](https://github.com/Alachisoft/NCache))。 どの実装を選択するに関係なく、アプリとキャッシュを使用して、対話、<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>インターフェイス。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="what-is-a-distributed-cache"></a>分散キャッシュとは
+## <a name="prerequisites"></a>必須コンポーネント
 
-分散キャッシュは、複数のアプリケーション サーバーで共有されます (を参照してください[Cache の基本](memory.md#caching-basics))。 キャッシュ内の情報は、個々 の web サーバーのメモリに格納されていないし、キャッシュされたデータはすべてのアプリのサーバーに使用できます。 これは、いくつかの利点を提供します。
+::: moniker range=">= aspnetcore-2.1"
 
-1. キャッシュされたデータがすべての web サーバー上で生じます。 ユーザーによっては、web サーバーは、要求を処理する別の結果に表示されません。
+SQL Server を使用する分散キャッシュを参照、 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)へのパッケージ参照を追加したり、 [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer)パッケージ。
 
-2. キャッシュされたデータは、web サーバーを再起動し、展開に存続します。 個々 の web サーバーを削除またはキャッシュの影響を与えずに追加できます。
+Redis を使用する分散キャッシュ、参照、 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)にパッケージ参照を追加し、 [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis)パッケージ。 Redis のパッケージに含まれていない、`Microsoft.AspNetCore.App`パッケージ化、Redis のパッケージの参照は、プロジェクト ファイル内とは別にする必要があります。
 
-3. ソース データ ストアが、(より、複数のメモリ内キャッシュですべてのキャッシュ) に加えられた要求が減少します。
+::: moniker-end
 
-> [!NOTE]
-> 場合は、SQL Server の分散キャッシュを使用して、これらの利点の一部は、アプリのソース データよりも、キャッシュの別のデータベース インスタンスを使用する場合のみ。
+::: moniker range="= aspnetcore-2.0"
 
-、任意のキャッシュのような分散キャッシュが飛躍的に向上、アプリの応答性、ため、通常、データはリレーショナル データベース (または web サービス) からよりも高速のキャッシュから取得できます。
+SQL Server を使用する分散キャッシュ、参照、 [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)へのパッケージ参照を追加したり、 [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer)パッケージ。
 
-キャッシュの構成は、特定の実装です。 この記事では、Redis 両方を構成して、SQL Server の分散キャッシュする方法について説明します。 アプリが、一般的なを使用して、キャッシュと対話する実装の種類を選択するに関係なく`IDistributedCache`インターフェイス。
+Redis を使用する分散キャッシュ、参照、 [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)へのパッケージ参照を追加したり、 [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis)パッケージ。 Redis パッケージが含まれている`Microsoft.AspNetCore.All`パッケージ化、Redis のパッケージをプロジェクト ファイル内で個別に参照する必要はありません。
 
-## <a name="the-idistributedcache-interface"></a>IDistributedCache インターフェイス
+::: moniker-end
 
-`IDistributedCache`インターフェイスには、同期および非同期のメソッドが含まれています。 インターフェイスは、追加、取得、および分散キャッシュの実装から削除する項目を使用します。 `IDistributedCache`インターフェイスには、次のメソッドが含まれています。
+::: moniker range="< aspnetcore-2.0"
 
-**Get、GetAsync**
+SQL Server を使用する分散キャッシュ、パッケージ参照を追加、 [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer)パッケージ。
 
-文字列のキーを受け取り、としてキャッシュされた項目を取得、`byte[]`場合、キャッシュ内に存在します。
+分散キャッシュ、Redis を使用する、パッケージ参照を追加、 [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis)パッケージ。
 
-**SetAsync セット**
+::: moniker-end
 
-項目を追加します (として`byte[]`) 文字列のキーを使用してキャッシュにします。
+## <a name="idistributedcache-interface"></a>IDistributedCache インターフェイス
 
-**RefreshAsync の更新**
+<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>インターフェイスには、分散キャッシュの実装でアイテムを操作する次のメソッドが用意されています。
 
-そのスライド式有効期限のタイムアウトをリセットする (ある場合)、そのキーに基づいて、キャッシュ内の項目を更新します。
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Get*>、 <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.GetAsync*> &ndash;文字列キーを受け取り、としてキャッシュされた項目を取得、`byte[]`配列の場合、キャッシュ内に存在します。
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Set*>、 <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.SetAsync*> &ndash;項目を追加します (として`byte[]`配列) に文字列キーを使用してキャッシュします。
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Refresh*>、 <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RefreshAsync*> &ndash;そのスライド式有効期限のタイムアウトをリセットする (ある場合)、そのキーに基づいて、キャッシュ内の項目を更新します。
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Remove*>、 <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RemoveAsync*> &ndash;文字列キーに基づいてキャッシュ アイテムを削除します。
 
-**RemoveAsync を削除します。**
+## <a name="establish-distributed-caching-services"></a>分散キャッシュ サービスを確立します。
 
-そのキーに基づくキャッシュ エントリを削除します。
+実装を登録<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>で`Startup.ConfigureServices`します。 このトピックで説明されているフレームワークが提供の実装は次のとおりです。
 
-使用する、`IDistributedCache`インターフェイス。
+* [分散メモリ キャッシュ](#distributed-memory-cache)
+* [SQL Server の分散キャッシュ](#distributed-sql-server-cache)
+* [Redis cache の分散](#distributed-redis-cache)
 
-   1. 必要な NuGet パッケージをプロジェクト ファイルに追加します。
+### <a name="distributed-memory-cache"></a>分散メモリ キャッシュ
 
-   2. 特定の実装を構成する`IDistributedCache`で、`Startup`クラスの`ConfigureServices`メソッドがコンテナーに追加します。
+メモリの分散キャッシュ (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) framework 提供の実装は、`IDistributedCache`メモリ内の項目を格納します。 分散メモリ キャッシュでは、実際の分散キャッシュはありません。 アプリが実行されているサーバーで、アプリのインスタンスによってキャッシュされた項目が格納されます。
 
-   3. アプリの[ミドルウェア](xref:fundamentals/middleware/index)MVC コント ローラーのクラスのインスタンスを要求または`IDistributedCache`コンス トラクターから。 インスタンスがによって提供される[依存関係の注入](../../fundamentals/dependency-injection.md)(DI)。
+メモリの分散キャッシュでは、便利な実装です。
 
-> [!NOTE]
-> シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込み実装のため)。 いずれかが必要な場合がありますに、インスタンスを作成することもできます (使用する代わりに[依存関係の挿入](../../fundamentals/dependency-injection.md)) が、コードをテストするには、このことができますに違反して、 [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/)。
+* で開発およびテスト シナリオ。
+* 運用環境とメモリの消費量の 1 つのサーバーを使用する場合は問題になりません。 データ ストレージをキャッシュする分散メモリ キャッシュの抽象化を実装します。 実装するためにより複数のノードまたはフォールト トレランスが必要になる場合、真の分散キャッシュ ソリューションの将来の場合。
 
-次の例は、のインスタンスを使用する方法を示しています。`IDistributedCache`では、単純なミドルウェア コンポーネント。
+サンプル アプリは、アプリの開発環境で実行するときに、分散メモリ キャッシュの使用します。
 
-[!code-csharp[](distributed/sample/src/DistCacheSample/StartTimeHeader.cs)]
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_ConfigureServices&highlight=5)]
 
-上記のコードでは、キャッシュされた値は、読み取りが書き込まれていません。 このサンプルで、値は、サーバーが起動し、変更されない場合にのみ設定されます。 マルチ サーバーのシナリオで開始する直近のサーバーに他のサーバーで設定した前の値が上書きされます。 `Get`と`Set`メソッドを使用して、`byte[]`型。 使用して文字列値を変換する必要がありますので、 `Encoding.UTF8.GetString` (の`Get`) と`Encoding.UTF8.GetBytes`(の`Set`)。
+### <a name="distributed-sql-server-cache"></a>分散型の SQL Server のキャッシュ
 
-次のコードから*Startup.cs*設定されている値が表示されます。
-
-[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
-
-`IDistributedCache`で構成されている場合は、`ConfigureServices`メソッドが使用できる、`Configure`メソッドをパラメーターとして。 パラメーターとして追加することによって、DI を通じて提供されるインスタンスを構成できます。
-
-## <a name="using-a-redis-distributed-cache"></a>Redis の分散キャッシュを使用します。
-
-[Redis](https://redis.io/)は分散キャッシュとしてよく使用されているオープン ソース、メモリ内データ ストアです。 ローカルで使用して、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure でホストされる ASP.NET Core アプリ。 キャッシュ実装を使用して、ASP.NET Core アプリの構成、`RedisDistributedCache`インスタンス。
-
-Redis cache が必要です[Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis/)
-
-Redis の実装を構成する`ConfigureServices`のインスタンスを要求することによって、アプリのコードでアクセス`IDistributedCache`(上記のコードを参照してください)。
-
-サンプル コードで、`RedisCache`実装には、サーバーが構成されている場合、使用、`Staging`環境。 したがって、`ConfigureStagingServices`メソッドは、構成、 `RedisCache`:
-
-[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
-
-ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/)実行`redis-server`コマンド プロンプトからです。
-
-## <a name="using-a-sql-server-distributed-cache"></a>SQL Server を使用して分散キャッシュ
-
-SqlServerCache 実装では、バッキング ストアとして SQL Server データベースを使用する分散キャッシュを許可します。 SQL サーバーを作成するには、ツール、sql キャッシュを使用するテーブルは指定した名前とスキーマ テーブルを作成します。
+分散型の SQL Server キャッシュの実装 (<xref:Microsoft.Extensions.DependencyInjection.SqlServerCachingServicesExtensions.AddDistributedSqlServerCache*>) バッキング ストアとして SQL Server データベースを使用する分散キャッシュを使用します。 SQL Server インスタンスで SQL Server のキャッシュされた項目のテーブルを作成するに使用することができます、`sql-cache`ツール。 ツールでは、指定したスキーマと名前でテーブルを作成します。
 
 ::: moniker range="< aspnetcore-2.1"
 
@@ -105,48 +97,97 @@ SqlServerCache 実装では、バッキング ストアとして SQL Server デ�
 
 ```xml
 <ItemGroup>
-  <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools" 
+  <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools"
                           Version="2.0.2" />
 </ItemGroup>
 ```
 
 ::: moniker-end
 
-次のコマンドを実行して SqlConfig.Tools をテストします。
+SQL server を実行してテーブルを作成、`sql-cache create`コマンド。 SQL Server インスタンスを提供 (`Data Source`)、データベース (`Initial Catalog`)、スキーマ (たとえば、 `dbo`) とテーブル名 (たとえば、 `TestCache`)。
 
 ```console
-dotnet sql-cache create --help
+dotnet sql-cache create "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
 ```
 
-SqlConfig.Tools では、使用状況、オプション、およびコマンドのヘルプが表示されます。
-
-SQL server を実行してテーブルを作成、`sql-cache create`コマンド。
+ツールが成功したことを示すメッセージが記録されます。
 
 ```console
-dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
-info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
 Table and index were created successfully.
 ```
 
-作成されたテーブルでは、次のスキーマがあります。
+によって作成されたテーブル、`sql-cache`ツールには、次のスキーマ。
 
 ![SqlServer キャッシュ テーブル](distributed/_static/SqlServerCacheTable.png)
 
-すべてのキャッシュ実装と同様に、アプリする必要がありますを取得および設定のインスタンスを使用してキャッシュ値`IDistributedCache`ではなく、`SqlServerCache`します。 サンプルでは実装`SqlServerCache`実稼働環境で (で構成されているように`ConfigureProductionServices`)。
+> [!NOTE]
+> アプリのインスタンスを使用してキャッシュ値を操作する必要があります<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>ではなく、<xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache>します。
 
-[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet3)]
+サンプル アプリの実装<xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache>非開発環境で。
+
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_ConfigureServices&highlight=9-15)]
 
 > [!NOTE]
-> `ConnectionString` (および必要に応じて、`SchemaName`と`TableName`) 資格情報を含めることは、通常 (UserSecrets) などのソース管理の外部に格納する必要があります。
+> A <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.ConnectionString*> (および必要に応じて、<xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.SchemaName*>と<xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.TableName*>) は、通常ソース管理の外部に格納 (によって格納されるなど、 [Secret Manager](xref:security/app-secrets)または*appsettings.json* /*appsettings します。{Environment} .json*ファイル)。 接続文字列は、ソース管理システムから守る必要のある資格情報を含めることができます。
+
+### <a name="distributed-redis-cache"></a>分散の Redis Cache
+
+[Redis](https://redis.io/)は分散キャッシュとしてよく使用されているオープン ソース、メモリ内データ ストアです。 Redis をローカルで使用することができ、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure でホストされる ASP.NET Core アプリ。 キャッシュ実装を使用して、アプリの構成、<xref:Microsoft.Extensions.Caching.Redis.RedisCache>インスタンス (<xref:Microsoft.Extensions.DependencyInjection.RedisCacheServiceCollectionExtensions.AddDistributedRedisCache*>)。
+
+```csharp
+services.AddDistributedRedisCache(options =>
+{
+    options.Configuration = "localhost";
+    options.InstanceName = "SampleInstance";
+});
+```
+
+Redis をローカル コンピューターにインストールするには
+
+* インストール、 [Chocolatey Redis パッケージ](https://chocolatey.org/packages/redis-64/)します。
+* 実行`redis-server`コマンド プロンプトからです。
+
+## <a name="use-the-distributed-cache"></a>分散キャッシュを使用します。
+
+使用する、<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>インターフェイスのインスタンスを要求`IDistributedCache`、アプリで任意のコンス トラクターから。 によって、インスタンスが提供される[依存関係の注入 (DI)](xref:fundamentals/dependency-injection)します。
+
+アプリの起動時、`IDistributedCache`には挿入`Startup.Configure`します。 使用して、現在の時刻にキャッシュされている<xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime>(詳細については、次を参照してください。 [Web ホスト: IApplicationLifetime インターフェイス](xref:fundamentals/host/web-host#iapplicationlifetime-interface))。
+
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
+
+サンプル アプリは挿入`IDistributedCache`に、`IndexModel`インデックス ページで使用するためです。
+
+インデックス ページが読み込まれるたびにキャッシュされる時間のキャッシュがチェック`OnGetAsync`します。 キャッシュされる時間が期限切れで、時間が表示されます。 前回のキャッシュ時間 (このページが読み込まれた最後の時刻) にアクセスした 20 秒が経過している場合、ページが表示されます*キャッシュされた期限切れ*します。
+
+選択して、現在の時刻にキャッシュされる時間をすぐに更新、**キャッシュされる時間のリセット**ボタンをクリックします。 ボタン トリガー、`OnPostResetCachedTime`ハンドラー メソッド。
+
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
+
+> [!NOTE]
+> シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込み実装のため)。
+>
+> 作成することも、 `IDistributedCache` 、DI を使用する代わりに 1 つにする必要がありますが、インスタンスを作成するコードでは、コードは厄介なをテストする任意の場所のインスタンスに違反して、 [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)します。
 
 ## <a name="recommendations"></a>推奨事項
 
-実装を決定する際に`IDistributedCache`は Redis 間を選択して、アプリの右と、既存のインフラストラクチャと環境、パフォーマンス要件、およびチームの経験に基づいて、SQL Server。 チームがより快適な Redis の操作の場合は、優れた選択肢となります。 チームが SQL Server を希望する場合でも実装することを確信できます。 従来のキャッシュ ソリューションがデータをメモリ内データを迅速に取得できるを格納することに注意してください。 一般的に使用されるデータをキャッシュに格納し、SQL Server または Azure Storage などのバックエンドの永続的なストアにデータ全体を保存する必要があります。 Redis Cache とは、SQL キャッシュと比較して、高スループットと低待機時間に提供するキャッシュ ソリューションです。
+実装を決定する際に`IDistributedCache`アプリに最適な次を検討してください。
+
+* 既存のインフラストラクチャ
+* パフォーマンスの要件
+* コスト
+* チーム エクスペリエンス
+
+キャッシュ ソリューションは通常、キャッシュされたデータの高速検索を提供する、インメモリ ストレージに依存して、メモリが制限されているリソースが、展開コストがかかります。 唯一のストアは、通常、データをキャッシュに使用されます。
+
+一般に、Redis cache より高いスループットと SQL Server キャッシュよりも低い待機時間を提供します。 ただし、ベンチマークは、通常はキャッシュ戦略のパフォーマンス特性を決定する必要があります。
+
+分散キャッシュのバッキング ストアとして SQL Server を使用すると、キャッシュと、アプリの通常のデータ ストレージを使用して、同じデータベースの両方のパフォーマンスに悪影響を取得します。 バッキング ストアの分散キャッシュを専用の SQL Server インスタンスを使用することをお勧めします。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [Redis azure Cache](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Azure 上の SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
+* [ASP.NET Core の Web ファームで NCache IDistributedCache プロバイダー](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([github NCache](https://github.com/Alachisoft/NCache))
 * <xref:performance/caching/memory>
 * <xref:fundamentals/change-tokens>
 * <xref:performance/caching/response>

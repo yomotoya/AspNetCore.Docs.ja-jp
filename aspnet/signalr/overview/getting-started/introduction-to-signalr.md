@@ -8,17 +8,17 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d103573fb31bb3b08d054cbf65ff906bd5d151d3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0b7e223b6b793d1860797157be6021ffb7f1bc12
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912801"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090294"
 ---
 <a name="introduction-to-signalr"></a>SignalR の概要
 ====================
 
-このチュートリアルの更新バージョンが利用可能な[ここ](/aspnet/core/tutorials/signalr)Visual Studio の最新バージョンを使用します。 新しいチュートリアルでは使用[ASP.NET Core](/aspnet/core/)、このチュートリアルで多くの機能強化を提供します。
+参照してください[ASP.NET Core SignalR の概要](/aspnet/core/signalr/introduction)最新バージョンの Visual Studio を使用するこのチュートリアルの更新バージョン。 新しいチュートリアルでは使用[ASP.NET Core](/aspnet/core/)、このチュートリアルで多くの機能強化を提供します。
 
 によって[Patrick Fletcher](https://github.com/pfletcher)
 

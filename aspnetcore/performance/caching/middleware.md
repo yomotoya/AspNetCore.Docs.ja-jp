@@ -1,18 +1,18 @@
 ---
 title: 応答キャッシュ ミドルウェアで ASP.NET Core
 author: guardrex
-description: 構成および ASP.NET Core での応答キャッシュ ミドルウェアを使用する方法について説明します。
+description: ASP.NET Core で応答キャッシュ ミドルウェアを構成し、使用する方法について説明します。
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477528"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090486"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答キャッシュ ミドルウェアで ASP.NET Core
 
@@ -120,10 +120,10 @@ if (responseCachingFeature != null)
 
 キャッシュの動作をより細かく制御は、ASP.NET Core の他のキャッシュ機能を探索します。 次のトピックを参照してください。
 
-* [メモリ内キャッシュ](xref:performance/caching/memory)
-* [分散キャッシュの使用](xref:performance/caching/distributed)
-* [ASP.NET core MVC タグ ヘルパーをキャッシュします。](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -155,11 +155,11 @@ if (responseCachingFeature != null)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [アプリケーションの起動](xref:fundamentals/startup)
-* [ミドルウェア](xref:fundamentals/middleware/index)
-* [メモリ内キャッシュ](xref:performance/caching/memory)
-* [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更トークンを使用する変更の検出](xref:fundamentals/change-tokens)
-* [応答キャッシュ](xref:performance/caching/response)
-* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:fundamentals/startup>
+* <xref:fundamentals/middleware/index>
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

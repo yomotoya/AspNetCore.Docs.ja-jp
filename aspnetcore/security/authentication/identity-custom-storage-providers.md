@@ -3,14 +3,15 @@ title: ASP.NET Core Identity 用のカスタム ストレージ プロバイダ�
 author: ardalis
 description: ASP.NET Core Identity 用のカスタム ストレージ プロバイダーを構成する方法について説明します。
 ms.author: riande
-ms.date: 09/17/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: e206cf584d92a17d61676d71abc6fb577ae63453
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b10731261ca0c748548fcba94a229ba055d46eb5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477619"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090837"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Identity 用のカスタム ストレージ プロバイダー
 
@@ -24,7 +25,7 @@ ASP.NET Core Identity は、拡張可能なシステム カスタム ストレ�
 
 既定では、ASP.NET Core Identity システムは、Entity Framework Core を使用して SQL Server データベースにユーザー情報を格納します。 多くのアプリでは、この方法はも機能します。 ただし、別の永続化メカニズムまたはデータ スキーマを使用することもできます。 例えば:
 
-* 使用する[Azure Table Storage](https://docs.microsoft.com/azure/storage/)または別のデータ ストア。
+* 使用する[Azure Table Storage](/azure/storage/)または別のデータ ストア。
 * データベースのテーブルでは、さまざまな構造があります。 
 * など、さまざまなデータ アクセス手法を使用したい場合があります[Dapper](https://github.com/StackExchange/Dapper)します。 
 
@@ -146,27 +147,27 @@ Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>ユーザー ストアをカスタマイズする際に実装するインターフェイス
 
-- **IUserStore**  
+* **IUserStore**  
  [IUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1)インターフェイスは、唯一のインターフェイスで、ユーザー ストアを実装する必要があります。 作成、更新、削除、およびユーザーを取得するためのメソッドを定義します。
-- **IUserClaimStore**  
+* **IUserClaimStore**  
  [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1)インターフェイスは、ユーザーの信頼性情報を有効にするために実装するメソッドを定義します。 追加、削除、およびユーザーの信頼性情報を取得するためのメソッドが含まれています。
-- **IUserLoginStore**  
+* **IUserLoginStore**  
  [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)外部認証プロバイダーを有効にするために実装するメソッドを定義します。 追加、削除、およびユーザーのログインとログイン情報に基づいてユーザーを取得するためのメソッドを取得するためのメソッドが含まれています。
-- **IUserRoleStore**  
+* **IUserRoleStore**  
  [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1)インターフェイスを実装するロールにユーザーをマップするメソッドを定義します。 追加、削除、およびユーザーのロール、およびユーザーがロールに割り当てられているかどうかをチェックするメソッドを取得するメソッドが含まれています。
-- **IUserPasswordStore**  
+* **IUserPasswordStore**  
  [IUserPasswordStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)インターフェイスは、ハッシュされたパスワードを保持するために実装するメソッドを定義します。 ハッシュされたパスワード、およびユーザーがパスワードを設定するかどうかを示すメソッドを取得および設定のためのメソッドが含まれています。
-- **IUserSecurityStampStore**  
+* **IUserSecurityStampStore**  
  [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)インターフェイスは、ユーザーのアカウント情報が変更されたかどうかを示すためにセキュリティ スタンプを使用するために実装するメソッドを定義します。 ユーザー、パスワードを変更または追加またはログインを削除します。 このタイムスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
-- **IUserTwoFactorStore**  
+* **IUserTwoFactorStore**  
  [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)インターフェイスは、2 要素認証をサポートするために実装するメソッドを定義します。 取得およびユーザーの 2 要素認証が有効になっているかどうかを設定するためのメソッドが含まれています。
-- **IUserPhoneNumberStore**  
+* **IUserPhoneNumberStore**  
  [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)インターフェイスは、ユーザーの電話番号を格納するために実装するメソッドを定義します。 取得および電話番号と電話番号が確認されているかどうかを設定するためのメソッドが含まれています。
-- **IUserEmailStore**  
+* **IUserEmailStore**  
  [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)インターフェイスは、ユーザーのメール アドレスを格納するために実装するメソッドを定義します。 取得、および電子メール アドレスと、電子メールが確認されているかどうかを設定するためのメソッドが含まれています。
-- **IUserLockoutStore**  
+* **IUserLockoutStore**  
  [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)インターフェイスは、アカウントのロックに関する情報を格納するために実装するメソッドを定義します。 失敗したアクセス試行とロックアウトを追跡するためのメソッドが含まれています。
-- **IQueryableUserStore**  
+* **IQueryableUserStore**  
  [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)インターフェイスは、クエリ可能なユーザー ストアを提供するために実装するメンバーを定義します。
 
 アプリに必要なインターフェイスだけを実装します。 例えば:
@@ -199,9 +200,9 @@ public class UserStore : IUserStore<IdentityUser>,
 
 作成することができます、`RoleStore`ロールに対するすべてのデータ操作のメソッドを提供するクラス。 このクラスは、 [RoleStore&lt;TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)クラス。 `RoleStore`クラスを実装する、`IRoleStore<TRole>`と、必要に応じて、`IQueryableRoleStore<TRole>`インターフェイス。
 
-- **IRoleStore&lt;TRole&gt;**  
+* **IRoleStore&lt;TRole&gt;**  
  [IRoleStore&lt;TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1)インターフェイスは、ロール ストア クラスに実装するメソッドを定義します。 作成、更新、削除、およびロールを取得するためのメソッドが含まれています。
-- **RoleStore&lt;TRole&gt;**  
+* **RoleStore&lt;TRole&gt;**  
  カスタマイズする`RoleStore`、実装するクラスを作成、`IRoleStore<TRole>`インターフェイス。 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>新しい記憶域プロバイダーを使用するアプリを再構成します。
@@ -237,5 +238,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="references"></a>参照
 
-- [ASP.NET 4.x Identity 用のカスタム ストレージ プロバイダー](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-- [ASP.NET Core Identity](https://github.com/aspnet/identity) -このリポジトリには、ストア プロバイダーを管理するコミュニティへのリンクが含まれています。
+* [ASP.NET 4.x Identity 用のカスタム ストレージ プロバイダー](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
+* [ASP.NET Core Identity](https://github.com/aspnet/identity) &ndash;このリポジトリには、ストア プロバイダーを管理するコミュニティへのリンクが含まれています。

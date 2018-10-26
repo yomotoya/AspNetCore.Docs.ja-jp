@@ -3,14 +3,15 @@ title: ASP.NET Core でのキー管理の拡張性
 author: rick-anderson
 description: ASP.NET Core データ保護キー管理の拡張性について説明します。
 ms.author: riande
-ms.date: 11/22/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: b52212ff3462748a5c64f21e1b7854673e5fcadc
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 1cf3fc30f72fb872ff9d7f33fc5ffb12a11a982f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477463"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090616"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>ASP.NET Core でのキー管理の拡張性
 
@@ -60,7 +61,7 @@ ms.locfileid: "49477463"
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-`XmlKeyManager`型がボックス内の具象実装の`IKeyManager`します。 キー エスクローおよび保存時のキーの暗号化を含むいくつかの便利な機能を提供します。 このシステム内のキーは XML 要素として表されます (具体的には、 [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview))。
+`XmlKeyManager`型がボックス内の具象実装の`IKeyManager`します。 キー エスクローおよび保存時のキーの暗号化を含むいくつかの便利な機能を提供します。 このシステム内のキーは XML 要素として表されます (具体的には、 [XElement](/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview))。
 
 `XmlKeyManager` そのタスクを実行する過程でその他のいくつかのコンポーネントに依存します。
 

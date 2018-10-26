@@ -3,14 +3,15 @@ title: ASP.NET から ASP.NET Core 2.0 への移行
 author: isaac2004
 description: ASP.NET Core 2.0 に移行する既存の ASP.NET MVC または Web API アプリケーションのガイダンスが表示されます。
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 42fbabb2fe5bd79a72cd220230faa9d75ff1c9d8
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 006eeeba28dbd351698e46547abe3c96818a63d9
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538389"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090460"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
@@ -28,7 +29,8 @@ ms.locfileid: "45538389"
   * **.NET Core クロスプラットフォームの開発**ワークロード
 
 ## <a name="target-frameworks"></a>ターゲット フレームワーク
-ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .NET Framework のどちらか一方または両方を対象にして柔軟に開発できます。 最も適切なターゲット フレームワークの決定については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)」をご覧ください。
+
+ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .NET Framework のどちらか一方または両方を対象にして柔軟に開発できます。 最も適切なターゲット フレームワークの決定については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](/dotnet/standard/choosing-core-framework-server)」をご覧ください。
 
 .NET Framework を対象にする場合は、プロジェクトで個々の NuGet パッケージを参照する必要があります。
 
@@ -40,17 +42,20 @@ ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .
 </ItemGroup>
 ```
 
-メタパッケージを使うと、メタパッケージ内で参照されているパッケージはアプリでは展開されません。 .NET Core ランタイム ストアにはこれらのアセットが含まれており、パフォーマンス向上のためにプリコンパイルされています。 詳しくは、「[Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage)」(ASP.NET Core 2.x 用 Microsoft.AspNetCore.All メタパッケージ) をご覧ください。
+メタパッケージを使うと、メタパッケージ内で参照されているパッケージはアプリでは展開されません。 .NET Core ランタイム ストアにはこれらのアセットが含まれており、パフォーマンス向上のためにプリコンパイルされています。 参照してください<xref:fundamentals/metapackage>詳細。
 
 ## <a name="project-structure-differences"></a>プロジェクトの構造の違い
-*.csproj* ファイルの形式は、ASP.NET Core では簡素化されています。 いくつかの重要な変更は次のとおりです。
-- ファイルがプロジェクトの一部と見なされるためにファイルを明示的に含める必要はありません。 これにより、大規模なチームで作業する場合に XML のマージが競合するリスクが軽減されます。
-- 他のプロジェクトを GUID で参照することはなくなり、ファイルの読みやすさが向上します。
-- Visual Studio でアンロードせずにファイルを編集することができます。
 
-    ![Visual Studio 2017 の CSPROJ の編集コンテキスト メニュー オプション](_static/EditProjectVs2017.png)
+*.csproj* ファイルの形式は、ASP.NET Core では簡素化されています。 いくつかの重要な変更は次のとおりです。
+
+* ファイルがプロジェクトの一部と見なされるためにファイルを明示的に含める必要はありません。 これにより、大規模なチームで作業する場合に XML のマージが競合するリスクが軽減されます。
+* 他のプロジェクトを GUID で参照することはなくなり、ファイルの読みやすさが向上します。
+* Visual Studio でアンロードせずにファイルを編集することができます。
+
+  ![Visual Studio 2017 の CSPROJ の編集コンテキスト メニュー オプション](_static/EditProjectVs2017.png)
 
 ## <a name="globalasax-file-replacement"></a>Global.asax ファイルの置換
+
 ASP.NET Core では、アプリをブートストラップする新しいメカニズムが導入されました。 ASP.NET アプリケーションのエントリ ポイントは、*Global.asax* ファイルです。 ルート構成、フィルター、領域の登録などのタスクは、*Global.asax* ファイルで処理されます。
 
 [!code-csharp[](samples/globalasax-sample.cs)]
@@ -77,9 +82,10 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 ホストとアプリケーションは切り離されており、将来別のプラットフォームに柔軟に移動できます。
 
-**注:** ASP.NET Core のスタートアップとミドルウェアについて詳しくは、「[Application Startup in ASP.NET Core](xref:fundamentals/startup)」(ASP.NET Core でのアプリケーションのスタートアップ) をご覧ください。
+ASP.NET Core のスタートアップとミドルウェアについて詳しくは、次を参照してください。<xref:fundamentals/startup>します。
 
 ## <a name="storing-configurations"></a>保存の構成
+
 ASP.NET では保存の設定がサポートされています。 これらの設定は、たとえば、アプリケーションが展開された環境のサポートに使われます。 一般的な方法は、すべてのカスタム キー/値ペアを、*Web.config* ファイルの `<appSettings>` セクションに保存するというものでした。
 
 [!code-xml[](samples/webconfig-sample.xml)]
@@ -107,7 +113,7 @@ ASP.NET Core では、アプリケーションの構成データを任意のフ�
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**注:** ASP.NET Core の構成について詳しくは、「[Configuration in ASP.NET Core](xref:fundamentals/configuration/index)」(ASP.NET Core の構成) をご覧ください。
+**注:** ASP.NET Core の構成について詳しくは、次を参照してください。<xref:fundamentals/configuration/index>します。
 
 ## <a name="native-dependency-injection"></a>ネイティブな依存性の注入
 
@@ -133,7 +139,7 @@ Unity で依存関係の注入を設定する例を実装する`IDependencyResol
 
 Unity でそうであったように、リポジトリは任意の場所に挿入できます。
 
-ASP.NET Core の依存関係挿入の詳細については、次を参照してください。[依存関係の注入](xref:fundamentals/dependency-injection)します。
+ASP.NET Core の依存関係挿入の詳細については、次を参照してください。<xref:fundamentals/dependency-injection>します。
 
 ## <a name="serving-static-files"></a>静的ファイルの提供
 
@@ -149,7 +155,7 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 たとえば、*wwwroot/images* フォルダー内のイメージ アセットには、ブラウザーから `http://<app>/images/<imageFileName>` などの場所でアクセスできます。
 
-**注:** ASP.NET Core で静的ファイルの提供について詳しくは、次を参照してください。[静的ファイル](xref:fundamentals/static-files)します。
+**注:** ASP.NET Core で静的ファイルの提供について詳しくは、次を参照してください。<xref:fundamentals/static-files>します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
