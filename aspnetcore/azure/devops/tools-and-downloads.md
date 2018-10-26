@@ -3,18 +3,19 @@ title: ASP.NET Core および Azure を使用した DevOps |ツールとダウ�
 author: CamSoper
 description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 573e257e6fc7614010a8749ff439f16011c2c10a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340161"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089384"
 ---
 # <a name="tools-and-downloads"></a>ツールとダウンロード
 
-Azure では、いくつかのインターフェイスのプロビジョニングおよびなどのリソースを管理、 [Azure portal](https://portal.azure.com)、 [Azure CLI](https://docs.microsoft.com/cli/azure/)、 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)、 [Azure クラウドシェル](https://shell.azure.com/bash)、および Visual Studio。 このガイドでは、必要最低限のアプローチを採用し、Azure Cloud Shell を減らすために必要な手順を実行可能な限りを使用します。 ただし、一部の Azure portal を使用する必要があります。
+Azure では、いくつかのインターフェイスのプロビジョニングおよびなどのリソースを管理、 [Azure portal](https://portal.azure.com)、 [Azure CLI](/cli/azure/)、 [Azure PowerShell](/powershell/azure/overview)、 [Azure クラウドシェル](https://shell.azure.com/bash)、および Visual Studio。 このガイドでは、必要最低限のアプローチを採用し、Azure Cloud Shell を減らすために必要な手順を実行可能な限りを使用します。 ただし、一部の Azure portal を使用する必要があります。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -39,7 +40,7 @@ Azure では、いくつかのインターフェイスのプロビジョニン�
 
 * [Visual Studio](https://www.visualstudio.com/)堅牢な Azure ツール説明 GUI このガイドで説明されている機能のほとんどの。 無料の Visual Studio Community Edition を含む、Visual Studio の任意のエディションは機能します。 チュートリアルは、Visual Studio の有無にかかわらず、開発、デプロイ、DevOps のデモンストレーションに書き込まれます。
 
-  Visual Studio が、次のことを確認します。[ワークロード](https://docs.microsoft.com/visualstudio/install/modify-visual-studio)インストール。
+  Visual Studio が、次のことを確認します。[ワークロード](/visualstudio/install/modify-visual-studio)インストール。
 
   * ASP.NET と Web 開発
   * Azure の開発
