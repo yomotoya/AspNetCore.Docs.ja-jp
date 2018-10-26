@@ -1,35 +1,82 @@
 ---
 title: ASP.NET Core でのログ記録
-author: ardalis
+author: tdykstra
 description: ASP.NET Core でのログ記録フレームワークについて説明します。 組み込みのログ プロバイダーと、サードパーティ製の一般的なプロバイダーについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/19/2018
+ms.date: 10/11/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7a87791abdc91c43796ce72764d0cb3938ed90ec
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: e11657e27787e2fab8eacc8d4148a7ab089f9f53
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578459"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391324"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
 執筆: [Steve Smith](https://ardalis.com/)、[Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core は、さまざまなログ プロバイダーと連携するログ API をサポートします。 組み込みのプロバイダーを使用すると、1 つ以上の宛先にログを送信できます。また、サードパーティ製のログ記録フレームワークをプラグインとして使用できます。 この記事では、組み込みのログ記録 API とプロバイダーをコードで使用する方法について説明します。
-
-IIS でホストする場合の stdout ログについては、<xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> をご覧ください。 Azure App Service を使用した stdout ログについては、<xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log> をご覧ください。
+ASP.NET Core では、組み込みやサード パーティ製のさまざまなログ プロバイダーと連携するログ API がサポートされています。 この記事では、組み込みプロバイダーと共にログ API を使用する方法について説明します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="how-to-create-logs"></a>ログを作成する方法
+## <a name="add-providers"></a>プロバイダーを追加する
 
-ログを作成するには、[依存関係の挿入](xref:fundamentals/dependency-injection)コンテナーから [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) を取得します。
+ログ プロバイダーによってログが表示または格納されます。 たとえば、Console プロバイダーによってコンソール上にログが表示され、Azure Application Insights プロバイダーによってそれらが Azure Application Insights に格納されます。 複数のプロバイダーを追加することで、複数の宛先にログを送信することができます。
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
+プロバイダーを追加するには、*Program.cs* でプロバイダーの `Add{provider name}` 拡張メソッドを呼び出します。
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
+
+既定のプロジェクト テンプレートでは、次のログ プロバイダーを追加する <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> 拡張メソッドが呼び出されます。
+
+* コンソール
+* デバッグ
+* EventSource (ASP.NET Core 2.2 以降)
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
+
+`CreateDefaultBuilder` を使用する場合は、既定のプロバイダーを自分で選択したものと置き換えることができます。 <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A> を呼び出し、目的のプロバイダーを追加します。
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=18-22)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+プロバイダーを使用するには、その NuGet パッケージをインストールし、<xref:Microsoft.Extensions.Logging.ILoggerFactory> のインスタンスに対してプロバイダーの拡張メソッドを呼び出します。
+
+[!code-csharp[](index/samples/1.x/TodoApiSample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
+
+ASP.NET Core の[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) には、`ILoggerFactory` インスタンスが用意されています。 `AddConsole` および `AddDebug` 拡張メソッドは、[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) パッケージと [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) パッケージで定義されています。 各拡張メソッドで `ILoggerFactory.AddProvider` メソッドを呼び出し、プロバイダーのインスタンスで渡します。
+
+> [!NOTE]
+> [サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x)では、`Startup.Configure` メソッドにログ プロバイダーを追加しています。 前の手順で実行したコードのログ出力を取得するには、`Startup` クラス コンストラクターにログ プロバイダーを追加します。
+
+::: moniker-end
+
+この記事の後半では、[組み込みログ プロバイダー](#built-in-logging-providers)と[サードパーティ製ログ プロバイダー](#third-party-logging-providers)について説明します。
+
+## <a name="create-logs"></a>ログを作成する
+
+DI から <xref:Microsoft.Extensions.Logging.ILogger`1> オブジェクトを取得します。
+
+::: moniker range=">= aspnetcore-2.0"
+
+次のコントローラーの例では、`Information` と `Warning` ログを作成します。 "*カテゴリ*" は `TodoApiSample.Controllers.TodoController` (サンプル アプリの `TodoController` の完全修飾クラス名) です。
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=4,7)]
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
+
+次の Razor Pages の例では、`Information` を "*レベル*" に、`TodoApiSample.Pages.AboutModel` を "*カテゴリ*" に設定してログを作成します。
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Pages/About.cshtml.cs?name=snippet_LoggerDI&highlight=3, 7)]
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Pages/About.cshtml.cs?name=snippet_CallLogMethods&highlight=4)]
 
 ::: moniker-end
 
@@ -37,58 +84,33 @@ IIS でホストする場合の stdout ログについては、<xref:host-and-de
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
-::: moniker-end
-
-次に、そのロガー オブジェクトに対してログ記録メソッドを呼び出します。
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
+前の例では、`Information` と `Warning` を "*レベル*" に、`TodoController` クラスを "*カテゴリ*" に設定してログを作成しています。 
+
 ::: moniker-end
 
-この例では、*カテゴリ*として `TodoController` クラスを使用してログを作成しています。 カテゴリについては、[この記事で後ほど](#log-category)説明します。
-
-ログ記録はすばやく行う必要があり、非同期を使用するコストに見合わないため、ASP.NET Core には非同期のロガー メソッドが用意されていません。 非同期のロガー メソッドが必要な場合は、ログ記録の方法を変更することをお勧めします。 データ ストアが低速な場合は、まずログ メッセージを高速なストアに書き込んでから、後で低速なストアに移動します。 たとえば、メッセージ キューにログを記録し、別のプロセスで読み取り、低速なストレージに保存します。
-
-## <a name="how-to-add-providers"></a>プロバイダーを追加する方法
+ログの "*レベル*" は、ログに記録されるイベントの重大度を示します。 ログの "*カテゴリ*" は、各ログに関連付けられている文字列です。 `ILogger<T>` インスタンスでは、カテゴリとして型 `T` の完全修飾名を持つログが作成されます。 [レベル](#log-level)と[カテゴリ](#log-category)の詳細については、この記事で後ほど説明します。 
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`ILogger` オブジェクトで作成したメッセージはログ プロバイダーに受け取られ、表示または保存されます。 たとえば、Console プロバイダーでコンソールにメッセージが表示され、Azure App Service プロバイダーで Azure Blob Storage に保存されます。
+### <a name="create-logs-in-startup"></a>Startup でログを作成する
 
-プロバイダーを使用するには、*Program.cs* でプロバイダーの `Add<ProviderName>` 拡張メソッドを呼び出します。
+`Startup` クラスでログを作成するには、コンストラクター シグネチャに `ILogger` パラメーターを追加します。
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,19,26)]
 
-既定のプロジェクト テンプレートでは、*Program.cs* 内の [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) 拡張メソッドの呼び出しを使用して、コンソールとデバッグのログ プロバイダーが有効にされます。
+### <a name="create-logs-in-program"></a>プログラムでログを作成する
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
+`Program` クラスでログを作成するには、DI から `ILogger` インスタンスを取得します。
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-`ILogger` オブジェクトで作成したメッセージはログ プロバイダーに受け取られ、表示または保存されます。 たとえば、Console プロバイダーでコンソールにメッセージが表示され、Azure App Service プロバイダーで Azure Blob Storage に保存されます。
-
-プロバイダーを使用するには、NuGet パッケージをインストールし、次の例のように [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) のインスタンスに対してプロバイダーの拡張メソッドを呼び出します。
-
-[!code-csharp[](index/samples/1.x/TodoApiSample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
-
-ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) (DI) には、`ILoggerFactory` インスタンスがあります。 `AddConsole` および `AddDebug` 拡張メソッドは、[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) パッケージと [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) パッケージで定義されています。 各拡張メソッドで `ILoggerFactory.AddProvider` メソッドを呼び出し、プロバイダーのインスタンスで渡します。
-
-> [!NOTE]
-> [1.x サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x)では、`Startup.Configure` メソッドにログ プロバイダーを追加しています。 前の手順で実行したコードのログ出力を取得するには、`Startup` クラス コンストラクターにログ プロバイダーを追加します。
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
 ::: moniker-end
 
-この記事の後半では、[組み込みログ プロバイダー](#built-in-logging-providers)について説明し、[サードパーティ製ログ プロバイダー](#third-party-logging-providers)へのリンクを示します。
+### <a name="no-asynchronous-logger-methods"></a>非同期でないロガー メソッド
+
+ログ記録は高速に実行され、非同期コードのパフォーマンス コストを下回る必要があります。 ログ記録のデータ ストアが低速の場合は、そこへ直接書き込むべきではありません。 まずログ メッセージを高速なストアに書き込んでから、後で低速なストアに移動する方法を検討してください。 たとえば、メッセージ キューにログを記録し、別のプロセスで読み取り、低速なストレージに保存します。
 
 ## <a name="configuration"></a>構成
 
@@ -122,7 +144,13 @@ ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) 
 }
 ```
 
-`LogLevel` キーは、ログ名を表します。 `Default` キーは明示的に表示されていないログに適用されます。 値は、指定されたログに適用された[ログ レベル](#log-level)を表します。 `IncludeScopes` を設定するログ キー (例では `Console`) は、示されたログに対して[ログのスコープ](#log-scopes)が有効になっているかどうかを示します。
+`Logging` プロパティには `LogLevel` およびログ プロバイダーのプロパティ (Console が示されています) を含めることができます。
+
+`Logging` の下の `LogLevel` プロパティでは、選択したカテゴリに対するログの最小の[レベル](#log-level)が指定されます。 この例では、`System` と `Microsoft` カテゴリが `Information` レベルで、その他はすべて `Debug` レベルでログに記録します。
+
+`Logging` の下のその他のプロパティではログ プロバイダーが指定されます。 この例では、Console プロバイダーです。 プロバイダーで[ログのスコープ](#log-scopes)がサポートされている場合、`IncludeScopes` によってそれを有効にするかどうかが指定されます。 プロバイダーのプロパティ (例の `Console` など) では、`LogLevel` プロパティが指定される場合があります。 プロバイダーの下の `LogLevel` では、そのプロバイダーのログのレベルが指定されます。
+
+`Logging.{providername}.LogLevel` でレベルが指定される場合、それによって `Logging.LogLevel` で設定されたものはすべてオーバーライドされます。
 
 ::: moniker-end
 
@@ -148,7 +176,7 @@ ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) 
 
 ## <a name="sample-logging-output"></a>サンプルのログ記録の出力
 
-前のセクションで紹介したサンプル コードをコマンド ラインから実行すると、コンソールにログが表示されます。 コンソールの出力例は次のとおりです。
+前のセクションで紹介したサンプル コードでは、コマンド ラインからアプリを実行するとコンソールにログが表示されます。 コンソールの出力例は次のとおりです。
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -167,9 +195,10 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 148.889ms 404
 ```
 
-`http://localhost:5000/api/todo/0` にアクセスし、前のセクションで紹介した `ILogger` の呼び出しの実行が両方トリガーされることで、これらのログは作成されました。
+前のログは、`http://localhost:5000/api/todo/0` のサンプル アプリに向けて HTTP Get 要求を作成することで生成されました。
 
-Visual Studio でサンプル アプリケーションを実行すると [デバッグ] ウィンドウに表示されるログと同じログの例を次に示します。
+Visual Studio でサンプル アプリを実行したときに [デバッグ] ウィンドウに表示されるログと同じログの例を、次に示します。
+
 
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
@@ -181,7 +210,7 @@ Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executed 
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 316.3195ms 404
 ```
 
-前のセクションで紹介した `ILogger` の呼び出しで作成されるログは、"TodoApi.Controllers.TodoController" から始まります。 "Microsoft" カテゴリから始まるログは、ASP.NET Core のログです。 ASP.NET Core 自体とアプリケーション コードは、同じログ記録 API と同じログ プロバイダーを使用しています。
+前のセクションで紹介した `ILogger` の呼び出しで作成されるログは、"TodoApi.Controllers.TodoController" から始まります。 "Microsoft" カテゴリから始まるログは、ASP.NET Core のフレームワークのコードからのログです。 ASP.NET Core とアプリケーション コードでは、同じログ API とログ プロバイダーが使用されています。
 
 以降、この記事では、ログ記録の詳細とオプションについて説明します。
 
@@ -191,23 +220,9 @@ Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 3
 
 ## <a name="log-category"></a>ログのカテゴリ
 
-作成する各ログには、*カテゴリ*が含まれています。 `ILogger` オブジェクトを作成するときにカテゴリを指定します。 カテゴリには任意の文字列を指定できますが、ログを書き込むクラスの完全修飾名を使用することが規則です。 たとえば、"TodoApi.Controllers.TodoController" と指定します。
+`ILogger` オブジェクトが作成されるときに、その "*カテゴリ*" が指定されます。 このカテゴリは、その `Ilogger` のインスタンスによって作成される各ログ メッセージと共に含められます。 カテゴリには任意の文字列を指定できますが、"TodoApi.Controllers.TodoController" などのクラス名を使用するが慣例です。
 
-文字列としてカテゴリを指定するか、型からカテゴリを派生させる拡張メソッドを使用することができます。 文字列としてカテゴリを指定するには、次のように `ILoggerFactory` インスタンスに対して `CreateLogger` を呼び出します。
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
-
-::: moniker-end
-
-ほとんどの場合、次の例のように `ILogger<T>` を使用する方が簡単です。
+`ILogger<T>` を使用して、カテゴリとして `T` の完全修飾型名が使用される `ILogger` インスタンスを取得します。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -221,13 +236,27 @@ Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 3
 
 ::: moniker-end
 
-これは、`T` の完全修飾型名を使用した `CreateLogger` の呼び出しと同じです。
+カテゴリを明示的に指定するには、`ILoggerFactory.CreateLogger` を呼び出します。
+
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CreateLogger&highlight=7,10)]
+
+::: moniker-end
+
+`ILogger<T>` は、`T` の完全修飾型名を使用した `CreateLogger` の呼び出しと同じです。
 
 ## <a name="log-level"></a>ログ レベル
 
-ログを書き込むたびに、[LogLevel](/dotnet/api/microsoft.extensions.logging.logLevel) を指定します。 ログ レベルは、重大度または重要度を示します。 たとえば、メソッドが通常どおりに終了したときには `Information` ログ、メソッドから 404 リターン コードが返されたときには `Warning` ログ、予期しない例外をキャッチしたときには `Error` ログを書き込むことができます。
+すべてのログで <xref:Microsoft.Extensions.Logging.LogLevel> 値が指定されます。 ログ レベルは、重大度または重要度を示します。 たとえば、メソッドが正常に終了した場合は `Information` ログを、メソッドが *404 Not Found* 状態コードを返した場合は `Warning` ログを書き込む場合があります。
 
-次のコード例では、メソッドの名前 (たとえば `LogWarning`) でログ レベルを指定します。 最初のパラメーターは[ログ イベント ID](#log-event-id) です。 2 つ目のパラメーターは、他のメソッド パラメーターに提供される引数値のプレースホルダーを含む[メッセージ テンプレート](#log-message-template)です。 メソッド パラメーターの詳細については、この記事で後ほど説明します。
+`Information` および `Warning` ログを作成するコードを次に示します。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -241,37 +270,44 @@ Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 3
 
 ::: moniker-end
 
-メソッド名にレベルを含むログ メソッドは、[ILogger の拡張メソッド](/dotnet/api/microsoft.extensions.logging.loggerextensions)です。 これらのメソッドは、背後で `LogLevel` パラメーターを受け取る `Log` メソッドを呼び出します。 これらの拡張メソッドのいずれかではなく、`Log` メソッドを直接呼び出すことができますが、構文は比較的複雑です。 詳細については、[ILogger インターフェイス](/dotnet/api/microsoft.extensions.logging.ilogger)と[ロガー拡張ソース コード](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs)に関するページを参照してください。
+前のコードでは、最初のパラメーターは[ログ イベント ID](#log-event-id) です。 2 つ目のパラメーターは、他のメソッド パラメーターによって提供される引数値のプレースホルダーを含むメッセージ テンプレートです。 メソッド パラメーターについては、この記事の後半の[メッセージ テンプレートのセクション](#log-message-template)で説明します。
 
-ASP.NET Core には、次の[ログ レベル](/dotnet/api/microsoft.extensions.logging.loglevel)が定義されています (重大度の低いレベルから高いレベルの順)。
+メソッド名にレベルを含むログ メソッド (たとえば `LogInformation` や `LogWarning`) は、[ILogger の拡張メソッド](xref:Microsoft.Extensions.Logging.LoggerExtensions)です。 これらのメソッドでは、`LogLevel` パラメーターを受け取る `Log` メソッドが呼び出されます。 これらの拡張メソッドのいずれかではなく、`Log` メソッドを直接呼び出すことができますが、構文は比較的複雑です。 詳細については、<xref:Microsoft.Extensions.Logging.ILogger> および[ロガー拡張ソース コード](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs)に関するページを参照してください。
+
+ASP.NET Core には、次のログ レベルが定義されています (重大度の低いものから高い順)。
 
 * Trace = 0
 
-  問題をデバッグする開発者にのみ重要な情報の場合。 これらのメッセージには機密性の高いアプリケーション データが含まれる可能性があるため、運用環境は有効にしないことをお勧めします。 *既定で無効です。* 例 : `Credentials: {"User":"someuser", "Password":"P@ssword"}`
+  通常はデバッグでのみ役立つ情報の場合。 これらのメッセージには機密性の高いアプリケーション データが含まれる可能性があるため、運用環境は有効にしないことをお勧めします。 *既定で無効です。*
 
 * Debug = 1
 
-  開発およびデバッグ中に短期的に実用性がある情報の場合。 例: `Entering method Configure with flag set to true.` `Debug` レベルのログはログのサイズが大きくなるため、通常、トラブルシューティングのためではない限り、運用環境では有効にしません。
+  開発とデバッグで役立つ可能性がある情報の場合。 例: `Entering method Configure with flag set to true.` `Debug` レベルのログは、ログのサイズが大きくなるため、トラブルシューティングの場合を除き運用環境では有効にしません。
 
 * Information = 2
 
-  アプリケーションの一般的なフローを追跡する場合。 通常、これらのログには、長期的な値があります。 例 : `Request received for path /api/todo`
+  アプリの一般的なフローを追跡する場合。 通常、これらのログには、長期的な値があります。 例 : `Request received for path /api/todo`
 
 * Warning = 3
 
-  アプリケーション フローの異常なイベントまたは予期しないイベントの場合。 たとえば、アプリケーションは停止しなくても、調査が必要な可能性があるエラーや他の条件が含まれます。 `Warning` ログ レベルが使用される一般的な場所として、例外の処理があります。 例 : `FileNotFoundException for file quotes.txt.`
+  アプリのフローで異常なイベントや予期しないイベントが発生した場合。 アプリの停止の原因にはならないが、調査する必要があるエラーやその他の状態がここに含まれる場合があります。 `Warning` ログ レベルが使用される一般的な場所として、例外の処理があります。 例 : `FileNotFoundException for file quotes.txt.`
 
 * Error = 4
 
-  処理できないエラーと例外の場合。 これらのメッセージは、アプリケーション全体のエラーではなく、現在のアクティビティまたは操作 (現在の HTTP 要求など) のエラーを示します。 ログ メッセージの例: `Cannot insert record due to duplicate key violation.`
+  処理できないエラーと例外の場合。 これらのメッセージは、アプリ全体のエラーではなく、現在のアクティビティまたは操作 (現在の HTTP 要求など) におけるエラーを示します。 ログ メッセージの例: `Cannot insert record due to duplicate key violation.`
 
 * Critical = 5
 
   即時の注意が必要なエラーの場合。 例: データ損失のシナリオ、ディスク領域不足。
 
-ログ レベルを使用して、特定のストレージ メディアまたは表示ウィンドウに書き込むログの出力量を制御できます。 たとえば、運用環境で、`Information` レベル以下のすべてのログをボリューム データ ストアに、`Warning` 以上のすべてのログを値のデータ ストアに書き込むことができます。 開発中は、通常、`Warning` 以上の重大度のログをコンソールに送信することがあります。 トラブルシューティングが必要になったら、`Debug` レベルを追加できます。 この記事で後述する「[ログのフィルター処理](#log-filtering)」セクションでは、プロバイダーで処理するログ レベルの制御方法について説明します。
+ログ レベルを使用して、特定のストレージ メディアまたは表示ウィンドウに書き込むログの出力量を制御します。 例:
 
-ASP.NET Core フレームワークは、フレームワーク イベントに対して `Debug` ログ レベルを書き込みます。 この記事で前述したログの例では、`Information` レベル以下のログを除外したため、`Debug` ログ レベルは表示されていません。 Console プロバイダーに関する `Debug` 以上のログを表示するように構成されたサンプル アプリケーションを実行した場合のコンソール ログ例を次に示します。
+* 運用環境では、`Information` レベルを使用してボリューム データ ストアに `Trace` を送信します。 `Critical` を使用して値のデータ ストアに `Warning` を送信します。
+* 開発中は `Critical` を使用してコンソールに `Warning` を送信し、トラブルシューティングの際は `Information` を使用して `Trace` を追加します。
+
+この記事で後述する「[ログのフィルター処理](#log-filtering)」セクションでは、プロバイダーで処理するログ レベルの制御方法について説明します。
+
+ASP.NET Core では、フレームワーク イベントのログが書き込まれます。 この記事の前のログの例では、`Information` レベル以下のログを除外したため、`Debug` または `Trace` レベルのログは作成されませんでした。 `Debug` ログを示すために構成したサンプル アプリを実行することで生成されるコンソールのログの例を、次に示します。
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -304,7 +340,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>ログ イベント ID
 
-ログを書き込むたびに、*イベント ID* を指定します。 サンプル アプリでは、この処理にローカルで定義された `LoggingEvents` クラスを使用します。
+各ログで "*イベント ID*" を指定できます。 サンプル アプリでは、この処理にローカルで定義された `LoggingEvents` クラスを使用します。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -322,9 +358,9 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ::: moniker-end
 
-イベント ID は、ログに記録された一連のイベントを関連付けるために使用できる整数値です。 たとえば、項目をショッピング カートに追加する処理のログをイベント ID 1000 にしたり、購入を完了する処理のログをイベント ID 1001 にしたりすることができます。
+イベント ID によって一連のイベントが関連付けられます。 たとえば、ページ上に項目の一覧を表示する機能に関連するすべてのログを 1001 に設定します。
 
-ログ記録の出力のイベント ID は、プロバイダーに応じてフィールドに保存されるか、テキスト メッセージに含まれることがあります。 Debug プロバイダーではイベント ID が表示されませんが、Console プロバイダーではカテゴリの後に角かっこに囲まれたイベント ID が表示されます。
+ログ プロバイダーでは、ID フィールドやログ メッセージにイベント ID が格納されたり、またはまったく格納されなかったりする場合があります。 Debug プロバイダーでイベント ID が表示されることはありません。 Console プロバイダーでは、カテゴリの後のブラケット内にイベント ID が表示されます。
 
 ```console
 info: TodoApi.Controllers.TodoController[1002]
@@ -335,7 +371,7 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ## <a name="log-message-template"></a>ログ メッセージ テンプレート
 
-ログ メッセージを書き込むたびに、メッセージ テンプレートを指定します。 メッセージ テンプレートは文字列にするか、引数値を配置する名前付きプレースホルダーを含めることができます。 テンプレートは書式設定文字列ではありません。プレースホルダーは番号ではなく名前付きにする必要があります。
+各ログでメッセージ テンプレートが指定されます。 メッセージ テンプレートには、指定される引数のためのプレースホルダーを含めることができます。 プレースホルダーには、数値ではなく名前を使用します。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -349,7 +385,7 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ::: moniker-end
 
-プレースホルダーの名前ではなく、プレースホルダーの順序によって、値の指定に使用されるパラメーターが決まります。 次のようなコードがあるとします。
+プレースホルダーの名前ではなく、プレースホルダーの順序によって、値の指定に使用されるパラメーターが決まります。 次のコードでは、パラメーター名がメッセージ テンプレート内のシーケンスの外にあることに注意してください。
 
 ```csharp
 string p1 = "parm1";
@@ -357,19 +393,19 @@ string p2 = "parm2";
 _logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 ```
 
-結果のログ メッセージは次のようになります。
+このコードでは、シーケンス内のパラメーター値を含むログ メッセージが作成されます。
 
 ```
 Parameter values: parm1, parm2
 ```
 
-ログ記録フレームワークは、ログ プロバイダーが [セマンティック ログ記録 (構造化ログ記録とも呼ばれます)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) を実装できるような方法でメッセージの書式設定を実行します。 書式設定されたメッセージ テンプレートだけでなく、引数自体がログ記録システムに渡されるので、ログ プロバイダーはメッセージ テンプレートに加えてフィールドとしてもパラメーター値を保存できます。 ログの出力先を Azure Table Storage にすると、ロガー メソッドの呼び出しは次のようになります。
+ログ プロバイダーが[セマンティック ログ記録 (または構造化ログ記録)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)を実装できるようにするために、ログ フレームワークはこのように動作します。 書式設定されたメッセージ テンプレートだけでなく、引数自体がログ システムに渡されます。 この情報により、ログ プロバイダーはフィールドとしてパラメーター値を格納することができます。 たとえば、つぎのようなロガー メソッドの呼び出しがあるとします。
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
 ```
 
-各 Azure Table エンティティに `ID` および `RequestTime` プロパティを指定し、ログ データのクエリを簡略化することができます。 指定した `RequestTime` の範囲内のすべてのログを検索できます。テキスト メッセージから時間を解析する必要はありません。
+Azure Table Storage にログを送信する場合、各 Azure Table エンティティに `ID` および `RequestTime` プロパティを指定し、ログ データのクエリを簡略化することができます。 クエリによって指定した `RequestTime` の範囲内のすべてのログを検索できます。テキスト メッセージから時間を解析する必要はありません。
 
 ## <a name="logging-exceptions"></a>ログ記録の例外
 
@@ -402,11 +438,11 @@ System.Exception: Item not found exception.
 
 特定のプロバイダーとカテゴリ、またはすべてのプロバイダーまたはすべてのカテゴリに最小ログ レベルを指定できます。 最小レベルを下回るログは、そのプロバイダーに渡されないので、表示または保存されません。
 
-すべてのログを抑制する場合は、最小ログ レベルに `LogLevel.None` を指定できます。 `LogLevel.None` の整数値は 6 であり、`LogLevel.Critical` (5) を超えます。
+すべてのログを抑制するには、最小ログ レベルに `LogLevel.None` を指定します。 `LogLevel.None` の整数値は 6 であり、`LogLevel.Critical` (5) を超えます。
 
 ### <a name="create-filter-rules-in-configuration"></a>構成にフィルター規則を作成する
 
-プロジェクト テンプレートは、`CreateDefaultBuilder` を呼び出して、Console プロバイダーと Debug プロバイダーのログ記録を設定するコードを作成します。 `CreateDefaultBuilder` メソッドは、次のようなコードを使用して、`Logging` セクションの構成を検索するログ記録も設定します。
+プロジェクト テンプレートのコードでは `CreateDefaultBuilder` が呼び出され、Console プロバイダーと Debug プロバイダーのログ記録が設定されます。 `CreateDefaultBuilder` メソッドは、次のようなコードを使用して、`Logging` セクションの構成を検索するログ記録も設定します。
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=15)]
 
@@ -414,11 +450,11 @@ System.Exception: Item not found exception.
 
 [!code-json[](index/samples/2.x/TodoApiSample/appsettings.json)]
 
-この JSON では、6 個のフィルター規則を作成します。1 つは Debug プロバイダー用、4 つは Console プロバイダー用、1 つはすべてのプロバイダーに適用されるフィルターです。 `ILogger` オブジェクトの作成時に、各プロバイダーにこれらの規則のうち 1 つのみを選択する方法を後で説明します。
+この JSON では、6 個のフィルター規則を作成します。1 つは Debug プロバイダー用、4 つは Console プロバイダー用、1 つはすべてのプロバイダー用です。 `ILogger` オブジェクトが作成されると、各プロバイダーに対して 1 つの規則が選択されます。
 
 ### <a name="filter-rules-in-code"></a>コードのフィルター規則
 
-次の例のように、コードでフィルター規則を登録できます。
+コードにフィルター規則を登録する方法を次の例に示します。
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
 
@@ -439,25 +475,25 @@ System.Exception: Item not found exception.
 | 7      | すべてのプロバイダー | システム                                  | デバッグ             |
 | 8      | デバッグ         | Microsoft                               | トレース             |
 
-ログの書き込みに使用する `ILogger` オブジェクトを作成すると、`ILoggerFactory` オブジェクトでそのロガーに適用されるプロバイダーごとの 1 つの規則が選択されます。 その `ILogger` オブジェクトで書き込まれるすべてのメッセージは、選択した規則に基づいてフィルター処理されます。 使用できる規則から、各プロバイダーとカテゴリのペアごとに該当する最も限定的な規則が選択されます。
+`ILogger` オブジェクトを作成すると、`ILoggerFactory` オブジェクトによって、そのロガーに適用するプロバイダーごとに 1 つの規則が選択されます。 `ILogger` インスタンスによって書き込まれるすべてのメッセージは、選択した規則に基づいてフィルター処理されます。 使用できる規則から、各プロバイダーとカテゴリのペアごとに該当する最も限定的な規則が選択されます。
 
 特定のカテゴリに `ILogger` が作成されるときに、各プロバイダーに次のアルゴリズムが使用されます。
 
-* プロバイダーとそのエイリアスと一致するすべての規則が選択されます。 何も見つからない場合は、空のプロバイダーですべての規則が選択されます。
-* 前の手順の結果、最も長いカテゴリのプレフィックスが一致する規則が選択されます。 何も見つからない場合は、カテゴリを指定しないすべての規則が選択されます。
+* プロバイダーとそのエイリアスと一致するすべての規則が選択されます。 一致が見つからない場合は、空のプロバイダーですべての規則が選択されます。
+* 前の手順の結果、最も長いカテゴリのプレフィックスが一致する規則が選択されます。 一致が見つからない場合は、カテゴリを指定しないすべての規則が選択されます。
 * 複数の規則が選択されている場合は、**最後**の 1 つが使用されます。
 * 規則が選択されていない場合は、`MinimumLevel` が使用されます。
 
-たとえば、前の規則一覧があり、カテゴリ "Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine" に `ILogger` オブジェクトを作成するとします。
+前の規則一覧を使用して、カテゴリ "Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine" に `ILogger` オブジェクトを作成するとします。
 
 * Debug プロバイダーの場合、規則 1、6、8 が適用されます。 規則 8 が最も限定的なので、規則 8 が選択されます。
 * Console プロバイダーの場合、規則 3、4、5、6 が適用されます。 規則 3 が最も限定的です。
 
-カテゴリ "Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine" の `ILogger` を含むログを作成すると、`Trace` レベル以上のログは Debug プロバイダーに送信され、`Debug` レベル以上のログは Console プロバイダーに送信されます。
+作成される `ILogger` インスタンスでは、Debug プロバイダーに `Trace` レベル以上のログが送信されます。 `Debug` レベル以上のログが Console プロバイダーに送信されます。
 
 ### <a name="provider-aliases"></a>プロバイダーのエイリアス
 
-構成では種類の名前を使用してプロバイダーを指定できますが、各プロバイダーには、使いやすい短い*エイリアス*が定義されています。 組み込みのプロバイダーの場合は、次のエイリアスを使用してください。
+各プロバイダーでは "*エイリアス*" が定義されます。これは構成で完全修飾型名の代わりに使用できます。  組み込みのプロバイダーの場合は、次のエイリアスを使用してください。
 
 * コンソール
 * デバッグ
@@ -476,7 +512,7 @@ System.Exception: Item not found exception.
 
 ### <a name="filter-functions"></a>フィルター関数
 
-フィルター関数には、フィルター規則を適用するコードを記述できます。 フィルター関数は、構成またはコードによって規則が割り当てられていないすべてのプロバイダーとカテゴリについて呼び出されます。 この関数内のコードは、プロバイダーの種類、カテゴリ、およびログ レベルにアクセスし、メッセージをログに記録するかどうかを決定することができます。 例:
+フィルター関数は、構成またはコードによって規則が割り当てられていないすべてのプロバイダーとカテゴリについて呼び出されます。 関数内のコードから、プロバイダーの種類、カテゴリ、ログ レベルにアクセスすることができます。 例:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -486,27 +522,43 @@ System.Exception: Item not found exception.
 
 一部のログ プロバイダーでは、ログのレベルとカテゴリに基づいてログをストレージ メディアに書き込む場合や無視する場合を指定できます。
 
-`AddConsole` および `AddDebug` 拡張メソッドには、フィルター条件で渡すことができるオーバーロードが用意されています。 次のサンプル コードを実行すると、Console プロバイダーは `Warning` レベル未満のログを無視し、Debug プロバイダーはフレームワークで作成されたログを無視します。
+`AddConsole` および `AddDebug` 拡張メソッドには、フィルター条件を指定できるオーバーロードが用意されています。 次のサンプル コードを実行すると、Console プロバイダーは `Warning` レベル未満のログを無視し、Debug プロバイダーはフレームワークで作成されたログを無視します。
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
 
 `AddEventLog` メソッドには、`EventLogSettings` インスタンスを受け取るオーバーロードがあります。このインスタンスの `Filter` プロパティにはフィルター関数を含めることができます。 TraceSource プロバイダーには、これらのオーバーロードのいずれも用意されていません。これは、ログ レベルと他のパラメーターが、使用される `SourceSwitch` と `TraceListener` に基づいているためです。
 
-`WithFilter` 拡張メソッドを使用して、`ILoggerFactory` インスタンスに登録されているすべてのプロバイダーにフィルター規則を設定できます。 以下の例は、フレームワーク ログを警告に制限しますが (カテゴリは "Microsoft" または "System" で始まります)、アプリではデバッグ レベルでログを記録できます。
+`ILoggerFactory` インスタンスに登録されているすべてのプロバイダーにフィルター規則を設定するには、`WithFilter` 拡張メソッドを使用します。 以下の例では、フレームワーク ログ ("Microsoft" または "System" で始まるカテゴリ) が警告に制限されますが、アプリケーション コードによって作成されたログはデバッグ レベルで記録されます。
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_FactoryFilter&highlight=6-11)]
 
-フィルター処理を使用して、特定のカテゴリに関するすべてのログが書き込まれないようにするには、そのカテゴリの最小ログ レベルとして `LogLevel.None` を指定できます。 `LogLevel.None` の整数値は 6 であり、`LogLevel.Critical` (5) を超えます。
+あらゆるログの書き込みを防ぐには、最小のログ レベルとして `LogLevel.None` を指定します。 `LogLevel.None` の整数値は 6 であり、`LogLevel.Critical` (5) を超えます。
 
 `WithFilter` 拡張メソッドは [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) NuGet パッケージで提供されます。 このメソッドは、登録されているすべてのログ プロバイダーに渡されたログ メッセージをフィルター処理する新しい `ILoggerFactory` インスタンスを返します。 これは、元の `ILoggerFactory` インスタンスを含め、他の `ILoggerFactory` インスタンスには影響がありません。
 
 ::: moniker-end
 
+## <a name="system-categories-and-levels"></a>システムのカテゴリとレベル
+
+ASP.NET Core と Entity Framework Core によって使用されるいくつかのカテゴリと、それらから想定されるログの種類に関するメモを、次に示します。
+
+| カテゴリ                            | メモ |
+| ----------------------------------- | ----- |
+| Microsoft.AspNetCore                | ASP.NET Core の一般的な診断。 |
+| Microsoft.AspNetCore.DataProtection | どのキーが検討、検索、および使用されたか。 |
+| Microsoft.AspNetCore.HostFiltering  | 許可されるホスト。 |
+| Microsoft.AspNetCore.Hosting        | HTTP 要求が完了するまでにかかった時間と、それらの開始時刻。 どのホスティング スタートアップ アセンブリが読み込まれたか。 |
+| Microsoft.AspNetCore.Mvc            | MVC と Razor の診断。 モデルの構築、フィルター処理の実行、ビューのコンパイル、アクションの選択。 |
+| Microsoft.AspNetCore.Routing        | 一致する情報をルーティングします。 |
+| Microsoft.AspNetCore.Server         | 接続の開始、停止、キープ アライブ応答。 HTTPS 証明書情報。 |
+| Microsoft.AspNetCore.StaticFiles    | 提供されるファイル。 |
+| Microsoft.EntityFrameworkCore       | Entity Framework Core の一般的な診断。 データベースのアクティビティと構成、変更の検出、移行。 |
+
 ## <a name="log-scopes"></a>ログのスコープ
 
-論理操作セットの一部として作成される各ログに同じデータをアタッチするために、*スコープ*内の論理操作セットをグループ化することができます。 たとえば、状況によっては、トランザクションの処理の一部として作成されるすべてのログにトランザクション ID を含める必要があります。
+ "*スコープ*" では、論理操作のセットをグループ化できます。 このグループ化を使用して、セットの一部として作成される各ログに同じデータをアタッチすることができます。 たとえば、トランザクション処理の一部として作成されるすべてのログに、トランザクション ID を含めることができます。
 
-スコープは [ILogger.BeginScope&lt;TState&gt;](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) メソッドから返される `IDisposable` の種類であり、破棄されるまで継続します。 スコープを使用するには、次のようにロガーの呼び出しを `using` ブロックでラップします。
+スコープは <xref:Microsoft.Extensions.Logging.ILogger.BeginScope*> メソッドから返される `IDisposable` の種類であり、破棄されるまで継続します。 ロガーの呼び出しを `using` ブロックでラップすることによって、スコープを使用します。
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
@@ -564,11 +616,14 @@ ASP.NET Core には次のプロバイダーが付属しています。
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
-* [Azure App Service](#azure-app-service-provider)
+
+[Azure でのログ記録](#logging-in-azure)用のオプションについては、この記事で後ほど説明します。
+
+stdout ログについては、<xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> と <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log> をご覧ください。
 
 ### <a name="console-provider"></a>Console プロバイダー
 
-[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) プロバイダー パッケージは、ログ出力をコンソールに送信します。
+[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) プロバイダー パッケージは、ログ出力をコンソールに送信します。 
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -584,9 +639,9 @@ logging.AddConsole();
 loggerFactory.AddConsole();
 ```
 
-[AddConsole オーバーロード](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions)を使用すると、最小ログ レベル、フィルター関数、スコープがサポートされているかどうかを示すブール値を渡すことができます。 もう 1 つの選択肢として、`IConfiguration` オブジェクトを渡す方法があります。この場合、スコープのサポートとログ レベルを指定できます。
+[AddConsole オーバーロード](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions)を使用すると、最小ログ レベル、フィルター関数、スコープがサポートされているかどうかを示すブール値を渡すことができます。 もう 1 つの選択肢として、`IConfiguration` オブジェクトを渡す方法があります。この場合、スコープのサポートとログ レベルを指定できます。
 
-運用環境で使用する Console プロバイダーを検討している場合は、パフォーマンスに重大な影響がある点に注意してください。
+Console プロバイダーはパフォーマンスに大きな影響を及ぼすため、一般的に運用環境での使用には適していません。
 
 Visual Studio で新しいプロジェクトを作成する場合、`AddConsole` メソッドは次のようになります。
 
@@ -601,6 +656,12 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 この設定ではフレームワークのログを警告に制限していますが、「[ログのフィルター処理](#log-filtering)」セクションで説明したように、アプリではデバッグ レベルでログに記録することができます。 詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。
 
 ::: moniker-end
+
+コンソールのログ出力を確認するには、プロジェクト フォルダーでコマンド プロンプトを開き、次のコマンドを実行します。
+
+```console
+dotnet run
+```
 
 ### <a name="debug-provider"></a>Debug プロバイダー
 
@@ -622,7 +683,7 @@ logging.AddDebug();
 loggerFactory.AddDebug();
 ```
 
-[AddDebug オーバーロード](/dotnet/api/microsoft.extensions.logging.debugloggerfactoryextensions)を使用すると、最小ログ レベルまたはフィルター関数を渡すことができます。
+[AddDebug オーバーロード](xref:Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions)を使用すると、最小ログ レベルまたはフィルター関数を渡すことができます。
 
 ::: moniker-end
 
@@ -670,13 +731,13 @@ logging.AddEventLog();
 loggerFactory.AddEventLog();
 ```
 
-[AddEventLog オーバーロード](/dotnet/api/microsoft.extensions.logging.eventloggerfactoryextensions)を使用すると、`EventLogSettings` または最小ログ レベルを渡すことができます。
+[AddEventLog オーバーロード](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions)を使用すると、`EventLogSettings` または最小ログ レベルを渡すことができます。
 
 ::: moniker-end
 
 ### <a name="tracesource-provider"></a>TraceSource プロバイダー
 
-[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) プロバイダー パッケージは、[System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) のライブラリとプロバイダーを使用します。
+[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) プロバイダー パッケージでは、<xref:System.Diagnostics.TraceSource> ライブラリとプロバイダーが使用されます。
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -694,21 +755,28 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 ::: moniker-end
 
-[AddTraceSource オーバーロード](/dotnet/api/microsoft.extensions.logging.tracesourcefactoryextensions)を使用すると、ソース スイッチとトレース リスナーを渡すことができます。
+[AddTraceSource オーバーロード](xref:Microsoft.Extensions.Logging.TraceSourceFactoryExtensions)を使用すると、ソース スイッチとトレース リスナーを渡すことができます。
 
-このプロバイダーを使用するには、アプリケーションを (.NET Core ではなく) .NET Framework 上で実行する必要があります。 このプロバイダーを使用すると、サンプル アプリケーションで使用されている [TextWriterTraceListener](/dotnet/api/system.diagnostics.textwritertracelistenerr) など、多様な[リスナー](/dotnet/framework/debug-trace-profile/trace-listeners)にメッセージをルーティングすることができます。
-
-次の例では、`Warning` 以上のメッセージのログをコンソール ウィンドウに出力する `TraceSource` プロバイダーを構成します。
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
-
-::: moniker-end
+このプロバイダーを使用するには、アプリを (.NET Core ではなく) .NET Framework 上で実行する必要があります。 このプロバイダーでは、サンプル アプリで使用されている <xref:System.Diagnostics.TextWriterTraceListener> など、さまざまな[リスナー](/dotnet/framework/debug-trace-profile/trace-listeners)にメッセージをルーティングさせることができます。
 
 ::: moniker range="< aspnetcore-2.0"
 
+次の例では、`Warning` 以上のメッセージのログをコンソール ウィンドウに出力する `TraceSource` プロバイダーを構成します。
+
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
+
+::: moniker-end
+
+## <a name="logging-in-azure"></a>Azure でのログ記録
+
+Azure でのログ記録については、次のセクションを参照してください。
+
+* [Azure App Service プロバイダー](#azure-app-service-provider)
+* [Azure ログのストリーミング](#azure-log-streaming)
+
+::: moniker range=">= aspnetcore-1.1"
+
+* [Azure Application Insights のトレース ログ](#azure-application-insights-trace-logging)
 
 ::: moniker-end
 
@@ -720,10 +788,25 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 .NET Core を対象とする場合は、次の点に注意してください。
 
-* プロバイダー パッケージは ASP.NET Core [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) に含まれ、[Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) には含まれません。
-* [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) を明示的に呼び出さないでください。 アプリを Azure App Service にデプロイすると、プロバイダーはアプリで自動的に使用できるようになります。
+::: moniker-end
 
-.NET Framework をターゲットとする場合、または `Microsoft.AspNetCore.App` を参照している場合は、プロバイダー パッケージをプロジェクトに追加します。 `AddAzureWebAppDiagnostics` を [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) インスタンス上で呼び出します。
+::: moniker range="= aspnetcore-2.0"
+
+* プロバイダー パッケージは、ASP.NET Core の [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)に含まれます。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+* プロバイダー パッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)には含まれません。 プロバイダーを使用するには、パッケージをインストールします。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+* <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> を明示的に呼び出さないでください。 アプリを Azure App Service にデプロイすると、プロバイダーはアプリで自動的に使用できるようになります。
+
+.NET Framework をターゲットとする場合、または `Microsoft.AspNetCore.App` を参照している場合は、プロバイダー パッケージをプロジェクトに追加します。 <xref:Microsoft.Extensions.Logging.ILoggerFactory> インスタンス上で `AddAzureWebAppDiagnostics` を呼び出します。
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -739,15 +822,50 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker-end
 
-[AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) オーバーロードを使用すると、ログ記録出力テンプレート、BLOB 名、ファイル サイズの制限など、既定の設定をオーバーライドできる [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) を渡すことができます。 (*出力テンプレート*は、`ILogger` メソッドを呼び出すときに指定するテンプレートに加え、すべてのログに適用されるメッセージ テンプレートです)。
+::: moniker range=">= aspnetcore-1.1"
 
-App Service アプリにデプロイすると、アプリは Azure Portal の **[App Service]** ページの [[診断ログ]](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) セクションに指定された設定を適用します。 これらの設定が更新されると、アプリの再起動や再デプロイを必要とせずに、変更がすぐに有効になります。
+<xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> のオーバーロードによって <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings> を渡すことができます。 設定オブジェクトで既定の設定をオーバーライドできます。たとえば、ログの出力テンプレート、BLOB 名、ファイル サイズの制限などです。 ("*出力テンプレート*" は、`ILogger` メソッドの呼び出しと共に指定されるものに加えて、すべてのログに適用されるメッセージ テンプレートです。)
+
+アプリケーションを App Service アプリにデプロイすると、Azure portal の **[App Service]** ページの [[診断ログ]](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) セクションで指定された設定が適用されます。 これらの設定が更新されると、アプリの再起動や再デプロイを必要とせずに、変更がすぐに有効になります。
 
 ![Azure のログ設定](index/_static/azure-logging-settings.png)
 
-ログ ファイルの既定の場所は、*D:\\home\\LogFiles\\Application* です。既定のファイル名は *diagnostics-yyyymmdd.txt* です。 既定のファイル サイズ制限は 10 MB です。保持されるファイルの既定の最大数は 2 です。 既定の BLOB 名は *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt* です。 既定の動作の詳細については、[AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) を参照してください。
+ログ ファイルの既定の場所は、*D:\\home\\LogFiles\\Application* です。既定のファイル名は *diagnostics-yyyymmdd.txt* です。 既定のファイル サイズ制限は 10 MB です。保持されるファイルの既定の最大数は 2 です。 既定の BLOB 名は *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt* です。 既定の動作について詳しくは、<xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings> をご覧ください。
 
 このプロバイダーは、プロジェクトが Azure 環境で実行される場合にのみ機能します。 プロジェクトをローカルで実行しても、効果はありません&mdash;BLOB のローカル ファイルまたはローカル開発ストレージへの書き込みは行われません。
+
+::: moniker-end
+
+### <a name="azure-log-streaming"></a>Azure ログのストリーミング
+
+Azure ログのストリーミングを使用すると、以下からリアル タイムでログ アクティビティを確認できます。
+
+* アプリ サーバー
+* Web サーバー
+* 失敗した要求のトレース
+
+Azure ログのストリーミングを構成するには
+
+* アプリのポータル ページから **[診断ログ]** ページに移動します。
+* **[アプリケーション ログ (ファイル システム)]** を **[オン]** に設定します。
+
+![Azure Portal の [診断ログ] ページ](index/_static/azure-diagnostic-logs.png)
+
+**[ログ ストリーミング]** ページに移動して、アプリのメッセージを確認します。 これらはアプリによって、`ILogger` インターフェイスを介してログに記録されます。
+
+![Azure Portal のアプリケーション ログのストリーミング](index/_static/azure-log-streaming.png)
+
+::: moniker range=">= aspnetcore-1.1"
+
+### <a name="azure-application-insights-trace-logging"></a>Azure Application Insights のトレース ログ
+
+Application Insights SDK では、ASP.NET Core のログ インフラストラクチャによって生成されるログを収集およびレポートすることができます。 詳細については、次のリソースを参照してください。
+
+* [Application Insights の概要](/azure/application-insights/app-insights-overview)
+* [ASP.NET Core 用 Application Insights](/azure/application-insights/app-insights-asp-net-core)
+* [Microsoft/ApplicationInsights-aspnetcore Wiki: ログ記録](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging)
+
+::: moniker-end
 
 ## <a name="third-party-logging-providers"></a>サードパーティ製のログ プロバイダー
 
@@ -767,32 +885,9 @@ ASP.NET Core で使用できるサードパーティ製のログ記録フレー�
 サード パーティ製フレームワークを使用することは、組み込みのプロバイダーのいずれかを使用することと似ています。
 
 1. プロジェクトに NuGet パッケージを追加します。
-1. `ILoggerFactory` で拡張メソッドを呼び出します。
+1. `ILoggerFactory` を呼び出します。
 
-詳細については、各フレームワークのドキュメントを参照してください。
-
-## <a name="azure-log-streaming"></a>Azure ログのストリーミング
-
-Azure ログのストリーミングを使用すると、リアル タイムで以下のログ アクティビティを確認できます。
-
-* アプリケーション サーバー
-* Web サーバー
-* 失敗した要求のトレース
-
-Azure ログのストリーミングを構成するには
-
-* アプリケーションのポータル ページから **[診断ログ]** ページに移動します。
-* **[アプリケーション ログ (ファイル システム)]** を [オン] に設定します。
-
-![Azure Portal の [診断ログ] ページ](index/_static/azure-diagnostic-logs.png)
-
-**[ログ ストリーミング]** ページに移動して、アプリケーション メッセージを確認します。 これらのメッセージは、アプリケーションで `ILogger` インターフェイスを介してログに記録されます。
-
-![Azure Portal のアプリケーション ログのストリーミング](index/_static/azure-log-streaming.png)
-
-## <a name="azure-application-insights-trace-logging"></a>Azure Application Insights のトレース ログ
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) SDK では、ASP.NET Core ログ インフラストラクチャを介して生成されるログからトレース テレメトリを収集することができます。 詳細については、「[Application Insights for ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core)」(ASP.NET Core 向けの Application Insights) および [Microsoft/ApplicationInsights-aspnetcore の Wiki のログ](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging)に関するページを参照してください。
+詳細については、各プロバイダーのドキュメントをご覧ください。 サード パーティ製のログ プロバイダーは、Microsoft ではサポートされていません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
