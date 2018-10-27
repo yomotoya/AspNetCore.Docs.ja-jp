@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: d5a3916c3df9778d14be80342bafbc3456a69a03
-ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
+ms.openlocfilehash: 4dcc62573fad13ec8b37b2c59e884eec7ca80b92
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134536"
+ms.locfileid: "50148838"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET の構成ビルダー
 
@@ -29,7 +29,7 @@ ms.locfileid: "50134536"
 
 ## <a name="keyvalue-configuration-builders"></a>キー/値の構成ビルダー
 
-構成ビルダーによって処理できる一般的なシナリオは、キー/値のパターンに準拠する構成セクションのキー/値の基本的な交換メカニズムを提供します。 ConfigurationBuilders の .NET Framework の概念は、特定の構成のセクションでは、またはパターンに制限はありません。 ただし、多くの構成ビルダーの`Microsoft.Configuration.ConfigurationBuilders`([github](https://github.com/aspnet/MicrosoftConfigurationBuilders))、 [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)キー/値のパターン内で機能します。
+構成ビルダーによって処理できる一般的なシナリオは、キー/値のパターンに準拠する構成セクションのキー/値の基本的な交換メカニズムを提供します。 ConfigurationBuilders の .NET Framework の概念は、特定の構成のセクションでは、またはパターンに制限はありません。 ただし、多くの構成ビルダーの`Microsoft.Configuration.ConfigurationBuilders`([github](https://github.com/aspnet/MicrosoftConfigurationBuilders)、 [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) キー/値のパターン内で機能します。
 
 ## <a name="keyvalue-configuration-builders-settings"></a>キー/値の構成ビルダーの設定
 
