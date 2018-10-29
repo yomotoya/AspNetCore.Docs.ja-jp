@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 9c38b1e1d429498bcd59f780e3d3fe1a50eae32d
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 92905d86cb963d01f1806f08d07b270a7f6d8563
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860928"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207408"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core でホステッド サービスを使用するバックグラウンド タスク
 
@@ -24,7 +24,7 @@ ASP.NET Core では、バックグラウンド タスクを*ホステッド サ�
 * スコープ サービスをアクティブ化するホステッド サービス。 スコープ サービスは依存関係の挿入を使用できます。
 * 連続して実行される、キューに格納されたバックグラウンド タスク。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル アプリには、2 つのバージョンが用意されています。
 

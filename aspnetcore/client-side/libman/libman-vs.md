@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: a653b1a5c07feca8672ba38e0cda3ddc30482c5a
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 727bd80b7f37f6ebd9d37b7aab1aa6c33b85678c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312180"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206728"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan を Visual Studio で ASP.NET Core を使用します。
 
@@ -24,7 +24,7 @@ Visual Studio はの組み込みサポート[LibMan](xref:client-side/libman/ind
 * ライブラリを検索して、ファイルをプロジェクトに追加する検索ダイアログ。
 * 編集のサポート*libman.json*&mdash;LibMan マニフェスト ファイル。
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/libman/samples/) [(ダウンロードする方法)](xref:tutorials/index#how-to-download-a-sample)
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/libman/samples/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

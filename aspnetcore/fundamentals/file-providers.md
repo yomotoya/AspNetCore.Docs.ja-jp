@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3274615a0d6b6f928301ce97d18f5d9768963a30
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913217"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207317"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET Core でのファイル プロバイダー
 
@@ -24,7 +24,7 @@ ASP.NET Core は、ファイル プロバイダーを使用してファイル �
 * [Razor](xref:mvc/views/razor) では、ファイル プロバイダーを使用してページとビューを見つけます。
 * .NET Core Tooling では、ファイル プロバイダーと glob パターンを使用して、公開するファイルを指定します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="file-provider-interfaces"></a>ファイル プロバイダーのインターフェイス
 

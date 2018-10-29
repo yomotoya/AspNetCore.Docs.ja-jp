@@ -8,12 +8,12 @@ ms.date: 02/26/2014
 ms.assetid: 1e4c2eb4-b6cf-42ff-8a65-4d71ddca0394
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
 msc.type: authoredcontent
-ms.openlocfilehash: fc1c6b938c4e4be379edf1a495ca47f5f5f2eb4f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f78b5cf36789032f90d3d073698f7a439507277f
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835292"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206862"
 ---
 <a name="supporting-entity-relations-in-odata-v3-with-web-api-2"></a>Web API 2 OData v3 のエンティティ関係をサポート
 ====================
@@ -65,7 +65,7 @@ WebApiConfig.cs では、EDM モデルに"Suppliers"エンティティを追加�
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-*キー*パラメーターは、製品のキー。 メソッドは、関連するエンティティ & #8212 をここでは、返します、`Supplier`インスタンス。 パラメーター名とメソッドの名前は、どちらも重要です。 一般に、ナビゲーション プロパティは、"X"という名前が場合、は、「getx メソッド」という名前のメソッドを追加する必要があります。 メソッドは、という名前のパラメーターを受け取る必要があります"*キー*"親のキーのデータ型と一致します。
+*キー*パラメーターは、製品のキー。 メソッドは、関連するエンティティを返します&#8212;ここで、`Supplier`インスタンス。 パラメーター名とメソッドの名前は、どちらも重要です。 一般に、ナビゲーション プロパティは、"X"という名前が場合、は、「getx メソッド」という名前のメソッドを追加する必要があります。 メソッドは、という名前のパラメーターを受け取る必要があります"*キー*"親のキーのデータ型と一致します。
 
 必ず、 **[FromOdataUri]** 属性、*キー*パラメーター。 この属性では、Web API 要求 URI からキーを解析するときに、OData 構文の規則を使用するように指示します。
 

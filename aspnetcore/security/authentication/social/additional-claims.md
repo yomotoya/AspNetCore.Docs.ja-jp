@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/28/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: 6386dd5f0bd901be01cf56081a6b9ca7f408f9f9
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: dc8b3e32141466a12e4eff0c86d2d4bed689afe5
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336162"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206358"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>その他の要求と ASP.NET Core での外部プロバイダーからのトークンを保存します。
 
@@ -20,11 +20,11 @@ ms.locfileid: "43336162"
 
 ASP.NET Core アプリは、追加の要求および Facebook、Google、Microsoft、Twitter などの外部認証プロバイダーからのトークンを確立できます。 各プロバイダーが、そのプラットフォームでユーザーに関するさまざまな情報が表示されますが、受信し、その他の要求にユーザー データを変換するためのパターンは同じです。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisite"></a>必須コンポーネント
 
-アプリでサポートするには、どの外部認証プロバイダーを決定します。 プロバイダーごとにアプリを登録して、クライアント ID とクライアント シークレットを取得します。 詳細については、「<xref:security/authentication/social/index>」を参照してください。 [サンプル アプリ](#sample-app-instructions)を使用して、 [Google の認証プロバイダー](xref:security/authentication/google-logins)します。
+アプリでサポートするには、どの外部認証プロバイダーを決定します。 プロバイダーごとにアプリを登録して、クライアント ID とクライアント シークレットを取得します。 詳細については、「 <xref:security/authentication/social/index> 」を参照してください。 [サンプル アプリ](#sample-app-instructions)を使用して、 [Google の認証プロバイダー](xref:security/authentication/google-logins)します。
 
 ## <a name="authentication-provider-configuration"></a>認証プロバイダーの構成
 
@@ -108,7 +108,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 サンプル アプリを使用します。
 
-1. アプリを登録し、有効なクライアント ID と Google 認証用のクライアント シークレットを取得します。 詳細については、「<xref:security/authentication/google-logins>」を参照してください。
+1. アプリを登録し、有効なクライアント ID と Google 認証用のクライアント シークレットを取得します。 詳細については、「 <xref:security/authentication/google-logins> 」を参照してください。
 1. クライアント ID とクライアント シークレットをアプリに提供、<xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions>の`Startup.ConfigureServices`します。
 1. アプリを実行し、My 要求ページを要求します。 ユーザーが署名されていないときに、アプリを Google にリダイレクトします。 Google でサインインします。 Google は、アプリにユーザーをリダイレクト (`/Home/MyClaims`)。 ユーザーが認証されると、および My 要求ページが読み込まれます。 性別の要求は下**ユーザーの信頼性情報**Google から取得した値を使用します。 表示されます、アクセス トークン、**認証プロパティ**します。
 

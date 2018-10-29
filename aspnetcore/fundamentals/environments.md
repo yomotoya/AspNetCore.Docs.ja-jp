@@ -5,12 +5,12 @@ description: ASP.NET Core アプリで複数の環境にわたりアプリの動
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: de3c3fd5a2f0e49366d9d5b4e992d0247bcab0e5
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 865257d127084671036147dd1f28c9c4843feef6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577523"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206849"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -18,7 +18,7 @@ ms.locfileid: "48577523"
 
 ASP.NET Core は、環境変数を利用し、ランタイム環境に基づいてアプリの動作を構成します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="environments"></a>環境
 

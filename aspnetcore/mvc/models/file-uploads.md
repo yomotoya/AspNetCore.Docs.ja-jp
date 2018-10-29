@@ -3,14 +3,15 @@ title: ASP.NET Core でのファイルのアップロード
 author: ardalis
 description: モデル バインドとストリーミングを使用して、ASP.NET Core MVC でファイルをアップロードする方法。
 ms.author: riande
-ms.date: 07/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 771e22ca01c67f2b6bbee780324d9d08759b3279
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 913fc9aa473950b7117fb9da5c8913e658c43a9d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38201733"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090268"
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core でのファイルのアップロード
 
@@ -70,7 +71,7 @@ public interface IFormFile
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-`IFormFile` 手法を使用してアップロードされたファイルは、Web サーバー上のディスクまたはメモリ内にバッファーされてから処理されます。 アクション メソッド内では、`IFormFile` コンテンツにはストリームとしてアクセスできます。 ローカル ファイル システムだけでなく、[Azure BLOB ストレージ](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)または [Entity Framework](https://docs.microsoft.com/ef/core/index) にもファイルをストリーミングすることができます。
+`IFormFile` 手法を使用してアップロードされたファイルは、Web サーバー上のディスクまたはメモリ内にバッファーされてから処理されます。 アクション メソッド内では、`IFormFile` コンテンツにはストリームとしてアクセスできます。 ローカル ファイル システムだけでなく、[Azure BLOB ストレージ](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs)または [Entity Framework](/ef/core/index) にもファイルをストリーミングすることができます。
 
 Entity Framework を使用してデータベースにバイナリ ファイル データを格納するには、次のようにエンティティで `byte[]` 型のプロパティを定義します。
 
@@ -117,7 +118,7 @@ public async Task<IActionResult> Register(RegisterViewModel model)
             user.AvatarImage = memoryStream.ToArray();
         }
     // additional logic omitted
-    
+
     // Don't rely on or trust the model.AvatarImage.FileName property 
     // without validation.
 }

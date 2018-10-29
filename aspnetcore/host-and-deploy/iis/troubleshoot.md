@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/07/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: f22914c9b0d6d1902dd37c9b21b80a18894c97e7
-ms.sourcegitcommit: d1c4580f56656b503cf528ec9f5ba570d790b57d
+ms.openlocfilehash: 6a53c1ba5badd741afc3321ce21b047965c611db
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41751644"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090603"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -23,10 +23,10 @@ Visual Studio では、ASP.NET Core プロジェクトのデバッグ時に [IIS
 
 その他のトラブルシューティング トピック:
 
-[Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 App Service は[ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module)と IIS を使用してアプリをホストしますが、App Service 固有の手順については、この専用のトピックを参照してください。
 
-[エラーの処理](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 ローカル システム上で開発しているときに発生する ASP.NET Core アプリのエラーを処理する方法について説明しています。
 
 [Visual Studio を使用したデバッグについて理解する](/visualstudio/debugger/getting-started-with-the-debugger)  
@@ -133,7 +133,7 @@ stdout ログを有効にして表示するには:
 
 ## <a name="common-startup-errors"></a>起動時の一般的なエラー 
 
-[ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)に関するページを参照してください。 このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
+以下を参照してください。<xref:host-and-deploy/azure-iis-errors-reference> このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
 
 ## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
 
@@ -167,7 +167,7 @@ Visual Studio ドキュメントの「[Remote Debug ASP.NET Core on a Remote IIS
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ASP.NET Core でのエラー処理の概要](xref:fundamentals/error-handling)
-* [Azure App Service および IIS と ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
-* [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
-* [Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)
+* <xref:fundamentals/error-handling>
+* <xref:host-and-deploy/azure-iis-errors-reference>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/azure-apps/troubleshoot>

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: c6986ebd179be588b0dc829065a3a8dc36ede3f5
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 3d21e12650d844f05bdfdf5b3451ab6219e3c3b7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293442"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206875"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー コンポーネント
 
@@ -21,7 +21,7 @@ ms.locfileid: "46293442"
 
 ASP.NET Core には、組み込みのタグ ヘルパー コンポーネントが 2 つ (`head` と `body`) 含まれています。 これらは <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> 名前空間に配置され、MVC と Razor Pages の両方で使用できます。 タグ ヘルパー コンポーネントには、*_ViewImports.cshtml* でのアプリへの登録は必要ありません。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="use-cases"></a>ユース ケース
 

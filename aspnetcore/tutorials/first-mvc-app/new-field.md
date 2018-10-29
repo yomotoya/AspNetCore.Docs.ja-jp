@@ -3,20 +3,21 @@ title: ASP.NET Core MVC アプリへの新しいフィールドの追加
 author: rick-anderson
 description: Entity Framework Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
 ms.author: riande
-ms.date: 10/06/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: b63bad99c4a966703634c711e5406d86e5bd140c
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: e58d5af90b997c66cb749ab8f1b2f8049b8f7303
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010885"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089687"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの新しいフィールドの追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このセクションでは、[Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
+このセクションでは、[Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
 
 EF Code First を利用してデータベースを自動作成すると、Code First はテーブルをデータベースに追加し、データベースのスキーマが生成元のモデル クラスと同期しているか追跡します。 同期していない場合、EF は例外をスローします。 一貫性のないデータベース/コードの問題を簡単に見つけられます。
 

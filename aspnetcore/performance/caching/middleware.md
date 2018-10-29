@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4b2c71aad4b5bcfee14a271303df5874ccfedb90
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090486"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207330"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答キャッシュ ミドルウェアで ASP.NET Core
 
 によって[Luke Latham](https://github.com/guardrex)と[John ルオ語](https://github.com/JunTaoLuo)
 
-[ASP.NET Core 2.1 のサンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 この記事では、ASP.NET Core アプリの応答キャッシュ ミドルウェアを構成する方法について説明します。 応答がキャッシュ可能な場合、ストアの応答、およびキャッシュから応答を返す役割を果たし、ミドルウェアを決定します。 HTTP キャッシュの概要について、`ResponseCache`属性は、「[応答のキャッシュ](xref:performance/caching/response)します。
 

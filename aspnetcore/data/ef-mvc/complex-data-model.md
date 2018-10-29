@@ -3,14 +3,15 @@ title: ASP.NET Core MVC と EF Core - データ モデル - 5/10
 author: rick-anderson
 description: このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、マッピングの規則を指定してデータ モデルをカスタマイズします。
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011771"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091042"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC と EF Core - データ モデル - 5/10
 
@@ -232,7 +233,7 @@ Instructor ナビゲーション プロパティに `[Required]` 属性を配置
 
 Course エンティティには外部キー プロパティ `DepartmentID` (関連する Department エンティティを指す) があり、`Department` ナビゲーション プロパティがあります。
 
-Entity Framework では、関連エンティティのナビゲーション プロパティがある場合、ユーザーがデータ モデルに外部キー プロパティを追加する必要はありません。  EF は必要に応じて、データベースで外部キーを自動的に作成し、[シャドウ プロパティ](https://docs.microsoft.com/ef/core/modeling/shadow-properties)を作成します。 ただし、データ モデルに外部キーがある場合は、更新をより簡単かつ効率的に行うことができます。 たとえば、編集する Course エンティティをフェッチするときに読み込まないと、Department エンティティは null になります。したがって、Course エンティティを更新する場合は、まず、Department エンティティをフェッチする必要があります。 外部キー プロパティ `DepartmentID` がデータ モデルに含まれている場合は、更新前に Department エンティティをフェッチする必要はありません。
+Entity Framework では、関連エンティティのナビゲーション プロパティがある場合、ユーザーがデータ モデルに外部キー プロパティを追加する必要はありません。  EF は必要に応じて、データベースで外部キーを自動的に作成し、[シャドウ プロパティ](/ef/core/modeling/shadow-properties)を作成します。 ただし、データ モデルに外部キーがある場合は、更新をより簡単かつ効率的に行うことができます。 たとえば、編集する Course エンティティをフェッチするときに読み込まないと、Department エンティティは null になります。したがって、Course エンティティを更新する場合は、まず、Department エンティティをフェッチする必要があります。 外部キー プロパティ `DepartmentID` がデータ モデルに含まれている場合は、更新前に Department エンティティをフェッチする必要はありません。
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated 属性
 
@@ -246,7 +247,7 @@ public int CourseID { get; set; }
 
 既定では、Entity Framework は、主キー値がデータベースによって生成されることを前提とします。 これはほとんどのシナリオに該当します。 ただし、Course エンティティの場合、1 つの学科に 1000 シリーズ、別の学科に 2000 シリーズといったユーザー指定のコース番号を使用します。
 
-行の作成日または更新日を記録するために使用されるデータベース列の場合のように、`DatabaseGenerated` 属性は既定値を生成するためにも使用できます。  詳細については、「[生成される値](https://docs.microsoft.com/ef/core/modeling/generated-properties)」を参照してください。
+行の作成日または更新日を記録するために使用されるデータベース列の場合のように、`DatabaseGenerated` 属性は既定値を生成するためにも使用できます。  詳細については、「[生成される値](/ef/core/modeling/generated-properties)」を参照してください。
 
 ### <a name="foreign-key-and-navigation-properties"></a>外部キー プロパティとナビゲーション プロパティ
 
@@ -373,7 +374,7 @@ Enrollment テーブルに成績情報が含まれていなかった場合、含
 
 外部キーが null 許容ではなく、テーブルの各行を一意に識別するために組み合わせて使用される場合、個別の主キーは必要ありません。 *InstructorID* および *CourseID* プロパティは複合主キーとして機能する必要があります。 EF に対する複合主キーを識別する唯一の方法は、*fluent API* を使用することです (属性を使用して行うことはできません)。 次のセクションでは、複合主キーの構成方法を示します。
 
-複合キーを使用すると、1 つのコースに対して複数の行を、また 1 人の講師に対して複数の行を使用できても、同じ講師とコースに対しては複数の行を使用できなくなります。 `Enrollment` 結合エンティティでは独自の主キーを定義するため、このような重複が考えられます。 このような重複を防ぐために、外部キー フィールドで一意のインデックスを追加するか、`CourseAssignment` と同様の複合主キーを使用して `Enrollment` を構成することができます。 詳細については、「[インデックス](https://docs.microsoft.com/ef/core/modeling/indexes)」を参照してください。
+複合キーを使用すると、1 つのコースに対して複数の行を、また 1 人の講師に対して複数の行を使用できても、同じ講師とコースに対しては複数の行を使用できなくなります。 `Enrollment` 結合エンティティでは独自の主キーを定義するため、このような重複が考えられます。 このような重複を防ぐために、外部キー フィールドで一意のインデックスを追加するか、`CourseAssignment` と同様の複合主キーを使用して `Enrollment` を構成することができます。 詳細については、「[インデックス](/ef/core/modeling/indexes)」を参照してください。
 
 ## <a name="update-the-database-context"></a>データベース コンテキストを更新する
 
@@ -385,7 +386,7 @@ Enrollment テーブルに成績情報が含まれていなかった場合、含
 
 ## <a name="fluent-api-alternative-to-attributes"></a>属性の代わりに fluent API を使用する
 
-`DbContext` クラスの `OnModelCreating` メソッドのキーでは、*fluent API* を使用して EF の動作を構成します。 API は "fluent" と呼ばれます。これは、[EF Core のドキュメント](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration)の例に示されているように、多くの場合、一連のメソッド呼び出しを単一のステートメントにまとめて使用されるためです。
+`DbContext` クラスの `OnModelCreating` メソッドのキーでは、*fluent API* を使用して EF の動作を構成します。 API は "fluent" と呼ばれます。これは、[EF Core のドキュメント](/ef/core/modeling/#methods-of-configuration)の例に示されているように、多くの場合、一連のメソッド呼び出しを単一のステートメントにまとめて使用されるためです。
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -400,7 +401,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 一部の開発者は fluent API のみを使用することを選ぶため、エンティティ クラスを "クリーン" な状態に保つことができます。 必要に応じて、属性と fluent API を組み合わせて使用することができます。fluent API のみを使用して実行できるカスタマイズがいくつかありますが、一般的は 2 つの方法のいずれかを選択して、できるだけ一貫性を保つためにそれを使用することをお勧めします。 両方の使用時に競合が発生する場合は、Fluent API で属性がオーバーライドされることに注意してください。
 
-属性と fluent API の詳細については、「[構成の方法](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration)」を参照してください。
+属性と fluent API の詳細については、「[構成の方法](/ef/core/modeling/#methods-of-configuration)」を参照してください。
 
 ## <a name="entity-diagram-showing-relationships"></a>リレーションシップを示すエンティティ図
 

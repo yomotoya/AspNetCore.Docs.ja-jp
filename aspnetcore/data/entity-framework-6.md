@@ -3,14 +3,15 @@ title: ASP.NET Core と Entity Framework 6 の概要
 author: rick-anderson
 description: この記事では、ASP.NET Core アプリケーションで Entity Framework 6 を使用する方法を示します。
 ms.author: tdykstra
-ms.date: 02/24/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: ba3ee137bfefd53cf2b7be2f328651ad38104ab5
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: b7679afbe4c364386fe8f16d22d7e9797a3e0c27
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601744"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090060"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core と Entity Framework 6 の概要
 
@@ -20,7 +21,7 @@ ms.locfileid: "45601744"
 
 ## <a name="overview"></a>概要
 
-Entity Framework 6 は .NET Core をサポートしていないので、Entity Framework 6 を使用するには、プロジェクトが .NET Framework に対してコンパイルする必要があります。 クロスプラットフォーム機能が必要な場合は、[Entity Framework Core](https://docs.microsoft.com/ef/) にアップグレードする必要があります。
+Entity Framework 6 は .NET Core をサポートしていないので、Entity Framework 6 を使用するには、プロジェクトが .NET Framework に対してコンパイルする必要があります。 クロスプラットフォーム機能が必要な場合は、[Entity Framework Core](/ef/) にアップグレードする必要があります。
 
 ASP.NET Core アプリケーションで Entity Framework 6 を使用するための推奨方法は、EF6 コンテキストとモデル クラスを、完全なフレームワークをターゲットとするクラス ライブラリ プロジェクト内に配置することです。 ASP.NET Core プロジェクトから、クラス ライブラリに参照を追加します。 [EF6 と ASP.NET Core プロジェクトを使用した Visual Studio ソリューション](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)のサンプルを参照してください。
 

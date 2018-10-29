@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/27/2017
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: d3ecb41765da912df68aeb829350d27e4d087e3a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 675dc8aa4bf00bb21981cc892a09a4acd0d53c15
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829923"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207265"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>ASP.NET Core で razor ページの承認規則
 
@@ -19,7 +19,7 @@ ms.locfileid: "41829923"
 
 Razor ページ アプリでのアクセスを制御する方法の 1 つでは、起動時に承認規則を使用します。 これらの規則を使用すると、ユーザーを承認して、匿名ユーザーが個々 のページまたはページのフォルダーにアクセスできるようにできます。 自動的にこのトピックで説明されている規則が適用されます[承認フィルター](xref:mvc/controllers/filters#authorization-filters)のアクセスを制御します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル アプリでは[ASP.NET Core Identity なしでの Cookie 認証](xref:security/authentication/cookie)します。 Maria Rodriguez、架空のユーザーのユーザー アカウント、アプリにハードコードしています。 電子メールのユーザー名を使用して、"maria.rodriguez@contoso.com"と、ユーザーがサインインするすべてのパスワード。 における、ユーザーの認証、`AuthenticateUser`メソッドで、 *Pages/Account/Login.cshtml.cs*ファイル。 実際の例では、ユーザーは、データベースに対して認証は。 ASP.NET Core Identity を使用するのガイダンスに従って、[の ASP.NET core Identity の概要](xref:security/authentication/identity)トピック。 概念とこのトピックで示す例については、ASP.NET Core Identity を使用するアプリに等しく適用されます。
 

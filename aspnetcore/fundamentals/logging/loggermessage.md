@@ -5,12 +5,12 @@ description: 高パフォーマンスのログ記録シナリオにおいて、�
 ms.author: riande
 ms.date: 11/03/2017
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: e952591bac29868d87d765820e88c74b50a1fe88
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a0080a20fed2d8fc295e55822c11d5731c6910ca
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272436"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207512"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core での LoggerMessage による高パフォーマンスのログ記録
 
@@ -23,7 +23,7 @@ ms.locfileid: "36272436"
 * ロガー拡張メソッドでは、`int` などの値の型を `object` に "ボックス化" (変換) する必要があります。 `LoggerMessage` パターンでは、静的な `Action` フィールドと、厳密に型指定されたパラメーターを持つ拡張メソッドを使用してボックス化を回避します。
 * ロガー拡張メソッドでは、ログ メッセージが書き込まれるたびにメッセージ テンプレート (名前付きの書式文字列) を解析する必要があります。 `LoggerMessage` では、メッセージを定義するときに、一度テンプレートを解析する必要があるだけです。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル アプリでは、基本的な見積もり追跡システムで `LoggerMessage` 機能を実演します。 アプリでは、メモリ内のデータベースを使用して見積もりの追加および削除を行います。 これらの操作が実行されると、`LoggerMessage` パターンによってログ メッセージが生成されます。
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: db28eeff88a13dc95c469f3b7c0746c807da830f
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: eb5cf92a6dcc3ddb9e2f56cd72a710b66f7fae06
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751742"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206888"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) と ASP.NET Core
 
@@ -29,7 +29,7 @@ OWIN には、さまざまなオブジェクト モデルを使用する 2 つ�
 > [!NOTE]
 > これらのアダプターを使用すると、パフォーマンスが低下します。 ASP.NET Core コンポーネントのみを使用するアプリケーションでは、`Microsoft.AspNetCore.Owin` パッケージまたはアダプターを使用しないでください。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>ASP.NET Core パイプラインで OWIN ミドルウェアを実行する
 

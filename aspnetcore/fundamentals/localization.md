@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326005"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207590"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -30,7 +30,7 @@ ASP.NET Core で多言語の Web サイトを作成すると、より幅広い�
 
 3. 要求ごとに言語/カルチャを選択するための戦略を実装する
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="make-the-apps-content-localizable"></a>アプリのコンテンツをローカライズできるようにする
 

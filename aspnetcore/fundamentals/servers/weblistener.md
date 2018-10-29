@@ -4,14 +4,15 @@ author: rick-anderson
 description: IIS なしでインターネットに直接接続するために使用できる Windows 上の ASP.NET Core の Web サーバーである WebListener について説明します。
 monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5602c1ddbe76879587de12bcd82722c103dee03f
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5d72672cc48243f8ee17df615e3379143ed868f6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755602"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206443"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への WebListener Web サーバーの実装
 
@@ -38,7 +39,7 @@ WebListener は、次の機能をサポートします。
 
 - Windows 7 および Windows Server 2008 R2 以降
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="when-to-use-weblistener"></a>WebListener を使用する場合
 
@@ -160,7 +161,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000
 
 次のリソースでは、いくつかのシナリオの詳細な手順を説明しています。 `HttpListener` を参照する記事は、両方とも Http.Sys に基づいているため、`WebListener` に同様に適用されます。
 
-* [方法 : SSL 証明書を使用してポートを構成する](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [方法 : SSL 証明書を使用してポートを構成する](/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS Communication - HttpListener based Hosting and Client Certification](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) (HTTPS 通信 - HttpListener ベースのホスティングとクライアントの認証): サードパーティのブログであり、かなり古い投稿ですが、有用な情報が含まれています。
 * [How To: Walkthrough Using HttpListener or Http Server unmanaged code (C++) as an SSL Simple Server](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) (方法: SSL Simple Server として HttpListener または Http Server アンマネージ コード (C++) を使用するチュートリアル): これも古いブログですが、有用な情報が含まれています。
 * [How Do I Set Up A .NET Core WebListener With SSL?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/) (SSL を使用して.NET Core WebListener を設定する方法)

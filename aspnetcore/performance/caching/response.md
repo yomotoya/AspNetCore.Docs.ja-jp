@@ -5,12 +5,12 @@ description: 応答キャッシュを使用し、帯域幅要件を下げ、ASP.
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090694"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207369"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -19,7 +19,7 @@ ms.locfileid: "50090694"
 > [!NOTE]
 > Razor ページの応答のキャッシュは、ASP.NET Core 2.1 で使用できる以降です。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 応答のキャッシュ クライアントまたはプロキシは、web サーバーに要求の数が減少します。 応答のキャッシュ量が減少も、応答を生成する作業の web サーバーを実行します。 応答のキャッシュは、クライアント、プロキシ、およびミドルウェアが応答をキャッシュする方法を指定するヘッダーによって制御されます。
 

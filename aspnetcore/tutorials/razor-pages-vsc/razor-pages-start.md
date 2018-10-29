@@ -4,14 +4,15 @@ author: rick-anderson
 description: Visual Studio Code を使用して ASP.NET Core の Razor ページ Web アプリを構築する方法の基礎について説明します。
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: b7f6ca377a892fce912dc0ee9d4b7378f40fbf24
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46522928"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089853"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
 
@@ -47,7 +48,7 @@ dotnet run
 
 ::: moniker-end
 
-上のコマンドでは [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトを作成して実行します。 ブラウザーを開いて http://localhost:5000 にアクセスし、アプリケーションを表示します。
+上のコマンドでは [.NET Core CLI](/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトを作成して実行します。 ブラウザーを開いて http://localhost:5000 にアクセスし、アプリケーションを表示します。
 
 ![ホームまたはインデックス ページ](../razor-pages/razor-pages-start/_static/home.png)
 

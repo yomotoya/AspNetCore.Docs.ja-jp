@@ -5,12 +5,12 @@ description: ASP.NET Core で Web API のカスタム フォーマッタを作�
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: a21fcea68d957d0344309c9bbd3286b71c092f60
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a038cd9c05950333fce9e72f67d6721198fae4d3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273859"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206316"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API のカスタム フォーマッタ
 
@@ -18,7 +18,7 @@ ms.locfileid: "36273859"
 
 ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用して、Web API でデータを交換するためのサポートが組み込まれています。 この記事では、カスタム フォーマッタを作成して、追加形式のサポートを追加する方法を示します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="when-to-use-custom-formatters"></a>カスタム フォーマッタを使用するタイミング
 

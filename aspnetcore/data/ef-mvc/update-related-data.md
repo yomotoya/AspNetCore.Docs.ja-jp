@@ -3,14 +3,15 @@ title: ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
 author: rick-anderson
 description: このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126727"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090734"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
 
@@ -290,11 +291,11 @@ public ICollection<CourseAssignment> CourseAssignments
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 
-[CRUD チュートリアル](crud.md)で説明したように、Entity Framework はトランザクションを暗黙的に実装します。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](https://docs.microsoft.com/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
+[CRUD チュートリアル](crud.md)で説明したように、Entity Framework はトランザクションを暗黙的に実装します。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
 
 ## <a name="summary"></a>まとめ
 
-これで、関連データの概要が完了しました。 次のチュートリアルでは、同時実行の競合を処理する方法を説明します。
+これで、関連データの概要が完了しました。 次のチュートリアルでは、コンカレンシーの競合を処理する方法を説明します。
 
 ::: moniker-end
 

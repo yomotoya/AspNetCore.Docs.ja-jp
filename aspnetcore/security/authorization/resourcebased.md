@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/07/2017
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 6a110a69c58d5e20a15198378510486daec3d452
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 2cb3844a38f7482c27fb471343109d51a516ea20
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342290"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206697"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>ASP.NET Core でリソース ベースの承認
 
@@ -19,7 +19,7 @@ ms.locfileid: "39342290"
 
 属性の評価では、データ バインディングの前に、ページ ハンドラーまたはドキュメントが読み込まれますアクションの実行前に発生します。 これらの理由、宣言型を使用した承認からを`[Authorize]`属性が十分ではありません。 代わりに、カスタム承認メソッドを呼び出すことができます&mdash;命令型の承認と呼ばれるスタイル。
 
-使用して、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) 機能をこのトピックで説明します。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 [承認によって保護されたユーザー データと ASP.NET Core アプリを作成する](xref:security/authorization/secure-data)リソース ベースの承認を使用するサンプル アプリが含まれています。
 

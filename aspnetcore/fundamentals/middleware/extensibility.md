@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/14/2018
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 346f5e7b28a9cd17a03a864772ed8b2e4be9455b
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 566a5c5f642a3f55e72a8e070c69d2bfddaee3a1
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41751499"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207200"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>ASP.NET Core でのファクトリ ベースのミドルウェアのアクティブ化
 
@@ -29,7 +29,7 @@ ms.locfileid: "41751499"
 
 `IMiddleware` は要求ごとにアクティブ化されているので、スコープ化されたサービスを、ミドルウェアのコンストラクターに挿入することができます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 このサンプル アプリでは、次でアクティブ化されるミドルウェアを示します。
 

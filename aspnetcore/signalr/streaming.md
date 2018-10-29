@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/07/2018
 uid: signalr/streaming
-ms.openlocfilehash: 3ae9b83d60019eaa3196f35645bf9b4b03f6d8c6
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 70f12999b7f4230147b9ea43f6f7730b0816c43a
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325641"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206389"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用して、
 
@@ -20,7 +20,7 @@ ms.locfileid: "49325641"
 
 ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリーミングをサポートします。 これは、データの断片化はどこ時間の経過と共にシナリオに便利です。 戻り値は、クライアントにストリーミングされるときに各フラグメントが送信されるクライアントになったとすぐに使用可能になるすべてのデータを待機するのではなく、使用可能な。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/streaming/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/streaming/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="set-up-the-hub"></a>ハブを設定します。
 

@@ -3,14 +3,15 @@ title: ASP.NET Core MVC と EF Core - 継承 - 9/10
 author: rick-anderson
 description: このチュートリアルでは、ASP.NET Core アプリケーションで Entity Framework Core を使用して、データ モデル内の継承を実装する方法を説明します。
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126705"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090759"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC と EF Core - 継承 - 9/10
 
@@ -22,7 +23,7 @@ ms.locfileid: "38126705"
 
 Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)を参照してください。
 
-前のチュートリアルでは、同時実行制御の例外を処理しました。 このチュートリアルでは、データ モデルで継承を実装する方法を示します。
+前のチュートリアルでは、コンカレンシー制御の例外を処理しました。 このチュートリアルでは、データ モデルで継承を実装する方法を示します。
 
 オブジェクト指向プログラミングでは、継承を使用してコードの再利用を容易にします。 このチュートリアルでは、`Instructor` と `Student` クラスを `Person` 基底クラスから派生するように変更します。この基底クラスはインストラクターと受講者の両方に共通な `LastName` などのプロパティを含んでいます。 どの Web ページも追加または変更しませんが、コードの一部を変更し、それらの変更はデータベースに自動的に反映されます。
 
@@ -142,7 +143,7 @@ Person テーブルを右クリックし、**[テーブル データの表示]**
 
 ## <a name="summary"></a>まとめ
 
-`Person`、`Student`、および `Instructor` クラスの Table-per-Hierarchy 継承を実装しました。 Entity Framework Core での継承の詳細については、「[継承](https://docs.microsoft.com/ef/core/modeling/inheritance)」を参照してください。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
+`Person`、`Student`、および `Instructor` クラスの Table-per-Hierarchy 継承を実装しました。 Entity Framework Core での継承の詳細については、「[継承](/ef/core/modeling/inheritance)」を参照してください。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
 
 ::: moniker-end
 

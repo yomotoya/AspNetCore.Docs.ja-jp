@@ -5,12 +5,12 @@ description: 変更トークンを使用して変更を追跡する方法を説�
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/change-tokens
-ms.openlocfilehash: 1cf3693764919a8fd064584ab7b7ad237e8465b3
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 7ad580a7e999a4eae006ce5dd07cca0cbdbe9ab6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391396"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206420"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core で変更トークンを使用して変更を検出する
 
@@ -18,7 +18,7 @@ ms.locfileid: "49391396"
 
 *変更トークン*は、変更の追跡に使用される汎用の低レベルの構成ブロックです。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="ichangetoken-interface"></a>IChangeToken インターフェイス
 
@@ -195,9 +195,9 @@ var compositeChangeToken =
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [メモリ内キャッシュ](xref:performance/caching/memory)
-* [分散キャッシュの使用](xref:performance/caching/distributed)
-* [応答キャッシュ](xref:performance/caching/response)
-* [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

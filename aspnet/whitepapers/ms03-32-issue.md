@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9041f8d15a449a517594f8051c3d9f0ceb18a8a3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828070"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207018"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE のセキュリティ更新プログラムを適用した後に 'サーバー アプリケーションが使用できない' エラーを修正しました
 ====================
@@ -38,7 +38,7 @@ Microsoft では、Internet Explorer のセキュリティ更新プログラム�
 4. ASP.NET を再登録します。 これは、アカウントの新しいランダムなパスワードを作成しの既定の ASP.NET へのアクセス制御の設定を適用
 5. IIS サービスを再起動します。
 
-バッチ ファイルにはハードコードされた一時パスワードが含まれています"<strong>1pass@word</strong>"、runas コマンド、バッチ ファイルの実行時に入力するように求めできます。 Runas コマンドが完了した後、ASPNET アカウントのパスワードは強力なランダムな値で再作成します。 ハードコーディングされたパスワードが環境内でパスワードの複雑さの要件を満たしていない場合、バッチ ファイルが失敗する可能性がありますに注意してください。 ケースがある場合は、環境に適したが別の値に変更できます。
+バッチ ファイルにはハードコードされた一時パスワードが含まれています"<strong>1pass\@word</strong>"、runas コマンド、バッチ ファイルの実行時に入力するように求めできます。 Runas コマンドが完了した後、ASPNET アカウントのパスワードは強力なランダムな値で再作成します。 ハードコーディングされたパスワードが環境内でパスワードの複雑さの要件を満たしていない場合、バッチ ファイルが失敗する可能性がありますに注意してください。 ケースがある場合は、環境に適したが別の値に変更できます。
 
 *> [!IMPORTANT]* カスタムのアクセス制御の設定や、ASPNET アカウントのデータベース アカウントのアクセス許可を追加した場合は、このバッチ ファイルが完了したら、再作成する必要があります。 アカウントを再作成するときに新しいセキュリティ識別子 (SID) を取得するためです。
 
@@ -51,7 +51,7 @@ Microsoft では、Internet Explorer のセキュリティ更新プログラム�
 3. C:\ に内容を抽出します。
 4. ...、スタート メニューから実行を選択し、入力 `cmd.exe`
 5. 開いているコマンド ウィンドウで、入力`c:\fixup.cmd`します。
-6. 入力を求められたら入力<strong>1pass@word</strong>パスワードとして。
+6. 入力を求められたら入力<strong>1pass\@word</strong>パスワードとして。
 7. 以前のカスタム アクセス制御の設定または ASPNET アカウントのデータベース アカウントのアクセス許可がある場合は、これらの設定を今すぐ再適用する必要があります。
 
 これが原因となった不便多く申し訳ありません。 利用可能になった追加情報を掲載します。
@@ -62,7 +62,7 @@ Microsoft では、Internet Explorer のセキュリティ更新プログラム�
 | --- | --- | --- |
 | バージョン 1.0 | Windows 2000 Professional | いいえ |
 | バージョン 1.0 | Windows 2000 Server | いいえ |
-| バージョン 1.0 | Windows XP Professional | [はい] |
+| バージョン 1.0 | Windows XP Professional | はい |
 | バージョン 1.0 | Windows Server 2003 | いいえ |
 | バージョン 1.0 | Cassini と Windows XP ホーム | いいえ |
 | バージョン 1.1 | Windows 2000 Professional | いいえ |

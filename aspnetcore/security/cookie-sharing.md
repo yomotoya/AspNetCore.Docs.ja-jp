@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/19/2017
 uid: security/cookie-sharing
-ms.openlocfilehash: afb0405ea87a6239c3017ba0a59a22527a817feb
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 7f357df4d450da40f4d6e1a5ab20516ff748e748
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312283"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206901"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET と ASP.NET Core でのアプリ間での cookie を共有します。
 
@@ -19,7 +19,7 @@ ms.locfileid: "43312283"
 
 Web サイトは多くの場合、連携して、個々 の web アプリで構成されます。 シングル サインオン (SSO) エクスペリエンスを提供するには、サイト内で web アプリは、認証 cookie を共有する必要があります。 このシナリオをサポートするためには、データ保護スタックは、Katana cookie 認証と ASP.NET Core の cookie 認証チケットの共有を許可します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 このサンプルは、cookie の cookie 認証を使用する 3 つのアプリ間で共有を示しています。
 
@@ -57,7 +57,7 @@ ASP.NET Core Identity を使用する: 場合
 options.Cookie.Domain = ".contoso.com";
 ```
 
-参照してください、 *CookieAuthWithIdentity.Core*プロジェクト、[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。
+参照してください、 *CookieAuthWithIdentity.Core*プロジェクト、[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:index#how-to-download-a-sample))。
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ app.AddIdentity<ApplicationUser, IdentityRole>(options =>
 options.Cookie.Domain = ".contoso.com";
 ```
 
-参照してください、 *CookieAuth.Core*プロジェクト、[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。
+参照してください、 *CookieAuth.Core*プロジェクト、[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:index#how-to-download-a-sample))。
 
 ::: moniker-end
 
@@ -168,7 +168,7 @@ ASP.NET 4.x アプリと ASP.NET Core アプリの間の認証クッキーを共
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
-参照してください、 *CookieAuthWithIdentity.NETFramework*プロジェクト、[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。
+参照してください、 *CookieAuthWithIdentity.NETFramework*プロジェクト、[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:index#how-to-download-a-sample))。
 
 ユーザー id を生成するときに、認証の種類がで定義された型を一致する必要があります`AuthenticationType`セット`UseCookieAuthentication`します。
 

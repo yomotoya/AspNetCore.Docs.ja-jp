@@ -5,12 +5,12 @@ description: ASP.NET Core の MVC コントローラーが、ASP.NET Core でそ
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 9dec9807e8fc2883144b2da518f36a7eb8ddc871
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342134"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206343"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET Core でのコントローラーへの依存関係の挿入
 
@@ -20,7 +20,7 @@ ms.locfileid: "39342134"
 
 ASP.NET Core の MVC コントローラーは、それらのコンストラクターを使用して明示的にそれらの依存関係を要求する必要があります。 場合によっては、個々のコントローラーのアクションがサービスを必要とし、コントローラー レベルで要求しても意味がないことがあります。 この場合、アクション メソッドのパラメーターとしてサービスを挿入することもできます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="dependency-injection"></a>依存関係の挿入
 
