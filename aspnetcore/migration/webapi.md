@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: migration/webapi
-ms.openlocfilehash: 3c4ded874de2700e1290022a535c08f30dce9490
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: f5d886a7c3182b5cd372762ade67c2e748051049
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861019"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207278"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API から ASP.NET Core に移行します。
 
@@ -19,7 +19,7 @@ ms.locfileid: "47861019"
 
 ASP.NET 4.x Web API は、クライアント、ブラウザーやモバイル デバイスなどの広範な範囲に到達する HTTP サービスです。 ASP.NET Core は ASP.NET 4.x の MVC を統一し、Web API アプリを ASP.NET Core MVC と呼ばれる単純なプログラミング モデルにモデル化します。 この記事では、ASP.NET 4.x Web API から ASP.NET Core MVC への移行に必要な手順を示します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/webapi/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/webapi/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -62,7 +62,7 @@ Visual Studio で、次の手順を完了するには。
 
 ## <a name="migrate-configuration"></a>構成を移行します。
 
-ASP.NET Core を使用していない、 *App_Start*フォルダーまたは*Global.asax*ファイル、および*web.config*発行時にファイルが追加します。 *Startup.cs*の置換は、 *Global.asax*プロジェクトのルートにあるとします。 `Startup`クラスはすべてのアプリのスタートアップ タスクを処理します。 詳細については、「<xref:fundamentals/startup>」を参照してください。
+ASP.NET Core を使用していない、 *App_Start*フォルダーまたは*Global.asax*ファイル、および*web.config*発行時にファイルが追加します。 *Startup.cs*の置換は、 *Global.asax*プロジェクトのルートにあるとします。 `Startup`クラスはすべてのアプリのスタートアップ タスクを処理します。 詳細については、「 <xref:fundamentals/startup> 」を参照してください。
 
 ASP.NET Core mvc で属性ルーティングは、既定で含まれてとき<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*>で呼び出される`Startup.Configure`します。 次`UseMvc`置換を呼び出し、 *ProductsApp*プロジェクトの*App_Start/WebApiConfig.cs*ファイル。
 
@@ -85,7 +85,7 @@ ASP.NET Core mvc で属性ルーティングは、既定で含まれてとき<xr
 次のように、エラーを修正します。
 
 1. 変更`ApiController`に<xref:Microsoft.AspNetCore.Mvc.ControllerBase>します。 追加`using Microsoft.AspNetCore.Mvc;`解決するのには、`ControllerBase`参照。
-1. `using System.Web.Http;` を削除します。
+1. `using System.Web.Http;`を削除します。
 1. 変更、`GetProduct`アクションの戻り値の型から`IHttpActionResult`に`ActionResult<Product>`します。
 
 ## <a name="configure-routing"></a>ルーティングを構成します。

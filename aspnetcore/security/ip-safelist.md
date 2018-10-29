@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 362d1ded00bda3f328e029fb467f2b3eeaa01396
-ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
+ms.openlocfilehash: 286f199c0d9164fa70d511aba523210c85c2fdfd
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44126710"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207733"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>ASP.NET Core 用のクライアント IP のセーフリスト
 
@@ -25,7 +25,7 @@ ms.locfileid: "44126710"
 
 サンプル アプリでは、両方の方法を示します。 各ケースでは、承認されたクライアントの IP アドレスを含む文字列がアプリ設定に格納されます。 ミドルウェアやフィルターは、一覧に文字列を解析し、リモート ip アドレスの一覧を確認します。 それ以外の場合は、HTTP 403 Forbidden 状態コードが返されます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="the-safelist"></a>セーフリスト
 

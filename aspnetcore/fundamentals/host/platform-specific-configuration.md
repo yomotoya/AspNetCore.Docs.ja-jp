@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 2eddfa03b28564fcca7cc098e353b05e23b7c6f6
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336261"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207564"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>IHostingStartup を使用して ASP.NET Core の外部アセンブリからアプリを拡張する
 
@@ -20,7 +20,7 @@ ms.locfileid: "43336261"
 
 外部アセンブリからの起動時には、[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (ホスティング スタートアップ) 実装によって拡張機能がアプリに追加されます。 たとえば、外部ライブラリではホスティング スタートアップ実装を使用して、追加の構成プロバイダーまたはサービスをアプリに提供できます。 `IHostingStartup` *は、ASP.NET Core 2.0 以降で使用できます。*
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="hostingstartup-attribute"></a>HostingStartup 属性
 
@@ -381,7 +381,7 @@ NuGet パッケージとランタイム ストアの詳細については、次�
 
 ## <a name="sample-code"></a>サンプル コード
 
-[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([ダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) では、ホスティング スタートアップ実装のシナリオを示します。
+[サンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([ダウンロードする方法](xref:index#how-to-download-a-sample)) では、ホスティング スタートアップ実装のシナリオを示します。
 
 * 2 つのホスティング スタートアップ アセンブリ (クラス ライブラリ) ではそれぞれ、メモリ内の構成のキーと値のペアの組が設定されます。
   * NuGet パッケージ (*HostingStartupPackage*)

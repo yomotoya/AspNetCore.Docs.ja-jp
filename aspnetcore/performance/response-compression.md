@@ -1,24 +1,24 @@
 ---
 title: ASP.NET Core で応答の圧縮
 author: guardrex
-description: 応答の圧縮と ASP.NET Core アプリで応答圧縮ミドルウェアを使用する方法について説明します。
+description: 応答圧縮と ASP.NET Core アプリで応答圧縮ミドルウェアを使用する方法について説明します。
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578147"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207980"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core で応答の圧縮
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ネットワーク帯域幅は、限られたリソースです。 通常、応答のサイズを小さく、アプリの応答性を多くの場合、大幅に増加します。 ペイロードのサイズを小さく 1 つの方法は、アプリの応答を圧縮します。
 

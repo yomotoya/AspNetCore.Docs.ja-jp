@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148942"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207967"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Windows コンテナーへの ASP.NET MVC アプリケーションの移行
 
@@ -71,7 +71,7 @@ Docker イメージに読み込む必要があるすべての資産を 1 か所�
 Dockerfile に Docker イメージを定義します。 Dockerfile は、基本イメージ、追加のコンポーネント、実行するアプリ、その他の構成イメージに関する指示を含みます。  Dockerfile は、イメージを作成する `docker build` コマンドの入力です。
 
 [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/) にある `microsoft/aspnet` イメージに基づいてイメージをビルドします。
-基本イメージである `microsoft/aspnet` は、Windows Server イメージです。 Windows Server Core、IIS と ASP.NET 4.6.2 が含まれています。 このイメージをコンテナー内で実行すると、IIS とインストールされている Web サイトが自動的に起動します。
+基本イメージである `microsoft/aspnet` は、Windows Server イメージです。 Windows Server Core、IIS、および 4.7.2 の ASP.NET が含まれています。 このイメージをコンテナー内で実行すると、IIS とインストールされている Web サイトが自動的に起動します。
 
 イメージを作成する Dockerfile は、次のようになります。
 
@@ -122,18 +122,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 ## <a name="verify-in-the-browser"></a>ブラウザーでの確認
 
-> [!NOTE]
-> Windows コンテナーの現在のリリースを参照できない`http://localhost`します。
-> これは WinNAT での既知の動作によるものであり、将来のリリースで修正される予定です。 解決されるまでは、コンテナーの IP アドレスを使用する必要があります。
-
-コンテナーの開始後、実行中のコンテナーにブラウザーから接続できるように、コンテナーの IP アドレスを見つけます。
-
-```console
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
-172.31.194.61
-```
-
-IPv4 アドレスを使用して、実行中のコンテナーに接続する`http://172.31.194.61`に示す例です。 その URL をブラウザーに入力すると、実行中のサイトが表示されます。
+コンテナーが起動、実行中のコンテナーを使用する接続`http://localhost`に示す例です。 その URL をブラウザーに入力すると、実行中のサイトが表示されます。
 
 > [!NOTE]
 > 一部の VPN またはプロキシ ソフトウェアが原因でサイトに移動できない場合があります。
@@ -145,10 +134,9 @@ GitHub のサンプル ディレクトリに含まれる [PowerShell スクリ�
 ./run.ps1
 ```
 
-上のコマンドによりイメージをビルドし、コンピューターにイメージの一覧を表示して、コンテナーを開始した後、そのコンテナーの IP アドレスを表示します。
+上記のコマンドは、イメージをビルド、コンピューターにイメージの一覧を表示し、コンテナーを開始します。
 
-コンテナーを停止するには、`docker
-stop` コマンドを実行します。
+コンテナーを停止するには、`docker stop` コマンドを実行します。
 
 ```console
 docker stop randomanswers

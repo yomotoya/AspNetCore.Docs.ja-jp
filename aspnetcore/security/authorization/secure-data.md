@@ -5,12 +5,12 @@ description: 承認によって保護されたユーザー データと Razor �
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 7d9521686c67ab9120238886d50af081ce4c6907
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912632"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207863"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -88,11 +88,11 @@ ASP.NET Core 2.1 で`User.IsInRole`を使用する場合は失敗`AddDefaultIden
 
 ## <a name="the-starter-and-completed-app"></a>Starter および完成したアプリ
 
-[ダウンロード](xref:tutorials/index#how-to-download-a-sample)、[完了](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)アプリ。 [テスト](#test-the-completed-app)完成したアプリのセキュリティ機能を理解するようにします。
+[ダウンロード](xref:index#how-to-download-a-sample)、[完了](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)アプリ。 [テスト](#test-the-completed-app)完成したアプリのセキュリティ機能を理解するようにします。
 
 ### <a name="the-starter-app"></a>スターター アプリ
 
-[ダウンロード](xref:tutorials/index#how-to-download-a-sample)、[スターター](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2)アプリ。
+[ダウンロード](xref:index#how-to-download-a-sample)、[スターター](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2)アプリ。
 
 アプリを実行し、タップ、 **ContactManager**リンク、および作成、編集、および連絡先を削除することを確認します。
 

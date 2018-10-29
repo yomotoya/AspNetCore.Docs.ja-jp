@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 328046363666944f121dedc1883bbe83f5b079d2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 60bc8bf95cace722244ffc87ff4c00126a0ed2a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836659"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207447"
 ---
 <a name="single-page-application-knockoutjs-template"></a>シングル ページ アプリケーション: KnockoutJS テンプレート
 ====================
@@ -163,7 +163,7 @@ MVC コント ローラーは、ソリューションの Controllers フォル�
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-ユーザーがログオンして、主要な UI が表示されます。 それ以外の場合、ログイン パネルが表示されます。 この条件付きのレンダリングがサーバー側で行われますことに注意してください。 クライアント側で機密性の高いコンテンツを非表示にしようとすることはありません (&)、HTTP 応答で送信する #8212anything が生の HTTP メッセージを視聴者に表示されます。
+ユーザーがログオンして、主要な UI が表示されます。 それ以外の場合、ログイン パネルが表示されます。 この条件付きのレンダリングがサーバー側で行われますことに注意してください。 クライアント側で機密性の高いコンテンツを非表示にしようとすることはありません&#8212;が生の HTTP メッセージを視聴者に表示されている HTTP 応答で送信することができます。
 
 ## <a name="client-side-javascript-and-knockoutjs"></a>クライアント側の JavaScript と Knockout.js
 

@@ -5,12 +5,12 @@ description: このチュートリアルでは、外部キー フィールドと
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c9d0e97dc612744f0023c48a27eb1c89fd153b95
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523169"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207544"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 
@@ -18,7 +18,7 @@ ms.locfileid: "46523169"
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-このチュートリアルでは、関連データの更新を示します。 解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
+このチュートリアルでは、関連データの更新を示します。 解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
 
 以下の図は、完成したページの一部を示しています。
 
@@ -49,7 +49,7 @@ Create と Edit のページ モデル クラスは、`DepartmentNamePageModel` 
 
 上のコードでは以下の操作が行われます。
 
-* `DepartmentNamePageModel` から派生します。
+* `DepartmentNamePageModel`から派生します。
 * `TryUpdateModelAsync` を使用して[過剰ポスティング](xref:data/ef-rp/crud#overposting)を防止します。
 * `ViewData["DepartmentID"]` を `DepartmentNameSL` (基底クラスから) で置き換えます。
 

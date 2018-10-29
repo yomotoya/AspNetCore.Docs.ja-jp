@@ -3,14 +3,15 @@ title: ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 author: rick-anderson
 description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 ms.author: riande
-ms.date: 11/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: cd06cb1056e1c856214d2440533aad5789907107
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523260"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207343"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 
@@ -18,7 +19,7 @@ ms.locfileid: "46523260"
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-このチュートリアルでは、複数のユーザーがエンティティをコンカレントに更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
+このチュートリアルでは、複数のユーザーがエンティティをコンカレントに更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
 
 ## <a name="concurrency-conflicts"></a>コンカレンシーの競合
 
@@ -72,7 +73,7 @@ John が Edit ページの **[保存]** をクリックします。このとき�
 
 ## <a name="handling-concurrency"></a>コンカレンシーの処理 
 
-プロパティが[コンカレンシー トークン](https://docs.microsoft.com/ef/core/modeling/concurrency)として構成されている場合、次が実行されます。
+プロパティが[コンカレンシー トークン](/ef/core/modeling/concurrency)として構成されている場合、次が実行されます。
 
 * EF Core によって、フェッチ後にプロパティが変更されていないことが確認されます。 このチェックは、[SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) または [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) が呼び出されたときに発生します。
 * フェッチ後にプロパティが変更されていると、[DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) がスローされます。 
