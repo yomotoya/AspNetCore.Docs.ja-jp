@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: a5359fe49e71ab59b47a8a5a39e7b806ad308235
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: afa40db4c84820db91878bb98dae082b3dd9a2e2
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090992"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244883"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -226,6 +226,31 @@ dotnet new webapp --no-https
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
+## <a name="trust-the-aspnet-core-https-development-certificate-on-windows-and-macos"></a>Windows と macOS で ASP.NET Core HTTPS 開発証明書を信頼します。
+
+.NET core SDK には、HTTPS 開発証明書が含まれています。 証明書は、最初の実行エクスペリエンスの一部としてインストールされます。 たとえば、`dotnet --info`次のような出力が生成されます。
+
+```text
+ASP.NET Core
+------------
+Successfully installed the ASP.NET Core HTTPS Development Certificate.
+To trust the certificate run 'dotnet dev-certs https --trust' (Windows and macOS only).
+For establishing trust on other platforms refer to the platform specific documentation.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+```
+
+.NET Core SDK をインストールすると、ローカル ユーザーの証明書ストアに ASP.NET Core HTTPS 開発証明書がインストールされます。 証明書がインストールされているが、それが信頼されていません。 Dotnet の実行に 1 回限りの手順を実行している証明書を信頼する`dev-certs`ツール。
+
+```console
+dotnet dev-certs https --trust
+```
+
+次のコマンドに関するヘルプを提供する、`dev-certs`ツール。
+
+```console
+dotnet dev-certs https --help
+```
 
 ## <a name="how-to-set-up-a-developer-certificate-for-docker"></a>Docker の開発者の証明書を設定する方法
 

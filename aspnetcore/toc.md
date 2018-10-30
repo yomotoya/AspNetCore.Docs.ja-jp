@@ -3,6 +3,8 @@
 ## [ASP.NET Core と ASP.NET の比較](xref:fundamentals/choose-between-aspnet-and-aspnetcore)
 ## [.NET Core と .NET Framework の比較](/dotnet/articles/standard/choosing-core-framework-server)
 
+# [開始するには](xref:getting-started)
+
 # チュートリアル
 ## Web アプリ
 ### Razor ページ
