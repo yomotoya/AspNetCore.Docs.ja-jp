@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 37448b1b3d0da4e3cb34b1cd51f663b7e53ddced
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090655"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207395"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -66,6 +66,14 @@ ASP.NET Core 2.x は、.NET Standard 2.0 との互換性を持つ .NET Framework
 * ソースを開く
 
 .NET Framework と .NET Core の間にある API のギャップを埋めるため、鋭意作業中です。 [Windows 互換機能パック](/dotnet/core/porting/windows-compat-pack)により、多くの Windows 限定の API が .NET Core で利用できるようになりました。 このような API は .NET Core 1.x で利用できませんでした。
+
+## <a name="how-to-download-a-sample"></a>サンプルをダウンロードする方法
+
+多くの記事やチュートリアルにサンプル コードへのリンクが含まれています。
+
+1. [ASP.NET リポジトリの zip ファイルをダウンロード](https://codeload.github.com/aspnet/Docs/zip/master)します。
+1. *Docs-master.zip* ファイルを解凍します。
+1. サンプル リンクの URL を使って、サンプル ディレクトリに移動します。
 
 ## <a name="next-steps"></a>次の手順
 
