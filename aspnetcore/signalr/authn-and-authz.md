@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 31d5f753e043157caf43fa8df54e310ea0efd17b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207941"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234541"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>ASP.NET Core SignalR で認証と承認
 
@@ -28,11 +28,13 @@ SignalR で使用できる[ASP.NET Core 認証](xref:security/authentication/ind
 
 ブラウザー ベースのアプリでは、cookie 認証は、SignalR 接続を自動的にフローする既存のユーザーの資格情報をできます。 クライアントのブラウザーを使用する場合、追加の構成は必要ありません。 アプリに、ユーザーがログインに SignalR 接続は、この認証を自動的に継承します。
 
-アプリはのみ、ブラウザー クライアントからユーザーを認証する必要がない限り、cookie 認証はお勧めしません。 使用する場合、 [.NET クライアント](xref:signalr/dotnet-client)、`Cookies`でプロパティを構成することができます、 `.WithUrl` cookie を提供するために呼び出し。 ただし、.NET クライアントからの cookie 認証を使用するには、クッキーの認証データを交換するための API を提供するアプリが必要です。
+Cookie とは、アクセス トークンを送信するブラウザー固有の方法が、ブラウザー以外のクライアントが送信できます。 使用する場合、 [.NET クライアント](xref:signalr/dotnet-client)、`Cookies`でプロパティを構成することができます、 `.WithUrl` cookie を提供するために呼び出し。 ただし、.NET クライアントからの cookie 認証を使用するには、クッキーの認証データを交換するための API を提供するアプリが必要です。
 
 ### <a name="bearer-token-authentication"></a>ベアラー トークン認証
 
-ベアラー トークン認証は、クライアントのブラウザー以外のクライアントを使用する場合に推奨されるアプローチです。 この方法では、クライアントは、サーバーを検証し、ユーザーを識別するために使用するアクセス トークンを提供します。 ベアラー トークン認証の詳細については、このドキュメントの範囲を超えては。 使用してベアラー トークン認証を構成サーバーで、 [JWT ベアラー ミドルウェア](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer)します。
+クライアントは、cookie を使用する代わりに、アクセス トークンを提供できます。 サーバーは、トークンを検証し、それをユーザーの識別に使用します。 接続が確立されている場合にのみ、この検証は行われます。 接続処理中に、トークンの失効を確認するサーバーが自動的に再検証します。
+
+使用してベアラー トークン認証を構成サーバーで、 [JWT ベアラー ミドルウェア](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer)します。
 
 JavaScript クライアントで、トークンを提供できますを使用して、 [accessTokenFactory](xref:signalr/configuration#configure-bearer-authentication)オプション。
 
@@ -55,6 +57,10 @@ var connection = new HubConnectionBuilder()
 標準の web Api では、ベアラー トークンは、HTTP ヘッダーで送信されます。 ただし、SignalR では、一部のトランスポートを使用する場合は、ブラウザーでこれらのヘッダーを設定することはありません。 WebSockets および Server-Sent イベントを使用する場合は、トークンが、クエリ文字列パラメーターとして送信されます。 サーバーでこれをサポートするためには、追加の構成が必要です。
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
+
+### <a name="cookies-vs-bearer-tokens"></a>ベアラー トークンと cookie 
+
+Cookie はブラウザーに固有であるため、その他のクライアントから送信ベアラー トークンを送信すると比較して複雑さを追加します。 このため、cookie 認証は、アプリはのみ、ブラウザー クライアントからユーザーを認証する必要がない限りをお勧めしません。 ベアラー トークン認証は、クライアントのブラウザー以外のクライアントを使用する場合に推奨されるアプローチです。
 
 ### <a name="windows-authentication"></a>Windows 認証
 

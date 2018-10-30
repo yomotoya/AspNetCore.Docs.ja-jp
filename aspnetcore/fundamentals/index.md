@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: fundamentals/index
-ms.openlocfilehash: 68760f179c4d6e806510b727e2284f8c2c4a4ff6
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41751246"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325472"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -93,7 +93,7 @@ ASP.NET Core では、[ミドルウェア](xref:fundamentals/middleware/index)�
 
 ASP.NET Core には組み込みのミドルウェアの豊富なセットが含まれており、独自のカスタム ミドルウェアを作成できます。 ASP.NET Core アプリでは、[Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) がサポートされています。これにより、Web アプリケーションを Web サーバーから切り離すことができます。
 
-詳細については、<xref:fundamentals/middleware/index> および <xref:fundamentals/owin> を参照してください。
+詳細については、次のトピックを参照してください。 <xref:fundamentals/middleware/index> および <xref:fundamentals/owin>.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -119,7 +119,7 @@ ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当�
 
 ## <a name="servers"></a>サーバー
 
-ASP.NET Core のホスティング モデルは、直接要求をリッスンしません。 ホスティング モデルは HTTP サーバー実装に依存して要求をアプリに転送します。 転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。 ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。 Kestrel は通常、リバース プロキシ構成で、[IIS](https://www.iis.net/) や [Nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開されるエッジ サーバーとして実行することもできます。
+ASP.NET Core のホスティング モデルは、直接要求をリッスンしません。 ホスティング モデルは HTTP サーバー実装に依存して要求をアプリに転送します。 転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。 ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。 Kestrel は通常、リバース プロキシ構成で、[IIS](https://www.iis.net/) や [Nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
 
 詳細については、「<xref:fundamentals/servers/index>」を参照してください。
 

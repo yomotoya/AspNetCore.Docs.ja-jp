@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: a9a373a54458faa21199019a4adbe69c0b94cb60
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: a4cd6e9adfcd85503b9843232903a243bc07c959
+ms.sourcegitcommit: 392a36ed269b88899d6bb652aa7f4dfb72e43e7f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577347"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50220662"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - 第 1 部での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -54,7 +54,7 @@ C# および Visual Basic のソース コードを Visual Studio プロジェ�
 
 ### <a name="getting-started"></a>作業の開始
 
-スタート プロジェクトからムービーの一覧をアプリケーションがまだしていない場合、次のリンクを使用してダウンロード:[ダウンロード](https://code.msdn.microsoft.com/Project/Download/FileDownload.aspx? https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)します。 Windows エクスプ ローラーで右クリック、 *MvcMovie.zip*ファイルおよび選択**プロパティ**します。 **MvcMovie.zip プロパティ**ダイアログ ボックスで、**ブロック解除**します。 (セキュリティの警告を使用しようとするときに発生するブロックを解除できないように、 *.zip* web からダウンロードしたファイルです)。
+スタート プロジェクトからムービーの一覧をアプリケーションがまだしていない場合、次のリンクを使用してダウンロード:[ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 Windows エクスプ ローラーで右クリック、 *MvcMovie.zip*ファイルおよび選択**プロパティ**します。 **MvcMovie.zip プロパティ**ダイアログ ボックスで、**ブロック解除**します。 (セキュリティの警告を使用しようとするときに発生するブロックを解除できないように、 *.zip* web からダウンロードしたファイルです)。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image2.png)
 

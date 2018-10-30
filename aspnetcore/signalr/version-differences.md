@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089830"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234606"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR、ASP.NET Core SignalR の相違点
 
@@ -56,9 +56,9 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>スティッキー セッションが必要になりました
+### <a name="sticky-sessions"></a>スティッキー セッション
 
-により、どのようにスケール アウトは、ASP.NET SignalR で作業した、クライアントは再接続し、ファーム内の任意のサーバーにメッセージを送信でした。 再接続をサポートしていないほか、スケール アウト モデルの変更によりこれがサポートされていません。 クライアントは、サーバーに接続すると、接続の間の同じサーバーと対話する必要があります。
+ASP.NET SignalR のスケール アウト モデルは、クライアントは再接続し、ファーム内の任意のサーバーにメッセージを送信できます。 ASP.NET Core SignalR では、クライアントは、接続の間の同じサーバーと対話する必要があります。 つまり Redis を使用したスケール アウトの場合、スティッキー セッションが必要です。 スケール アウトを使用するため[Azure SignalR サービス](/azure/azure-signalr/)サービスがクライアントへの接続を処理するため、スティッキー セッションは必要ありません。 
 
 ### <a name="single-hub-per-connection"></a>接続ごとに 1 つのハブ
 
