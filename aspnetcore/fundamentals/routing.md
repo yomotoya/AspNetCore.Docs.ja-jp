@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861058"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348560"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -332,14 +332,14 @@ URL パターンで任意のファイル拡張子が付いたファイル名を�
 
 | 制約 | 例 | 一致の例 | メモ |
 | ---------- | ------- | --------------- | ----- |
-| `int` | `{id:int}` | `123456789`, `-123456789`  | あらゆる整数に一致する |
-| `bool` | `{active:bool}` | `true`, `FALSE` | `true` または `false` に一致する (大文字と小文字を区別しません) |
-| `datetime` | `{dob:datetime}` | `2016-12-31`, `2016-12-31 7:32pm`  | 有効な `DateTime` 値に一致する (インバリアント カルチャで - 警告参照) |
-| `decimal` | `{price:decimal}` | `49.99`, `-1,000.01` | 有効な `decimal` 値に一致する (インバリアント カルチャで - 警告参照) |
-| `double` | `{weight:double}` | `1.234`, `-1,001.01e8` | 有効な `double` 値に一致する (インバリアント カルチャで - 警告参照) |
-| `float` | `{weight:float}` | `1.234`, `-1,001.01e8` | 有効な `float` 値に一致する (インバリアント カルチャで - 警告参照) |
-| `guid` | `{id:guid}` | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | 有効な `Guid` 値に一致する |
-| `long` | `{ticks:long}` | `123456789`, `-123456789` | 有効な `long` 値に一致する |
+| `int` | `{id:int}` | `123456789`、 `-123456789`  | あらゆる整数に一致する |
+| `bool` | `{active:bool}` | `true`、 `FALSE` | `true` または `false` に一致する (大文字と小文字を区別しません) |
+| `datetime` | `{dob:datetime}` | `2016-12-31`、 `2016-12-31 7:32pm`  | 有効な `DateTime` 値に一致する (インバリアント カルチャで - 警告参照) |
+| `decimal` | `{price:decimal}` | `49.99`、 `-1,000.01` | 有効な `decimal` 値に一致する (インバリアント カルチャで - 警告参照) |
+| `double` | `{weight:double}` | `1.234`、 `-1,001.01e8` | 有効な `double` 値に一致する (インバリアント カルチャで - 警告参照) |
+| `float` | `{weight:float}` | `1.234`、 `-1,001.01e8` | 有効な `float` 値に一致する (インバリアント カルチャで - 警告参照) |
+| `guid` | `{id:guid}` | `CD2C1638-1638-72D5-1638-DEADBEEF1638`、 `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | 有効な `Guid` 値に一致する |
+| `long` | `{ticks:long}` | `123456789`、 `-123456789` | 有効な `long` 値に一致する |
 | `minlength(value)` | `{username:minlength(4)}` | `Rick` | 4 文字以上の文字列であることが必要 |
 | `maxlength(value)` | `{filename:maxlength(8)}` | `Richard` | 8 文字以内の文字列であることが必要 |
 | `length(length)` | `{filename:length(12)}` | `somefile.txt` | 厳密に 12 文字の文字列であることが必要 |
@@ -391,7 +391,15 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 
 ## <a name="parameter-transformer-reference"></a>パラメーター トランスフォーマー参照
 
-`Route` のリンクの生成時にパラメーター トランスフォーマーが実行されます。 パラメーター トランスフォーマーではパラメーターのルート値を取得し、それを新しい文字列値に変換します。 変換された値は生成されたリンクで使用されます。 たとえば、`Url.Action(new { article = "MyTestArticle" })` のルート パターン `blog\{article:slugify}` のカスタム `slugify` パラメーター トランスフォーマーでは、`blog\my-test-article` が生成されます。 パラメーター トランスフォーマーで `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` が実装されます。このトランスフォーマーは <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> を使用して構成されます。
+パラメーター トランスフォーマー:
+
+* `Route` のリンクの生成時に実行されます。
+* `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`を実装します。
+* <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> を使用して構成されます。
+* パラメーターのルート値を取得し、それを新しい文字列値に変換します。
+* 変換された値は生成されたリンクで使用されます。
+
+たとえば、`Url.Action(new { article = "MyTestArticle" })` のルート パターン `blog\{article:slugify}` のカスタム `slugify` パラメーター トランスフォーマーでは、`blog\my-test-article` が生成されます。
 
 パラメーター トランスフォーマーは、エンドポイントが解決される URI を変換するためにフレームワークでも使用されます。 たとえば、ASP.NET Core MVC ではパラメーター トランスフォーマーを使用して、`area`、`controller`、`action`、`page` を照合するために使用されるルート値を変換します。
 
@@ -403,7 +411,10 @@ routes.MapRoute(
 
 上記のルートでは、アクション `SubscriptionManagementController.GetAll()` は URI `/subscription-management/get-all` と一致します。 パラメーター トランスフォーマーでは、リンクを生成するために使用されるルート値は変更されません。 `Url.Action("GetAll", "SubscriptionManagement")` では `/subscription-management/get-all` が出力されます。
 
-ASP.NET Core MVC には、`Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` API 規則も付随します。 この規則では、指定されたパラメーター トランスフォーマーがアプリ内のすべての属性ルート トークンに適用されます。
+ASP.NET Core では、生成されたルートと共にパラメーター トランスフォーマーを使用するための API 規則が提供されます。
+
+* ASP.NET Core MVC には、`Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` API 規則が備わっています。 この規則では、指定されたパラメーター トランスフォーマーがアプリ内のすべての属性ルートに適用されます。 パラメーター トランスフォーマーでは、置き換えられる属性ルート トークンが変換されます。 詳細については、「[パラメーター トランスフォーマーを使用してトークンの置換をカスタマイズする](/aspnet/core/mvc/controllers/routing#use-a-parameter-transformer-to-customize-token-replacement)」をご覧ください。
+* Razor ページには、`Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention` API 規則が備わっています。 この規則では、指定されたパラメーター トランスフォーマーが自動で検出されたすべての Razor ページに適用されます。 パラメーター トランスフォーマーでは、Razor ページのルートのフォルダーとファイル名のセグメントが変換されます。 詳細については、[パラメーター トランスフォーマーを使用したページ ルートのカスタマイズ](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes)に関する記事をご覧ください。
 
 ::: moniker-end
 

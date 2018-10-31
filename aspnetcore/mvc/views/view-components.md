@@ -5,18 +5,18 @@ description: ASP.NET Core でのビュー コンポーネントの使用方法�
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 52bfb9e3983eb49aabdef238d53c6fdd2950c075
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211066"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207603"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="view-components"></a>ビュー コンポーネント
 
@@ -75,20 +75,20 @@ ms.locfileid: "47211066"
 
 ランタイムでは、次のパスでビューを検索します。
 
-* /Pages/Components/\<ビュー コンポーネント名>/\<ビュー名>
-* /Views/\<コントローラー名>/Components/\<ビュー コンポーネント名>/\<ビュー名>
-* /Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>
+* /Pages/Components/{ビュー コンポーネント名}/{ビュー名}
+* /Views/{コントローラー名}/Components/{ビュー コンポーネント名}/{ビュー名}
+* /Views/Shared/Components/{ビュー コンポーネント名}/{ビュー名}
 
 ビュー コンポーネントの既定のビュー名は、*Default* です。つまり、通常、ビュー ファイルは *Default.cshtml* という名前になるということです。 ビュー コンポーネントの結果を作成したり、`View` メソッドを呼び出したりするときに、別のビュー名を指定することができます。
 
-ビュー ファイルに *Default.cshtml* という名前を付けて、*Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>* パスを使用することをお勧めします。 このサンプルで使用される `PriorityList` ビュー コンポーネントは、ビュー コンポーネント ビューに *Views/Shared/Components/PriorityList/Default.cshtml* を使用します。
+ビュー ファイルに *Default.cshtml* という名前を付けて、"*Views/Shared/Components/{ビュー コンポーネント名}/{ビュー名}*" というパスを使用することをお勧めします。 このサンプルで使用される `PriorityList` ビュー コンポーネントは、ビュー コンポーネント ビューに *Views/Shared/Components/PriorityList/Default.cshtml* を使用します。
 
 ## <a name="invoking-a-view-component"></a>ビュー コンポーネントを呼び出す
 
 ビュー コンポーネントを使用するには、ビュー内で以下を呼び出します。
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
+@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 パラメーターは、`InvokeAsync` メソッドに渡されます。 この記事で開発された `PriorityList` ビュー コンポーネントは、*Views/Todo/Index.cshtml* ビュー ファイルから呼び出されます。 以下では、`InvokeAsync` メソッドは、2 つのパラメーターで呼び出されます。

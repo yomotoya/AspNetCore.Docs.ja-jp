@@ -5,12 +5,12 @@ description: このチュートリアルでは、関連データ (Entity Framewo
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912326"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348495"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -55,7 +55,7 @@ EF Core がエンティティのナビゲーション プロパティに関連�
 
 * `Select` 演算子は必要な関連データのみを読み込みます。
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>部門名を表示する Courses ページを作成する
+## <a name="create-a-course-page-that-displays-department-name"></a>部門名を表示する Course ページを作成する
 
 Course エンティティには、`Department` エンティティを含むナビゲーション プロパティが含まれています。 `Department` エンティティには、コースが割り当てられる部門が含まれています。
 

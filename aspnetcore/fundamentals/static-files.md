@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 63ebc5ce5094053eca08a9212b3b4c074c4bed64
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861006"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325979"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイル
 
@@ -237,9 +237,9 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 * IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 モジュールによって処理される前に、これで要求が処理されることはありません。
 
 * IIS マネージャーで次の手順を実行し、サーバーまたは Web サイト レベルで IIS の静的ファイル ハンドラーを削除します。
-    1. **[モジュール]** 機能に移動します。
-    1. 一覧の **[StaticFileModule]** を選択します。
-    1. **[アクション]** サイドバーで、**[削除]** をクリックします。
+    1. [**モジュール**] 機能に移動します。
+    1. 一覧の [**StaticFileModule**] を選択します。
+    1. [**アクション**] サイドバーで、[**削除**] をクリックします。
 
 > [!WARNING]
 > IIS の静的ファイル ハンドラーが有効になっており、**かつ**、ASP.NET Core モジュールが正しく構成されていない場合、静的ファイルにサービスが提供されます。 これは、たとえば、*web.config* ファイルが配置されていない場合などで発生します。
