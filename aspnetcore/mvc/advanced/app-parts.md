@@ -20,7 +20,7 @@ ms.locfileid: "50206564"
 
 ## <a name="introducing-application-parts"></a>アプリケーション パーツの概要
 
-MVC アプリはその機能を[アプリケーション パーツ](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)から読み込みます。 たとえば、[AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) クラスは、アセンブリでバックアップされるアプリケーション パーツを表します。 これらのクラスを使用して、コントローラー、ビュー コンポーネント、タグ ヘルパー、Razor コンパイル ソースなどの MBV 機能を検出して読み込むことができます。 [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) は、MVC アプリで使用できるアプリケーション パーツと機能プロバイダーの追跡を担当します。 MVC の構成時に `Startup` の `ApplicationPartManager` を操作できます。
+MVC アプリはその機能を[アプリケーション パーツ](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)から読み込みます。 たとえば、[AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) クラスは、アセンブリでバックアップされるアプリケーション パーツを表します。 これらのクラスを使用して、コントローラー、ビュー コンポーネント、タグ ヘルパー、Razor コンパイル ソースなどの MVC 機能を検出して読み込むことができます。 [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) は、MVC アプリで使用できるアプリケーション パーツと機能プロバイダーの追跡を担当します。 MVC の構成時に `Startup` の `ApplicationPartManager` を操作できます。
 
 ```csharp
 // create an assembly part from a class's assembly
