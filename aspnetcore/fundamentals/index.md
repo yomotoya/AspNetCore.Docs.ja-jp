@@ -4,22 +4,27 @@ author: rick-anderson
 description: ASP.NET Core アプリの構築に関する基本概念について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325472"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207473"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
-ASP.NET Core アプリは、以下の `Main` メソッドで Web サーバーを作成するコンソール アプリです。
+ASP.NET Core アプリは、その `Program.Main` メソッドで Web サーバーを作成するコンソール アプリです。 `Main` メソッドは、アプリの*マネージド エントリ ポイント*です。
 
 ::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/2.x/Program.cs)]
+
+.NET Core ホスト:
+
+* [.NET Core ランタイム](https://github.com/dotnet/coreclr)を読み込みます。
+* エントリ ポイント (`Main`) を含むマネージド バイナリへのパスとして最初のコマンドライン引数を使用し、コードの実行を開始します。
 
 `Main` メソッドは、Web ホストを作成する[ビルダー パターン](https://wikipedia.org/wiki/Builder_pattern)に従う、[WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*) を呼び出します。 ビルダーには、Web サーバー (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> など) とスタートアップ クラス (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>) を定義するメソッドがあります。 前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが自動的に割り当てられます。 ASP.NET Core の Web ホストは、IIS (使用可能な場合) で実行を試みます。 [HTTP.sys](xref:fundamentals/servers/httpsys) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。 `UseStartup` については、次のセクションで詳しく説明します。
 
@@ -30,6 +35,11 @@ ASP.NET Core アプリは、以下の `Main` メソッドで Web サーバーを
 ::: moniker range="< aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/1.x/Program.cs)]
+
+.NET Core ホスト:
+
+* [.NET Core ランタイム](https://github.com/dotnet/coreclr)を読み込みます。
+* エントリ ポイント (`Main`) を含むマネージド バイナリへのパスとして最初のコマンドライン引数を使用し、コードの実行を開始します。
 
 `Main` メソッドは、Web アプリ ホストを作成する[ビルダー パターン](https://wikipedia.org/wiki/Builder_pattern)に従う、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を使用します。 ビルダーには、Web サーバー (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> など) とスタートアップ クラス (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>) を定義するメソッドがあります。 前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが使用されています。 [WebListener](xref:fundamentals/servers/weblistener) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。 `UseStartup` については、次のセクションで詳しく説明します。
 
@@ -75,9 +85,11 @@ ASP.NET Core アプリは、以下の `Main` メソッドで Web サーバーを
 
 コンテンツ ルートは、[Razor ページ](xref:razor-pages/index)、MVC ビュー、静的資産など、アプリで使用されるコンテンツへの基本パスです。 既定では、コンテンツ ルートは、アプリをホストする実行可能ファイルのアプリ基本パスと同じ場所です。
 
-## <a name="web-root"></a>Web ルート
+## <a name="web-root-webroot"></a>Web ルート (webroot)
 
-アプリの Web ルートは、CSS、JavaScript、イメージ ファイルなどのパブリックな静的なリソースを含むプロジェクトのディレクトリです。
+アプリの webroot は、CSS、JavaScript、イメージ ファイルなどのパブリックな静的なリソースを含むプロジェクトのディレクトリです。 既定では、*wwwroot* が webroot です。
+
+Razor (*.cshtml*) のファイルの場合、チルダとスラッシュ `~/` が webroot を指します。 `~/` で始まるパスは仮想パスと呼ばれます。
 
 ## <a name="dependency-injection-services"></a>依存性の注入 (サービス)
 
@@ -147,36 +159,6 @@ ASP.NET Core は、ルート ハンドラーにアプリ要求をルーティン
 
 詳細については、「<xref:fundamentals/routing>」を参照してください。
 
-## <a name="file-providers"></a>ファイル プロバイダー
-
-ASP.NET Core は、プラットフォーム間でファイルを操作するための共通のインターフェイスを提供するファイル プロバイダーの使用により、ファイル システムへのアクセスを抽象化します。
-
-詳細については、「<xref:fundamentals/file-providers>」を参照してください。
-
-## <a name="static-files"></a>静的ファイル
-
-静的ファイルのミドルウェアは、HTML、CSS、画像、JavaScript ファイルなどの静的ファイルを処理します。
-
-詳細については、「<xref:fundamentals/static-files>」を参照してください。
-
-## <a name="session-and-app-state"></a>セッションとアプリの状態
-
-ASP.NET Core では、ユーザーによる Web アプリの参照中にセッションとアプリの状態を保持するためのいくつかの方法を提供しています。
-
-詳細については、「<xref:fundamentals/app-state>」を参照してください。
-
-## <a name="globalization-and-localization"></a>グローバリゼーションとローカリゼーション
-
-ASP.NET Core で多言語の Web サイトを作成すると、より幅広い対象者がサイトにアクセスできるようになります。 ASP.NET Core は、コンテンツをさまざまな言語と文化にローカライズするためのサービスとミドルウェアを提供します。
-
-詳細については、「<xref:fundamentals/localization>」を参照してください。
-
-## <a name="request-features"></a>要求機能
-
-HTTP の要求と応答に関連する Web サーバーの実装の詳細が、インターフェイスで定義されています。 これらのインターフェイスは、サーバーの実装とミドルウェアがアプリのホスティングのパイプラインを作成および変更するために使用します。
-
-詳細については、「<xref:fundamentals/request-features>」を参照してください。
-
 ## <a name="background-tasks"></a>バックグラウンド タスク
 
 バックグラウンド タスクは*ホストされるサービス*として実装されます。 ホストされるサービスは、<xref:Microsoft.Extensions.Hosting.IHostedService> インターフェイスを実装するバックグラウンド タスク ロジックを持つクラスです。
@@ -188,43 +170,3 @@ HTTP の要求と応答に関連する Web サーバーの実装の詳細が、�
 `HttpContext` は、Razor ページおよび MVC で要求を処理するときに自動的に使用可能になります。 `HttpContext` をすぐに使用できない状況では、<xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> インターフェイスとその既定の実装 <xref:Microsoft.AspNetCore.Http.HttpContextAccessor> を介して `HttpContext` にアクセスできます。
 
 詳細については、「<xref:fundamentals/httpcontext>」を参照してください。
-
-## <a name="websockets"></a>WebSocket
-
-[WebSocket](https://wikipedia.org/wiki/WebSocket) は TCP 接続を使用した双方向の永続的通信チャネルを有効にするプロトコルです。 チャット、株価情報、ゲームなどのアプリ、さらに Web アプリでのリアルタイムな機能が必要とされるあらゆる場所で使用されます。 ASP.NET Core は、Web ソケットのシナリオをサポートします。
-
-詳細については、「<xref:fundamentals/websockets>」を参照してください。
-
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="microsoftaspnetcoreapp-metapackage"></a>Microsoft.AspNetCore.App メタパッケージ
-
-[Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) メタパッケージは、パッケージ管理を簡略化します。
-
-詳細については、「<xref:fundamentals/metapackage-app>」を参照してください。
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-## <a name="microsoftaspnetcoreall-metapackage"></a>Microsoft.AspNetCore.All メタパッケージ
-
-ASP.NET Core の [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) メタパッケージには、次のものが含まれます。
-
-* ASP.NET Core チームでサポートされるすべてのパッケージ。
-* Entity Framework Core でサポートされるすべてのパッケージ。
-* ASP.NET Core および Entity Framework Core で使用される内部およびサードパーティの依存関係。
-
-詳細については、「<xref:fundamentals/metapackage>」を参照してください。
-
-::: moniker-end
-
-## <a name="net-core-vs-net-framework-runtime"></a>.NET Core と .NET Framework ランタイム
-
-ASP.NET Core アプリは、.NET Core または .NET Framework ランタイムを対象にすることができます。
-
-詳細については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](/dotnet/articles/standard/choosing-core-framework-server)」を参照してください。
-
-## <a name="choose-between-aspnet-core-and-aspnet"></a>ASP.NET Core と ASP.NET の選択
-
-ASP.NET Core と ASP.NET の選択の詳細については、「<xref:fundamentals/choose-between-aspnet-and-aspnetcore>」を参照してください。

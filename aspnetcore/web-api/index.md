@@ -4,14 +4,14 @@ author: scottaddie
 description: ASP.NET Core で Web API を構築するために使用できる機能、および各機能を使用する適切なタイミングについて説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/15/2018
+ms.date: 10/30/2018
 uid: web-api/index
-ms.openlocfilehash: 950f4e8afa13bf297ea8658ef1c1bea0c9b62936
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: b3e26bee5e4dc8937e810bc5db300a486437f568
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234593"
+ms.locfileid: "50244763"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>ASP.NET Core で Web API を構築する
 
@@ -27,13 +27,13 @@ Web API として機能することを目的としたコント ローラー内�
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
 
 ::: moniker-end
 
@@ -41,66 +41,81 @@ Web API として機能することを目的としたコント ローラー内�
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="annotate-class-with-apicontrollerattribute"></a>ApiControllerAttribute でクラスに注釈を付ける
+## <a name="annotation-with-apicontrollerattribute"></a>ApiControllerAttribute で注釈を付ける
 
 ASP.NET Core 2.1 では、Web API コントローラー クラスを表す [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性が導入されました。 例:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 
-この属性を使用するには、2.1 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。 たとえば、*Startup.ConfigureServices* の強調表示されているコードでは、2.2 の互換性フラグが設定されます。
+この属性をコントローラー レベルで使用するには、2.1 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。 たとえば、`Startup.ConfigureServices` の強調表示されているコードでは、2.1 の互換性フラグが設定されます。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
 
 詳細については、「<xref:mvc/compatibility-version>」を参照してください。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+ASP.NET Core 2.2 以降では、`[ApiController]` 属性をアセンブリに適用できます。 この方法での注釈では、アセンブリ内のすべてのコントローラーに Web API の動作が適用されます。 個々のコントローラーを有効にする方法はありません。 推奨事項として、アセンブリ レベルの属性を `Startup` クラスに適用する必要があります。
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ApiControllerAttributeOnAssembly&highlight=1)]
+
+この属性をアセンブリ レベルで使用するには、2.2 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 コントローラーの REST 固有の動作を有効にする場合、通常、`[ApiController]` 属性は `ControllerBase` と組み合わせて使用されます。 `ControllerBase` では、<xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> や <xref:Microsoft.AspNetCore.Mvc.ControllerBase.File*> などのメソッドにアクセスできます。
 
 その他に、`[ApiController]` 属性で注釈が付けられたユーザー定義の基本コントローラー クラスを作成するという方法があります。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
 
 次のセクションでは、属性によって追加される便利な機能について説明します。
-
-### <a name="problem-details-responses-for-error-status-codes"></a>エラー状態コードに対する問題の詳細の応答
-
-ASP.NET Core 2.1 以降には、[RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に基づいた型 [ProblemDetails](xref:Microsoft.AspNetCore.Mvc.ProblemDetails) が含まれています。 `ProblemDetails` 型は機械で読み取り可能なエラーの詳細を HTTP 応答で伝えるための標準化された形式を提供します。
-
-ASP.NET Core 2.2 以降では、MVC がエラー状態コードの結果 (状態コード 400 以上) を `ProblemDetails` による結果に変換します。 次のコードがあるとします。
-
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_ProblemDetails_StatusCode&highlight=4)]
-
-`NotFound` の結果の HTTP 応答には、404 状態コードと次のような `ProblemDetails` の本文が含まれています。
-
-```json
-{
-    type: "https://tools.ietf.org/html/rfc7231#section-6.5.4",
-    title: "Not Found",
-    status: 404,
-    traceId: "0HLHLV31KRN83:00000001"
-}
-```
-
-問題の詳細機能には、2.2 以降の互換性フラグが必要です。 [SuppressMapClientErrors](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors> --> プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` の次の強調表示されたコードを使用すると、問題の詳細が無効になります。
-
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=8)]
-
-`ProblemDetails` 応答の内容を構成するには、[ClientErrorMapping](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping> --> プロパティを使用します。 たとえば、次のコードにより、404 応答の `type` プロパティが更新されます。
-
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=10)]
 
 ### <a name="automatic-http-400-responses"></a>自動的な HTTP 400 応答
 
 検証エラーが発生すると、HTTP 400 応答が自動的にトリガーされます。 次のコードは実際のアクションでは不要になります。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
 
 結果として発生する応答の出力をカスタマイズするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> を使用します。
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティが `true` に設定されている場合、既定の動作は無効になります。 *Startup.ConfigureServices* の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);` の後に次のコードを追加します。
+<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+::: moniker-end
 
-2.2 以降の互換性フラグを設定した場合の、400 応答に対して返される既定の応答の種類は、<xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> です。 ASP.NET Core 2.1 エラー形式を使用するには、[SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> プロパティを使用します。
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=7)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+2.2 以降の互換性フラグを設定した場合の、HTTP 400 応答に対する既定の応答の種類は、<xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> です。 `ValidationProblemDetails` 型は [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に準拠しています。 代わりに ASP.NET Core 2.1 エラー形式の <xref:Microsoft.AspNetCore.Mvc.SerializableError> を返すようにするには、`SuppressUseValidationProblemDetailsForInvalidModelStateResponses` プロパティを `true` に設定します。 `Startup.ConfigureServices` に次のコードを追加します。
+
+```csharp
+services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options
+          .SuppressUseValidationProblemDetailsForInvalidModelStateResponses = true;
+    });
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="binding-source-parameter-inference"></a>バインディング ソース パラメーター推論
 
@@ -120,37 +135,103 @@ ASP.NET Core 2.2 以降では、MVC がエラー状態コードの結果 (状態
 
 `[ApiController]` 属性がない場合は、バインディング ソース属性を明示的に定義します。 次の例では、`discontinuedOnly` パラメーター値が要求 URL のクエリ文字列に指定されていることが `[FromQuery]` によって示されています。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
 アクション パラメーターの既定のデータ ソースには推論規則が適用されます。 これらの規則によって、アクション パラメーターに、通常、手動で適用する可能性の高いバインディング ソースが構成されます。 バインディング ソースの属性は、次のように動作します。
 
 * **[FromBody]** は複合型のパラメーターに対して推論されます。 この規則には例外があり、<xref:Microsoft.AspNetCore.Http.IFormCollection> や <xref:System.Threading.CancellationToken> などの、特殊な意味を持つ複雑な組み込み型が該当します。 バインディング ソース推論コードでは、そのような特殊な型は無視されます。 `[FromBody]` は、`string` や `int` などの単純型に対しては推論されません。 そのため、その機能が必要な場合、単純型に対しては `[FromBody]` 属性を使用する必要があります。 アクションの複数のパラメーターが明示的に指定されている場合 (`[FromBody]` によって) または要求本文からバインドとして推論される場合は、例外がスローされます。 たとえば、次のアクション シグネチャは例外の原因となります。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
 
 * **[FromForm]** は <xref:Microsoft.AspNetCore.Http.IFormFile> および <xref:Microsoft.AspNetCore.Http.IFormFileCollection> 型のアクション パラメーターに対して推論されます。 簡易型またはユーザー定義型に対しては推論されません。
 * **[FromRoute]** は、ルート テンプレート内のパラメーターと一致する任意のアクション パラメーター名に対して推論されます。 複数のルートがアクション パラメーターと一致する場合、ルート値はいずれも `[FromRoute]` と見なされます。
 * **[FromQuery]** は他の任意のアクション パラメーターに対して推論されます。
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> プロパティが `true` に設定されている場合、既定の推論規則は無効になります。 *Startup.ConfigureServices* の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);` の後に次のコードを追加します。
+<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> プロパティが `true` に設定されている場合、既定の推論規則は無効になります。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=6)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="multipartform-data-request-inference"></a>マルチパート/フォーム データ要求の推論
 
 [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) 属性を使用してアクション パラメーターに注釈を付けた場合は、`multipart/form-data` 要求コンテンツ型が推論されます。
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> プロパティが `true` に設定されている場合、既定の動作は無効になります。 *Startup.ConfigureServices* の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);` の後に次のコードを追加します。
+<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> プロパティが `true` に設定されている場合、既定の動作は無効になります。
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+`Startup.ConfigureServices` に次のコードを追加します。
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);` の後ろに次のコードを追加します。
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="attribute-routing-requirement"></a>属性ルーティング要件
 
 属性ルーティングは要件になります。 例:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
 
-<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> 内で定義されているか、または *Startup.Configure* 内の <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> によって定義されている[従来のルート](xref:mvc/controllers/routing#conventional-routing)を通してアクションにアクセスすることはできません。
+<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> 内で定義されているか、または `Startup.Configure` 内の <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> によって定義されている[従来のルート](xref:mvc/controllers/routing#conventional-routing)を通してアクションにアクセスすることはできません。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="problem-details-responses-for-error-status-codes"></a>エラー状態コードに対する問題の詳細の応答
+
+ASP.NET Core 2.2 以降では、MVC によってエラー結果 (状態コードが 400 以降の結果) が <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> による結果に変換されます。 `ProblemDetails` は次のようになります。
+
+* [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に基づいた型。
+* HTTP 応答でコンピューターが判読できるエラーの詳細を指定するための標準化された形式。
+
+コントローラー アクションで次のコードがあるとします。
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Controllers/ProductsController.cs?name=snippet_ProblemDetailsStatusCode)]
+
+`NotFound` の HTTP 応答には 404 状態コードと `ProblemDetails` の本文が含まれています。 例:
+
+```json
+{
+    type: "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+    title: "Not Found",
+    status: 404,
+    traceId: "0HLHLV31KRN83:00000001"
+}
+```
+
+問題の詳細機能には、2.2 以降の互換性フラグが必要です。 `SuppressMapClientErrors` プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` に次のコードを追加します。
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8)]
+
+`ProblemDetails` の応答の内容を構成するには、`ClientErrorMapping` プロパティを使用します。 たとえば、次のコードにより、404 応答の `type` プロパティが更新されます。
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
 
 ::: moniker-end
 
