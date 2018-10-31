@@ -5,12 +5,12 @@ description: 承認によって保護されたユーザー データと Razor �
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 786e83eb28722e83eea46def962593f58ad524e2
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244841"
+ms.locfileid: "50253222"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>承認によって保護されたユーザー データと ASP.NET Core アプリを作成します。
 
@@ -71,16 +71,16 @@ ms.locfileid: "50244841"
 このチュートリアルは、高度なです。 理解しておく必要があります。
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
-* [認証](xref:security/authentication/index)
+* [認証](xref:security/authentication/identity)
 * [アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)
-* [承認](xref:security/authorization/index)
+* [承認](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-ASP.NET Core 2.1 で`User.IsInRole`を使用する場合は失敗`AddDefaultIdentity`します。 このチュートリアルでは`AddDefaultIdentity`のため 1 またはそれ以降の ASP.NET Core 2.2 プレビュー必要があります。 参照してください[この GitHub の問題](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909)を回避します。
+ASP.NET Core 2.1 で`User.IsInRole`を使用する場合は失敗`AddDefaultIdentity`します。 このチュートリアルでは`AddDefaultIdentity`のため 2.2 またはそれ以降の ASP.NET Core 必要があります。 参照してください[この GitHub の問題](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909)を回避します。
 
 ::: moniker-end
 
@@ -352,7 +352,7 @@ dotnet ef database update
 
 * [Azure App Service で .NET Core および SQL Database web アプリを構築します。](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core 承認ラボ](https://github.com/blowdart/AspNetAuthorizationWorkshop)します。 このラボでは、このチュートリアルで導入されたセキュリティ機能の詳細に移動します。
-* [ASP.NET Core での承認: 単純、ロール、クレーム ベース、およびカスタム](xref:security/authorization/index)
+* <xref:security/authorization/introduction>
 * [カスタム ポリシー ベースの承認](xref:security/authorization/policies)
 
 ::: moniker-end

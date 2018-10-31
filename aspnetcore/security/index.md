@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: f3b1f74f2e3a991b72cae94019f42548e3858f20
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091029"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252946"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core Security の概要
 
@@ -40,7 +40,7 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
 
 ## <a name="aspnet-core-security-documentation"></a>ASP.NET Core セキュリティに関するドキュメント
 
-* [認証](xref:security/authentication/index)
+* 認証
   * [Identity の概要](xref:security/authentication/identity)
   * [Facebook、Google、および他の外部プロバイダーを使用する認証の有効化](xref:security/authentication/social/index)
   * [WS フェデレーションを使用した認証の有効化](xref:security/authentication/ws-federation)
@@ -54,7 +54,7 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
     * [Azure AD を使用した ASP.NET Core Web アプリでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
     * [ASP.NET Core Web アプリでの Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
   * [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io)
-* [承認](xref:security/authorization/index)
+* 承認
   * [はじめに](xref:security/authorization/introduction)
   * [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
   * [単純な承認](xref:security/authorization/simple)
@@ -65,10 +65,10 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
   * [リソース ベースの承認](xref:security/authorization/resourcebased)
   * [ビュー ベースの承認](xref:security/authorization/views)
   * [スキームによる ID の制限](xref:security/authorization/limitingidentitybyscheme)
-* [データ保護](xref:security/data-protection/index)
+* データの保護
   * [データ保護の概要](xref:security/data-protection/introduction)
   * [データ保護 API の概要](xref:security/data-protection/using-data-protection)
-  * [コンシューマー API](xref:security/data-protection/consumer-apis/index)
+  * コンシューマー API
     * [コンシューマー API の概要](xref:security/data-protection/consumer-apis/overview)
     * [目的文字列](xref:security/data-protection/consumer-apis/purpose-strings)
     * [目的の階層とマルチテナント](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)

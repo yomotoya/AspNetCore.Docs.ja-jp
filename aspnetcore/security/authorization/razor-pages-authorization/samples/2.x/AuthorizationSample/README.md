@@ -1,10 +1,10 @@
-# <a name="aspnet-core-authorization-sample"></a>ASP.NET Core 承認のサンプル
+# <a name="aspnet-core-authorization-sample"></a>ASP.NET Core の承認例
 
-このサンプルでは、規則で Razor ページの認証の使用方法を示します。 このサンプルで説明する機能、 [Razor ページの承認規則](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization)トピックです。
+このサンプルでは、規則での Razor ページの承認の使用を示しています。 このサンプルで説明する機能、 [Razor ページの承認規則](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization)トピック。
 
-このサンプルではユーザーの承認で説明されている機能の cookie 認証を使用して、 [cookie 認証を使用する ASP.NET Core Id せず](https://docs.microsoft.com/aspnet/core/security/authentication/cookie)トピックです。 ASP.NET Core Id の使用方法の詳細については、トピックを参照して、[認証](https://docs.microsoft.com/aspnet/core/security/authentication/index)ドキュメントのセクションでします。
+このサンプルでは、ユーザーの承認機能の説明で、cookie 認証を使用して、 [ASP.NET Core Identity なしの cookie 認証を使用して](https://docs.microsoft.com/aspnet/core/security/authentication/cookie)トピック。 ASP.NET Core Identity を使用する方法の詳細については、次を参照してください。<xref:security/authentication/identity>します。
 
-サンプルを実行する場合は、電子メール アドレスを使用して**maria.rodriguez@contoso.com**ユーザーを認証します。
+サンプルを実行するときに電子メール アドレスを使用して、 **maria.rodriguez@contoso.com**ユーザーを認証します。
 
 ## <a name="examples-in-this-sample"></a>このサンプルの例
 
