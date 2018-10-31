@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/25/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 7f19db0a1d12b904daff989bc969daf8d2302bfa
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: f9b1c3fbfafa839c116688e0ac63804afcd5dbe0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325784"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206674"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -19,7 +19,7 @@ ms.locfileid: "49325784"
 
 ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/windows-services/introduction-to-windows-service-applications) として使用せずに、Windows にホストできます。 Windows サービスとしてホストされている場合、再起動後にアプリが自動的に起動します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="convert-a-project-into-a-windows-service"></a>プロジェクトを Windows サービスに変換する
 
@@ -123,7 +123,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    別のフォルダーからサービスを発行および開始するには
 
-      * `dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。 Visual Studio を使用するには、[**発行**] ボタンを選択する前に、[**FolderProfile**] 発行プロパティ ページの [**ターゲットの場所**] を構成します。
+      * `dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。 Visual Studio を使用するには、**[発行]** ボタンを選択する前に、**[FolderProfile]** 発行プロパティ ページの **[ターゲットの場所]** を構成します。
       * 出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。 `binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。
 
 1. サービスを `sc start <SERVICE_NAME>` コマンドで開始します。

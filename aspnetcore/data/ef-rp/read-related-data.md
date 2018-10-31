@@ -3,14 +3,15 @@ title: ASP.NET Core の Razor ページと EF Core - 関連データの読み込
 author: rick-anderson
 description: このチュートリアルでは、関連データ (Entity Framework がナビゲーション プロパティに読み込むデータ) の読み取りと表示を行います。
 ms.author: riande
-ms.date: 11/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348495"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207557"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -20,7 +21,7 @@ ms.locfileid: "49348495"
 
 このチュートリアルでは、関連データが読み取られ、表示されます。 関連データとは、EF Core がナビゲーション プロパティに読み込むデータのことです。
 
-解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
+解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
 
 以下の図は、このチュートリアルの完成したページを示しています。
 
@@ -32,7 +33,7 @@ ms.locfileid: "49348495"
 
 EF Core がエンティティのナビゲーション プロパティに関連データを読み込むには、複数の方法があります。
 
-* [一括読み込み](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading)。 一括読み込みは、エンティティの 1 つの型に対するクエリが関連エンティティも読み込む場合です。 エンティティが読み取られるときに、その関連データが取得されます。 これは通常、必要なすべてのデータを取得する 1 つの結合クエリになります。 EF Core は、一部の型の一括読み込みに対して複数のクエリを発行します。 複数のクエリを発行することで、1 つのクエリしかなかった EF6 の一部のクエリよりも、効率を高めることができます。 一括読み込みは、`Include` メソッドと `ThenInclude` メソッドを使用して指定されます。
+* [一括読み込み](/ef/core/querying/related-data#eager-loading)。 一括読み込みは、エンティティの 1 つの型に対するクエリが関連エンティティも読み込む場合です。 エンティティが読み取られるときに、その関連データが取得されます。 これは通常、必要なすべてのデータを取得する 1 つの結合クエリになります。 EF Core は、一部の型の一括読み込みに対して複数のクエリを発行します。 複数のクエリを発行することで、1 つのクエリしかなかった EF6 の一部のクエリよりも、効率を高めることができます。 一括読み込みは、`Include` メソッドと `ThenInclude` メソッドを使用して指定されます。
 
   ![一括読み込みの例](read-related-data/_static/eager-loading.png)
  
@@ -47,11 +48,11 @@ EF Core がエンティティのナビゲーション プロパティに関連�
 
   注: EF Core は、コンテキスト インスタンスに以前に読み込まれたその他のエンティティに対して、ナビゲーション プロパティを自動的に修正します。 ナビゲーション プロパティのデータが明示的に含まれ*ない*場合でも、関連エンティティの一部またはすべてが以前に読み込まれていれば、プロパティを設定することができます。
 
-* [明示的読み込み](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 必要なときに関連するデータを取得するコードを記述する必要があります。 分離したクエリによる明示的読み込みにより、複数のクエリが DB に送信されます。 明示的読み込みでは、コードで読み込まれるナビゲーション プロパティを指定します。 明示的読み込みを行うには、`Load` メソッドを使用します。 例:
+* [明示的読み込み](/ef/core/querying/related-data#explicit-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 必要なときに関連するデータを取得するコードを記述する必要があります。 分離したクエリによる明示的読み込みにより、複数のクエリが DB に送信されます。 明示的読み込みでは、コードで読み込まれるナビゲーション プロパティを指定します。 明示的読み込みを行うには、`Load` メソッドを使用します。 例:
 
   ![明示的読み込みの例](read-related-data/_static/explicit-loading.png)
 
-* [遅延読み込み](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading)。 [遅延読み込みがバージョン 2.1 内の EF Core に追加されました](/ef/core/querying/related-data#lazy-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ナビゲーション プロパティに初めてアクセスすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 初めてナビゲーション プロパティにアクセスされるたびに、クエリが DB に送信されます。
+* [遅延読み込み](/ef/core/querying/related-data#lazy-loading)。 [遅延読み込みがバージョン 2.1 内の EF Core に追加されました](/ef/core/querying/related-data#lazy-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 ナビゲーション プロパティに初めてアクセスすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。 初めてナビゲーション プロパティにアクセスされるたびに、クエリが DB に送信されます。
 
 * `Select` 演算子は必要な関連データのみを読み込みます。
 
