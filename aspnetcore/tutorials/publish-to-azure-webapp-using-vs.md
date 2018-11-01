@@ -3,14 +3,15 @@ title: Visual Studio を使用して Azure に ASP.NET Core アプリを発行�
 author: rick-anderson
 description: Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
 ms.author: riande
-ms.date: 12/16/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7211da268c1c52e7b859e6f98ce433fd19b218ff
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: a5a02112d87563a47d5e2dab355359fa39da9a89
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320727"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090356"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio を使用して Azure に ASP.NET Core アプリを発行する
 
@@ -20,7 +21,7 @@ ms.locfileid: "39320727"
 
 macOS を使用している場合は、[Visual Studio for Mac から Azure への公開](https://blog.xamarin.com/publish-azure-visual-studio-mac/)に関するページを参照してください。
 
-App Service デプロイの問題を解決するには、「[Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)」を参照してください。
+App Service の配置に関する問題を解決するには、「<xref:host-and-deploy/azure-apps/troubleshoot>」を参照してください。
 
 ## <a name="set-up"></a>設定
 
@@ -179,11 +180,11 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 ### <a name="next-steps"></a>次の手順
 
-* [Visual Studio と Git による Azure への継続的配置](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
+* <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
 ## <a name="additonal-resources"></a>追加のリソース
 
-* [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Azure リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
-* [Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)
+* [Azure App Service](/azure/app-service/app-service-web-overview)
+* [Azure リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Azure SQL Database](/azure/sql-database/)
+* <xref:host-and-deploy/azure-apps/troubleshoot>

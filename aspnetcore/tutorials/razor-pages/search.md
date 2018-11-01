@@ -6,18 +6,38 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: c88441b39d8c96ec817c58fc56ebd51a0887b077
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 80292f8cfecd5363fb8acc8578f9bb0ca9ee5969
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045563"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090164"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor ページへの検索の追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 この記事では、ムービーを*ジャンル*や*題名*で検索できるように検索機能を索引ページに追加しています。
+
+強調表示されている次のプロパティを *Pages/Movies/Index.cshtml.cs* に追加します。
+
+::: moniker range="= aspnetcore-2.0"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+* `SearchString`: ユーザーが検索テキスト ボックスに入力したテキストが含まれる。
+* `Genres`: ジャンル一覧が含まれる。 これにより、ユーザーは一覧からジャンルを選択できます。
+* `MovieGenre`: "Western (西部劇)" など、ユーザーが選択する特定のジャンルが含まれる。
+
+`Genres` プロパティと `MovieGenre` プロパティについては、このドキュメントで後述します。
 
 索引ページの `OnGetAsync` メソッドを次のコードに変更します。
 
@@ -40,6 +60,8 @@ var movies = from m in _context.Movie
 `s => s.Title.Contains()` コードは[ラムダ式](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions)です。 ラムダは、メソッド ベースの [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) クエリで、[Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) メソッドや `Contains` (先のコードで使用されています) など、標準クエリ演算子メソッドの引数として使用されます。 LINQ クエリは、`Where`、`Contains`、`OrderBy` などのメソッドの呼び出しで定義または変更されたときには実行されません。 クエリ実行は先送りされます。 つまり、その具体値が繰り返されるか、`ToListAsync` メソッドが呼び出されるまで、式の評価が延ばされます。 詳細については、「[クエリ実行](/dotnet/framework/data/adonet/ef/language-reference/query-execution)」を参照してください。
 
 **注:** [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) メソッドは C# コードではなく、データベースで実行されます。 クエリの大文字と小文字の区別は、データベースや照合順序に依存します。 SQL Server では、`Contains` は大文字/小文字の区別がない [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql) にマッピングされます。 SQLite では、既定の照合順序で、大文字と小文字が区別されます。
+
+最後に、`OnGetAsync` メソッドの最後の行に、ユーザーの検索値を持つ `SearchString` プロパティが代入されます。 `SearchString` プロパティが代入されると、検索の実行後、検索ボックス内に検索値が保持されます。
 
 ムービーページに移動し、`?searchString=Ghost` のようなクエリ文字列を URL に追加します (例: `http://localhost:5000/Movies?searchString=Ghost`)。 フィルターされたムービーが表示されます。
 
@@ -66,25 +88,6 @@ HTML `<form>` タグは[フォーム タグ ヘルパー](xref:mvc/views/working
 ![タイトル フィルター テキストボックスに ghost という単語が入力されたインデックス ビュー](search/_static/filter.png)
 
 ## <a name="search-by-genre"></a>ジャンルで検索する
-
-強調表示されている次のプロパティを *Pages/Movies/Index.cshtml.cs* に追加します。
-
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-
-`Genres` プロパティには、ジャンルの一覧が含まれます。 これにより、ユーザーは一覧からジャンルを選択できます。
-
-`MovieGenre` プロパティには、"Western (西部劇)" など、ユーザーが選択する特定のジャンルが含まれます。
 
 `OnGetAsync` メソッドを次のコードで更新します。
 

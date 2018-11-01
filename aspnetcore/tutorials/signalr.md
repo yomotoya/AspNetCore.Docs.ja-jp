@@ -7,29 +7,29 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: c059ace7ebe0e65ecb3ac068677d65ae148322a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578030"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207681"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>チュートリアル: ASP.NET Core SignalR の概要
 
 このチュートリアルでは、SignalR を使用してリアルタイム アプリをビルドするための基礎について説明します。 以下の方法について説明します。
 
 > [!div class="checklist"]
-> * Web アプリ プロジェクトを作成する。
+> * Web プロジェクトを作成します。
 > * SignalR クライアント ライブラリを追加する。
 > * SignalR ハブを作成する。
 > * SignalR を使用するようにプロジェクトを構成する。
-> * ハブを使用して任意のクライアントから接続済みのすべてのクライアントにメッセージを送信する、コードを追加する。
+> * 任意のクライアントから、接続されているすべてのクライアントにメッセージを送信するコードを追加します。
 
 最後には、次のように動作するチャット アプリが作成されます。
 
 ![SignalR のサンプル アプリ](signalr/_static/signalr-get-started-finished.png)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

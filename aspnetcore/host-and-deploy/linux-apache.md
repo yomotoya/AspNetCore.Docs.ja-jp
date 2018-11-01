@@ -4,14 +4,14 @@ description: CentOS 上にリバース プロキシ サーバーとして Apache
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/09/2018
+ms.date: 10/23/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 237646f839a4973074bb64176a024ebb3d32ee4e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 25545be5e4d9cb922b3aac4f6666503c1143d555
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913009"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090321"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
@@ -57,13 +57,6 @@ dotnet publish --configuration Release
 
 ::: moniker range=">= aspnetcore-2.0"
 
-> [!NOTE]
-> リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
-
-::: moniker-end
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) や同様の認証スキームのミドルウェアを呼び出す前に、`Startup.Configure` で [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) メソッドを呼び出します。 ミドルウェアを構成して、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。
 
 ```csharp
@@ -75,7 +68,9 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 app.UseAuthentication();
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) や [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication)、または同様の認証スキームのミドルウェアを呼び出す前に、`Startup.Configure` で [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) メソッドを呼び出します。 ミドルウェアを構成して、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。
 
@@ -93,7 +88,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
----
+::: moniker-end
 
 ミドルウェアに対して [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) が指定されていない場合、転送される既定のヘッダーは `None` です。
 
@@ -399,13 +394,17 @@ sudo yum install mod_headers
 
 [クリックジャッキング](https://blog.qualys.com/securitylabs/2015/10/20/clickjacking-a-common-implementation-mistake-that-can-put-your-websites-in-danger)は "*UI 着せ替え攻撃*" とも呼ばれ、Web サイトの訪問者を騙して現在訪れているものとは異なるページのリンクやボタンをクリックさせる悪意のある攻撃です。 サイトをセキュリティで保護するには、`X-FRAME-OPTIONS` を使います。
 
-*httpd.conf* ファイルを編集します。
+クリックジャッキング攻撃を軽減するには、次の手順に従います。
 
-```bash
-sudo nano /etc/httpd/conf/httpd.conf
-```
+1. *httpd.conf* ファイルを編集します。
 
-行 `Header append X-FRAME-OPTIONS "SAMEORIGIN"` を追加します。 ファイルを保存します。 Apache を再起動します。
+   ```bash
+   sudo nano /etc/httpd/conf/httpd.conf
+   ```
+
+   行 `Header append X-FRAME-OPTIONS "SAMEORIGIN"` を追加します。
+1. ファイルを保存します。
+1. Apache を再起動します。
 
 #### <a name="mime-type-sniffing"></a>MIME タイプ スニッフィング
 
@@ -485,4 +484,5 @@ sudo nano /etc/httpd/conf.d/ratelimit.conf
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* [Linux における .NET Core の前提条件](/dotnet/core/linux-prerequisites)
 * [プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)

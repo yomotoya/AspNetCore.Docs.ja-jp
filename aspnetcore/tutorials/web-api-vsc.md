@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: b8e5c8b7d3dc04513997997d903295853dd1ff46
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 740110908358a382f20bc1e54e98056296278acf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348430"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089665"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core と Visual Studio Code で Web API を作成する
 
@@ -65,7 +65,7 @@ Visual Studio Code (VS Code) で *TodoApi* フォルダーが開きます。 *St
 
 :::moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) プロバイダーが追加されます。
+ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、プロジェクト ファイルに [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)が追加されます。
 
 [!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 
@@ -73,7 +73,7 @@ ASP.NET Core 2.1 以降で新しいプロジェクトを作成すると、*TodoA
 
 :::moniker range="<= aspnetcore-2.0"
 
-ASP.NET Core 2.0 で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) プロバイダーが追加されます。
+ASP.NET Core 2.0 で新しいプロジェクトを作成すると、プロジェクト ファイルに [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)が追加されます。
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 

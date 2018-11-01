@@ -1,17 +1,17 @@
 ---
-title: Azure App Service での ASP.NET Core のトラブルシューティング
+title: Azure App Service での ASP.NET Core 起動エラーのトラブルシューティング
 author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: a995c743b4e43be8bea5329affb3f2c736b1d016
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902555"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090746"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -108,7 +108,7 @@ ASP.NET Core モジュールの stdout には、アプリケーション イベ�
 
 ## <a name="common-startup-errors"></a>起動時の一般的なエラー 
 
-[ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)に関するページを参照してください。 このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
+以下を参照してください。<xref:host-and-deploy/azure-iis-errors-reference> このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
 
 ## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
 
@@ -175,8 +175,8 @@ stdout ログが有効になっていない場合は、次の手順のように�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ASP.NET Core でのエラー処理の概要](xref:fundamentals/error-handling)
-* [Azure App Service および IIS と ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
+* <xref:fundamentals/error-handling>
+* <xref:host-and-deploy/azure-iis-errors-reference>
 * [Visual Studio を使用した Azure App Service での Web アプリのトラブルシューティング](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
 * [Azure Web Apps での "502 bad gateway" および "503 service unavailable" の HTTP エラーのトラブルシューティング](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Azure App Service での Web アプリのパフォーマンス低下に関する問題のトラブルシューティング](/azure/app-service/app-service-web-troubleshoot-performance-degradation)

@@ -3,14 +3,15 @@ title: ASP.NET Core MVC と EF Core - CRUD - 2/10
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/crud
-ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477580"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090824"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC と EF Core - CRUD - 2/10
 
@@ -91,7 +92,7 @@ Index ページでは、Razor ビューのタグ ヘルパーのステートメ�
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-タグ ヘルパーについては、「[ASP.NET Core のタグ ヘルパー](xref:mvc/views/tag-helpers/intro)」をご覧ください。
+タグ ヘルパーの詳細については、「<xref:mvc/views/tag-helpers/intro>」を参照してください。
 
 ### <a name="add-enrollments-to-the-details-view"></a>Details ビューに登録を追加する
 
@@ -121,7 +122,7 @@ Index ページでは、Razor ビューのタグ ヘルパーのステートメ�
 
 `ID` は行が挿入されるときに SQL Server によって自動的に設定される主キー値であるため、`Bind` 属性から ID を削除しました。 ユーザーからの入力によって ID 値が設定されることはありません。
 
-`Bind` 属性以外では、スキャフォールディングされたコードに対して行った変更は try-catch ブロックだけです。 変更を保存するときに、`DbUpdateException` から派生した例外がキャッチされた場合は、汎用的なエラー メッセージが表示されます。 `DbUpdateException` 例外は、プログラミング エラーではなくアプリケーション外の何かが原因で発生する場合があるので、再試行することをお勧めします。 このサンプルでは実装されていませんが、運用品質のアプリケーションでは例外をログに記録します。 詳細については、「[Monitoring and Telemetry (Building Real-World Cloud Apps with Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)」(監視とテレメトリ (Azure での実際のクラウド アプリの構築)) の「**Log for insight**」(洞察のためのログ) セクションをご覧ください。
+`Bind` 属性以外では、スキャフォールディングされたコードに対して行った変更は try-catch ブロックだけです。 変更を保存するときに、`DbUpdateException` から派生した例外がキャッチされた場合は、汎用的なエラー メッセージが表示されます。 `DbUpdateException` 例外は、プログラミング エラーではなくアプリケーション外の何かが原因で発生する場合があるので、再試行することをお勧めします。 このサンプルでは実装されていませんが、運用品質のアプリケーションでは例外をログに記録します。 詳細については、「[Monitoring and Telemetry (Building Real-World Cloud Apps with Azure)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)」(監視とテレメトリ (Azure での実際のクラウド アプリの構築)) の「**Log for insight**」(洞察のためのログ) セクションをご覧ください。
 
 `ValidateAntiForgeryToken` 属性は、クロスサイト リクエスト フォージェリ (CSRF) 攻撃を防ぐのに役立ちます。 トークンは、[FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) によってビューに自動的に挿入され、ユーザーがフォームを送信するときに追加されます。 トークンは、`ValidateAntiForgeryToken` 属性によって検証されます。 CSRF については、[リクエスト フォージェリの対策](../../security/anti-request-forgery.md)に関する記事をご覧ください。
 
@@ -277,7 +278,7 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 
-既定では、Entity Framework はトランザクションを暗黙的に実装します。 複数の行またはテーブルを変更してから `SaveChanges` を呼び出すシナリオでは、Entity Framework によって自動的に、すべての変更が成功するか、またはすべての変更が失敗することが保証されます。 一部の変更が完了した後でエラーが発生した場合、それらの変更は自動的にロールバックされます。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](https://docs.microsoft.com/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
+既定では、Entity Framework はトランザクションを暗黙的に実装します。 複数の行またはテーブルを変更してから `SaveChanges` を呼び出すシナリオでは、Entity Framework によって自動的に、すべての変更が成功するか、またはすべての変更が失敗することが保証されます。 一部の変更が完了した後でエラーが発生した場合、それらの変更は自動的にロールバックされます。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
 
 ## <a name="no-tracking-queries"></a>追跡なしのクエリ
 
@@ -291,7 +292,7 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 * エンティティを更新するためにエンティティをアタッチしたいが、それより前に別の目的で同じエンティティを取得してある場合。 エンティティはデータベース コンテキストによって既に追跡されているため、変更するエンティティをアタッチできません。 このような状況に対処する方法の 1 つは、前のクエリで `AsNoTracking` を呼び出すことです。
 
-詳細については、「[Tracking vs.No-Tracking Queries](https://docs.microsoft.com/ef/core/querying/tracking)」(追跡ありクエリと追跡なしクエリ) をご覧ください。
+詳細については、「[Tracking vs.No-Tracking Queries](/ef/core/querying/tracking)」(追跡ありクエリと追跡なしクエリ) をご覧ください。
 
 ## <a name="summary"></a>まとめ
 

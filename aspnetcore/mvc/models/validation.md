@@ -3,14 +3,15 @@ title: ASP.NET Core MVC でのモデルの検証
 author: tdykstra
 description: ASP.NET Core MVC でのモデルの検証について説明します。
 ms.author: riande
-ms.date: 07/31/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312155"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090951"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -27,6 +28,13 @@ ms.locfileid: "43312155"
 ## <a name="validation-attributes"></a>検証属性
 
 検証属性はモデルの検証を構成する方法であり、概念的にはデータベース テーブルでのフィールドの検証に似ています。 これには、データ型の割り当てや必須フィールドなどの制約が含まれます。 その他の種類の検証としては、データへのパターンの適用があります。クレジット カード、電話番号、メール アドレスなどのビジネス ルールを強制するためのものです。 検証属性を使うと、これらの要件の適用がはるかに単純で簡単になります。
+
+検証属性は、次のようにプロパティ レベルで指定されます。 
+
+```csharp 
+[Required] 
+public string MyProperty { get; set; } 
+``` 
 
 次に示すのは、映画やテレビ番組に関する情報を格納するアプリの注釈付き `Movie` モデルです。 ほとんどのプロパティは必須であり、一部の文字列プロパティには長さの要件があります。 さらに、`Price` プロパティには 0 から $999.99 までの数値範囲制限が、カスタム検証属性と共に適用されています。
 
@@ -62,7 +70,7 @@ null 非許容の[値の型](/dotnet/csharp/language-reference/keywords/value-ty
 
 MVC モデル バインドは、検証および検証属性には関わりがありませんが、null 非許容型に対して欠落値または空白文字を含むフォーム フィールドの送信を却下します。 ターゲット プロパティに `BindRequired` 属性がない場合、モデル バインドは null 非許容型の欠落データを無視し、そのフォーム フィールドは受信フォーム データからなくなります。
 
-[BindRequired 属性](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (「[属性を使用してモデル バインドの動作をカスタマイズする](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)」も参照) は、フォーム データが完全であることを保証するのに便利です。 プロパティに適用すると、モデル バインド システムはそのプロパティの値を必須にします。 型に適用すると、モデル バインド システムはその型のすべてのプロパティに対して値を必須にします。
+[BindRequired 属性](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (「<xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes>」も参照) は、フォーム データが完全であることを保証するのに便利です。 プロパティに適用すると、モデル バインド システムはそのプロパティの値を必須にします。 型に適用すると、モデル バインド システムはその型のすべてのプロパティに対して値を必須にします。
 
 [Nullable\<T> 型](/dotnet/csharp/programming-guide/nullable-types/) (例: `decimal?`、`System.Nullable<decimal>`) を使い、それを `Required` とマークすると、プロパティが標準の null 許容型 (例: `string`) の場合と同様に、サーバー側の検証チェックが実行されます。
 
@@ -256,4 +264,4 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 public string MiddleName { get; set; }
 ```
 
-他の属性引数と同じように、`AdditionalFields` も定数式である必要があります。 したがって、[補間文字列](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings)を使ったり、[`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) を呼び出して `AdditionalFields` を初期化したりすることはできません。 `[Remote]` 属性に新しいフィールドを追加するごとに、対応するコントローラー アクション メソッドに別の引数を追加する必要があります。
+他の属性引数と同じように、`AdditionalFields` も定数式である必要があります。 したがって、[補間文字列](/dotnet/csharp/language-reference/keywords/interpolated-strings)を使ったり、[`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) を呼び出して `AdditionalFields` を初期化したりすることはできません。 `[Remote]` 属性に新しいフィールドを追加するごとに、対応するコントローラー アクション メソッドに別の引数を追加する必要があります。

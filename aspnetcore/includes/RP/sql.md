@@ -2,9 +2,11 @@
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-`MovieContext` オブジェクトは、データベースへの接続と、データベース レコードへの `Movie` オブジェクトのマッピングのタスクを処理します。 データベース コンテキストは、*Startup.cs* ファイルの `ConfigureServices` メソッドで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーに登録されます。
+`MovieContext` オブジェクトは、データベースへの接続と、データベース レコードへの `Movie` オブジェクトのマッピングのタスクを処理します。 データベース コンテキストは、*Startup.cs* ファイルの `ConfigureServices` メソッドで[依存性の注入 (DI) ](xref:fundamentals/dependency-injection)コンテナーに登録されます。
 
 [!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
+
+DI で `DbContext` を使用する方法の詳細については、「[Using DbContext with DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection)」(DI で DbContext を使用する) を参照してください。
 
 ## <a name="sqlite"></a>SQLite
 

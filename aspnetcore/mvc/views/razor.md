@@ -3,14 +3,14 @@ title: ASP.NET Core の Razor 構文リファレンス
 author: rick-anderson
 description: Web ページにサーバー ベースのコードを埋め込むための Razor マークアップの構文について説明します。
 ms.author: riande
-ms.date: 10/18/2017
+ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: d0f4d59cb605cc3cc7cdfa84bfc65399699e475a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272689"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148890"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
@@ -404,7 +404,7 @@ Razor のディレクティブは、`@` 記号の後の予約キーワードに�
 
 Razor がビューのコードを生成する方法を理解すると、ディレクティブの動作を理解しやすくなります。
 
-[!code-html[](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact8.cshtml)]
 
 上のコードでは、次のようなクラスが生成されます。
 
@@ -422,7 +422,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 }
 ```
 
-後の「[ビューに対して生成された Razor C# クラスの表示](#viewing-the-razor-c-class-generated-for-a-view)」セクションでは、この生成されたクラスを表示する方法について説明します。
+後の「[ビューに対して生成された Razor C# クラスを調べる](#inspect-the-razor-c-class-generated-for-a-view)」セクションでは、この生成されたクラスを表示する方法について説明します。
 
 <a name="using"></a>
 ### <a name="using"></a>@using
@@ -497,7 +497,6 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 ```
 
 ### <a name="inject"></a>@inject
-
 
 `@inject` ディレクティブを使うと、Razor ページで[サービス コンテナー](xref:fundamentals/dependency-injection)からビューにサービスを挿入できます。 詳しくは、「[ビューへの依存関係の挿入](xref:mvc/views/dependency-injection)」をご覧ください。
 
@@ -574,32 +573,76 @@ C# Razor のキーワードは、`@(@C# Razor Keyword)` で二重にエスケー
 
 * class
 
-## <a name="viewing-the-razor-c-class-generated-for-a-view"></a>ビューに対して生成された Razor C# クラスの表示
+## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>ビューに対して生成された Razor C# クラスを調べる
+
+::: moniker range=">= aspnetcore-2.1"
+
+.NET Core SDK 2.1 以降、[Razor SDK](xref:razor-pages/sdk) は Razor ファイルのコンパイルを処理します。 プロジェクトを作成する際に、Razor SDK はプロジェクト ルートに *obj/<build_configuration>/<target_framework_moniker>/Razor* ディレクトリを生成します。 *Razor* ディレクトリ内のディレクトリ構造は、プロジェクトのディレクトリ構造をミラー化します。
+
+.NET Core 2.1 をターゲットとする ASP.NET Core 2.1 Razor Pages プロジェクト内の次のディレクトリ構造を考えてみましょう。
+
+* **Areas/**
+  * **Admin/**
+    * **Pages/**
+      * *Index.cshtml*
+      * *Index.cshtml.cs*
+* **Pages/**
+  * **Shared/**
+    * *_Layout.cshtml*
+  * *_ViewImports.cshtml*
+  * *_ViewStart.cshtml*
+  * *Index.cshtml*
+  * *Index.cshtml.cs*
+
+*Debug* 構成でプロジェクトを作成すると、次の *obj* ディレクトリが生成されます。
+
+* **obj/**
+  * **Debug/**
+    * **netcoreapp2.1/**
+      * **Razor/**
+        * **Areas/**
+          * **Admin/**
+            * **Pages/**
+              * *Index.g.cshtml.cs*
+        * **Pages/**
+          * **Shared/**
+            * *_Layout.g.cshtml.cs*
+          * *_ViewImports.g.cshtml.cs*
+          * *_ViewStart.g.cshtml.cs*
+          * *Index.g.cshtml.cs*
+
+*Pages/Index.cshtml* に対して生成されたクラスを表示するには、*obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs* を開きます。
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
 
 次のクラスを ASP.NET Core MVC プロジェクトに追加します。
 
 [!code-csharp[](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
-MVC によって追加された `RazorTemplateEngine` を `CustomTemplateEngine` クラスでオーバーライドします。
+`Startup.ConfigureServices` で、MVC によって追加された `RazorTemplateEngine` を `CustomTemplateEngine` クラスでオーバーライドします。
 
 [!code-csharp[](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
-`CustomTemplateEngine` の `return csharpDocument` ステートメントにブレークポイントを設定します。 プログラムの実行がブレークポイントで停止したら、`generatedCode` の値を表示します。
+`CustomTemplateEngine` の `return csharpDocument;` ステートメントにブレークポイントを設定します。 プログラムの実行がブレークポイントで停止したら、`generatedCode` の値を表示します。
 
 ![generatedCode のテキスト ビジュアライザーの表示](razor/_static/tvr.png)
+
+::: moniker-end
 
 ## <a name="view-lookups-and-case-sensitivity"></a>ビューの参照と大文字/小文字の区別
 
 Razor ビュー エンジンによるビューの参照では、大文字と小文字が区別されます。 ただし、実際の参照は、基になるファイル システムによって決定されます。
 
-* ファイル ベースのソース: 
+* ファイル ベースのソース:
   * 大文字と小文字が区別されないファイル システムを使っているオペレーティング システム (Windows など) では、物理的なファイル プロバイダーの参照は大文字と小文字を区別しません。 たとえば、`return View("Test")` は、*/Views/Home/Test.cshtml*、*/Views/home/test.cshtml*、その他のすべての大文字と小文字のバリエーションと一致します。
   * 大文字と小文字が区別されるファイル システム (たとえば、Linux、OSX、および `EmbeddedFileProvider`) では、参照は大文字と小文字を区別します。 たとえば、`return View("Test")` は */Views/Home/Test.cshtml* だけと一致します。
 * プリコンパイル済みのビュー: ASP.NET Core 2.0 以降では、プリコンパイル済みのビューの参照は、すべてのオペレーティング システムで大文字と小文字を区別しません。 動作は、Windows での物理ファイル プロバイダーの動作と同じです。 2 つのプリコンパイル済みビューの相違点が大文字と小文字の使い分けだけの場合、参照の結果はどちらになるかわかりません。
 
 開発者には、ファイル名とディレクトリ名の大文字/小文字の使い分けを、次のものと一致させることをお勧めします。
 
-    * 領域、コントローラー、アクションの名前。 
+    * 領域、コントローラー、アクションの名前。
     * Razor ページ。
-    
+
 大文字と小文字の使い分けを一致させると、展開は基になっているファイル システムに関係なくビューを検索できます。

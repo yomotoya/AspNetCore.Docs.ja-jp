@@ -5,12 +5,12 @@ description: 基本的な ASP.NET Core MVC アプリの Details コントロー�
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: ce5b2af148ddba9bc718345c0b8074da8724308d
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: c5d21bc70aae4c1a1d10bb333871eeef25a1879c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454805"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208006"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>ASP.NET Core アプリの Details メソッドと Delete メソッドの確認
 
@@ -73,7 +73,7 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 
 ### <a name="publish-to-azure"></a>Azure に発行する
 
-Azure へのデプロイについては、「[チュートリアル: SQL Database を使用して Azure に ASP.NET アプリを作成する](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)」を参照してください。 指示は ASP.NET Core アプリではなく、ASP.NET アプリに関するものですが、手順は同じです。
+Azure へのデプロイについては、「[チュートリアル: Azure App Service での .NET Core および SQL Database の Web アプリの作成](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)」を参照してください。
 
 > [!div class="step-by-step"]
 > [前へ](validation.md)

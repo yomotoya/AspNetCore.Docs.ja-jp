@@ -4,20 +4,21 @@ author: rick-anderson
 description: Entity Framework Core を使用した Razor ページへの新しいフィールドの追加方法
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 05/30/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: d6d59ff336095e2f1b8b2e9a0338b7791605ad7a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f8be269887903797803257d8a21e002519102047
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010898"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089514"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいファイルを追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このセクションでは、[Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
+このセクションでは、[Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
 
 EF Code First を使用してデータベースを自動的に作成する場合、Code First では次が実行されます。
 
@@ -96,7 +97,9 @@ SqlException: Invalid column name 'Rating'.
 
 ソリューションをビルドします。
 
-<a name="pmc"></a> **[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
+<a name="pmc"></a>
+
+**[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
 PMC で、次のコマンドを入力します。
 
 ```powershell
@@ -111,7 +114,9 @@ Update-Database
 
 "Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。 移行ファイルには意味のある名前を使用すると便利です。
 
-<a name="ssox"></a> DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これはブラウザーの削除リンクで行うか、[Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX) から行うことができます。 SSOX からデータベースを削除するには:
+<a name="ssox"></a>
+
+DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これはブラウザーの削除リンクで行うか、[Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX) から行うことができます。 SSOX からデータベースを削除するには:
 
 * SSOX でデータベースを選択します。
 * データベースを右クリックし、*[削除]* を選択します。

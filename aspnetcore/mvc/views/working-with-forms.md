@@ -3,15 +3,15 @@ title: ASP.NET Core のフォームのタグ ヘルパー
 author: rick-anderson
 description: フォームで使用される組み込みのタグ ヘルパーについて説明します。
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
-ms.translationtype: HT
+ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911280"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090216"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
 
@@ -29,7 +29,7 @@ ms.locfileid: "48911280"
 
 * MVC コントローラー アクションまたは名前付きルートについて HTML の [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` 属性値を生成します。
 
-* クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)
+* クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)
 
 * `asp-route-<Parameter Name>` 属性を提供します (`<Parameter Name>` がルート値に追加される場合)。 `Html.BeginForm` および `Html.BeginRouteForm` に `routeValues` パラメーターを指定すると、同様の機能が提供されます。
 
@@ -48,7 +48,7 @@ ms.locfileid: "48911280"
 </form>
 ```
 
-MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controller` と `asp-action` から `action` 属性値が生成されます。 また、フォーム タグ ヘルパーも、クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)。 純粋な HTML フォームをクロスサイト リクエスト フォージェリから保護することは難しいため、フォーム タグ ヘルパーが提供するサービスを利用してください。
+MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controller` と `asp-action` から `action` 属性値が生成されます。 また、フォーム タグ ヘルパーも、クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)。 純粋な HTML フォームをクロスサイト リクエスト フォージェリから保護することは難しいため、フォーム タグ ヘルパーが提供するサービスを利用してください。
 
 ### <a name="using-a-named-route"></a>名前付きのルートの使用
 
@@ -106,12 +106,12 @@ Type expected
 
 |.NET 型|入力の型|
 |---|---|
-|Bool|type=”checkbox”|
-|String|type=”text”|
-|DateTime|type=”datetime”|
-|Byte|type=”number”|
-|Int|type=”number”|
-|Single、Double|type=”number”|
+|Bool|type="checkbox"|
+|String|type="text"|
+|DateTime|type="datetime"|
+|Byte|type="number"|
+|Int|type="number"|
+|Single、Double|type="number"|
 
 
 次の表は、入力タグ ヘルパーが特定の入力の型にマップする一般的な[データ注釈](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性の一部をまとめたものです (すべての検証属性を網羅した一覧ではありません)。
@@ -119,13 +119,13 @@ Type expected
 
 |属性|入力の型|
 |---|---|
-|[EmailAddress]|type=”email”|
-|[Url]|type=”url”|
-|[HiddenInput]|type=”hidden”|
-|[Phone]|type=”tel”|
-|[DataType(DataType.Password)]| type=”password”|
-|[DataType(DataType.Date)]| type=”date”|
-|[DataType(DataType.Time)]| type=”time”|
+|[EmailAddress]|type="email"|
+|[Url]|type="url"|
+|[HiddenInput]|type="hidden"|
+|[Phone]|type="tel"|
+|[DataType(DataType.Password)]| type="password"|
+|[DataType(DataType.Date)]| type="date"|
+|[DataType(DataType.Time)]| type="time"|
 
 
 サンプル:
@@ -244,7 +244,6 @@ public IActionResult Edit(int id, int colorIndex)
 *Views/Shared/EditorTemplates/ToDoItem.cshtml* テンプレート:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
-
 
 >[!NOTE]
 >(`foreach` *ではなく*) 常に `for` を使用して一覧に対して反復処理を実行します。 LINQ 式でインデクサーを評価する処理はコストが高くなる可能性があるので、最小限に抑えることをお勧めします。
@@ -574,10 +573,10 @@ HTML の [\<option>](https://www.w3.org/wiki/HTML/Elements/option) 要素の追�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
 * [HTML の Form 要素](https://www.w3.org/TR/html401/interact/forms.html)
 * [要求検証トークン](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-* [モデル バインド](xref:mvc/models/model-binding)
-* [モデルの検証](xref:mvc/models/validation)
+* <xref:mvc/models/model-binding>
+* <xref:mvc/models/validation>
 * [IAttributeAdapter インターフェイス](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
 * [このドキュメントのコード スニペット](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

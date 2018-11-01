@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870935"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207291"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -19,7 +19,7 @@ ms.locfileid: "41870935"
 
 HTTP はステートレス プロトコルです。 手順を追加しないと、HTTP 要求は独立したメッセージであり、ユーザーの値やアプリの状態は保持されません。 この記事では、要求と要求の間でユーザー データとアプリの状態を保持するための複数の方法について説明します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="state-management"></a>状態管理
 
@@ -70,7 +70,7 @@ ASP.NET Core は、セッション ID を含む Cookie をクライアントに�
 
 メモリ内キャッシュ プロバイダーは、アプリが存在するサーバーのメモリにセッション データを格納します。 サーバー ファームのシナリオでは次のようになります。
 
-* "*固定セッション*" を使用して、個々のサーバー上の特定のアプリのインスタンスに、各セッションを結び付けます。 [Azure App Service](https://azure.microsoft.com/services/app-service/) は[アプリケーション要求ルーティング処理 (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) を使って、既定で固定セッションを強制的に使用します。 ただし、固定セッションは拡張性に影響を与え、Web アプリの更新を複雑にすることがあります。 もっとよい方法は、Redis または SQL Server の分散キャッシュを使用することで、固定セッションを必要としません。 詳細については、[分散キャッシュの使用](xref:performance/caching/distributed)に関するページを参照してください。
+* "*固定セッション*" を使用して、個々のサーバー上の特定のアプリのインスタンスに、各セッションを結び付けます。 [Azure App Service](https://azure.microsoft.com/services/app-service/) は[アプリケーション要求ルーティング処理 (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) を使って、既定で固定セッションを強制的に使用します。 ただし、固定セッションは拡張性に影響を与え、Web アプリの更新を複雑にすることがあります。 もっとよい方法は、Redis または SQL Server の分散キャッシュを使用することで、固定セッションを必要としません。 詳細については、「<xref:performance/caching/distributed>」を参照してください。
 * セッション Cookie は [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) によって暗号化されます。 各コンピューターでセッション Cookie を読み取るには、データ保護を適切に構成する必要があります。 詳細については、「[ASP.NET Core のデータ保護](xref:security/data-protection/index)」および「[Key storage providers in ASP.NET Core](xref:security/data-protection/implementation/key-storage-providers)」(ASP.NET Core でのキー ストレージ プロバイダー) をご覧ください。
 
 ### <a name="configure-session-state"></a>セッション状態を構成する
@@ -87,7 +87,7 @@ ASP.NET Core は、セッション ID を含む Cookie をクライアントに�
 
 ::: moniker-end
 
-* いずれかの [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) メモリ キャッシュ。 `IDistributedCache` 実装はセッションのバックアップ ストアとして利用されます。 詳細については、[分散キャッシュの使用](xref:performance/caching/distributed)に関するページを参照してください。
+* いずれかの [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) メモリ キャッシュ。 `IDistributedCache` 実装はセッションのバックアップ ストアとして利用されます。 詳細については、「<xref:performance/caching/distributed>」を参照してください。
 * `ConfigureServices` での [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) の呼び出し。
 * `Configure` での [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) の呼び出し。
 
@@ -128,8 +128,8 @@ ASP.NET Core は、セッション ID を含む Cookie をクライアントに�
 | オプション | 説明 |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Cookie の作成に使用される設定を決定します。 [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) の既定値は [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`) です。 [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) の既定値は [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`) です。 [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) の既定値は [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`) です。 [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) の既定値は `true` です。 [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) の既定値は `false` です。 |
-| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` は、内容を破棄されることなくセッションがアイドル状態になっていることのできる最大時間を示します。 セッションへのアクセスがあるたびに、タイムアウトはリセットされます。 これはセッションの内容にのみ適用され、Cookie には適用されないことに注意してください。 既定値は 20 分です。 |
-| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | ストアからのセッションの読み込み、またはストアに戻すコミットに対して許容される最大時間です。 これは非同期操作にのみ適用できることに注意してください。 このタイムアウトは、[InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan) を使用して無効にすることができます。 既定値は 1 分です。 |
+| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` は、内容を破棄されることなくセッションがアイドル状態になっていることのできる最大時間を示します。 セッションへのアクセスがあるたびに、タイムアウトはリセットされます。 この設定はセッションの内容にのみ適用され、Cookie には適用されません。 既定値は 20 分です。 |
+| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | ストアからのセッションの読み込み、またはストアに戻すコミットに対して許容される最大時間です。 この設定は非同期操作にのみ適用できます。 このタイムアウトは、[InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan) を使用して無効にすることができます。 既定値は 1 分です。 |
 
 セッションは Cookie を利用し、1 つのブラウザーからの要求を追跡し、識別します。 既定では、この Cookie は `.AspNetCore.Session` という名前になり、パス `/` を使用します。 Cookie の既定値ではドメインが指定されないため、ページのクライアント側スクリプトには使用できません ([HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) の既定値が `true` になるため)。
 
@@ -434,7 +434,7 @@ app.Run(async (context) =>
 
 * "'Microsoft.AspNetCore.Session.DistributedSessionStore' を起動しようとしましたが、型 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' のサービスを解決できません。"
 
-  これは通常、少なくとも 1 つの `IDistributedCache` 実装で構成に失敗したことで発生します。 詳細については、「[Work with a distributed cache in ASP.NET Core](xref:performance/caching/distributed)」(ASP.NET Core での分散キャッシュの使用) および「[Cache in-memory in ASP.NET Core](xref:performance/caching/memory)」(ASP.NET Core でのメモリ内キャッシュ) をご覧ください。
+  これは通常、少なくとも 1 つの `IDistributedCache` 実装で構成に失敗したことで発生します。 詳細については、次のトピックを参照してください。 <xref:performance/caching/distributed> および <xref:performance/caching/memory>.
 
 * セッション ミドルウェアがセッションを永続化できなかった場合 (バッキング ストアを利用できない場合など)、ミドルウェアは例外をログに記録し、要求は普通に続行されます。 これにより、予期しない動作が発生します。
 
