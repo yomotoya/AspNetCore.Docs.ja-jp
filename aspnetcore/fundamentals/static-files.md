@@ -4,14 +4,14 @@ author: rick-anderson
 description: 静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/18/2018
+ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 63ebc5ce5094053eca08a9212b3b4c074c4bed64
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325979"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207135"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイル
 
@@ -19,27 +19,29 @@ ms.locfileid: "49325979"
 
 HTML、CSS、画像、JavaScript などの静的ファイルは、ASP.NET Core アプリにより直接クライアントに提供される資産です。 これらのファイルを提供するには、いくつかの構成が必要です。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="serve-static-files"></a>静的ファイルの提供
 
-静的ファイルは、プロジェクトの Web ルート ディレクトリ内に格納されています。 既定のディレクトリは、*\<content_root>/wwwroot* ですが、[UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) メソッドを使用して変更することができます。 詳細については、「[コンテンツ ルート](xref:fundamentals/index#content-root)」および「[Web ルート](xref:fundamentals/index#web-root)」を参照してください。
+静的ファイルは、プロジェクトの Web ルート ディレクトリ内に格納されています。 既定のディレクトリは、*\<content_root>/wwwroot* ですが、[UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) メソッドを使用して変更することができます。 詳細については、「[コンテンツ ルート](xref:fundamentals/index#content-root)」および「[Web ルート](xref:fundamentals/index#web-root-webroot)」を参照してください。
 
 アプリの Web ホストでは、コンテンツのルート ディレクトリが把握されている必要があります。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 `WebHost.CreateDefaultBuilder` メソッドでは、コンテンツのルートが現在のディレクトリに設定されます。
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 `Program.Main` 内で [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) が呼び出され、コンテンツのルートが現在のディレクトリに設定されます。
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
+::: moniker-end
 
 静的なファイルには、Web ルートへの相対パスを使用してアクセスできます。 たとえば、**Web アプリケーション** プロジェクト テンプレートには、*wwwroot* フォルダー内の次のいくつかフォルダーが含まれています。
 
@@ -50,15 +52,23 @@ HTML、CSS、画像、JavaScript などの静的ファイルは、ASP.NET Core �
 
 *images* サブフォルダーのファイルにアクセスするための URI は、*http://\<server_address>/images/\<image_file_name>* です。 たとえば、*http://localhost:9189/images/banner3.svg* です。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.1"
+
+.NET Framework を対象としている場合、プロジェクトに [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) パッケージを追加します。 .NET Core をターゲットとする場合、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)にこのパッケージが含まれます。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 .NET Framework を対象としている場合、プロジェクトに [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) パッケージを追加します。 .NET Core をターゲットとする場合、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)にこのパッケージが含まれます。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 プロジェクトに、[Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) パッケージを追加します。
 
----
+::: moniker-end
 
 静的ファイル サービスの提供を可能にする、[ミドルウェア](xref:fundamentals/middleware/index)を構成します。
 
@@ -71,6 +81,8 @@ HTML、CSS、画像、JavaScript などの静的ファイルは、ASP.NET Core �
 パラメーターなしの `UseStaticFiles` メソッド オーバーロードによって、Web ルート内のファイルが提供可能とマークされます。 次のマークアップは、*wwwroot/images/banner1.svg* を参照します。
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
+
+上記のコードでは、チルダ文字 `~/` が webroot を指します。 詳細については、「[Web ルート](xref:fundamentals/index#web-root-webroot)」を参照してください。
 
 ### <a name="serve-files-outside-of-web-root"></a>Web ルート外のファイルの提供
 
@@ -237,9 +249,9 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 * IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 モジュールによって処理される前に、これで要求が処理されることはありません。
 
 * IIS マネージャーで次の手順を実行し、サーバーまたは Web サイト レベルで IIS の静的ファイル ハンドラーを削除します。
-    1. [**モジュール**] 機能に移動します。
-    1. 一覧の [**StaticFileModule**] を選択します。
-    1. [**アクション**] サイドバーで、[**削除**] をクリックします。
+    1. **[モジュール]** 機能に移動します。
+    1. 一覧の **[StaticFileModule]** を選択します。
+    1. **[アクション]** サイドバーで、**[削除]** をクリックします。
 
 > [!WARNING]
 > IIS の静的ファイル ハンドラーが有効になっており、**かつ**、ASP.NET Core モジュールが正しく構成されていない場合、静的ファイルにサービスが提供されます。 これは、たとえば、*web.config* ファイルが配置されていない場合などで発生します。

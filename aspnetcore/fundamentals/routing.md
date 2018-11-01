@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348560"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207757"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -22,7 +22,7 @@ ms.locfileid: "49348560"
 > [!IMPORTANT]
 > 本文では、ASP.NET Core ルーティングについて詳しく取り上げます。 ASP.NET Core MVC ルーティングの詳細については、「<xref:mvc/controllers/routing>」を参照してください。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="routing-basics"></a>ルーティングの基本
 
@@ -47,7 +47,7 @@ URL 一致というプロセスでは、ルーティングによって、受信�
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) は、ルートから生成された*ルート値*のディクショナリです。 この値は通常、URL のトークン化で決定されます。この値を利用してユーザー入力を受け取ったり、アプリ内で決定をさらに配布したりできます。
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) は、一致したルートに関連する追加データのプロパティ バッグです。 一致したルートに基づいてアプリが後で決定を行えるように、`DataTokens` が与えられます。これがステータス データと各ルートの関連付けを支援します。 この値は開発者が定義するものです。ルーティングの動作に影響を与えることは**ありません**。 また、データ トークンに格納された値はどのような種類でも構いません。一方、ルート値は文字列に簡単に変換できる種類でなければなりません。
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) は、一致したルートに関連する追加データのプロパティ バッグです。 一致したルートに基づいてアプリが後で決定を行えるように、`DataTokens` が与えられます。これがステータス データと各ルートの関連付けを支援します。 この値は開発者が定義するものです。ルーティングの動作に影響を与えることは**ありません**。 また、`RouteData.DataTokens` に格納された値はどのような型でも構いません。一方、`RouteData.Values` は文字列に簡単に変換できる型でなければなりません。
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) は、過去に要求に一致したルートの一覧です。 ルートはルートの中に入れ子にすることができます。 `Routers` プロパティは、結果的に一致をもたらしたルートの論理ツリーを通るパスを表します。 一般的に、`Routers` の最初の項目はルート コレクションであり、これは URL 生成に使用するものです。 `Routers` の最後の項目は、一致したルート ハンドラーです。
 

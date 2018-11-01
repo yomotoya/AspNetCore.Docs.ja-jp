@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 7d64c500168166b0a7a29d5b92473726d5a9f49a
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325342"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148812"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC のキャッシュ タグ ヘルパー
 
@@ -119,7 +119,7 @@ Razor ビュー エンジンでは、`expires-after` の規定値が 20 分に�
 | -------------- | -------------------- |
 | String         | `Make`、 `Make,Model` |
 
-`vary-by-query` には、ヘッダー値が変化したときにキャッシュの更新をトリガーする、コンマで区切ったヘッダー値のリストを指定します。
+`vary-by-query` には、リストのいずれかのキーの値が変化したときにキャッシュの更新をトリガーする、クエリ文字列 (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) の <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> のコンマ区切り値リストを指定します。
 
 次の例では、`Make` と `Model` の値を監視します。 この例は、Web サーバーに提示されるすべての異なる `Make` と `Model` の内容をキャッシュします。
 
