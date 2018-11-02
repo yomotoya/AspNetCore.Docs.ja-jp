@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751647"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477307"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー
 
@@ -127,6 +127,10 @@ FQN を使用してビューにタグ ヘルパーを追加するには、最初
 ![イメージ](intro/_static/thp.png)
 
 `@addTagHelper` に適用されるものと同じ階層規則が `@tagHelperPrefix` にも適用されます。
+
+## <a name="self-closing-tag-helpers"></a>自己終了タグ ヘルパー
+
+多くのタグ ヘルパーは、自己終了タグとして使用できません。 一部のタグ ヘルパーは、自己終了タグとして設計されています。 自己終了するようになっていないタグ ヘルパーを使用すると、表示される出力が抑制されます。 タグ ヘルパーを自己終了すると、表示される出力の中に自己終了タグが配置されます。 詳細については、[タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)に関するページの[こちらの注意](xref:mvc/views/tag-helpers/authoring#self-closing)をご覧ください。
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Intellisense でのタグ ヘルパーのサポート
 

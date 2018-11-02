@@ -5,12 +5,12 @@ description: EF Core で作成、読み取り、更新、削除を行う方法�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912814"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477437"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 
@@ -24,7 +24,7 @@ ms.locfileid: "48912814"
 
 このチュートリアルでは、スキャフォールディング CRUD (作成、読み取り、更新、削除) コードのレビューとカスタマイズを行います。
 
-複雑さを最小限に抑え、これらのチュートリアルを通して主眼を EF Core に置くために、EF Core コードはページ モデルで使用されています。 一部の開発者は、サービス レイヤーまたは[リポジトリ パターン](xref:fundamentals/repository-pattern)を使用して、UI (Razor Pages) とデータ アクセス層との間に抽象化レイヤーを作成しています。
+複雑さを最小限に抑え、これらのチュートリアルを通して主眼を EF Core に置くために、EF Core コードはページ モデルで使用されています。 一部の開発者は、サービス レイヤーまたはリポジトリ パターンを使用して、UI (Razor ページ) とデータ アクセス層との間に抽象化レイヤーを作成しています。
 
 このチュートリアルでは、*Student* フォルダー内の [作成]、[編集]、[削除]、[詳細] の各 Razor Pages を確認します。
 

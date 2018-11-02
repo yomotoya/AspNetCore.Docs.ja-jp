@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core で依存関係の挿入を実装する方法とそれを使う方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2018
+ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912619"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207655"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core での依存関係の挿入
 
@@ -21,7 +21,7 @@ ASP.NET Core では依存関係の挿入 (DI) ソフトウェア設計パター�
 
 MVC コントローラー内部における依存関係の挿入に固有の情報については、<xref:mvc/controllers/dependency-injection> をご覧ください。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="overview-of-dependency-injection"></a>依存関係の挿入の概要
 
@@ -195,8 +195,8 @@ public class MyDependency : IMyDependency
 | [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | シングルトン |
 | [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | 一時的 |
 | [Microsoft.Extensions.Options.IOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.ioptions-1) | シングルトン |
-| [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | シングルトン |
-| [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | シングルトン |
+| [System.Diagnostics.DiagnosticSource](/dotnet/core/api/system.diagnostics.diagnosticsource) | シングルトン |
+| [System.Diagnostics.DiagnosticListener](/dotnet/core/api/system.diagnostics.diagnosticlistener) | シングルトン |
 
 サービス (および必要であればサービスが依存するサービス) を登録するためにサービス コレクションの拡張メソッドを使用できる場合は、1 つの `Add{SERVICE_NAME}` 拡張メソッドを使用してそのサービスが必要とするすべてのサービスを登録することが規則です。 次のコードは、拡張メソッド [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext)、[AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity)、[AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc) を使用して、コンテナーに追加のサービスを追加する方法の例です。
 
@@ -287,9 +287,9 @@ Entity Framework コンテキストは、スコープの有効期間を使って
 
 `OperationService` が登録されます。これは、その他の `Operation` 型のそれぞれに依存します。 依存関係の挿入を経由して `OperationService` が要求される場合、これは各サービスの新しいインスタンスか、依存関係のあるサービスの有効期間に基づく既存のインスタンスを受信します。
 
-* 要求時に一時的なサービスを作成する場合、`IOperationTransient` サービスの `OperationsId` と `OperationService` の `OperationsId` は異なります。 `OperationService` は `IOperationTransient` クラスの新しいインスタンスを受け取ります。 新しいインスタンスは異なる `OperationsId` を生成します。
-* 要求ごとにスコープ サービスを作成する場合、要求内で `IOperationScoped` サービスの `OperationsId` は `OperationService` のものと同じになります。 要求間で、両方のサービスは異なる `OperationsId` 値を共有します。
-* シングルトンとシングルトン インスタンスのサービスが 1 回作成され、すべての要求とすべてのサービス間で使用される場合、`OperationsId` はすべてのサービス要求の間で一定です。
+* 要求時に一時的なサービスを作成する場合、`IOperationTransient` サービスの `OperationId` と `OperationService` の `OperationId` は異なります。 `OperationService` は `IOperationTransient` クラスの新しいインスタンスを受け取ります。 新しいインスタンスは異なる `OperationId` を生成します。
+* 要求ごとにスコープ サービスを作成する場合、要求内で `IOperationScoped` サービスの `OperationId` は `OperationService` のものと同じになります。 要求間で、両方のサービスは異なる `OperationId` 値を共有します。
+* シングルトンとシングルトン インスタンスのサービスが 1 回作成され、すべての要求とすべてのサービス間で使用される場合、`OperationId` はすべてのサービス要求の間で一定です。
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -494,8 +494,8 @@ public void ConfigureServices(IServiceCollection services)
 
 * 適切なコンテナー パッケージをインストールします。
 
-    * [Autofac](https://www.nuget.org/packages/Autofac/)
-    * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
+  * [Autofac](https://www.nuget.org/packages/Autofac/)
+  * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
 * `Startup.ConfigureServices` でコンテナーを構成して、`IServiceProvider` を返します。
 
@@ -538,7 +538,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="recommendations"></a>推奨事項
 
-依存関係の挿入を使うときは、次の推奨事項に留意してください。
+* `async/await` および `Task` ベースのサービスの解決はサポートされていません。 C# では非同期コンストラクターがサポートされていないため、推奨パターンは、サービスを同期的に解決した後に、非同期メソッドを使用することです。
 
 * データと構成をサービス コンテナーに直接格納しないようにします。 たとえば、通常、ユーザーのショッピング カートはサービス コンテナーに追加しません。 構成では、[オプション パターン](xref:fundamentals/configuration/options)を使う必要があります。 同様に、他のオブジェクトへのアクセスを許可するためだけに存在する "データ ホルダー" オブジェクトは避ける必要があります。 実際のアイテムを DI 経由で要求することをお勧めします。
 
@@ -557,7 +557,6 @@ DI は静的/グローバル オブジェクト アクセス パターンの*代
 * <xref:mvc/views/dependency-injection>
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
-* <xref:fundamentals/repository-pattern>
 * <xref:fundamentals/startup>
 * <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>

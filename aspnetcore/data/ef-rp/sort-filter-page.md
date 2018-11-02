@@ -5,12 +5,12 @@ description: このチュートリアルでは、ASP.NET Core および Entity F
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 06669d69fa9fec87d262c2b5bfd8b11649259849
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011639"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348443"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
@@ -97,9 +97,9 @@ ms.locfileid: "46011639"
 
 コードの理解を深めるために、次の手順を実行します。
 
-* *Student/Index.cshtml.cs* で、`switch (sortOrder)` にブレークポイントを設定します。
+* *Students/Index.cshtml.cs* で、`switch (sortOrder)` にブレークポイントを設定します。
 * `NameSort` と `DateSort` のウォッチを追加します。
-* *Student/Index.cshtml* で、`@Html.DisplayNameFor(model => model.Student[0].LastName)` にブレークポイントを設定します。
+* *Students/Index.cshtml* で、`@Html.DisplayNameFor(model => model.Student[0].LastName)` にブレークポイントを設定します。
 
 デバッガーの手順を実行します。
 
@@ -235,9 +235,9 @@ http://localhost:5000/Students?SearchString=an
 
 コードの理解を深めるために、次の手順を実行します。
 
-* *Student/Index.cshtml.cs* で、`switch (sortOrder)` にブレークポイントを設定します。
+* *Students/Index.cshtml.cs* で、`switch (sortOrder)` にブレークポイントを設定します。
 * `NameSort`、`DateSort`、`CurrentSort`、`Model.Student.PageIndex` のウォッチを追加します。
-* *Student/Index.cshtml* で、`@Html.DisplayNameFor(model => model.Student[0].LastName)` にブレークポイントを設定します。
+* *Students/Index.cshtml* で、`@Html.DisplayNameFor(model => model.Student[0].LastName)` にブレークポイントを設定します。
 
 デバッガーの手順を実行します。
 

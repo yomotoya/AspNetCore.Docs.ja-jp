@@ -3,14 +3,15 @@ title: ASP.NET Core フィルター
 author: ardalis
 description: フィルターのしくみと ASP.NET Core MVC でそれを使用する方法について説明します。
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e20d934a17337d404249220d703ac4bb7164dfa6
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402160"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391311"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -204,13 +205,15 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 
-`ServiceFilter` は DI からフィルターのインスタンスを取得します。 `ConfigureServices` でコンテナーにフィルターを追加し、`ServiceFilter` 属性でそれを参照します。
+サービス フィルターの実装の種類は DI に登録されています。 `ServiceFilterAttribute` は DI からフィルターのインスタンスを取得します。 `ServiceFilterAttribute` のコンテナーに `Startup.ConfigureServices` を追加し、`[ServiceFilter]` 属性でそれを参照します。
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
 [!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-フィルターの種類を登録せずに `ServiceFilter` を使用すると、例外が発生します。
+`ServiceFilterAttribute` を使用する場合、`IsReusable` を設定すると、フィルター インスタンスが作成された要求の範囲外で再利用できる*可能性*があることのヒントになります。 このフレームワークで、フィルターの 1 インスタンスが作成されたり、今後のある時点で DI コンテナーからフィルターが再要求されたりするという保証はありません。 シングルトン以外で有効期間があるサービスに依存するフィルターを使用するときは、`IsReusable` の使用は避けてください。
+
+フィルターの種類を登録せずに `ServiceFilterAttribute` を使用すると、例外が発生します。
 
 ```
 System.InvalidOperationException: No service for type
@@ -226,7 +229,9 @@ System.InvalidOperationException: No service for type
 この違いにより:
 
 * `TypeFilterAttribute` を利用して参照される型は、先にコンテナーに登録する必要がありません。  コンテナーによって依存関係が満たされています。 
-* `TypeFilterAttribute` は必要に応じて、型のコンストラクター引数を受け取ることができます。 
+* `TypeFilterAttribute` は必要に応じて、型のコンストラクター引数を受け取ることができます。
+
+`TypeFilterAttribute` を使用する場合、`IsReusable` を設定すると、フィルター インスタンスが作成された要求の範囲外で再利用できる*可能性*があることのヒントになります。 このフレームワークで、フィルターの 1 インスタンスが作成されるという保証はありません。 シングルトン以外で有効期間があるサービスに依存するフィルターを使用するときは、`IsReusable` の使用は避けてください。
 
 次の例は、`TypeFilterAttribute` を使用して、型に引数を渡す方法を示しています。
 

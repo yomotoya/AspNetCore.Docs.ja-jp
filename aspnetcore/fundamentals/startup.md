@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 923d17be9c2bb1a9d338599d1cdc4c34302cddab
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 392dc83666bc6b9012adc6c32169ae7bdc7ed8d7
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040096"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391116"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションのスタートアップ
 
@@ -62,7 +62,7 @@ Web ホストには、`Startup` クラス コンストラクターに使用で�
 
 Web ホストでは、`Startup` メソッドが呼び出される前にいくつかのサービスを構成することができます。 詳細については、[ASP.NET Core](xref:fundamentals/host/index) に関するトピックを参照してください。
 
-多くの設定が必要な機能には、[IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection) 上の `Add[Service]` 拡張メソッドがあります。 一般的な Web アプリケーションは、Entity Framework、Identity、および MVC のサービスを登録します。
+多くの設定が必要な機能には、[IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection) 上の `Add[Service]` 拡張メソッドがあります。 一般的な ASP.NET Core アプリは、Entity Framework、Identity、および MVC のサービスを登録します。
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 

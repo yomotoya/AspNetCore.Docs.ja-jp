@@ -5,12 +5,12 @@ description: ASP.NET Core MVC でルーティング ミドルウェアを使っ�
 ms.author: riande
 ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011654"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477645"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core でのコントローラー アクションへのルーティング
 
@@ -411,6 +411,53 @@ public class ProductsController : MyBaseController
 
 リテラル トークン置換区切り文字 `[` または `]` と一致させるためには、その文字を繰り返すことでエスケープします (`[[` または `]]`)。
 
+::: moniker range=">= aspnetcore-2.2"
+
+<a name="routing-token-replacement-transformers-ref-label"></a>
+
+### <a name="use-a-parameter-transformer-to-customize-token-replacement"></a>パラメーター トランスフォーマーを使用してトークンの置換をカスタマイズする
+
+トークンの置換は、パラメーター トランスフォーマーを使用してカスタマイズできます。 パラメーター トランスフォーマーは `IOutboundParameterTransformer` を実装し、パラメーターの値を変換します。 たとえば、`SlugifyParameterTransformer` パラメーター トランスフォーマーでは、`SubscriptionManagement` のルート値が `subscription-management` に変更されます。
+
+`RouteTokenTransformerConvention` は、次のようなアプリケーション モデルの規則です。
+
+* パラメーター トランスフォーマーをアプリケーションのすべての属性ルートに適用します。
+* 置き換えられる属性ルートのトークン値をカスタマイズします。
+
+```csharp
+public class SubscriptionManagementController : Controller
+{
+    [HttpGet("[controller]/[action]")] // Matches '/subscription-management/list-all'
+    public IActionResult ListAll() { ... }
+}
+```
+
+`RouteTokenTransformerConvention` は、`ConfigureServices` でオプションとして登録されます。
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc(options =>
+    {
+        options.Conventions.Add(new RouteTokenTransformerConvention(
+                                     new SlugifyParameterTransformer()));
+    });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
+
 <a name="routing-multiple-routes-ref-label"></a>
 
 ### <a name="multiple-routes"></a>複数のルート
@@ -510,6 +557,10 @@ MVC アプリケーションでは、規則ルーティングと属性ルーテ�
 
 > [!NOTE]
 > 2 種類のルーティング システムを区別しているのは、URL がルート テンプレートと一致した後に適用されるプロセスです。 規則ルーティングでは、一致のルート値を使って、規則ルーティングされるすべてのアクションの参照テーブルから、アクションとコントローラーが選ばれます。 属性ルーティングでは、各テンプレートはアクションと既に関連付けられており、それ以上参照する必要はありません。
+
+## <a name="complex-segments"></a>複雑なセグメント
+
+複雑なセグメント (たとえば、`[Route("/dog{token}cat")]`) は、右から左にリテラルを最短の方法で照合することによって処理されます。 説明については、[ソース コード](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296)をご覧ください。 詳しくは、[こちらの懸案事項](https://github.com/aspnet/Docs/issues/8197)をご覧ください。
 
 <a name="routing-url-gen-ref-label"></a>
 

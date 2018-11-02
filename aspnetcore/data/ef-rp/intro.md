@@ -5,12 +5,12 @@ description: Entity Framework Core を使用して Razor ページ アプリを�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f714934a2ef804813290ae0c04432470a2ba5816
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011459"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477567"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
@@ -187,7 +187,7 @@ dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Models.Sc
 * *Pages/Students* 作成、削除、詳細、編集、インデックス。
 * *Data/SchoolContext.cs*
 
-### <a name="files-updates"></a>更新されたファイル
+### <a name="file-updates"></a>ファイルの更新
 
 * *Startup.cs*: このファイルに対しての変更を次のセクションで詳しく説明します。
 * *appsettings.json*: ローカル データベースへの接続に使用される接続文字列を追加します。

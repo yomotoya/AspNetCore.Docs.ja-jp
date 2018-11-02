@@ -4,22 +4,24 @@ author: pkellner
 description: ASP.NET Core アンカー タグ ヘルパーの属性と、HTML アンカー タグの動作拡張時の各属性の役割を示します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 01c5833210b73dafb763602d363afcf9e7bc0122
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273885"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206277"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>ASP.NET Core のアンカー タグ ヘルパー
 
 作成者: [Peter Kellner](http://peterkellner.net)、[Scott Addie](https://github.com/scottaddie)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
-
 [アンカー タグ ヘルパー](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper)は、新しい属性を追加することで標準の HTML アンカー (`<a ... ></a>`) タグを拡張します。 規則では、属性名の前に `asp-` が付きます。 レンダリングされたアンカー要素の `href` 属性値は、`asp-` 属性の値によって決まります。
+
+タグ ヘルパーの概要については、「<xref:mvc/views/tag-helpers/intro>」をご覧ください。
+
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 *SpeakerController* は、このドキュメント全体にわたってサンプルとして使用されます。
 
@@ -171,7 +173,7 @@ MVC ビューは、次のように、アクションによって提供される�
 
 [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.area) 属性は、適切なルートの設定に使用する領域名を設定します。 領域の属性によってどのようにルートの再マップが行われるかの例を以下に示します。 `asp-area` を [ブログ] に設定すると、このアンカー タグの関連付けられているコントローラーとビューのルートに、ディレクトリ *Areas/Blogs* のプレフィックスが付けられます。
 
-* **<プロジェクト名\>**
+* **{プロジェクト名}**
   * **wwwroot**
   * **領域**
     * **ブログ**
@@ -181,7 +183,7 @@ MVC ビューは、次のように、アクションによって提供される�
         * **Home**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
-        * *_ViewStart.cshtml*
+        * *\_ViewStart.cshtml*
   * **コントローラー**
 
 上記のディレクトリ階層の場合、*AboutBlog.cshtml* ファイルを参照するマークアップは次のとおりです。
@@ -195,7 +197,9 @@ MVC ビューは、次のように、アクションによって提供される�
 ```
 
 > [!TIP]
-> 領域が MVC アプリで動作するには、ルート テンプレートに領域への参照 (存在する場合) が含まれている必要があります。 そのテンプレートは、*Startup.Configure*: [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)] の `routes.MapRoute` メソッド呼び出しの 2 番目のパラメーターで表されます
+> 領域が MVC アプリで動作するには、ルート テンプレートに領域への参照 (存在する場合) が含まれている必要があります。 そのテンプレートは、*Startup.Configure* の `routes.MapRoute` メソッド呼び出しの 2 番目のパラメーターで表されます
+>
+> [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
 ## <a name="asp-protocol"></a>asp-protocol
 
@@ -267,5 +271,5 @@ MVC ビューは、次のように、アクションによって提供される�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [領域](xref:mvc/controllers/areas)
-* [Razor ページの概要](xref:razor-pages/index)
+* <xref:mvc/controllers/areas>
+* <xref:razor-pages/index>

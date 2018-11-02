@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリの Web ホスト (アプリの起動と有効期間の管理を担当する) について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/01/2018
+ms.date: 10/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7440ab26534840b190a346614f645860fc2b7d78
-ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
+ms.openlocfilehash: e19f12f69dfdd5653aea9c6be2b05f24009b875e
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44089900"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477450"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core の Web ホスト
 
@@ -46,10 +46,10 @@ public class Program
 * 次から[ ホスト構成](#host-configuration-values)を読み込みます。
   * `ASPNETCORE_` のプレフィックスが付いた環境変数 (たとえば、`ASPNETCORE_ENVIRONMENT`)。
   * コマンド ライン引数。
-* 次からアプリの構成を読み込みます。
+* 次の順序でアプリの構成を読み込みます。
   * *appsettings.json*。
   * *appsettings.{Environment}.json*。
-  * エントリ アセンブリを使用して `Development` 環境でアプリが実行される場合に使用される[ユーザー シークレット](xref:security/app-secrets)。
+  * エントリ アセンブリを使用して `Development` 環境でアプリが実行される場合に使用される[シークレット マネージャー](xref:security/app-secrets)。
   * 環境変数。
   * コマンド ライン引数。
 * コンソールとデバッグ出力の[ログ](xref:fundamentals/logging/index)を構成します。 ログには、*appsettings.json* または *appsettings.{Environment}.json* ファイルのログ構成セクションで指定される[ログ フィルター](xref:fundamentals/logging/index#log-filtering)規則が含まれます。
@@ -146,7 +146,7 @@ public class Program
 
 *コンテンツ ルート*で、ホストが MVC ビュー ファイルなどのコンテンツ ファイルを検索する場所を決定します。 `UseContentRoot` の既定のコンテンツ ルートは、[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1) によって取得されます。 プロジェクトのルート フォルダーからアプリが開始された場合は、そのプロジェクトのルート フォルダーがコンテンツ ルートとして使用されます。 これは、[Visual Studio](https://www.visualstudio.com/) と [dotnet の新しいテンプレート](/dotnet/core/tools/dotnet-new)で使用される既定です。
 
-IIS をリバース プロキシとして使用するには、ホストのビルド時に [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) を呼び出します。 `UseIISIntegration` では、[UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) の場合のように*サーバー*は構成されません。 `UseIISIntegration` は、Kestrel と IIS の間にリバース プロキシを作成するために [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用する際にサーバーがリッスンする基本パスとポートを構成します。 IIS と ASP.NET Core を一緒に使用するには、`UseKestrel` と `UseIISIntegration` を指定する必要があります。 `UseIISIntegration` は、IIS または IIS Express の背後で実行されている場合にのみアクティブになります。 詳細については、<xref:fundamentals/servers/aspnet-core-module> および <xref:host-and-deploy/aspnet-core-module> を参照してください。
+IIS をリバース プロキシとして使用するには、ホストのビルド時に [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) を呼び出します。 `UseIISIntegration` では、[UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) の場合のように*サーバー*は構成されません。 `UseIISIntegration` は、Kestrel と IIS の間にリバース プロキシを作成するために [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用する際にサーバーがリッスンする基本パスとポートを構成します。 IIS と ASP.NET Core を一緒に使用するには、`UseKestrel` と `UseIISIntegration` を指定する必要があります。 `UseIISIntegration` は、IIS または IIS Express の背後で実行されている場合にのみアクティブになります。 詳細については、次のトピックを参照してください。 <xref:fundamentals/servers/aspnet-core-module> および <xref:host-and-deploy/aspnet-core-module>.
 
 ホスト (および ASP.NET Core アプリ) を構成する最小限の実装には、アプリの要求パイプラインの構成とサーバーの指定が含まれます。
 
@@ -184,7 +184,7 @@ host.Run();
 **型**: *文字列*  
 **既定**: アプリのエントリ ポイントを含むアセンブリの名前。  
 **次を使用して設定**: `UseSetting`  
-**環境変数**: `ASPNETCORE_APPLICATIONKEY`
+**環境変数**: `ASPNETCORE_APPLICATIONNAME`
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -365,15 +365,13 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="hosting-startup-exclude-assemblies"></a>除外するホスティング スタートアップ アセンブリ
 
-説明
+起動時に除外するホスティング スタートアップ アセンブリのセミコロン区切り文字列。
 
 **キー**: hostingStartupExcludeAssemblies  
 **型**: *文字列*  
 **既定値**: 空の文字列  
 **次を使用して設定**: `UseSetting`  
 **環境変数**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
-
-起動時に除外するホスティング スタートアップ アセンブリのセミコロン区切り文字列。
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -659,7 +657,7 @@ dotnet run --urls "http://*:8080"
 host.Run();
 ```
 
-**Start**
+**[開始]**
 
 `Start` メソッドを呼び出して、ブロックせずにホストを実行します。
 
@@ -832,7 +830,7 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 host.Run();
 ```
 
-**Start**
+**[開始]**
 
 `Start` メソッドを呼び出して、ブロックせずにホストを実行します。
 

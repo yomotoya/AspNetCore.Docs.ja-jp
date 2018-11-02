@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: e19a8a78b4c02fbae3d3acd23ee357c6003c35cf
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: e5f91ed64b7f8402dfe938f0fa8a0d94755d15c6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44039966"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207720"
 ---
 # <a name="net-generic-host"></a>.NET での汎用ホスト
 
@@ -24,7 +24,7 @@ ms.locfileid: "44039966"
 
 汎用ホストは ASP.NET Core 2.1 の新機能であり、Web ホスティングのシナリオには適していません。 Web ホスティングのシナリオの場合は、[Web ホスト](xref:fundamentals/host/web-host)を使ってください。 汎用ホストは開発中であり、将来のリリースでは Web ホストも汎用ホストに置き換えられて、汎用ホストが HTTP と非 HTTP 両方のシナリオのプライマリ ホスト API として機能するようになります。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 [Visual Studio Code](https://code.visualstudio.com/) でサンプル アプリを実行するときは、"*外部ターミナルまたは統合ターミナル*" を使います。 `internalConsole` ではサンプルを実行しないでください。
 
@@ -44,6 +44,19 @@ Visual Studio Code でコンソールを設定するには:
 [IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) は、ライブラリとアプリがホストの初期化、ビルド、実行に使用するメイン コンポーネントです。
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_HostBuilder)]
+
+## <a name="default-services"></a>既定のサービス
+
+次のサービスは、ホストの初期化中に登録されます。
+
+* [環境](xref:fundamentals/environments) (<xref:Microsoft.Extensions.Hosting.IHostingEnvironment>)
+* <xref:Microsoft.Extensions.Hosting.HostBuilderContext>
+* [構成](xref:fundamentals/configuration/index) (<xref:Microsoft.Extensions.Configuration.IConfiguration>)
+* <xref:Microsoft.Extensions.Hosting.IApplicationLifetime> (<xref:Microsoft.Extensions.Hosting.Internal.ApplicationLifetime>)
+* <xref:Microsoft.Extensions.Hosting.IHostLifetime> (<xref:Microsoft.Extensions.Hosting.Internal.ConsoleLifetime>)
+* <xref:Microsoft.Extensions.Hosting.IHost>
+* [オプション](xref:fundamentals/configuration/options) (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.AddOptions*>)
+* [ログ](xref:fundamentals/logging/index) (<xref:Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions.AddLogging*>)
 
 ## <a name="host-configuration"></a>ホストの構成
 
@@ -85,7 +98,7 @@ Visual Studio Code でコンソールを設定するには:
 **型**: *文字列*  
 **既定**: アプリのエントリ ポイントを含むアセンブリの名前。  
 **次を使用して設定**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**環境変数**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
+**環境変数**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
 
 ```csharp
 var host = new HostBuilder()

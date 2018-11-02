@@ -5,12 +5,12 @@ description: ASP.NET Core MVC と Visual Studio の概要について説明し�
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 41f986a06ec46dc025c4e8218745b4a513e8ee2a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011707"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391207"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC と Visual Studio の概要
 
@@ -48,7 +48,7 @@ Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の
 **[ASP.NET Core Web Application (.NET Core) - MvcMovie]** ダイアログを次のように設定します。
 
 * バージョン セレクター ドロップダウン ボックスで、**[ASP.NET Core 2.1]** を選択します。
-* **[Web Application(Model-View-Controller)]** を選択します
+* **[Web アプリケーション (モデル ビュー コントローラー)]** を選択します
 * **[OK]** をタップします。
 
 ![[新しいプロジェクト] ダイアログ、左ウィンドウの .NET Core、ASP.NET Core Web ](start-mvc/_static/new_project22-21.png)

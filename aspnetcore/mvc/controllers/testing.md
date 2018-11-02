@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: f036181f43d12ece89243fa3b0b0070ea84f8bc7
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010989"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477164"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
 
@@ -67,7 +67,7 @@ Home コントローラーの `HTTP POST Index` メソッドのテストでは�
 
 2 番目のテストでは、`ModelState` が有効な場合の検証を行います。
 
-* 新しい `BrainstormSession` が追加される ([リポジトリ](xref:fundamentals/repository-pattern) 経由)。
+* 新しい `BrainstormSession` が追加される (リポジトリ経由)。
 * メソッドが `RedirectToActionResult` と予期されるプロパティを返す。
 
 呼び出されないモックの呼び出しは通常は無視されますが、Setup 呼び出しの最後で `Verifiable` を呼び出すと、テスト内でのモック検証が許可されます。 これは `mockRepo.Verify` の呼び出しで実行され、予期されるメソッドが呼び出されないとテストは失敗します。
@@ -185,5 +185,4 @@ ASP.NET Core 2.1 以降、[ActionResult&lt;T&gt;](xref:web-api/action-return-typ
 * <xref:test/index>
 * <xref:test/integration-tests>
 * [Visual Studio で単体テストを作成して実行します](/visualstudio/test/unit-test-your-code)。
-* <xref:fundamentals/repository-pattern>
 * [明示的な依存関係の原則](https://deviq.com/explicit-dependencies-principle/)

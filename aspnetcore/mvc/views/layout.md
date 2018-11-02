@@ -3,20 +3,29 @@ title: ASP.NET Core でのレイアウト
 author: ardalis
 description: 共通レイアウトの使用方法、ディレクティブの共有方法、および ASP.NET Core アプリでビューをレンダリングする前に共通コードを実行する方法について説明します。
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751692"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391298"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET Core でのレイアウト
 
-作成者: [Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)、[Dave Brock](https://twitter.com/daveabrock)
 
-ビューは多くの場合、ビジュアルおよびプログラムの要素を共有します。 この記事では、共通レイアウトの使用方法、ディレクティブの共有方法、および ASP.NET Core アプリでビューをレンダリングする前に共通コードを実行する方法について説明します。
+ページやビューは、多くの場合、ビジュアルおよびプログラムの要素を共有します。 この記事では、次の方法を示します。
+
+* 共通のレイアウトを使用する。
+* ディレクティブを共有する。
+* ページまたはビューを表示する前に、共通のコードを実行する。
+
+このドキュメントでは、ASP.NET Core MVC に対するアプローチとして、Razor Pages とビューを含むコントローラーの 2 種類のレイアウトについて説明します。 このトピックでは、違いは最小限です。
+
+* Razor Pages は、*Pages* フォルダーにあります。
+* ビューを含むコントローラーでは、*Views* フォルダーをビューに使用します。
 
 ## <a name="what-is-a-layout"></a>レイアウトとは
 
@@ -26,15 +35,21 @@ ms.locfileid: "41751692"
 
 スクリプトやスタイルシートなどの共通の HTML 構造体も、アプリ内の多くのページでよく使用されます。 これらの共有要素をすべて *layout* ファイルで定義することで、アプリ内で使用する任意のビューで参照できるようになります。 レイアウトは、[DRY (Don't Repeat Yourself) 原則](http://deviq.com/don-t-repeat-yourself/)に従って、ビュー内の重複するコードを削減します。
 
-規則により、ASP.NET Core アプリの既定のレイアウトには `_Layout.cshtml` という名前が付けられます。 Visual Studio ASP.NET Core MVC プロジェクト テンプレートには、このレイアウト ファイルが `Views/Shared` フォルダーに含まれています。
+規則により、ASP.NET Core アプリの既定のレイアウトには *_Layout.cshtml* という名前が付けられます。 テンプレートで作成された新しい ASP.NET Core プロジェクトのレイアウト ファイル:
 
-![ソリューション エクスプローラーの Views フォルダー](layout/_static/web-project-views.png)
+* Razor Pages: *Pages/Shared/_Layout.cshtml*
 
-このレイアウトは、アプリのビューの最上位のテンプレートを定義します。 アプリはレイアウトを必要とせず、それぞれ異なるレイアウトを指定するさまざまなビューを使用して、複数のレイアウトを定義できます。
+  ![ソリューション エクスプローラーでの Pages フォルダー](layout/_static/rp-web-project-views.png)
 
-`_Layout.cshtml` の例:
+* ビューを含むコントローラー: *Views/Shared/_Layout.cshtml*
 
-[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+ ![ソリューション エクスプローラーの Views フォルダー](layout/_static/mvc-web-project-views.png)
+
+レイアウトでは、アプリのビューの最上位のテンプレートが定義されています。 アプリでは、レイアウトは必要ありません。 アプリでは、それぞれ異なるレイアウトを指定するさまざまなビューを使用して、複数のレイアウトを定義できます。
+
+次のコードでは、コントローラーとビューを含むテンプレートで作成されたプロジェクトのレイアウト ファイルを示します。
+
+[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>レイアウトの指定
 
@@ -42,7 +57,7 @@ Razor ビューには `Layout` プロパティがあります。 個々のビュ
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-指定されたレイアウトは、完全なパス (例: `/Views/Shared/_Layout.cshtml`) または部分的な名前 (例: `_Layout`) を使用できます。 部分的な名前を指定すると、Razor ビュー エンジンが標準の検出プロセスを使用して、レイアウト ファイルを検索します。 コントローラーに関連付けられているフォルダーが最初に検索され、次に `Shared` フォルダーが検索されます。 この検出プロセスは、[部分ビュー](partial.md)の検出に使用されるのと同じプロセスです。
+指定されるレイアウトでは、完全なパス (例: */Pages/Shared/_Layout.cshtml*、*/Views/Shared/_Layout.cshtml*) または部分パス (例: `_Layout`) を使用できます。 部分的な名前を指定すると、Razor ビュー エンジンが標準の検出プロセスを使用して、レイアウト ファイルを検索します。 ハンドラー メソッド (またはコントローラー) が存在するフォルダーが最初に検索され、その後で *Shared* フォルダーが検索されます。 この検出プロセスは、[部分ビュー](partial.md)の検出に使用されるのと同じプロセスです。
 
 既定では、すべてのレイアウトで `RenderBody` を呼び出す必要があります。 `RenderBody` への呼び出しが配置されると、ビューのコンテンツがレンダリングされます。
 
@@ -50,19 +65,37 @@ Razor ビューには `Layout` プロパティがあります。 個々のビュ
 
 ### <a name="sections"></a>セクション
 
-レイアウトは、必要に応じて `RenderSection` を呼び出すことで、1 つ以上の*セクション*を参照することができます。 セクションは、特定のページ要素の配置場所を整理する方法を提供します。 `RenderSection` の呼び出しごとに、そのセクションを必須またはオプションにするかどうかを指定できます。 必須のセクションが見つからない場合、例外がスローされます。 個々のビューは、`@section` Razor 構文を使用して、セクション内にレンダリングされるコンテンツを指定します。 ビューでセクションを定義する場合は、レンダリングされる必要があります (そうしないと、エラーが発生します)。
+レイアウトは、必要に応じて `RenderSection` を呼び出すことで、1 つ以上の*セクション*を参照することができます。 セクションは、特定のページ要素の配置場所を整理する方法を提供します。 `RenderSection` の呼び出しごとに、そのセクションを必須またはオプションにするかどうかを指定できます。
 
-ビューでの `@section` 定義の例:
+```html
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+```
+
+必須のセクションが見つからない場合、例外がスローされます。 個々のビューは、`@section` Razor 構文を使用して、セクション内にレンダリングされるコンテンツを指定します。 ページまたはビューでセクションを定義する場合は、レンダリングされる必要があります (そうしないと、エラーが発生します)。
+
+Razor Pages ビューでの `@section` 定義の例:
 
 ```html
 @section Scripts {
      <script type="text/javascript" src="/scripts/main.js"></script>
-   }
-   ```
+}
+```
 
-上記のコードでは、フォームを含むビューの `scripts` セクションに検証スクリプトが追加されます。 同じアプリケーション内の他のビューに追加のスクリプトが必要ない場合は、スクリプト セクションを定義する必要はありません。
+上記のコードでは、*scripts/main.js* がページまたはビューの `scripts` セクションに追加されています。 同じアプリの他のページまたはビューではこのスクリプトは必要なく、スクリプト セクションは定義されていません。
 
-ビューで定義されたセクションは、そのイミディエイト レイアウト ページでのみ使用できます。 これらは、部分、ビュー コンポーネント、またはビュー システムの他の部分からは参照できません。
+次のマークアップでは、[部分タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)を使用して *_ValidationScriptsPartial.cshtml* を表示しています。
+
+```html
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+```
+
+上記のマークアップは、[スキャフォールディング ID](xref:security/authentication/scaffold-identity) によって生成されました。
+
+ページまたはビューで定義されたセクションは、そのイミディエイト レイアウト ページでのみ使用できます。 これらは、部分、ビュー コンポーネント、またはビュー システムの他の部分からは参照できません。
 
 ### <a name="ignoring-sections"></a>セクションの無視
 
@@ -76,20 +109,14 @@ Razor ページ内の本文とすべてのセクションは、レンダリン�
 
 ## <a name="importing-shared-directives"></a>共有ディレクティブのインポート
 
-ビューは、Razor ディレクティブを使用して、名前空間のインポートや[依存性の注入](dependency-injection.md)など、多くのことを行うことができます。 多くのビューで共有されるディレクティブは、共通の `_ViewImports.cshtml` ファイルで指定できます。 `_ViewImports` ファイルは、次のディレクティブをサポートします。
+ビューやページでは、Razor ディレクティブを使用して名前空間をインポートし、[依存関係の挿入](dependency-injection.md)を使用できます。 多くのビューで共有されるディレクティブは、共通の *_ViewImports.cshtml* ファイルで指定できます。 `_ViewImports` ファイルは、次のディレクティブをサポートします。
 
 * `@addTagHelper`
-
 * `@removeTagHelper`
-
 * `@tagHelperPrefix`
-
 * `@using`
-
 * `@model`
-
 * `@inherits`
-
 * `@inject`
 
 このファイルは、関数やセクションの定義などの Razor 機能をサポートしていません。
@@ -98,35 +125,34 @@ Razor ページ内の本文とすべてのセクションは、レンダリン�
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
-ASP.NET Core MVC アプリの `_ViewImports.cshtml` ファイルは、通常、`Views` フォルダーに配置されます。 `_ViewImports.cshtml` ファイルは、任意のフォルダー内に配置できますが、その場合は、そのフォルダーとそのサブフォルダー内にあるビューにのみ適用されます。 `_ViewImports` ファイルは、最初にルート レベルで処理され、その後ビュー自体の場所までフォルダーごとに処理されるため、ルート レベルで指定された設定がフォルダー レベルでオーバーライドされる可能性があります。
+ASP.NET Core MVC アプリの *_ViewImports.cshtml* ファイルは、通常、*Pages* (または *Views*) フォルダーに配置されます。 *_ViewImports.cshtml* ファイルは、任意のフォルダー内に配置できますが、その場合は、そのフォルダーとそのサブフォルダー内にあるパージまたはビューにのみ適用されます。 `_ViewImports` ファイルの処理はルート レベルで開始されてから、フォルダーごとに、ページまたはビュー自体の場所に至るまで行われます。 ルート レベルで指定された `_ViewImports` の設定は、フォルダー レベルでオーバーライドされる可能性があります。
 
-たとえば、ルート レベルの `_ViewImports.cshtml` ファイルで `@model` と `@addTagHelper` を指定し、ビューのコントローラーに関連付けられているフォルダー内の別の `_ViewImports.cshtml` ファイルで異なる `@model` を指定し、別の `@addTagHelper` を追加すると、ビューは両方のタグ ヘルパーのアクセス権を持ち、後者の `@model` を使用するようになります。
+たとえば、次のように想定します。
 
-1 つのビューに対して複数の `_ViewImports.cshtml` ファイルを実行すると、`ViewImports.cshtml` ファイルに含まれるディレクティブの動作の組み合わせは次のようになります。
+* ルート レベルの *_ViewImports.cshtml* ファイルには、`@model MyModel1` と `@addTagHelper *, MyTagHelper1` が含まれます。
+* サブフォルダーの *_ViewImports.cshtml* ファイルには、`@model MyModel2` と `@addTagHelper *, MyTagHelper2` が含まれます。
+
+サブフォルダー内のページおよびビューは、タグ ヘルパーと `MyModel2` モデルの両方にアクセスできます。
+
+複数の *_ViewImports.cshtml* ファイルがファイル階層内にある場合、ディレクティブの結合された動作は次のようになります。
 
 * `@addTagHelper`、`@removeTagHelper`: 順番どおりにすべて実行
-
 * `@tagHelperPrefix`: ビューに最も近いものが、他のものをすべてをオーバーライドする
-
 * `@model`: ビューに最も近いものが、他のものをすべてをオーバーライドする
-
 * `@inherits`: ビューに最も近いものが、他のものをすべてをオーバーライドする
-
 * `@using`: すべてが含まれ、重複は無視される
-
 * `@inject`: プロパティごとに、ビューに最も近いものが、同じプロパティ名を持つ他のものすべてをオーバーライドする
 
 <a name="viewstart"></a>
 
 ## <a name="running-code-before-each-view"></a>各ビューの前にコードを実行する
 
-すべてのビューの前に実行する必要があるコードがある場合は、このコードを `_ViewStart.cshtml` ファイル内に配置する必要があります。 規則によって、`_ViewStart.cshtml` ファイルは `Views` フォルダー内に配置されます。 `_ViewStart.cshtml` に一覧表示されているステートメントは、すべての (レイアウトでもなく、部分ビューでもない) 完全なビューより前に実行されます。 [ViewImports.cshtml](xref:mvc/views/layout#viewimports) と同様に、`_ViewStart.cshtml` は階層構造です。 `_ViewStart.cshtml` ファイルがコントローラーに関連付けられているビュー フォルダーで定義されている場合、`Views` フォルダーのルートで定義されているファイル (ある場合) の後に実行されます。
+各ビューまたはページの前に実行する必要があるコードは、*_ViewStart.cshtml* ファイルに配置する必要があります。 慣例により、*_ViewStart.cshtml* ファイルは *Pages* (または *Views*) フォルダーに配置されます。 *_ViewStart.cshtml* に列記されているステートメントは、すべての (レイアウトでもなく、部分ビューでもない) 完全なビューより前に実行されます。 [ViewImports.cshtml](xref:mvc/views/layout#viewimports) と同様に、*_ViewStart.cshtml* は階層構造です。 *_ViewStart.cshtml* ファイルがビューまたはページ フォルダーで定義されている場合、*Pages* (または *Views*) フォルダーのルートで定義されているファイル (ある場合) の後に実行されます。
 
-`_ViewStart.cshtml` ファイルのサンプル:
+*_ViewStart.cshtml* ファイルのサンプル:
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
-上記のファイルは、すべてのビューで `_Layout.cshtml` レイアウトを使用することを指定します。
+上記のファイルは、すべてのビューで *_Layout.cshtml* レイアウトを使用することを指定します。
 
-> [!NOTE]
-> 通常、`_ViewStart.cshtml` または `_ViewImports.cshtml` も `/Views/Shared` フォルダーには配置されません。 これらのファイルのアプリ レベルのバージョンは、`/Views` フォルダーに直接配置する必要があります。
+通常、*_ViewStart.cshtml* および *_ViewImports.cshtml* は、*/Pages/Shared* (または */Views/Shared*) フォルダーには配置**されません**。 これらのファイルのアプリ レベルのバージョンは、*/Pages* (または */Views*) フォルダーに直接配置する必要があります。

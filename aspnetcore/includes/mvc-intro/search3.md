@@ -32,8 +32,9 @@
 ムービージャンルのビュー モデルには以下が含まれます。
 
    * ムービーのリスト。
-   * ジャンルのリストを含む `SelectList`。 これにより、ユーザーはリストからジャンルを選択できます。
-   * 選択されたジャンルを含む、`movieGenre`。
+   * ジャンルのリストを含む `SelectList`。 これにより、ユーザーは一覧からジャンルを選択できます。
+   * 選択されたジャンルを含む、`MovieGenre`。
+   * ユーザーが検索テキスト ボックスに入力したテキストが含まれる `SearchString`。
 
 `MoviesController.cs` の `Index` メソッドを次のコードに置き換えます。
 
@@ -45,9 +46,11 @@
 
 ジャンルの `SelectList` は、個々のジャンルを投影して作成します (選択リストでジャンルが重複しないようにします)。
 
+ユーザーが項目を検索すると、検索値が検索ボックスに保持されます。 検索値を保持するには、`SearchString` プロパティに検索値を設定します。 検索値は、`Index` コントローラー アクションに対する `searchString` パラメーターです。
+
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
-   ```
+```
 
 ## <a name="adding-search-by-genre-to-the-index-view"></a>インデックス ビューへのジャンルによる検索の追加
 
@@ -57,8 +60,8 @@ movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
 
 次の HTML ヘルパーで使用されるラムダ式を確認します。
 
-`@Html.DisplayNameFor(model => model.movies[0].Title)`
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
  
-上のコードでは、`DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。 ラムダ式は評価されるのではなく、検査されるため、`model`、`model.movies`、または `model.movies[0]` が `null` または空である場合にアクセス違反が発生することはありません。 ラムダ式が評価される場合 (`@Html.DisplayFor(modelItem => item.Title)` など)、モデルのプロパティ値が評価されます。
+上のコードでは、`DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。 ラムダ式は評価されるのではなく、検査されるため、`model`、`model.Movies`、または `model.Movies[0]` が `null` または空である場合にアクセス違反が発生することはありません。 ラムダ式が評価される場合 (`@Html.DisplayFor(modelItem => item.Title)` など)、モデルのプロパティ値が評価されます。
 
 ジャンルまたはムービーのタイトル、あるいはその両方で検索して、アプリをテストします。

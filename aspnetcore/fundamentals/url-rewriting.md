@@ -5,12 +5,12 @@ description: ASP.NET Core アプリケーションの URL リライト ミドル
 ms.author: riande
 ms.date: 08/17/2017
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d3484e222c4412a427d086c1b71a12b81095ba72
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d9f33f34f75fe7bf534146c5a426335e74635018
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276348"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326070"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>ASP.NET Core の URL リライト ミドルウェア
 
@@ -63,13 +63,15 @@ URL リライト ミドルウェアは、Windows サーバー上の IIS の [URL
 
 ## <a name="extension-and-options"></a>拡張機能とオプション
 
-各ルールの拡張メソッドを使用して、`RewriteOptions` クラスのインスタンスを作成することによって、URL 書き換えとリダイレクトを確立します。 処理したい順序で複数のルールを連結します。 `RewriteOptions` は、`app.UseRewriter(options);` を使用して要求パイプラインに追加されたときに、URL リライト ミドルウェアに渡されます。
+各ルールの拡張メソッドを使用して、[RewriteOptions](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptions) クラスのインスタンスを作成することによって、URL 書き換えとリダイレクトを確立します。 処理したい順序で複数のルールを連結します。 `RewriteOptions` は、`app.UseRewriter(options);` を使用して要求パイプラインに追加されたときに、URL リライト ミドルウェアに渡されます。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -88,17 +90,31 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
----
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+### <a name="redirect-non-www-to-www"></a>非 WWW を WWW にリダイレクトする
+
+アプリで非 `www` の要求を `www` にリダイレクトできる 3 つのオプションがあります。
+
+* [AddRedirectToWwwPermanent(RewriteOptions)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowwwpermanent) &ndash; 要求が非 `www` の場合、要求を `www` サブドメインに永続的にリダイレクトします。 [Status308PermanentRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status308permanentredirect) 状態コードでリダイレクトします。
+* [AddRedirectToWww(RewriteOptions)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowww) &ndash; 受信した要求が非 `www` の場合、要求を `www` サブドメインにリダイレクトします。 [Status307TemporaryRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status307temporaryredirect) 状態コードでリダイレクトします。
+* [AddRedirectToWww(RewriteOptions, Int32)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowww) &ndash; 受信した要求が非 `www` の場合、要求を `www` サブドメインにリダイレクトします。 応答に対する状態コードを提供することができます。 `AddRedirectToWww` への割り当てには [StatusCodes](/dotnet/api/microsoft.aspnetcore.http.statuscodes) クラスのフィールドを使用します。
+
+::: moniker-end
 
 ### <a name="url-redirect"></a>URL リダイレクト
 
 要求をリダイレクトするには、`AddRedirect` を使用します。 最初のパラメーターには、着信 URL のパスに一致する正規表現が含まれています。 2 番目のパラメーターは、置換文字列です。 3 番目のパラメーター (存在する場合) は、状態コードを指定します。 状態コードを指定しない場合、既定値である 302 (検出) に設定されます。これは、リソースが一時的に移動されるか置き換えられることを示します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -110,7 +126,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
 開発者ツールが有効になっているブラウザーで、パス `/redirect-rule/1234/5678` を指定してサンプル アプリに対する要求を実行します。 正規表現が `redirect-rule/(.*)` の要求のパスに一致し、パスが `/redirected/1234/5678` に置き換えられます。 リダイレクト URL が、302 (検出) の状態コードでクライアントに返されます。 ブラウザーは、ブラウザーのアドレス バーに表示されるリダイレクト URL に新しい要求を実行します サンプル アプリにはリダイレクト URL に一致するルールがないので、2 番目の要求は、アプリから 200 (OK) 応答を受信し、応答の本文にリダイレクト URL が表示されます。 URL が*リダイレクト*されるときにサーバーへのラウンドトリップが実行されます。
 
@@ -168,11 +184,13 @@ public void Configure(IApplicationBuilder app)
 
 URL 書き換えのルールを作成するには、`AddRewrite` を使用します。 最初のパラメーターには、着信 URL のパスに一致する正規表現が含まれています。 2 番目のパラメーターは、置換文字列です。 3 番目のパラメーター `skipRemainingRules: {true|false}` は、現在のルールが適用される場合に追加の書き換えルールをスキップするかどうかをミドルウェアに示します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -185,7 +203,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
 元の要求: `/rewrite-rule/1234/5678`
 
@@ -222,13 +240,15 @@ public void Configure(IApplicationBuilder app)
 
 `AddApacheModRewrite` を使用して Apache mod_rewrite ルールを適用します。 ルール ファイルがアプリと共に展開されていることを確認します。 mod_rewrite ルールの情報と例については、「[Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)」を参照してください。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 *ApacheModRewrite.txt* ルール ファイルからルールを読み取るには `StreamReader` を使用します。
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 最初のパラメーターは、[依存関係の挿入](dependency-injection.md)によって提供される `IFileProvider` を取得します。 `IHostingEnvironment` が挿入され、`ContentRootFileProvider` を提供します。 2 番目のパラメーターは、ルール ファイルへのパスであり、これはサンプル アプリでは *ApacheModRewrite.txt* です。
 
@@ -242,7 +262,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
----
+::: moniker-end
 
 サンプル アプリは、要求を `/apache-mod-rules-redirect/(.\*)` から `/redirected?id=$1` にリダイレクトします。 応答の状態コードは 302 (検出) です。
 
@@ -251,8 +271,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 元の要求: `/apache-mod-rules-redirect/1234`
 
 ![要求および応答を追跡する開発者ツールを備えたブラウザー ウィンドウ](url-rewriting/_static/add_apache_mod_redirect.png)
-
-##### <a name="supported-server-variables"></a>サポートされるサーバー変数
 
 ミドルウェアは、次の Apache mod_rewrite サーバー変数をサポートします。
 
@@ -290,13 +308,15 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 IIS URL リライト モジュールに適用されるルールを使用するには、`AddIISUrlRewrite` を使用します。 ルール ファイルがアプリと共に展開されていることを確認します。 Windows Server IIS で実行されているときにミドルウェアで *web.config* ファイルを使用するように指定しないでください。 IIS を使用する場合、IIS リライト モジュールとの競合を避けるために、これらのルールを *web.config* の外部に保存する必要があります。 IIS URL リライト モジュールのルールの詳細と例については、「[Using Url Rewrite Module 2.0](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)」(URL リライト モジュール 2.0 の使用 ) と「[URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)」(URL リライト モジュール構成リファレンス) を参照してください。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 *IISUrlRewrite.xml* ルール ファイルからルールを読み取るには `StreamReader` を使用します。
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 最初のパラメーターは `IFileProvider` を取得します。2 番目のパラメーターは XML ルール ファイルのパスであり、このサンプル アプリでは *IISUrlRewrite.xml* です。
 
@@ -310,7 +330,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
----
+::: moniker-end
 
 サンプル アプリは、要求を `/iis-rules-rewrite/(.*)` から `/rewritten?id=$1` に書き換えます。 応答は、200 (OK) 状態コードでクライアントに送信されます。
 
@@ -324,7 +344,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 #### <a name="unsupported-features"></a>サポートされていない機能
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ASP.NET Core 2.x でリリースされたミドルウェアは、次の IIS URL リライト モジュールの機能をサポートしていません。
 
@@ -333,7 +353,9 @@ ASP.NET Core 2.x でリリースされたミドルウェアは、次の IIS URL 
 * ワイルドカード
 * LogRewrittenUrl
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ASP.NET Core 1.x でリリースされたミドルウェアは、次の IIS URL リライト モジュールの機能をサポートしていません。
 
@@ -346,7 +368,7 @@ ASP.NET Core 1.x でリリースされたミドルウェアは、次の IIS URL 
 * Action:CustomResponse
 * LogRewrittenUrl
 
----
+::: moniker-end
 
 #### <a name="supported-server-variables"></a>サポートされるサーバー変数
 
@@ -385,11 +407,13 @@ ASP.NET Core 1.x でリリースされたミドルウェアは、次の IIS URL 
 | `RuleResult.EndResponse`             | ルールの適用を停止し、応答を送信する                       |
 | `RuleResult.SkipRemainingRules`      | ルールの適用を停止し、次のミドルウェアにコンテキストを送信する |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -401,7 +425,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
 サンプル アプリは、*.xml* で終了するパスの要求をリダイレクトするメソッドの例を示します。 `/file.xml` の要求を行う場合、`/xmlfiles/file.xml` にリダイレクトされます。 状態コードが 301 (完全な移動) に設定されます。 リダイレクトの場合、応答の状態コードを明示的に設定する必要があります。そのようにしないと、200 (OK) の状態コードが返され、クライアントでリダイレクトは発生しません。
 
@@ -415,11 +439,13 @@ public void Configure(IApplicationBuilder app)
 
 `IRule` から派生するクラス内で独自のルール ロジックを実装するには、`Add(IRule)` を使用します。 `IRule` を使用すると、メソッド ベースのルールのアプローチを使用する場合により高い柔軟性が実現します。 派生クラスにコンストラクターを含め、`ApplyRule` メソッドのパラメーターで渡すことができます。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -432,7 +458,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
 サンプル アプリの `extension` と `newPath` のパラメーターの値は、いくつかの条件を満たすかチェックされます。 `extension` は、値を含んでいる必要があり、値は *.png*、*.jpg*、または *.gif* でなければなりません。 `newPath` が有効ではない場合、`ArgumentException` がスローされます。 *image.png* の要求を行う場合、`/png-images/image.png` にリダイレクトされます。 *image.jpg* の要求を行う場合、`/jpg-images/image.jpg` にリダイレクトされます。 状態コードが 301 (完全な移動) に設定され、`context.Result` がルールの処理を停止し、応答を送信するように設定されます。
 

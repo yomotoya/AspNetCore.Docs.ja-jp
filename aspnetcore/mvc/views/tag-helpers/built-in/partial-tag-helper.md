@@ -7,18 +7,20 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: cb63357b1859c3709b2eae9f4e380c4a74e5e448
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: bcaeb3ba286feb55c0755c5baee4b7608710e647
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254754"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207785"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core の部分タグ ヘルパー
 
 作成者: [Scott Addie](https://github.com/scottaddie)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+タグ ヘルパーの概要については、「<xref:mvc/views/tag-helpers/intro>」をご覧ください。
+
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="overview"></a>概要
 

@@ -3,14 +3,15 @@ title: ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
 author: rick-anderson
 description: このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、マッピングの規則を指定してデータ モデルをカスタマイズします。
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220600"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090976"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
 
@@ -121,6 +122,7 @@ DB が作成されたときに、列名でモデルのプロパティ名が使�
 ```SQL
 SqlException: Invalid column name 'FirstName'.
 ```
+
 DB を更新するには、次のようにします。
 
 * プロジェクトをビルドします。
@@ -157,7 +159,7 @@ SSOX で Student テーブルを開きます。
 
 ![移行後の SSOX の Students テーブル](complex-data-model/_static/ssox-after-migration.png)
 
-移行が適用される前の名前列の型は [nvarchar(MAX)](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) でした。 現在の名前列は `nvarchar(50)` です。 列名は `FirstMidName` から `FirstName` に変わりました。
+移行が適用される前の名前列の型は [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) でした。 現在の名前列は `nvarchar(50)` です。 列名は `FirstMidName` から `FirstName` に変わりました。
 
 > [!Note]
 > 次のセクションでは、いくつかのステージでアプリをビルドします。その場合、コンパイラ エラーが生成されます。 手順では、アプリをビルドするタイミングを指定します。
@@ -295,7 +297,7 @@ public Instructor Instructor { get; set; }
 
 EF Core では、モデルに関連エンティティのナビゲーション プロパティがある場合、データ モデルの FK プロパティは必要ありません。
 
-EF Core は、必要に応じて、データベースで自動的に FK を作成します。 EF Core は、自動的に作成された FK に対して、[シャドウ プロパティ](https://docs.microsoft.com/ef/core/modeling/shadow-properties)を作成します。 データ モデルに FK がある場合は、更新をより簡単かつ効率的に行うことができます。 たとえば、FK プロパティ `DepartmentID` が含まれて*いない* モデルがあるとします。 Course エンティティが編集用にフェッチされた場合は、次のようになります。
+EF Core は、必要に応じて、データベースで自動的に FK を作成します。 EF Core は、自動的に作成された FK に対して、[シャドウ プロパティ](/ef/core/modeling/shadow-properties)を作成します。 データ モデルに FK がある場合は、更新をより簡単かつ効率的に行うことができます。 たとえば、FK プロパティ `DepartmentID` が含まれて*いない* モデルがあるとします。 Course エンティティが編集用にフェッチされた場合は、次のようになります。
 
 * `Department` エンティティは、明示的に読み込まれない場合、null となります。
 * Course エンティティを更新するには、`Department` エンティティを最初にフェッチする必要があります。
@@ -314,7 +316,7 @@ public int CourseID { get; set; }
 
 既定では、EF Core は、PK 値が DB で生成されることを前提とします。 通常は、PK 値を DB で生成するのが最適です。 `Course` エンティティの場合、PK はユーザーが指定します。 たとえば、数学科の場合は 1000 シリーズ、英文科の場合は 2000 シリーズなどのコース番号となります。
 
-`DatabaseGenerated` 属性は、既定値を生成する場合にも使用できます。 たとえば、DB では、行が作成または更新された日付を記録するための日付フィールドを自動的に生成できます。 詳細については、「[生成される値](https://docs.microsoft.com/ef/core/modeling/generated-properties)」を参照してください。
+`DatabaseGenerated` 属性は、既定値を生成する場合にも使用できます。 たとえば、DB では、行が作成または更新された日付を記録するための日付フィールドを自動的に生成できます。 詳細については、「[生成される値](/ef/core/modeling/generated-properties)」を参照してください。
 
 ### <a name="foreign-key-and-navigation-properties"></a>外部キー プロパティとナビゲーション プロパティ
 
@@ -432,7 +434,7 @@ public Student Student { get; set; }
 
 `Student` エンティティと `Course` エンティティの間には多対多リレーションシップがあります。 `Enrollment` エンティティは、データベースで*ペイロードがある*多対多結合テーブルとして機能します。 "ペイロードがある" とは、`Enrollment` テーブルに、結合テーブルの FK 以外に追加データが含まれていることを意味します (ここでは PK と `Grade`)。
 
-次の図は、エンティティ図でこれらのリレーションシップがどのようになるかを示しています  (この図は、EF 6.x 用の EF Power Tools を使用して生成されたものです。 このチュートリアルでは図は作成しません)。
+次の図は、エンティティ図でこれらのリレーションシップがどのようになるかを示しています  (この図は、EF 6.x 用の [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) を使用して生成されたものです。 このチュートリアルでは図は作成しません)。
 
 ![Student と Course の多対多リレーションシップ](complex-data-model/_static/student-course.png)
 
@@ -478,7 +480,7 @@ FK は null 非許容です。 `CourseAssignment` の 2 つの FK (`InstructorID
 `Enrollment` 結合エンティティでは独自の PK を定義するため、このような重複が考えられます。 このような重複を防ぐには、次のようにします。
 
 * FK フィールドに一意のインデックスを追加する。または
-* `CourseAssignment` と同様の複合主キーを使用して、`Enrollment` を構成する。 詳細については、「[インデックス](https://docs.microsoft.com/ef/core/modeling/indexes)」を参照してください。
+* `CourseAssignment` と同様の複合主キーを使用して、`Enrollment` を構成する。 詳細については、「[インデックス](/ef/core/modeling/indexes)」を参照してください。
 
 ## <a name="update-the-db-context"></a>DB コンテキストを更新する
 
@@ -490,7 +492,7 @@ FK は null 非許容です。 `CourseAssignment` の 2 つの FK (`InstructorID
 
 ## <a name="fluent-api-alternative-to-attributes"></a>属性の代わりに fluent API を使用する
 
-上のコードの `OnModelCreating` メソッドでは、*fluent API* を使用して EF Core の動作を構成します。 API は "fluent" と呼ばれます。これは、多くの場合、一連のメソッド呼び出しを単一のステートメントにまとめて使用されるためです。 [次のコード](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration)は fluent API の例です。
+上のコードの `OnModelCreating` メソッドでは、*fluent API* を使用して EF Core の動作を構成します。 API は "fluent" と呼ばれます。これは、多くの場合、一連のメソッド呼び出しを単一のステートメントにまとめて使用されるためです。 [次のコード](/ef/core/modeling/#methods-of-configuration)は fluent API の例です。
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -516,7 +518,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 * EF Core 構成のみ (`HasKey` など)。
 * 検証と EF Core の構成 (`[StringLength(50)]` など)。
 
-属性と fluent API の詳細については、「[構成の方法](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration)」を参照してください。
+属性と fluent API の詳細については、「[構成の方法](/ef/core/modeling/#methods-of-configuration)」を参照してください。
 
 ## <a name="entity-diagram-showing-relationships"></a>リレーションシップを示すエンティティ図
 
@@ -574,9 +576,16 @@ The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Cou
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-既存のデータで移行が実行されている場合、既存のデータでは満たされない FK 制約が存在する可能性があります。 このチュートリアルの場合、新しい DB が作成されるため、FK 制約に違反することはありません。 現在の DB の FK 違反を修正する手順については、「[レガシ データでの外部キー制約の修正](#fk)」を参照してください。
+## <a name="apply-the-migration"></a>移行を適用する
 
-### <a name="drop-and-update-the-database"></a>データベースの削除と更新
+既存のデータベースができたので、将来の変更を適用する方法について検討する必要があります。 このチュートリアルでは、2 つの方法を示します。
+
+* [データベースを削除して再作成する](#drop)
+* [移行を既存のデータベースに適用する](#applyexisting)。 この方法はより複雑で時間がかかりますが、実際の運用環境では推奨される方法です。 **注**: これは、チュートリアルのオプションのセクションです。 削除と再作成の手順を行い、このセクションはスキップしてもかまいません。 このセクションの手順に従う場合は、削除と再作成の手順を行わないでください。 
+
+<a name="drop"></a>
+
+### <a name="drop-and-re-create-the-database"></a>データベースを削除して再作成する
 
 更新された `DbInitializer` のコードでは、新しいエンティティのシード データを追加します。 EF Core に新しい DB を強制的に作成させるには、DB を削除して更新します。
 
@@ -620,11 +629,11 @@ SSOX で DB を開きます。
 
 ![SSOX の CourseAssignment データ](complex-data-model/_static/ssox-ci-data.png)
 
-<a name="fk"></a>
+<a name="applyexisting"></a>
 
-## <a name="fixing-foreign-key-constraints-with-legacy-data"></a>レガシ データでの外部キー制約の修正
+### <a name="apply-the-migration-to-the-existing-database"></a>移行を既存のデータベースに適用する
 
-このセクションは省略可能です。
+このセクションは省略可能です。 以下の手順は、前の「[データベースを削除して再作成する](#drop)」セクションをスキップした場合にのみ使用できます。
 
 既存のデータで移行が実行されている場合、既存のデータでは満たされない FK 制約が存在する可能性があります。 運用データを使用する場合は、既存のデータを移行するための手順を実行する必要があります。 このセクションでは、FK 制約違反の修正例を示します。 これらのコードをバックアップせずに変更しないでください。 前のセクションを完了し、データベースを更新した場合は、これらのコードを変更しないでください。
 
@@ -639,7 +648,7 @@ SSOX で DB を開きます。
 * コードを変更して、新しい列 (`DepartmentID`) に既定値を設定します。
 * "Temp" という名前の偽の学科を作成し、既定の学科として機能するようにします。
 
-### <a name="fix-the-foreign-key-constraints"></a>外部キー制約を修正する
+#### <a name="fix-the-foreign-key-constraints"></a>外部キー制約を修正する
 
 `ComplexDataModel` クラスの `Up` メソッドを更新します。
 
