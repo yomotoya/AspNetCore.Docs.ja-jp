@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 03dd8a73141330348f2877760a5978a8a0b95122
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837083"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758246"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR ハブ API ガイド - サーバー (c#)
 ====================
@@ -40,7 +40,7 @@ ms.locfileid: "41837083"
 > 
 > ## <a name="questions-and-comments"></a>意見やご質問
 > 
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 ## <a name="overview"></a>概要
@@ -303,6 +303,11 @@ SignalR 2.1 には、サポートが追加されて、[進行状況レポート�
 **サーバー**
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample23.cs?highlight=5)]
+
+非同期操作は、クライアント メソッドを呼び出すを返します、`Task`します。 使用`await`:
+
+* メッセージを確実には、エラーなしで送信します。 
+* キャッチし、try-catch ブロックでのエラー処理を有効にします。
 
 **生成されたプロキシを使用して JavaScript クライアント**
 
@@ -572,7 +577,7 @@ VB.NET または厳密に型指定されたハブでは、呼び出し元の状�
 
 ## <a name="how-to-handle-errors-in-the-hub-class"></a>ハブ クラスのエラーを処理する方法
 
-ハブ クラスのメソッドで発生するエラーを処理するには、次の方法の 1 つ以上を使用します。
+ハブ クラスのメソッドで発生するエラーを処理するために最初に確認する「確認」(クライアント メソッドの呼び出し) などの非同期操作の例外を使用して`await`します。 次の方法の 1 つ以上を使用します。
 
 - Try catch ブロックでは、メソッドのコードをラップし、例外オブジェクトを記録します。 デバッグの目的では、クライアントに例外を送信できますが、セキュリティ上の理由から運用環境でクライアントに詳細な情報を送信することはお勧めしません。
 - 処理するハブ パイプライン モジュールを作成、 [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx)メソッド。 次の例では、モジュールをハブ パイプラインに挿入します。 Startup.cs 内のコードの後に、エラー ログに記録するパイプラインのモジュールを示します。

@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b242bf52bbd63d726e6ce6ab7be01a1b81c5bf1b
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207915"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758259"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -342,13 +342,13 @@ ASP.NET は、データ型を自動的に決定することができます、通
 
 :::row:::
     :::column:::
-        <strong>Method</strong>
+    <strong>メソッド</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+    <strong>説明</strong>
     :::column-end:::
     :::column:::
-        <strong>Example</strong>
+    <strong>例</strong>
     :::column-end:::
 :::row-end:::
 * * *
@@ -357,7 +357,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `AsInt(), IsInt()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a whole number (like "593") to an integer.
+    整数 (「593」) などの整数を表す文字列に変換します。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
@@ -369,7 +369,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `AsBool(), IsBool()`
     :::column-end:::
     :::column:::
-        Converts a string like &quot;true&quot; or &quot;false&quot; to a Boolean type.
+    などの文字列に変換します&quot;true&quot;または&quot;false&quot;ブール型にします。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
@@ -381,7 +381,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `AsFloat(), IsFloat()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a floating-point number.
+    ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
@@ -393,7 +393,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `AsDecimal(), IsDecimal()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a decimal number. (In ASP.NET, a decimal number is more precise than a floating-point number.)
+    ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot; 10 進数。 (ASP.NET では、10 進数、浮動小数点数よりも正確)。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
@@ -405,7 +405,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `AsDateTime(), IsDateTime()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a date and time value to the ASP.NET `DateTime` type.
+    Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
@@ -417,7 +417,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `ToString()`
     :::column-end:::
     :::column:::
-        Converts any other data type to a string.
+    その他の任意のデータ型を文字列に変換します。
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
@@ -431,13 +431,13 @@ ASP.NET は、データ型を自動的に決定することができます、通
 
 :::row:::
     :::column:::
-        <strong>Operator</strong>
+    <strong>Operator</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+    <strong>説明</strong>
     :::column-end:::
     :::column:::
-        <strong>Examples</strong>
+    <strong>例</strong>
     :::column-end:::
 :::row-end:::
 * * *
@@ -446,7 +446,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `+` `-` `*` `/`
     :::column-end:::
     :::column:::
-        Math operators used in numerical expressions.
+    算術演算子が数値式で使用します。
     :::column-end:::
     :::column:::
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
@@ -458,7 +458,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `=`
     :::column-end:::
     :::column:::
-        Assignment. Assigns the value on the right side of a statement to the object on the left side.
+    代入。 左側にあるオブジェクトには、ステートメントの右側にある値を割り当てます。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
@@ -470,7 +470,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `==`
     :::column-end:::
     :::column:::
-        Equality. Returns `true` if the values are equal. (Notice the distinction between the `=` operator and the `==` operator.)
+    等値。 返します`true`値が等しい場合。 (上での違いに注意してください、`=`演算子と`==`演算子です)。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
@@ -482,7 +482,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `!=`
     :::column-end:::
     :::column:::
-        Inequality. Returns `true` if the values are not equal.
+    非等値。 返します`true`値が等しくない場合。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
@@ -494,7 +494,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `< > <= >=`
     :::column-end:::
     :::column:::
-        Less-than, greater-than, less-than-or-equal, and greater-than-or-equal.
+    以下のより大きい-より、小さいよりも-または-等しく、大きい-よりも-または-等しい。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
@@ -506,7 +506,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `+`
     :::column-end:::
     :::column:::
-        Concatenation, which is used to join strings. ASP.NET knows the difference between this operator and the addition operator based on the data type of the expression.
+    連結、文字列を結合するために使用します。 ASP.NET では、この演算子と式のデータ型に基づく加算演算子の違いを認識します。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
@@ -518,7 +518,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `+=` `-=`
     :::column-end:::
     :::column:::
-        The increment and decrement operators, which add and subtract 1 (respectively) from a variable.
+    インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
@@ -530,7 +530,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `.`
     :::column-end:::
     :::column:::
-        Dot. Used to distinguish objects and their properties and methods.
+    ドットです。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
@@ -542,7 +542,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `()`
     :::column-end:::
     :::column:::
-        Parentheses. Used to group expressions and to pass parameters to methods.
+    かっこです。 グループ式をメソッドにパラメーターを渡すために使用します。
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
@@ -554,7 +554,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `[]`
     :::column-end:::
     :::column:::
-        Brackets. Used for accessing values in arrays or collections.
+    角かっこです。 配列またはコレクション内の値にアクセスするために使用されます。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
@@ -566,7 +566,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `!`
     :::column-end:::
     :::column:::
-        Not. Reverses a `true` value to `false` and vice versa. Typically used as a shorthand way to test for `false` (that is, for not `true`).
+    じゃない。 逆に、`true`値を`false`またはその逆です。 通常のテストを簡略化として使用される`false`(には、いない`true`)。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
@@ -578,7 +578,7 @@ ASP.NET は、データ型を自動的に決定することができます、通
         `&&` <code>&#124;&#124;</code>
     :::column-end:::
     :::column:::
-        Logical AND and OR, which are used to link conditions together.
+    論理 AND またはと、条件をまとめてリンクに使用されます。
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]

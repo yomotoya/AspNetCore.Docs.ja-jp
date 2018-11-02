@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core SignalR でサポートされているプラットフォーム
 author: tdykstra
-description: ASP.NET Core SignalR でサポートされるプラットフォーム
+description: ASP.NET Core SignalR サポートされているプラットフォームについて説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/26/2018
+ms.date: 10/31/2018
 uid: signalr/supported-platforms
-ms.openlocfilehash: d6d74a55d35ddb34a6f66a171bfe3f343dd61b63
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 773f6c020dbb2982911e177b55855473c750d52a
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577627"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758181"
 ---
 # <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR でサポートされているプラットフォーム
 
@@ -24,19 +24,19 @@ ASP.NET core SignalR は ASP.NET Core をサポートする任意のサーバー
 
 [JavaScript クライアント](https://www.npmjs.com/package/@aspnet/signalr)NodeJS 8 以降のバージョンと、次のブラウザーで実行されます。
 
-| ブラウザー | Version |
-| ------- | ------- |
-| Microsoft Edge | 現在の |
-| Mozilla Firefox | 現在の |
+| ブラウザー                         | Version |
+| ------------------------------- | ------- |
+| Microsoft Edge                  | 現在の |
+| Mozilla Firefox                 | 現在の |
 | Google Chrome;Android が含まれています | 現在の |
-| Safari;iOS が含まれています | 現在の |
-| Microsoft Internet Explorer | 11 |
+| Safari;iOS が含まれています            | 現在の |
+| Microsoft Internet Explorer     | 11      |
  
 ## <a name="net-client"></a>.NET クライアント
 
 [.NET クライアント](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/)は ASP.NET Core でサポートされている任意のサーバー プラットフォームで実行されます。
 
-サーバーが IIS を実行すると、Windows Server 2012 またはそれ以降は Websocket トランスポートが IIS 8.0 以降必要です。 他のトランスポートは、すべてのプラットフォームでサポートされます。
+サーバーは、IIS を実行する場合、Websocket トランスポートには、IIS 8.0 または Windows Server 2012 で高い以上が必要です。 他のトランスポートは、すべてのプラットフォームでサポートされます。
 
 ## <a name="java-client"></a>Java クライアント
 
@@ -44,7 +44,7 @@ ASP.NET core SignalR は ASP.NET Core をサポートする任意のサーバー
 
 ## <a name="unsupported-clients"></a>サポートされていないクライアント
 
-次のクライアントは使用できますが、試験段階または非公式には。 ここではサポートされていません、これまでサポートされていません。
+次のクライアントは使用できますが、試験段階または非公式には。 現在サポートされていない、ならない可能性があります。
 
 * [C++ クライアント](https://github.com/aspnet/SignalR/tree/master/clients/cpp)
 
