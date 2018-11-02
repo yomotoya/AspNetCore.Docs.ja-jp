@@ -136,7 +136,7 @@ ms.locfileid: "41826496"
 <span data-ttu-id="ae5b0-191">この例での重要な点を次に示します。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-191">These are the key points of note in this example:</span></span>
 
 - <span data-ttu-id="ae5b0-192">**BeforeTargets**属性内の直前に実行するかを指定することによって、WPP にこのターゲットの挿入、 **CopyAllFilesToSingleFolderForPackage**ターゲット。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-192">The **BeforeTargets** attribute inserts this target into the WPP by specifying that it should be executed immediately before the **CopyAllFilesToSingleFolderForPackage** target.</span></span>
-- <span data-ttu-id="ae5b0-193">**FilesForPackagingFromProject**項目は、 **DestinationRelativePath**からファイルの名前を変更するメタデータ値*アプリ\_オフライン template.htm**アプリ\_offline.htm*ように、一覧に追加されます。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-193">The **FilesForPackagingFromProject** item uses the **DestinationRelativePath** metadata value to rename the file from *App\_offline-template.htm* to *App\_offline.htm* as it's added to the list.</span></span>
+- <span data-ttu-id="ae5b0-193">**FilesForPackagingFromProject**項目は、 **DestinationRelativePath**からファイルの名前を変更するメタデータ値*アプリ\_オフライン template.htm\*\*アプリ\_offline.htm*ように、一覧に追加されます。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-193">The **FilesForPackagingFromProject** item uses the **DestinationRelativePath** metadata value to rename the file from *App\_offline-template.htm* to *App\_offline.htm* as it's added to the list.</span></span>
 
 <span data-ttu-id="ae5b0-194">次の手順は、これを追加する方法を示します *. wpp.targets*ファイルを web アプリケーション プロジェクト。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-194">The next procedure shows you how to add this *.wpp.targets* file to a web application project.</span></span>
 
@@ -145,7 +145,7 @@ ms.locfileid: "41826496"
 1. <span data-ttu-id="ae5b0-196">Visual Studio 2010 でソリューションを開きます。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-196">Open your solution in Visual Studio 2010.</span></span>
 2. <span data-ttu-id="ae5b0-197">**ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックして (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-197">In the **Solution Explorer** window, right-click your web application project node (for example, **ContactManager.Mvc**), point to **Add**, and then click **New Item**.</span></span>
 3. <span data-ttu-id="ae5b0-198">**新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="ae5b0-198">In the **Add New Item** dialog box, select the **XML File** template.</span></span>
-4. <span data-ttu-id="ae5b0-199">**名前**ボックスに「 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.</span><span class="sxs-lookup"><span data-stu-id="ae5b0-199">In the **Name** box, type *[project name]***.wpp.targets** (for example, **ContactManager.Mvc.wpp.targets**), and then click **Add**.</span></span>
+4. <span data-ttu-id="ae5b0-199">**名前**ボックスに「 *[プロジェクト名] \* \* *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.</span><span class="sxs-lookup"><span data-stu-id="ae5b0-199">In the **Name** box, type *[project name]\*\*\*.wpp.targets*\* (for example, **ContactManager.Mvc.wpp.targets**), and then click **Add**.</span></span>
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

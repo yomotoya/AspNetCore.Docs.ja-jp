@@ -41,7 +41,7 @@ ms.locfileid: "41835242"
     ![ExtraFiles フォルダー](deploying-extra-files/_static/image1.png)
 4. <span data-ttu-id="6e0fb-122">削除、FTP ツールを使用して、 *robots.txt*ステージング web サイトからのファイル。</span><span class="sxs-lookup"><span data-stu-id="6e0fb-122">Using your FTP tool, delete the *robots.txt* file from the staging web site.</span></span>
 
-    <span data-ttu-id="6e0fb-123">代わりに、選択することができます**転送先に追加のファイルを削除****ファイル発行オプション**上、**設定**ステージング環境の発行プロファイルのタブとステージング環境に再発行します。</span><span class="sxs-lookup"><span data-stu-id="6e0fb-123">As an alternative, you can select **Remove additional files at destination** under **File Publish Options** on the **Settings** tab of the Staging publish profile, and republish to staging.</span></span>
+    <span data-ttu-id="6e0fb-123">代わりに、選択することができます**転送先に追加のファイルを削除\*\*\*\*ファイル発行オプション**上、**設定**ステージング環境の発行プロファイルのタブとステージング環境に再発行します。</span><span class="sxs-lookup"><span data-stu-id="6e0fb-123">As an alternative, you can select **Remove additional files at destination** under **File Publish Options** on the **Settings** tab of the Staging publish profile, and republish to staging.</span></span>
 
 ## <a name="update-the-publish-profile-file"></a><span data-ttu-id="6e0fb-124">発行プロファイル ファイルを更新します。</span><span class="sxs-lookup"><span data-stu-id="6e0fb-124">Update the publish profile file</span></span>
 

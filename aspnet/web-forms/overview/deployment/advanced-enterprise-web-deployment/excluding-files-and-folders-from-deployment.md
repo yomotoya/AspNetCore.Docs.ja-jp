@@ -92,7 +92,7 @@ ms.locfileid: "41823952"
 1. <span data-ttu-id="a8a9a-157">Visual Studio 2010 でソリューションを開きます。</span><span class="sxs-lookup"><span data-stu-id="a8a9a-157">Open your solution in Visual Studio 2010.</span></span>
 2. <span data-ttu-id="a8a9a-158">**ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックして (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="a8a9a-158">In the **Solution Explorer** window, right-click your web application project node (for example, **ContactManager.Mvc**), point to **Add**, and then click **New Item**.</span></span>
 3. <span data-ttu-id="a8a9a-159">**新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="a8a9a-159">In the **Add New Item** dialog box, select the **XML File** template.</span></span>
-4. <span data-ttu-id="a8a9a-160">**名前**ボックスに「 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.</span><span class="sxs-lookup"><span data-stu-id="a8a9a-160">In the **Name** box, type *[project name]***.wpp.targets** (for example, **ContactManager.Mvc.wpp.targets**), and then click **Add**.</span></span>
+4. <span data-ttu-id="a8a9a-160">**名前**ボックスに「 *[プロジェクト名] \* \* *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**) 順にクリックします**追加**.</span><span class="sxs-lookup"><span data-stu-id="a8a9a-160">In the **Name** box, type *[project name]\*\*\*.wpp.targets*\* (for example, **ContactManager.Mvc.wpp.targets**), and then click **Add**.</span></span>
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 
