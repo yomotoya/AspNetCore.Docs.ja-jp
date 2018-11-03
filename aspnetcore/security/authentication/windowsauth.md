@@ -1,16 +1,17 @@
 ---
 title: ASP.NET Core での Windows 認証を構成します。
-author: ardalis
-description: この記事では、ASP.NET core で IIS Express、IIS、HTTP.sys は、および WebListener を使用して Windows 認証を構成する方法について説明します。
+author: scottaddie
+description: ASP.NET core で IIS Express、IIS、HTTP.sys は、および WebListener を使用して Windows 認証を構成する方法について説明します。
 ms.author: riande
-ms.date: 08/18/2018
+ms.custom: mvc
+ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: a8066d248c0d4db1d1f61b2a14bdb4656a2f4265
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312413"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968294"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -98,6 +99,9 @@ Windows 認証が動作していることを確認するアプリを起動しま
 
 > [!NOTE]
 > HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モード認証に処理が委任されます。 Kerberos および HTTP.sys ではユーザー モード認証がサポートされていません。 Active Directory から取得され、クライアントによって、ユーザーを認証するサーバーに転送される Kerberos トークン/チケットを暗号化解除するには、コンピューター アカウントを使用する必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
+
+> [!NOTE]
+> HTTP.sys は、Nano Server バージョン 1709 以降でサポートされていません。 Nano Server の Windows 認証と HTTP.sys を使用する、 [(microsoft/windowsservercore) の Server Core コンテナー](https://hub.docker.com/r/microsoft/windowsservercore/)します。 Server Core の詳細については、次を参照してください。 [Windows Server の Server Core インストール オプションとは何ですか?](/windows-server/administration/server-core/what-is-server-core)します。
 
 ::: moniker-end
 
