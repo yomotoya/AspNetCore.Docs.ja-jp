@@ -179,8 +179,8 @@
 ### [Visual Studio for Mac での Web API](xref:tutorials/first-web-api-mac)
 ### [ネイティブ モバイル アプリの Web API](xref:mobile/native-mobile-backend)
 ## Swagger/OpenAPI
-### [概要](xref:tutorials/get-started-with-swashbuckle)
-### [Swagger のヘルプ ページ](xref:tutorials/web-api-help-pages-using-swagger)
+### [概要](xref:tutorials/web-api-help-pages-using-swagger)
+### [Swashbuckle の概要](xref:tutorials/get-started-with-swashbuckle)
 ### [NSWag の概要](xref:tutorials/get-started-with-nswag)
 ## [アクションの戻り値の型](xref:web-api/action-return-types)
 ## [応答データの書式設定](xref:web-api/advanced/formatting)
