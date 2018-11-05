@@ -56,6 +56,13 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 
 ## <a name="images-and-screenshots"></a>画像とスクリーンショット
 
+次の場合を除き、記事に画像を含めないでください。
+
+* 基本的なオンボード (初心者向け) チュートリアル。
+* わかりやすくするために画像が必要な場合。
+
+このような制限により、リポジトリのサイズが小さくなります。
+
 省略可能な手順として、ドキュメントで使用されている画像とスクリーンショットが圧縮されていることを確認します。これは、ファイルのサイズとページ読み込みのパフォーマンスに役立ちます。 一般的なツールとしては、TinyPNG ([TinyPNG Web サイト](https://tinypng.com/) または [TinyPNG API](https://tinypng.com/developers) を使用) または [Image Optimizer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ImageOptimizer) Visual Studio 拡張機能などがあります。 
 
 ## <a name="code-snippets"></a>コード スニペット
@@ -105,7 +112,7 @@ DocFX には次のものが必要です。
 
 ### <a name="windows-instructions"></a>Windows での手順
 
-* [DocFX のリリース](https://github.com/dotnet/docfx/releases)から *docfx.zip* をダウンロードして解凍します。
+* [DocFX リリース](https://github.com/dotnet/docfx/releases)から *docfx.zip* をダウンロードして解凍します。
 * DocFX を PATH に追加します。
 * コマンド ライン ウィンドウで、*docfx.json* ファイル (ASP.NET コンテンツの場合は *aspnet*、ASP.NET Core コンテンツの場合は *aspnetcore*) を含む適切なフォルダーに移動し、次のコマンドを実行します。
 
@@ -115,7 +122,7 @@ DocFX には次のものが必要です。
     
 * ブラウザーで、`http://localhost:8080` に移動します。
 
-### <a name="mono-instructions"></a>Mono での説明
+### <a name="mono-instructions"></a>Mono での手順
 
 * Homebrew `brew install mono` を使用して Mono をインストールします。
 * [最新バージョンの DocFX](https://github.com/dotnet/docfx/releases) をダウンロードします。

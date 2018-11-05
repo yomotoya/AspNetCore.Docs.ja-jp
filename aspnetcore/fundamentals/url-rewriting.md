@@ -5,18 +5,18 @@ description: ASP.NET Core アプリケーションの URL リライト ミドル
 ms.author: riande
 ms.date: 08/17/2017
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d9f33f34f75fe7bf534146c5a426335e74635018
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5a1891c838436467fb49ff6288587fab08201179
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326070"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207187"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>ASP.NET Core の URL リライト ミドルウェア
 
 作成者: [Luke Latham](https://github.com/guardrex) および [Mikael Mengistu](https://github.com/mikaelm12)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 URL の書き換えは、1 つまたは複数の事前定義された規則に基づいて URL 要求を変更する操作です。 URL 書き換えは、リソースの場所とそれらのアドレスの間の抽象化を作成し、場所とアドレスが緊密にリンクされていないようにします。 URL 書き換えが役に立ついくつかのシナリオがあります。
 
@@ -399,9 +399,9 @@ ASP.NET Core 1.x でリリースされたミドルウェアは、次の IIS URL 
 
 ### <a name="method-based-rule"></a>メソッド ベースのルール
 
-メソッド内で独自のルール ロジックを実装するには、`Add(Action<RewriteContext> applyRule)` を使用します。 `RewriteContext` は、メソッドで使用するための `HttpContext` を公開します。 `context.Result` は、追加のパイプライン処理の実行方法を決定します。
+メソッド内で独自のルール ロジックを実装するには、`Add(Action<RewriteContext> applyRule)` を使用します。 `RewriteContext` は、メソッドで使用するための `HttpContext` を公開します。 `RewriteContext.Result` は、追加のパイプライン処理の実行方法を決定します。
 
-| context.Result                       | アクション                                                          |
+| `RewriteContext.Result`              | アクション                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (既定値) | ルールの適用を続行する                                         |
 | `RuleResult.EndResponse`             | ルールの適用を停止し、応答を送信する                       |
@@ -437,7 +437,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="irule-based-rule"></a>IRule ベースのルール
 
-`IRule` から派生するクラス内で独自のルール ロジックを実装するには、`Add(IRule)` を使用します。 `IRule` を使用すると、メソッド ベースのルールのアプローチを使用する場合により高い柔軟性が実現します。 派生クラスにコンストラクターを含め、`ApplyRule` メソッドのパラメーターで渡すことができます。
+`Add(IRule)` を使用して、`IRule` インターフェイスを実装するクラスに独自のルール ロジックをカプセル化します。 `IRule` を使用すると、メソッド ベースのルールのアプローチを使用する場合により高い柔軟性が実現します。 実装クラスにコンストラクターを含め、`ApplyRule` メソッドのパラメーターで渡すことができます。
 
 ::: moniker range=">= aspnetcore-2.0"
 
