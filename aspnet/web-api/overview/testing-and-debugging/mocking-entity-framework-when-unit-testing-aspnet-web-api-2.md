@@ -1,19 +1,19 @@
 ---
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 title: Entity Framework のモックを作成するときに単体テストの ASP.NET Web API 2 |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: このガイダンスとアプリケーションは、Entity Framework を使用する Web API 2 アプリケーションの単体テストを作成する方法を説明します。 変更する方法を示しますが、.
 ms.author: riande
 ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 8945f913abe8fb8397d07a5994000fff2348f1f7
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: f1799b3f9d698053c397e57da3f33ff900ec4013
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795380"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021028"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework のモックを作成するときに単体テストの ASP.NET Web API 2
 ====================
@@ -36,7 +36,7 @@ ms.locfileid: "48795380"
 
 このトピックは、次のセクションで構成されています。
 
-- [前提条件](#prereqs)
+- [必須コンポーネント](#prereqs)
 - [コードをダウンロードします。](#download)
 - [単体テスト プロジェクトでアプリケーションを作成します。](#appwithunittest)
 - [モデル クラスを作成します。](#modelclass)

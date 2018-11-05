@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/testing-and-debugging/enabling-signalr-tracing
 title: SignalR トレースを有効にする |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: このドキュメントでは、有効にして、SignalR のサーバーとクライアントのトレースを構成する方法について説明します。 トレースでは、イベントに関する診断情報を表示することができます.
 ms.author: riande
 ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 89b27267bec5edb0692fe75061d08b4688df5a8c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6ab9a5de16a1440d14f7526c0cd417592ba415db
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912068"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021327"
 ---
 <a name="enabling-signalr-tracing"></a>SignalR トレースを有効にします。
 ====================
@@ -34,7 +34,7 @@ ms.locfileid: "48912068"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 トレースが有効にすると、SignalR アプリケーションは、イベントのログ エントリを作成します。 クライアントとサーバーの両方からイベントを記録することができます。 サーバー ログの接続、スケール アウトのプロバイダー、およびメッセージ バスのイベントをトレースしています。 クライアント ログの接続イベントをトレースしています。 SignalR 2.1 以降では、クライアントのトレースはハブ呼び出しメッセージの完全な内容を記録します。

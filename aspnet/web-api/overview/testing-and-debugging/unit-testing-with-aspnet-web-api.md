@@ -1,19 +1,19 @@
 ---
 uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 title: 単体テストの ASP.NET Web API 2 |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テストのプロジェクトを含める方法を使用しています.
 ms.author: riande
 ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 915610e6646ebe86dd8f16f290ecabd36bf7f48d
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795435"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020833"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>単体テストの ASP.NET Web API 2
 ====================
@@ -36,7 +36,7 @@ ms.locfileid: "48795435"
 
 このトピックは、次のセクションで構成されています。
 
-- [前提条件](#prereqs)
+- [必須コンポーネント](#prereqs)
 - [コードをダウンロードします。](#download)
 - [単体テスト プロジェクトでアプリケーションを作成します。](#appwithunittest)
     - [アプリケーションを作成するときに、単体テスト プロジェクトを追加します。](#whencreate)

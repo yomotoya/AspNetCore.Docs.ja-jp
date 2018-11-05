@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
 title: ASP.NET Web Pages (Razor) サイトの訪問者の情報 (分析) の追跡 |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Web サイトから取得した後、web サイト トラフィックを分析する可能性があります。
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: aabe3177ba9479bfafafe81e1ea99a58f29d5271
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 57e6a0d4681f147faa5e9ca3b6ed0ef287d6a381
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828810"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020885"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトの訪問者情報 (分析) の追跡
 ====================

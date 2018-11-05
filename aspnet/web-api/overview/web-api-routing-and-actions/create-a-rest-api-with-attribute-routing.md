@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912892"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021418"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 で属性ルーティングで REST API を作成します。
 ====================
@@ -52,11 +52,11 @@ ms.locfileid: "48912892"
 
 Visual Studio を実行して開始します。 **ファイル**メニューの **新規**選び**プロジェクト**します。
 
-展開、**インストール済み** > **Visual c#** カテゴリ。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;BooksAPI&quot;します。
+展開、**インストール済み** > **Visual c#** カテゴリ。 **Visual c#**、 **Web**します。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション (.NET Framework)** します。 プロジェクトに名前を&quot;BooksAPI&quot;します。
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
-**新しい ASP.NET プロジェクト**ダイアログ ボックスで、**空**テンプレート。 [フォルダーを追加およびコアの参照] を選択、 **Web API**チェック ボックスをオンします。 クリックして**プロジェクトを作成する**します。
+**新しい ASP.NET Web アプリケーション**ダイアログ ボックスで、**空**テンプレート。 [フォルダーを追加およびコアの参照] を選択、 **Web API**チェック ボックスをオンします。 **[OK]** をクリックします。
 
 ![](create-a-rest-api-with-attribute-routing/_static/image2.png)
 
@@ -86,7 +86,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 ![](create-a-rest-api-with-attribute-routing/_static/image4.png)
 
-**スキャフォールディングの追加**ダイアログ ボックスで、"Web API 2 コント ローラーと読み取り/書き込みアクションでは、Entity Framework を使用します"。
+**スキャフォールディングの追加**ダイアログ ボックスで、 **Web API 2 コント ローラー アクション、Entity Framework を使用して**します。
 
 [![](create-a-rest-api-with-attribute-routing/_static/image6.png)](create-a-rest-api-with-attribute-routing/_static/image5.png)
 

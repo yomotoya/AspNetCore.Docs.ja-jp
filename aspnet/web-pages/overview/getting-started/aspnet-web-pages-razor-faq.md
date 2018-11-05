@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 title: ASP.NET Web Pages (Razor) FAQ |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: この記事では、WebMatrix と ASP.NET Web Pages (Razor) についてよく寄せられる質問を示します。 ソフトウェアのバージョンが、チュートリアル ASP.NET Web Pages で使用 (R...
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 03e89adc2415808ea49107616f529fa895d6e52a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 27bfbe782455a5f8cf5096953c91712988b8dcab
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828301"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021054"
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web Pages (Razor) FAQ
 ====================

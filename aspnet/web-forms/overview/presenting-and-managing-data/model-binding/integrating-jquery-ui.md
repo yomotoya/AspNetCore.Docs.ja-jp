@@ -1,19 +1,19 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 title: モデル バインディングと web フォームで JQuery UI Datepicker の統合 |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 81cc5f010f2c6c7707223679717e34108a5a7aa3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ff1b17295c58d40d55bdcd4346b83121b579bb4c
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826876"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020560"
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>モデル バインディングと web フォームで JQuery UI Datepicker の統合
 ====================
