@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 35f283becd156da22a4d9d2034055ee79b75ffda
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2af66c0f35109dc1de954bf501f33ad61ddef4db
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326174"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968372"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -54,7 +54,7 @@ ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によ�
 
 "*オプション パターン*" は、このトピックで説明する構成の概念を拡張したものです。 オプションでは、クラスを使用して関連する設定のグループを表します。 オプション パターンの使用について詳しくは、「<xref:fundamentals/configuration/options>」をご覧ください。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 このトピックで提供される例は、次のものに依存しています。
 
@@ -293,7 +293,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 // Call other providers here and call AddCommandLine last.
-                config.AddCommandLine(args)
+                config.AddCommandLine(args);
             })
             .UseStartup<Startup>();
 }
@@ -392,9 +392,9 @@ var host = new WebHostBuilder()
 コマンドの例:
 
 ```console
-dotnet run CommandLineKey1=value --CommandLineKey2=value /CommandLineKey2=value
-dotnet run --CommandLineKey1 value /CommandLineKey2 value
-dotnet run CommandLineKey1= CommandLineKey2=value
+dotnet run CommandLineKey1=value1 --CommandLineKey2=value2 /CommandLineKey3=value3
+dotnet run --CommandLineKey1 value1 /CommandLineKey2 value2
+dotnet run CommandLineKey1= CommandLineKey2=value2
 ```
 
 ### <a name="switch-mappings"></a>スイッチ マッピング
@@ -432,7 +432,7 @@ public class Program
         WebHost.CreateDefaultBuilder()
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
-                config.AddCommandLine(args, _switchMappings)
+                config.AddCommandLine(args, _switchMappings);
             })
             .UseStartup<Startup>();
 }
@@ -571,7 +571,7 @@ public class Program
                 // Call additional providers here as needed.
                 // Call AddEnvironmentVariables last if you need to allow environment
                 // variables to override values from other providers.
-                config.AddEnvironmentVariables(prefix: "PREFIX_")
+                config.AddEnvironmentVariables(prefix: "PREFIX_");
             })
             .UseStartup<Startup>();
 }
@@ -756,7 +756,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
-                config.AddIniFile("config.ini", optional: true, reloadOnChange: true)
+                config.AddIniFile("config.ini", optional: true, reloadOnChange: true);
             })
             .UseStartup<Startup>();
 }
@@ -887,7 +887,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
-                config.AddJsonFile("config.json", optional: true, reloadOnChange: true)
+                config.AddJsonFile("config.json", optional: true, reloadOnChange: true);
             })
             .UseStartup<Startup>();
 }
@@ -1002,7 +1002,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
-                config.AddXmlFile("config.xml", optional: true, reloadOnChange: true)
+                config.AddXmlFile("config.xml", optional: true, reloadOnChange: true);
             })
             .UseStartup<Startup>();
 }
@@ -1151,7 +1151,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
-                config.AddKeyPerFile(directoryPath: path, optional: true)
+                config.AddKeyPerFile(directoryPath: path, optional: true);
             })
             .UseStartup<Startup>();
 }
@@ -1204,7 +1204,7 @@ public class Program
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
-                config.AddInMemoryCollection(_dict)
+                config.AddInMemoryCollection(_dict);
             })
             .UseStartup<Startup>();
 }

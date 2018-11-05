@@ -5,12 +5,12 @@ description: ASP.NET Core でのビュー コンポーネントの使用方法�
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 52bfb9e3983eb49aabdef238d53c6fdd2950c075
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207603"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253133"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -88,7 +88,7 @@ ms.locfileid: "50207603"
 ビュー コンポーネントを使用するには、ビュー内で以下を呼び出します。
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
+@await Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 パラメーターは、`InvokeAsync` メソッドに渡されます。 この記事で開発された `PriorityList` ビュー コンポーネントは、*Views/Todo/Index.cshtml* ビュー ファイルから呼び出されます。 以下では、`InvokeAsync` メソッドは、2 つのパラメーターで呼び出されます。

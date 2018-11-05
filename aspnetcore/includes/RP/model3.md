@@ -1,4 +1,5 @@
 <a name="cli"></a>
+
 ## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>スキャフォールディング ツールの追加と初期移行の実行
 
 *RazorPagesMovie.csproj* ファイルの終了タグ `</Project>` の直前に、次の行を追加します。
@@ -7,7 +8,8 @@
 <ItemGroup>
   <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final"/>
 </ItemGroup>
-```  
+```
+  
 コマンド ラインから、次の .NET Core CLI コマンドを実行します。
 
 ```console
