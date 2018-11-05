@@ -1,19 +1,19 @@
 ---
-title: Azure App Service での ASP.NET Core のホスト
+title: Azure App Service に ASP.NET Core アプリを展開する
 author: guardrex
-description: 役に立つリソースへのリンクを使用して Azure App Service で ASP.NET Core アプリをホストする方法を説明します。
+description: この記事には、Azure のホストと展開リソースへのリンクが含まれます。
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312071"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326057"
 ---
-# <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
+# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) は ASP.NET Core を含む Web アプリをホストするための [Microsoft クラウド コンピューティング プラットフォーム サービス](https://azure.microsoft.com/)です。
 
@@ -32,13 +32,10 @@ ASP.NET Core のドキュメントでは、次の記事を参照できます。
 [Visual Studio による Azure への公開](xref:tutorials/publish-to-azure-webapp-using-vs)  
 Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
 
-[CLI ツールによる Azure への公開](xref:tutorials/publish-to-azure-webapp-using-cli)  
-Git コマンド ライン クライアントを使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
-
 [Visual Studio と Git による Azure への継続的配置](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
 Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。
 
-[VSTS による Azure への継続的配置](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)  
+[Azure Pipelines による最初のパイプラインの作成](/azure/devops/pipelines/get-started-yaml)  
 ASP.NET Core アプリ用に CI ビルドを設定し、Azure App Service に継続的配置リリースを作成します。
 
 [Azure Web アプリのサンドボックス](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
@@ -61,6 +58,8 @@ ASP.NET Core 2.0 以降では、次の NuGet パッケージで Azure App Servic
 ## <a name="override-app-configuration-using-the-azure-portal"></a>Azure Portal を使用してアプリの構成をオーバーライドする
 
 **[アプリケーションの設定]** ブレードの **[アプリの設定]** 領域を使用すると、アプリの環境変数を設定できます。 環境変数は、[環境変数構成プロバイダー](xref:fundamentals/configuration/index#environment-variables-configuration-provider)で使用できます。
+
+Azure Portal でアプリの設定が作成または変更され、**[保存]** ボタンが選択された場合、Azure アプリは再起動されます。 環境変数は、サービスが再起動された後にアプリに適用されます。
 
 アプリが [Web ホスト](xref:fundamentals/host/web-host)を使用し、[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を使用してホストをビルドする場合、ホストを構成する環境変数では `ASPNETCORE_` プレフィックスが使用されます。 詳細については、<xref:fundamentals/host/web-host> および「[Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider)」(環境変数構成プロバイダー) をご覧ください。
 
@@ -104,10 +103,10 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Azure App Service に ASP.NET Core プレビュー リリースを展開する
 
-ASP.NET Core プレビュー アプリは、次の方法で Azure App Service に展開できます。
+次の方法のいずれかを使用します。
 
 * [プレビュー サイト拡張機能をインストールする](#install-the-preview-site-extension)
-<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
+* [自己完結型アプリを展開する](#deploy-the-app-self-contained)
 * [コンテナー用の Web アプリで Docker を使用する](#use-docker-with-web-apps-for-containers)
 
 ### <a name="install-the-preview-site-extension"></a>プレビュー サイト拡張機能をインストールする
@@ -164,18 +163,46 @@ ASP.NET Core プレビュー アプリは、次の方法で Azure App Service �
 
 ARM テンプレートを使用してアプリを作成し、展開する場合は、リソースの種類として `siteextensions` を使用してサイト拡張機能を Web アプリに追加することができます。 例:
 
-[!code-json[Main](index/sample/arm.json?highlight=2)]
+[!code-json[](index/sample/arm.json?highlight=2)]
 
-<!--
-### Deploy the app self-contained
+### <a name="deploy-the-app-self-contained"></a>自己完結型アプリを展開する
 
-A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
+プレビュー ランタイムを対象とする[自己完結型の展開 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) では、展開でプレビュー ランタイムを保持します。
 
-* The site doesn't need to be prepared.
-* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
+自己完結型アプリを展開する場合: 
 
-Self-contained apps are an option for all ASP.NET Core apps.
--->
+* Azure App Service のサイトには、[プレビュー サイト拡張機能](#install-the-preview-site-extension)は必要ありません。
+* アプリは、[フレームワークに依存する展開 (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd) に発行するときとは異なる方法に従って、発行される必要があります。
+
+#### <a name="publish-from-visual-studio"></a>Visual Studio からの発行
+
+1. Visual Studio ツール バーから **[ビルド]** > **[発行 {アプリケーション名}]** の順に選択します。
+1. **[発行先を選択]** ダイアログで、**[App Service]** が選択されていることを確認します。
+1. **[詳細]** を選択します。 **[発行]** ダイアログが開きます。
+1. **[発行]** ダイアログで、次の操作を行います。
+   * **[リリース]** の構成が選択されていることを確認します。
+   * **[展開モード]** ドロップダウン リストを開いて、**[自己完結]** を選択します。
+   * **[ターゲット ランタイム]** ドロップダウン リストからターゲット ランタイムを選択します。 既定値は、`win-x86` です。
+   * 展開時に追加のファイルを削除する場合、**[ファイル発行オプション]** を開いて、転送先で追加のファイルを削除するチェック ボックスを選択します。
+   * **[保存]** を選択します。
+1. 発行ウィザードの残りのメッセージに従って、新しいサイトを作成するか、既存のサイトを更新します。
+
+#### <a name="publish-using-command-line-interface-cli-tools"></a>コマンドライン インターフェイス (CLI) ツールを使用して発行する
+
+1. プロジェクト ファイルで、1 つまたは複数の[ランタイムの識別子 (RID)](/dotnet/core/rid-catalog) を指定します。 単一の RID に `<RuntimeIdentifier>` (単数形) を使用するか、`<RuntimeIdentifiers>` (複数形) を使用して RID のセミコロン区切りのリストを提供します。 次に例では、`win-x86` RID が指定されています。
+
+   ```xml
+   <PropertyGroup>
+     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+   </PropertyGroup>
+   ```
+1. コマンド シェルから [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを使って、ホストのランタイムに対するリリースの構成でアプリを発行します。 次の例では、アプリは `win-x86` RID に発行されます。 `--runtime` オプションに指定された RID は、プロジェクト ファイルの `<RuntimeIdentifier>` (`<RuntimeIdentifiers>`) プロパティで提供される必要があります。
+
+   ```console
+   dotnet publish --configuration Release --runtime win-x86
+   ```
+1. *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* ディレクトリのコンテンツを App Service のサイトに移動します。
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>コンテナー用の Web アプリで Docker を使用する
 

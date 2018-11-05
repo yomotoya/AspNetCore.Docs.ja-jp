@@ -3,23 +3,24 @@ title: ASP.NET Core の組み込みタグ ヘルパー
 author: pkellner
 description: タグ ヘルパーに組み込まれた ASP.NET Core によって生産性がどのように向上するかをご確認ください。
 ms.author: riande
-ms.date: 09/18/2018
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292311"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325485"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core の組み込みタグ ヘルパー
 
 著者: [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core には、生産性を向上させる組み込みタグ ヘルパーが多数含まれます。 このセクションでは、組み込みタグ ヘルパーの概要を説明します。
+タグ ヘルパーの概要については、「<xref:mvc/views/tag-helpers/intro>」をご覧ください。
 
 > [!NOTE]
-> 説明されていない組み込みタグ ヘルパーがありますが、これらは [Razor](xref:mvc/views/razor) ビュー エンジンによって内部的に使われているためです。 これには、Web サイトのルート パスに展開される ~ 文字のタグ ヘルパーが含まれます。
+> 組み込みタグ ヘルパーがありますが、ドキュメントには記述されていません。 これらのタグ ヘルパーは、[Razor](xref:mvc/views/razor) ビュー エンジンによって内部で使用されます。 これには、Web サイトのルート パスに展開される `~` (チルダ) 文字のタグ ヘルパーが含まれます。
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>組み込み ASP.NET Core タグ ヘルパー
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870881"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326122"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -41,8 +41,6 @@ Visual Studio を使用して Razor ページ プロジェクトを作成する�
 
 コマンド ラインから `dotnet new webapp` を実行します。
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -59,8 +57,6 @@ Visual Studio for Mac から生成された *.csproj* ファイルを開きま�
 
 コマンド ラインから `dotnet new webapp` を実行します。
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -74,8 +70,6 @@ Visual Studio for Mac から生成された *.csproj* ファイルを開きま�
 ::: moniker range=">= aspnetcore-2.1"
 
 コマンド ラインから `dotnet new webapp` を実行します。
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 
@@ -252,7 +246,9 @@ HTML で削除ボタンがレンダリングされる場合、その `formaction
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>OnGet ハンドラーで HEAD 要求を管理する
 
-通常、HEAD ハンドラーは HEAD 要求に対して作成され、呼び出されます。
+HEAD 要求を使用すると、特定のリソースに対するヘッダーを取得できます。 GET 要求とは異なり、HEAD 要求では応答本文は返されません。 
+
+通常、HEAD ハンドラーは HEAD 要求に対して作成され、呼び出されます。 
 
 ```csharp
 public void OnHead()
@@ -261,12 +257,14 @@ public void OnHead()
 }
 ```
 
-HEAD ハンドラー (`OnHead`) が定義されていない場合、ASP.NET Core 2.1 以降では、Razor ページは GET ページ ハンドラー (`OnGet`) の呼び出しにフォールバックします。 ASP.NET Core 2.1 から 2.x では、この動作を `Startup.Configure` の [SetCompatibilityVersion メソッド](xref:mvc/compatibility-version)でオプトインします。
+HEAD ハンドラー (`OnHead`) が定義されていない場合、ASP.NET Core 2.1 以降では、Razor ページは GET ページ ハンドラー (`OnGet`) の呼び出しにフォールバックします。 ASP.NET Core 2.1 および 2.2 では、この動作は `Startup.Configure` の [SetCompatibilityVersion](xref:mvc/compatibility-version) で発生します。
 
 ```csharp
 services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
+
+既定のテンプレートでは、ASP.NET Core 2.1 および 2.2 で `SetCompatibilityVersion` の呼び出しが生成されます。
 
 `SetCompatibilityVersion` は実質的に Razor ページのオプション `AllowMappingHeadRequestsToGetHandler` を `true` に設定します。
 
@@ -376,6 +374,8 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 
 [Razor ページのスタート プロジェクト](#rpvs17)には、クライアント側の検証をフックする *Pages/_ValidationScriptsPartial.cshtml* が含まれています。
 
+部分ビューの詳細については、「<xref:mvc/views/partial>」を参照してください。
+
 <a name="url_gen"></a>
 
 ## <a name="url-generation-for-pages"></a>ページの URL の生成
@@ -417,6 +417,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 相対名のリンクは、複雑な構造を持つサイトを構築する際に役立ちます。 相対名を使用してフォルダー内のページ間をリンクする場合、そのフォルダー名を変更することができます。 すべてのリンクは引き続き機能します (リンクにはフォルダー名が含まれていないため)。
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="viewdata-attribute"></a>ViewData 属性
 
 データは [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute) とのページに渡すことができます。 コントローラーまたは `[ViewData]` で装飾された Razor ページのモデルのプロパティは、値を [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) に格納し、読み込むことができます。
@@ -450,6 +451,7 @@ public class AboutModel : PageModel
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 ## <a name="tempdata"></a>TempData
@@ -558,11 +560,12 @@ services.AddMvc()
     .WithRazorPagesRoot("/path/to/razor/pages");
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="additional-resources"></a>その他の技術情報
 
-* [ASP.NET Core の概要](xref:index)
-* [Razor の構文](xref:mvc/views/razor)
-* [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
-* [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization)
-* [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:razor-pages/razor-pages-conventions)
-* [Razor ページの単体テスト](xref:test/razor-pages-tests)
+* <xref:index>
+* <xref:mvc/views/razor>
+* <xref:tutorials/razor-pages/razor-pages-start>
+* <xref:security/authorization/razor-pages-authorization>
+* <xref:razor-pages/razor-pages-conventions>
+* <xref:test/razor-pages-tests>
+* <xref:mvc/views/partial>

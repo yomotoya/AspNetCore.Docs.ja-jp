@@ -4,31 +4,43 @@ author: rick-anderson
 description: ASP.NET Core の Web サーバー Kestrel と HTTP.sys を検出します。 サーバーを選択する方法と、リバース プロキシ サーバーを使用するタイミングについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: bb0331d7201d4e979e6c6524cbf630280c4eaeb6
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 161ab3fdf48e58d8c9af991dc5531e46d9c5adff
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274444"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325862"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Steve Smith](https://ardalis.com/)、[Stephen Halter](https://twitter.com/halter73)、[Chris Ross](https://github.com/Tratcher)
 
-ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装は HTTP 要求をリッスンし、[HttpContext](/dotnet/api/system.web.httpcontext) に構成された[要求機能](xref:fundamentals/request-features)のセットとしてアプリに公開します。
+ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装は HTTP 要求をリッスンし、<xref:Microsoft.AspNetCore.Http.HttpContext> に構成された[要求機能](xref:fundamentals/request-features)のセットとしてアプリに公開します。
 
-ASP.NET Core には次の 2 つのサーバー実装が用意されています。
+ASP.NET Core には、次の 3 つのサーバー実装が用意されています。
+
+::: moniker range=">= aspnetcore-2.2"
+
+* [Kestrel](xref:fundamentals/servers/kestrel) は、ASP.NET Core 向けの既定のクロスプラットフォーム HTTP サーバーです。
+* `IISHttpServer` は、[インプロセス ホスティング モデル](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model)および Windows 上の [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)で使用されます。
+* [HTTP.sys](xref:fundamentals/servers/httpsys) は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 (ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 * [Kestrel](xref:fundamentals/servers/kestrel) は、ASP.NET Core 向けの既定のクロスプラットフォーム HTTP サーバーです。
 * [HTTP.sys](xref:fundamentals/servers/httpsys) は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 (ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。)
+
+::: moniker-end
 
 ## <a name="kestrel"></a>Kestrel
 
 Kestrel は、ASP.NET Core のプロジェクト テンプレートに含まれる既定の Web サーバーです。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Kestrel は単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
 
@@ -38,7 +50,9 @@ Kestrel は単独で使用することも、IIS、Nginx、または Apache な�
 
 リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 アプリが内部ネットワークからの要求のみを受け入れる場合は、Kestrel を単独で使用することができます。
 
@@ -48,17 +62,29 @@ Kestrel は単独で使用することも、IIS、Nginx、または Apache な�
 
 ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
-エッジ展開 (インターネットからのトラフィックに公開される) でリバース プロキシを使用する最も重要な理由は、セキュリティです。 1.x バージョンの Kestrel はインターネットからの攻撃を防御する重要なセキュリティ機能を備えていません。 これには、適切なタイムアウト、要求サイズの制限、および同時接続の制限などが含まれます (ただし、これらに限定されない)。
+インターネットに直接公開される一般向けのエッジ サーバー展開でリバース プロキシを使用する最も重要な理由は、セキュリティです。 1.x バージョンの Kestrel はインターネットからの攻撃を防御する重要なセキュリティ機能を備えていません。 これには、適切なタイムアウト、要求サイズの制限、およびコンカレント接続の制限などが含まれます (ただし、これらに限定されない)。
 
 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
----
+::: moniker-end
 
 IIS、Nginx、および Apache を Kestrel や[カスタム サーバー実装](#custom-servers)なしで使用することはできません。 ASP.NET Core は、プラットフォーム間で一貫して動作できるように、独自のプロセスで実行するように設計されています。 IIS、Nginx、および Apache では独自のスタートアップ プロシージャと環境が指定されます。 これらのサーバー テクノロジを直接使用するには、ASP.NET Core を各サーバーの要件に適合させる必要があります。 Kestrel などの Web サーバー実装を使用することで、ASP.NET Core は異なるサーバー テクノロジでホストされている場合でもスタートアップ プロセスと環境を制御できます。
 
 ### <a name="iis-with-kestrel"></a>IIS と Kestrel
 
-ASP.NET Core のリバース プロキシとして [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用する場合、ASP.NET Core アプリは IIS ワーカー プロセスとは別のプロセスで実行されます。 IIS プロセスで、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がリバース プロキシの関係を調整します。 ASP.NET Core モジュールの主な機能は、ASP.NET Core アプリを開始し、クラッシュ時にアプリを再始動し、HTTP トラフィックをアプリに転送することです。 詳細については、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に関するページを参照してください。 
+::: moniker range=">= aspnetcore-2.2"
+
+[IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用している場合、ASP.NET Core アプリは、IIS ワーカー プロセスと同じプロセス (*インプロセス* ホスティング モデル) または IIS ワーカー プロセスとは別のプロセス (*アウトプロセス* ホスティング モデル) のいずれかで実行されます。
+
+[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)は、インプロセスの IIS HTTP サーバーまたはアウトプロセスの Kestrel サーバーのいずれかの間でネイティブの IIS 要求を処理するネイティブの IIS モジュールです。 詳細については、「<xref:fundamentals/servers/aspnet-core-module>」を参照してください。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+ASP.NET Core のリバース プロキシとして [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用する場合、ASP.NET Core アプリは IIS ワーカー プロセスとは別のプロセスで実行されます。 IIS プロセスで、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がリバース プロキシの関係を調整します。 ASP.NET Core モジュールの主な機能は、ASP.NET Core アプリを開始し、クラッシュ時にアプリを再始動し、HTTP トラフィックをアプリに転送することです。 詳細については、「<xref:fundamentals/servers/aspnet-core-module>」を参照してください。
+
+::: moniker-end
 
 ### <a name="nginx-with-kestrel"></a>Nginx と Kestrel
 
@@ -70,27 +96,29 @@ Kestrel のリバース プロキシ サーバーとして Linux で Apache を�
 
 ## <a name="httpsys"></a>HTTP.sys
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-Windows で ASP.NET Core アプリを実行する場合は、HTTP.sys を Kestrel の代わりに使用できます。 最適なパフォーマンスを得るには、通常は Kestrel をお勧めします。 HTTP.sys は、アプリがインターネットに公開されていて、必要な機能が HTTP.sys でサポートされているものの、Kestrel ではサポートされていないシナリオで使用できます。 HTTP.sys の機能については、[HTTP.sys](xref:fundamentals/servers/httpsys) に関するページを参照してください。
+Windows で ASP.NET Core アプリを実行する場合は、HTTP.sys を Kestrel の代わりに使用できます。 最適なパフォーマンスを得るには、通常は Kestrel をお勧めします。 HTTP.sys は、アプリがインターネットに公開されていて、必要な機能が HTTP.sys でサポートされているものの、Kestrel ではサポートされていないシナリオで使用できます。 HTTP.sys の情報については、[HTTP.sys](xref:fundamentals/servers/httpsys) に関するページを参照してください。
 
 ![インターネットと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internet.png)
 
-HTTP.sys は、内部ネットワークにのみ公開されるアプリにも使用できます。 
+HTTP.sys は、内部ネットワークにのみ公開されるアプリにも使用できます。
 
 ![内部ネットワークと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internal.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。 IIS がホストアプリで使用できないシナリオにおいて、Windows で ASP.NET Core アプリを実行する場合は、WebListener を代わりに使用できます。
 
 ![インターネットと直接通信する Weblistener](weblistener/_static/weblistener-to-internet.png)
 
-内部ネットワークにのみ公開されるアプリで、必要な機能が WebListener でサポートされていて、Kestrel でサポートされていない場合は、Kestrel の代わりに WebListener も使用できます。 WebListener の機能については、[WebListener](xref:fundamentals/servers/weblistener) に関するページを参照してください。
+内部ネットワークにのみ公開されるアプリで、必要な機能が WebListener でサポートされていて、Kestrel ではサポートされていない場合、Kestrel の代わりに WebListener も使用できます。 WebListener の情報については、[WebListener](xref:fundamentals/servers/weblistener) に関するページを参照してください。
 
 ![内部ネットワークと直接通信する WebListener](weblistener/_static/weblistener-to-internal.png)
 
----
+::: moniker-end
 
 ## <a name="aspnet-core-server-infrastructure"></a>ASP.NET Core サーバー インフラストラクチャ
 
@@ -108,10 +136,51 @@ ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/w
 
 コマンド プロンプトからプロジェクトのフォルダーでアプリを起動する場合、[dotnet run](/dotnet/core/tools/dotnet-run) でアプリとサーバーが起動します (Kestrel および HTTP.sys のみ)。 この構成は、`Debug` (既定) または `Release` のどちらかに設定された `-c|--configuration` オプションによって指定されます。 起動プロファイルが *launchSettings.json* ファイルに存在する場合は、`--launch-profile <NAME>` オプションを使用して起動プロファイルを設定します (`Development`、`Production` など)。 詳細については、[dotnet run](/dotnet/core/tools/dotnet-run) と [.NET Core の配布パッケージ](/dotnet/core/build/distribution-packaging)のトピックを参照してください。
 
+## <a name="http2-support"></a>HTTP/2 のサポート
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) は、次の展開シナリオでの ASP.NET Core でサポートされます。
+
+::: moniker range=">= aspnetcore-2.2"
+
+* [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
+  * オペレーティング システム
+    * Windows Server 2012 R2/Windows 8.1 以降
+    * OpenSSL 1.0.2 以降を使用した Linux (Ubuntu 16.04 以降など)
+    * 将来のリリースでは HTTP/2 が macOS 上でサポートされるようになります。
+  * ターゲット フレームワーク: .NET Core 2.2 以降
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+  * Windows Server 2016/Windows 10 以降
+  * ターゲット フレームワーク: HTTP.sys の展開には適用できません。
+* [IIS (インプロセス)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 以降、IIS 10 以降
+  * ターゲット フレームワーク: .NET Core 2.2 以降
+* [IIS (アウトプロセス)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 以降、IIS 10 以降
+  * 一般向けのエッジ サーバーでは HTTP/2 を使用しますが、Kestrel へのリバース プロキシ接続では HTTP/1.1 を使用します。
+  * ターゲット フレームワーク: IIS アウトプロセスの展開には適用できません。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+  * Windows Server 2016/Windows 10 以降
+  * ターゲット フレームワーク: HTTP.sys の展開には適用できません。
+* [IIS (アウトプロセス)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 以降、IIS 10 以降
+  * 一般向けのエッジ サーバーでは HTTP/2 を使用しますが、Kestrel へのリバース プロキシ接続では HTTP/1.1 を使用します。
+  * ターゲット フレームワーク: IIS アウトプロセスの展開には適用できません。
+
+::: moniker-end
+
+HTTP/2 接続では、[アプリケーション レイヤー プロトコルのネゴシエーション (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) および TLS 1.2 以降を使用する必要があります。 詳細については、ご利用のサーバーの展開シナリオに関連するトピックを参照してください。
+
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Kestrel](xref:fundamentals/servers/kestrel)
-* [Kestrel と IIS](xref:fundamentals/servers/aspnet-core-module)
-* [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
-* [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
-* [HTTP.sys](xref:fundamentals/servers/httpsys) (ASP.NET Core 1.x の場合は [WebListener](xref:fundamentals/servers/weblistener) を参照)
+* <xref:fundamentals/servers/kestrel>
+* <xref:fundamentals/servers/aspnet-core-module>
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/azure-apps/index>
+* <xref:host-and-deploy/linux-nginx>
+* <xref:host-and-deploy/linux-apache>
+* <xref:fundamentals/servers/httpsys> (ASP.NET Core 1.x については、<xref:fundamentals/servers/weblistener> を参照してください)
