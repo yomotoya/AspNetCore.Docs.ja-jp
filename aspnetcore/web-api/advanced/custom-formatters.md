@@ -5,12 +5,12 @@ description: ASP.NET Core で Web API のカスタム フォーマッタを作�
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: a038cd9c05950333fce9e72f67d6721198fae4d3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ee6f166ced41c41506f2a17a7d362399c165b718
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206316"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020651"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API のカスタム フォーマッタ
 
@@ -51,6 +51,8 @@ ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用�
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
+
 種類がバイナリである場合は、[InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) または [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) 基底クラスから派生させます。
 
 ### <a name="specify-valid-media-types-and-encodings"></a>有効なメディアの種類とエンコーディングの指定
@@ -58,6 +60,8 @@ ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用�
 コンストラクターで、`SupportedMediaTypes` および `SupportedEncodings` コレクションに追加して、有効なメディアの種類とエンコーディングを指定します。
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
+
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 > [!NOTE]
 > フォーマッタ クラスでコンストラクターの依存関係の挿入を行うことはできません。 たとえば、コンストラクターにロガー パラメーターを追加して、ロガーを取得することはできません。 サービスにアクセスするには、メソッドに渡されるコンテキスト オブジェクトを使用する必要があります。 [以下](#read-write)のコード例でこの方法を示します。
@@ -67,6 +71,8 @@ ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用�
 `CanReadType` または `CanWriteType` メソッドをオーバーライドして、逆シリアル化またはシリアル化できる種類を指定します。 たとえば、vCard テキストを `Contact` の種類からのみ作成できます (その逆も可)。
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
+
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 #### <a name="the-canwriteresult-method"></a>CanWriteResult メソッド
 
@@ -84,6 +90,8 @@ ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用�
 `ReadRequestBodyAsync` または `WriteResponseBodyAsync` で実際に逆シリアル化またはシリアル化を行います。 次の例で強調表示されている行は、依存関係の挿入コンテナーからサービスを取得する方法を示しています (コンストラクター パラメーターからは取得できません)。
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
+
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>カスタム フォーマッタを使用するように MVC を構成する方法
 

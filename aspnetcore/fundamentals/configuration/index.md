@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2af66c0f35109dc1de954bf501f33ad61ddef4db
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968372"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021743"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -1151,6 +1151,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
                 config.AddKeyPerFile(directoryPath: path, optional: true);
             })
             .UseStartup<Startup>();
@@ -1509,13 +1510,13 @@ viewModel.TvShow = tvShow;
 
 次の表に示す構成のキーと値について考えます。
 
-| キー     | [値]  |
-| :-----: | :----: |
-| array:0 | value0 |
-| array:1 | value1 |
-| array:2 | value2 |
-| array:4 | value4 |
-| array:5 | value5 |
+| キー             | [値]  |
+| :-------------: | :----: |
+| 配列:エントリ:0 | value0 |
+| 配列:エントリ:1 | value1 |
+| 配列:エントリ:2 | value2 |
+| 配列:エントリ:4 | value4 |
+| 配列:エントリ:5 | value5 |
 
 これらのキーと値は、メモリ構成プロバイダーを使用してサンプル アプリに読み込まれます。
 
@@ -1574,17 +1575,17 @@ _config.GetSection("array").Bind(arrayExample);
 
 バインドされたオブジェクト (`ArrayExample` のインスタンス) は、構成から配列データを受け取ります。
 
-| `ArrayExamples.Entries` インデックス | `ArrayExamples.Entries` 値 |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | value1                        |
-| 2                             | value2                        |
-| 3                             | value4                        |
-| 4                             | value5                        |
+| `ArrayExample.Entries` インデックス | `ArrayExample.Entries` 値 |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value4                       |
+| 4                            | value5                       |
 
 バインドされたオブジェクトのインデックス &num;3 によって、`array:4` 構成キーの構成データと、その値 `value4` が保持されます。 配列を含む構成データがバインドされると、構成キーの配列のインデックスは、オブジェクトを作成するときに構成データを反復処理するためだけに使用されます。 構成データに null 値を保持することはできません。また、構成キーの配列が 1 つまたは複数のインデックスをスキップしても、バインドされたオブジェクトに null 値のエントリは作成されません。
 
-インデックス &num;3 の不足している構成項目は、`ArrayExamples` インスタンスにバインドする前に、構成で適切なキーと値のペアを生成する構成プロバイダーによって指定できます。 不足しているキーと値のペアを含む JSON 構成プロバイダーがサンプルに含まれる場合、`ArrayExamples.Entries` は完全な構成の配列と一致します。
+インデックス &num;3 の不足している構成項目は、`ArrayExample` インスタンスにバインドする前に、構成で適切なキーと値のペアを生成する構成プロバイダーによって指定できます。 不足しているキーと値のペアを含む JSON 構成プロバイダーがサンプルに含まれる場合、`ArrayExample.Entries` は完全な構成の配列と一致します。
 
 *missing_value.json*:
 
@@ -1620,16 +1621,16 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 | :-------------: | :----: |
 | array:entries:3 | value3 |
 
-JSON 構成プロバイダーにインデックス &num;3 のエントリが含まれた後に `ArrayExamples` クラスのインスタンスがバインドされる場合、`ArrayExamples.Entries` 配列に値が含まれます。
+JSON 構成プロバイダーにインデックス &num;3 のエントリが含まれた後に `ArrayExample` クラスのインスタンスがバインドされる場合、`ArrayExample.Entries` 配列に値が含まれます。
 
-| `ArrayExamples.Entries` インデックス | `ArrayExamples.Entries` 値 |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | value1                        |
-| 2                             | value2                        |
-| 3                             | value3                        |
-| 4                             | value4                        |
-| 5                             | value5                        |
+| `ArrayExample.Entries` インデックス | `ArrayExample.Entries` 値 |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value3                       |
+| 4                            | value4                       |
+| 5                            | value5                       |
 
 **JSON 配列の処理**
 
