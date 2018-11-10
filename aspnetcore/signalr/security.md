@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR での認証と承認を使用する方法に�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: be1dd24c40327d9a0d8f91bf75300128d3d52725
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
-ms.translationtype: HT
+ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
+ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225370"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276146"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core SignalR でのセキュリティに関する考慮事項
 
@@ -35,7 +35,7 @@ CORS の構成の詳細については、次を参照してください。[を�
 * HTTP メソッド`GET`と`POST`許可する必要があります。
 * 認証を使用しない場合でも、資格情報を有効にする必要があります。
 
-たとえば、次の CORS ポリシーには、SignalR クライアント ブラウザーでホストされていることができます`http://example.com`でホストされている SignalR アプリにアクセスする`http://signalr.example.com`:。
+たとえば、次の CORS ポリシーには、SignalR クライアント ブラウザーでホストされていることができます`https://example.com`でホストされている SignalR アプリにアクセスする`https://signalr.example.com`:。
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
@@ -70,7 +70,14 @@ CORS で提供される保護は、Websocket に適用されません。 ブラ�
 
 ## <a name="access-token-logging"></a>アクセス トークンのログ記録
 
-Websocket または Server-Sent イベントを使用する場合、クライアントのブラウザーは、クエリ文字列でアクセス トークンを送信します。 標準を使用してとして一般に安全ではクエリ文字列を使用してアクセス トークンを受信`Authorization`ヘッダー。 ただし、多くの web サーバーは、クエリ文字列を含む、各要求の URL をログインします。 Url をログには、アクセス トークンがログに記録可能性があります。 Web ログ アクセス トークンを防ぐためにサーバーのログ記録の設定を設定することをお勧めします。
+Websocket または Server-Sent イベントを使用する場合、クライアントのブラウザーは、クエリ文字列でアクセス トークンを送信します。 標準を使用してとして一般に安全ではクエリ文字列を使用してアクセス トークンを受信`Authorization`ヘッダー。 クライアントとサーバー間のセキュリティで保護されたエンド ツー エンド接続を確実に常に HTTPS を使用する必要があります。 クエリ文字列を含む、各要求の URL を多くの web サーバーにログインします。 Url をログには、アクセス トークンがログに記録可能性があります。 ASP.NET Core では、既定で、クエリ文字列が含まれる各要求の URL を記録します。 例えば:
+
+```
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
+```
+
+サーバーのログでこのデータのログ記録に関する懸念がある場合は場合、構成によっては、完全でこのログ記録を無効にできます、`Microsoft.AspNetCore.Hosting`ロガー、`Warning`レベル以上 (でこれらのメッセージが書き込まれます`Info`レベル)。 上のドキュメントを参照して[ログのフィルター処理](xref:fundamentals/logging/index#log-filtering)詳細についてはします。 特定の要求情報を記録する場合は、 [、ミドルウェアを作成する](xref:fundamentals/middleware/index#write-middleware)フィルターで除外、必要なデータをログ記録、 `access_token` (存在する) 場合、クエリ文字列の値。
 
 ## <a name="exceptions"></a>例外
 
