@@ -5,67 +5,67 @@ description: ASP.NET Core SignalR の Java クライアントを使用する方�
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 11/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: 646118c78d5d38b44b89d399cd06a5332a11d064
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 4ee4e61fc301ebeec4d95b1167f94f16c38f3ac5
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207772"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225422"
 ---
-# <a name="aspnet-core-signalr-java-client"></a><span data-ttu-id="24111-103">ASP.NET Core SignalR の Java クライアント</span><span class="sxs-lookup"><span data-stu-id="24111-103">ASP.NET Core SignalR Java client</span></span>
+# <a name="aspnet-core-signalr-java-client"></a><span data-ttu-id="d847e-103">ASP.NET Core SignalR の Java クライアント</span><span class="sxs-lookup"><span data-stu-id="d847e-103">ASP.NET Core SignalR Java client</span></span>
 
-<span data-ttu-id="24111-104">によって[Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="24111-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
+<span data-ttu-id="d847e-104">によって[Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="d847e-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
 
-<span data-ttu-id="24111-105">Java クライアントでは、Java のコードは、Android アプリを含む、ASP.NET Core SignalR サーバーに接続します。</span><span class="sxs-lookup"><span data-stu-id="24111-105">The Java client enables connecting to an ASP.NET Core SignalR server from Java code, including Android apps.</span></span> <span data-ttu-id="24111-106">ように、 [JavaScript クライアント](xref:signalr/javascript-client)と[.NET クライアント](xref:signalr/dotnet-client)、Java クライアントでは、リアルタイムでハブにメッセージを送受信することができます。</span><span class="sxs-lookup"><span data-stu-id="24111-106">Like the [JavaScript client](xref:signalr/javascript-client) and the [.NET client](xref:signalr/dotnet-client), the Java client enables you to receive and send messages to a hub in real time.</span></span> <span data-ttu-id="24111-107">Java クライアントとは、ASP.NET Core 2.2 で使用可能な以降です。</span><span class="sxs-lookup"><span data-stu-id="24111-107">The Java client is available in ASP.NET Core 2.2 and later.</span></span>
+<span data-ttu-id="d847e-105">Java クライアントでは、Java のコードは、Android アプリを含む、ASP.NET Core SignalR サーバーに接続します。</span><span class="sxs-lookup"><span data-stu-id="d847e-105">The Java client enables connecting to an ASP.NET Core SignalR server from Java code, including Android apps.</span></span> <span data-ttu-id="d847e-106">ように、 [JavaScript クライアント](xref:signalr/javascript-client)と[.NET クライアント](xref:signalr/dotnet-client)、Java クライアントでは、リアルタイムでハブにメッセージを送受信することができます。</span><span class="sxs-lookup"><span data-stu-id="d847e-106">Like the [JavaScript client](xref:signalr/javascript-client) and the [.NET client](xref:signalr/dotnet-client), the Java client enables you to receive and send messages to a hub in real time.</span></span> <span data-ttu-id="d847e-107">Java クライアントとは、ASP.NET Core 2.2 で使用可能な以降です。</span><span class="sxs-lookup"><span data-stu-id="d847e-107">The Java client is available in ASP.NET Core 2.2 and later.</span></span>
 
-<span data-ttu-id="24111-108">この記事で参照されているサンプルの Java コンソール アプリでは、SignalR の Java クライアントを使用します。</span><span class="sxs-lookup"><span data-stu-id="24111-108">The sample Java console app referenced in this article uses the SignalR Java client.</span></span>
+<span data-ttu-id="d847e-108">この記事で参照されているサンプルの Java コンソール アプリでは、SignalR の Java クライアントを使用します。</span><span class="sxs-lookup"><span data-stu-id="d847e-108">The sample Java console app referenced in this article uses the SignalR Java client.</span></span>
 
-<span data-ttu-id="24111-109">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="24111-109">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="d847e-109">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="d847e-109">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="install-the-signalr-java-client-package"></a><span data-ttu-id="24111-110">SignalR の Java クライアント パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="24111-110">Install the SignalR Java client package</span></span>
+## <a name="install-the-signalr-java-client-package"></a><span data-ttu-id="d847e-110">SignalR の Java クライアント パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="d847e-110">Install the SignalR Java client package</span></span>
 
-<span data-ttu-id="24111-111">*Signalr 1.0.0 preview3 35501* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。</span><span class="sxs-lookup"><span data-stu-id="24111-111">The *signalr-1.0.0-preview3-35501* JAR file allows clients to connect to SignalR hubs.</span></span> <span data-ttu-id="24111-112">JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr)します。</span><span class="sxs-lookup"><span data-stu-id="24111-112">To find the latest JAR file version number, see the [Maven search results](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).</span></span>
+<span data-ttu-id="d847e-111">*Signalr 1.0.0 preview3 35501* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。</span><span class="sxs-lookup"><span data-stu-id="d847e-111">The *signalr-1.0.0-preview3-35501* JAR file allows clients to connect to SignalR hubs.</span></span> <span data-ttu-id="d847e-112">JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr)します。</span><span class="sxs-lookup"><span data-stu-id="d847e-112">To find the latest JAR file version number, see the [Maven search results](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).</span></span>
 
-<span data-ttu-id="24111-113">Gradle を使用する場合に、次の行を追加、`dependencies`のセクション、 *build.gradle*ファイル。</span><span class="sxs-lookup"><span data-stu-id="24111-113">If using Gradle, add the following line to the `dependencies` section of your *build.gradle* file:</span></span>
+<span data-ttu-id="d847e-113">Gradle を使用する場合に、次の行を追加、`dependencies`のセクション、 *build.gradle*ファイル。</span><span class="sxs-lookup"><span data-stu-id="d847e-113">If using Gradle, add the following line to the `dependencies` section of your *build.gradle* file:</span></span>
 
 ```gradle
 implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
 implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
 ```
 
-<span data-ttu-id="24111-114">内の次の行を追加して Maven を使用した場合、`<dependencies>`の要素、 *pom.xml*ファイル。</span><span class="sxs-lookup"><span data-stu-id="24111-114">If using Maven, add the following lines inside the `<dependencies>` element of your *pom.xml* file:</span></span>
+<span data-ttu-id="d847e-114">内の次の行を追加して Maven を使用した場合、`<dependencies>`の要素、 *pom.xml*ファイル。</span><span class="sxs-lookup"><span data-stu-id="d847e-114">If using Maven, add the following lines inside the `<dependencies>` element of your *pom.xml* file:</span></span>
 
 [!code-xml[pom.xml dependency element](java-client/sample/pom.xml?name=snippet_dependencyElement)]
 
-## <a name="connect-to-a-hub"></a><span data-ttu-id="24111-115">ハブへの接続します。</span><span class="sxs-lookup"><span data-stu-id="24111-115">Connect to a hub</span></span>
+## <a name="connect-to-a-hub"></a><span data-ttu-id="d847e-115">ハブへの接続します。</span><span class="sxs-lookup"><span data-stu-id="d847e-115">Connect to a hub</span></span>
 
-<span data-ttu-id="24111-116">確立するために、 `HubConnection`、`HubConnectionBuilder`使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="24111-116">To establish a `HubConnection`, the `HubConnectionBuilder` should be used.</span></span> <span data-ttu-id="24111-117">接続の作成中には、ハブの URL とログ レベルを構成できます。</span><span class="sxs-lookup"><span data-stu-id="24111-117">The hub URL and log level can be configured while building a connection.</span></span> <span data-ttu-id="24111-118">いずれかを呼び出すことによって、必要なオプションを構成、`HubConnectionBuilder`前にメソッド`build`します。</span><span class="sxs-lookup"><span data-stu-id="24111-118">Configure any required options by calling any of the `HubConnectionBuilder` methods before `build`.</span></span> <span data-ttu-id="24111-119">接続を開始`start`します。</span><span class="sxs-lookup"><span data-stu-id="24111-119">Start the connection with `start`.</span></span>
+<span data-ttu-id="d847e-116">確立するために、 `HubConnection`、`HubConnectionBuilder`使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d847e-116">To establish a `HubConnection`, the `HubConnectionBuilder` should be used.</span></span> <span data-ttu-id="d847e-117">接続の作成中には、ハブの URL とログ レベルを構成できます。</span><span class="sxs-lookup"><span data-stu-id="d847e-117">The hub URL and log level can be configured while building a connection.</span></span> <span data-ttu-id="d847e-118">いずれかを呼び出すことによって、必要なオプションを構成、`HubConnectionBuilder`前にメソッド`build`します。</span><span class="sxs-lookup"><span data-stu-id="d847e-118">Configure any required options by calling any of the `HubConnectionBuilder` methods before `build`.</span></span> <span data-ttu-id="d847e-119">接続を開始`start`します。</span><span class="sxs-lookup"><span data-stu-id="d847e-119">Start the connection with `start`.</span></span>
 
 [!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
-## <a name="call-hub-methods-from-client"></a><span data-ttu-id="24111-120">クライアントからのハブ メソッドの呼び出し</span><span class="sxs-lookup"><span data-stu-id="24111-120">Call hub methods from client</span></span>
+## <a name="call-hub-methods-from-client"></a><span data-ttu-id="d847e-120">クライアントからのハブ メソッドの呼び出し</span><span class="sxs-lookup"><span data-stu-id="d847e-120">Call hub methods from client</span></span>
 
-<span data-ttu-id="24111-121">呼び出し`send`ハブ メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="24111-121">A call to `send` invokes a hub method.</span></span> <span data-ttu-id="24111-122">ハブ メソッドの名前およびハブ メソッドで定義されている引数を渡す`send`します。</span><span class="sxs-lookup"><span data-stu-id="24111-122">Pass the hub method name and any arguments defined in the hub method to `send`.</span></span>
+<span data-ttu-id="d847e-121">呼び出し`send`ハブ メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="d847e-121">A call to `send` invokes a hub method.</span></span> <span data-ttu-id="d847e-122">ハブ メソッドの名前およびハブ メソッドで定義されている引数を渡す`send`します。</span><span class="sxs-lookup"><span data-stu-id="d847e-122">Pass the hub method name and any arguments defined in the hub method to `send`.</span></span>
 
 [!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
-## <a name="call-client-methods-from-hub"></a><span data-ttu-id="24111-123">ハブからのクライアント メソッドを呼び出す</span><span class="sxs-lookup"><span data-stu-id="24111-123">Call client methods from hub</span></span>
+## <a name="call-client-methods-from-hub"></a><span data-ttu-id="d847e-123">ハブからのクライアント メソッドを呼び出す</span><span class="sxs-lookup"><span data-stu-id="d847e-123">Call client methods from hub</span></span>
 
-<span data-ttu-id="24111-124">使用`hubConnection.on`ハブで呼び出すことができるクライアントでメソッドを定義します。</span><span class="sxs-lookup"><span data-stu-id="24111-124">Use `hubConnection.on` to define methods on the client that the hub can call.</span></span> <span data-ttu-id="24111-125">作成した後は、接続を開始する前に、メソッドを定義します。</span><span class="sxs-lookup"><span data-stu-id="24111-125">Define the methods after building but before starting the connection.</span></span>
+<span data-ttu-id="d847e-124">使用`hubConnection.on`ハブで呼び出すことができるクライアントでメソッドを定義します。</span><span class="sxs-lookup"><span data-stu-id="d847e-124">Use `hubConnection.on` to define methods on the client that the hub can call.</span></span> <span data-ttu-id="d847e-125">作成した後は、接続を開始する前に、メソッドを定義します。</span><span class="sxs-lookup"><span data-stu-id="d847e-125">Define the methods after building but before starting the connection.</span></span>
 
 [!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=19-21)]
 
-## <a name="add-logging"></a><span data-ttu-id="24111-126">ログ記録を追加します。</span><span class="sxs-lookup"><span data-stu-id="24111-126">Add logging</span></span>
+## <a name="add-logging"></a><span data-ttu-id="d847e-126">ログ記録を追加します。</span><span class="sxs-lookup"><span data-stu-id="d847e-126">Add logging</span></span>
 
-<span data-ttu-id="24111-127">SignalR の Java クライアントを使用して、 [SLF4J](https://www.slf4j.org/)のログ記録ライブラリです。</span><span class="sxs-lookup"><span data-stu-id="24111-127">The SignalR Java client uses the [SLF4J](https://www.slf4j.org/) library for logging.</span></span> <span data-ttu-id="24111-128">ライブラリのユーザーは、特定のログ出力の依存関係に導入することで独自の特定のログ記録の実装を選択できるようにする高度なログ記録 API になります。</span><span class="sxs-lookup"><span data-stu-id="24111-128">It's a high-level logging API that allows users of the library to chose their own specific logging implementation by bringing in a specific logging dependency.</span></span> <span data-ttu-id="24111-129">次のコード スニペットは、使用する方法を示します`java.util.logging`SignalR Java クライアントを使用します。</span><span class="sxs-lookup"><span data-stu-id="24111-129">The following code snippet shows how to use `java.util.logging` with the SignalR Java client.</span></span>
+<span data-ttu-id="d847e-127">SignalR の Java クライアントを使用して、 [SLF4J](https://www.slf4j.org/)のログ記録ライブラリです。</span><span class="sxs-lookup"><span data-stu-id="d847e-127">The SignalR Java client uses the [SLF4J](https://www.slf4j.org/) library for logging.</span></span> <span data-ttu-id="d847e-128">ライブラリのユーザーは、特定のログ出力の依存関係に導入することで独自の特定のログ記録の実装を選択できるようにする高度なログ記録 API になります。</span><span class="sxs-lookup"><span data-stu-id="d847e-128">It's a high-level logging API that allows users of the library to chose their own specific logging implementation by bringing in a specific logging dependency.</span></span> <span data-ttu-id="d847e-129">次のコード スニペットは、使用する方法を示します`java.util.logging`SignalR Java クライアントを使用します。</span><span class="sxs-lookup"><span data-stu-id="d847e-129">The following code snippet shows how to use `java.util.logging` with the SignalR Java client.</span></span>
 
 ```gradle
 implementation 'org.slf4j:slf4j-jdk14:1.7.25'
 ```
 
-<span data-ttu-id="24111-130">依存関係でのログ記録を構成しない場合、SLF4J は、次の警告メッセージが既定の操作なしロガーを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="24111-130">If you don't configure logging in your dependencies, SLF4J loads a default no-operation logger with the following warning message:</span></span>
+<span data-ttu-id="d847e-130">依存関係でのログ記録を構成しない場合、SLF4J は、次の警告メッセージが既定の操作なしロガーを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="d847e-130">If you don't configure logging in your dependencies, SLF4J loads a default no-operation logger with the following warning message:</span></span>
 
 ```
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -73,19 +73,32 @@ SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 ```
 
-<span data-ttu-id="24111-131">これは無視しても。</span><span class="sxs-lookup"><span data-stu-id="24111-131">This can safely be ignored.</span></span>
+<span data-ttu-id="d847e-131">これは無視しても。</span><span class="sxs-lookup"><span data-stu-id="d847e-131">This can safely be ignored.</span></span>
 
-## <a name="known-limitations"></a><span data-ttu-id="24111-132">既知の制限事項</span><span class="sxs-lookup"><span data-stu-id="24111-132">Known limitations</span></span>
 
-<span data-ttu-id="24111-133">これは、Java クライアントのプレビュー リリースです。</span><span class="sxs-lookup"><span data-stu-id="24111-133">This is a preview release of the Java client.</span></span> <span data-ttu-id="24111-134">一部の機能はサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="24111-134">Some features aren't supported:</span></span>
+## <a name="configure-bearer-token-authentication"></a><span data-ttu-id="d847e-132">ベアラー トークン認証を構成します。</span><span class="sxs-lookup"><span data-stu-id="d847e-132">Configure bearer token authentication</span></span>
 
-* <span data-ttu-id="24111-135">JSON プロトコルのみがサポートされています。</span><span class="sxs-lookup"><span data-stu-id="24111-135">Only the JSON protocol is supported.</span></span>
-* <span data-ttu-id="24111-136">Websocket トランスポートのみがサポートされています。</span><span class="sxs-lookup"><span data-stu-id="24111-136">Only the WebSockets transport is supported.</span></span>
-* <span data-ttu-id="24111-137">ストリーミングはまだサポートされません。</span><span class="sxs-lookup"><span data-stu-id="24111-137">Streaming isn't supported yet.</span></span>
+<span data-ttu-id="d847e-133">「アクセス トークン ファクトリを」を提供することで、認証に使用するベアラー トークンを構成する、SignalR の Java クライアントで、 [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)します。</span><span class="sxs-lookup"><span data-stu-id="d847e-133">In the SignalR Java client, you can configure a bearer token to use for authentication by providing an "access token factory" to the [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java).</span></span> <span data-ttu-id="d847e-134">使用[withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__)を提供する、 [RxJava](https://github.com/ReactiveX/RxJava) [単一<String>](http://reactivex.io/documentation/single.html)します。</span><span class="sxs-lookup"><span data-stu-id="d847e-134">Use [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) to provide an [RxJava](https://github.com/ReactiveX/RxJava) [Single<String>](http://reactivex.io/documentation/single.html).</span></span> <span data-ttu-id="d847e-135">呼び出して[Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)クライアントのアクセス トークンを生成するロジックを記述することができます。</span><span class="sxs-lookup"><span data-stu-id="d847e-135">With a call to [Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), you can write logic to produce access tokens for your client.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="24111-138">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="24111-138">Additional resources</span></span>
+```java
+HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
+    .withAccessTokenProvider(Single.defer(() -> {
+        // Your logic here.
+        return Single.just("An Access Token");
+    })).build();
+```
 
-* [<span data-ttu-id="24111-139">Java API リファレンス</span><span class="sxs-lookup"><span data-stu-id="24111-139">Java API reference</span></span>](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
+## <a name="known-limitations"></a><span data-ttu-id="d847e-136">既知の制限事項</span><span class="sxs-lookup"><span data-stu-id="d847e-136">Known limitations</span></span>
+
+<span data-ttu-id="d847e-137">これは、Java クライアントのプレビュー リリースです。</span><span class="sxs-lookup"><span data-stu-id="d847e-137">This is a preview release of the Java client.</span></span> <span data-ttu-id="d847e-138">一部の機能はサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="d847e-138">Some features aren't supported:</span></span>
+
+* <span data-ttu-id="d847e-139">JSON プロトコルのみがサポートされています。</span><span class="sxs-lookup"><span data-stu-id="d847e-139">Only the JSON protocol is supported.</span></span>
+* <span data-ttu-id="d847e-140">Websocket トランスポートのみがサポートされています。</span><span class="sxs-lookup"><span data-stu-id="d847e-140">Only the WebSockets transport is supported.</span></span>
+* <span data-ttu-id="d847e-141">ストリーミングはまだサポートされません。</span><span class="sxs-lookup"><span data-stu-id="d847e-141">Streaming isn't supported yet.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="d847e-142">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="d847e-142">Additional resources</span></span>
+
+* [<span data-ttu-id="d847e-143">Java API リファレンス</span><span class="sxs-lookup"><span data-stu-id="d847e-143">Java API reference</span></span>](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
