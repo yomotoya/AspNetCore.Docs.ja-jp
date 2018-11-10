@@ -7,12 +7,12 @@ ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 2cc9364b815cae0207fc59784303c6a0906f1b94
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 462583a42f20126ef8f8b5927268c20ec1ceab89
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578446"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505805"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 の概要
 ====================
@@ -55,7 +55,7 @@ Visual Studio は、何もせず、実用的なアプリケーションが現在
 
 ![](getting-started/_static/image5.png)
 
-すぐに使えるこの既定のテンプレートを使用する`Home`、 `Contact`、および`About`ページ。 上の画像が表示されない、**ホーム**、**について**、および**連絡先**リンク。 ブラウザー ウィンドウのサイズによっては、これらのリンクを参照するナビゲーション アイコンをクリックする必要があります。
+すぐに使えるこの既定のテンプレートを使用する`Home`、 `Contact`、および`About`ページ。 次の画像が表示されない、**ホーム**、**について**と**連絡先**リンク。 ブラウザー ウィンドウのサイズによっては、これらのリンクを参照するナビゲーション アイコンをクリックする必要があります。
 
 ![](getting-started/_static/image6.png)
 

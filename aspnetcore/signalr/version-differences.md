@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234606"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505753"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR、ASP.NET Core SignalR の相違点
 
@@ -36,6 +36,10 @@ ASP.NET Core SignalR は、クライアントまたは ASP.NET SignalR のサー
 ### <a name="protocol-support"></a>プロトコルのサポート
 
 ASP.NET Core SignalR は、JSON、ほかに基づく新しいバイナリ プロトコルをサポート[MessagePack](xref:signalr/messagepackhubprotocol)します。 さらに、カスタム プロトコルを作成できます。
+
+### <a name="transports"></a>トランスポート
+
+ASP.NET Core SignalR では、永久にフレーム トランスポートはサポートされていません。
 
 ## <a name="differences-on-the-server"></a>サーバー上の相違点
 
@@ -72,6 +76,14 @@ ASP.NET Core SignalR なりました[ストリーミング データ](xref:signa
 
 進行状況メッセージのサポートと、クライアントと (HubState と呼ばれる多くの場合)、ハブ間で任意の状態を渡す機能が削除されました。 現時点では、ハブ プロキシの対応はありません。
 
+### <a name="globalhost"></a>GlobalHost
+
+ASP.NET Core は、依存性の注入 (DI) フレームワークに組み込まれています。 サービスは、DI を使用して、アクセス、 [HubContext](xref:signalr/hubcontext)します。 `GlobalHost`オブジェクトを取得する ASP.NET SignalR で使用される、 `HubContext` ASP.NET Core SignalR に存在しません。
+
+### <a name="hubpipeline"></a>HubPipeline
+
+ASP.NET Core SignalR のサポートはありません`HubPipeline`モジュール。
+
 ## <a name="differences-on-the-client"></a>クライアント上の相違点
 
 ### <a name="typescript"></a>TypeScript
@@ -90,6 +102,10 @@ npm install @aspnet/signalr
 ### <a name="jquery"></a>jQuery
 
 JQuery に依存関係は削除されたが、プロジェクトは、jQuery を引き続き使用できます。
+
+### <a name="internet-explorer-support"></a>Internet Explorer のサポート
+
+ASP.NET Core SignalR では、Microsoft Internet Explorer 11 以降 (ASP.NET SignalR には、Microsoft Internet Explorer 8 以降がサポートされている) が必要です。
 
 ### <a name="javascript-client-method-syntax"></a>JavaScript クライアント メソッドの構文
 

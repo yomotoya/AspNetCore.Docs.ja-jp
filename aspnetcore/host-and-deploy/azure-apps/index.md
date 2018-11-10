@@ -4,14 +4,14 @@ author: guardrex
 description: この記事には、Azure のホストと展開リソースへのリンクが含まれます。
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c55a5202643bb947b3f38f67aec55ee5cf7b1496
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326057"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244750"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
 
@@ -29,10 +29,10 @@ Visual Studio を使用して ASP.NET Core Web アプリを作成し、Windows �
 
 ASP.NET Core のドキュメントでは、次の記事を参照できます。
 
-[Visual Studio による Azure への公開](xref:tutorials/publish-to-azure-webapp-using-vs)  
+<xref:tutorials/publish-to-azure-webapp-using-vs>  
 Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
 
-[Visual Studio と Git による Azure への継続的配置](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
+<xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。
 
 [Azure Pipelines による最初のパイプラインの作成](/azure/devops/pipelines/get-started-yaml)  
@@ -45,13 +45,13 @@ Azure アプリのプラットフォームで適用される Azure App Service �
 
 ## <a name="application-configuration"></a>アプリケーション構成
 
-ASP.NET Core 2.0 以降では、次の NuGet パッケージで Azure App Service にデプロイされたアプリの自動ログ記録機能が提供されます。
+次の NuGet パッケージでは、Azure App Service にデプロイされたアプリ用の自動ログ記録機能が提供されます。
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) は [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) を使用して Azure App Service と ASP.NET Core の Light-Up 統合を提供します。 追加されるログ記録機能は `Microsoft.AspNetCore.AzureAppServicesIntegration` パッケージによって提供されます。
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) は [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) を実行して、`Microsoft.Extensions.Logging.AzureAppServices` パッケージに Azure App Service 診断ログ記録プロバイダーを追加します。
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) はロガー実装を提供することで、Azure App Service 診断ログとログ ストリーミング機能をサポートします。
 
-.NET Core を対象とし、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)を参照している場合、パッケージが既に含まれています。 このパッケージは、新しい [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)には含まれません。 .NET Framework を対象とし、`Microsoft.AspNetCore.App` メタパッケージを参照している場合は、個々のログ記録パッケージを参照します。
+.NET Core を対象とし、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)を参照している場合、上記のパッケージは含まれています。 このパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)には含まれません。 .NET Framework を対象とし、`Microsoft.AspNetCore.App` メタパッケージを参照している場合は、個々のログ記録パッケージを参照します。
 
 ::: moniker-end
 
@@ -79,13 +79,13 @@ Azure Portal でアプリの設定が作成または変更され、**[保存]** 
 [Azure App Service の Web アプリの診断ログの有効化](/azure/app-service/web-sites-enable-diagnostic-log)  
 HTTP 状態コード、失敗した要求、Web サーバー アクティビティの診断ログを有効にしてアクセスする方法を説明します。
 
-[ASP.NET Core でのエラー処理の概要](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 ASP.NET Core アプリでエラーを処理するための一般的な手法について理解します。
 
-[Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 ASP.NET Core アプリを使用した Azure App Service の配置に関する問題を診断する方法を説明します。
 
-[Azure App Service および IIS と ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)  
+<xref:host-and-deploy/azure-iis-errors-reference>  
 Azure App Service/IIS によってホストされるアプリの一般的な配置の構成エラーのトラブルシューティングに関するアドバイスを参照してください。
 
 ## <a name="data-protection-key-ring-and-deployment-slots"></a>データ保護キー リングとデプロイ スロット
@@ -99,7 +99,7 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 * SQL ストア
 * Redis Cache
 
-詳細については、「[キー記憶域プロバイダー](xref:security/data-protection/implementation/key-storage-providers)」を参照してください。
+詳細については、「<xref:security/data-protection/implementation/key-storage-providers>」を参照してください。
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Azure App Service に ASP.NET Core プレビュー リリースを展開する
 
@@ -207,6 +207,10 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 ### <a name="use-docker-with-web-apps-for-containers"></a>コンテナー用の Web アプリで Docker を使用する
 
 [Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) には最新のプレビュー Docker イメージが含まれています。 イメージを基本イメージとして使用できます。 通常は、イメージを使用して、Web App for Containers に展開します。
+
+## <a name="protocol-settings-https"></a>プロトコル設定 (HTTPS)
+
+セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 (*.pfx*) が必要です。 詳細については、「[チュートリアル: 既存のカスタム SSL 証明書を Azure Web Apps にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

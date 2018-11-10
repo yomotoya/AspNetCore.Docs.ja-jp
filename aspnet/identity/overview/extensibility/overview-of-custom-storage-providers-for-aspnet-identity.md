@@ -1,19 +1,19 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 title: ASP.NET Identity のカスタム ストレージ プロバイダーの概要 |Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: ASP.NET Identity は、拡張可能なシステムを独自の記憶域プロバイダーを作成して、アプリケーションを再動作せず、アプリケーションに組み込むことができます.
 ms.author: riande
 ms.date: 10/13/2014
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: c92084265ff821bcec25244195a3511b71714836
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e7461098f93bf64d6ff0d0e4ecdb64338f96be8b
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836798"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021769"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity のカスタム ストレージ プロバイダーの概要
 ====================
@@ -160,7 +160,7 @@ UserStore クラス内では、操作を実行するために作成したデー�
 - **IUserPasswordStore**  
   [IUserPasswordStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx)インターフェイスは、永続化する、ユーザー ストアに実装する必要がありますメソッドを定義します。 パスワードをハッシュします。 ハッシュされたパスワード、およびユーザーがパスワードを設定するかどうかを示すメソッドを取得および設定のためのメソッドが含まれています。
 - **IUserSecurityStampStore**  
-  [IUserSecurityStampStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx)インターフェイスは、ユーザーのアカウント情報が変更されたかどうかを示すためにセキュリティ スタンプを使用するユーザー ストアで実装する必要がありますメソッドを定義します. ユーザー、パスワードを変更または追加またはログインを削除します。 このタイムスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
+  [IUserSecurityStampStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx)インターフェイスは、ユーザーのアカウント情報が変更されたかどうかを示すためにセキュリティ スタンプを使用するユーザー ストアで実装する必要がありますメソッドを定義します。 ユーザー、パスワードを変更または追加またはログインを削除します。 このタイムスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
 - **IUserTwoFactorStore**  
   [IUserTwoFactorStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx)インターフェイスは、2 要素認証が実装に実装する必要があるメソッドを定義します。 取得およびユーザーの 2 要素認証が有効になっているかどうかを設定するためのメソッドが含まれています。
 - **IUserPhoneNumberStore**  

@@ -4,14 +4,14 @@ author: rick-anderson
 description: 学習方法として許可または ASP.NET Core アプリでのクロス オリジン要求を拒否するための標準 CORS します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 uid: security/cors
-ms.openlocfilehash: cfbf24edb1dae76f676d51738b0d57266688d53e
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 8e5056b448d47d75272e9394b03ce8a58b05a0f4
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045589"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191322"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -137,17 +137,37 @@ MVC を使用して、アクションごとまたはコント ローラーごと
 
 ### <a name="set-the-allowed-origins"></a>許可されるオリジンを設定します。
 
-1 つまたは複数の特定のオリジンを許可するのには、呼び出す<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>:
+ASP.NET Core MVC で CORS ミドルウェアでは、許可されるオリジンを指定するいくつかの方法があります。
+
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>: 1 つまたは複数の Url を指定できます。 URL には、スキーム、ホスト名、およびパス情報がないポートを含めることができます。 たとえば、`https://example.com` のようにします。 末尾のスラッシュせず、URL を指定する必要があります (`/`)。
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-24&highlight=4)]
 
-すべてのオリジンを許可するのには、呼び出す<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>:
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>: 任意のスキームですべてのオリジンからの CORS 要求を許可する (`http`または`https`)。
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=28-32&highlight=4)]
 
 任意のオリジンからの要求を許可する前に慎重に検討してください。 任意のオリジンからの要求を許可することを意味*任意の web サイト*アプリへのクロス オリジン要求を行うことができます。
 
+::: moniker range=">= aspnetcore-2.2"
+
+> [!NOTE]
+> 指定する`AllowAnyOrigin`と`AllowCredentials`構成は安全でないと、クロスサイト リクエスト フォージェリで発生することができます。 CORS サービスは、2 つのアプリが構成されている場合に、CORS の無効な応答を返します。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+> [!NOTE]
+> 指定する`AllowAnyOrigin`と`AllowCredentials`構成は安全でないと、クロスサイト リクエスト フォージェリで発生することができます。 クライアントがサーバー リソースにアクセスを承認する必要がある場合は、オリジンの正確なリストを指定することを検討してください。
+
+::: moniker-end
+
 この設定に影響[プレフライト要求とアクセス制御の許可-オリジン ヘッダー](#preflight-requests) (このトピックの後半で説明)。
+
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> -特定のドメインの任意のサブドメインからの CORS 要求を許可します。 スキームでは、ワイルドカードをすることはできません。
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=98-104&highlight=4)]
 
 ### <a name="set-the-allowed-http-methods"></a>許可される HTTP メソッドを設定します。
 
