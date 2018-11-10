@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core のエラーを処理する
-author: ardalis
+author: tdykstra
 description: ASP.NET Core アプリでエラーを処理する方法について説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/05/2018
+ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208032"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968320"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
@@ -119,17 +119,28 @@ app.UseStatusCodePages();
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-別のメソッドがコンテンツの種類と書式文字列を受け取ります。
+`UseStatusCodePages` のオーバーロードがコンテンツの種類と書式文字列を受け取ります。
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
+### <a name="redirect-re-execute-extension-methods"></a>リダイレクト再実行の拡張メソッド
 
-また、リダイレクトと再実行の拡張メソッドもあります。 リダイレクト メソッドでは、*302 Found* 状態コードをクライアントに送信し、クライアントを指定された場所の URL テンプレートにリダイレクトします。 テンプレートには、状態コードの `{0}` プレースホルダーが含まれる場合があります。 `~` で始まる URL には、先頭に基本パスが付加されています。 `~` で始まっていない URL はそのまま使用されます。
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+
+* クライアントに *302 - Found* 状態コードを送信します。
+* URL テンプレートで指定された場所にクライアントをリダイレクトします。 
+
+テンプレートには、状態コードの `{0}` プレースホルダーが含まれる場合があります。 テンプレートには、最初にスラッシュ (`/`) を付ける必要があります。
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-再実行メソッドでは、元の状態コードをクライアントに返し、代替パスを使用して要求パイプラインを再実行することで、応答本文を生成することを指定します。 このパスには、状態コードの `{0}` プレースホルダーが含まれる場合があります。
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+
+* 元の状態コードをクライアントに返します。
+* 代替パスを使用して要求パイプラインを再実行することで、応答本文を生成する必要があることを指定します。 
+
+テンプレートには、状態コードの `{0}` プレースホルダーが含まれる場合があります。 テンプレートには、最初にスラッシュ (`/`) を付ける必要があります。
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
@@ -146,7 +157,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-アプリ内のエンドポイントをポイントする `UseStatusCodePages*` オーバーロードを使用している場合、そのエンドポイントの MVC ビューまたは Razor ページを作成します。 たとえば、Razor Pages アプリの [dotnet new](/dotnet/core/tools/dotnet-new) テンプレートでは、次のページとページ モデル クラスを生成します。
+アプリ内のエンドポイントを指す `UseStatusCodePages*` オーバーロードを使用するには、そのエンドポイントの MVC ビューまたは Razor ページを作成します。 たとえば、Razor Pages アプリの [dotnet new](/dotnet/core/tools/dotnet-new) テンプレートでは、次のページとページ モデル クラスを生成します。
 
 *Error.cshtml*:
 

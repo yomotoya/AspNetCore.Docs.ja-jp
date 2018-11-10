@@ -13,10 +13,12 @@
 ```console
 dotnet aspnet-codegenerator razorpage -h
 ```
+
 <a name="test"></a>
+
 ### <a name="test-the-app"></a>アプリのテスト
 
-* アプリを実行し、ブラウザーで URL に `/Movies` を追加します (`http://localhost:port/movies`)。
+* アプリを実行し、ブラウザーで URL に `/Movies` を追加します (`http://localhost:port/Movies`)。
 * **[作成]** リンクをテストします。
 
   ![[作成] ページ](../../tutorials/razor-pages/model/_static/conan.png)
@@ -27,7 +29,4 @@ dotnet aspnet-codegenerator razorpage -h
 
 次のようなエラーが発生した場合は、移行を実行しデータベースを更新したことを確認します。
 
-```
-An unhandled exception occurred while processing the request.
-'no such table: Movie'.
-```
+`An unhandled exception occurred while processing the request. 'no such table: Movie'.`

@@ -5,12 +5,12 @@ description: ASP.NET Core 2 要素認証と連携する TOTP authenticator ア�
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 4535efdde7340436c6a508848bff86e103df570e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 437f354f71128a98bae9abdced291e04efc9f48e
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833387"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225383"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET Core で TOTP authenticator アプリの QR コード生成を有効にします。
 
@@ -28,7 +28,7 @@ ASP.NET Core web アプリ テンプレートを使用するは、認証子を�
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>2 fa の構成 ページに QR コードを追加します。
 
-これらの手順を使用して、 *qrcode.js*から、https://davidshimjs.github.io/qrcodejs/リポジトリ。
+これらの手順を使用して、 *qrcode.js*から、 https://davidshimjs.github.io/qrcodejs/リポジトリ。
 
 * ダウンロード、 [qrcode.js javascript ライブラリ](https://davidshimjs.github.io/qrcodejs/)を`wwwroot\lib`プロジェクトのフォルダー。
 
@@ -97,7 +97,7 @@ QR コードでは、サイト名は、最初に、プロジェクトを作成�
 
 テンプレートから既定のコードは次のようになります。
 
-```c#
+```csharp
 private string GenerateQrCodeUri(string email, string unformattedKey)
 {
     return string.Format(

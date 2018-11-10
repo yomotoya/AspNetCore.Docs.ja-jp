@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090951"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253157"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -22,6 +22,8 @@ ms.locfileid: "50090951"
 アプリでは、データベースにデータを格納する前に、データを検証する必要があります。 データにセキュリティ上の脅威がないかどうかを確認し、種類とサイズが適切に設定されていることを検証しなければなりません。また、ご自身のルールに準拠している必要もあります。 検証を実装するのは冗長で面倒な場合がありますが、必要不可欠です。 MVC では、検証はクライアントとサーバーの両方で発生します。
 
 さいわい、.NET では検証が検証属性に抽象化されています。 これらの属性には検証コードが含まれているため、開発者が記述しなければならないコードの量は少なくて済みます。
+
+ASP.NET Core 2.2 以降の ASP.NET Core ランタイムでは、特定のモデル グラフが検証を必要としていないことを判断できる場合、検証がショートサーキット (スキップ) されます。 関連付けられた検証を持つことができない、または持っていないモデルを検証する場合、検証のスキップによりパフォーマンスを大幅に向上させることができます。 スキップされた検証には、プリミティブ型のコレクション (`byte[]`、`string[]`、`Dictionary<string, string>` など) や、検証コントロールのない複雑なオブジェクト グラフなどのオブジェクトが含まれます。
 
 [GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample)。
 

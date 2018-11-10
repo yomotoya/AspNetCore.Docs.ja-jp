@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR の Java クライアントを使用する方�
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 11/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: 646118c78d5d38b44b89d399cd06a5332a11d064
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 4ee4e61fc301ebeec4d95b1167f94f16c38f3ac5
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207772"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225422"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR の Java クライアント
 
@@ -74,6 +74,19 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 ```
 
 これは無視しても。
+
+
+## <a name="configure-bearer-token-authentication"></a>ベアラー トークン認証を構成します。
+
+「アクセス トークン ファクトリを」を提供することで、認証に使用するベアラー トークンを構成する、SignalR の Java クライアントで、 [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)します。 使用[withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__)を提供する、 [RxJava](https://github.com/ReactiveX/RxJava) [単一<String>](http://reactivex.io/documentation/single.html)します。 呼び出して[Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)クライアントのアクセス トークンを生成するロジックを記述することができます。
+
+```java
+HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
+    .withAccessTokenProvider(Single.defer(() -> {
+        // Your logic here.
+        return Single.just("An Access Token");
+    })).build();
+```
 
 ## <a name="known-limitations"></a>既知の制限事項
 

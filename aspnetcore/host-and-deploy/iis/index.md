@@ -4,18 +4,20 @@ author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/05/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 12075f68dd828680f6bfbd46ea22ebd7bbe52dc7
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5408fb04231a61e0c4c7a91eb15196bf754ddfa7
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326018"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191374"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
 作成者: [Luke Latham](https://github.com/guardrex)
+
+[.NET Core ホスティング バンドルのインストール](#install-the-net-core-hosting-bundle)
 
 ## <a name="supported-operating-systems"></a>サポートされるオペレーティング システム
 
@@ -80,18 +82,44 @@ HTTP/2 は既定で有効になっています。 HTTP/2 接続が確立され�
 一般的な *Program.cs* では、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出してホストの設定を開始します。 IIS でのアウトプロセス ホスティングの場合、`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
 ```csharp
-public static IWebHost BuildWebHost(string[] args) =>
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
 
-ASP.NET Core モジュールは、バックエンド プロセスに割り当てる動的なポートを生成します。 `CreateDefaultBuilder` では <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> メソッドを呼び出し、これにより、この動的なポートが取得され、`http://localhost:{dynamicPort}/` をリッスンするように Kestrel が構成されます。 これにより、`UseUrls` または [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration) の呼び出しなど、その他の URL 構成がオーバーライドされます。 そのため、モジュールを使用するときに、`UseUrls` または Kestrel の `Listen` API の呼び出しは必要ありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行するときに、Kestrel のみが指定されたポートをリッスンします。
+ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`127.0.0.1`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `127.0.0.1:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
+
+* `UseUrls`
+* [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
+
+モジュールを使用する場合、`UseUrls` または Kestrel の `Listen` API を呼び出す必要はありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
 
 インプロセス ホスティング モデルとアウトプロセス ホスティング モデルの詳細については、<xref:fundamentals/servers/aspnet-core-module> トピックと <xref:host-and-deploy/aspnet-core-module> を参照してください。
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.1"
+
+一般的な *Program.cs* では、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出してホストの設定を開始します。 `CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`127.0.0.1`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `127.0.0.1:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
+
+* `UseUrls`
+* [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
+
+モジュールを使用する場合、`UseUrls` または Kestrel の `Listen` API を呼び出す必要はありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 一般的な *Program.cs* では、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出してホストの設定を開始します。 `CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
@@ -101,7 +129,13 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-ASP.NET Core モジュールは、バックエンド プロセスに割り当てる動的なポートを生成します。 `CreateDefaultBuilder` は [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) メソッドを呼び出します。このメソッドは、動的なポートを取得すると共に、`http://localhost:{dynamicPort}/` でリッスンするように Kestrel を構成します。 これにより、`UseUrls` または [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration) の呼び出しなど、その他の URL 構成がオーバーライドされます。 そのため、モジュールを使用するときに、`UseUrls` または Kestrel の `Listen` API の呼び出しは必要ありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行するときに指定されたポートで Kestrel が受信を待機します。
+ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`localhost`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `localhost:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
+
+* `UseUrls`
+* [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
+
+モジュールを使用する場合、`UseUrls` または Kestrel の `Listen` API を呼び出す必要はありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
 
 ::: moniker-end
 
@@ -118,7 +152,12 @@ var host = new WebHostBuilder()
 
 [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) と [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) の両方が必要です。 `UseIISIntegration` を呼び出すコードはコードの移植性に影響しません。 アプリが IIS の背後で実行されていない場合 (たとえば、アプリが Kestrel で直接実行されている場合)、`UseIISIntegration` は機能しません。
 
-ASP.NET Core モジュールは、バックエンド プロセスに割り当てる動的なポートを生成します。 `UseIISIntegration` メソッドは、この動的なポートを取得すると共に、`http://locahost:{dynamicPort}/` をリッスンするように Kestrel を構成します。 これにより、`UseUrls` の呼び出しなど、その他の URL 構成がオーバーライドされます。 そのため、モジュールを使用するときに、`UseUrls` の呼び出しは必要ありません。 `UseUrls` が呼び出されると、IIS なしでアプリを実行するときに指定されたポートで Kestrel が受信を待機します。
+ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `UseIISIntegration` では、localhost の IP アドレス (`localhost`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `localhost:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
+
+* `UseUrls`
+* [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
+
+モジュールを使用する場合、`UseUrls` を呼び出す必要はありません。 `UseUrls` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
 
 ASP.NET Core 1.0 アプリ内で `UseUrls` 呼び出される場合、モジュールに構成されたポートが上書きされないように、 **を呼び出す**前に`UseIISIntegration`呼び出されます。 この呼び出しの順序は ASP.NET Core 1.1 では必要ありません。モジュール設定は `UseUrls` をオーバーライドするからです。
 
@@ -225,28 +264,42 @@ IIS と Kestrel サーバーの間にリバース プロキシを作成するに
 
 ![[Windows の機能] で [IIS 管理コンソール] と [World Wide Web サービス] を選択します。](index/_static/windows-features-win10.png)
 
----
-
 ## <a name="install-the-net-core-hosting-bundle"></a>.NET Core ホスティング バンドルのインストール
 
-1. ホスティング システムに *.NET Core ホスティング バンドル*をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
+ホスティング システムに *.NET Core ホスティング バンドル*をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
 
-   1. [.NET のダウンロードのページ](https://www.microsoft.com/net/download/windows)に移動します。
-   1. **.NET Core** で、**[アプリの実行]** ラベルの横の **[.NET Core ランタイムのダウンロード]** ボタンを選択します。 インストーラーの実行可能ファイルのファイル名には、単語 "hosting" が含まれます (たとえば、*dotnet-hosting-2.1.2-win.exe*)。
-   1. サーバーでインストーラーを実行します。
+> [!IMPORTANT]
+> ホスティング バンドルが IIS の前にインストールされている場合、バンドルのインストールを修復する必要があります。 IIS をインストールした後に、ホスティング バンドル インストーラーをもう一度実行します。
 
-   **重要**。 ホスティング バンドルが IIS の前にインストールされている場合、バンドルのインストールを修復する必要があります。 IIS をインストールした後に、ホスティング バンドル インストーラーをもう一度実行します。
+### <a name="direct-download-current-version"></a>直接ダウンロード (現在のバージョン)
 
-   1 つまたは複数のスイッチを使って管理者コマンド プロンプトからインストーラーを実行し、インストーラーの動作を制御します。
+次のリンクを使用してインストーラーをダウンロードします。
+
+[現在の .NET Core ホスティング バンドルのインストーラー (直接ダウンロード)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+
+### <a name="earlier-versions-of-the-installer"></a>以前のバージョンのインストーラー
+
+以前のバージョンのインストーラーを入手するには:
+
+1. [.NET のダウンロードのアーカイブ](https://www.microsoft.com/net/download/archives)に移動します。
+1. **[.NET Core]** の下で、.NET Core のバージョンを選択します。
+1. **[Run apps - Runtime]\(アプリの実行 - ランタイム\)** 列から、目的の .NET Core ランタイム バージョンの行を探します。
+1. **[Runtime & Hosting Bundle]\(ランタイム & ホスティング バンドル\)** のリンクを使用してインストーラーをダウンロードします。
+
+> [!WARNING]
+> 一部のインストーラーには、有効期限 (EOL) に達して Microsoft によるサポートが終了した、リリース バージョンが含まれています。 詳細については、[サポート ポリシー](https://www.microsoft.com/net/download/dotnet-core/2.0)をご覧ください。
+
+### <a name="install-the-hosting-bundle"></a>ホスティング バンドルをインストールする
+
+1. サーバーでインストーラーを実行します。 管理者のコマンド プロンプトからインストーラーを実行する場合、次のスイッチを使用できます。
 
    * `OPT_NO_ANCM=1` &ndash; ASP.NET Core モジュールのインストールをスキップします。
    * `OPT_NO_RUNTIME=1` &ndash; .NET Core ランタイムのインストールをスキップします。
    * `OPT_NO_SHAREDFX=1` &ndash; ASP.NET Shared Framework (ASP.NET ランタイム) のインストールをスキップします。
    * `OPT_NO_X86=1` &ndash; x86 ランタイムのインストールをスキップします。 32 ビット アプリをホストしない場合は、このスイッチを使用します。 今後、32 ビット アプリと 64 ビット アプリの両方をホストする可能性がある場合は、このスイッチを使用せずに、両方のランタイムをインストールします。
-
 1. システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行します。 IIS を再起動すると、インストーラーによって行われたシステム パスへの変更 (環境変数) が取得されます。
 
-   Windows ホスティング バンドルのインストーラーでインストールを完了するために、IIS によるリセットが必要であることを検知した場合、インストーラーによって IIS がリセットされます。 インストーラーで IIS のリセットがトリガーされた場合、IIS アプリ プールと Web サイトがすべて再起動されます。
+Windows ホスティング バンドルのインストーラーでインストールを完了するために、IIS によるリセットが必要であることを検知した場合、インストーラーによって IIS がリセットされます。 インストーラーで IIS のリセットがトリガーされた場合、IIS アプリ プールと Web サイトがすべて再起動されます。
 
 > [!NOTE]
 > IIS 共有構成の詳細については、「[ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration)」 (IIS 共有構成の ASP.NET Core モジュール) を参照してください。
@@ -348,7 +401,7 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 
 ## <a name="data-protection"></a>データの保護
 
-[ASP.NET Core データ保護スタック](xref:security/data-protection/index)は、認証で使用されるミドルウェアを含め、いくつかの [ASP.NET Core](xref:fundamentals/middleware/index) ミドルウェアによって使用されます。 データ保護 API がユーザーのコードから呼び出されない場合でも、配置スクリプトを使用するかユーザー コードで、永続的な暗号化[キー ストア](xref:security/data-protection/implementation/key-management)を作成するようにデータ保護を構成する必要があります。 データ保護を構成しない場合、既定でキーはメモリ内に保持され、アプリが再起動すると破棄されます。
+[ASP.NET Core データ保護スタック](xref:security/data-protection/introduction)は、認証で使用されるミドルウェアを含め、いくつかの [ASP.NET Core](xref:fundamentals/middleware/index) ミドルウェアによって使用されます。 データ保護 API がユーザーのコードから呼び出されない場合でも、配置スクリプトを使用するかユーザー コードで、永続的な暗号化[キー ストア](xref:security/data-protection/implementation/key-management)を作成するようにデータ保護を構成する必要があります。 データ保護を構成しない場合、既定でキーはメモリ内に保持され、アプリが再起動すると破棄されます。
 
 キーリングがメモリに格納されている場合、アプリを再起動すると次のことが行われます。
 
@@ -362,7 +415,7 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 
   ASP.NET Core アプリで使用されるデータ保護キーは、アプリ外部のレジストリに格納されます。 特定のアプリのキーを保持するには、アプリ プール用のレジストリ キーを作成する必要があります。
 
-  非 Web ファーム IIS のスタンドアロン インストールの場合、ASP.NET Core アプリで使用するアプリ プールごとに、[データ保護の PowerShell スクリプト Provision-AutoGenKeys.ps1 (ASP.NET Core 2.2)](https://github.com/aspnet/DataProtection/blob/release/2.2/Provision-AutoGenKeys.ps1) を使用できます。 このスクリプトは、HKLM レジストリにレジストリ キーを作成します。そのキーは、アプリのアプリ プールのワーカー プロセス アカウントのみがアクセスできます。 キーは保存時に、DPAPI を使用して、コンピューター全体に適用するキーによって暗号化されます。
+  非 Web ファーム IIS のスタンドアロン インストールの場合、ASP.NET Core アプリで使用するアプリ プールごとに、[データ保護の PowerShell スクリプト Provision-AutoGenKeys.ps1](https://github.com/aspnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) を使用できます。 このスクリプトは、HKLM レジストリにレジストリ キーを作成します。そのキーは、アプリのアプリ プールのワーカー プロセス アカウントのみがアクセスできます。 キーは保存時に、DPAPI を使用して、コンピューター全体に適用するキーによって暗号化されます。
 
   Web ファームのシナリオでは、UNC パスを使用してデータ保護キー リングを格納するようにアプリを構成できます。 既定では、データ保護キーは暗号化されません。 ネットワーク共有のファイルのアクセス許可が、アプリを実行する Windows アカウントに限定されていることを確認します。 保存時のキーを保護するために、X509 証明書を使用することができます。 ユーザーが証明書をアップデートできるメカニズムを検討している場合、ユーザーの信頼できる証明書ストアに証明書を配置し、ユーザーのアプリが実行されるすべてのコンピューターで証明書を利用できるようにします。 詳細については、「[ASP.NET Core データ保護の構成](xref:security/data-protection/configuration/overview)」を参照してください。
 
@@ -381,7 +434,7 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 
 * **コンピューター全体に適用するデータ保護ポリシーを設定する**
 
-  データ保護システムでは、データ保護 API を使用するすべてのアプリに対して、[コンピューター全体に適用する既定のポリシー](xref:security/data-protection/configuration/machine-wide-policy)を設定するためのサポートは限定的です。 詳細については、[データ保護](xref:security/data-protection/index)に関するドキュメントを参照してください。
+  データ保護システムでは、データ保護 API を使用するすべてのアプリに対して、[コンピューター全体に適用する既定のポリシー](xref:security/data-protection/configuration/machine-wide-policy)を設定するためのサポートは限定的です。 詳細については、「<xref:security/data-protection/introduction>」を参照してください。
 
 ## <a name="sub-application-configuration"></a>サブアプリケーション構成
 

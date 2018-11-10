@@ -2,16 +2,17 @@
 title: Windows サービスでの ASP.NET Core のホスト
 author: guardrex
 description: Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/25/2018
+ms.date: 10/30/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f9b1c3fbfafa839c116688e0ac63804afcd5dbe0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 11913019bfe5d06c259b806fce9cc580a8280ad5
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206674"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758194"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -29,38 +30,12 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    * Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) があることを確認するか、それをターゲット フレームワークを含む `<PropertyGroup>` に追加します。
 
-      ::: moniker range=">= aspnetcore-2.1"
-
       ```xml
       <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
         <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
       </PropertyGroup>
       ```
-
-      ::: moniker-end
-
-      ::: moniker range="= aspnetcore-2.0"
-
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
-
-      ::: moniker-end
-
-      ::: moniker range="< aspnetcore-2.0"
-
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp1.1</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
-
-      ::: moniker-end
 
       複数の RID を発行するには、次の処理を実行します。
 
@@ -77,56 +52,88 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    * [UseContentRoot](xref:fundamentals/host/web-host#content-root) を呼び出し、`Directory.GetCurrentDirectory()` の代わりにアプリの発行場所のパスを使用します。
 
-     ::: moniker range=">= aspnetcore-2.0"
-
      [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,16)]
 
-     ::: moniker-end
+1. [dotnet publish](/dotnet/articles/core/tools/dotnet-publish)、[Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)、または Visual Studio Code を使用してアプリを発行します。 Visual Studio を使用する場合、**[発行]** ボタンを選択する前に、**[FolderProfile]** を選択して **[ターゲットの場所]** を構成します。
 
-     ::: moniker range="< aspnetcore-2.0"
-
-     [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=3-4,8,13)]
-
-     ::: moniker-end
-
-1. アプリの発行 [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) または [Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)を使用します。 Visual Studio を使用する場合は、**FolderProfile** を選択します。
-
-   コマンド ライン インターフェイス (CLI) ツールを使用してサンプル アプリを発行するには、プロジェクト フォルダーからコマンド プロンプトで [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行します。 プロジェクト ファイルの `<RuntimeIdenfifier>` (または `<RuntimeIdentifiers>`) プロパティに RID を指定する必要があります。 次の例では、アプリが `win7-x64` ランタイムのリリース構成で発行されます。
+   コマンド ライン インターフェイス (CLI) ツールを使用してサンプル アプリを発行するには、プロジェクト フォルダーからコマンド プロンプトで [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行します。 プロジェクト ファイルの `<RuntimeIdenfifier>` (または `<RuntimeIdentifiers>`) プロパティに RID を指定する必要があります。 次の例では、アプリが `win7-x64` ランタイムのリリース構成で、*c:\\svc* に作成されるフォルダーに発行されます。
 
    ```console
-   dotnet publish --configuration Release --runtime win7-x64
+   dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
    ```
 
-1. [sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) とパスの開始の引用符文字の間にはスペースが必要です。**
+1. `net user` コマンドを使用して、サービス用のユーザー アカウントを作成します。
 
    ```console
-   sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
+   net user {USER ACCOUNT} {PASSWORD} /add
    ```
 
-   プロジェクト フォルダーに発行されるサービスの場合は、*publish* フォルダーへのパスを使用してサービスを作成します。 次に例を示します。
+   サンプル アプリでは、名前 `ServiceUser` とパスワードを持つユーザー アカウントを作成します。 次のコマンド内の `{PASSWORD}` を、[強力なパスワード](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements)に置き換えます。
 
-   * プロジェクトは *c:\\my_services\\AspNetCoreService* フォルダーに存在します。
-   * プロジェクトは `Release` 構成で発行されます。
-   * ターゲット フレームワーク モニカー (TFM) は `netcoreapp2.1` です。
-   * ランタイム識別子 (RID) は `win7-x64` です。
-   * *AspNetCoreService.exe* という名前のアプリの実行可能ファイルがあります。
+   ```console
+   net user ServiceUser {PASSWORD} /add
+   ```
+
+   ユーザーをグループに追加する必要がある場合は、`net localgroup` コマンドを使用します。`{GROUP}` にはグループの名前を指定します。
+
+   ```console
+   net localgroup {GROUP} {USER ACCOUNT} /add
+   ```
+
+   詳細については、「[Service User Accounts](/windows/desktop/services/service-user-accounts)」(サービス ユーザー アカウント) をご覧ください。
+
+1. [icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
+
+   ```console
+   icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+   ```
+
+   * `{PATH}` &ndash; アプリのフォルダーへのパス。
+   * `{USER ACCOUNT}` &ndash; ユーザー アカウント (SID)。
+   * `(OI)` &ndash; オブジェクトの継承フラグ。下位のファイルにアクセス許可を反映します。
+   * `(CI)` &ndash; コンテナーの継承フラグ。下位のフォルダーにアクセス許可を反映します。
+   * `{PERMISSION FLAGS}` &ndash; アプリのアクセス許可を設定します。
+     * 書き込み (`W`)
+     * 読み取り (`R`)
+     * 実行 (`X`)
+     * フル アクセス (`F`)
+     * 変更 (`M`)
+   * `/t` &ndash; 存在する下位のフォルダーおよびファイルに再帰的に適用します。
+
+   *c:\\svc* フォルダーに発行されるサンプル アプリと、書き込み/読み取り/実行アクセス許可を持つ `ServiceUser` アカウントに対して、次のコマンドを使用します。
+
+   ```console
+   icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+   ```
+
+   詳細については、「[icacls](/windows-server/administration/windows-commands/icacls)」をご覧ください。
+
+1. [sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) と、各パラメーターおよび値の引用符文字の間には、スペースが必要です。**
+
+   ```console
+   sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+   ```
+
+   * `{SERVICE NAME}` &ndash; [サービス コントロール マネージャー](/windows/desktop/services/service-control-manager)でサービスに割り当てる名前。
+   * `{PATH}` &ndash; サービス実行可能ファイルへのパス。
+   * `{DOMAIN}` (コンピューターがドメインに参加していない場合は、ローカル コンピューター名) および `{USER ACCOUNT}` &ndash; サービスを実行させるドメイン (またはローカル コンピューター名) とユーザー アカウント。 `obj` パラメーターを省略**しない**でください。 `obj` の既定値は、[LocalSystem アカウント](/windows/desktop/services/localsystem-account) アカウントです。 `LocalSystem` アカウントでサービスを実行すると、重大なセキュリティ リクスが生じます。 常に、サーバーに対する制限付きの特権を持つユーザー アカウントでサービスを実行します。
+   * `{PASSWORD}` &ndash; ユーザー アカウントのパスワード。
+
+   次に例を示します。
+
    * サービスは **MyService** という名前です。
-
-   例:
+   * 発行されたサービスは、*c:\\svc* フォルダーに配置されます。 *AspNetCoreService.exe* という名前のアプリの実行可能ファイルがあります。 `binPath` 値は二重引用符 (") で囲まれます。
+   * サービスは `ServiceUser` アカウントで実行されます。 `{DOMAIN}` を、ユーザー アカウントのドメインまたはローカル コンピューター名に置き換えます。 `obj` 値を二重引用符 (") 囲みます。 例: ホスト システムが `MairaPC` という名前のローカル コンピューターである場合は、`obj` を `"MairaPC\ServiceUser"` に設定にします。
+   * `{PASSWORD}` をユーザー アカウントのパスワードに置き換えます。 `password` 値は二重引用符 (") で囲まれます。
 
    ```console
-   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
    ```
 
    > [!IMPORTANT]
-   > `binPath=` 引数とその値の間には、空白を必ず含めてください。
+   > パラメーターの等号とパラメーターの値の間にスペースがあることを確認します。
 
-   別のフォルダーからサービスを発行および開始するには
-
-      * `dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。 Visual Studio を使用するには、**[発行]** ボタンを選択する前に、**[FolderProfile]** 発行プロパティ ページの **[ターゲットの場所]** を構成します。
-      * 出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。 `binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。
-
-1. サービスを `sc start <SERVICE_NAME>` コマンドで開始します。
+1. サービスを `sc start {SERVICE NAME}` コマンドで開始します。
 
    サンプル アプリ サービスを開始するには、次のコマンドを使用します。
 
@@ -136,7 +143,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    このコマンドでサービスを開始するには数秒かかります。
 
-1. サービスの状態を確認するには、`sc query <SERVICE_NAME>` コマンドを使用します。 この状態は、次のいずれかの値として報告されます。
+1. サービスの状態を確認するには、`sc query {SERVICE NAME}` コマンドを使用します。 この状態は、次のいずれかの値として報告されます。
 
    * `START_PENDING`
    * `RUNNING`
@@ -153,7 +160,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
    サンプル アプリ サービスの場合、アプリは `http://localhost:5000` で参照します。
 
-1. `sc stop <SERVICE_NAME>` コマンドを使用して、サービスを停止します。
+1. `sc stop {SERVICE NAME}` コマンドを使用して、サービスを停止します。
 
    サンプル アプリ サービスは、次のコマンドで停止できます。
 
@@ -161,7 +168,7 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
    sc stop MyService
    ```
 
-1. サービスの停止の少し後に、`sc delete <SERVICE_NAME>` コマンドを使用して、サービスをアンインストールします。
+1. サービスの停止の少し後に、`sc delete {SERVICE NAME}` コマンドを使用して、サービスをアンインストールします。
 
    サンプル アプリ サービスの状態を確認します。
 
@@ -179,22 +186,12 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
 サービスの外部で実行する場合のほうがテストおよびデバッグは簡単です。このため、特定の条件下でのみ `RunAsService` を呼び出すコードを追加することが一般的です。 たとえば、`--console` コマンドライン引数を使用してアプリをコンソール アプリとしてアプリを実行できます。または、デバッガーがアタッチされている場合は、以下を実行します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
 
 ASP.NET Core の構成では、コマンドライン引数に名前と値の組みが必要であるため、引数が [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) に渡される前に、`--console` スイッチは削除されます。
 
 > [!NOTE]
 > [統合テスト](xref:test/integration-tests)が正しく動作するには `CreateWebHostBuilder(string[])` に `CreateWebHostBuilder` の署名が必要なため、`isService` は `Main` から `CreateWebHostBuilder` に渡されません。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
-
-::: moniker-end
 
 ## <a name="handle-stopping-and-starting-events"></a>停止および開始イベントの処理
 
@@ -210,20 +207,10 @@ ASP.NET Core の構成では、コマンドライン引数に名前と値の組�
 
 3. `Program.Main` で、[RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) ではなく、新しい拡張メソッド `RunAsCustomService` を呼び出します。
 
-   ::: moniker range=">= aspnetcore-2.0"
-
    [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=17)]
 
    > [!NOTE]
    > [統合テスト](xref:test/integration-tests)が正しく動作するには `CreateWebHostBuilder(string[])` に `CreateWebHostBuilder` の署名が必要なため、`isService` は `Main` から `CreateWebHostBuilder` に渡されません。
-
-   ::: moniker-end
-
-   ::: moniker range="< aspnetcore-2.0"
-
-   [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=27)]
-
-   ::: moniker-end
 
 カスタム `WebHostService` コードに依存関係の挿入からのサービスが必要な場合は (ロガーなど)、[IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) プロパティからそれを取得します。
 
@@ -235,7 +222,12 @@ ASP.NET Core の構成では、コマンドライン引数に名前と値の組�
 
 ## <a name="configure-https"></a>HTTPS の構成
 
-[Kestrel サーバーの HTTPS エンドポイント構成](xref:fundamentals/servers/kestrel#endpoint-configuration)を指定します。
+セキュリティで保護されたエンドポイントを使用してサービスを構成するには:
+
+1. プラットフォームの証明書の取得と展開のメカニズムを使用して、ホスト システム用に X.509 証明書を作成します。
+1. [Kestrel サーバーの HTTPS エンドポイント構成](xref:fundamentals/servers/kestrel#endpoint-configuration)を指定して、証明書を使用します。
+
+サービス エンドポイントをセキュリティで保護するために ASP.NET Core の HTTPS 開発証明書を使用することはできません。
 
 ## <a name="current-directory-and-content-root"></a>現在のディレクトリとコンテンツのルート
 

@@ -759,7 +759,7 @@ Datatable の jQuery プラグインの次のリリースは、この CDN でホ
 
 ### <a name="respond-releases-on-the-cdn"></a>Cdn のリリースを応答します。
 
-次のリリースの[ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ")応答が CDN にホストされています。
+次のリリースの [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") 応答が CDN にホストされています。
 
 #### <a name="respond-version-142"></a>応答バージョン 1.4.2
 

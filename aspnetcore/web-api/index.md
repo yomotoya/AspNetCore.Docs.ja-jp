@@ -4,14 +4,14 @@ author: scottaddie
 description: ASP.NET Core で Web API を構築するために使用できる機能、および各機能を使用する適切なタイミングについて説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/30/2018
+ms.date: 11/06/2018
 uid: web-api/index
-ms.openlocfilehash: b3e26bee5e4dc8937e810bc5db300a486437f568
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 010c437afc494fa4426f6922421afac46bbf6b39
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244763"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225435"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>ASP.NET Core で Web API を構築する
 
@@ -77,13 +77,13 @@ ASP.NET Core 2.2 以降では、`[ApiController]` 属性をアセンブリに適
 
 ### <a name="automatic-http-400-responses"></a>自動的な HTTP 400 応答
 
-検証エラーが発生すると、HTTP 400 応答が自動的にトリガーされます。 次のコードは実際のアクションでは不要になります。
+モデル検証エラーが発生すると、HTTP 400 応答が自動的にトリガーされます。 その結果、次のコードは実際のアクションでは不要になります。
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
 
 結果として発生する応答の出力をカスタマイズするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> を使用します。
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。
+アクションがモデル検証エラーから回復できる場合は、既定の動作を無効にすると便利です。 <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。
 
 ::: moniker-end
 

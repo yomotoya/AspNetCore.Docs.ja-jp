@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f18d0a8b3ce24c9844b02f8a0b6360f7e1b1bdb7
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089853"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244854"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
 
@@ -65,7 +65,7 @@ Visual Studio Code (VS Code) から、**[ファイル]、[フォルダーを開�
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Ctrl + F5 キーを押して、デバッグを行わずにアプリを開始します。 または、**[デバッグ]** メニューの **[デバッグなしで開始]** を選択します。
+**[デバッグ]** メニューの **[デバッグなしで開始]** をクリックします。 または、メニュー オプションの横に表示されるキーボード ショートカットを使うことができます。 このショートカットは、オペレーティング システムによって異なります。
 
 次のチュートリアルでは、プロジェクトにモデルを追加します。 
 

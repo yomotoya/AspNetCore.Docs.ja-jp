@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: fb69584f6e9d4756e175bbd6f3deb1f413b80fc5
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148812"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244815"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC のキャッシュ タグ ヘルパー
 
@@ -135,7 +135,7 @@ Razor ビュー エンジンでは、`expires-after` の規定値が 20 分に�
 | -------------- | -------------------- |
 | String         | `Make`、 `Make,Model` |
 
-`vary-by-route` には、ルート データのパラメーター値が変化したときにキャッシュの更新をトリガーする、コンマで区切ったヘッダー値のリストを指定します。
+`vary-by-route` には、ルート データのパラメーター値が変化したときにキャッシュの更新をトリガーする、コンマで区切ったルート パラメーター名のリストを指定します。
 
 例:
 
@@ -161,7 +161,7 @@ routes.MapRoute(
 | -------------- | -------------------------------------------------------------------------------- |
 | String         | `.AspNetCore.Identity.Application`、 `.AspNetCore.Identity.Application,HairColor` |
 
-`vary-by-cookie` には、ヘッダー値が変化したときにキャッシュの更新をトリガーする、コンマで区切ったヘッダー値のリストを指定します。
+`vary-by-cookie` には、Cookie 値が変化したときにキャッシュの更新をトリガーする、コンマで区切った Cookie 名のリストを指定します。
 
 次の例では、ASP.NET Core ID に関連付けられている Cookie を監視します。 ユーザーが認証されると、Id Cookie の変更によってキャッシュの更新がトリガーされます。
 

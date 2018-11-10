@@ -6,18 +6,29 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a014782ba503bc8bd0fdefb4cb4f382aa8fde4cd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207757"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244971"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
 [Ryan Nowak](https://github.com/rynowak)、[Steve Smith](https://ardalis.com/)、[Rick Anderson](https://twitter.com/RickAndMSFT) 作
 
 ルーティング機能は受信要求をルート ハンドラーにマッピングします。 ルートはアプリに定義され、アプリの起動時に構成されます。 ルートは、要求に含まれている URL から値を任意で抽出できます。その値を要求処理に利用できます。 ルーティング機能は、アプリからのルート情報を利用し、ルート ハンドラーにマッピングする URL を生成することもできます。 そのため、ルーティングでは URL に基づいて、つまり、ルート ハンドラー情報によって指定されるルート ハンドラーに対応する URL に基づいてルート ハンドラーを見つけることができます。
+
+ほとんどのアプリでは、URL を読みやすくてわかりやすいものにするために、基本的なでわかりやすいルーティング スキームを選択する必要があります。 既定の規則ルート `{controller=Home}/{action=Index}/{id?}`:
+
+* 基本的でわかりやすいルーティング スキームをサポートしています。
+* ブラウザーでの使用を意図された Web アプリの優れた出発点となります。
+
+特殊な状況でのアプリのトラフィックが多い領域 (たとえばブログや E コマースなど) に対しては、[属性ルーティング](xref:mvc/controllers/routing#attribute-routing)または専用規則ルートを使用して簡易ルートを追加するのが一般的です。
+
+Web API では、属性ルーティングを使用して、HTTP 動詞で操作を表現するリソースのセットとしてアプリの機能をモデル化する必要があります。 つまり、同じ論理リソース上の多くの操作 (たとえば GET や POST) で、同じ URL を使用します。 属性ルーティングを使用すると、API の URL 空間を慎重に設計するために必要となるコントロールのレベルが得られます。
+
+MVC の URL 生成サポートを使用すると、アプリを相互にリンクする URL をハード コーディングすることなくアプリを開発できます。 これにより、基本的なルーティング構成を使用して作業を開始し、アプリの形が決まった後でルートを変更することができます。
 
 > [!IMPORTANT]
 > 本文では、ASP.NET Core ルーティングについて詳しく取り上げます。 ASP.NET Core MVC ルーティングの詳細については、「<xref:mvc/controllers/routing>」を参照してください。

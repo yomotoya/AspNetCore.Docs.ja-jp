@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 61bb977af9dca6fc080151ffd6ea3d966f1b1592
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225487"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 で非同期メソッドの使用
 ====================
@@ -198,9 +198,10 @@ Async void イベントに欠点は、開発者が完全にイベントの実行
   
   上記のイメージでアプリケーション プールが .NET 4.5 を使用している場合でも、.NET framework が v4.0、として一覧表示に注意してください。 この違いを理解するのには、次を参照してください。
 
-        - [.NET Versioning and Multi-Targeting - .NET 4.5 is an in-place upgrade to .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
-        - [How to set an IIS Application or AppPool to use ASP.NET 3.5 rather than 2.0](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-        - [.NET Framework Versions and Dependencies](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- [.NET のバージョン管理とマルチ ターゲットの .NET 4.5 は .NET 4.0 へのインプレース アップグレードです。](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
+- [2.0 ではなく、ASP.NET 3.5 を使用して IIS のアプリケーションまたはアプリケーション プールを設定する方法](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
+- [.NET Framework のバージョンおよび依存関係](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+
 - アプリケーションが web サービスを使用して、または HTTP 経由でバックエンドと通信する System.NET を増やす必要があります、 [connectionManagement/maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx)要素。 ASP.NET アプリケーションでこれは Cpu の数の 12 倍の自動構成機能によって制限されます。 つまり、クアッド プロセッサでは必要な最大で 12 \* 4 = 48 IP エンドポイントへの同時接続。 これに関連付けられているため、 [autoConfig](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx)、向上させる最も簡単な方法として`maxconnection`では、ASP.NET アプリケーションの設定は、 [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx)でプログラムを使用`Application_Start`メソッドで、 *global.asax*ファイル。 例については、ダウンロード、サンプルを参照してください。
 - .NET 4.5 で、既定値の 5000 [MaxConcurrentRequestsPerCPU](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)正しくする必要があります。
 

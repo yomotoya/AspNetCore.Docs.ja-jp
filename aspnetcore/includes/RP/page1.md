@@ -4,7 +4,7 @@
 
 このチュートリアルでは、前のチュートリアルでスキャフォールディングによって作成された Razor ページについて説明します。 
 
-サンプルを[表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie)します。
+サンプルを[表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21)します。
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>[作成]、[削除]、[詳細]、および [編集] ページ
 
@@ -101,7 +101,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
-*Pages/_Layout.cshtml* ファイルで次のアンカー要素を見つけます。
+*Pages/Shared/_Layout.cshtml* ファイルで次のアンカー要素を見つけます。
 
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
@@ -114,7 +114,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 上のアンカー要素は[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 この場合は、[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)です。 `asp-page="/Movies/Index"` タグ ヘルパー属性と値で、`/Movies/Index` Razor ページへのリンクが作成されます。
 
-変更内容を保存し、**RpMovie** リンクをクリックしてアプリをテストします。 GitHub の [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) ファイルを参照してください。
+変更内容を保存し、**RpMovie** リンクをクリックしてアプリをテストします。 GitHub の [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Shared/_Layout.cshtml) ファイルを参照してください。
 
 ### <a name="the-create-page-model"></a>Create ページのモデル
 

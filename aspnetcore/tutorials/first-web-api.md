@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 88d1958ce5c42d559754972a855c1ffe22ab45a6
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722517"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234580"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>ASP.NET Core と Visual Studio で Web API を作成する
 
@@ -21,7 +21,7 @@ ms.locfileid: "39722517"
 
 このチュートリアルには 3 つのバージョンがあります。
 
-* Windows: Windows の Visual Studio で Web API を作成する (このチュートリアル)
+* Windows: Windows の Visual Studio で Web API を作成する (このチュートリアル。[ビデオ版](https://www.youtube.com/watch?v=TTkhEyGBfAk)を参照)
 * macOS: [Visual Studio for Mac で Web API を作成する](xref:tutorials/first-web-api-mac)
 * macOS、Linux、Windows: [Visual Studio Code で Web API を作成する](xref:tutorials/web-api-vsc)
 

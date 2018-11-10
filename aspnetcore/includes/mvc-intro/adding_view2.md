@@ -28,7 +28,7 @@
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
 
 ::: moniker-end
 
@@ -115,6 +115,6 @@
 
 ![[ようこそ] ラベルと、Hello Rick という語句が 4 つ示された [バージョン情報] ビュー](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-上のサンプルでは、`ViewData` ディクショナリを使用して、コントローラーからビューにデータを渡しました。 チュートリアルの後半で、ビュー モデルを使用して、コントローラーからビューにデータを渡します。 一般には、`ViewData` ディクショナリを使用する方法より、ビュー モデルを使用してデータを渡す方法が推奨されます。 詳細については、「[ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc)」 (MVC の ViewModel、ViewData、ViewBag、TempData、Session の比較) を参照してください。
+上のサンプルでは、`ViewData` ディクショナリを使用して、コントローラーからビューにデータを渡しました。 チュートリアルの後半で、ビュー モデルを使用して、コントローラーからビューにデータを渡します。 一般には、`ViewData` ディクショナリを使用する方法より、ビュー モデルを使用してデータを渡す方法が推奨されます。 詳細については、[ViewBag、ViewData、または TempData を使用するタイミング](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/)に関するページをご覧ください。
 
 "M" (モデル) については学習しましたが、データベースについてはまだです。 学習したことを確認し、ムービーのデータベースを作成してみましょう。

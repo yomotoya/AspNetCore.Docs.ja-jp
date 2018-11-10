@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207291"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253183"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -71,7 +71,7 @@ ASP.NET Core は、セッション ID を含む Cookie をクライアントに�
 メモリ内キャッシュ プロバイダーは、アプリが存在するサーバーのメモリにセッション データを格納します。 サーバー ファームのシナリオでは次のようになります。
 
 * "*固定セッション*" を使用して、個々のサーバー上の特定のアプリのインスタンスに、各セッションを結び付けます。 [Azure App Service](https://azure.microsoft.com/services/app-service/) は[アプリケーション要求ルーティング処理 (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) を使って、既定で固定セッションを強制的に使用します。 ただし、固定セッションは拡張性に影響を与え、Web アプリの更新を複雑にすることがあります。 もっとよい方法は、Redis または SQL Server の分散キャッシュを使用することで、固定セッションを必要としません。 詳細については、「<xref:performance/caching/distributed>」を参照してください。
-* セッション Cookie は [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) によって暗号化されます。 各コンピューターでセッション Cookie を読み取るには、データ保護を適切に構成する必要があります。 詳細については、「[ASP.NET Core のデータ保護](xref:security/data-protection/index)」および「[Key storage providers in ASP.NET Core](xref:security/data-protection/implementation/key-storage-providers)」(ASP.NET Core でのキー ストレージ プロバイダー) をご覧ください。
+* セッション Cookie は [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) によって暗号化されます。 各コンピューターでセッション Cookie を読み取るには、データ保護を適切に構成する必要があります。 詳細については、<xref:security/data-protection/introduction> および[キー ストレージ プロバイダー](xref:security/data-protection/implementation/key-storage-providers)に関する記事をご覧ください。
 
 ### <a name="configure-session-state"></a>セッション状態を構成する
 
@@ -274,7 +274,7 @@ TempData プロバイダーを選択するときの考慮事項:
 
 1. アプリは既にセッション状態を使っているかどうか。 使っている場合、(データのサイズを除き) セッション状態 TempData プロバイダーがそのアプリにコストを追加することはありません。
 2. アプリでは、比較的少量のデータに対して (最大 500 バイト) TempData がわずかばかり使用されているか。 該当する場合、Cookie TempData プロバイダーは TempData を送信する要求ごとに少額のコストを追加します。 該当しない場合、セッション状態 TempData プロバイダーは便利かもしれません。TempData が尽きるまで、要求のたびに大量のデータをラウンドトリップすることが回避されます。
-3. アプリは複数サーバーのサーバー ファームで実行しているか。 そうである場合は、データ保護の外部で Cookie TempData プロバイダーを使用するために、追加の構成は必要ありません (「[ASP.NET Core のデータ保護](xref:security/data-protection/index)」および「[Key storage providers in ASP.NET Core](xref:security/data-protection/implementation/key-storage-providers)」(ASP.NET Core でのキー ストレージ プロバイダー) をご覧ください)。
+3. アプリは複数サーバーのサーバー ファームで実行しているか。 そうである場合は、データ保護の外部で Cookie TempData プロバイダーを使用するために、追加の構成は必要ありません (<xref:security/data-protection/introduction> および[キー ストレージ プロバイダー](xref:security/data-protection/implementation/key-storage-providers)に関する記事を参照)。
 
 > [!NOTE]
 > ほとんどの Web クライアント (Web ブラウザーなど) は、各 Cookie の最大サイズ、Cookie の合計数、または両方に上限を課します。 Cookie TempData プロバイダーを使用するとき、アプリでそれらの上限が超えないことを確認してください。 データの合計サイズを考慮してください。 暗号化とチャンクによる Cookie のサイズの増加を考慮してください。

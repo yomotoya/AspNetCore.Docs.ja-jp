@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: b891b921baf1fe6d167c7bfb8b4c5278ce9fe9f5
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: c4aef369bb3965b70d1b461cf63e6f5a26a00628
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055865"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244724"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Visual Studio Code を使用して ASP.NET Core Razor ページ アプリにモデルを追加する
 
@@ -35,7 +35,13 @@ ms.locfileid: "43055865"
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 ```
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-4)]
+<a name="reg"></a>
+
+### <a name="register-the-database-context"></a>データベース コンテキストの登録
+
+*Startup.cs* ファイルで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーを使用して、データベース コンテキストを登録します。
+
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=10-11)]
 
 *Startup.cs* の先頭に次の `using` ステートメントを追加します。
 
@@ -46,45 +52,24 @@ using Microsoft.EntityFrameworkCore;
 
 プロジェクトをビルドして、エラーがないことを確認します。
 
-### <a name="entity-framework-core-nuget-packages-for-migrations"></a>移行用の Entity Framework Core NuGet パッケージ
-
-コマンド ライン インターフェイス (CLI) の EF ツールが [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) で提供されています。 このパッケージをインストールするには、*.csproj* ファイルの `DotNetCliToolReference` コレクションに追加します。 **注:** *.csproj* ファイルを編集して、このパッケージをインストールする必要があります。`install-package` コマンドやパッケージ マネージャー GUI を使用することはできません。
-
-以下のように、*RazorPagesMovie.csproj* ファイルを編集します。
-
-* **[ファイル]**、 > **[ファイルを開く]** の順に選択してから、*RazorPagesMovie.csproj* ファイルを選択します。
-* `Microsoft.EntityFrameworkCore.Tools.DotNet` 用のツール参照の 2 つ目の **\<ItemGroup >** への追加
-
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
-
 [!INCLUDE [model 3](../../includes/RP/model3.md)]
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-movie-model"></a>ムービー モデルのスキャフォールディング
 
 * プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
-* 次のコマンドを実行します。
-
-**注: Windows で次のコマンドを実行します。MacOS および Linux の場合は、次のコマンドを参照してください。**
+* **Windows の場合**: 次のコマンドを実行します。
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* MacOS および Linux では、次のコマンドを実行します。
+* **macOS および Linux の場合**: 次のコマンドを実行します。
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
-
-エラーが発生した場合は、次のようにします。
-  ```
-  The process cannot access the file 
- 'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
-  because it is being used by another process.
-  ```
-
-Visual Studio を終了し、コマンドを再度実行します。
 
 [!INCLUDE [model 4](../../includes/RP/model4.md)]
 
