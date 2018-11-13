@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core での Web サーバーの実装
-author: rick-anderson
+author: guardrex
 description: ASP.NET Core の Web サーバー Kestrel と HTTP.sys を検出します。 サーバーを選択する方法と、リバース プロキシ サーバーを使用するタイミングについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 161ab3fdf48e58d8c9af991dc5531e46d9c5adff
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325862"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505727"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
@@ -19,7 +19,7 @@ ms.locfileid: "49325862"
 
 ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装は HTTP 要求をリッスンし、<xref:Microsoft.AspNetCore.Http.HttpContext> に構成された[要求機能](xref:fundamentals/request-features)のセットとしてアプリに公開します。
 
-ASP.NET Core には、次の 3 つのサーバー実装が用意されています。
+ASP.NET Core には、次のサーバー実装が付属しています。
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -144,7 +144,7 @@ ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/w
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * オペレーティング システム
-    * Windows Server 2012 R2/Windows 8.1 以降
+    * Windows Server 2016/Windows 10 以降&dagger;
     * OpenSSL 1.0.2 以降を使用した Linux (Ubuntu 16.04 以降など)
     * 将来のリリースでは HTTP/2 が macOS 上でサポートされるようになります。
   * ターゲット フレームワーク: .NET Core 2.2 以降
@@ -158,6 +158,8 @@ ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/w
   * Windows Server 2016/Windows 10 以降、IIS 10 以降
   * 一般向けのエッジ サーバーでは HTTP/2 を使用しますが、Kestrel へのリバース プロキシ接続では HTTP/1.1 を使用します。
   * ターゲット フレームワーク: IIS アウトプロセスの展開には適用できません。
+
+&dagger;Kestrel では、Windows Server 2012 R2 および Windows 8.1 上での HTTP/2 のサポートは制限されています。 サポートが制限されている理由は、これらのオペレーティング システムで使用できる TLS 暗号のスイートのリストが制限されているためです。 TLS 接続をセキュリティで保護するためには、楕円曲線デジタル署名アルゴリズム (ECDSA) を使用して生成した証明書が必要になる場合があります。
 
 ::: moniker-end
 

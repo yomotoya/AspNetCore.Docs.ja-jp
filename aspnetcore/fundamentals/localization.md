@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207590"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505831"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -338,6 +338,8 @@ services.Configure<RequestLocalizationOptions>(options =>
 * 特定のカルチャ: 指定した言語と地域を含むカルチャ  (例: "en-US"、"en-GB"、"es-CL")。
 * 親カルチャ: 特定のカルチャを含むニュートラル カルチャ  (たとえば、"en" は "en-US" および "en-GB" の親カルチャです)。
 * ロケール: ロケールはカルチャと同じです。
+
+[!INCLUDE[](~/includes/currency.md)]
 
 ## <a name="additional-resources"></a>その他の技術情報
 
