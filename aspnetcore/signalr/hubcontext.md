@@ -7,41 +7,41 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/01/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: af125791a75a2dd68c236dd8c5b51eecff244ce4
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: ce350147e743df7f1671dd86da7c83f04bf0fe22
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758155"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569935"
 ---
-# <a name="send-messages-from-outside-a-hub"></a><span data-ttu-id="4dfa3-103">ハブの外部からのメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-103">Send messages from outside a hub</span></span>
+# <a name="send-messages-from-outside-a-hub"></a><span data-ttu-id="49747-103">ハブの外部からのメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="49747-103">Send messages from outside a hub</span></span>
 
-<span data-ttu-id="4dfa3-104">によって[Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="4dfa3-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
+<span data-ttu-id="49747-104">によって[Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="49747-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
 
-<span data-ttu-id="4dfa3-105">SignalR ハブは、SignalR のサーバーに接続しているクライアントにメッセージを送信するための中核となる抽象化です。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-105">The SignalR hub is the core abstraction for sending messages to clients connected to the SignalR server.</span></span> <span data-ttu-id="4dfa3-106">アプリを使用して、その他の場所からメッセージを送信することも、`IHubContext`サービス。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-106">It's also possible to send messages from other places in your app using the `IHubContext` service.</span></span> <span data-ttu-id="4dfa3-107">この記事は、SignalR にアクセスする方法を説明します`IHubContext`ハブ外からのクライアントに通知を送信します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-107">This article explains how to access a SignalR `IHubContext` to send notifications to clients from outside a hub.</span></span>
+<span data-ttu-id="49747-105">SignalR ハブは、SignalR のサーバーに接続しているクライアントにメッセージを送信するための中核となる抽象化です。</span><span class="sxs-lookup"><span data-stu-id="49747-105">The SignalR hub is the core abstraction for sending messages to clients connected to the SignalR server.</span></span> <span data-ttu-id="49747-106">アプリを使用して、その他の場所からメッセージを送信することも、`IHubContext`サービス。</span><span class="sxs-lookup"><span data-stu-id="49747-106">It's also possible to send messages from other places in your app using the `IHubContext` service.</span></span> <span data-ttu-id="49747-107">この記事は、SignalR にアクセスする方法を説明します`IHubContext`ハブ外からのクライアントに通知を送信します。</span><span class="sxs-lookup"><span data-stu-id="49747-107">This article explains how to access a SignalR `IHubContext` to send notifications to clients from outside a hub.</span></span>
 
-<span data-ttu-id="4dfa3-108">[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="4dfa3-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
+<span data-ttu-id="49747-108">[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="49747-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
 
-## <a name="get-an-instance-of-ihubcontext"></a><span data-ttu-id="4dfa3-109">IHubContext のインスタンスを取得します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-109">Get an instance of IHubContext</span></span>
+## <a name="get-an-instance-of-ihubcontext"></a><span data-ttu-id="49747-109">IHubContext のインスタンスを取得します。</span><span class="sxs-lookup"><span data-stu-id="49747-109">Get an instance of IHubContext</span></span>
 
-<span data-ttu-id="4dfa3-110">ASP.NET Core signalr でのインスタンスにアクセスすることができます`IHubContext`依存関係の挿入を使用しています。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-110">In ASP.NET Core SignalR, you can access an instance of `IHubContext` via dependency injection.</span></span> <span data-ttu-id="4dfa3-111">インスタンスを挿入できる`IHubContext`コント ローラー、ミドルウェア、またはその他の DI サービスにします。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-111">You can inject an instance of `IHubContext` into a controller, middleware, or other DI service.</span></span> <span data-ttu-id="4dfa3-112">インスタンスを使用して、クライアントにメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-112">Use the instance to send messages to clients.</span></span>
+<span data-ttu-id="49747-110">ASP.NET Core signalr でのインスタンスにアクセスすることができます`IHubContext`依存関係の挿入を使用しています。</span><span class="sxs-lookup"><span data-stu-id="49747-110">In ASP.NET Core SignalR, you can access an instance of `IHubContext` via dependency injection.</span></span> <span data-ttu-id="49747-111">インスタンスを挿入できる`IHubContext`コント ローラー、ミドルウェア、またはその他の DI サービスにします。</span><span class="sxs-lookup"><span data-stu-id="49747-111">You can inject an instance of `IHubContext` into a controller, middleware, or other DI service.</span></span> <span data-ttu-id="49747-112">インスタンスを使用して、クライアントにメッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="49747-112">Use the instance to send messages to clients.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4dfa3-113">一方、ASP.NET 4.x GlobalHost にアクセスできるようにするために使用する SignalR、`IHubContext`します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-113">This differs from ASP.NET 4.x SignalR which used GlobalHost to provide access to the `IHubContext`.</span></span> <span data-ttu-id="4dfa3-114">ASP.NET Core は、このグローバル シングルトンの必要性を削除する依存関係挿入フレームワークです。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-114">ASP.NET Core has a dependency injection framework that removes the need for this global singleton.</span></span>
+> <span data-ttu-id="49747-113">一方、ASP.NET 4.x GlobalHost にアクセスできるようにするために使用する SignalR、`IHubContext`します。</span><span class="sxs-lookup"><span data-stu-id="49747-113">This differs from ASP.NET 4.x SignalR which used GlobalHost to provide access to the `IHubContext`.</span></span> <span data-ttu-id="49747-114">ASP.NET Core は、このグローバル シングルトンの必要性を削除する依存関係挿入フレームワークです。</span><span class="sxs-lookup"><span data-stu-id="49747-114">ASP.NET Core has a dependency injection framework that removes the need for this global singleton.</span></span>
 
-### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a><span data-ttu-id="4dfa3-115">IHubContext のコント ローラーのインスタンスを挿入します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-115">Inject an instance of IHubContext in a controller</span></span>
+### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a><span data-ttu-id="49747-115">IHubContext のコント ローラーのインスタンスを挿入します。</span><span class="sxs-lookup"><span data-stu-id="49747-115">Inject an instance of IHubContext in a controller</span></span>
 
-<span data-ttu-id="4dfa3-116">インスタンスを挿入できる`IHubContext`コンス トラクターに追加して、コント ローラーにします。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-116">You can inject an instance of `IHubContext` into a controller by adding it to your constructor:</span></span>
+<span data-ttu-id="49747-116">インスタンスを挿入できる`IHubContext`コンス トラクターに追加して、コント ローラーにします。</span><span class="sxs-lookup"><span data-stu-id="49747-116">You can inject an instance of `IHubContext` into a controller by adding it to your constructor:</span></span>
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-<span data-ttu-id="4dfa3-117">現在のインスタンスへのアクセスで`IHubContext`、ハブ自体で必要がある場合は、ハブ メソッドを呼び出すことができます。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-117">Now, with access to an instance of `IHubContext`, you can call hub methods as if you were in the hub itself.</span></span>
+<span data-ttu-id="49747-117">現在のインスタンスへのアクセスで`IHubContext`、ハブ自体で必要がある場合は、ハブ メソッドを呼び出すことができます。</span><span class="sxs-lookup"><span data-stu-id="49747-117">Now, with access to an instance of `IHubContext`, you can call hub methods as if you were in the hub itself.</span></span>
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
-### <a name="get-an-instance-of-ihubcontext-in-middleware"></a><span data-ttu-id="4dfa3-118">IHubContext のミドルウェア内でインスタンスを取得します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-118">Get an instance of IHubContext in middleware</span></span>
+### <a name="get-an-instance-of-ihubcontext-in-middleware"></a><span data-ttu-id="49747-118">IHubContext のミドルウェア内でインスタンスを取得します。</span><span class="sxs-lookup"><span data-stu-id="49747-118">Get an instance of IHubContext in middleware</span></span>
 
-<span data-ttu-id="4dfa3-119">アクセス、`IHubContext`ミドルウェア パイプライン内で次のようにします。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-119">Access the `IHubContext` within the middleware pipeline like so:</span></span>
+<span data-ttu-id="49747-119">アクセス、`IHubContext`ミドルウェア パイプライン内で次のようにします。</span><span class="sxs-lookup"><span data-stu-id="49747-119">Access the `IHubContext` within the middleware pipeline like so:</span></span>
 
 ```csharp
 app.Use(next => async (context) =>
@@ -53,18 +53,18 @@ app.Use(next => async (context) =>
 ```
 
 > [!NOTE]
-> <span data-ttu-id="4dfa3-120">ハブ メソッドの外部から呼び出されるときに、`Hub`クラスは、呼び出しに関連付けられている呼び出し元はありません。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-120">When hub methods are called from outside of the `Hub` class, there's no caller associated with the invocation.</span></span> <span data-ttu-id="4dfa3-121">そのためへのアクセスはありません、 `ConnectionId`、 `Caller`、および`Others`プロパティ。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-121">Therefore, there's no access to the `ConnectionId`, `Caller`, and `Others` properties.</span></span>
+> <span data-ttu-id="49747-120">ハブ メソッドの外部から呼び出されるときに、`Hub`クラスは、呼び出しに関連付けられている呼び出し元はありません。</span><span class="sxs-lookup"><span data-stu-id="49747-120">When hub methods are called from outside of the `Hub` class, there's no caller associated with the invocation.</span></span> <span data-ttu-id="49747-121">そのためへのアクセスはありません、 `ConnectionId`、 `Caller`、および`Others`プロパティ。</span><span class="sxs-lookup"><span data-stu-id="49747-121">Therefore, there's no access to the `ConnectionId`, `Caller`, and `Others` properties.</span></span>
 
-### <a name="inject-a-strongly-typed-hubcontext"></a><span data-ttu-id="4dfa3-122">厳密に型指定された HubContext を挿入します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-122">Inject a strongly-typed HubContext</span></span>
+### <a name="inject-a-strongly-typed-hubcontext"></a><span data-ttu-id="49747-122">厳密に型指定された HubContext を挿入します。</span><span class="sxs-lookup"><span data-stu-id="49747-122">Inject a strongly-typed HubContext</span></span>
 
-<span data-ttu-id="4dfa3-123">厳密に型指定された HubContext を挿入するように、ハブが継承`Hub<T>`します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-123">To inject a strongly-typed HubContext, ensure your Hub inherits from `Hub<T>`.</span></span> <span data-ttu-id="4dfa3-124">挿入を使用して、`IHubContext<THub, T>`インターフェイスなく`IHubContext<THub>`します。</span><span class="sxs-lookup"><span data-stu-id="4dfa3-124">Inject it using the `IHubContext<THub, T>` interface rather than `IHubContext<THub>`.</span></span>
+<span data-ttu-id="49747-123">厳密に型指定された HubContext を挿入するように、ハブが継承`Hub<T>`します。</span><span class="sxs-lookup"><span data-stu-id="49747-123">To inject a strongly-typed HubContext, ensure your Hub inherits from `Hub<T>`.</span></span> <span data-ttu-id="49747-124">挿入を使用して、`IHubContext<THub, T>`インターフェイスなく`IHubContext<THub>`します。</span><span class="sxs-lookup"><span data-stu-id="49747-124">Inject it using the `IHubContext<THub, T>` interface rather than `IHubContext<THub>`.</span></span>
 
 ```csharp
 public class ChatController : Controller
 {
     public IHubContext<ChatHub, IChatClient> _strongChatHubContext { get; }
 
-    public SampleDataController(IHubContext<ChatHub, IChatClient> chatHubContext)
+    public ChatController(IHubContext<ChatHub, IChatClient> chatHubContext)
     {
         _strongChatHubContext = chatHubContext;
     }
@@ -76,8 +76,8 @@ public class ChatController : Controller
 }
 ```
 
-## <a name="related-resources"></a><span data-ttu-id="4dfa3-125">関連資料</span><span class="sxs-lookup"><span data-stu-id="4dfa3-125">Related resources</span></span>
+## <a name="related-resources"></a><span data-ttu-id="49747-125">関連資料</span><span class="sxs-lookup"><span data-stu-id="49747-125">Related resources</span></span>
 
-* [<span data-ttu-id="4dfa3-126">開始するには</span><span class="sxs-lookup"><span data-stu-id="4dfa3-126">Get started</span></span>](xref:tutorials/signalr)
-* [<span data-ttu-id="4dfa3-127">ハブ</span><span class="sxs-lookup"><span data-stu-id="4dfa3-127">Hubs</span></span>](xref:signalr/hubs)
-* [<span data-ttu-id="4dfa3-128">Azure に発行する</span><span class="sxs-lookup"><span data-stu-id="4dfa3-128">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
+* [<span data-ttu-id="49747-126">開始するには</span><span class="sxs-lookup"><span data-stu-id="49747-126">Get started</span></span>](xref:tutorials/signalr)
+* [<span data-ttu-id="49747-127">ハブ</span><span class="sxs-lookup"><span data-stu-id="49747-127">Hubs</span></span>](xref:signalr/hubs)
+* [<span data-ttu-id="49747-128">Azure に発行する</span><span class="sxs-lookup"><span data-stu-id="49747-128">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
