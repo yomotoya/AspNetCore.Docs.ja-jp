@@ -5,12 +5,12 @@ description: Azure でホストされる ASP.NET Core アプリの DevOps パイ
 ms.author: scaddie
 ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090538"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570088"
 ---
 # <a name="continuous-integration-and-deployment"></a>継続的インテグレーションとデプロイ
 
@@ -271,7 +271,7 @@ Azure サブスクリプション、サービスの種類、web アプリ名、�
 
 ![リリース パイプラインのスロット スワップ タスク](media/cicd/release-definition-task2.png)
 
-サブスクリプション、リソース グループ、サービスの種類、web アプリ名、およびデプロイ スロットの詳細が提供されます。 **実稼働とスワップ**チェック ボックスをオンします。 その結果、展開、bits、*ステージング*スロットが運用環境にスワップされます。
+サブスクリプション、リソース グループ、サービスの種類、web アプリ名、およびデプロイ スロットの詳細が提供されます。 **実稼働とスワップ**チェック ボックスがオンにします。 その結果、展開、bits、*ステージング*スロットが運用環境にスワップされます。
 
 ## <a name="additional-reading"></a>その他の参考資料
 

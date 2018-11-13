@@ -6,19 +6,19 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902720"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570023"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でのクライアント側パッケージを管理します。
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Noel Rice](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)、および[Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
-> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 [ライブラリ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (略して LibMan) は、Visual Studio の新しいクライアント側ライブラリ取得ツール (Visual Studio 15.8 またはそれ以降)。 詳細については、「<xref:client-side/libman/index>」を参照してください。 Bower は、Visual studio バージョン 15.5 でサポートされます。
+> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 [ライブラリ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (略して LibMan) は、Visual Studio の新しいクライアント側ライブラリ取得ツール (Visual Studio 15.8 またはそれ以降)。 詳細については、「 <xref:client-side/libman/index> 」を参照してください。 Bower は、Visual studio バージョン 15.5 でサポートされます。
 >
 > Webpack と yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)利用できます。
 
@@ -40,7 +40,7 @@ ms.locfileid: "41902720"
 
   ![bower パッケージを管理します。](bower/_static/manage-bower-packages.png)
 
-* いることを確認、"に変更を保存*bower.json*"チェック ボックスをオンします。 ドロップダウン リストからバージョンを選択し、**インストール**ボタンをクリックします。 **出力**ウィンドウには、インストールの詳細が表示されます。
+* いることを確認、"に変更を保存*bower.json*"チェック ボックスがオンにします。 ドロップダウン リストからバージョンを選択し、**インストール**ボタンをクリックします。 **出力**ウィンドウには、インストールの詳細が表示されます。
 
 ### <a name="manual-installation-in-bowerjson"></a>Bower.json の手動インストール
 
