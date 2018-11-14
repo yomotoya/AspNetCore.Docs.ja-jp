@@ -4,14 +4,14 @@ author: rick-anderson
 description: インターネットに接続された最新のクラウド ベース アプリケーションを構築するための、クロス プラットフォームで高パフォーマンスのオープン ソース フレームワークである ASP.NET Core について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/10/2018
 uid: index
-ms.openlocfilehash: 60f7d64baa0441b90befb2d785999a707e1025c5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 1699acc0086dfd50c573afc239bc8f37eb9e7af9
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225396"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569989"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -76,6 +76,22 @@ ASP.NET Core 3.0 以降は、.NET Core でのみ実行されます。 この変�
 1. [ASP.NET リポジトリの zip ファイルをダウンロード](https://codeload.github.com/aspnet/Docs/zip/master)します。
 1. *Docs-master.zip* ファイルを解凍します。
 1. サンプル リンクの URL を使って、サンプル ディレクトリに移動します。
+
+複数のシナリオを示すため、サンプル アプリでは `#define` と `#if-#else/#elif-#endif` の C# ステートメントを活用してさまざまなサンプル コードのセクションを選択してコンパイルし、実行します。 このアプローチを活用するサンプルでは、C# ファイルの上部にある `#define` ステートメントを、実行するシナリオに関連付けられたシンボルに設定します。 サンプルでは、シナリオを実行するために複数のファイルの上部でシンボルを設定するように求められる場合があります。
+
+たとえば、次の `#define` のシンボル一覧は、4 つのシナリオが使用可能である (シンボルごとに 1 つのシナリオ) ことを示しています。 現在のサンプル構成では `TemplateCode` のシナリオが実行されます。
+
+```csharp
+#define TemplateCode // or LogFromMain or ExpandDefault or FilterInCode
+```
+
+`ExpandDefault` のシナリオを実行するサンプルを変更するには、`ExpandDefault` のシンボルを定義し、残りのシンボルをコメント アウトしたままにします。
+
+```csharp
+#define ExpandDefault // TemplateCode or LogFromMain or FilterInCode
+```
+
+[C# プリプロセッサ ディレクティブ](/dotnet/csharp/language-reference/preprocessor-directives/)を使用してコードのセクションを選択的にコンパイルする方法の詳細については、「[#define (C# リファレンス)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define)」および「[#if (C# リファレンス)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if)」を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

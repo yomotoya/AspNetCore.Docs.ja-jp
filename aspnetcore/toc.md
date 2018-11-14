@@ -197,6 +197,7 @@
 ### [HubContext](xref:signalr/hubcontext)
 ### [ユーザーおよびグループ](xref:signalr/groups)
 ### [Azure に発行する](xref:signalr/publish-to-azure-web-app)
+### [API の設計に関する考慮事項](xref:signalr/api-design)
 ## クライアント
 ### [.NET クライアント](xref:signalr/dotnet-client)
 ### [.NET API リファレンス](/dotnet/api/microsoft.aspnetcore.signalr.client)
