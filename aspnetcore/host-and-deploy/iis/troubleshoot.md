@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6a53c1ba5badd741afc3321ce21b047965c611db
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225448"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -19,7 +19,17 @@ ms.locfileid: "50090603"
 
 この記事では、[インターネット インフォメーション サービス (IIS)](/iis) を使用してホストしている場合に、ASP.NET Core アプリの起動時に関する問題を診断する方法について説明します。 この記事の情報は、Windows Server および Windows デスクトップ上の IIS でのホスティングに適用されます。
 
+::: moniker range=">= aspnetcore-2.2"
+
+Visual Studio では、ASP.NET Core プロジェクトのデバッグ時に [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) のホスティングが既定の設定です。 このトピックのアドバイスを参照すると、ローカルでのデバッグ時に発生する *502.5 処理エラー*または *500.30 - 開始エラー*を解決できます。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 Visual Studio では、ASP.NET Core プロジェクトのデバッグ時に [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) のホスティングが既定の設定です。 このトピックのアドバイスを参照すると、ローカルでのデバッグ時に発生する *502.5 処理エラー*を解決できます。
+
+::: moniker-end
 
 その他のトラブルシューティング トピック:
 
@@ -40,11 +50,40 @@ Visual Studio Code に組み込まれているデバッグのサポートにつ�
 **502.5 処理エラー**  
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
-ASP.NET Core モジュールはワーカー プロセスの開始を試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。
+ASP.NET Core モジュールはバックエンドのドットネット プロセスの開始を試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。 
+
+一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。
 
 正しく構成されていないホスティングやアプリが原因でワーカー プロセスが失敗する場合、"*502.5 処理エラー*" のエラー ページが返されます。
 
 ![502.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+**500.30 インプロセス起動エラー**
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+ASP.NET Core モジュールは .NET Core CLR の開始をインプロセスで試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。 
+
+一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。
+
+**500.0 インプロセス ハンドラーの読み込みエラー**
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+ASP.NET Core モジュールは .NET Core CLR の検出に失敗し、インプロセス要求ハンドラー (*aspnetcorev2_inprocess.dll*) を検出します。 次の点をご確認ください。
+
+* アプリが [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) NuGet パッケージまたは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)を対象としている。
+* アプリが対象としているバージョンの ASP.NET Core 共有フレームワークが対象のコンピューターにインストールされている。
+
+**500.0 アウト プロセス ハンドラーの読み込みエラー**
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+ASP.NET Core モジュールは、アウト プロセスのホスティング要求ハンドラーの検索に失敗します。 *aspnetcorev2_outofprocess.dll* が *aspnetcorev2.dll* の隣のサブフォルダーにあることを確認してください。 
+
+::: moniker-end
 
 **500 内部サーバー エラー**  
 アプリは起動しますが、エラーのためにサーバーは要求を実行できません。

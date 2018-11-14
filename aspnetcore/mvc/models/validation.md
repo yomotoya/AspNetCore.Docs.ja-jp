@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC でのモデルの検証について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/06/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253157"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225461"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -33,10 +33,10 @@ ASP.NET Core 2.2 以降の ASP.NET Core ランタイムでは、特定のモデ�
 
 検証属性は、次のようにプロパティ レベルで指定されます。 
 
-```csharp 
-[Required] 
+```csharp
+[Required]
 public string MyProperty { get; set; } 
-``` 
+```
 
 次に示すのは、映画やテレビ番組に関する情報を格納するアプリの注釈付き `Movie` モデルです。 ほとんどのプロパティは必須であり、一部の文字列プロパティには長さの要件があります。 さらに、`Price` プロパティには 0 から $999.99 までの数値範囲制限が、カスタム検証属性と共に適用されています。
 
@@ -82,13 +82,19 @@ MVC モデル バインドは、検証および検証属性には関わりがあ
 
 モデルの状態は、送信された HTML フォーム値での検証エラーを表します。
 
-MVC は、エラー数の最大数 (既定値は 200) に達するまで、フィールドの検証を続けます。 *Startup.cs* ファイルの `ConfigureServices` メソッドに次のコードを挿入することで、この値を構成できます。
+MVC は、エラー数の最大数 (既定値は 200) に達するまで、フィールドの検証を続けます。 この数は、`Startup.ConfigureServices` の次のコードを使用して構成します。
 
 [!code-csharp[](validation/sample/Startup.cs?range=27)]
 
-## <a name="handling-model-state-errors"></a>モデルの状態エラーの処理
+## <a name="handle-model-state-errors"></a>モデルの状態エラーの処理
 
-モデル検証は各コントローラー アクションが呼び出される前に行われます。`ModelState.IsValid` を検査し、適切に対処するのはアクション メソッドの仕事です。 多くの場合において適切な対応は、エラー応答を返すことであり、モデルの検証が失敗した理由を詳しく示すのが理想的です。
+モデルの検証は、コントローラー アクションの実行前に発生します。 このアクションは、`ModelState.IsValid` を検査し、適切な対処を行います。 多くの場合において適切な対応は、エラー応答を返すことであり、モデルの検証が失敗した理由を詳しく示すのが理想的です。
+
+::: moniker range=">= aspnetcore-2.1"
+
+Web API コントローラーで `[ApiController]` 属性を使用して `ModelState.IsValid` が `false` と評価されると、問題の詳細を含む自動的な HTTP 400 応答が返されます。 詳細については、「[自動的な HTTP 400 応答](xref:web-api/index#automatic-http-400-responses)」を参照してください。
+
+::: moniker-end
 
 一部のアプリでは、モデル検証エラーを処理するとき、標準的な規則に従います。その場合、そのようなポリシーを実装する場所としてフィルターが適していることがあります。 モデルの状態が有効なとき、および無効なときにアクションがどのように動作するかテストする必要があります。
 
