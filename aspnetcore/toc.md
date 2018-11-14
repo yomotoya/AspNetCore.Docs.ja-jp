@@ -185,6 +185,8 @@
 ## [アクションの戻り値の型](xref:web-api/action-return-types)
 ## [応答データの書式設定](xref:web-api/advanced/formatting)
 ## [カスタム フォーマッタ](xref:web-api/advanced/custom-formatters)
+## [アナライザー](xref:web-api/advanced/analyzers)
+## [規則](xref:web-api/advanced/conventions)
 
 # リアルタイムのアプリ
 ## [概要](xref:signalr/introduction)
