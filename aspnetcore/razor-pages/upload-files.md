@@ -4,14 +4,14 @@ author: guardrex
 description: Razor ページにファイルをアップロードする方法を説明します。
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 07/11/2018
+ms.date: 11/10/2018
 uid: razor-pages/upload-files
-ms.openlocfilehash: 92e72869967b6e3202c97b92e341ea22adc69651
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8d86a84bcd31cc1e1e6fbe0693c7ec179e589f3d
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912502"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570010"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページにファイルをアップロードする
 
@@ -22,6 +22,8 @@ ms.locfileid: "48912502"
 このトピックでは、これは小さいファイルのアップロードも単純なモデル バインディングを使用して、ファイルをアップロードする方法を示します。 大きなファイルをストリーミングする方法については、「[Uploading large files with streaming](xref:mvc/models/file-uploads#uploading-large-files-with-streaming)」 (ストリーミングでの大きいファイルのアップロード) を参照してください。
 
 以下の手順では、映画スケジュール ファイルのアップロード機能をサンプル アプリに追加します。 映画スケジュールを表すのが `Schedule` クラスです。 このクラスには、2 つのバージョンのスケジュールが含まれています。 1 つのバージョンは顧客に提供される `PublicSchedule` です。 もう 1 つのバージョンは社員が利用する `PrivateSchedule` です。 いずれも別個のファイルとしてアップロードされます。 このチュートリアルでは、POST が 1 つのページからサーバーに 2 つのファイルをアップロードします。
+
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="security-considerations"></a>セキュリティの考慮事項
 

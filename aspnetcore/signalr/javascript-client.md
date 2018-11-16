@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript クライアントの概要です�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/14/2018
+ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 02844c35d1933d36576c25ff335a572fb65eff5c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208019"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708388"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -98,6 +98,17 @@ SignalR を呼び出すメソッド名を照合することによってクライ
 使用して、 [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging)メソッド[HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder)ログ レベルを構成します。 メッセージは、ブラウザーのコンソールに記録されます。
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
+
+## <a name="reconnect-clients"></a>クライアントを再接続します。
+
+SignalR JavaScript クライアントは自動的に再接続しません。 クライアントを手動で再接続するコードを記述する必要があります。 次のコードでは、再接続の一般的なアプローチを示します。
+
+1. 関数 (ここで、`start`関数)、接続を開始するが作成されます。
+1. 呼び出す、`start`関数で、接続の`onclose`イベント ハンドラー。
+
+[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=30-42)]
+
+実際の実装は、指数バックオフを使用して、または断念する前に指定された回数を再試行してください。 
 
 ## <a name="additional-resources"></a>その他の技術情報
 

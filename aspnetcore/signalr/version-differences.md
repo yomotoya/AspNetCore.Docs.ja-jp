@@ -4,14 +4,14 @@ author: tdykstra
 description: SignalR と ASP.NET Core SignalR の違い
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 09/10/2018
+ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: c9302f1c9e7cd4e62eaeaef871feb54ef26aa3ca
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505753"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708414"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR、ASP.NET Core SignalR の相違点
 
@@ -75,6 +75,10 @@ ASP.NET Core SignalR なりました[ストリーミング データ](xref:signa
 ### <a name="state"></a>状態
 
 進行状況メッセージのサポートと、クライアントと (HubState と呼ばれる多くの場合)、ハブ間で任意の状態を渡す機能が削除されました。 現時点では、ハブ プロキシの対応はありません。
+
+### <a name="persistentconnection-removal"></a>PersistentConnection の削除
+
+ASP.NET Core signalr で、 [PersistentConnection](https://docs.microsoft.com/previous-versions/aspnet/jj919047(v%3dvs.118))クラスは削除されました。 
 
 ### <a name="globalhost"></a>GlobalHost
 

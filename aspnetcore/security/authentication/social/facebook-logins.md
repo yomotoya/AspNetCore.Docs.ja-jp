@@ -3,14 +3,15 @@ title: ASP.NET Core での Facebook 外部ログインのセットアップ
 author: rick-anderson
 description: このチュートリアルでは、既存の ASP.NET Core アプリに Facebook アカウントのユーザー認証の統合について説明します。
 ms.author: riande
-ms.date: 08/01/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 3ba6fe7785afa268e54e6032f1963c1867f6bb27
-ms.sourcegitcommit: 74c09caec8992635825b45b7f065f871d33c077a
+ms.openlocfilehash: e8ae16538b5d6844af7d983071fad629ebbe6217
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42634810"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708505"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Facebook 外部ログインのセットアップ
 
@@ -28,19 +29,19 @@ ms.locfileid: "42634810"
 
 * フォームに入力し、タップ、 **Create App ID**ボタンをクリックします。
 
-   ![アプリ ID の新しいフォームを作成します。](index/_static/FBNewAppId.png)
+  ![アプリ ID の新しいフォームを作成します。](index/_static/FBNewAppId.png)
 
 * **製品を選択**] ページで [**セットアップ**上、 **Facebook ログイン**カード。
 
-   ![製品のセットアップ ページ](index/_static/FBProductSetup.png)
+  ![製品のセットアップ ページ](index/_static/FBProductSetup.png)
 
 * **クイック スタート**使用してウィザードを起動**プラットフォームを選択して**最初のページとして。 ここでは、ウィザードをクリックしてバイパス、**設定**左側のメニューのリンク。
 
-   ![スキップのクイック スタート](index/_static/FBSkipQuickStart.png)
+  ![スキップのクイック スタート](index/_static/FBSkipQuickStart.png)
 
 * 表示されます、**クライアント OAuth 設定**ページ。
 
-![クライアントの OAuth の設定 ページ](index/_static/FBOAuthSetup.png)
+  ![クライアントの OAuth の設定 ページ](index/_static/FBOAuthSetup.png)
 
 * 開発 URI を入力と */signin-facebook*に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-facebook`)。 このチュートリアルの後半で構成されている Facebook 認証の要求では自動的に処理 */signin-facebook* OAuth フローを実装するルート。
 
@@ -49,10 +50,9 @@ ms.locfileid: "42634810"
 
 * クリックして**変更を保存**します。
 
-* クリックして**設定 > 基本的な**左側のナビゲーション リンク。 
+* クリックして**設定** > **基本的な**左側のナビゲーション リンク。
 
-    このページで、メモしてをおきます、`App ID`と`App Secret`します。 次のセクションでは、両方に、ASP.NET Core アプリケーションを追加します。
-
+  このページで、メモしてをおきます、`App ID`と`App Secret`します。 次のセクションでは、両方に、ASP.NET Core アプリケーションを追加します。
 
 * サイトをデプロイするときに再アクセスする必要があります、 **Facebook ログイン**セットアップ ページと、新しいパブリック URI を登録します。
 
@@ -69,7 +69,7 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Facebook 認証を構成します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Facebook のサービスを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
@@ -87,9 +87,11 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 インストール、 [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)パッケージ。
 
@@ -108,7 +110,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
----
+::: moniker-end
 
 参照してください、 [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) Facebook 認証でサポートされる構成オプションの詳細について、API リファレンス。 構成オプションを使用できます。
 
@@ -134,6 +136,8 @@ Facebook の資格情報を入力すると、電子メールを設定するサ�
 Facebook の資格情報を使用してログインしました。
 
 ![Web アプリケーション: 認証されたユーザー](index/_static/Done.png)
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 

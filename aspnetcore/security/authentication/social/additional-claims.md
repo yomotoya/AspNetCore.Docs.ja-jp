@@ -5,14 +5,14 @@ description: その他の要求と外部プロバイダーからトークンを�
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/28/2018
+ms.date: 11/11/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: dc8b3e32141466a12e4eff0c86d2d4bed689afe5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9a24ac138950ef2bedac48f506655d06520137cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206358"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708362"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>その他の要求と ASP.NET Core での外部プロバイダーからのトークンを保存します。
 
@@ -22,13 +22,11 @@ ASP.NET Core アプリは、追加の要求および Facebook、Google、Microso
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
-## <a name="prerequisite"></a>必須コンポーネント
+## <a name="prerequisites"></a>必須コンポーネント
 
 アプリでサポートするには、どの外部認証プロバイダーを決定します。 プロバイダーごとにアプリを登録して、クライアント ID とクライアント シークレットを取得します。 詳細については、「 <xref:security/authentication/social/index> 」を参照してください。 [サンプル アプリ](#sample-app-instructions)を使用して、 [Google の認証プロバイダー](xref:security/authentication/google-logins)します。
 
-## <a name="authentication-provider-configuration"></a>認証プロバイダーの構成
-
-### <a name="set-the-client-id-and-client-secret"></a>クライアント ID とクライアント シークレットを設定します。
+## <a name="set-the-client-id-and-client-secret"></a>クライアント ID とクライアント シークレットを設定します。
 
 OAuth 認証プロバイダーは、クライアント ID とクライアント シークレットを使用するアプリとの信頼関係を確立します。 クライアント ID とクライアント シークレットの値はアプリ用に作成、外部認証プロバイダーによって、アプリが、プロバイダーに登録されている場合。 各外部プロバイダー、アプリが使用するは、プロバイダーのクライアント ID とクライアント シークレット個別に構成する必要があります。 詳細については、実際のシナリオに適用される、外部認証プロバイダーについてのトピックを参照してください。
 
@@ -43,7 +41,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=4,6)]
 
-### <a name="establish-the-authentication-scope"></a>認証のスコープを確立します。
+## <a name="establish-the-authentication-scope"></a>認証のスコープを確立します。
 
 指定することで、プロバイダーから取得するアクセス許可の一覧を指定、<xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>します。 一般的な外部プロバイダーの認証のスコープは、次の表に表示されます。
 
@@ -58,7 +56,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=7)]
 
-### <a name="map-user-data-keys-and-create-claims"></a>ユーザー データのキーをマップし、要求の作成
+## <a name="map-user-data-keys-and-create-claims"></a>ユーザー データのキーをマップし、要求の作成
 
 プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id を内の各キー。 要求の種類の詳細については、次を参照してください。<xref:System.Security.Claims.ClaimTypes>します。
 
@@ -72,7 +70,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=30-31)]
 
-### <a name="save-the-access-token"></a>アクセス トークンを保存します。
+## <a name="save-the-access-token"></a>アクセス トークンを保存します。
 
 <xref:Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.SaveTokens*> アクセスと更新トークンを保存するかどうかを定義、<xref:Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties>成功した認証が完了後します。 `SaveTokens` 設定されている`false`既定では、最終的な認証 cookie のサイズを小さくします。
 
@@ -93,7 +91,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnGetCallbackAsync&highlight=31-32)]
 
-### <a name="how-to-add-additional-custom-tokens"></a>追加のカスタム トークンを追加する方法
+## <a name="how-to-add-additional-custom-tokens"></a>追加のカスタム トークンを追加する方法
 
 一部として格納されているカスタムのトークンを追加する方法を説明するために`SaveTokens`、サンプル アプリを追加、<xref:Microsoft.AspNetCore.Authentication.AuthenticationToken>を現在<xref:System.DateTime>の[AuthenticationToken.Name](xref:Microsoft.AspNetCore.Authentication.AuthenticationToken.Name*)の`TicketCreated`:
 
@@ -143,3 +141,5 @@ Authentication Properties
 .expires
     Mon, 10 Sep 2018 18:08:05 GMT
 ```
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

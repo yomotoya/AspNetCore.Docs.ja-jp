@@ -3,14 +3,15 @@ title: Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 author: rick-anderson
 description: このチュートリアルでは、OAuth 2.0 と外部の認証プロバイダーを使用して ASP.NET Core 2.x アプリを構築する方法について説明します。
 ms.author: riande
-ms.date: 11/01/2016
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 48a01ab241f9a6ad6ad3fb2ee9e210f459075c33
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 19074d5014a09446ceec1b89449e78760fc8e7cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336121"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708375"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
@@ -28,9 +29,9 @@ ms.locfileid: "43336121"
 
 ## <a name="create-a-new-aspnet-core-project"></a>新しい .NET Core プロジェクトを作成する
 
-* Visual Studio 2017 のスタート ページから、または **[ファイル]、[新規作成]、[プロジェクト]** の順に選択して、新しいプロジェクトを作成します。
+* Visual Studio 2017 のスタート ページから、または **[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択して、新しいプロジェクトを作成します。
 
-* **[Visual C#] > [.NET Core]** カテゴリにある **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。
+* **[Visual C#]** > **[.NET Core]** カテゴリにある **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。
 
 ![[新しいプロジェクト] ダイアログ](index/_static/new-project.png)
 
@@ -51,9 +52,11 @@ ms.locfileid: "43336121"
 
 OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用する必要があります。
 
-注: 上の図のようにプロジェクト ウィザードの **[認証の変更]** ダイアログで **[個人のユーザー アカウント]** オプションを選択している場合、ASP.NET Core 2.x 用の **[Web アプリケーション]** または **[Web API]** プロジェクト テンプレートを使用して作成されたプロジェクトは、SSL を有効にし、https URL を使用して起動するように自動的に構成されます。
+ASP.NET Core 2.1 以降の **Web アプリケーション**または **Web API** を使用して作成されたプロジェクトは、自動的に SSL を有効にするように構成されます。 プロジェクト ウィザードの **[認証の変更] ダイアログ**で **[個人のユーザー アカウント]** のオプションが選択されている場合、アプリはセキュリティで保護された既定のエンドポイントで起動します。
 
-* 「[Enforce SSL in an ASP.NET Core app](xref:security/enforcing-ssl)」(ASP.NET Core アプリで SSL を適用する) のトピックの手順に従ってサイトで SSL を必須にします。
+詳細については、「<xref:security/enforcing-ssl>」を参照してください。
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>SecretManager を使用して、ログイン プロバイダーから割り当てられたトークンを格納する
 
@@ -74,7 +77,7 @@ OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用す�
 * [Microsoft](xref:security/authentication/microsoft-logins) の手順
 * [その他のプロバイダー](xref:security/authentication/otherlogins)の手順
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
 ## <a name="optionally-set-password"></a>必要に応じてパスワードを設定する
 

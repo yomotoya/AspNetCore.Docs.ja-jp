@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: web-api/index
-ms.openlocfilehash: 010c437afc494fa4426f6922421afac46bbf6b39
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 7541c4c308deaecda0bda9a9c77d9372b65a5100
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225435"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635304"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>ASP.NET Core で Web API を構築する
 
@@ -41,7 +41,7 @@ Web API として機能することを目的としたコント ローラー内�
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="annotation-with-apicontrollerattribute"></a>ApiControllerAttribute で注釈を付ける
+## <a name="annotation-with-apicontroller-attribute"></a>ApiController 属性を使用した注釈
 
 ASP.NET Core 2.1 では、Web API コントローラー クラスを表す [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性が導入されました。 例:
 

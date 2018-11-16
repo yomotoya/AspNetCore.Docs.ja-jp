@@ -1,82 +1,83 @@
 ---
-title: ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
+title: ASP.NET Core での Microsoft アカウントの外部ログインのセットアップ
 author: rick-anderson
-description: このチュートリアルでは、Microsoft アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。
+description: このチュートリアルでは、既存の ASP.NET Core アプリケーションを Microsoft アカウント ユーザーの認証の統合について説明します。
 ms.author: riande
-ms.date: 08/24/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc4fe8c71b97d29cc6697e2aebf04694afb753ec
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272777"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708401"
 ---
-# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core での Microsoft アカウントの外部ログインのセットアップ
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して、Microsoft アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](xref:security/authentication/social/index)です。
+このチュートリアルでは、サンプルの ASP.NET Core 2.0 プロジェクトが作成を使用して、Microsoft アカウントでサインインするユーザーを有効にする方法、[前のページ](xref:security/authentication/social/index)します。
 
-## <a name="create-the-app-in-microsoft-developer-portal"></a>Microsoft 開発者ポータルでのアプリを作成します。
+## <a name="create-the-app-in-microsoft-developer-portal"></a>Microsoft 開発者ポータルで、アプリを作成します。
 
-* 移動[ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com)して作成するか、Microsoft アカウントにサインインします。
+* 移動します[ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com)して作成するか、Microsoft アカウントにサインインします。
 
-![ダイアログをサインインします。](index/_static/MicrosoftDevLogin.png)
+![[サインイン] ダイアログ](index/_static/MicrosoftDevLogin.png)
 
-既に Microsoft アカウントを持っていない場合は、タップ**[を作成します。](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** サインインした後にリダイレクトされます**マイ アプリケーション**ページ。
+Microsoft アカウントがない場合は、タップ**[を作成します。](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** サインインした後にリダイレクトされます**アプリケーション**ページ。
 
-![Microsoft Developer Portal の Microsoft Edge で開く](index/_static/MicrosoftDev.png)
+![Microsoft 開発者ポータルの Microsoft Edge で開く](index/_static/MicrosoftDev.png)
 
-* タップ**アプリの追加**で右上コーナーを入力し、**アプリケーション名**と**Contact Email**:
+* タップ**アプリの追加**、画面右上隅にあるし、入力、**アプリケーション名**と**Contact Email**:
 
 ![新しいアプリケーションの登録 ダイアログ ボックス](index/_static/MicrosoftDevAppCreate.png)
 
-* このチュートリアルの目的で、消去、**セットアップのガイド付き**チェック ボックスをオンします。
+* このチュートリアルの目的で、クリア、**ガイド付きセットアップ**チェック ボックスをオンします。
 
-* タップ**を作成する**を続行するのには、**登録**ページです。 提供、**名**の値をメモし、**アプリケーション Id**、として使用する`ClientId`のチュートリアルの後。
+* タップ**作成**を続行する、**登録**ページ。 提供、**名前**の値を確認し、**アプリケーション Id**、として使用する`ClientId`チュートリアルの後半で。
 
-![[登録] ページ](index/_static/MicrosoftDevAppReg.png)
+![登録ページ](index/_static/MicrosoftDevAppReg.png)
 
-* タップ**プラットフォームを追加**で、**プラットフォーム**セクションし、選択、 **Web**プラットフォーム。
+* タップ**プラットフォームの追加**で、**プラットフォーム**セクションし、選択、 **Web**プラットフォーム。
 
-![追加プラットフォーム ダイアログ ボックス](index/_static/MicrosoftDevAppPlatform.png)
+![追加のプラットフォーム ダイアログ ボックス](index/_static/MicrosoftDevAppPlatform.png)
 
-* 新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力`/signin-microsoft`に追加された、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。 このチュートリアルで後で構成されている Microsoft の認証スキームはで、要求を自動的に処理`/signin-microsoft`OAuth フローを実装するルート。
+* 新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力`/signin-microsoft`に追加されます、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。 このチュートリアルの後半で構成されている Microsoft の認証構成はで、要求を自動的に処理`/signin-microsoft`OAuth フローを実装するためにルート。
 
 ![Web プラットフォーム セクションの「](index/_static/MicrosoftRedirectUri.png)
 
 > [!NOTE]
-> URI セグメント`/signin-microsoft`は Microsoft の認証プロバイダーの既定のコールバックとして設定します。 既定のコールバック URI を変更するには、継承を使用して、Microsoft の認証ミドルウェアの構成中に[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions)クラスです。
+> URI セグメント`/signin-microsoft`Microsoft 認証プロバイダーの既定のコールバックとして設定されます。 既定のコールバック URI を変更するには、継承を使用して、Microsoft の認証ミドルウェアを構成するときに[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions)クラス。
 
 * タップ**URL の追加**URL が追加されたことを確認します。
 
-* 必要に応じてその他のアプリケーション設定を入力し、タップ**保存**アプリの構成に変更を保存するページの下部にあります。
+* 必要に応じて、その他のアプリケーション設定を記入し、タップ**保存**アプリの構成に変更を保存するページの下部にあります。
 
-* サイトを展開するときにを再表示する必要があります、**登録**ページおよび新しいパブリック URL を設定します。
+* サイトをデプロイするときに、再アクセスする必要があります、**登録**ページし、新しいパブリック URL を設定します。
 
 ## <a name="store-microsoft-application-id-and-password"></a>Microsoft のアプリケーション Id とパスワードを保存します。
 
 * 注、`Application Id`に表示される、**登録**ページ。
 
-* タップ**新しいパスワードの生成**で、**アプリケーション シークレット**セクションです。 これには、アプリケーション パスワードをコピーするボックスが表示されます。
+* タップ**新しいパスワードを生成**で、**アプリケーション シークレット**セクション。 これには、アプリケーション パスワードをコピーするボックスが表示されます。
 
 ![新しいパスワードの生成 ダイアログ ボックス](index/_static/MicrosoftDevPassword.png)
 
-Microsoft のような機密設定をリンク`Application ID`と`Password`、アプリケーションを使用して構成する、[シークレット Manager](xref:security/app-secrets)です。 このチュートリアルの目的で、名前トークン`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`です。
+Microsoft のような機密性の高い設定リンク`Application ID`と`Password`アプリケーションの構成を使用して、 [Secret Manager](xref:security/app-secrets)します。 このチュートリアルの目的で、名前トークン`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`します。
 
-## <a name="configure-microsoft-account-authentication"></a>Microsoft アカウントの認証を構成します。
+## <a name="configure-microsoft-account-authentication"></a>Microsoft アカウント認証を構成します。
 
-このチュートリアルで使用されるプロジェクト テンプレートにより[Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount)パッケージが既にインストールされています。
+このチュートリアルで使用するプロジェクト テンプレートにより[Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount)パッケージが既にインストールされています。
 
-* Visual Studio 2017 でこのパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**です。
-* .NET Core cli をインストールするには、プロジェクト ディレクトリに、次を実行します。
+* Visual Studio 2017 では、このパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**します。
+* で .NET Core CLI をインストールするには、プロジェクト ディレクトリで、次を実行します。
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
-Microsoft アカウントのサービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
+Microsoft アカウント サービスの追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
 ```csharp
 services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -92,9 +93,11 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Microsoft アカウント ミドルウェアを追加、`Configure`メソッド*Startup.cs*ファイル。
 
@@ -106,40 +109,42 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
----
+::: moniker-end
 
-Microsoft 開発者ポータルで使用される用語は、これらのトークンを名前が`ApplicationId`と`Password`、としてそれらを公開している`ClientId`と`ClientSecret`API の構成にします。
+Microsoft 開発者ポータルで使用される用語は、これらのトークンを名前が`ApplicationId`と`Password`、として公開`ClientId`と`ClientSecret`構成 API です。
 
-参照してください、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft アカウントの認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
+参照してください、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) API リファレンスの詳細については、Microsoft アカウント認証でサポートされる構成オプション。 これは、ユーザーに関するさまざまな情報を要求を使用できます。
 
 ## <a name="sign-in-with-microsoft-account"></a>Microsoft アカウントでサインイン
 
-アプリケーションを実行し、をクリックして**ログイン**です。 Microsoft でサインインするオプションが表示されます。
+アプリケーションを実行し、をクリックして**ログイン**します。 Microsoft アカウントでサインインするためのオプションが表示されます。
 
-![Web ページで、アプリケーション ログ: ユーザーが認証されません](index/_static/DoneMicrosoft.png)
+![Web ページで、アプリケーション ログ: ユーザーが認証されていません。](index/_static/DoneMicrosoft.png)
 
-Microsoft をクリックすると、認証のため Microsoft にリダイレクトされます。 (署名されていない) 場合は、Microsoft アカウントによるサインインの後に、アプリがあなたの情報にアクセスするよう求められます。
+Microsoft をクリックすると、認証のように、Microsoft にリダイレクトされます。 (サインインされていない) 場合、Microsoft アカウントでサインインしたら、アプリの情報にアクセスできるようにするよう求められます。
 
 ![Microsoft 認証ダイアログ ボックス](index/_static/MicrosoftLogin.png)
 
-タップ**はい**は、電子メールを設定する web サイトにリダイレクトするとします。
+タップ**はい**とメールを設定する web サイトにリダイレクトされます。
 
-今すぐ Microsoft 資格情報を使用してをログインしています。
+Microsoft の資格情報を使用してログインしました。
 
 ![Web アプリケーション: 認証されたユーザー](index/_static/Done.png)
 
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
+
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-* 場合は、Microsoft アカウント プロバイダーにリダイレクトするサインインのエラー ページ、エラー タイトルと説明クエリ文字列パラメーターすぐ後ろに注意してください、 `#` (ハッシュタグ) Uri にします。
+* Microsoft アカウント プロバイダーでは、サインイン エラー ページにリダイレクトするの場合、エラーのタイトルと説明クエリ文字列パラメーターの直後に注意してください、 `#` (ハッシュタグ) uri。
 
-  エラー メッセージでは、マイクロソフトの認証に問題がある、最も一般的な原因は、アプリケーション Uri と一致しない、**のリダイレクト Uri**向けに指定された、 **Web**プラットフォーム.
-* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試行することになります*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
-* 最初の移行を適用することで、サイト データベースが作成されていない場合、表示される*要求の処理中にデータベース操作が失敗しました*エラーです。 タップ**適用移行**データベースを作成し、エラーを越えて続行を更新します。
+  エラー メッセージを Microsoft 認証に問題を示すために見えますが、最も一般的な原因は、アプリケーション Uri と一致しない、**リダイレクト Uri**の指定、 **Web**プラットフォーム.
+* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
+* 最初の移行を適用することで、サイト データベースが作成されていない場合になります*要求の処理中にデータベース操作が失敗しました*エラー。 タップ**適用移行**データベースを作成し、エラーを引き続き更新します。
 
 ## <a name="next-steps"></a>次の手順
 
-* この記事では、Microsoft との認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](xref:security/authentication/social/index)です。
+* この記事では、Microsoft を認証する方法を示しました。 記載されているその他のプロバイダーで認証する同様のアプローチを利用できる、[前のページ](xref:security/authentication/social/index)します。
 
-* 新規に作成する必要があります、web サイトを Azure web アプリに発行した後`Password`Microsoft 開発者ポータルにします。
+* 新規に作成する必要があります、web サイトを Azure web アプリを発行すると`Password`Microsoft 開発者ポータルでします。
 
-* 設定、`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`として Azure ポータルでのアプリケーション設定。 構成システムは、環境変数からキーを読み取れませんを設定します。
+* 設定、`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`として、Azure portal でアプリケーションの設定。 構成システムは、環境変数からキーの読み取りを設定します。
