@@ -332,7 +332,7 @@
 #### [Twitter での認証](xref:security/authentication/twitter-logins)
 #### [Google での認証](xref:security/authentication/google-logins)
 #### [Microsoft での認証](xref:security/authentication/microsoft-logins)
-#### [他の認証プロバイダー](xref:security/authentication/otherlogins)
+#### [外部の認証プロバイダー](xref:security/authentication/otherlogins)
 #### [その他の要求](xref:security/authentication/social/additional-claims)
 ### [WS フェデレーション認証](xref:security/authentication/ws-federation)
 ### [アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)

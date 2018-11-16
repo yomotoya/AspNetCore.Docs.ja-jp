@@ -1,82 +1,83 @@
 ---
-title: ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
+title: ASP.NET Core での Microsoft アカウントの外部ログインのセットアップ
 author: rick-anderson
-description: このチュートリアルでは、Microsoft アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。
+description: このチュートリアルでは、既存の ASP.NET Core アプリケーションを Microsoft アカウント ユーザーの認証の統合について説明します。
 ms.author: riande
-ms.date: 08/24/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc4fe8c71b97d29cc6697e2aebf04694afb753ec
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272777"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708401"
 ---
-# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a><span data-ttu-id="c8154-103">ASP.NET Core の Microsoft アカウント外部ログインのセットアップ</span><span class="sxs-lookup"><span data-stu-id="c8154-103">Microsoft Account external login setup with ASP.NET Core</span></span>
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a><span data-ttu-id="7f63d-103">ASP.NET Core での Microsoft アカウントの外部ログインのセットアップ</span><span class="sxs-lookup"><span data-stu-id="7f63d-103">Microsoft Account external login setup with ASP.NET Core</span></span>
 
-<span data-ttu-id="c8154-104">作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="c8154-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="7f63d-104">作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="7f63d-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="c8154-105">このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して、Microsoft アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](xref:security/authentication/social/index)です。</span><span class="sxs-lookup"><span data-stu-id="c8154-105">This tutorial shows you how to enable your users to sign in with their Microsoft account using a sample ASP.NET Core 2.0 project created on the [previous page](xref:security/authentication/social/index).</span></span>
+<span data-ttu-id="7f63d-105">このチュートリアルでは、サンプルの ASP.NET Core 2.0 プロジェクトが作成を使用して、Microsoft アカウントでサインインするユーザーを有効にする方法、[前のページ](xref:security/authentication/social/index)します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-105">This tutorial shows you how to enable your users to sign in with their Microsoft account using a sample ASP.NET Core 2.0 project created on the [previous page](xref:security/authentication/social/index).</span></span>
 
-## <a name="create-the-app-in-microsoft-developer-portal"></a><span data-ttu-id="c8154-106">Microsoft 開発者ポータルでのアプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="c8154-106">Create the app in Microsoft Developer Portal</span></span>
+## <a name="create-the-app-in-microsoft-developer-portal"></a><span data-ttu-id="7f63d-106">Microsoft 開発者ポータルで、アプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-106">Create the app in Microsoft Developer Portal</span></span>
 
-* <span data-ttu-id="c8154-107">移動[ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com)して作成するか、Microsoft アカウントにサインインします。</span><span class="sxs-lookup"><span data-stu-id="c8154-107">Navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com) and create or sign into a Microsoft account:</span></span>
+* <span data-ttu-id="7f63d-107">移動します[ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com)して作成するか、Microsoft アカウントにサインインします。</span><span class="sxs-lookup"><span data-stu-id="7f63d-107">Navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com) and create or sign into a Microsoft account:</span></span>
 
-![ダイアログをサインインします。](index/_static/MicrosoftDevLogin.png)
+![[サインイン] ダイアログ](index/_static/MicrosoftDevLogin.png)
 
-<span data-ttu-id="c8154-109">既に Microsoft アカウントを持っていない場合は、タップ**[を作成します。](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)**</span><span class="sxs-lookup"><span data-stu-id="c8154-109">If you don't already have a Microsoft account, tap **[Create one!](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)**</span></span> <span data-ttu-id="c8154-110">サインインした後にリダイレクトされます**マイ アプリケーション**ページ。</span><span class="sxs-lookup"><span data-stu-id="c8154-110">After signing in you are redirected to **My applications** page:</span></span>
+<span data-ttu-id="7f63d-109">Microsoft アカウントがない場合は、タップ**[を作成します。](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)**</span><span class="sxs-lookup"><span data-stu-id="7f63d-109">If you don't already have a Microsoft account, tap **[Create one!](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)**</span></span> <span data-ttu-id="7f63d-110">サインインした後にリダイレクトされます**アプリケーション**ページ。</span><span class="sxs-lookup"><span data-stu-id="7f63d-110">After signing in you are redirected to **My applications** page:</span></span>
 
-![Microsoft Developer Portal の Microsoft Edge で開く](index/_static/MicrosoftDev.png)
+![Microsoft 開発者ポータルの Microsoft Edge で開く](index/_static/MicrosoftDev.png)
 
-* <span data-ttu-id="c8154-112">タップ**アプリの追加**で右上コーナーを入力し、**アプリケーション名**と**Contact Email**:</span><span class="sxs-lookup"><span data-stu-id="c8154-112">Tap **Add an app** in the upper right corner and enter your **Application Name** and **Contact Email**:</span></span>
+* <span data-ttu-id="7f63d-112">タップ**アプリの追加**、画面右上隅にあるし、入力、**アプリケーション名**と**Contact Email**:</span><span class="sxs-lookup"><span data-stu-id="7f63d-112">Tap **Add an app** in the upper right corner and enter your **Application Name** and **Contact Email**:</span></span>
 
 ![新しいアプリケーションの登録 ダイアログ ボックス](index/_static/MicrosoftDevAppCreate.png)
 
-* <span data-ttu-id="c8154-114">このチュートリアルの目的で、消去、**セットアップのガイド付き**チェック ボックスをオンします。</span><span class="sxs-lookup"><span data-stu-id="c8154-114">For the purposes of this tutorial, clear the **Guided Setup** check box.</span></span>
+* <span data-ttu-id="7f63d-114">このチュートリアルの目的で、クリア、**ガイド付きセットアップ**チェック ボックスをオンします。</span><span class="sxs-lookup"><span data-stu-id="7f63d-114">For the purposes of this tutorial, clear the **Guided Setup** check box.</span></span>
 
-* <span data-ttu-id="c8154-115">タップ**を作成する**を続行するのには、**登録**ページです。</span><span class="sxs-lookup"><span data-stu-id="c8154-115">Tap **Create** to continue to the **Registration** page.</span></span> <span data-ttu-id="c8154-116">提供、**名**の値をメモし、**アプリケーション Id**、として使用する`ClientId`のチュートリアルの後。</span><span class="sxs-lookup"><span data-stu-id="c8154-116">Provide a **Name** and note the value of the **Application Id**, which you use as `ClientId` later in the tutorial:</span></span>
+* <span data-ttu-id="7f63d-115">タップ**作成**を続行する、**登録**ページ。</span><span class="sxs-lookup"><span data-stu-id="7f63d-115">Tap **Create** to continue to the **Registration** page.</span></span> <span data-ttu-id="7f63d-116">提供、**名前**の値を確認し、**アプリケーション Id**、として使用する`ClientId`チュートリアルの後半で。</span><span class="sxs-lookup"><span data-stu-id="7f63d-116">Provide a **Name** and note the value of the **Application Id**, which you use as `ClientId` later in the tutorial:</span></span>
 
-![[登録] ページ](index/_static/MicrosoftDevAppReg.png)
+![登録ページ](index/_static/MicrosoftDevAppReg.png)
 
-* <span data-ttu-id="c8154-118">タップ**プラットフォームを追加**で、**プラットフォーム**セクションし、選択、 **Web**プラットフォーム。</span><span class="sxs-lookup"><span data-stu-id="c8154-118">Tap **Add Platform** in the **Platforms** section and select the **Web** platform:</span></span>
+* <span data-ttu-id="7f63d-118">タップ**プラットフォームの追加**で、**プラットフォーム**セクションし、選択、 **Web**プラットフォーム。</span><span class="sxs-lookup"><span data-stu-id="7f63d-118">Tap **Add Platform** in the **Platforms** section and select the **Web** platform:</span></span>
 
-![追加プラットフォーム ダイアログ ボックス](index/_static/MicrosoftDevAppPlatform.png)
+![追加のプラットフォーム ダイアログ ボックス](index/_static/MicrosoftDevAppPlatform.png)
 
-* <span data-ttu-id="c8154-120">新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力`/signin-microsoft`に追加された、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。</span><span class="sxs-lookup"><span data-stu-id="c8154-120">In the new **Web** platform section, enter your development URL with `/signin-microsoft` appended into the **Redirect URLs** field (for example: `https://localhost:44320/signin-microsoft`).</span></span> <span data-ttu-id="c8154-121">このチュートリアルで後で構成されている Microsoft の認証スキームはで、要求を自動的に処理`/signin-microsoft`OAuth フローを実装するルート。</span><span class="sxs-lookup"><span data-stu-id="c8154-121">The Microsoft authentication scheme configured later in this tutorial will automatically handle requests at `/signin-microsoft` route to implement the OAuth flow:</span></span>
+* <span data-ttu-id="7f63d-120">新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力`/signin-microsoft`に追加されます、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。</span><span class="sxs-lookup"><span data-stu-id="7f63d-120">In the new **Web** platform section, enter your development URL with `/signin-microsoft` appended into the **Redirect URLs** field (for example: `https://localhost:44320/signin-microsoft`).</span></span> <span data-ttu-id="7f63d-121">このチュートリアルの後半で構成されている Microsoft の認証構成はで、要求を自動的に処理`/signin-microsoft`OAuth フローを実装するためにルート。</span><span class="sxs-lookup"><span data-stu-id="7f63d-121">The Microsoft authentication scheme configured later in this tutorial will automatically handle requests at `/signin-microsoft` route to implement the OAuth flow:</span></span>
 
 ![Web プラットフォーム セクションの「](index/_static/MicrosoftRedirectUri.png)
 
 > [!NOTE]
-> <span data-ttu-id="c8154-123">URI セグメント`/signin-microsoft`は Microsoft の認証プロバイダーの既定のコールバックとして設定します。</span><span class="sxs-lookup"><span data-stu-id="c8154-123">The URI segment `/signin-microsoft` is set as the default callback of the Microsoft authentication provider.</span></span> <span data-ttu-id="c8154-124">既定のコールバック URI を変更するには、継承を使用して、Microsoft の認証ミドルウェアの構成中に[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions)クラスです。</span><span class="sxs-lookup"><span data-stu-id="c8154-124">You can change the default callback URI while configuring the Microsoft authentication middleware via the inherited [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) property of the [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) class.</span></span>
+> <span data-ttu-id="7f63d-123">URI セグメント`/signin-microsoft`Microsoft 認証プロバイダーの既定のコールバックとして設定されます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-123">The URI segment `/signin-microsoft` is set as the default callback of the Microsoft authentication provider.</span></span> <span data-ttu-id="7f63d-124">既定のコールバック URI を変更するには、継承を使用して、Microsoft の認証ミドルウェアを構成するときに[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions)クラス。</span><span class="sxs-lookup"><span data-stu-id="7f63d-124">You can change the default callback URI while configuring the Microsoft authentication middleware via the inherited [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) property of the [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) class.</span></span>
 
-* <span data-ttu-id="c8154-125">タップ**URL の追加**URL が追加されたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="c8154-125">Tap **Add URL** to ensure the URL was added.</span></span>
+* <span data-ttu-id="7f63d-125">タップ**URL の追加**URL が追加されたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-125">Tap **Add URL** to ensure the URL was added.</span></span>
 
-* <span data-ttu-id="c8154-126">必要に応じてその他のアプリケーション設定を入力し、タップ**保存**アプリの構成に変更を保存するページの下部にあります。</span><span class="sxs-lookup"><span data-stu-id="c8154-126">Fill out any other application settings if necessary and tap **Save** at the bottom of the page to save changes to app configuration.</span></span>
+* <span data-ttu-id="7f63d-126">必要に応じて、その他のアプリケーション設定を記入し、タップ**保存**アプリの構成に変更を保存するページの下部にあります。</span><span class="sxs-lookup"><span data-stu-id="7f63d-126">Fill out any other application settings if necessary and tap **Save** at the bottom of the page to save changes to app configuration.</span></span>
 
-* <span data-ttu-id="c8154-127">サイトを展開するときにを再表示する必要があります、**登録**ページおよび新しいパブリック URL を設定します。</span><span class="sxs-lookup"><span data-stu-id="c8154-127">When deploying the site you'll need to revisit the **Registration** page and set a new public URL.</span></span>
+* <span data-ttu-id="7f63d-127">サイトをデプロイするときに、再アクセスする必要があります、**登録**ページし、新しいパブリック URL を設定します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-127">When deploying the site you'll need to revisit the **Registration** page and set a new public URL.</span></span>
 
-## <a name="store-microsoft-application-id-and-password"></a><span data-ttu-id="c8154-128">Microsoft のアプリケーション Id とパスワードを保存します。</span><span class="sxs-lookup"><span data-stu-id="c8154-128">Store Microsoft Application Id and Password</span></span>
+## <a name="store-microsoft-application-id-and-password"></a><span data-ttu-id="7f63d-128">Microsoft のアプリケーション Id とパスワードを保存します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-128">Store Microsoft Application Id and Password</span></span>
 
-* <span data-ttu-id="c8154-129">注、`Application Id`に表示される、**登録**ページ。</span><span class="sxs-lookup"><span data-stu-id="c8154-129">Note the `Application Id` displayed on the **Registration** page.</span></span>
+* <span data-ttu-id="7f63d-129">注、`Application Id`に表示される、**登録**ページ。</span><span class="sxs-lookup"><span data-stu-id="7f63d-129">Note the `Application Id` displayed on the **Registration** page.</span></span>
 
-* <span data-ttu-id="c8154-130">タップ**新しいパスワードの生成**で、**アプリケーション シークレット**セクションです。</span><span class="sxs-lookup"><span data-stu-id="c8154-130">Tap **Generate New Password** in the **Application Secrets** section.</span></span> <span data-ttu-id="c8154-131">これには、アプリケーション パスワードをコピーするボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c8154-131">This displays a box where you can copy the application password:</span></span>
+* <span data-ttu-id="7f63d-130">タップ**新しいパスワードを生成**で、**アプリケーション シークレット**セクション。</span><span class="sxs-lookup"><span data-stu-id="7f63d-130">Tap **Generate New Password** in the **Application Secrets** section.</span></span> <span data-ttu-id="7f63d-131">これには、アプリケーション パスワードをコピーするボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-131">This displays a box where you can copy the application password:</span></span>
 
 ![新しいパスワードの生成 ダイアログ ボックス](index/_static/MicrosoftDevPassword.png)
 
-<span data-ttu-id="c8154-133">Microsoft のような機密設定をリンク`Application ID`と`Password`、アプリケーションを使用して構成する、[シークレット Manager](xref:security/app-secrets)です。</span><span class="sxs-lookup"><span data-stu-id="c8154-133">Link sensitive settings like Microsoft `Application ID` and `Password` to your application configuration using the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="c8154-134">このチュートリアルの目的で、名前トークン`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`です。</span><span class="sxs-lookup"><span data-stu-id="c8154-134">For the purposes of this tutorial, name the tokens `Authentication:Microsoft:ApplicationId` and `Authentication:Microsoft:Password`.</span></span>
+<span data-ttu-id="7f63d-133">Microsoft のような機密性の高い設定リンク`Application ID`と`Password`アプリケーションの構成を使用して、 [Secret Manager](xref:security/app-secrets)します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-133">Link sensitive settings like Microsoft `Application ID` and `Password` to your application configuration using the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="7f63d-134">このチュートリアルの目的で、名前トークン`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-134">For the purposes of this tutorial, name the tokens `Authentication:Microsoft:ApplicationId` and `Authentication:Microsoft:Password`.</span></span>
 
-## <a name="configure-microsoft-account-authentication"></a><span data-ttu-id="c8154-135">Microsoft アカウントの認証を構成します。</span><span class="sxs-lookup"><span data-stu-id="c8154-135">Configure Microsoft Account Authentication</span></span>
+## <a name="configure-microsoft-account-authentication"></a><span data-ttu-id="7f63d-135">Microsoft アカウント認証を構成します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-135">Configure Microsoft Account Authentication</span></span>
 
-<span data-ttu-id="c8154-136">このチュートリアルで使用されるプロジェクト テンプレートにより[Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount)パッケージが既にインストールされています。</span><span class="sxs-lookup"><span data-stu-id="c8154-136">The project template used in this tutorial ensures that [Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount) package is already installed.</span></span>
+<span data-ttu-id="7f63d-136">このチュートリアルで使用するプロジェクト テンプレートにより[Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount)パッケージが既にインストールされています。</span><span class="sxs-lookup"><span data-stu-id="7f63d-136">The project template used in this tutorial ensures that [Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount) package is already installed.</span></span>
 
-* <span data-ttu-id="c8154-137">Visual Studio 2017 でこのパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**です。</span><span class="sxs-lookup"><span data-stu-id="c8154-137">To install this package with Visual Studio 2017, right-click on the project and select **Manage NuGet Packages**.</span></span>
-* <span data-ttu-id="c8154-138">.NET Core cli をインストールするには、プロジェクト ディレクトリに、次を実行します。</span><span class="sxs-lookup"><span data-stu-id="c8154-138">To install with .NET Core CLI, execute the following in your project directory:</span></span>
+* <span data-ttu-id="7f63d-137">Visual Studio 2017 では、このパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-137">To install this package with Visual Studio 2017, right-click on the project and select **Manage NuGet Packages**.</span></span>
+* <span data-ttu-id="7f63d-138">で .NET Core CLI をインストールするには、プロジェクト ディレクトリで、次を実行します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-138">To install with .NET Core CLI, execute the following in your project directory:</span></span>
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="c8154-139">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="c8154-139">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="c8154-140">Microsoft アカウントのサービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="c8154-140">Add the Microsoft Account service in the `ConfigureServices` method in *Startup.cs* file:</span></span>
+<span data-ttu-id="7f63d-139">Microsoft アカウント サービスの追加、`ConfigureServices`メソッド*Startup.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="7f63d-139">Add the Microsoft Account service in the `ConfigureServices` method in *Startup.cs* file:</span></span>
 
 ```csharp
 services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -92,11 +93,13 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="c8154-141">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="c8154-141">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x/)
+::: moniker-end
 
-<span data-ttu-id="c8154-142">Microsoft アカウント ミドルウェアを追加、`Configure`メソッド*Startup.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="c8154-142">Add the Microsoft Account middleware in the `Configure` method in *Startup.cs* file:</span></span>
+::: moniker range="< aspnetcore-2.0"
+
+<span data-ttu-id="7f63d-140">Microsoft アカウント ミドルウェアを追加、`Configure`メソッド*Startup.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="7f63d-140">Add the Microsoft Account middleware in the `Configure` method in *Startup.cs* file:</span></span>
 
 ```csharp
 app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
@@ -106,40 +109,42 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
----
+::: moniker-end
 
-<span data-ttu-id="c8154-143">Microsoft 開発者ポータルで使用される用語は、これらのトークンを名前が`ApplicationId`と`Password`、としてそれらを公開している`ClientId`と`ClientSecret`API の構成にします。</span><span class="sxs-lookup"><span data-stu-id="c8154-143">Although the terminology used on Microsoft Developer Portal names these tokens `ApplicationId` and `Password`, they're exposed as `ClientId` and `ClientSecret` to the configuration API.</span></span>
+<span data-ttu-id="7f63d-141">Microsoft 開発者ポータルで使用される用語は、これらのトークンを名前が`ApplicationId`と`Password`、として公開`ClientId`と`ClientSecret`構成 API です。</span><span class="sxs-lookup"><span data-stu-id="7f63d-141">Although the terminology used on Microsoft Developer Portal names these tokens `ApplicationId` and `Password`, they're exposed as `ClientId` and `ClientSecret` to the configuration API.</span></span>
 
-<span data-ttu-id="c8154-144">参照してください、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft アカウントの認証でサポートされる構成オプションの詳細についての API リファレンスです。</span><span class="sxs-lookup"><span data-stu-id="c8154-144">See the [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) API reference for more information on configuration options supported by Microsoft Account authentication.</span></span> <span data-ttu-id="c8154-145">ユーザーに関するさまざまな情報を要求するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="c8154-145">This can be used to request different information about the user.</span></span>
+<span data-ttu-id="7f63d-142">参照してください、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) API リファレンスの詳細については、Microsoft アカウント認証でサポートされる構成オプション。</span><span class="sxs-lookup"><span data-stu-id="7f63d-142">See the [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) API reference for more information on configuration options supported by Microsoft Account authentication.</span></span> <span data-ttu-id="7f63d-143">これは、ユーザーに関するさまざまな情報を要求を使用できます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-143">This can be used to request different information about the user.</span></span>
 
-## <a name="sign-in-with-microsoft-account"></a><span data-ttu-id="c8154-146">Microsoft アカウントでサインイン</span><span class="sxs-lookup"><span data-stu-id="c8154-146">Sign in with Microsoft Account</span></span>
+## <a name="sign-in-with-microsoft-account"></a><span data-ttu-id="7f63d-144">Microsoft アカウントでサインイン</span><span class="sxs-lookup"><span data-stu-id="7f63d-144">Sign in with Microsoft Account</span></span>
 
-<span data-ttu-id="c8154-147">アプリケーションを実行し、をクリックして**ログイン**です。</span><span class="sxs-lookup"><span data-stu-id="c8154-147">Run your application and click **Log in**.</span></span> <span data-ttu-id="c8154-148">Microsoft でサインインするオプションが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c8154-148">An option to sign in with Microsoft appears:</span></span>
+<span data-ttu-id="7f63d-145">アプリケーションを実行し、をクリックして**ログイン**します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-145">Run your application and click **Log in**.</span></span> <span data-ttu-id="7f63d-146">Microsoft アカウントでサインインするためのオプションが表示されます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-146">An option to sign in with Microsoft appears:</span></span>
 
-![Web ページで、アプリケーション ログ: ユーザーが認証されません](index/_static/DoneMicrosoft.png)
+![Web ページで、アプリケーション ログ: ユーザーが認証されていません。](index/_static/DoneMicrosoft.png)
 
-<span data-ttu-id="c8154-150">Microsoft をクリックすると、認証のため Microsoft にリダイレクトされます。</span><span class="sxs-lookup"><span data-stu-id="c8154-150">When you click on Microsoft, you are redirected to Microsoft for authentication.</span></span> <span data-ttu-id="c8154-151">(署名されていない) 場合は、Microsoft アカウントによるサインインの後に、アプリがあなたの情報にアクセスするよう求められます。</span><span class="sxs-lookup"><span data-stu-id="c8154-151">After signing in with your Microsoft Account (if not already signed in) you will be prompted to let the app access your info:</span></span>
+<span data-ttu-id="7f63d-148">Microsoft をクリックすると、認証のように、Microsoft にリダイレクトされます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-148">When you click on Microsoft, you are redirected to Microsoft for authentication.</span></span> <span data-ttu-id="7f63d-149">(サインインされていない) 場合、Microsoft アカウントでサインインしたら、アプリの情報にアクセスできるようにするよう求められます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-149">After signing in with your Microsoft Account (if not already signed in) you will be prompted to let the app access your info:</span></span>
 
 ![Microsoft 認証ダイアログ ボックス](index/_static/MicrosoftLogin.png)
 
-<span data-ttu-id="c8154-153">タップ**はい**は、電子メールを設定する web サイトにリダイレクトするとします。</span><span class="sxs-lookup"><span data-stu-id="c8154-153">Tap **Yes** and you will be redirected back to the web site where you can set your email.</span></span>
+<span data-ttu-id="7f63d-151">タップ**はい**とメールを設定する web サイトにリダイレクトされます。</span><span class="sxs-lookup"><span data-stu-id="7f63d-151">Tap **Yes** and you will be redirected back to the web site where you can set your email.</span></span>
 
-<span data-ttu-id="c8154-154">今すぐ Microsoft 資格情報を使用してをログインしています。</span><span class="sxs-lookup"><span data-stu-id="c8154-154">You are now logged in using your Microsoft credentials:</span></span>
+<span data-ttu-id="7f63d-152">Microsoft の資格情報を使用してログインしました。</span><span class="sxs-lookup"><span data-stu-id="7f63d-152">You are now logged in using your Microsoft credentials:</span></span>
 
 ![Web アプリケーション: 認証されたユーザー](index/_static/Done.png)
 
-## <a name="troubleshooting"></a><span data-ttu-id="c8154-156">トラブルシューティング</span><span class="sxs-lookup"><span data-stu-id="c8154-156">Troubleshooting</span></span>
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-* <span data-ttu-id="c8154-157">場合は、Microsoft アカウント プロバイダーにリダイレクトするサインインのエラー ページ、エラー タイトルと説明クエリ文字列パラメーターすぐ後ろに注意してください、 `#` (ハッシュタグ) Uri にします。</span><span class="sxs-lookup"><span data-stu-id="c8154-157">If the Microsoft Account provider redirects you to a sign in error page, note the error title and description query string parameters directly following the `#` (hashtag) in the Uri.</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="7f63d-154">トラブルシューティング</span><span class="sxs-lookup"><span data-stu-id="7f63d-154">Troubleshooting</span></span>
 
-  <span data-ttu-id="c8154-158">エラー メッセージでは、マイクロソフトの認証に問題がある、最も一般的な原因は、アプリケーション Uri と一致しない、**のリダイレクト Uri**向けに指定された、 **Web**プラットフォーム.</span><span class="sxs-lookup"><span data-stu-id="c8154-158">Although the error message seems to indicate a problem with Microsoft authentication, the most common cause is your application Uri not matching any of the **Redirect URIs** specified for the **Web** platform.</span></span>
-* <span data-ttu-id="c8154-159">**ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試行することになります*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。</span><span class="sxs-lookup"><span data-stu-id="c8154-159">**ASP.NET Core 2.x only:** If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate will result in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="c8154-160">このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。</span><span class="sxs-lookup"><span data-stu-id="c8154-160">The project template used in this tutorial ensures that this is done.</span></span>
-* <span data-ttu-id="c8154-161">最初の移行を適用することで、サイト データベースが作成されていない場合、表示される*要求の処理中にデータベース操作が失敗しました*エラーです。</span><span class="sxs-lookup"><span data-stu-id="c8154-161">If the site database has not been created by applying the initial migration, you will get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="c8154-162">タップ**適用移行**データベースを作成し、エラーを越えて続行を更新します。</span><span class="sxs-lookup"><span data-stu-id="c8154-162">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
+* <span data-ttu-id="7f63d-155">Microsoft アカウント プロバイダーでは、サインイン エラー ページにリダイレクトするの場合、エラーのタイトルと説明クエリ文字列パラメーターの直後に注意してください、 `#` (ハッシュタグ) uri。</span><span class="sxs-lookup"><span data-stu-id="7f63d-155">If the Microsoft Account provider redirects you to a sign in error page, note the error title and description query string parameters directly following the `#` (hashtag) in the Uri.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="c8154-163">次の手順</span><span class="sxs-lookup"><span data-stu-id="c8154-163">Next steps</span></span>
+  <span data-ttu-id="7f63d-156">エラー メッセージを Microsoft 認証に問題を示すために見えますが、最も一般的な原因は、アプリケーション Uri と一致しない、**リダイレクト Uri**の指定、 **Web**プラットフォーム.</span><span class="sxs-lookup"><span data-stu-id="7f63d-156">Although the error message seems to indicate a problem with Microsoft authentication, the most common cause is your application Uri not matching any of the **Redirect URIs** specified for the **Web** platform.</span></span>
+* <span data-ttu-id="7f63d-157">**ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-157">**ASP.NET Core 2.x only:** If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate will result in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="7f63d-158">このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。</span><span class="sxs-lookup"><span data-stu-id="7f63d-158">The project template used in this tutorial ensures that this is done.</span></span>
+* <span data-ttu-id="7f63d-159">最初の移行を適用することで、サイト データベースが作成されていない場合になります*要求の処理中にデータベース操作が失敗しました*エラー。</span><span class="sxs-lookup"><span data-stu-id="7f63d-159">If the site database has not been created by applying the initial migration, you will get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="7f63d-160">タップ**適用移行**データベースを作成し、エラーを引き続き更新します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-160">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
 
-* <span data-ttu-id="c8154-164">この記事では、Microsoft との認証方法を示しました。</span><span class="sxs-lookup"><span data-stu-id="c8154-164">This article showed how you can authenticate with Microsoft.</span></span> <span data-ttu-id="c8154-165">記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](xref:security/authentication/social/index)です。</span><span class="sxs-lookup"><span data-stu-id="c8154-165">You can follow a similar approach to authenticate with other providers listed on the [previous page](xref:security/authentication/social/index).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="7f63d-161">次の手順</span><span class="sxs-lookup"><span data-stu-id="7f63d-161">Next steps</span></span>
 
-* <span data-ttu-id="c8154-166">新規に作成する必要があります、web サイトを Azure web アプリに発行した後`Password`Microsoft 開発者ポータルにします。</span><span class="sxs-lookup"><span data-stu-id="c8154-166">Once you publish your web site to Azure web app, you should create a new `Password` in the Microsoft Developer Portal.</span></span>
+* <span data-ttu-id="7f63d-162">この記事では、Microsoft を認証する方法を示しました。</span><span class="sxs-lookup"><span data-stu-id="7f63d-162">This article showed how you can authenticate with Microsoft.</span></span> <span data-ttu-id="7f63d-163">記載されているその他のプロバイダーで認証する同様のアプローチを利用できる、[前のページ](xref:security/authentication/social/index)します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-163">You can follow a similar approach to authenticate with other providers listed on the [previous page](xref:security/authentication/social/index).</span></span>
 
-* <span data-ttu-id="c8154-167">設定、`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`として Azure ポータルでのアプリケーション設定。</span><span class="sxs-lookup"><span data-stu-id="c8154-167">Set the `Authentication:Microsoft:ApplicationId` and `Authentication:Microsoft:Password` as application settings in the Azure portal.</span></span> <span data-ttu-id="c8154-168">構成システムは、環境変数からキーを読み取れませんを設定します。</span><span class="sxs-lookup"><span data-stu-id="c8154-168">The configuration system is set up to read keys from environment variables.</span></span>
+* <span data-ttu-id="7f63d-164">新規に作成する必要があります、web サイトを Azure web アプリを発行すると`Password`Microsoft 開発者ポータルでします。</span><span class="sxs-lookup"><span data-stu-id="7f63d-164">Once you publish your web site to Azure web app, you should create a new `Password` in the Microsoft Developer Portal.</span></span>
+
+* <span data-ttu-id="7f63d-165">設定、`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`として、Azure portal でアプリケーションの設定。</span><span class="sxs-lookup"><span data-stu-id="7f63d-165">Set the `Authentication:Microsoft:ApplicationId` and `Authentication:Microsoft:Password` as application settings in the Azure portal.</span></span> <span data-ttu-id="7f63d-166">構成システムは、環境変数からキーの読み取りを設定します。</span><span class="sxs-lookup"><span data-stu-id="7f63d-166">The configuration system is set up to read keys from environment variables.</span></span>
