@@ -4,14 +4,14 @@ author: guardrex
 description: 構成 API を使用して、ASP.NET Core アプリを構成する方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/09/2018
+ms.date: 11/15/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021743"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818396"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -538,10 +538,11 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddEnvironmentVariables` が呼び出されます。 詳細については、[Web ホストのホストの設定](xref:fundamentals/host/web-host#set-up-a-host)に関する記事をご覧ください。
+新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、`ASPNETCORE_` というプレフィックスが付いた環境変数に対して自動的に `AddEnvironmentVariables` が呼び出されます。 詳細については、[Web ホストのホストの設定](xref:fundamentals/host/web-host#set-up-a-host)に関する記事をご覧ください。
 
 `CreateDefaultBuilder` では次のものも読み込まれます。
 
+* プレフィックスなしの `AddEnvironmentVariables` 呼び出しによる、プレフィックスの付いていない環境変数からのアプリの構成。
 * *appsettings.json* および *appsettings.{Environment}.json* からのオプションの構成。
 * [ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。
 * コマンド ライン引数。
@@ -554,7 +555,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。
 
-`ASPNETCORE_` というプレフィックスが付いた環境変数に対する `AddEnvironmentVariables` は、既に `CreateDefaultBuilder` によって呼び出されています。 追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。
+追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。
 
 ```csharp
 public class Program
@@ -585,7 +586,7 @@ public class Program
 
 <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの `AddEnvironmentVariables` 拡張メソッドを呼び出します。 <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。
 
-`ASPNETCORE_` というプレフィックスが付いた環境変数に対する `AddEnvironmentVariables` は、既に `CreateDefaultBuilder` によって呼び出されています。 追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。
+追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。
 
 ```csharp
 public class Program

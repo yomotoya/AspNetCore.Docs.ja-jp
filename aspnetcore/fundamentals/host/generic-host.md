@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/30/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9943c9dd2d6dd67a79186ee880b181a5915d06be
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505714"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708518"
 ---
 # <a name="net-generic-host"></a>.NET での汎用ホスト
 
@@ -75,7 +75,7 @@ Visual Studio Code でコンソールを設定するには:
 **型**: *文字列*  
 **既定**: アプリのエントリ ポイントを含むアセンブリの名前。  
 **次を使用して設定**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**環境変数**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
+**環境変数**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configurehostconfiguration))
 
 ### <a name="content-root"></a>コンテンツ ルート
 
@@ -85,7 +85,7 @@ Visual Studio Code でコンソールを設定するには:
 **型**: *文字列*  
 **既定値**: 既定でアプリ アセンブリが存在するフォルダーに設定されます。  
 **次を使用して設定**: `UseContentRoot`  
-**環境変数**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
+**環境変数**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configurehostconfiguration))
 
 パスが存在しない場合は、ホストを起動できません。
 
@@ -99,7 +99,7 @@ Visual Studio Code でコンソールを設定するには:
 **型**: *文字列*  
 **既定値**: Production  
 **次を使用して設定**: `UseEnvironment`  
-**環境変数**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
+**環境変数**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configurehostconfiguration))
 
 環境は任意の値に設定することができます。 フレームワークで定義された値には `Development`、`Staging`、`Production` が含まれます。 値は大文字と小文字が区別されません。
 
