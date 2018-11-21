@@ -15,7 +15,7 @@
 * メソッドを使用せず、API コントローラー クラスを定義します。
 * `TodoItems` が空の場合は、新しい Todo アイテムを作成します。 `TodoItems` が空の場合はコンストラクターが新しいアイテムを作成するため、すべての Todo アイテムを削除することはできません。
 
-次のセクションでは、API を実装するメソッドを追加します。 いくつかの便利な機能を有効にするには、`[ApiController]` 属性でクラスに注釈を付けます。 属性によって有効にする機能の詳細については、「[ApiControllerAttribute で注釈を付ける](xref:web-api/index#annotation-with-apicontrollerattribute)」をご覧ください。
+次のセクションでは、API を実装するメソッドを追加します。 いくつかの便利な機能を有効にするには、`[ApiController]` 属性でクラスに注釈を付けます。 属性によって有効にする機能の詳細については、「[ApiController 属性を使用した注釈](xref:web-api/index#annotation-with-apicontroller-attribute)」をご覧ください。
 
 ::: moniker-end
 

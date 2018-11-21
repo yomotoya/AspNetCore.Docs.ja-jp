@@ -4,14 +4,14 @@ author: rick-anderson
 description: インターネットに接続された最新のクラウド ベース アプリケーションを構築するための、クロス プラットフォームで高パフォーマンスのオープン ソース フレームワークである ASP.NET Core について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/16/2018
 uid: index
-ms.openlocfilehash: 1699acc0086dfd50c573afc239bc8f37eb9e7af9
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: ccf00316218c0787136193a7acaf55b8687c6ede
+ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569989"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156946"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -77,7 +77,9 @@ ASP.NET Core 3.0 以降は、.NET Core でのみ実行されます。 この変�
 1. *Docs-master.zip* ファイルを解凍します。
 1. サンプル リンクの URL を使って、サンプル ディレクトリに移動します。
 
-複数のシナリオを示すため、サンプル アプリでは `#define` と `#if-#else/#elif-#endif` の C# ステートメントを活用してさまざまなサンプル コードのセクションを選択してコンパイルし、実行します。 このアプローチを活用するサンプルでは、C# ファイルの上部にある `#define` ステートメントを、実行するシナリオに関連付けられたシンボルに設定します。 サンプルでは、シナリオを実行するために複数のファイルの上部でシンボルを設定するように求められる場合があります。
+### <a name="preprocessor-directives-in-sample-code"></a>サンプル コードのプリプロセッサ ディレクティブ
+
+複数のシナリオを示すため、サンプル アプリでは `#define` と `#if-#else/#elif-#endif` の C# ステートメントを使用してさまざまなサンプル コードのセクションを選択してコンパイルし、実行します。 このアプローチを活用するサンプルでは、C# ファイルの上部にある `#define` ステートメントを、実行するシナリオに関連付けられたシンボルに設定します。 一部のサンプルでは、シナリオを実行するために複数のファイルの上部でシンボルを設定する必要があります。
 
 たとえば、次の `#define` のシンボル一覧は、4 つのシナリオが使用可能である (シンボルごとに 1 つのシナリオ) ことを示しています。 現在のサンプル構成では `TemplateCode` のシナリオが実行されます。
 
@@ -92,6 +94,33 @@ ASP.NET Core 3.0 以降は、.NET Core でのみ実行されます。 この変�
 ```
 
 [C# プリプロセッサ ディレクティブ](/dotnet/csharp/language-reference/preprocessor-directives/)を使用してコードのセクションを選択的にコンパイルする方法の詳細については、「[#define (C# リファレンス)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define)」および「[#if (C# リファレンス)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if)」を参照してください。
+
+### <a name="regions-in-sample-code"></a>サンプル コードのリージョン
+
+一部のサンプル アプリには、[#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) と [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) の C# ステートメントに囲まれたコードのセクションが含まれています。 ドキュメントのビルド システムによって、レンダリングされたドキュメントのトピックにこのリージョンが挿入されます。  
+
+リージョン名には通常、"snippet" という単語が含まれています。 次の例は `snippet_FilterInCode` という名前のリージョンを示しています。
+
+```csharp
+#region snippet_FilterInCode
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging(logging =>
+        logging.AddFilter("System", LogLevel.Debug)
+            .AddFilter<DebugLoggerProvider>("Microsoft", LogLevel.Trace))
+            .Build();
+#endregion
+```
+
+先述の C# コード スニペットは、トピックのマークダウン ファイルの次の行で示されています。
+
+```
+[!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
+```
+
+コードを囲む `#region` と `#end-region` のステートメントは安全に無視 (または削除) することができます。 トピックで説明されているサンプル シナリオを実行する予定がある場合は、これらのステートメント内のコードを変更しないでください。 他のシナリオを試す場合は、自由にコードを変更できます。
+
+詳細については、「[Contribute to the ASP.NET documentation: Code snippets](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets)」(ASP.NET に貢献する: コード スニペット) を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

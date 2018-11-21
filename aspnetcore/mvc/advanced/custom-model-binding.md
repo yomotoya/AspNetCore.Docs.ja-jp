@@ -3,14 +3,14 @@ title: ASP.NET Core でのカスタム モデル バインド
 author: ardalis
 description: モデル バインドにより ASP.NET Core のモデルの型を使用して、コントローラー アクションが直接動作する方法について説明します。
 ms.author: riande
-ms.date: 04/10/2017
+ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: dc901aea3c20e7f2e955f39d923216de70ef015b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090408"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635295"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core でのカスタム モデル バインド
 
@@ -87,11 +87,14 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-上記のコードでは、`Author` アクション パラメーターのバインドで使用される必要がある `IModelBinder` の型が `ModelBinder` 属性で指定されています。 
+上記のコードでは、`Author` アクション パラメーターのバインドで使用される必要がある `IModelBinder` の型が `ModelBinder` 属性で指定されています。
 
-`AuthorEntityBinder` は、Entity Framework Core と `authorId` を使用してデータ ソースからエンティティをフェッチすることで `Author` パラメーターをバインドするために使用されます。
+次の `AuthorEntityBinder` クラスは、Entity Framework Core と `authorId` を使用してデータ ソースからエンティティをフェッチすることで `Author` パラメーターをバインドします。
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+
+> [!NOTE]
+> 前述の `AuthorEntityBinder` クラスは、カスタム モデル バインダーを示しています。 このクラスは、参照シナリオのベスト プラクティスを示すものではありません。 参照の場合は、`authorId` をバインドし、アクション メソッドでデータベースをクエリします。 この方法により、`NotFound` のケースからモデル バインドのエラーが分離されます。
 
 アクション メソッドでの `AuthorEntityBinder` の使用方法を次のコードに示します。
 
@@ -130,6 +133,7 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 ## <a name="recommendations-and-best-practices"></a>推奨事項とベスト プラクティス
 
 カスタム モデル バインダー:
+
 - 状態コードの設定または結果 (たとえば 404 Not Found) のリターンを試行しないでください。 モデル バインドが失敗した場合、アクション メソッド自体の[アクション フィルター](xref:mvc/controllers/filters)またはロジックでエラーが処理される必要があります。
 - アクション メソッドから繰り返しのコードや横断的な問題を排除する場合に最も役立ちます。
 - 通常、文字列をカスタムの型に変換する場合に使用すべきではありません。通常は、[`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) の方がオプションとして優れています。

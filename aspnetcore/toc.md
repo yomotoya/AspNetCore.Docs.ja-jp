@@ -34,7 +34,7 @@
 ## [アプリの起動](xref:fundamentals/startup)
 ## [依存性の注入 (サービス)](xref:fundamentals/dependency-injection)
 ## [ルーティング](xref:fundamentals/routing)
-## [複数の環境](xref:fundamentals/environments)
+## [環境 (開発、ステージング、運用)](xref:fundamentals/environments)
 ## [構成](xref:fundamentals/configuration/index)
 ## [オプション](xref:fundamentals/configuration/options)
 ## [ログ](xref:fundamentals/logging/index)
@@ -432,6 +432,7 @@
 ## [応答圧縮](xref:performance/response-compression)
 
 # 移行
+## [2.1 から 2.2](xref:migration/21-to-22)
 ## [2.0 から 2.1](xref:migration/20_21)
 ## 1.x から 2.0
 ### [概要](xref:migration/1x-to-2x/index)

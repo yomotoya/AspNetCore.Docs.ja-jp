@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリをホストするための ASP.NET Core モジュールを構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/12/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: ca86b1548c7c28a64fd391617b2e8290c1c264cf
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 32fbf2b19da2d088847279f447f9a72cedcf8085
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191361"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570179"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成リファレンス
 
@@ -132,6 +132,8 @@ ASP.NET Core モジュールは、サイトの *web.config* ファイルの `sys
   </location>
 </configuration>
 ```
+
+<xref:System.Configuration.SectionInformation.InheritInChildApplications*> プロパティは、`false` に設定されます。これは、[\<location>](/iis/manage/managing-your-configuration-settings/understanding-iis-configuration-delegation#the-concept-of-location) 要素内で指定された設定が、アプリのサブディレクトリにあるアプリによって継承されないことを示します。
 
 ::: moniker-end
 
@@ -280,13 +282,13 @@ ASP.NET Core モジュールが、インプロセスまたはアウト プロセ
 
 アウト プロセス ホスティングで、ASP.NET Core モジュールがバックエンド プロセスの起動に失敗した場合、またはバックエンド プロセスは開始しても構成されているポートでのリッスンに失敗した場合は、*502.5 処理エラー*状態コード ページが表示されます。
 
-このページを抑制して、既定の IIS 5xx 状態コード ページに戻すには、`disableStartUpErrorPage` 属性を使います。 カスタム エラー メッセージの構成方法について詳しくは、[HTTP エラー &lt;httpErrors&gt;](/iis/configuration/system.webServer/httpErrors/) に関するページをご覧ください。
+このページを抑制して、既定の IIS 5xx 状態コード ページに戻すには、`disableStartUpErrorPage` 属性を使います。 カスタム エラー メッセージの構成方法について詳しくは、「[HTTP エラー \<httpErrors](/iis/configuration/system.webServer/httpErrors/)」をご覧ください。
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-ASP.NET Core モジュールが、バックエンド プロセスの起動に失敗した場合、またはバックエンド プロセスは開始しても構成されているポートでのリッスンに失敗した場合は、*502.5 処理エラー*状態コード ページが表示されます。 このページを抑制して、既定の IIS 502 状態コード ページに戻すには、`disableStartUpErrorPage` 属性を使います。 カスタム エラー メッセージの構成方法について詳しくは、[HTTP エラー &lt;httpErrors&gt;](/iis/configuration/system.webServer/httpErrors/) に関するページをご覧ください。
+ASP.NET Core モジュールが、バックエンド プロセスの起動に失敗した場合、またはバックエンド プロセスは開始しても構成されているポートでのリッスンに失敗した場合は、*502.5 処理エラー*状態コード ページが表示されます。 このページを抑制して、既定の IIS 502 状態コード ページに戻すには、`disableStartUpErrorPage` 属性を使います。 カスタム エラー メッセージの構成方法について詳しくは、「[HTTP エラー \<httpErrors](/iis/configuration/system.webServer/httpErrors/)」をご覧ください。
 
 ![502.5 処理エラーの状態コード ページ](aspnet-core-module/_static/ANCM-502_5.png)
 

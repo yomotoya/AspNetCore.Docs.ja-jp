@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: fbc86d36f66e71e6ebd84f536148fba2e3c452d8
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968320"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570062"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
@@ -109,7 +109,7 @@ public IActionResult Error()
 app.UseStatusCodePages();
 ```
 
-パイプラインでは要求処理ミドルウェア (静的ファイル ミドルウェアおよび MVC ミドルウェア) の前に <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> を呼び出す必要があります。
+パイプラインでは要求処理ミドルウェア (静的ファイル ミドルウェアや MVC ミドルウェアなど) の前に <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> を呼び出す必要があります。
 
 既定では、状態コード ページ ミドルウェアは 404 などの一般的な状態コードにテキストのみのハンドラーを追加します。
 

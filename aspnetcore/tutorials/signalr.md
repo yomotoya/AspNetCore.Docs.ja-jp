@@ -5,14 +5,14 @@ description: このチュートリアルでは、ASP.NET Core SignalR を使用�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/31/2018
+ms.date: 11/13/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 8916b3659250c1bcbbc2dc9b3d466586f98bcc7e
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021249"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818383"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>チュートリアル: ASP.NET Core SignalR の概要
 
@@ -238,7 +238,7 @@ SignalR 要求が SignalR に渡されるように SignalR サーバーを構成
 
 * アドレス バーから URL をコピーし、別のブラウザー インスタンスまたはタブを開き、アドレス バーに URL を貼り付けます。
 
-* いずれかのブラウザーを選択し、名前とメッセージを入力し、**[送信]** ボタンを選択します。
+* いずれかのブラウザーを選択し、名前とメッセージを入力し、**[Send Message]\(メッセージの送信\)** ボタンを選択します。
 
   次の瞬間、両方のページに名前とメッセージが表示されます。
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 579e472e01efd08bbafe949e37a3b655a42a5b46
+ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252946"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156920"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core Security の概要
 
@@ -36,73 +36,4 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
 * [クロスサイト リクエスト フォージェリ (CSRF)](xref:security/anti-request-forgery)
 * [オープン リダイレクト攻撃](xref:security/preventing-open-redirects)
 
-この他にも知っておく必要がある脆弱性はあります。 詳細については、このドキュメントの「*ASP.NET Core セキュリティに関するドキュメント*」セクションを参照してください。
-
-## <a name="aspnet-core-security-documentation"></a>ASP.NET Core セキュリティに関するドキュメント
-
-* 認証
-  * [Identity の概要](xref:security/authentication/identity)
-  * [Facebook、Google、および他の外部プロバイダーを使用する認証の有効化](xref:security/authentication/social/index)
-  * [WS フェデレーションを使用した認証の有効化](xref:security/authentication/ws-federation)
-  * [Windows 認証の構成](xref:security/authentication/windowsauth)
-  * [アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)
-  * [SMS での 2 要素認証](xref:security/authentication/2fa)
-  * [Identity なしでの Cookie 認証の使用](xref:security/authentication/cookie)
-  * [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
-    * [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-    * [Azure AD を使用した WPF アプリからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-    * [Azure AD を使用した ASP.NET Core Web アプリでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-    * [ASP.NET Core Web アプリでの Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-  * [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io)
-* 承認
-  * [はじめに](xref:security/authorization/introduction)
-  * [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
-  * [単純な承認](xref:security/authorization/simple)
-  * [ロール ベースの承認](xref:security/authorization/roles)
-  * [クレーム ベースの承認](xref:security/authorization/claims)
-  * [ポリシー ベースの承認](xref:security/authorization/policies)
-  * [要件ハンドラーでの依存性の注入](xref:security/authorization/dependencyinjection)
-  * [リソース ベースの承認](xref:security/authorization/resourcebased)
-  * [ビュー ベースの承認](xref:security/authorization/views)
-  * [スキームによる ID の制限](xref:security/authorization/limitingidentitybyscheme)
-* データの保護
-  * [データ保護の概要](xref:security/data-protection/introduction)
-  * [データ保護 API の概要](xref:security/data-protection/using-data-protection)
-  * コンシューマー API
-    * [コンシューマー API の概要](xref:security/data-protection/consumer-apis/overview)
-    * [目的文字列](xref:security/data-protection/consumer-apis/purpose-strings)
-    * [目的の階層とマルチテナント](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
-    * [パスワードのハッシュ](xref:security/data-protection/consumer-apis/password-hashing)
-    * [保護されたペイロードの有効期間の制限](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
-    * [キーが取り消されたペイロードの保護の解除](xref:security/data-protection/consumer-apis/dangerous-unprotect)
-  * [構成](xref:security/data-protection/configuration/index)
-    * [データ保護の構成](xref:security/data-protection/configuration/overview)
-    * [既定の設定](xref:security/data-protection/configuration/default-settings)
-    * [コンピューター全体のポリシー](xref:security/data-protection/configuration/machine-wide-policy)
-    * [DI に対応しないシナリオ](xref:security/data-protection/configuration/non-di-scenarios)
-  * [拡張性 API](xref:security/data-protection/extensibility/index)
-    * [Core の暗号の拡張性](xref:security/data-protection/extensibility/core-crypto)
-    * [キー管理の拡張性](xref:security/data-protection/extensibility/key-management)
-    * [その他の API](xref:security/data-protection/extensibility/misc-apis)
-  * [実装](xref:security/data-protection/implementation/index)
-    * [認証された暗号化の詳細](xref:security/data-protection/implementation/authenticated-encryption-details)
-    * [サブキーの派生と認証された暗号化](xref:security/data-protection/implementation/subkeyderivation)
-    * [コンテキスト ヘッダー](xref:security/data-protection/implementation/context-headers)
-    * [キーの管理](xref:security/data-protection/implementation/key-management)
-    * [キー ストレージ プロバイダー](xref:security/data-protection/implementation/key-storage-providers)
-    * [保存時のキーの暗号化](xref:security/data-protection/implementation/key-encryption-at-rest)
-    * [キーの不変性と設定](xref:security/data-protection/implementation/key-immutability)
-    * [キー ストレージの形式](xref:security/data-protection/implementation/key-storage-format)
-    * [短期データ保護プロバイダー](xref:security/data-protection/implementation/key-storage-ephemeral)
-  * [互換性](xref:security/data-protection/compatibility/index)
-    * [ASP.NET の \<machineKey> を置換する](xref:security/data-protection/compatibility/replacing-machinekey)
-* [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
-* [開発中のアプリ シークレットの安全な格納](xref:security/app-secrets)
-* [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)
-* [SSL の適用](xref:security/enforcing-ssl)
-* [リクエスト フォージェリの対策](xref:security/anti-request-forgery)
-* [オープン リダイレクト攻撃の防止](xref:security/preventing-open-redirects)
-* [クロスサイト スクリプティングの防止](xref:security/cross-site-scripting)
-* [クロスオリジン要求 (CORS) の有効化](xref:security/cors)
-* [アプリ間での Cookie の共有](xref:security/cookie-sharing)
-* [IP セーフリスト](xref:security/ip-safelist)
+この他にも知っておく必要がある脆弱性はあります。 詳細については、目次の**セキュリティと ID** のセクションにある他の記事を参照してください。
