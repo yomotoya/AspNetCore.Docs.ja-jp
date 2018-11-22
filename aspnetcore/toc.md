@@ -85,7 +85,7 @@
 ##### [ページの更新](xref:tutorials/razor-pages-mac/da1)
 ##### [検索の追加](xref:tutorials/razor-pages-mac/search)
 ### [フィルター](xref:razor-pages/filter)
-### [クラス ライブラリ](xref:razor-pages/ui-class)
+### [Razor クラス ライブラリ](xref:razor-pages/ui-class)
 ### [ルートとアプリの規則](xref:razor-pages/razor-pages-conventions)
 ### [ファイルのアップロード](xref:razor-pages/upload-files)
 ### [Razor SDK](xref:razor-pages/sdk)
