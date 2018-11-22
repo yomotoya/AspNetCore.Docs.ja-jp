@@ -4,14 +4,14 @@ author: scottaddie
 description: バンドルと縮小の手法を適用することで、ASP.NET Core web アプリケーションで静的なリソースを最適化する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/04/2018
+ms.date: 11/20/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 152f3c810b587d734c1b1076a09ea38d13872e2d
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795406"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282143"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>バンドルし、縮小の ASP.NET Core で静的なアセット
 
@@ -67,9 +67,21 @@ MVC と Razor ページ プロジェクト テンプレートは、バンドル�
 
 ## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
-MVC と Razor ページ プロジェクト テンプレートは、提供、 *bundleconfig.json*構成ファイルの各バンドルのオプションを定義します。 JavaScript のカスタムの既定では、1 つのバンドルの構成が定義されている (*wwwroot/js/site.js*) とスタイル シート (*wwwroot/css/site.css*) ファイル。
+::: moniker range="<= aspnetcore-2.0"
+
+ASP.NET Core 2.0 以前では、MVC および Razor ページ プロジェクト テンプレートを提供する*bundleconfig.json*各バンドルするためのオプションを定義する構成ファイル。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 以降では、追加、という名前の新しい JSON ファイル*bundleconfig.json*、Razor ページまたは MVC プロジェクトのルートにします。 開始点として、そのファイルに次の JSON を含めます。
+
+::: moniker-end
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
+
+*Bundleconfig.json*ファイルは、各バンドルするためのオプションを定義します。 カスタムの JavaScript の前の例では、1 つのバンドルの構成が定義されている (*wwwroot/js/site.js*) とスタイル シート (*wwwroot/css/site.css*) ファイル。
 
 構成オプションは次のとおりです。
 
@@ -216,27 +228,31 @@ dotnet bundle
 
 次`environment`で実行する場合、タグが未処理の CSS ファイルをレンダリング、`Development`環境。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
+::: moniker-end
 
 次`environment`以外の環境で実行しているときに、タグがバンドルと縮小の CSS ファイルをレンダリング`Development`します。 たとえばで実行されている`Production`または`Staging`これらのスタイル シートのレンダリングをトリガーします。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
+::: moniker-end
 
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Gulp から bundleconfig.json を使用します。
 

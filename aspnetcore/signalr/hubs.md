@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR のハブを使用する方法について説�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 91f92e9d6b776457cd319965d548ee401ddc5e0e
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569920"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282142"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET core SignalR のハブの使用
 
@@ -85,7 +85,6 @@ public class ChatHub : Hub
 | `Caller` | ハブ メソッドを呼び出したクライアントのメソッドを呼び出す |
 | `Others` | メソッドを呼び出したクライアントを除くすべての接続されているクライアントのメソッドを呼び出す |
 
-
 `Hub.Clients` また、次のメソッドが含まれます。
 
 | メソッド | 説明 |
@@ -126,7 +125,17 @@ public class ChatHub : Hub
 
 使用して`Hub<IChatClient>`クライアント メソッドのコンパイル時にチェックできるようにします。 これにより、問題のため、マジック文字列を使用することで`Hub<T>`のみ、インターフェイスで定義されたメソッドへのアクセスを提供できます。
 
-厳密に型指定を使用して`Hub<T>`を使用する機能を無効にします。`SendAsync`します。
+厳密に型指定を使用して`Hub<T>`を使用する機能を無効にします。`SendAsync`します。 インターフェイスで定義されたメソッドを非同期と定義できますはまだ。 実際には、これらの各メソッドを返す必要があります、`Task`します。 インターフェイスであるために使用しないでください、`async`キーワード。 例えば:
+
+```csharp
+public interface IClient
+{
+    Task ClientMethod();
+}
+```
+
+> [!NOTE]
+> `Async`サフィックスはありません、メソッド名から取り除かれます。 クライアントの方法を定義していない限り`.on('MyMethodAsync')`、使用しないでください`MyMethodAsync`名として。
 
 ## <a name="change-the-name-of-a-hub-method"></a>ハブ メソッドの名前を変更します。
 
@@ -150,7 +159,7 @@ SignalR ハブ API は、提供、`OnConnectedAsync`と`OnDisconnectedAsync`接�
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-既定では場合、ハブ、例外がスロー SignalR を返し、一般的なエラー メッセージをクライアントにします。 例えば:
+ハブは、例外をスローする場合、接続は閉じられます。 既定では、SignalR は、クライアントに一般的なエラー メッセージを返します。 例えば:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.
