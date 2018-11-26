@@ -5,12 +5,12 @@ description: ASP.NET Core とASP.NET 4.x の違いと、どちらかを選択す
 ms.author: riande
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: f046491e2ec68b6beaad581e2b04e6688a81f2d1
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 79e56e10b756677431ceff289300c251e54bf632
+ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911046"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288669"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>ASP.NET 4.x と ASP.NET Core の選択
 
@@ -61,3 +61,6 @@ ASP.NET 4.x は成熟したフレームワークであり、Windows 上でエン
 * [ASP.NET の概要](/aspnet/overview)
 * [ASP.NET Core の概要](xref:index)
 * <xref:host-and-deploy/azure-apps/index>
+
+> [!NOTE]
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82)。
