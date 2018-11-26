@@ -283,7 +283,7 @@
 ## Azure App Service でのホスト
 ### [概要](xref:host-and-deploy/azure-apps/index)
 ### [Visual Studio での公開](xref:tutorials/publish-to-azure-webapp-using-vs)
-### [CLI ツールでの公開](/azure/app-service/app-service-web-get-started-dotnet)
+### [CLI ツールでの公開](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 ### [Visual Studio および Git での公開](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 ### [Azure Pipelines による継続的配置](/azure/devops/pipelines/get-started-yaml)
 ### [起動エラーのトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)
@@ -313,7 +313,6 @@
 ## [Visual Studio のプロファイルの発行](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [ディレクトリの構造](xref:host-and-deploy/directory-structure)
 ## [Azure App Service と IIS のエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
-
 
 # セキュリティと ID
 ## [概要](xref:security/index)
