@@ -5,18 +5,18 @@ description: IHostingStartup 実装を使用して、外部アセンブリから
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2018
+ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207564"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299457"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>IHostingStartup を使用して ASP.NET Core の外部アセンブリからアプリを拡張する
 
-作成者: [Luke Latham](https://github.com/guardrex)
+作成者: [Luke Latham](https://github.com/guardrex) および [Pavel Krymets](https://github.com/pakrym)
 
 外部アセンブリからの起動時には、[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (ホスティング スタートアップ) 実装によって拡張機能がアプリに追加されます。 たとえば、外部ライブラリではホスティング スタートアップ実装を使用して、追加の構成プロバイダーまたはサービスをアプリに提供できます。 `IHostingStartup` *は、ASP.NET Core 2.0 以降で使用できます。*
 
@@ -113,14 +113,21 @@ ms.locfileid: "50207564"
 
 *このアプローチは、.NET Core アプリでのみ利用でき、.NET Framework では利用できません。*
 
-エントリ ポイントのないコンソール アプリ内では、アクティブ化に関するコンパイル時参照を必要としない動的ホスティング スタートアップ拡張機能を指定できます。 このアプリには `HostingStartup` 属性が含まれています。 動的ホスティング スタートアップを作成するには:
+`HostingStartup` 属性を含むエントリ ポイントがないコンソール アプリ内では、アクティブ化に関するコンパイル時参照を必要としない動的ホスティング スタートアップ拡張機能を指定できます。 コンソール アプリを発行すると、ランタイム ストアから使用できるホスティング スタートアップ アセンブリが生成されます。
 
-1. 実装ライブラリは、`IHostingStartup` 実装を含むクラスから作成されます。 実装ライブラリは、通常のパッケージとして扱われます。
-1. エントリ ポイントのないコンソール アプリでは、実装ライブラリ パッケージが参照されます。 コンソール アプリを使用する理由:
-   * 依存関係ファイルは実行可能なアプリ資産です。そのため、依存関係ファイルをライブラリで提供することはできません。
-   * [ランタイム パッケージ ストア](/dotnet/core/deploying/runtime-store) にライブラリを直接追加することはできません。それには、共有ランタイムを対象とする実行可能なプロジェクトが必要です。
-1. ホスティング スタートアップの依存関係を取得するには、コンソール アプリを発行します。 コンソール アプリを発行すると、その結果として、依存関係ファイルから未使用の依存関係が切り捨てられます。
-1. アプリとその依存関係ファイルは、ランタイム パッケージ ストアに格納されます。 ホスティング スタートアップ アセンブリとその依存関係ファイルは、環境変数のペアで参照され、検出できるようになっています。
+このプロセスにおいてエントリ ポイントのないコンソール アプリが使用される理由は、次のとおりです。
+
+* ホスティング スタートアップ アセンブリ内のホスティング スタートアップを使用するには、依存関係ファイルが必要です。 依存関係ファイルは、ライブラリではなくアプリを発行することによって生成される、実行可能なアプリ資産です。
+* [ランタイム パッケージ ストア](/dotnet/core/deploying/runtime-store) にライブラリを直接追加することはできません。それには、共有ランタイムを対象とする実行可能なプロジェクトが必要です。
+
+動的ホスティング スタートアップを作成する場合:
+
+* 次のようなエントリ ポイントがないコンソール アプリからホスティング スタートアップ アセンブリが作成されます。
+  * `IHostingStartup` の実装を含むクラスを含んでいる。
+  * `IHostingStartup` 実装クラスを識別するための [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) 属性を含んでいる。
+* ホスティング スタートアップの依存関係を取得するには、コンソール アプリを発行します。 コンソール アプリを発行すると、その結果として、依存関係ファイルから未使用の依存関係が切り捨てられます。
+* ホスティング スタートアップ アセンブリのランタイムの場所を設定するために、依存関係ファイルが変更されます。
+* ホスティング スタートアップ アセンブリとその依存関係ファイルは、ランタイム パッケージ ストアに配置されます。 ホスティング スタートアップ アセンブリとその依存関係ファイルを検出する場合、それらは環境変数のペアに記載されています。
 
 コンソール アセンブリでは、[Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/) パッケージが参照されます。
 
@@ -167,187 +174,98 @@ HostingStartupLibrary;HostingStartupPackage;StartupDiagnostics
 
 ホスティング スタートアップ実装は、[ランタイム ストア](/dotnet/core/deploying/runtime-store)に置かれます。 アセンブリへのコンパイル時参照は、機能強化されたアプリで必須ではありません。
 
-ホスティング スタートアップがビルドされると、ホスティング スタートアップのプロジェクト ファイルが [dotnet store](/dotnet/core/tools/dotnet-store) コマンド用のマニフェスト ファイルとして機能します。
+ホスティング スタートアップをビルドした後、プロジェクトのマニフェスト ファイルと [dotnet store](/dotnet/core/tools/dotnet-store) コマンドの使用によってランタイム ストアが生成されます。
 
 ```console
-dotnet store --manifest <PROJECT_FILE> --runtime <RUNTIME_IDENTIFIER>
+dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
-共有フレームワークに属していないホスティング スタートアップ アセンブリとその他の依存関係は、このコマンドによって次の場所にある、ユーザー プロファイルのランタイム ストアに置かれます。
+サンプル アプリ (*RuntimeStore* プロジェクト) では、次のコマンドを使用します。
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
+``` console
+dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
-
-グローバルに使用できるようにアセンブリと依存関係を配置したい場合は、次のパスを使用して `dotnet store` コマンドに `-o|--output` オプションを追加します。
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
+ランタイムでランタイム ストアを検出できるように、ランタイム ストアの場所を環境変数 `DOTNET_SHARED_STORE` に追加します。
 
 **ホスティング スタートアップの依存関係ファイルを変更して配置する**
 
-ランタイムの場所は、*\*.deps.json* ファイルで指定されます。 拡張機能をアクティブ化するには、`runtime` 要素で拡張機能のランタイム アセンブリの場所を指定する必要があります。 `runtime` の場所には `lib/<TARGET_FRAMEWORK_MONIKER>/` のプレフィックスを付けます。
+拡張機能へのパッケージ参照なしで拡張機能をアクティブ化するには、`additionalDeps` を使用してランタイムに追加の依存関係を指定します。 `additionalDeps` を使用すると、次のことを実行できます。
 
-[!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
+* スタートアップ時にアプリの独自の *\*.deps.json* ファイルとマージさせる追加の *\*.deps.json* ファイルのセットを指定することで、アプリのライブラリのグラフを拡張します。
+* ホスティング スタートアップ アセンブリを検出可能および読み込み可能にします。
 
-サンプル コード (*StartupDiagnostics* プロジェクト) では、*\*.deps.json* ファイルの変更は [PowerShell](/powershell/scripting/powershell-scripting) スクリプトによって実行されます。 PowerShell スクリプトは、プロジェクト ファイル内のビルド ターゲットによって自動的にトリガーされます。
+追加の依存関係ファイルを生成するために推奨される方法は次のとおりです。
 
-実装の *\*.deps.json* ファイルは、アセンブリの場所に配置されている必要があります。
+ 1. 前のセクションで参照したランタイム ストアのマニフェスト ファイルに対して `dotnet publish` を実行します。
+ 1. ライブラリと、得られる *\*deps.json* ファイルの `runtime` セクションから、マニフェスト参照を削除します。
 
-ユーザーごとに使用する場合は、ユーザー プロファイルの `.dotnet` 設定の *additonalDeps* フォルダーにファイルを配置します。
+プロジェクトの例では、`targets` と `libraries` セクションから `store.manifest/1.0.0` プロパティが削除されます。
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-グローバルに使用する場合は、.NET Core インストールの *additonalDeps* フォルダーにファイルを配置します。
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-共有フレームワークのバージョンには、ターゲット アプリが使用する共有ランタイムのバージョンが反映されます。 共有ランタイムは、*\*.runtimeconfig.json* ファイルに示されます。 サンプル アプリ (*HostingStartupApp*) では、共有ランタイムは、*HostingStartupApp.runtimeconfig.json* ファイル内に指定されます。
-
-**ホスティング スタートアップの依存関係ファイルを一覧表示する**
-
-実装の *\*.deps.json* ファイルの場所は、`DOTNET_ADDITIONAL_DEPS` 環境変数内に一覧表示されます。
-
-そのファイルがユーザー プロファイルの *.dotnet* フォルダー内に置かれている場合は、環境変数の値を次のように設定します。
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\
+```json
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "4ea77c7b75ad1895ae1ea65e6ba2399010514f99"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "store.manifest/1.0.0": {
+        "dependencies": {
+          "StartupDiagnostics": "1.0.0"
+        },
+        "runtime": {
+          "store.manifest.dll": {}
+        }
+      },
+      "StartupDiagnostics/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.1/StartupDiagnostics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "store.manifest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StartupDiagnostics/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oiQr60vBQW7+nBTmgKLSldj06WNLRTdhOZpAdEbCuapoZ+M2DJH2uQbRLvFT8EGAAv4TAKzNtcztpx5YOgBXQQ==",
+      "path": "startupdiagnostics/1.0.0",
+      "hashPath": "startupdiagnostics.1.0.0.nupkg.sha512"
+    }
+  }
+}
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+次の場所に *\*.deps.json* ファイルを配置します。
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+{ADDITIONAL DEPENDENCIES PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json
 ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+* `{ADDITIONAL DEPENDENCIES PATH}` &ndash; 環境変数 `DOTNET_ADDITIONAL_DEPS` に追加される場所。
+* `{SHARED FRAMEWORK NAME}` &ndash; この追加の依存関係ファイルのために必要な共有フレームワーク。
+* `{SHARED FRAMEWORK VERSION}` &ndash; 共有フレームワークの最小バージョン。
+* `{ENHANCEMENT ASSEMBLY NAME}` &ndash; 拡張機能のアセンブリ名。
+
+サンプル アプリ (*RuntimeStore* プロジェクト) では、追加の依存関係ファイルは以下の場所に配置されます。
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+additionalDeps/shared/Microsoft.AspNetCore.App/2.1.0/StartupDiagnostics.deps.json
 ```
 
----
+ランタイムでランタイム ストアの場所を検出できるように、追加の依存関係ファイルの場所が環境変数 `DOTNET_ADDITIONAL_DEPS` に追加されます。
 
-ファイルがグローバルに使用するために .NET Core インストールに配置される場合は、ファイルに完全なパスを指定します。
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
----
-
-依存関係ファイル (*HostingStartupApp.runtimeconfig.json*) を検索するサンプル アプリ (*HostingStartupApp*) の場合、依存関係ファイルはユーザーのプロファイルに置かれます。
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-`DOTNET_ADDITIONAL_DEPS` 環境変数を次の値に設定します。
-
-```
-%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-`DOTNET_ADDITIONAL_DEPS` 環境変数を次の値に設定します。
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-`DOTNET_ADDITIONAL_DEPS` 環境変数を次の値に設定します。
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
----
+サンプル アプリ (*RuntimeStore* プロジェクト) では、[PowerShell](/powershell/scripting/powershell-scripting) スクリプトを使用してランタイム ストアのビルドと追加の依存関係ファイルの生成を行います。
 
 さまざまなオペレーティング システムの環境変数を設定する方法の例については、[複数の環境の使用](xref:fundamentals/environments)に関するページを参照してください。
 
@@ -355,9 +273,9 @@ dotnet store --manifest <PROJECT_FILE> --runtime <RUNTIME_IDENTIFIER>
 
 サンプル アプリでは、複数のコンピューターから成る環境へのホスティング スタートアップの配置を容易にするために、発行された出力内に、次を含む *deployment* フォルダーが作成されます。
 
-* ホスティング スタートアップ アセンブリ。
+* ホスティング スタートアップのランタイム ストア。
 * ホスティング スタートアップの依存関係ファイル。
-* ホスティング スタートアップのアクティブ化をサポートできるように `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` と `DOTNET_ADDITIONAL_DEPS` を作成および変更する PowerShell スクリプト。 このスクリプトは、配置システム上の PowerShell 管理用コマンド プロンプトから実行します。
+* ホスティング スタートアップのアクティブ化をサポートできるように、`ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`、`DOTNET_SHARED_STORE`、`DOTNET_ADDITIONAL_DEPS` を作成および変更する PowerShell スクリプト。 このスクリプトは、配置システム上の PowerShell 管理用コマンド プロンプトから実行します。
 
 ### <a name="nuget-package"></a>NuGet パッケージ
 
