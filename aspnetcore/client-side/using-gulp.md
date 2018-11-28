@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 4f383be0498b5b861bd43cc0f0685b1e62c7571b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795526"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450607"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core での Gulp を使用します。
 
@@ -28,7 +28,7 @@ A*タスク ランナー*はこれらの日常的な開発タスクを自動化�
 
 ## <a name="gulp"></a>Gulp
 
-Gulp は、クライアント側コードのための JavaScript ベースのストリーミング ビルド ツールキットです。 通常は、ビルド環境で特定のイベントがトリガーされたときに、一連のプロセスを使用してクライアント側ファイルをストリーム配信に使用されます。 Gulp を使用して自動化する、[バンドルと縮小](bundling-and-minification.md)または新しいビルドの前に開発環境のクレンジングします。
+Gulp は、クライアント側コードのための JavaScript ベースのストリーミング ビルド ツールキットです。 通常は、ビルド環境で特定のイベントがトリガーされたときに、一連のプロセスを使用してクライアント側ファイルをストリーム配信に使用されます。 Gulp を使用して自動化する、[バンドルと縮小](bundling-and-minification.md)または新しいビルドの前に、開発環境をクリーニングします。
 
 Gulp タスクのセットが定義されている*gulpfile.js*します。 次の JavaScript では、Gulp モジュールが含まれます、近日公開予定のタスク内で参照されるファイルのパスを指定します。
 
@@ -58,7 +58,7 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 | モジュール名 | 説明 |
 | ----------- | ----------- |
-| gulp        | Gulp のストリーミングはビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)します。 |
+| Gulp        | Gulp のストリーミングはビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)します。 |
 | rimraf      | ノード削除のモジュール。 詳細については、次を参照してください。 [rimraf](https://www.npmjs.com/package/rimraf)します。 |
 | gulp concat | オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)します。 |
 | gulp cssmin | CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)します。 |
