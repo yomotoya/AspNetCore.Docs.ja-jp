@@ -5,12 +5,12 @@ description: Web ページにサーバー ベースのコードを埋め込む�
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148890"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256581"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
@@ -525,6 +525,105 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 ### <a name="section"></a>@section
 
 `@section` ディレクティブを[レイアウト](xref:mvc/views/layout)と組み合わせて使うと、HTML ページのさまざまな部分のコンテンツをビューでレンダリングできます。 詳しくは、「[セクション](xref:mvc/views/layout#layout-sections-label)」をご覧ください。
+
+## <a name="templated-razor-delegates"></a>テンプレート化された Razor デリゲート
+
+Razor テンプレートを使用すると、次の形式で UI スニペットを定義できます。
+
+```cshtml
+@<tag>...</tag>
+```
+
+次の例では、テンプレート化された Razor デリゲートを <xref:System.Func`2> として指定する方法を示します。 デリゲートによってカプセル化されるメソッドのパラメーターに対しては、[dynamic 型](/dotnet/csharp/programming-guide/types/using-type-dynamic)を指定します。 デリゲートの戻り値としては、[object 型](/dotnet/csharp/language-reference/keywords/object)を指定します。 テンプレートは、`Name` プロパティを持つ `Pet` の <xref:System.Collections.Generic.List`1> で使用されます。
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+}
+```
+
+```cshtml
+@{
+    Func<dynamic, object> petTemplate = @<p>You have a pet named @item.Name.</p>;
+
+    var pets = new List<Pet>
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+```
+
+テンプレートは、`foreach` ステートメントによって提供される `pets` で表示されます。
+
+```cshtml
+@foreach (var pet in pets)
+{
+    @petTemplate2(pet)
+}
+```
+
+表示される出力:
+
+```html
+<p>You have a pet named <strong>Rin Tin Tin</strong>.</p>
+<p>You have a pet named <strong>Mr. Bigglesworth</strong>.</p>
+<p>You have a pet named <strong>K-9</strong>.</p>
+```
+
+メソッドへの引数としてインライン Razor テンプレートを指定することもできます。 次の例では、`Repeat` メソッドは Razor テンプレートを受け取ります。 メソッドは、テンプレートを使用して、リストから提供される項目の繰り返しで HTML コンテンツを生成します。
+
+```cshtml
+@using Microsoft.AspNetCore.Html
+
+@functions {
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+        Func<dynamic, IHtmlContent> template)
+    {
+        var html = new HtmlContentBuilder();
+
+        foreach (var item in items)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                html.AppendHtml(template(item));
+            }
+        }
+
+        return html;
+    }
+}
+```
+
+前の例のペットのリストを使用して、次のように `Repeat` メソッドを呼び出します。
+
+* <xref:System.Collections.Generic.List`1> の `Pet`。
+* 各ペットを繰り返す回数。
+* 順不同のリストのリスト項目に対して使用するインライン テンプレート。
+
+```cshtml
+<ul>
+    @Repeat(pets, 3, @<li>@item.Name</li>)
+</ul>
+```
+
+表示される出力:
+
+```html
+<ul>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>K-9</li>
+    <li>K-9</li>
+    <li>K-9</li>
+</ul>
+```
 
 ## <a name="tag-helpers"></a>タグ ヘルパー
 
