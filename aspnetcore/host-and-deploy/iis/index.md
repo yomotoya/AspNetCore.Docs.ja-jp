@@ -4,20 +4,23 @@ author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570166"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450802"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
 [.NET Core ホスティング バンドルのインストール](#install-the-net-core-hosting-bundle)
+
+> [!NOTE]
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5)。
 
 ## <a name="supported-operating-systems"></a>サポートされるオペレーティング システム
 
@@ -416,31 +419,19 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 
   データ保護システムでは、データ保護 API を使用するすべてのアプリに対して、[コンピューター全体に適用する既定のポリシー](xref:security/data-protection/configuration/machine-wide-policy)を設定するためのサポートは限定的です。 詳細については、「<xref:security/data-protection/introduction>」を参照してください。
 
-## <a name="sub-application-configuration"></a>サブアプリケーション構成
+## <a name="virtual-directories"></a>仮想ディレクトリ
 
-ルート アプリの下に追加したサブアプリに、ハンドラーとして ASP.NET Core モジュールを含めることはできません。 このモジュールをサブアプリの *web.config* ファイルにハンドラーとして追加すると、サブアプリを閲覧しようとすると、エラーのある構成ファイルを参照する *500.19 内部サーバー エラー* が返されます。
+ASP.NET Core アプリでは [IIS 仮想ディレクトリ](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories)はサポートされません。 アプリは[サブアプリケーション](#sub-applications)としてホスティングできます。
 
-次の例は、ASP.NET Core サブアプリの発行済み *web.config* ファイルを示しています。
+## <a name="sub-applications"></a>サブアプリケーション
 
-::: moniker range=">= aspnetcore-2.2"
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
-    </system.webServer>
-  </location>
-</configuration>
-```
-
-::: moniker-end
+ASP.NET Core アプリは [IIS サブアプリケーション (サブアプリ)](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#applications) としてホスティングできます。 サブアプリのパスは、ルート アプリの URL の一部になります。
 
 ::: moniker range="< aspnetcore-2.2"
+
+サブアプリに、ハンドラーとして ASP.NET Core モジュールを含めることはできません。 このモジュールをサブアプリの *web.config* ファイルにハンドラーとして追加すると、サブアプリを閲覧しようとすると、エラーのある構成ファイルを参照する *500.19 内部サーバー エラー* が返されます。
+
+次の例は、ASP.NET Core サブアプリの発行済み *web.config* ファイルを示しています。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -454,7 +445,7 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 </configuration>
 ```
 
-ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホストする場合は、サブアプリの *web.config* ファイルにある継承されたハンドラーを明示的に削除します。
+ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホスティングする場合は、サブアプリの *web.config* ファイルにある継承されたハンドラーを明示的に削除します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -473,7 +464,23 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
 
 ::: moniker-end
 
-ASP.NET Core モジュールを構成する方法の詳細については、「[ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)」と「[ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)」を参照してください。
+サブアプリ内にある静的資産のリンクでは、チルダとスラッシュの表記 (`~/`) を使う必要があります。 チルダとスラッシュの表記により[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)がトリガーされ、作成される相対リンクにサブアプリのパスベースが付加されます。 `/subapp_path` にあるサブアプリの場合、`src="~/image.png"` を使ってリンクされる画像は `src="/subapp_path/image.png"` として作成されます。 ルート アプリの静的ファイル ミドルウェアでは、静的ファイル要求は処理されません。 この要求は、サブアプリの静的ファイル ミドルウェアによって処理されます。
+
+静的資産の `src` 属性が絶対パス (たとえば `src="/image.png"`) に設定されている場合、リンクはサブアプリのパスベースなしで作成されます。 ルート アプリの静的ファイル ミドルウェアではルート アプリの [webroot](xref:fundamentals/index#web-root-webroot) から資産を提供しようとしますが、ルート アプリから静的資産を利用できる場合を除いて *404 - Not Found* 応答が返されます。
+
+ある ASP.NET Core アプリを別の ASP.NET Core アプリの下でサブアプリとしてホスティングするには:
+
+1. サブアプリ用のアプリ プールを確立します。 **[.NET CLR バージョン]** を **[マネージド コードなし]** に設定します。
+
+1. ルート サイトを IIS マネージャーに追加し、サブアプリをルート サイトの下のフォルダー内に置きます。
+
+1. IIS マネージャーでサブアプリのフォルダーを右クリックし、**[アプリケーションへの変換]** を選択します。
+
+1. **[アプリケーションの追加]** ダイアログ ボックスで、**[アプリケーション プール]** に対して **[選択]** ボタンを使い、作成したアプリケーション プールをサブアプリ用に割り当てます。 **[OK]** を選択します。
+
+サブアプリに対して個別のアプリ プールを割り当てることは、インプロセス ホスティング モデルを使用する場合必須となります。
+
+インプロセス ホスティング モデルと ASP.NET Core モジュールの構成について詳しくは、<xref:fundamentals/servers/aspnet-core-module> と <xref:host-and-deploy/aspnet-core-module> をご覧ください。
 
 ## <a name="configuration-of-iis-with-webconfig"></a>web.config による IIS の構成
 
@@ -610,6 +617,7 @@ IIS で ASP.NET Core アプリをホストする場合の一般的なエラー�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* <xref:test/troubleshoot>
 * [ASP.NET Core の概要](xref:index)
 * [Microsoft IIS 公式サイト](https://www.iis.net/)
 * [Windows Server テクニカル コンテンツ ライブラリ](/windows-server/windows-server)

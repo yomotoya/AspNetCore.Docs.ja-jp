@@ -4,14 +4,14 @@ author: rick-anderson
 description: ホスティング環境を設定し、ASP.NET Core アプリを展開する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/07/2017
+ms.date: 11/26/2018
 uid: host-and-deploy/index
-ms.openlocfilehash: 024275be3fc5db3f2ed2f7cea1582a1a5f12bda7
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: f70b05df6bf710e2ab54a1eaafb71b4f9b306cbe
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454759"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450620"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>ASP.NET Core のホストと展開
 
@@ -31,7 +31,7 @@ ms.locfileid: "47454759"
 
 .NET Core アプリは、*自己完結型*または*フレームワーク依存*アプリとして発行できます。 アプリが自己完結型の場合、.NET ランタイムを含む *.dll* ファイルが *publish* フォルダーに含まれています。 アプリがフレームワークに依存する場合、.NET ランタイムのファイルは含まれていません。これは、サーバーにインストールされている .NET のバージョンへの参照がアプリに含まれていないためです。 既定の展開モデルはフレームワークに依存します。 詳細については、「[.NET Core アプリケーションの展開](/dotnet/articles/core/deploying/index)」を参照してください。
 
-*.exe* ファイルと *.dll* ファイルに加え、ASP.NET Core アプリの *publish* フォルダーには、通常、構成ファイル、静的資産、および MVC ビューが含まれています。 詳細については、[ディレクトリ構造](xref:host-and-deploy/directory-structure)に関するページを参照してください。
+*.exe* ファイルと *.dll* ファイルに加え、ASP.NET Core アプリの *publish* フォルダーには、通常、構成ファイル、静的資産、および MVC ビューが含まれています。 詳細については、「<xref:host-and-deploy/directory-structure>」を参照してください。
 
 ## <a name="set-up-a-process-manager"></a>プロセス マネージャーを設定する
 
@@ -46,31 +46,33 @@ ASP.NET Core アプリは、サーバーの起動時に起動し、クラッシ�
 
 ## <a name="set-up-a-reverse-proxy"></a>リバース プロキシを設定する
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 アプリで [Kestrel](xref:fundamentals/servers/kestrel) Web サーバーを使用する場合は、リバース プロキシ サーバーとして、[Nginx](xref:host-and-deploy/linux-nginx)、[Apache](xref:host-and-deploy/linux-apache)、または [IIS](xref:host-and-deploy/iis/index) を使用できます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
 
 リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 アプリを [Kestrel](xref:fundamentals/servers/kestrel) Web サーバーを使用して、インターネットに公開する場合は、リバース プロキシ サーバーとして、[Nginx](xref:host-and-deploy/linux-nginx)、[Apache](xref:host-and-deploy/linux-apache)、または [IIS](xref:host-and-deploy/iis/index) を使用します。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。 リバース プロキシを使用する主な理由はセキュリティです。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
----
+::: moniker-end
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
 
 プロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 追加の構成をしないと、要求が発生したスキーム (HTTP/HTTPS) とリモート IP アドレスにアクセスできない場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
-## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Visual Studio と MSBuild を使用して展開を自動化する
+## <a name="use-visual-studio-and-msbuild-to-automate-deployments"></a>Visual Studio と MSBuild を使用してデプロイを自動化する
 
-多くの場合、展開には、[dotnet publish](/dotnet/core/tools/dotnet-publish) からサーバーへの出力のコピーのほか、追加の作業が必要になります。 たとえば、追加のファイルが必要になる場合や、*publish* フォルダーから除外される場合があります。 Visual Studio では Web 展開で MSBuild を使用します。この MSBuild は、展開時に他の多くの作業を行うためにカスタマイズすることができます。 詳細については、[Visual Studio の発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)に関するページと、『[Using MSBuild and Team Foundation Build](http://msbuildbook.com/)』という書籍を参照してください。
+多くの場合、展開には、[dotnet publish](/dotnet/core/tools/dotnet-publish) からサーバーへの出力のコピーのほか、追加の作業が必要になります。 たとえば、追加のファイルが必要になる場合や、*publish* フォルダーから除外される場合があります。 Visual Studio では Web 展開で MSBuild を使用します。この MSBuild は、展開時に他の多くの作業を行うためにカスタマイズすることができます。 詳細については、<xref:host-and-deploy/visual-studio-publish-profiles> と書籍『[Using MSBuild and Team Foundation Build](http://msbuildbook.com/)』(MSBuild と Team Foundation Build の使用) を参照してください。
 
 [Web の発行機能](xref:tutorials/publish-to-azure-webapp-using-vs)または[組み込みの Git サポート](xref:host-and-deploy/azure-apps/azure-continuous-deployment)を使用して、Visual Studio から Azure App Service にアプリを直接展開することができます。 Azure DevOps Services では、[Azure App Service への継続的な展開](/azure/devops/pipelines/targets/webapp)がサポートされています。
 
-## <a name="publishing-to-azure"></a>Azure への発行
+## <a name="publish-to-azure"></a>Azure に発行する
 
-Visual Studio を使用してアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。 Azure へのアプリの発行は、[コマンド ライン](/azure/app-service/app-service-web-get-started-dotnet)で行うこともできます。
+Visual Studio を使って Azure にアプリを発行するための手順については、<xref:tutorials/publish-to-azure-webapp-using-vs> をご覧ください。 Azure へのアプリの発行は、[コマンド ライン](/azure/app-service/app-service-web-get-started-dotnet)で行うこともできます。
 
 ## <a name="host-in-a-web-farm"></a>Web ファームでのホスト
 
@@ -78,4 +80,5 @@ Web ファーム環境 (たとえば、スケーラビリティのためのア�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-ホスティング環境として Docker を使用する方法については、[Docker での ASP.NET Core アプリのホスティング](xref:host-and-deploy/docker/index)に関するページを参照してください。
+* <xref:host-and-deploy/docker/index>
+* <xref:test/troubleshoot>
