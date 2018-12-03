@@ -306,7 +306,7 @@ Web deploy タスクに失敗しました。 (リモート エージェントの
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対する読み取り権限と書き込みアクセス許可をアプリで\_データ フォルダー。 追加することで、この動作を無効にするサイトのフォルダーの既定のアクセス許可が正しいことと、設定する必要はありませんがわかっている場合**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** (1 つのプロファイルに影響を与える) に発行プロファイル ファイルをまたは (にすべてのプロファイルの影響を与える) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)します。
+既定では、Visual Studio の設定、サイトのルート フォルダーに対する読み取り権限と書き込みアクセス許可をアプリで\_データ フォルダー。 追加することで、この動作を無効にするサイトのフォルダーの既定のアクセス許可が正しいことと、設定する必要はありませんがわかっている場合 **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** (1 つのプロファイルに影響を与える) に発行プロファイル ファイルをまたは (にすべてのプロファイルの影響を与える) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)します。
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>アプリケーションがアプリケーション フォルダーへの書き込みを試みると、アクセス拒否エラー
 
@@ -316,7 +316,7 @@ Web deploy タスクに失敗しました。 (リモート エージェントの
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因とソリューション
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対する読み取り権限と書き込みアクセス許可をアプリで\_データ フォルダー。 アプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合は、このシリーズでは、運用環境のチュートリアルをフォルダーのアクセス許可の設定と展開で示すようにそのフォルダーのアクセス許可を設定できます。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** (1 つのプロファイルに影響を与える) に発行プロファイル ファイルをまたは (にすべてのプロファイルの影響を与える) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)します。
+既定では、Visual Studio の設定、サイトのルート フォルダーに対する読み取り権限と書き込みアクセス許可をアプリで\_データ フォルダー。 アプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合は、このシリーズでは、運用環境のチュートリアルをフォルダーのアクセス許可の設定と展開で示すようにそのフォルダーのアクセス許可を設定できます。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** (1 つのプロファイルに影響を与える) に発行プロファイル ファイルをまたは (にすべてのプロファイルの影響を与える) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)します。
 
 <a id="aspnet45error"></a>
 
