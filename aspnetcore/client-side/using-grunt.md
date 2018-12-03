@@ -206,7 +206,7 @@ Grunt、という名前のマニフェストを使用して構成*Gruntfile.js*�
 
 10. 追加、`uglify`タスクの次のコードを使用します。
 
-    タスクの縮小、 *combined.js*ファイルが、一時ディレクトリにあるし、標準の命名規則に従った wwwroot/lib で結果ファイルを作成*\<ファイル名\>min.js*.
+    タスクの縮小、 *combined.js* ファイルが、一時ディレクトリにあるし、標準の命名規則に従った wwwroot/lib で結果ファイルを作成 *\<ファイル名\>min.js* 。
     
     ```javascript
     uglify: {
