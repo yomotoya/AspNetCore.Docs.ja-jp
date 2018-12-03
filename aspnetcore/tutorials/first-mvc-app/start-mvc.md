@@ -5,12 +5,12 @@ description: ASP.NET Core MVC と Visual Studio の概要について説明し�
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 9d50607899058c887597a3d73198552d3ef5b020
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391207"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710089"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC と Visual Studio の概要
 
@@ -23,6 +23,9 @@ ms.locfileid: "49391207"
 * macOS: [Visual Studio for Mac を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [Visual Studio を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app/start-mvc)
 * macOS、Linux、Windows: [Visual Studio Code を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+> [!NOTE]
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5)。
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio と .NET Core のインストール
 
@@ -81,26 +84,7 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Visual Studio Community 2017 をインストールします。 コミュニティ ダウンロードを選択します。 Visual Studio 2017 をインストールしている場合は、この手順をスキップします。
-
-* [Visual Studio 2017 ホーム ページのインストーラー](https://www.visualstudio.com/)
-
-インストーラーを実行し、次のワークロードを選択します。
-
-* **ASP.NET と Web 開発** (**[Web & Cloud]\(Web とクラウド\)** の下)
-* **.NET Core クロスプラットフォームの開発** (**[他のツールセット]** の下)
-
-![**ASP.NET と Web の開発ツール** (**[Web & Cloud]\(Web とクラウド\)** の下)](start-mvc/_static/web_workload.png)
-
-![**.NET Core クロスクロスプラットフォームの開発** (**[他のツールセット]** の下)](start-mvc/_static/x_plat_wl.png)
-
----
 
 ## <a name="create-a-web-app"></a>Web アプリの作成
 
@@ -117,8 +101,6 @@ Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の
 
 ![[新しいプロジェクト] ダイアログ、左ウィンドウの .NET Core、ASP.NET Core Web ](start-mvc/_static/new_project2.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 **[ASP.NET Core Web Application (.NET Core) - MvcMovie]** ダイアログを次のように設定します。
 
 * バージョン セレクター ドロップダウン ボックスで、**[ASP.NET Core 2.-]** を選択します
@@ -126,19 +108,6 @@ Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の
 * **[OK]** をタップします。
 
 ![[新しいプロジェクト] ダイアログ、左ウィンドウの .NET Core、ASP.NET Core Web ](start-mvc/_static/new_project22.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-**[ASP.NET Core Web Application (.NET Core) - MvcMovie]** ダイアログを次のように設定します。
-
-* バージョン セレクター ドロップダウン ボックスで、**[ASP.NET Core 1.1]** をタップします
-* **[Web アプリケーション]** をタップします
-* 既定の **[No Authentication]\(認証なし\)** のままにします
-* **[OK]** をタップします。
-
-![新しい ASP.NET Core Web アプリ](start-mvc/_static/p3.png)
-
----
 
 Visual Studio は、作成した MVC プロジェクトの既定のテンプレートを使用しました。 プロジェクト名を入力し、いくつかのオプションを選択すると、すぐに作業アプリができあがります。 これは基本的なスターター プロジェクトなので、ここから始めることをお勧めします。
 

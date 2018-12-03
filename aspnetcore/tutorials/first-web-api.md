@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 88d1958ce5c42d559754972a855c1ffe22ab45a6
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: eb23d5376742e04712f714263815582fddc5d18e
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234580"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450698"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>ASP.NET Core と Visual Studio で Web API を作成する
 
@@ -26,6 +26,9 @@ ms.locfileid: "50234580"
 * macOS、Linux、Windows: [Visual Studio Code で Web API を作成する](xref:tutorials/web-api-vsc)
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
+
+> [!NOTE]
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5)。
 
 [!INCLUDE[intro to web API](../includes/webApi/intro.md)]
 

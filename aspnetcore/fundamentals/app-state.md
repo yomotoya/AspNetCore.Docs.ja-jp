@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: ccaaa6fafd611c3cf35a9171d5bfd6100535eeb9
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253183"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618130"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -374,7 +374,7 @@ app.Run(async (context) =>
 
 キャッシュされたデータは、特定の要求、ユーザー、またはセッションに関連付けられていません。 **他のユーザーの要求によって取得される可能性があるので、ユーザー固有データをキャッシュしないように注意してください。**
 
-詳細については、「[ASP.NET Core で応答をキャッシュする](xref:performance/caching/index)」トピックをご覧ください。
+詳細については、「<xref:performance/caching/response>」を参照してください。
 
 ## <a name="dependency-injection"></a>依存関係の挿入
 
