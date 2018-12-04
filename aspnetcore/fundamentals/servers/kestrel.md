@@ -4,107 +4,107 @@ author: guardrex
 description: ASP.NET Core 用のクロスプラットフォーム Web サーバーである Kestrel について説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 793aa6e190da0170a395292ea661f7c828f817c1
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.openlocfilehash: 1ef9491ebbc31fd8aa3752b53123eb6c9cf31b42
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597811"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450839"
 ---
-# <a name="kestrel-web-server-implementation-in-aspnet-core"></a><span data-ttu-id="b6952-103">ASP.NET Core への Kestrel Web サーバーの実装</span><span class="sxs-lookup"><span data-stu-id="b6952-103">Kestrel web server implementation in ASP.NET Core</span></span>
+# <a name="kestrel-web-server-implementation-in-aspnet-core"></a><span data-ttu-id="87ae2-103">ASP.NET Core への Kestrel Web サーバーの実装</span><span class="sxs-lookup"><span data-stu-id="87ae2-103">Kestrel web server implementation in ASP.NET Core</span></span>
 
-<span data-ttu-id="b6952-104">作成者: [Tom Dykstra](https://github.com/tdykstra)、[Chris Ross](https://github.com/Tratcher)、[Stephen Halter](https://twitter.com/halter73)</span><span class="sxs-lookup"><span data-stu-id="b6952-104">By [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), and [Stephen Halter](https://twitter.com/halter73)</span></span>
+<span data-ttu-id="87ae2-104">作成者: [Tom Dykstra](https://github.com/tdykstra)、[Chris Ross](https://github.com/Tratcher)、[Stephen Halter](https://twitter.com/halter73)</span><span class="sxs-lookup"><span data-stu-id="87ae2-104">By [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), and [Stephen Halter](https://twitter.com/halter73)</span></span>
 
 ::: moniker range="<= aspnetcore-1.1"
 
-<span data-ttu-id="b6952-105">このトピックのバージョン 1.1 では、[ASP.NET Core の Kestrel Web サーバー実装 (バージョン 1.1、PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf) をダウンロードします。</span><span class="sxs-lookup"><span data-stu-id="b6952-105">For the 1.1 version of this topic, download [Kestrel web server implementation in ASP.NET Core (version 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf).</span></span>
+<span data-ttu-id="87ae2-105">このトピックのバージョン 1.1 では、[ASP.NET Core の Kestrel Web サーバー実装 (バージョン 1.1、PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf) をダウンロードします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-105">For the 1.1 version of this topic, download [Kestrel web server implementation in ASP.NET Core (version 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf).</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-106">Kestrel は、[ASP.NET Core 向けのクロスプラットフォーム Web サーバー](xref:fundamentals/servers/index)です。</span><span class="sxs-lookup"><span data-stu-id="b6952-106">Kestrel is a cross-platform [web server for ASP.NET Core](xref:fundamentals/servers/index).</span></span> <span data-ttu-id="b6952-107">Kestrel は、ASP.NET Core のプロジェクト テンプレートに既定で含まれる Web サーバーです。</span><span class="sxs-lookup"><span data-stu-id="b6952-107">Kestrel is the web server that's included by default in ASP.NET Core project templates.</span></span>
+<span data-ttu-id="87ae2-106">Kestrel は、[ASP.NET Core 向けのクロスプラットフォーム Web サーバー](xref:fundamentals/servers/index)です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-106">Kestrel is a cross-platform [web server for ASP.NET Core](xref:fundamentals/servers/index).</span></span> <span data-ttu-id="87ae2-107">Kestrel は、ASP.NET Core のプロジェクト テンプレートに既定で含まれる Web サーバーです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-107">Kestrel is the web server that's included by default in ASP.NET Core project templates.</span></span>
 
-<span data-ttu-id="b6952-108">Kestrel は、次の機能をサポートします。</span><span class="sxs-lookup"><span data-stu-id="b6952-108">Kestrel supports the following features:</span></span>
+<span data-ttu-id="87ae2-108">Kestrel は、次の機能をサポートします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-108">Kestrel supports the following features:</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
-* <span data-ttu-id="b6952-109">HTTPS</span><span class="sxs-lookup"><span data-stu-id="b6952-109">HTTPS</span></span>
-* <span data-ttu-id="b6952-110">[Websocket](https://github.com/aspnet/websockets) を有効にするために使用される非透過的なアップグレード</span><span class="sxs-lookup"><span data-stu-id="b6952-110">Opaque upgrade used to enable [WebSockets](https://github.com/aspnet/websockets)</span></span>
-* <span data-ttu-id="b6952-111">Nginx の背後にある高パフォーマンスの UNIX ソケット</span><span class="sxs-lookup"><span data-stu-id="b6952-111">Unix sockets for high performance behind Nginx</span></span>
-* <span data-ttu-id="b6952-112">HTTP/2 (macOS の場合を除く&dagger;)</span><span class="sxs-lookup"><span data-stu-id="b6952-112">HTTP/2 (except on macOS&dagger;)</span></span>
+* <span data-ttu-id="87ae2-109">HTTPS</span><span class="sxs-lookup"><span data-stu-id="87ae2-109">HTTPS</span></span>
+* <span data-ttu-id="87ae2-110">[Websocket](https://github.com/aspnet/websockets) を有効にするために使用される非透過的なアップグレード</span><span class="sxs-lookup"><span data-stu-id="87ae2-110">Opaque upgrade used to enable [WebSockets](https://github.com/aspnet/websockets)</span></span>
+* <span data-ttu-id="87ae2-111">Nginx の背後にある高パフォーマンスの UNIX ソケット</span><span class="sxs-lookup"><span data-stu-id="87ae2-111">Unix sockets for high performance behind Nginx</span></span>
+* <span data-ttu-id="87ae2-112">HTTP/2 (macOS の場合を除く&dagger;)</span><span class="sxs-lookup"><span data-stu-id="87ae2-112">HTTP/2 (except on macOS&dagger;)</span></span>
 
-<span data-ttu-id="b6952-113">&dagger;将来のリリースでは HTTP/2 が macOS 上でサポートされるようになります。</span><span class="sxs-lookup"><span data-stu-id="b6952-113">&dagger;HTTP/2 will be supported on macOS in a future release.</span></span>
+<span data-ttu-id="87ae2-113">&dagger;将来のリリースでは HTTP/2 が macOS 上でサポートされるようになります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-113">&dagger;HTTP/2 will be supported on macOS in a future release.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-* <span data-ttu-id="b6952-114">HTTPS</span><span class="sxs-lookup"><span data-stu-id="b6952-114">HTTPS</span></span>
-* <span data-ttu-id="b6952-115">[Websocket](https://github.com/aspnet/websockets) を有効にするために使用される非透過的なアップグレード</span><span class="sxs-lookup"><span data-stu-id="b6952-115">Opaque upgrade used to enable [WebSockets](https://github.com/aspnet/websockets)</span></span>
-* <span data-ttu-id="b6952-116">Nginx の背後にある高パフォーマンスの UNIX ソケット</span><span class="sxs-lookup"><span data-stu-id="b6952-116">Unix sockets for high performance behind Nginx</span></span>
+* <span data-ttu-id="87ae2-114">HTTPS</span><span class="sxs-lookup"><span data-stu-id="87ae2-114">HTTPS</span></span>
+* <span data-ttu-id="87ae2-115">[Websocket](https://github.com/aspnet/websockets) を有効にするために使用される非透過的なアップグレード</span><span class="sxs-lookup"><span data-stu-id="87ae2-115">Opaque upgrade used to enable [WebSockets](https://github.com/aspnet/websockets)</span></span>
+* <span data-ttu-id="87ae2-116">Nginx の背後にある高パフォーマンスの UNIX ソケット</span><span class="sxs-lookup"><span data-stu-id="87ae2-116">Unix sockets for high performance behind Nginx</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-117">kestrel は、.NET Core がサポートするすべてのプラットフォームおよびバージョンでサポートされます。</span><span class="sxs-lookup"><span data-stu-id="b6952-117">Kestrel is supported on all platforms and versions that .NET Core supports.</span></span>
+<span data-ttu-id="87ae2-117">kestrel は、.NET Core がサポートするすべてのプラットフォームおよびバージョンでサポートされます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-117">Kestrel is supported on all platforms and versions that .NET Core supports.</span></span>
 
-<span data-ttu-id="b6952-118">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="b6952-118">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="87ae2-118">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="87ae2-118">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="http2-support"></a><span data-ttu-id="b6952-119">HTTP/2 のサポート</span><span class="sxs-lookup"><span data-stu-id="b6952-119">HTTP/2 support</span></span>
+## <a name="http2-support"></a><span data-ttu-id="87ae2-119">HTTP/2 のサポート</span><span class="sxs-lookup"><span data-stu-id="87ae2-119">HTTP/2 support</span></span>
 
-<span data-ttu-id="b6952-120">[Http/2](https://httpwg.org/specs/rfc7540.html) は、次の基本要件が満たされている場合に、ASP.NET Core アプリで使用できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-120">[HTTP/2](https://httpwg.org/specs/rfc7540.html) is available for ASP.NET Core apps if the following base requirements are met:</span></span>
+<span data-ttu-id="87ae2-120">[Http/2](https://httpwg.org/specs/rfc7540.html) は、次の基本要件が満たされている場合に、ASP.NET Core アプリで使用できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-120">[HTTP/2](https://httpwg.org/specs/rfc7540.html) is available for ASP.NET Core apps if the following base requirements are met:</span></span>
 
-* <span data-ttu-id="b6952-121">オペレーティング システム&dagger;</span><span class="sxs-lookup"><span data-stu-id="b6952-121">Operating system&dagger;</span></span>
-  * <span data-ttu-id="b6952-122">Windows Server 2016/Windows 10 以降&Dagger;</span><span class="sxs-lookup"><span data-stu-id="b6952-122">Windows Server 2016/Windows 10 or later&Dagger;</span></span>
-  * <span data-ttu-id="b6952-123">OpenSSL 1.0.2 以降を使用した Linux (Ubuntu 16.04 以降など)</span><span class="sxs-lookup"><span data-stu-id="b6952-123">Linux with OpenSSL 1.0.2 or later (for example, Ubuntu 16.04 or later)</span></span>
-* <span data-ttu-id="b6952-124">ターゲット フレームワーク: .NET Core 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="b6952-124">Target framework: .NET Core 2.2 or later</span></span>
-* <span data-ttu-id="b6952-125">[アプリケーション レイヤー プロトコル ネゴシエーション (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) 接続</span><span class="sxs-lookup"><span data-stu-id="b6952-125">[Application-Layer Protocol Negotiation (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) connection</span></span>
-* <span data-ttu-id="b6952-126">TLS 1.2 以降の接続</span><span class="sxs-lookup"><span data-stu-id="b6952-126">TLS 1.2 or later connection</span></span>
+* <span data-ttu-id="87ae2-121">オペレーティング システム&dagger;</span><span class="sxs-lookup"><span data-stu-id="87ae2-121">Operating system&dagger;</span></span>
+  * <span data-ttu-id="87ae2-122">Windows Server 2016/Windows 10 以降&Dagger;</span><span class="sxs-lookup"><span data-stu-id="87ae2-122">Windows Server 2016/Windows 10 or later&Dagger;</span></span>
+  * <span data-ttu-id="87ae2-123">OpenSSL 1.0.2 以降を使用した Linux (Ubuntu 16.04 以降など)</span><span class="sxs-lookup"><span data-stu-id="87ae2-123">Linux with OpenSSL 1.0.2 or later (for example, Ubuntu 16.04 or later)</span></span>
+* <span data-ttu-id="87ae2-124">ターゲット フレームワーク: .NET Core 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="87ae2-124">Target framework: .NET Core 2.2 or later</span></span>
+* <span data-ttu-id="87ae2-125">[アプリケーション レイヤー プロトコル ネゴシエーション (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) 接続</span><span class="sxs-lookup"><span data-stu-id="87ae2-125">[Application-Layer Protocol Negotiation (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) connection</span></span>
+* <span data-ttu-id="87ae2-126">TLS 1.2 以降の接続</span><span class="sxs-lookup"><span data-stu-id="87ae2-126">TLS 1.2 or later connection</span></span>
 
-<span data-ttu-id="b6952-127">&dagger;将来のリリースでは HTTP/2 が macOS 上でサポートされるようになります。</span><span class="sxs-lookup"><span data-stu-id="b6952-127">&dagger;HTTP/2 will be supported on macOS in a future release.</span></span>
-<span data-ttu-id="b6952-128">&Dagger;Kestrel では、Windows Server 2012 R2 および Windows 8.1 上での HTTP/2 のサポートは制限されています。</span><span class="sxs-lookup"><span data-stu-id="b6952-128">&Dagger;Kestrel has limited support for HTTP/2 on Windows Server 2012 R2 and Windows 8.1.</span></span> <span data-ttu-id="b6952-129">サポートが制限されている理由は、これらのオペレーティング システムで使用できる TLS 暗号のスイートのリストが制限されているためです。</span><span class="sxs-lookup"><span data-stu-id="b6952-129">Support is limited because the list of supported TLS cipher suites available on these operating systems is limited.</span></span> <span data-ttu-id="b6952-130">TLS 接続をセキュリティで保護するためには、楕円曲線デジタル署名アルゴリズム (ECDSA) を使用して生成した証明書が必要になる場合があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-130">A certificate generated using an Elliptic Curve Digital Signature Algorithm (ECDSA) may be required to secure TLS connections.</span></span>
+<span data-ttu-id="87ae2-127">&dagger;将来のリリースでは HTTP/2 が macOS 上でサポートされるようになります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-127">&dagger;HTTP/2 will be supported on macOS in a future release.</span></span>
+<span data-ttu-id="87ae2-128">&Dagger;Kestrel では、Windows Server 2012 R2 および Windows 8.1 上での HTTP/2 のサポートは制限されています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-128">&Dagger;Kestrel has limited support for HTTP/2 on Windows Server 2012 R2 and Windows 8.1.</span></span> <span data-ttu-id="87ae2-129">サポートが制限されている理由は、これらのオペレーティング システムで使用できる TLS 暗号のスイートのリストが制限されているためです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-129">Support is limited because the list of supported TLS cipher suites available on these operating systems is limited.</span></span> <span data-ttu-id="87ae2-130">TLS 接続をセキュリティで保護するためには、楕円曲線デジタル署名アルゴリズム (ECDSA) を使用して生成した証明書が必要になる場合があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-130">A certificate generated using an Elliptic Curve Digital Signature Algorithm (ECDSA) may be required to secure TLS connections.</span></span>
 
-<span data-ttu-id="b6952-131">Http/2 接続が確立されると、[HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) が `HTTP/2` を報告します。</span><span class="sxs-lookup"><span data-stu-id="b6952-131">If an HTTP/2 connection is established, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) reports `HTTP/2`.</span></span>
+<span data-ttu-id="87ae2-131">Http/2 接続が確立されると、[HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) が `HTTP/2` を報告します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-131">If an HTTP/2 connection is established, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) reports `HTTP/2`.</span></span>
 
-<span data-ttu-id="b6952-132">Http/2 は既定では無効になっています。</span><span class="sxs-lookup"><span data-stu-id="b6952-132">HTTP/2 is disabled by default.</span></span> <span data-ttu-id="b6952-133">構成の詳細については、「[Kestrel オプション](#kestrel-options)」セクションと「[ListenOptions.Protocols](#listenoptionsprotocols)」セクションを参照してください。</span><span class="sxs-lookup"><span data-stu-id="b6952-133">For more information on configuration, see the [Kestrel options](#kestrel-options) and [ListenOptions.Protocols](#listenoptionsprotocols) sections.</span></span>
+<span data-ttu-id="87ae2-132">Http/2 は既定では無効になっています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-132">HTTP/2 is disabled by default.</span></span> <span data-ttu-id="87ae2-133">構成の詳細については、「[Kestrel オプション](#kestrel-options)」セクションと「[ListenOptions.Protocols](#listenoptionsprotocols)」セクションを参照してください。</span><span class="sxs-lookup"><span data-stu-id="87ae2-133">For more information on configuration, see the [Kestrel options](#kestrel-options) and [ListenOptions.Protocols](#listenoptionsprotocols) sections.</span></span>
 
 ::: moniker-end
 
-## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a><span data-ttu-id="b6952-134">Kestrel とリバース プロキシを使用するタイミング</span><span class="sxs-lookup"><span data-stu-id="b6952-134">When to use Kestrel with a reverse proxy</span></span>
+## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a><span data-ttu-id="87ae2-134">Kestrel とリバース プロキシを使用するタイミング</span><span class="sxs-lookup"><span data-stu-id="87ae2-134">When to use Kestrel with a reverse proxy</span></span>
 
-<span data-ttu-id="b6952-135">Kestrel を単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。</span><span class="sxs-lookup"><span data-stu-id="b6952-135">You can use Kestrel by itself or with a *reverse proxy server*, such as IIS, Nginx, or Apache.</span></span> <span data-ttu-id="b6952-136">リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。</span><span class="sxs-lookup"><span data-stu-id="b6952-136">A reverse proxy server receives HTTP requests from the Internet and forwards them to Kestrel after some preliminary handling.</span></span>
+<span data-ttu-id="87ae2-135">Kestrel を単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-135">You can use Kestrel by itself or with a *reverse proxy server*, such as IIS, Nginx, or Apache.</span></span> <span data-ttu-id="87ae2-136">リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-136">A reverse proxy server receives HTTP requests from the Internet and forwards them to Kestrel after some preliminary handling.</span></span>
 
 ![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
 
 ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
-<span data-ttu-id="b6952-139">リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-139">Either configuration&mdash;with or without a reverse proxy server&mdash;is a valid and supported hosting configuration for ASP.NET Core 2.0 or later apps.</span></span>
+<span data-ttu-id="87ae2-139">リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-139">Either configuration&mdash;with or without a reverse proxy server&mdash;is a valid and supported hosting configuration for ASP.NET Core 2.0 or later apps.</span></span>
 
-<span data-ttu-id="b6952-140">リバース プロキシのシナリオは、単一のサーバー上で実行される同じ IP とポートを共有する複数のアプリがある場合に存在します。</span><span class="sxs-lookup"><span data-stu-id="b6952-140">A reverse proxy scenario exists when there are multiple apps that share the same IP and port running on a single server.</span></span> <span data-ttu-id="b6952-141">Kestrel は、複数のプロセスによる同じ IP とポートの共有をサポートしていないため、このシナリオには対応しません。</span><span class="sxs-lookup"><span data-stu-id="b6952-141">Kestrel doesn't support this scenario because Kestrel doesn't support sharing the same IP and port among multiple processes.</span></span> <span data-ttu-id="b6952-142">ポートでリッスンするように Kestrel を構成すると、Kestrel は、要求のホスト ヘッダーに関係なく、そのポートに対するすべてのトラフィックを処理します。</span><span class="sxs-lookup"><span data-stu-id="b6952-142">When Kestrel is configured to listen on a port, Kestrel handles all of the traffic for that port regardless of requests' host header.</span></span> <span data-ttu-id="b6952-143">ポートを共有できるリバース プロキシは、一意の IP とポート上の Kestrel に要求を転送することができます。</span><span class="sxs-lookup"><span data-stu-id="b6952-143">A reverse proxy that can share ports has the ability to forward requests to Kestrel on a unique IP and port.</span></span>
+<span data-ttu-id="87ae2-140">リバース プロキシのシナリオは、単一のサーバー上で実行される同じ IP とポートを共有する複数のアプリがある場合に存在します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-140">A reverse proxy scenario exists when there are multiple apps that share the same IP and port running on a single server.</span></span> <span data-ttu-id="87ae2-141">Kestrel は、複数のプロセスによる同じ IP とポートの共有をサポートしていないため、このシナリオには対応しません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-141">Kestrel doesn't support this scenario because Kestrel doesn't support sharing the same IP and port among multiple processes.</span></span> <span data-ttu-id="87ae2-142">ポートでリッスンするように Kestrel を構成すると、Kestrel は、要求のホスト ヘッダーに関係なく、そのポートに対するすべてのトラフィックを処理します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-142">When Kestrel is configured to listen on a port, Kestrel handles all of the traffic for that port regardless of requests' host header.</span></span> <span data-ttu-id="87ae2-143">ポートを共有できるリバース プロキシは、一意の IP とポート上の Kestrel に要求を転送することができます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-143">A reverse proxy that can share ports has the ability to forward requests to Kestrel on a unique IP and port.</span></span>
 
-<span data-ttu-id="b6952-144">リバース プロキシ サーバーが必要ない場合であっても、リバース プロキシ サーバーを使用すると次のような利点があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-144">Even if a reverse proxy server isn't required, using a reverse proxy server might be a good choice:</span></span>
+<span data-ttu-id="87ae2-144">リバース プロキシ サーバーが必要ない場合であっても、リバース プロキシ サーバーを使用すると次のような利点があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-144">Even if a reverse proxy server isn't required, using a reverse proxy server might be a good choice:</span></span>
 
-* <span data-ttu-id="b6952-145">それがホストするアプリの公開されるパブリック サーフェス領域を制限することができます。</span><span class="sxs-lookup"><span data-stu-id="b6952-145">It can limit the exposed public surface area of the apps that it hosts.</span></span>
-* <span data-ttu-id="b6952-146">構成および防御の層を追加します。</span><span class="sxs-lookup"><span data-stu-id="b6952-146">It provides an additional layer of configuration and defense.</span></span>
-* <span data-ttu-id="b6952-147">既存のインフラストラクチャとより適切に統合できる場合があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-147">It might integrate better with existing infrastructure.</span></span>
-* <span data-ttu-id="b6952-148">負荷分散と SSL の構成を簡略化します。</span><span class="sxs-lookup"><span data-stu-id="b6952-148">It simplifies load balancing and SSL configuration.</span></span> <span data-ttu-id="b6952-149">リバース プロキシ サーバーのみで SSL 証明書が必要です。このサーバーは、プレーンな HTTP を使用して内部ネットワーク上のアプリ サーバーと通信することができます。</span><span class="sxs-lookup"><span data-stu-id="b6952-149">Only the reverse proxy server requires an SSL certificate, and that server can communicate with your app servers on the internal network using plain HTTP.</span></span>
+* <span data-ttu-id="87ae2-145">それがホストするアプリの公開されるパブリック サーフェス領域を制限することができます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-145">It can limit the exposed public surface area of the apps that it hosts.</span></span>
+* <span data-ttu-id="87ae2-146">構成および防御の層を追加します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-146">It provides an additional layer of configuration and defense.</span></span>
+* <span data-ttu-id="87ae2-147">既存のインフラストラクチャとより適切に統合できる場合があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-147">It might integrate better with existing infrastructure.</span></span>
+* <span data-ttu-id="87ae2-148">負荷分散と SSL の構成を簡略化します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-148">It simplifies load balancing and SSL configuration.</span></span> <span data-ttu-id="87ae2-149">リバース プロキシ サーバーのみで SSL 証明書が必要です。このサーバーは、プレーンな HTTP を使用して内部ネットワーク上のアプリ サーバーと通信することができます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-149">Only the reverse proxy server requires an SSL certificate, and that server can communicate with your app servers on the internal network using plain HTTP.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="b6952-150">ホスト フィルタリングがリバース プロキシを使っていない場合は、[ホスト フィルタリング](#host-filtering)を有効にする必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-150">If not using a reverse proxy with host filtering enabled, [host filtering](#host-filtering) must be enabled.</span></span>
+> <span data-ttu-id="87ae2-150">ホスト フィルタリングがリバース プロキシを使っていない場合は、[ホスト フィルタリング](#host-filtering)を有効にする必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-150">If not using a reverse proxy with host filtering enabled, [host filtering](#host-filtering) must be enabled.</span></span>
 
-## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a><span data-ttu-id="b6952-151">ASP.NET Core アプリで Kestrel を使用する方法</span><span class="sxs-lookup"><span data-stu-id="b6952-151">How to use Kestrel in ASP.NET Core apps</span></span>
+## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a><span data-ttu-id="87ae2-151">ASP.NET Core アプリで Kestrel を使用する方法</span><span class="sxs-lookup"><span data-stu-id="87ae2-151">How to use Kestrel in ASP.NET Core apps</span></span>
 
-<span data-ttu-id="b6952-152">[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) パッケージは、[[Microsoft.AspNetCore.App metapackage]](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 以降) に含まれています。</span><span class="sxs-lookup"><span data-stu-id="b6952-152">The [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) package is included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 or later).</span></span>
+<span data-ttu-id="87ae2-152">[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) パッケージは、[[Microsoft.AspNetCore.App metapackage]](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 以降) に含まれています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-152">The [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) package is included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 or later).</span></span>
 
-<span data-ttu-id="b6952-153">ASP.NET Core プロジェクト テンプレートは既定では Kestrel を使用します。</span><span class="sxs-lookup"><span data-stu-id="b6952-153">ASP.NET Core project templates use Kestrel by default.</span></span> <span data-ttu-id="b6952-154">*Program.cs* 内のテンプレート コードは [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を呼び出し、これによってバックグラウンドで [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-154">In *Program.cs*, the template code calls [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), which calls [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) behind the scenes.</span></span>
+<span data-ttu-id="87ae2-153">ASP.NET Core プロジェクト テンプレートは既定では Kestrel を使用します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-153">ASP.NET Core project templates use Kestrel by default.</span></span> <span data-ttu-id="87ae2-154">*Program.cs* 内のテンプレート コードは [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を呼び出し、これによってバックグラウンドで [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-154">In *Program.cs*, the template code calls [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), which calls [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) behind the scenes.</span></span>
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
 
 ::: moniker range=">= aspnetcore-2.2"
 
-<span data-ttu-id="b6952-155">`CreateDefaultBuilder` を呼び出した後に追加の構成を指定するには、`ConfigureKestrel` を使用します。</span><span class="sxs-lookup"><span data-stu-id="b6952-155">To provide additional configuration after calling `CreateDefaultBuilder`, use `ConfigureKestrel`:</span></span>
+<span data-ttu-id="87ae2-155">`CreateDefaultBuilder` を呼び出した後に追加の構成を指定するには、`ConfigureKestrel` を使用します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-155">To provide additional configuration after calling `CreateDefaultBuilder`, use `ConfigureKestrel`:</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -120,7 +120,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker range="< aspnetcore-2.2"
 
-<span data-ttu-id="b6952-156">`CreateDefaultBuilder` を呼び出した後に追加の構成を指定するには、[UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="b6952-156">To provide additional configuration after calling `CreateDefaultBuilder`, call [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel):</span></span>
+<span data-ttu-id="87ae2-156">`CreateDefaultBuilder` を呼び出した後に追加の構成を指定するには、[UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-156">To provide additional configuration after calling `CreateDefaultBuilder`, call [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel):</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -134,18 +134,18 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-## <a name="kestrel-options"></a><span data-ttu-id="b6952-157">Kestrel オプション</span><span class="sxs-lookup"><span data-stu-id="b6952-157">Kestrel options</span></span>
+## <a name="kestrel-options"></a><span data-ttu-id="87ae2-157">Kestrel オプション</span><span class="sxs-lookup"><span data-stu-id="87ae2-157">Kestrel options</span></span>
 
-<span data-ttu-id="b6952-158">Kestrel Web サーバーには、インターネットに接続する展開で特に有効な制約構成オプションがいくつかあります。</span><span class="sxs-lookup"><span data-stu-id="b6952-158">The Kestrel web server has constraint configuration options that are especially useful in Internet-facing deployments.</span></span>
+<span data-ttu-id="87ae2-158">Kestrel Web サーバーには、インターネットに接続する展開で特に有効な制約構成オプションがいくつかあります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-158">The Kestrel web server has constraint configuration options that are especially useful in Internet-facing deployments.</span></span>
 
-<span data-ttu-id="b6952-159">[KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) クラスの [Limits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.limits) プロパティで制約を設定します。</span><span class="sxs-lookup"><span data-stu-id="b6952-159">Set constraints on the [Limits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.limits) property of the [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) class.</span></span> <span data-ttu-id="b6952-160">`Limits` プロパティは、[KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits) クラスのインスタンスを保持します。</span><span class="sxs-lookup"><span data-stu-id="b6952-160">The `Limits` property holds an instance of the [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits) class.</span></span>
+<span data-ttu-id="87ae2-159">[KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) クラスの [Limits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.limits) プロパティで制約を設定します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-159">Set constraints on the [Limits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.limits) property of the [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) class.</span></span> <span data-ttu-id="87ae2-160">`Limits` プロパティは、[KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits) クラスのインスタンスを保持します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-160">The `Limits` property holds an instance of the [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits) class.</span></span>
 
-### <a name="maximum-client-connections"></a><span data-ttu-id="b6952-161">クライアントの最大接続数</span><span class="sxs-lookup"><span data-stu-id="b6952-161">Maximum client connections</span></span>
+### <a name="maximum-client-connections"></a><span data-ttu-id="87ae2-161">クライアントの最大接続数</span><span class="sxs-lookup"><span data-stu-id="87ae2-161">Maximum client connections</span></span>
 
-[<span data-ttu-id="b6952-162">MaxConcurrentConnections</span><span class="sxs-lookup"><span data-stu-id="b6952-162">MaxConcurrentConnections</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentconnections)  
-[<span data-ttu-id="b6952-163">MaxConcurrentUpgradedConnections</span><span class="sxs-lookup"><span data-stu-id="b6952-163">MaxConcurrentUpgradedConnections</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentupgradedconnections)
+[<span data-ttu-id="87ae2-162">MaxConcurrentConnections</span><span class="sxs-lookup"><span data-stu-id="87ae2-162">MaxConcurrentConnections</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentconnections)  
+[<span data-ttu-id="87ae2-163">MaxConcurrentUpgradedConnections</span><span class="sxs-lookup"><span data-stu-id="87ae2-163">MaxConcurrentUpgradedConnections</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentupgradedconnections)
 
-<span data-ttu-id="b6952-164">次のコードを使用することで、アプリ全体に対して同時に開かれる TCP 接続の最大数を設定できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-164">The maximum number of concurrent open TCP connections can be set for the entire app with the following code:</span></span>
+<span data-ttu-id="87ae2-164">次のコードを使用することで、アプリ全体に対して同時に開かれる TCP 接続の最大数を設定できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-164">The maximum number of concurrent open TCP connections can be set for the entire app with the following code:</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -167,7 +167,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-165">HTTP または HTTPS から別のプロトコルにアップグレードされた接続については別個の制限があります (WebSockets 要求に関する制限など)。</span><span class="sxs-lookup"><span data-stu-id="b6952-165">There's a separate limit for connections that have been upgraded from HTTP or HTTPS to another protocol (for example, on a WebSockets request).</span></span> <span data-ttu-id="b6952-166">接続がアップグレードされた後、それは `MaxConcurrentConnections` 制限に対してカウントされません。</span><span class="sxs-lookup"><span data-stu-id="b6952-166">After a connection is upgraded, it isn't counted against the `MaxConcurrentConnections` limit.</span></span>
+<span data-ttu-id="87ae2-165">HTTP または HTTPS から別のプロトコルにアップグレードされた接続については別個の制限があります (WebSockets 要求に関する制限など)。</span><span class="sxs-lookup"><span data-stu-id="87ae2-165">There's a separate limit for connections that have been upgraded from HTTP or HTTPS to another protocol (for example, on a WebSockets request).</span></span> <span data-ttu-id="87ae2-166">接続がアップグレードされた後、それは `MaxConcurrentConnections` 制限に対してカウントされません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-166">After a connection is upgraded, it isn't counted against the `MaxConcurrentConnections` limit.</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -189,22 +189,22 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-167">接続の最大数は既定では無制限 (null) です。</span><span class="sxs-lookup"><span data-stu-id="b6952-167">The maximum number of connections is unlimited (null) by default.</span></span>
+<span data-ttu-id="87ae2-167">接続の最大数は既定では無制限 (null) です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-167">The maximum number of connections is unlimited (null) by default.</span></span>
 
-### <a name="maximum-request-body-size"></a><span data-ttu-id="b6952-168">要求本文の最大サイズ</span><span class="sxs-lookup"><span data-stu-id="b6952-168">Maximum request body size</span></span>
+### <a name="maximum-request-body-size"></a><span data-ttu-id="87ae2-168">要求本文の最大サイズ</span><span class="sxs-lookup"><span data-stu-id="87ae2-168">Maximum request body size</span></span>
 
-[<span data-ttu-id="b6952-169">MaxRequestBodySize</span><span class="sxs-lookup"><span data-stu-id="b6952-169">MaxRequestBodySize</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize)
+[<span data-ttu-id="87ae2-169">MaxRequestBodySize</span><span class="sxs-lookup"><span data-stu-id="87ae2-169">MaxRequestBodySize</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize)
 
-<span data-ttu-id="b6952-170">既定の要求本文の最大サイズは、30,000,000 バイトです。これは約 28.6 MB になります。</span><span class="sxs-lookup"><span data-stu-id="b6952-170">The default maximum request body size is 30,000,000 bytes, which is approximately 28.6 MB.</span></span>
+<span data-ttu-id="87ae2-170">既定の要求本文の最大サイズは、30,000,000 バイトです。これは約 28.6 MB になります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-170">The default maximum request body size is 30,000,000 bytes, which is approximately 28.6 MB.</span></span>
 
-<span data-ttu-id="b6952-171">ASP.NET Core MVC アプリでの制限をオーバーライドする方法としては、次のように、アクション メソッドに対して [RequestSizeLimit](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) 属性を使用することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="b6952-171">The recommended approach to override the limit in an ASP.NET Core MVC app is to use the [RequestSizeLimit](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) attribute on an action method:</span></span>
+<span data-ttu-id="87ae2-171">ASP.NET Core MVC アプリでの制限をオーバーライドする方法としては、次のように、アクション メソッドに対して [RequestSizeLimit](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) 属性を使用することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-171">The recommended approach to override the limit in an ASP.NET Core MVC app is to use the [RequestSizeLimit](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) attribute on an action method:</span></span>
 
 ```csharp
 [RequestSizeLimit(100000000)]
 public IActionResult MyActionMethod()
 ```
 
-<span data-ttu-id="b6952-172">次の例では、すべての要求についての制約をアプリに対して構成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="b6952-172">Here's an example that shows how to configure the constraint for the app on every request:</span></span>
+<span data-ttu-id="87ae2-172">次の例では、すべての要求についての制約をアプリに対して構成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-172">Here's an example that shows how to configure the constraint for the app on every request:</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -224,26 +224,26 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-173">ミドルウェア内の特定の要求に関する設定をオーバーライドすることができます。</span><span class="sxs-lookup"><span data-stu-id="b6952-173">You can override the setting on a specific request in middleware:</span></span>
+<span data-ttu-id="87ae2-173">ミドルウェア内の特定の要求に関する設定をオーバーライドすることができます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-173">You can override the setting on a specific request in middleware:</span></span>
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=3-4)]
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-174">アプリが要求の読み取りを開始した後で、要求に対する制限を構成しようとすると、例外がスローされます。</span><span class="sxs-lookup"><span data-stu-id="b6952-174">An exception is thrown if you attempt to configure the limit on a request after the app has started to read the request.</span></span> <span data-ttu-id="b6952-175">`MaxRequestBodySize` プロパティが読み取り専用状態にある (制限を構成するには遅すぎる) かどうかを示す `IsReadOnly` プロパティがあります。</span><span class="sxs-lookup"><span data-stu-id="b6952-175">There's an `IsReadOnly` property that indicates if the `MaxRequestBodySize` property is in read-only state, meaning it's too late to configure the limit.</span></span>
+<span data-ttu-id="87ae2-174">アプリが要求の読み取りを開始した後で、要求に対する制限を構成しようとすると、例外がスローされます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-174">An exception is thrown if you attempt to configure the limit on a request after the app has started to read the request.</span></span> <span data-ttu-id="87ae2-175">`MaxRequestBodySize` プロパティが読み取り専用状態にある (制限を構成するには遅すぎる) かどうかを示す `IsReadOnly` プロパティがあります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-175">There's an `IsReadOnly` property that indicates if the `MaxRequestBodySize` property is in read-only state, meaning it's too late to configure the limit.</span></span>
 
-### <a name="minimum-request-body-data-rate"></a><span data-ttu-id="b6952-176">要求本文の最小レート</span><span class="sxs-lookup"><span data-stu-id="b6952-176">Minimum request body data rate</span></span>
+### <a name="minimum-request-body-data-rate"></a><span data-ttu-id="87ae2-176">要求本文の最小レート</span><span class="sxs-lookup"><span data-stu-id="87ae2-176">Minimum request body data rate</span></span>
 
-[<span data-ttu-id="b6952-177">MinRequestBodyDataRate</span><span class="sxs-lookup"><span data-stu-id="b6952-177">MinRequestBodyDataRate</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minrequestbodydatarate)  
-[<span data-ttu-id="b6952-178">MinResponseDataRate</span><span class="sxs-lookup"><span data-stu-id="b6952-178">MinResponseDataRate</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minresponsedatarate)
+[<span data-ttu-id="87ae2-177">MinRequestBodyDataRate</span><span class="sxs-lookup"><span data-stu-id="87ae2-177">MinRequestBodyDataRate</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minrequestbodydatarate)  
+[<span data-ttu-id="87ae2-178">MinResponseDataRate</span><span class="sxs-lookup"><span data-stu-id="87ae2-178">MinResponseDataRate</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minresponsedatarate)
 
-<span data-ttu-id="b6952-179">kestrel はデータが指定のレート (バイト数/秒) で到着しているかどうかを毎秒チェックします。</span><span class="sxs-lookup"><span data-stu-id="b6952-179">Kestrel checks every second if data is arriving at the specified rate in bytes/second.</span></span> <span data-ttu-id="b6952-180">レートが最小値を下回った場合は接続がタイムアウトになります。猶予期間とは、クライアントによって送信速度を最低ラインまで引き上げられるのを、Kestrel が待機する時間のことです。この期間中、レートはチェックされません。</span><span class="sxs-lookup"><span data-stu-id="b6952-180">If the rate drops below the minimum, the connection is timed out. The grace period is the amount of time that Kestrel gives the client to increase its send rate up to the minimum; the rate isn't checked during that time.</span></span> <span data-ttu-id="b6952-181">猶予期間により、TCP のスロースタートのため最初にデータを低速で送信する接続がドロップされるのを回避できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-181">The grace period helps avoid dropping connections that are initially sending data at a slow rate due to TCP slow-start.</span></span>
+<span data-ttu-id="87ae2-179">kestrel はデータが指定のレート (バイト数/秒) で到着しているかどうかを毎秒チェックします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-179">Kestrel checks every second if data is arriving at the specified rate in bytes/second.</span></span> <span data-ttu-id="87ae2-180">レートが最小値を下回った場合は接続がタイムアウトになります。猶予期間とは、クライアントによって送信速度を最低ラインまで引き上げられるのを、Kestrel が待機する時間のことです。この期間中、レートはチェックされません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-180">If the rate drops below the minimum, the connection is timed out. The grace period is the amount of time that Kestrel gives the client to increase its send rate up to the minimum; the rate isn't checked during that time.</span></span> <span data-ttu-id="87ae2-181">猶予期間により、TCP のスロースタートのため最初にデータを低速で送信する接続がドロップされるのを回避できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-181">The grace period helps avoid dropping connections that are initially sending data at a slow rate due to TCP slow-start.</span></span>
 
-<span data-ttu-id="b6952-182">既定の最小レートは 240 バイト/秒であり、5 秒の猶予時間が設定されています。</span><span class="sxs-lookup"><span data-stu-id="b6952-182">The default minimum rate is 240 bytes/second with a 5 second grace period.</span></span>
+<span data-ttu-id="87ae2-182">既定の最小レートは 240 バイト/秒であり、5 秒の猶予時間が設定されています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-182">The default minimum rate is 240 bytes/second with a 5 second grace period.</span></span>
 
-<span data-ttu-id="b6952-183">最小レートは応答にも適用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-183">A minimum rate also applies to the response.</span></span> <span data-ttu-id="b6952-184">要求制限と応答制限を設定するコードは、プロパティ名およびインターフェイス名に `RequestBody` または `Response` が使用されることを除けば同じです。</span><span class="sxs-lookup"><span data-stu-id="b6952-184">The code to set the request limit and the response limit is the same except for having `RequestBody` or `Response` in the property and interface names.</span></span>
+<span data-ttu-id="87ae2-183">最小レートは応答にも適用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-183">A minimum rate also applies to the response.</span></span> <span data-ttu-id="87ae2-184">要求制限と応答制限を設定するコードは、プロパティ名およびインターフェイス名に `RequestBody` または `Response` が使用されることを除けば同じです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-184">The code to set the request limit and the response limit is the same except for having `RequestBody` or `Response` in the property and interface names.</span></span>
 
-<span data-ttu-id="b6952-185">次の例では、*Program.cs* で最小データ レートを構成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="b6952-185">Here's an example that shows how to configure the minimum data rates in *Program.cs*:</span></span>
+<span data-ttu-id="87ae2-185">次の例では、*Program.cs* で最小データ レートを構成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-185">Here's an example that shows how to configure the minimum data rates in *Program.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -268,21 +268,21 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-186">ミドルウェアでは要求ごとに最小レート制限をオーバーライドできます。</span><span class="sxs-lookup"><span data-stu-id="b6952-186">You can override the minimum rate limits per request in middleware:</span></span>
+<span data-ttu-id="87ae2-186">ミドルウェアでは要求ごとに最小レート制限をオーバーライドできます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-186">You can override the minimum rate limits per request in middleware:</span></span>
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=6-21)]
 
 ::: moniker range=">= aspnetcore-2.2"
 
-<span data-ttu-id="b6952-187">前のサンプルで参照したどのレート機能も HTTP/2 要求の `HttpContext.Features` には存在しません。これはプロトコルで要求の多重化に対応するために、要求ごとのレート制限の変更が HTTP/2 でサポートされていないからです。</span><span class="sxs-lookup"><span data-stu-id="b6952-187">Neither rate feature referenced in the prior sample are present in `HttpContext.Features` for HTTP/2 requests because modifying rate limits on a per-request basis isn't supported for HTTP/2 due to the protocol's support for request multiplexing.</span></span> <span data-ttu-id="b6952-188">`KestrelServerOptions.Limits` で構成したサーバー全体のレート制限は、引き続き HTTP/1.x と HTTP/2 の両方の接続に適用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-188">Server-wide rate limits configured via `KestrelServerOptions.Limits` still apply to both HTTP/1.x and HTTP/2 connections.</span></span>
+<span data-ttu-id="87ae2-187">前のサンプルで参照したどのレート機能も HTTP/2 要求の `HttpContext.Features` には存在しません。これはプロトコルで要求の多重化に対応するために、要求ごとのレート制限の変更が HTTP/2 でサポートされていないからです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-187">Neither rate feature referenced in the prior sample are present in `HttpContext.Features` for HTTP/2 requests because modifying rate limits on a per-request basis isn't supported for HTTP/2 due to the protocol's support for request multiplexing.</span></span> <span data-ttu-id="87ae2-188">`KestrelServerOptions.Limits` で構成したサーバー全体のレート制限は、引き続き HTTP/1.x と HTTP/2 の両方の接続に適用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-188">Server-wide rate limits configured via `KestrelServerOptions.Limits` still apply to both HTTP/1.x and HTTP/2 connections.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="maximum-streams-per-connection"></a><span data-ttu-id="b6952-189">接続ごとの最大ストリーム</span><span class="sxs-lookup"><span data-stu-id="b6952-189">Maximum streams per connection</span></span>
+### <a name="maximum-streams-per-connection"></a><span data-ttu-id="87ae2-189">接続ごとの最大ストリーム</span><span class="sxs-lookup"><span data-stu-id="87ae2-189">Maximum streams per connection</span></span>
 
-<span data-ttu-id="b6952-190">HTTP/2 接続ごとの同時要求ストリームの数は、`Http2.MaxStreamsPerConnection` によって制限されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-190">`Http2.MaxStreamsPerConnection` limits the number of concurrent request streams per HTTP/2 connection.</span></span> <span data-ttu-id="b6952-191">余分なストリームは拒否されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-191">Excess streams are refused.</span></span>
+<span data-ttu-id="87ae2-190">HTTP/2 接続ごとの同時要求ストリームの数は、`Http2.MaxStreamsPerConnection` によって制限されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-190">`Http2.MaxStreamsPerConnection` limits the number of concurrent request streams per HTTP/2 connection.</span></span> <span data-ttu-id="87ae2-191">余分なストリームは拒否されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-191">Excess streams are refused.</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -294,11 +294,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-192">既定値は 100 です。</span><span class="sxs-lookup"><span data-stu-id="b6952-192">The default value is 100.</span></span>
+<span data-ttu-id="87ae2-192">既定値は 100 です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-192">The default value is 100.</span></span>
 
-### <a name="header-table-size"></a><span data-ttu-id="b6952-193">ヘッダー テーブルのサイズ</span><span class="sxs-lookup"><span data-stu-id="b6952-193">Header table size</span></span>
+### <a name="header-table-size"></a><span data-ttu-id="87ae2-193">ヘッダー テーブルのサイズ</span><span class="sxs-lookup"><span data-stu-id="87ae2-193">Header table size</span></span>
 
-<span data-ttu-id="b6952-194">HTTP/2 接続では、HTTP ヘッダーは HPACK デコーダーによって圧縮解除されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-194">The HPACK decoder decompresses HTTP headers for HTTP/2 connections.</span></span> <span data-ttu-id="b6952-195">HPACK デコーダーが使用するヘッダー圧縮テーブルのサイズは `Http2.HeaderTableSize` によって制限されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-195">`Http2.HeaderTableSize` limits the size of the header compression table that the HPACK decoder uses.</span></span> <span data-ttu-id="b6952-196">値はオクテット単位で指定し、ゼロ (0) より大きくなければなりません。</span><span class="sxs-lookup"><span data-stu-id="b6952-196">The value is provided in octets and must be greater than zero (0).</span></span>
+<span data-ttu-id="87ae2-194">HTTP/2 接続では、HTTP ヘッダーは HPACK デコーダーによって圧縮解除されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-194">The HPACK decoder decompresses HTTP headers for HTTP/2 connections.</span></span> <span data-ttu-id="87ae2-195">HPACK デコーダーが使用するヘッダー圧縮テーブルのサイズは `Http2.HeaderTableSize` によって制限されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-195">`Http2.HeaderTableSize` limits the size of the header compression table that the HPACK decoder uses.</span></span> <span data-ttu-id="87ae2-196">値はオクテット単位で指定し、ゼロ (0) より大きくなければなりません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-196">The value is provided in octets and must be greater than zero (0).</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -310,11 +310,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-197">既定値は 4096 です。</span><span class="sxs-lookup"><span data-stu-id="b6952-197">The default value is 4096.</span></span>
+<span data-ttu-id="87ae2-197">既定値は 4096 です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-197">The default value is 4096.</span></span>
 
-### <a name="maximum-frame-size"></a><span data-ttu-id="b6952-198">最大フレーム サイズ</span><span class="sxs-lookup"><span data-stu-id="b6952-198">Maximum frame size</span></span>
+### <a name="maximum-frame-size"></a><span data-ttu-id="87ae2-198">最大フレーム サイズ</span><span class="sxs-lookup"><span data-stu-id="87ae2-198">Maximum frame size</span></span>
 
-<span data-ttu-id="b6952-199">受信する HTTP/2 接続フレーム ペイロードの最大サイズは、`Http2.MaxFrameSize` によって示されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-199">`Http2.MaxFrameSize` indicates the maximum size of the HTTP/2 connection frame payload to receive.</span></span> <span data-ttu-id="b6952-200">値はオクテット単位で指定し、2^14 (16,384) から 2^24-1 (16,777,215) までの範囲とする必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-200">The value is provided in octets and must be between 2^14 (16,384) and 2^24-1 (16,777,215).</span></span>
+<span data-ttu-id="87ae2-199">受信する HTTP/2 接続フレーム ペイロードの最大サイズは、`Http2.MaxFrameSize` によって示されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-199">`Http2.MaxFrameSize` indicates the maximum size of the HTTP/2 connection frame payload to receive.</span></span> <span data-ttu-id="87ae2-200">値はオクテット単位で指定し、2^14 (16,384) から 2^24-1 (16,777,215) までの範囲とする必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-200">The value is provided in octets and must be between 2^14 (16,384) and 2^24-1 (16,777,215).</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -326,11 +326,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-201">既定値は 2^14 (16,384) です。</span><span class="sxs-lookup"><span data-stu-id="b6952-201">The default value is 2^14 (16,384).</span></span>
+<span data-ttu-id="87ae2-201">既定値は 2^14 (16,384) です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-201">The default value is 2^14 (16,384).</span></span>
 
-### <a name="maximum-request-header-size"></a><span data-ttu-id="b6952-202">最大要求ヘッダー サイズ</span><span class="sxs-lookup"><span data-stu-id="b6952-202">Maximum request header size</span></span>
+### <a name="maximum-request-header-size"></a><span data-ttu-id="87ae2-202">最大要求ヘッダー サイズ</span><span class="sxs-lookup"><span data-stu-id="87ae2-202">Maximum request header size</span></span>
 
-<span data-ttu-id="b6952-203">`Http2.MaxRequestHeaderFieldSize` は、要求ヘッダー値の最大許容サイズをオクテット単位で示しています。</span><span class="sxs-lookup"><span data-stu-id="b6952-203">`Http2.MaxRequestHeaderFieldSize` indicates the maximum allowed size in octets of request header values.</span></span> <span data-ttu-id="b6952-204">この制限は、名前と値の圧縮表示と非圧縮表示の両方に適用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-204">This limit applies to both name and value together in their compressed and uncompressed representations.</span></span> <span data-ttu-id="b6952-205">ゼロ (0) より大きい値である必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-205">The value must be greater than zero (0).</span></span>
+<span data-ttu-id="87ae2-203">`Http2.MaxRequestHeaderFieldSize` は、要求ヘッダー値の最大許容サイズをオクテット単位で示しています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-203">`Http2.MaxRequestHeaderFieldSize` indicates the maximum allowed size in octets of request header values.</span></span> <span data-ttu-id="87ae2-204">この制限は、名前と値の圧縮表示と非圧縮表示の両方に適用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-204">This limit applies to both name and value together in their compressed and uncompressed representations.</span></span> <span data-ttu-id="87ae2-205">ゼロ (0) より大きい値である必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-205">The value must be greater than zero (0).</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -342,11 +342,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-206">既定値は 8,192 です。</span><span class="sxs-lookup"><span data-stu-id="b6952-206">The default value is 8,192.</span></span>
+<span data-ttu-id="87ae2-206">既定値は 8,192 です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-206">The default value is 8,192.</span></span>
 
-### <a name="initial-connection-window-size"></a><span data-ttu-id="b6952-207">初期接続ウィンドウ サイズ</span><span class="sxs-lookup"><span data-stu-id="b6952-207">Initial connection window size</span></span>
+### <a name="initial-connection-window-size"></a><span data-ttu-id="87ae2-207">初期接続ウィンドウ サイズ</span><span class="sxs-lookup"><span data-stu-id="87ae2-207">Initial connection window size</span></span>
 
-<span data-ttu-id="b6952-208">`Http2.InitialConnectionWindowSize` は、サーバーが接続ごとの要求 (ストリーム) 全体で一度にバッファする最大要求本文データをバイト単位で示しています。</span><span class="sxs-lookup"><span data-stu-id="b6952-208">`Http2.InitialConnectionWindowSize` indicates the maximum request body data in bytes the server buffers at one time aggregated across all requests (streams) per connection.</span></span> <span data-ttu-id="b6952-209">要求は `Http2.InitialStreamWindowSize` による制限も受けます。</span><span class="sxs-lookup"><span data-stu-id="b6952-209">Requests are also limited by `Http2.InitialStreamWindowSize`.</span></span> <span data-ttu-id="b6952-210">この値は 65,535 より大きく、2^31 (2,147,483,648) 未満である必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-210">The value must be greater than or equal to 65,535 and less than 2^31 (2,147,483,648).</span></span>
+<span data-ttu-id="87ae2-208">`Http2.InitialConnectionWindowSize` は、サーバーが接続ごとの要求 (ストリーム) 全体で一度にバッファする最大要求本文データをバイト単位で示しています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-208">`Http2.InitialConnectionWindowSize` indicates the maximum request body data in bytes the server buffers at one time aggregated across all requests (streams) per connection.</span></span> <span data-ttu-id="87ae2-209">要求は `Http2.InitialStreamWindowSize` による制限も受けます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-209">Requests are also limited by `Http2.InitialStreamWindowSize`.</span></span> <span data-ttu-id="87ae2-210">この値は 65,535 より大きく、2^31 (2,147,483,648) 未満である必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-210">The value must be greater than or equal to 65,535 and less than 2^31 (2,147,483,648).</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -358,11 +358,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-211">既定値は 128 KB (131,072) です。</span><span class="sxs-lookup"><span data-stu-id="b6952-211">The default value is 128 KB (131,072).</span></span>
+<span data-ttu-id="87ae2-211">既定値は 128 KB (131,072) です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-211">The default value is 128 KB (131,072).</span></span>
 
-### <a name="initial-stream-window-size"></a><span data-ttu-id="b6952-212">初期ストリーム ウィンドウ サイズ</span><span class="sxs-lookup"><span data-stu-id="b6952-212">Initial stream window size</span></span>
+### <a name="initial-stream-window-size"></a><span data-ttu-id="87ae2-212">初期ストリーム ウィンドウ サイズ</span><span class="sxs-lookup"><span data-stu-id="87ae2-212">Initial stream window size</span></span>
 
-<span data-ttu-id="b6952-213">`Http2.InitialStreamWindowSize` は、サーバーが要求 (ストリーム) ごとに一度にバッファする最大要求本文データをバイト単位で示しています。</span><span class="sxs-lookup"><span data-stu-id="b6952-213">`Http2.InitialStreamWindowSize` indicates the maximum request body data in bytes the server buffers at one time per request (stream).</span></span> <span data-ttu-id="b6952-214">要求は `Http2.InitialStreamWindowSize` による制限も受けます。</span><span class="sxs-lookup"><span data-stu-id="b6952-214">Requests are also limited by `Http2.InitialStreamWindowSize`.</span></span> <span data-ttu-id="b6952-215">この値は 65,535 より大きく、2^31 (2,147,483,648) 未満である必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-215">The value must be greater than or equal to 65,535 and less than 2^31 (2,147,483,648).</span></span>
+<span data-ttu-id="87ae2-213">`Http2.InitialStreamWindowSize` は、サーバーが要求 (ストリーム) ごとに一度にバッファする最大要求本文データをバイト単位で示しています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-213">`Http2.InitialStreamWindowSize` indicates the maximum request body data in bytes the server buffers at one time per request (stream).</span></span> <span data-ttu-id="87ae2-214">要求は `Http2.InitialStreamWindowSize` による制限も受けます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-214">Requests are also limited by `Http2.InitialStreamWindowSize`.</span></span> <span data-ttu-id="87ae2-215">この値は 65,535 より大きく、2^31 (2,147,483,648) 未満である必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-215">The value must be greater than or equal to 65,535 and less than 2^31 (2,147,483,648).</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -374,57 +374,57 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-216">既定値は 96 KB (98,304) です。</span><span class="sxs-lookup"><span data-stu-id="b6952-216">The default value is 96 KB (98,304).</span></span>
+<span data-ttu-id="87ae2-216">既定値は 96 KB (98,304) です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-216">The default value is 96 KB (98,304).</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-217">Kestrel のその他のオプションと制限については、以下をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="b6952-217">For information about other Kestrel options and limits, see:</span></span>
+<span data-ttu-id="87ae2-217">Kestrel のその他のオプションと制限については、以下をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="87ae2-217">For information about other Kestrel options and limits, see:</span></span>
 
-* [<span data-ttu-id="b6952-218">KestrelServerOptions</span><span class="sxs-lookup"><span data-stu-id="b6952-218">KestrelServerOptions</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions)
-* [<span data-ttu-id="b6952-219">KestrelServerLimits</span><span class="sxs-lookup"><span data-stu-id="b6952-219">KestrelServerLimits</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits)
-* [<span data-ttu-id="b6952-220">ListenOptions</span><span class="sxs-lookup"><span data-stu-id="b6952-220">ListenOptions</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions)
+* [<span data-ttu-id="87ae2-218">KestrelServerOptions</span><span class="sxs-lookup"><span data-stu-id="87ae2-218">KestrelServerOptions</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions)
+* [<span data-ttu-id="87ae2-219">KestrelServerLimits</span><span class="sxs-lookup"><span data-stu-id="87ae2-219">KestrelServerLimits</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits)
+* [<span data-ttu-id="87ae2-220">ListenOptions</span><span class="sxs-lookup"><span data-stu-id="87ae2-220">ListenOptions</span></span>](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions)
 
-## <a name="endpoint-configuration"></a><span data-ttu-id="b6952-221">エンドポイントの構成</span><span class="sxs-lookup"><span data-stu-id="b6952-221">Endpoint configuration</span></span>
+## <a name="endpoint-configuration"></a><span data-ttu-id="87ae2-221">エンドポイントの構成</span><span class="sxs-lookup"><span data-stu-id="87ae2-221">Endpoint configuration</span></span>
 
-<span data-ttu-id="b6952-222">既定では、ASP.NET Core は以下にバインドされます。</span><span class="sxs-lookup"><span data-stu-id="b6952-222">By default, ASP.NET Core binds to:</span></span>
+<span data-ttu-id="87ae2-222">既定では、ASP.NET Core は以下にバインドされます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-222">By default, ASP.NET Core binds to:</span></span>
 
 * `http://localhost:5000`
-* <span data-ttu-id="b6952-223">`https://localhost:5001` (ローカル開発証明書が存在する場合)</span><span class="sxs-lookup"><span data-stu-id="b6952-223">`https://localhost:5001` (when a local development certificate is present)</span></span>
+* <span data-ttu-id="87ae2-223">`https://localhost:5001` (ローカル開発証明書が存在する場合)</span><span class="sxs-lookup"><span data-stu-id="87ae2-223">`https://localhost:5001` (when a local development certificate is present)</span></span>
 
-<span data-ttu-id="b6952-224">開発証明書が作成されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-224">A development certificate is created:</span></span>
+<span data-ttu-id="87ae2-224">開発証明書が作成されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-224">A development certificate is created:</span></span>
 
-* <span data-ttu-id="b6952-225">[.NET Core SDK](/dotnet/core/sdk) がインストールされるとき。</span><span class="sxs-lookup"><span data-stu-id="b6952-225">When the [.NET Core SDK](/dotnet/core/sdk) is installed.</span></span>
-* <span data-ttu-id="b6952-226">証明書を作成するには [dev-certs ツール](xref:aspnetcore-2.1#https)を使います。</span><span class="sxs-lookup"><span data-stu-id="b6952-226">The [dev-certs tool](xref:aspnetcore-2.1#https) is used to create a certificate.</span></span>
+* <span data-ttu-id="87ae2-225">[.NET Core SDK](/dotnet/core/sdk) がインストールされるとき。</span><span class="sxs-lookup"><span data-stu-id="87ae2-225">When the [.NET Core SDK](/dotnet/core/sdk) is installed.</span></span>
+* <span data-ttu-id="87ae2-226">証明書を作成するには [dev-certs ツール](xref:aspnetcore-2.1#https)を使います。</span><span class="sxs-lookup"><span data-stu-id="87ae2-226">The [dev-certs tool](xref:aspnetcore-2.1#https) is used to create a certificate.</span></span>
 
-<span data-ttu-id="b6952-227">一部のブラウザーでは、ローカル開発証明書を信頼するには、ブラウザーに明示的にアクセス許可を付与する必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-227">Some browsers require that you grant explicit permission to the browser to trust the local development certificate.</span></span>
+<span data-ttu-id="87ae2-227">一部のブラウザーでは、ローカル開発証明書を信頼するには、ブラウザーに明示的にアクセス許可を付与する必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-227">Some browsers require that you grant explicit permission to the browser to trust the local development certificate.</span></span>
 
-<span data-ttu-id="b6952-228">ASP.NET Core 2.1 およびそれより後のプロジェクト テンプレートでは、アプリは HTTPS で実行するように既定で構成され、[HTTPS のリダイレクトと HSTS のサポート](xref:security/enforcing-ssl)が組み込まれます。</span><span class="sxs-lookup"><span data-stu-id="b6952-228">ASP.NET Core 2.1 and later project templates configure apps to run on HTTPS by default and include [HTTPS redirection and HSTS support](xref:security/enforcing-ssl).</span></span>
+<span data-ttu-id="87ae2-228">ASP.NET Core 2.1 およびそれより後のプロジェクト テンプレートでは、アプリは HTTPS で実行するように既定で構成され、[HTTPS のリダイレクトと HSTS のサポート](xref:security/enforcing-ssl)が組み込まれます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-228">ASP.NET Core 2.1 and later project templates configure apps to run on HTTPS by default and include [HTTPS redirection and HSTS support](xref:security/enforcing-ssl).</span></span>
 
-<span data-ttu-id="b6952-229">Kestrel の URL プレフィックスとポートを構成するには、[KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) で [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) または [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="b6952-229">Call [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) or [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) methods on [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) to configure URL prefixes and ports for Kestrel.</span></span>
+<span data-ttu-id="87ae2-229">Kestrel の URL プレフィックスとポートを構成するには、[KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) で [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) または [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-229">Call [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) or [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) methods on [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) to configure URL prefixes and ports for Kestrel.</span></span>
 
-<span data-ttu-id="b6952-230">`UseUrls`、`--urls` コマンドライン引数、`urls` ホスト構成キー、`ASPNETCORE_URLS` 環境変数も機能しますが、このセクションで後述する制限があります (既定の証明書が、HTTPS エンドポイントの構成に使用できる必要があります)。</span><span class="sxs-lookup"><span data-stu-id="b6952-230">`UseUrls`, the `--urls` command-line argument, `urls` host configuration key, and the `ASPNETCORE_URLS` environment variable also work but have the limitations noted later in this section (a default certificate must be available for HTTPS endpoint configuration).</span></span>
+<span data-ttu-id="87ae2-230">`UseUrls`、`--urls` コマンドライン引数、`urls` ホスト構成キー、`ASPNETCORE_URLS` 環境変数も機能しますが、このセクションで後述する制限があります (既定の証明書が、HTTPS エンドポイントの構成に使用できる必要があります)。</span><span class="sxs-lookup"><span data-stu-id="87ae2-230">`UseUrls`, the `--urls` command-line argument, `urls` host configuration key, and the `ASPNETCORE_URLS` environment variable also work but have the limitations noted later in this section (a default certificate must be available for HTTPS endpoint configuration).</span></span>
 
-<span data-ttu-id="b6952-231">ASP.NET Core 2.1 の `KestrelServerOptions` の構成:</span><span class="sxs-lookup"><span data-stu-id="b6952-231">ASP.NET Core 2.1 `KestrelServerOptions` configuration:</span></span>
+<span data-ttu-id="87ae2-231">ASP.NET Core 2.1 の `KestrelServerOptions` の構成:</span><span class="sxs-lookup"><span data-stu-id="87ae2-231">ASP.NET Core 2.1 `KestrelServerOptions` configuration:</span></span>
 
-### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a><span data-ttu-id="b6952-232">ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)</span><span class="sxs-lookup"><span data-stu-id="b6952-232">ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)</span></span>
+### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a><span data-ttu-id="87ae2-232">ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)</span><span class="sxs-lookup"><span data-stu-id="87ae2-232">ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)</span></span>
 
-<span data-ttu-id="b6952-233">指定した各エンドポイントに対して実行するように、構成の `Action` を指定します。</span><span class="sxs-lookup"><span data-stu-id="b6952-233">Specifies a configuration `Action` to run for each specified endpoint.</span></span> <span data-ttu-id="b6952-234">`ConfigureEndpointDefaults` を複数回呼び出すと、前の `Action` が最後に指定した `Action` で置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="b6952-234">Calling `ConfigureEndpointDefaults` multiple times replaces prior `Action`s with the last `Action` specified.</span></span>
+<span data-ttu-id="87ae2-233">指定した各エンドポイントに対して実行するように、構成の `Action` を指定します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-233">Specifies a configuration `Action` to run for each specified endpoint.</span></span> <span data-ttu-id="87ae2-234">`ConfigureEndpointDefaults` を複数回呼び出すと、前の `Action` が最後に指定した `Action` で置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-234">Calling `ConfigureEndpointDefaults` multiple times replaces prior `Action`s with the last `Action` specified.</span></span>
 
-### <a name="configurehttpsdefaultsactionlthttpsconnectionadapteroptionsgt"></a><span data-ttu-id="b6952-235">ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)</span><span class="sxs-lookup"><span data-stu-id="b6952-235">ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)</span></span>
+### <a name="configurehttpsdefaultsactionlthttpsconnectionadapteroptionsgt"></a><span data-ttu-id="87ae2-235">ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)</span><span class="sxs-lookup"><span data-stu-id="87ae2-235">ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)</span></span>
 
-<span data-ttu-id="b6952-236">各 HTTPS エンドポイントに対して実行するように、構成の `Action` を指定します。</span><span class="sxs-lookup"><span data-stu-id="b6952-236">Specifies a configuration `Action` to run for each HTTPS endpoint.</span></span> <span data-ttu-id="b6952-237">`ConfigureHttpsDefaults` を複数回呼び出すと、前の `Action` が最後に指定した `Action` で置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="b6952-237">Calling `ConfigureHttpsDefaults` multiple times replaces prior `Action`s with the last `Action` specified.</span></span>
+<span data-ttu-id="87ae2-236">各 HTTPS エンドポイントに対して実行するように、構成の `Action` を指定します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-236">Specifies a configuration `Action` to run for each HTTPS endpoint.</span></span> <span data-ttu-id="87ae2-237">`ConfigureHttpsDefaults` を複数回呼び出すと、前の `Action` が最後に指定した `Action` で置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-237">Calling `ConfigureHttpsDefaults` multiple times replaces prior `Action`s with the last `Action` specified.</span></span>
 
-### <a name="configureiconfiguration"></a><span data-ttu-id="b6952-238">Configure(IConfiguration)</span><span class="sxs-lookup"><span data-stu-id="b6952-238">Configure(IConfiguration)</span></span>
+### <a name="configureiconfiguration"></a><span data-ttu-id="87ae2-238">Configure(IConfiguration)</span><span class="sxs-lookup"><span data-stu-id="87ae2-238">Configure(IConfiguration)</span></span>
 
-<span data-ttu-id="b6952-239">入力として [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) を受け取る Kestrel を設定するための構成ローダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="b6952-239">Creates a configuration loader for setting up Kestrel that takes an [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) as input.</span></span> <span data-ttu-id="b6952-240">構成のスコープは、Kestrel の構成セクションにする必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-240">The configuration must be scoped to the configuration section for Kestrel.</span></span>
+<span data-ttu-id="87ae2-239">入力として [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) を受け取る Kestrel を設定するための構成ローダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-239">Creates a configuration loader for setting up Kestrel that takes an [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) as input.</span></span> <span data-ttu-id="87ae2-240">構成のスコープは、Kestrel の構成セクションにする必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-240">The configuration must be scoped to the configuration section for Kestrel.</span></span>
 
-### <a name="listenoptionsusehttps"></a><span data-ttu-id="b6952-241">ListenOptions.UseHttps</span><span class="sxs-lookup"><span data-stu-id="b6952-241">ListenOptions.UseHttps</span></span>
+### <a name="listenoptionsusehttps"></a><span data-ttu-id="87ae2-241">ListenOptions.UseHttps</span><span class="sxs-lookup"><span data-stu-id="87ae2-241">ListenOptions.UseHttps</span></span>
 
-<span data-ttu-id="b6952-242">HTTPS を使用するように Kestrel を構成します。</span><span class="sxs-lookup"><span data-stu-id="b6952-242">Configure Kestrel to use HTTPS.</span></span>
+<span data-ttu-id="87ae2-242">HTTPS を使用するように Kestrel を構成します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-242">Configure Kestrel to use HTTPS.</span></span>
 
-<span data-ttu-id="b6952-243">`ListenOptions.UseHttps` 拡張機能:</span><span class="sxs-lookup"><span data-stu-id="b6952-243">`ListenOptions.UseHttps` extensions:</span></span>
+<span data-ttu-id="87ae2-243">`ListenOptions.UseHttps` 拡張機能:</span><span class="sxs-lookup"><span data-stu-id="87ae2-243">`ListenOptions.UseHttps` extensions:</span></span>
 
-* <span data-ttu-id="b6952-244">`UseHttps` &ndash; 既定の証明書で HTTPS を使うように Kestrel を構成します。</span><span class="sxs-lookup"><span data-stu-id="b6952-244">`UseHttps` &ndash; Configure Kestrel to use HTTPS with the default certificate.</span></span> <span data-ttu-id="b6952-245">既定の証明書が構成されていない場合は、例外がスローされます。</span><span class="sxs-lookup"><span data-stu-id="b6952-245">Throws an exception if no default certificate is configured.</span></span>
+* <span data-ttu-id="87ae2-244">`UseHttps` &ndash; 既定の証明書で HTTPS を使うように Kestrel を構成します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-244">`UseHttps` &ndash; Configure Kestrel to use HTTPS with the default certificate.</span></span> <span data-ttu-id="87ae2-245">既定の証明書が構成されていない場合は、例外がスローされます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-245">Throws an exception if no default certificate is configured.</span></span>
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -436,48 +436,48 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 * `UseHttps(X509Certificate2 serverCertificate, Action<HttpsConnectionAdapterOptions> configureOptions)`
 * `UseHttps(Action<HttpsConnectionAdapterOptions> configureOptions)`
 
-<span data-ttu-id="b6952-246">`ListenOptions.UseHttps` パラメーター:</span><span class="sxs-lookup"><span data-stu-id="b6952-246">`ListenOptions.UseHttps` parameters:</span></span>
+<span data-ttu-id="87ae2-246">`ListenOptions.UseHttps` パラメーター:</span><span class="sxs-lookup"><span data-stu-id="87ae2-246">`ListenOptions.UseHttps` parameters:</span></span>
 
-* <span data-ttu-id="b6952-247">`filename` は、アプリのコンテンツ ファイルが格納されているディレクトリを基準とする、証明書ファイルのパスとファイル名です。</span><span class="sxs-lookup"><span data-stu-id="b6952-247">`filename` is the path and file name of a certificate file, relative to the directory that contains the app's content files.</span></span>
-* <span data-ttu-id="b6952-248">`password` は、X.509 証明書データにアクセスするために必要なパスワードです。</span><span class="sxs-lookup"><span data-stu-id="b6952-248">`password` is the password required to access the X.509 certificate data.</span></span>
-* <span data-ttu-id="b6952-249">`configureOptions` は、`HttpsConnectionAdapterOptions` を構成するための `Action` です。</span><span class="sxs-lookup"><span data-stu-id="b6952-249">`configureOptions` is an `Action` to configure the `HttpsConnectionAdapterOptions`.</span></span> <span data-ttu-id="b6952-250">`ListenOptions` を返します。</span><span class="sxs-lookup"><span data-stu-id="b6952-250">Returns the `ListenOptions`.</span></span>
-* <span data-ttu-id="b6952-251">`storeName` は、証明書の読み込み元の証明書ストアです。</span><span class="sxs-lookup"><span data-stu-id="b6952-251">`storeName` is the certificate store from which to load the certificate.</span></span>
-* <span data-ttu-id="b6952-252">`subject` は、証明書のサブジェクト名です。</span><span class="sxs-lookup"><span data-stu-id="b6952-252">`subject` is the subject name for the certificate.</span></span>
-* <span data-ttu-id="b6952-253">`allowInvalid` は、無効な証明書 (自己署名証明書など) を考慮する必要があるかどうかを示します。</span><span class="sxs-lookup"><span data-stu-id="b6952-253">`allowInvalid` indicates if invalid certificates should be considered, such as self-signed certificates.</span></span>
-* <span data-ttu-id="b6952-254">`location` は、証明書を読み込むストアの場所です。</span><span class="sxs-lookup"><span data-stu-id="b6952-254">`location` is the store location to load the certificate from.</span></span>
-* <span data-ttu-id="b6952-255">`serverCertificate` は、X.509 証明書です。</span><span class="sxs-lookup"><span data-stu-id="b6952-255">`serverCertificate` is the X.509 certificate.</span></span>
+* <span data-ttu-id="87ae2-247">`filename` は、アプリのコンテンツ ファイルが格納されているディレクトリを基準とする、証明書ファイルのパスとファイル名です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-247">`filename` is the path and file name of a certificate file, relative to the directory that contains the app's content files.</span></span>
+* <span data-ttu-id="87ae2-248">`password` は、X.509 証明書データにアクセスするために必要なパスワードです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-248">`password` is the password required to access the X.509 certificate data.</span></span>
+* <span data-ttu-id="87ae2-249">`configureOptions` は、`HttpsConnectionAdapterOptions` を構成するための `Action` です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-249">`configureOptions` is an `Action` to configure the `HttpsConnectionAdapterOptions`.</span></span> <span data-ttu-id="87ae2-250">`ListenOptions` を返します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-250">Returns the `ListenOptions`.</span></span>
+* <span data-ttu-id="87ae2-251">`storeName` は、証明書の読み込み元の証明書ストアです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-251">`storeName` is the certificate store from which to load the certificate.</span></span>
+* <span data-ttu-id="87ae2-252">`subject` は、証明書のサブジェクト名です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-252">`subject` is the subject name for the certificate.</span></span>
+* <span data-ttu-id="87ae2-253">`allowInvalid` は、無効な証明書 (自己署名証明書など) を考慮する必要があるかどうかを示します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-253">`allowInvalid` indicates if invalid certificates should be considered, such as self-signed certificates.</span></span>
+* <span data-ttu-id="87ae2-254">`location` は、証明書を読み込むストアの場所です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-254">`location` is the store location to load the certificate from.</span></span>
+* <span data-ttu-id="87ae2-255">`serverCertificate` は、X.509 証明書です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-255">`serverCertificate` is the X.509 certificate.</span></span>
 
-<span data-ttu-id="b6952-256">運用環境では、HTTPS を明示的に構成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-256">In production, HTTPS must be explicitly configured.</span></span> <span data-ttu-id="b6952-257">少なくとも、既定の証明書を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-257">At a minimum, a default certificate must be provided.</span></span>
+<span data-ttu-id="87ae2-256">運用環境では、HTTPS を明示的に構成する必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-256">In production, HTTPS must be explicitly configured.</span></span> <span data-ttu-id="87ae2-257">少なくとも、既定の証明書を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-257">At a minimum, a default certificate must be provided.</span></span>
 
-<span data-ttu-id="b6952-258">サポートされている構成を次に説明します。</span><span class="sxs-lookup"><span data-stu-id="b6952-258">Supported configurations described next:</span></span>
+<span data-ttu-id="87ae2-258">サポートされている構成を次に説明します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-258">Supported configurations described next:</span></span>
 
-* <span data-ttu-id="b6952-259">構成なし</span><span class="sxs-lookup"><span data-stu-id="b6952-259">No configuration</span></span>
-* <span data-ttu-id="b6952-260">構成から既定の証明書を置き換える</span><span class="sxs-lookup"><span data-stu-id="b6952-260">Replace the default certificate from configuration</span></span>
-* <span data-ttu-id="b6952-261">コードで既定値を変更する</span><span class="sxs-lookup"><span data-stu-id="b6952-261">Change the defaults in code</span></span>
+* <span data-ttu-id="87ae2-259">構成なし</span><span class="sxs-lookup"><span data-stu-id="87ae2-259">No configuration</span></span>
+* <span data-ttu-id="87ae2-260">構成から既定の証明書を置き換える</span><span class="sxs-lookup"><span data-stu-id="87ae2-260">Replace the default certificate from configuration</span></span>
+* <span data-ttu-id="87ae2-261">コードで既定値を変更する</span><span class="sxs-lookup"><span data-stu-id="87ae2-261">Change the defaults in code</span></span>
 
-<span data-ttu-id="b6952-262">*構成なし*</span><span class="sxs-lookup"><span data-stu-id="b6952-262">*No configuration*</span></span>
+<span data-ttu-id="87ae2-262">*構成なし*</span><span class="sxs-lookup"><span data-stu-id="87ae2-262">*No configuration*</span></span>
 
-<span data-ttu-id="b6952-263">Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証明書が使用可能な場合) でリッスンします。</span><span class="sxs-lookup"><span data-stu-id="b6952-263">Kestrel listens on `http://localhost:5000` and `https://localhost:5001` (if a default cert is available).</span></span>
+<span data-ttu-id="87ae2-263">Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証明書が使用可能な場合) でリッスンします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-263">Kestrel listens on `http://localhost:5000` and `https://localhost:5001` (if a default cert is available).</span></span>
 
-<span data-ttu-id="b6952-264">以下を使用して URL を指定します。</span><span class="sxs-lookup"><span data-stu-id="b6952-264">Specify URLs using the:</span></span>
+<span data-ttu-id="87ae2-264">以下を使用して URL を指定します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-264">Specify URLs using the:</span></span>
 
-* <span data-ttu-id="b6952-265">`ASPNETCORE_URLS` 環境変数。</span><span class="sxs-lookup"><span data-stu-id="b6952-265">`ASPNETCORE_URLS` environment variable.</span></span>
-* <span data-ttu-id="b6952-266">`--urls` コマンド ライン引数。</span><span class="sxs-lookup"><span data-stu-id="b6952-266">`--urls` command-line argument.</span></span>
-* <span data-ttu-id="b6952-267">`urls` ホスト構成キー。</span><span class="sxs-lookup"><span data-stu-id="b6952-267">`urls` host configuration key.</span></span>
-* <span data-ttu-id="b6952-268">`UseUrls` 拡張メソッド。</span><span class="sxs-lookup"><span data-stu-id="b6952-268">`UseUrls` extension method.</span></span>
+* <span data-ttu-id="87ae2-265">`ASPNETCORE_URLS` 環境変数。</span><span class="sxs-lookup"><span data-stu-id="87ae2-265">`ASPNETCORE_URLS` environment variable.</span></span>
+* <span data-ttu-id="87ae2-266">`--urls` コマンド ライン引数。</span><span class="sxs-lookup"><span data-stu-id="87ae2-266">`--urls` command-line argument.</span></span>
+* <span data-ttu-id="87ae2-267">`urls` ホスト構成キー。</span><span class="sxs-lookup"><span data-stu-id="87ae2-267">`urls` host configuration key.</span></span>
+* <span data-ttu-id="87ae2-268">`UseUrls` 拡張メソッド。</span><span class="sxs-lookup"><span data-stu-id="87ae2-268">`UseUrls` extension method.</span></span>
 
-<span data-ttu-id="b6952-269">詳しくは、「[サーバーの URL](xref:fundamentals/host/web-host#server-urls)」および「[構成のオーバーライド](xref:fundamentals/host/web-host#override-configuration)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="b6952-269">For more information, see [Server URLs](xref:fundamentals/host/web-host#server-urls) and [Override configuration](xref:fundamentals/host/web-host#override-configuration).</span></span>
+<span data-ttu-id="87ae2-269">詳しくは、「[サーバーの URL](xref:fundamentals/host/web-host#server-urls)」および「[構成のオーバーライド](xref:fundamentals/host/web-host#override-configuration)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="87ae2-269">For more information, see [Server URLs](xref:fundamentals/host/web-host#server-urls) and [Override configuration](xref:fundamentals/host/web-host#override-configuration).</span></span>
 
-<span data-ttu-id="b6952-270">これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-270">The value provided using these approaches can be one or more HTTP and HTTPS endpoints (HTTPS if a default cert is available).</span></span> <span data-ttu-id="b6952-271">セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000;http://localhost:8001"`)。</span><span class="sxs-lookup"><span data-stu-id="b6952-271">Configure the value as a semicolon-separated list (for example, `"Urls": "http://localhost:8000;http://localhost:8001"`).</span></span>
+<span data-ttu-id="87ae2-270">これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-270">The value provided using these approaches can be one or more HTTP and HTTPS endpoints (HTTPS if a default cert is available).</span></span> <span data-ttu-id="87ae2-271">セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000; http://localhost:8001"`)。</span><span class="sxs-lookup"><span data-stu-id="87ae2-271">Configure the value as a semicolon-separated list (for example, `"Urls": "http://localhost:8000;http://localhost:8001"`).</span></span>
 
-<span data-ttu-id="b6952-272">*構成から既定の証明書を置き換える*</span><span class="sxs-lookup"><span data-stu-id="b6952-272">*Replace the default certificate from configuration*</span></span>
+<span data-ttu-id="87ae2-272">*構成から既定の証明書を置き換える*</span><span class="sxs-lookup"><span data-stu-id="87ae2-272">*Replace the default certificate from configuration*</span></span>
 
-<span data-ttu-id="b6952-273">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) は既定で `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` を呼び出して Kestrel の構成を読み込みます。</span><span class="sxs-lookup"><span data-stu-id="b6952-273">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) calls `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` by default to load Kestrel configuration.</span></span> <span data-ttu-id="b6952-274">Kestrel は、既定の HTTPS アプリ設定構成スキーマを使用できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-274">A default HTTPS app settings configuration schema is available for Kestrel.</span></span> <span data-ttu-id="b6952-275">ディスク上のファイルまたは証明書ストアから、URL や使用する証明書など、複数のエンドポイントを構成します。</span><span class="sxs-lookup"><span data-stu-id="b6952-275">Configure multiple endpoints, including the URLs and the certificates to use, either from a file on disk or from a certificate store.</span></span>
+<span data-ttu-id="87ae2-273">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) は既定で `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` を呼び出して Kestrel の構成を読み込みます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-273">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) calls `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` by default to load Kestrel configuration.</span></span> <span data-ttu-id="87ae2-274">Kestrel は、既定の HTTPS アプリ設定構成スキーマを使用できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-274">A default HTTPS app settings configuration schema is available for Kestrel.</span></span> <span data-ttu-id="87ae2-275">ディスク上のファイルまたは証明書ストアから、URL や使用する証明書など、複数のエンドポイントを構成します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-275">Configure multiple endpoints, including the URLs and the certificates to use, either from a file on disk or from a certificate store.</span></span>
 
-<span data-ttu-id="b6952-276">以下の *appsettings.json* の例では、次のことが行われています。</span><span class="sxs-lookup"><span data-stu-id="b6952-276">In the following *appsettings.json* example:</span></span>
+<span data-ttu-id="87ae2-276">以下の *appsettings.json* の例では、次のことが行われています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-276">In the following *appsettings.json* example:</span></span>
 
-* <span data-ttu-id="b6952-277">**AllowInvalid** を `true` に設定し、の無効な証明書 (自己署名証明書など) の使用を許可します。</span><span class="sxs-lookup"><span data-stu-id="b6952-277">Set **AllowInvalid** to `true` to permit the use of invalid certificates (for example, self-signed certificates).</span></span>
-* <span data-ttu-id="b6952-278">証明書 (後の例では **HttpsDefaultCert**) が指定されていないすべての HTTPS エンドポイントは、**[証明書]** >  **[既定]** または開発証明書で定義されている証明書にフォールバックします。</span><span class="sxs-lookup"><span data-stu-id="b6952-278">Any HTTPS endpoint that doesn't specify a certificate (**HttpsDefaultCert** in the example that follows) falls back to the cert defined under **Certificates** > **Default** or the development certificate.</span></span>
+* <span data-ttu-id="87ae2-277">**AllowInvalid** を `true` に設定し、の無効な証明書 (自己署名証明書など) の使用を許可します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-277">Set **AllowInvalid** to `true` to permit the use of invalid certificates (for example, self-signed certificates).</span></span>
+* <span data-ttu-id="87ae2-278">証明書 (後の例では **HttpsDefaultCert**) が指定されていないすべての HTTPS エンドポイントは、**[証明書]** >  **[既定]** または開発証明書で定義されている証明書にフォールバックします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-278">Any HTTPS endpoint that doesn't specify a certificate (**HttpsDefaultCert** in the example that follows) falls back to the cert defined under **Certificates** > **Default** or the development certificate.</span></span>
 
 ```json
 {
@@ -527,7 +527,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 }
 ```
 
-<span data-ttu-id="b6952-279">証明書ノードの **Path** と **Password** を使用する代わりの方法は、証明書ストアのフィールドを使って証明書を指定することです。</span><span class="sxs-lookup"><span data-stu-id="b6952-279">An alternative to using **Path** and **Password** for any certificate node is to specify the certificate using certificate store fields.</span></span> <span data-ttu-id="b6952-280">たとえば、**[証明書]** > **[既定]** の証明書は次のように指定できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-280">For example, the **Certificates** > **Default** certificate can be specified as:</span></span>
+<span data-ttu-id="87ae2-279">証明書ノードの **Path** と **Password** を使用する代わりの方法は、証明書ストアのフィールドを使って証明書を指定することです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-279">An alternative to using **Path** and **Password** for any certificate node is to specify the certificate using certificate store fields.</span></span> <span data-ttu-id="87ae2-280">たとえば、**[証明書]** > **[既定]** の証明書は次のように指定できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-280">For example, the **Certificates** > **Default** certificate can be specified as:</span></span>
 
 ```json
 "Default": {
@@ -538,15 +538,15 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 }
 ```
 
-<span data-ttu-id="b6952-281">スキーマに関する注意事項:</span><span class="sxs-lookup"><span data-stu-id="b6952-281">Schema notes:</span></span>
+<span data-ttu-id="87ae2-281">スキーマに関する注意事項:</span><span class="sxs-lookup"><span data-stu-id="87ae2-281">Schema notes:</span></span>
 
-* <span data-ttu-id="b6952-282">エンドポイント名は大文字と小文字が区別されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-282">Endpoints names are case-insensitive.</span></span> <span data-ttu-id="b6952-283">たとえば、`HTTPS` と `Https` は有効です。</span><span class="sxs-lookup"><span data-stu-id="b6952-283">For example, `HTTPS` and `Https` are valid.</span></span>
-* <span data-ttu-id="b6952-284">`Url` パラメーターは、エンドポイントごとに必要です。</span><span class="sxs-lookup"><span data-stu-id="b6952-284">The `Url` parameter is required for each endpoint.</span></span> <span data-ttu-id="b6952-285">このパラメーターの形式は、1 つの値に制限されることを除き、最上位レベルの `Urls` 構成パラメーターと同じです。</span><span class="sxs-lookup"><span data-stu-id="b6952-285">The format for this parameter is the same as the top-level `Urls` configuration parameter except that it's limited to a single value.</span></span>
-* <span data-ttu-id="b6952-286">これらのエンドポイントは、最上位レベルの `Urls` 構成での定義に追加されるのではなく、それを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="b6952-286">These endpoints replace those defined in the top-level `Urls` configuration rather than adding to them.</span></span> <span data-ttu-id="b6952-287">コードで `Listen` を使用して定義されているエンドポイントは、構成セクションで定義されているエンドポイントに累積されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-287">Endpoints defined in code via `Listen` are cumulative with the endpoints defined in the configuration section.</span></span>
-* <span data-ttu-id="b6952-288">`Certificate` セクションは省略可能です。</span><span class="sxs-lookup"><span data-stu-id="b6952-288">The `Certificate` section is optional.</span></span> <span data-ttu-id="b6952-289">`Certificate` セクションを指定しないと、前述のシナリオで定義した既定値が使用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-289">If the `Certificate` section isn't specified, the defaults defined in earlier scenarios are used.</span></span> <span data-ttu-id="b6952-290">既定値を使用できない場合、サーバーにより例外がスローされ、開始できません。</span><span class="sxs-lookup"><span data-stu-id="b6952-290">If no defaults are available, the server throws an exception and fails to start.</span></span>
-* <span data-ttu-id="b6952-291">`Certificate` セクションは、**Path**&ndash;**Password** 証明書と **Subject**&ndash;**Store** 証明書の両方をサポートします。</span><span class="sxs-lookup"><span data-stu-id="b6952-291">The `Certificate` section supports both **Path**&ndash;**Password** and **Subject**&ndash;**Store** certificates.</span></span>
-* <span data-ttu-id="b6952-292">ポートが競合しない限り、この方法で任意の数のエンドポイントを定義できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-292">Any number of endpoints may be defined in this way so long as they don't cause port conflicts.</span></span>
-* <span data-ttu-id="b6952-293">`options.Configure(context.Configuration.GetSection("Kestrel"))` が `.Endpoint(string name, options => { })` メソッドで返す `KestrelConfigurationLoader` を使用して、構成されているエンドポイントの設定を補足できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-293">`options.Configure(context.Configuration.GetSection("Kestrel"))` returns a `KestrelConfigurationLoader` with an `.Endpoint(string name, options => { })` method that can be used to supplement a configured endpoint's settings:</span></span>
+* <span data-ttu-id="87ae2-282">エンドポイント名は大文字と小文字が区別されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-282">Endpoints names are case-insensitive.</span></span> <span data-ttu-id="87ae2-283">たとえば、`HTTPS` と `Https` は有効です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-283">For example, `HTTPS` and `Https` are valid.</span></span>
+* <span data-ttu-id="87ae2-284">`Url` パラメーターは、エンドポイントごとに必要です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-284">The `Url` parameter is required for each endpoint.</span></span> <span data-ttu-id="87ae2-285">このパラメーターの形式は、1 つの値に制限されることを除き、最上位レベルの `Urls` 構成パラメーターと同じです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-285">The format for this parameter is the same as the top-level `Urls` configuration parameter except that it's limited to a single value.</span></span>
+* <span data-ttu-id="87ae2-286">これらのエンドポイントは、最上位レベルの `Urls` 構成での定義に追加されるのではなく、それを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-286">These endpoints replace those defined in the top-level `Urls` configuration rather than adding to them.</span></span> <span data-ttu-id="87ae2-287">コードで `Listen` を使用して定義されているエンドポイントは、構成セクションで定義されているエンドポイントに累積されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-287">Endpoints defined in code via `Listen` are cumulative with the endpoints defined in the configuration section.</span></span>
+* <span data-ttu-id="87ae2-288">`Certificate` セクションは省略可能です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-288">The `Certificate` section is optional.</span></span> <span data-ttu-id="87ae2-289">`Certificate` セクションを指定しないと、前述のシナリオで定義した既定値が使用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-289">If the `Certificate` section isn't specified, the defaults defined in earlier scenarios are used.</span></span> <span data-ttu-id="87ae2-290">既定値を使用できない場合、サーバーにより例外がスローされ、開始できません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-290">If no defaults are available, the server throws an exception and fails to start.</span></span>
+* <span data-ttu-id="87ae2-291">`Certificate` セクションは、**Path**&ndash;**Password** 証明書と **Subject**&ndash;**Store** 証明書の両方をサポートします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-291">The `Certificate` section supports both **Path**&ndash;**Password** and **Subject**&ndash;**Store** certificates.</span></span>
+* <span data-ttu-id="87ae2-292">ポートが競合しない限り、この方法で任意の数のエンドポイントを定義できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-292">Any number of endpoints may be defined in this way so long as they don't cause port conflicts.</span></span>
+* <span data-ttu-id="87ae2-293">`options.Configure(context.Configuration.GetSection("Kestrel"))` が `.Endpoint(string name, options => { })` メソッドで返す `KestrelConfigurationLoader` を使用して、構成されているエンドポイントの設定を補足できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-293">`options.Configure(context.Configuration.GetSection("Kestrel"))` returns a `KestrelConfigurationLoader` with an `.Endpoint(string name, options => { })` method that can be used to supplement a configured endpoint's settings:</span></span>
 
   ```csharp
   options.Configure(context.Configuration.GetSection("Kestrel"))
@@ -556,15 +556,15 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
       });
   ```
 
-  <span data-ttu-id="b6952-294">`KestrelServerOptions.ConfigurationLoader` に直接アクセスして、既存のローダー ([WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) によって提供されるものなど) の反復を維持することもできます。</span><span class="sxs-lookup"><span data-stu-id="b6952-294">You can also directly access `KestrelServerOptions.ConfigurationLoader` to keep iterating on the existing loader, such as the one provided by [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).</span></span>
+  <span data-ttu-id="87ae2-294">`KestrelServerOptions.ConfigurationLoader` に直接アクセスして、既存のローダー ([WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) によって提供されるものなど) の反復を維持することもできます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-294">You can also directly access `KestrelServerOptions.ConfigurationLoader` to keep iterating on the existing loader, such as the one provided by [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).</span></span>
 
-* <span data-ttu-id="b6952-295">カスタム設定を読み取ることができるように、各エンドポイントの構成セクションを `Endpoint` メソッドのオプションで使用できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-295">The configuration section for each endpoint is a available on the options in the `Endpoint` method so that custom settings may be read.</span></span>
-* <span data-ttu-id="b6952-296">別のセクションで `options.Configure(context.Configuration.GetSection("Kestrel"))` を再び呼び出すことにより、複数の構成を読み込むことができます。</span><span class="sxs-lookup"><span data-stu-id="b6952-296">Multiple configurations may be loaded by calling `options.Configure(context.Configuration.GetSection("Kestrel"))` again with another section.</span></span> <span data-ttu-id="b6952-297">前のインスタンスで `Load` を明示的に呼び出していない限り、最後の構成のみが使用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-297">Only the last configuration is used, unless `Load` is explicitly called on prior instances.</span></span> <span data-ttu-id="b6952-298">既定の構成セクションを置き換えることができるように、メタパッケージは `Load` を呼び出しません。</span><span class="sxs-lookup"><span data-stu-id="b6952-298">The metapackage doesn't call `Load` so that its default configuration section may be replaced.</span></span>
-* <span data-ttu-id="b6952-299">`KestrelConfigurationLoader` はミラー、`KestrelServerOptions` から API の `Listen` ファミリを `Endpoint` オーバーロードとしてミラーリングするので、コードと構成のエンドポイントを同じ場所で構成できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-299">`KestrelConfigurationLoader` mirrors the `Listen` family of APIs from `KestrelServerOptions` as `Endpoint` overloads, so code and config endpoints may be configured in the same place.</span></span> <span data-ttu-id="b6952-300">これらのオーバーロードでは名前は使用されず、構成からの既定の設定のみが使用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-300">These overloads don't use names and only consume default settings from configuration.</span></span>
+* <span data-ttu-id="87ae2-295">カスタム設定を読み取ることができるように、各エンドポイントの構成セクションを `Endpoint` メソッドのオプションで使用できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-295">The configuration section for each endpoint is a available on the options in the `Endpoint` method so that custom settings may be read.</span></span>
+* <span data-ttu-id="87ae2-296">別のセクションで `options.Configure(context.Configuration.GetSection("Kestrel"))` を再び呼び出すことにより、複数の構成を読み込むことができます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-296">Multiple configurations may be loaded by calling `options.Configure(context.Configuration.GetSection("Kestrel"))` again with another section.</span></span> <span data-ttu-id="87ae2-297">前のインスタンスで `Load` を明示的に呼び出していない限り、最後の構成のみが使用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-297">Only the last configuration is used, unless `Load` is explicitly called on prior instances.</span></span> <span data-ttu-id="87ae2-298">既定の構成セクションを置き換えることができるように、メタパッケージは `Load` を呼び出しません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-298">The metapackage doesn't call `Load` so that its default configuration section may be replaced.</span></span>
+* <span data-ttu-id="87ae2-299">`KestrelConfigurationLoader` はミラー、`KestrelServerOptions` から API の `Listen` ファミリを `Endpoint` オーバーロードとしてミラーリングするので、コードと構成のエンドポイントを同じ場所で構成できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-299">`KestrelConfigurationLoader` mirrors the `Listen` family of APIs from `KestrelServerOptions` as `Endpoint` overloads, so code and config endpoints may be configured in the same place.</span></span> <span data-ttu-id="87ae2-300">これらのオーバーロードでは名前は使用されず、構成からの既定の設定のみが使用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-300">These overloads don't use names and only consume default settings from configuration.</span></span>
 
-<span data-ttu-id="b6952-301">*コードで既定値を変更する*</span><span class="sxs-lookup"><span data-stu-id="b6952-301">*Change the defaults in code*</span></span>
+<span data-ttu-id="87ae2-301">*コードで既定値を変更する*</span><span class="sxs-lookup"><span data-stu-id="87ae2-301">*Change the defaults in code*</span></span>
 
-<span data-ttu-id="b6952-302">`ConfigureEndpointDefaults` および`ConfigureHttpsDefaults` を使用して、`ListenOptions` および `HttpsConnectionAdapterOptions` の既定の設定を変更できます (前のシナリオで指定した既定の証明書のオーバーライドなど)。</span><span class="sxs-lookup"><span data-stu-id="b6952-302">`ConfigureEndpointDefaults` and `ConfigureHttpsDefaults` can be used to change default settings for `ListenOptions` and `HttpsConnectionAdapterOptions`, including overriding the default certificate specified in the prior scenario.</span></span> <span data-ttu-id="b6952-303">エンドポイントを構成する前に、`ConfigureEndpointDefaults` および `ConfigureHttpsDefaults` を呼び出す必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-303">`ConfigureEndpointDefaults` and `ConfigureHttpsDefaults` should be called before any endpoints are configured.</span></span>
+<span data-ttu-id="87ae2-302">`ConfigureEndpointDefaults` および`ConfigureHttpsDefaults` を使用して、`ListenOptions` および `HttpsConnectionAdapterOptions` の既定の設定を変更できます (前のシナリオで指定した既定の証明書のオーバーライドなど)。</span><span class="sxs-lookup"><span data-stu-id="87ae2-302">`ConfigureEndpointDefaults` and `ConfigureHttpsDefaults` can be used to change default settings for `ListenOptions` and `HttpsConnectionAdapterOptions`, including overriding the default certificate specified in the prior scenario.</span></span> <span data-ttu-id="87ae2-303">エンドポイントを構成する前に、`ConfigureEndpointDefaults` および `ConfigureHttpsDefaults` を呼び出す必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-303">`ConfigureEndpointDefaults` and `ConfigureHttpsDefaults` should be called before any endpoints are configured.</span></span>
 
 ```csharp
 options.ConfigureEndpointDefaults(opt =>
@@ -578,16 +578,16 @@ options.ConfigureHttpsDefaults(httpsOptions =>
 });
 ```
 
-<span data-ttu-id="b6952-304">*Kestrel による SNI のサポート*</span><span class="sxs-lookup"><span data-stu-id="b6952-304">*Kestrel support for SNI*</span></span>
+<span data-ttu-id="87ae2-304">*Kestrel による SNI のサポート*</span><span class="sxs-lookup"><span data-stu-id="87ae2-304">*Kestrel support for SNI*</span></span>
 
-<span data-ttu-id="b6952-305">[Server Name Indication (SNI)](https://tools.ietf.org/html/rfc6066#section-3) を使用すると、同じ IP アドレスとポートで複数のドメインをホストできます。</span><span class="sxs-lookup"><span data-stu-id="b6952-305">[Server Name Indication (SNI)](https://tools.ietf.org/html/rfc6066#section-3) can be used to host multiple domains on the same IP address and port.</span></span> <span data-ttu-id="b6952-306">SNI が機能するためには、サーバーが正しい証明書を提供できるように、クライアントは TLS ハンドシェイクの間にセキュリティで保護されたセッションのホスト名をサーバーに送信します。</span><span class="sxs-lookup"><span data-stu-id="b6952-306">For SNI to function, the client sends the host name for the secure session to the server during the TLS handshake so that the server can provide the correct certificate.</span></span> <span data-ttu-id="b6952-307">クライアントは、TLS ハンドシェイクに続くセキュリティで保護されたセッション中に、提供された証明書をサーバーとの暗号化された通信に使用します。</span><span class="sxs-lookup"><span data-stu-id="b6952-307">The client uses the furnished certificate for encrypted communication with the server during the secure session that follows the TLS handshake.</span></span>
+<span data-ttu-id="87ae2-305">[Server Name Indication (SNI)](https://tools.ietf.org/html/rfc6066#section-3) を使用すると、同じ IP アドレスとポートで複数のドメインをホストできます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-305">[Server Name Indication (SNI)](https://tools.ietf.org/html/rfc6066#section-3) can be used to host multiple domains on the same IP address and port.</span></span> <span data-ttu-id="87ae2-306">SNI が機能するためには、サーバーが正しい証明書を提供できるように、クライアントは TLS ハンドシェイクの間にセキュリティで保護されたセッションのホスト名をサーバーに送信します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-306">For SNI to function, the client sends the host name for the secure session to the server during the TLS handshake so that the server can provide the correct certificate.</span></span> <span data-ttu-id="87ae2-307">クライアントは、TLS ハンドシェイクに続くセキュリティで保護されたセッション中に、提供された証明書をサーバーとの暗号化された通信に使用します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-307">The client uses the furnished certificate for encrypted communication with the server during the secure session that follows the TLS handshake.</span></span>
 
-<span data-ttu-id="b6952-308">Kestrel は、`ServerCertificateSelector` コールバックによって SNI をサポートします。</span><span class="sxs-lookup"><span data-stu-id="b6952-308">Kestrel supports SNI via the `ServerCertificateSelector` callback.</span></span> <span data-ttu-id="b6952-309">コールバックは接続ごとに 1 回呼び出されるので、アプリはそれを使って、ホスト名を検査し、適切な証明書を選択できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-309">The callback is invoked once per connection to allow the app to inspect the host name and select the appropriate certificate.</span></span>
+<span data-ttu-id="87ae2-308">Kestrel は、`ServerCertificateSelector` コールバックによって SNI をサポートします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-308">Kestrel supports SNI via the `ServerCertificateSelector` callback.</span></span> <span data-ttu-id="87ae2-309">コールバックは接続ごとに 1 回呼び出されるので、アプリはそれを使って、ホスト名を検査し、適切な証明書を選択できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-309">The callback is invoked once per connection to allow the app to inspect the host name and select the appropriate certificate.</span></span>
 
-<span data-ttu-id="b6952-310">SNI のサポートには、次が必要です。</span><span class="sxs-lookup"><span data-stu-id="b6952-310">SNI support requires:</span></span>
+<span data-ttu-id="87ae2-310">SNI のサポートには、次が必要です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-310">SNI support requires:</span></span>
 
-* <span data-ttu-id="b6952-311">ターゲット フレームワーク `netcoreapp2.1` で実行される必要があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-311">Running on target framework `netcoreapp2.1`.</span></span> <span data-ttu-id="b6952-312">`netcoreapp2.0` および `net461` の場合は、コールバックは呼び出されますが、`name` は常に `null` です。</span><span class="sxs-lookup"><span data-stu-id="b6952-312">On `netcoreapp2.0` and `net461`, the callback is invoked but the `name` is always `null`.</span></span> <span data-ttu-id="b6952-313">クライアントが TLS ハンドシェイクでホスト名パラメーターを提供しない場合も、`name` は `null` です。</span><span class="sxs-lookup"><span data-stu-id="b6952-313">The `name` is also `null` if the client doesn't provide the host name parameter in the TLS handshake.</span></span>
-* <span data-ttu-id="b6952-314">すべての Web サイトは、同じ Kestrel インスタンスで実行されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-314">All websites run on the same Kestrel instance.</span></span> <span data-ttu-id="b6952-315">Kestrel では、リバース プロキシは使用しない、複数のインスタンスでの IP アドレスとポートの共有はサポートしていません。</span><span class="sxs-lookup"><span data-stu-id="b6952-315">Kestrel doesn't support sharing an IP address and port across multiple instances without a reverse proxy.</span></span>
+* <span data-ttu-id="87ae2-311">ターゲット フレームワーク `netcoreapp2.1` で実行される必要があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-311">Running on target framework `netcoreapp2.1`.</span></span> <span data-ttu-id="87ae2-312">`netcoreapp2.0` および `net461` の場合は、コールバックは呼び出されますが、`name` は常に `null` です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-312">On `netcoreapp2.0` and `net461`, the callback is invoked but the `name` is always `null`.</span></span> <span data-ttu-id="87ae2-313">クライアントが TLS ハンドシェイクでホスト名パラメーターを提供しない場合も、`name` は `null` です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-313">The `name` is also `null` if the client doesn't provide the host name parameter in the TLS handshake.</span></span>
+* <span data-ttu-id="87ae2-314">すべての Web サイトは、同じ Kestrel インスタンスで実行されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-314">All websites run on the same Kestrel instance.</span></span> <span data-ttu-id="87ae2-315">Kestrel では、リバース プロキシは使用しない、複数のインスタンスでの IP アドレスとポートの共有はサポートしていません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-315">Kestrel doesn't support sharing an IP address and port across multiple instances without a reverse proxy.</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -676,9 +676,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-### <a name="bind-to-a-tcp-socket"></a><span data-ttu-id="b6952-316">TCP ソケットにバインドする</span><span class="sxs-lookup"><span data-stu-id="b6952-316">Bind to a TCP socket</span></span>
+### <a name="bind-to-a-tcp-socket"></a><span data-ttu-id="87ae2-316">TCP ソケットにバインドする</span><span class="sxs-lookup"><span data-stu-id="87ae2-316">Bind to a TCP socket</span></span>
 
-<span data-ttu-id="b6952-317">[Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) メソッドは TCP ソケットにバインドし、オプションのラムダにより SSL 証明書を構成できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-317">The [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) method binds to a TCP socket, and an options lambda permits SSL certificate configuration:</span></span>
+<span data-ttu-id="87ae2-317">[Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) メソッドは TCP ソケットにバインドし、オプションのラムダにより SSL 証明書を構成できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-317">The [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) method binds to a TCP socket, and an options lambda permits SSL certificate configuration:</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -728,13 +728,13 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-<span data-ttu-id="b6952-318">例では、[ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions) を使用して、エンドポイントに対する SSL が構成されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-318">The example configures SSL for an endpoint with [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions).</span></span> <span data-ttu-id="b6952-319">同じ API を使用して、特定のエンドポイントに対する他の Kestrel 設定を構成します。</span><span class="sxs-lookup"><span data-stu-id="b6952-319">Use the same API to configure other Kestrel settings for specific endpoints.</span></span>
+<span data-ttu-id="87ae2-318">例では、[ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions) を使用して、エンドポイントに対する SSL が構成されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-318">The example configures SSL for an endpoint with [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions).</span></span> <span data-ttu-id="87ae2-319">同じ API を使用して、特定のエンドポイントに対する他の Kestrel 設定を構成します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-319">Use the same API to configure other Kestrel settings for specific endpoints.</span></span>
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
-### <a name="bind-to-a-unix-socket"></a><span data-ttu-id="b6952-320">UNIX ソケットにバインドする</span><span class="sxs-lookup"><span data-stu-id="b6952-320">Bind to a Unix socket</span></span>
+### <a name="bind-to-a-unix-socket"></a><span data-ttu-id="87ae2-320">UNIX ソケットにバインドする</span><span class="sxs-lookup"><span data-stu-id="87ae2-320">Bind to a Unix socket</span></span>
 
-<span data-ttu-id="b6952-321">次の例に示すように、Nginx でのパフォーマンス向上のため、[ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) で UNIX ソケットをリッスンします。</span><span class="sxs-lookup"><span data-stu-id="b6952-321">Listen on a Unix socket with [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) for improved performance with Nginx, as shown in this example:</span></span>
+<span data-ttu-id="87ae2-321">次の例に示すように、Nginx でのパフォーマンス向上のため、[ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) で UNIX ソケットをリッスンします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-321">Listen on a Unix socket with [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) for improved performance with Nginx, as shown in this example:</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -760,63 +760,63 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-### <a name="port-0"></a><span data-ttu-id="b6952-322">ポート 0</span><span class="sxs-lookup"><span data-stu-id="b6952-322">Port 0</span></span>
+### <a name="port-0"></a><span data-ttu-id="87ae2-322">ポート 0</span><span class="sxs-lookup"><span data-stu-id="87ae2-322">Port 0</span></span>
 
-<span data-ttu-id="b6952-323">ポート番号 `0` を指定すると、Kestrel は使用可能なポートに動的にバインドします。</span><span class="sxs-lookup"><span data-stu-id="b6952-323">When the port number `0` is specified, Kestrel dynamically binds to an available port.</span></span> <span data-ttu-id="b6952-324">次の例では、Kestrel が実行時に実際にバインドするポートを特定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="b6952-324">The following example shows how to determine which port Kestrel actually bound at runtime:</span></span>
+<span data-ttu-id="87ae2-323">ポート番号 `0` を指定すると、Kestrel は使用可能なポートに動的にバインドします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-323">When the port number `0` is specified, Kestrel dynamically binds to an available port.</span></span> <span data-ttu-id="87ae2-324">次の例では、Kestrel が実行時に実際にバインドするポートを特定する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-324">The following example shows how to determine which port Kestrel actually bound at runtime:</span></span>
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Configure&highlight=3-4,15-21)]
 
-<span data-ttu-id="b6952-325">アプリを実行すると、コンソール ウィンドウの出力で、アプリがアクセスできる動的なポートが示されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-325">When the app is run, the console window output indicates the dynamic port where the app can be reached:</span></span>
+<span data-ttu-id="87ae2-325">アプリを実行すると、コンソール ウィンドウの出力で、アプリがアクセスできる動的なポートが示されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-325">When the app is run, the console window output indicates the dynamic port where the app can be reached:</span></span>
 
 ```console
 Listening on the following addresses: http://127.0.0.1:48508
 ```
 
-### <a name="limitations"></a><span data-ttu-id="b6952-326">制限事項</span><span class="sxs-lookup"><span data-stu-id="b6952-326">Limitations</span></span>
+### <a name="limitations"></a><span data-ttu-id="87ae2-326">制限事項</span><span class="sxs-lookup"><span data-stu-id="87ae2-326">Limitations</span></span>
 
-<span data-ttu-id="b6952-327">次の方法でエンドポイントを構成します。</span><span class="sxs-lookup"><span data-stu-id="b6952-327">Configure endpoints with the following approaches:</span></span>
+<span data-ttu-id="87ae2-327">次の方法でエンドポイントを構成します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-327">Configure endpoints with the following approaches:</span></span>
 
-* [<span data-ttu-id="b6952-328">UseUrls</span><span class="sxs-lookup"><span data-stu-id="b6952-328">UseUrls</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useurls)
-* <span data-ttu-id="b6952-329">`--urls` コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="b6952-329">`--urls` command-line argument</span></span>
-* <span data-ttu-id="b6952-330">`urls` ホスト構成キー</span><span class="sxs-lookup"><span data-stu-id="b6952-330">`urls` host configuration key</span></span>
-* <span data-ttu-id="b6952-331">`ASPNETCORE_URLS` 環境変数</span><span class="sxs-lookup"><span data-stu-id="b6952-331">`ASPNETCORE_URLS` environment variable</span></span>
+* [<span data-ttu-id="87ae2-328">UseUrls</span><span class="sxs-lookup"><span data-stu-id="87ae2-328">UseUrls</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useurls)
+* <span data-ttu-id="87ae2-329">`--urls` コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="87ae2-329">`--urls` command-line argument</span></span>
+* <span data-ttu-id="87ae2-330">`urls` ホスト構成キー</span><span class="sxs-lookup"><span data-stu-id="87ae2-330">`urls` host configuration key</span></span>
+* <span data-ttu-id="87ae2-331">`ASPNETCORE_URLS` 環境変数</span><span class="sxs-lookup"><span data-stu-id="87ae2-331">`ASPNETCORE_URLS` environment variable</span></span>
 
-<span data-ttu-id="b6952-332">コードを Kestrel 以外のサーバーで機能させるには、これらのメソッドが有用です。</span><span class="sxs-lookup"><span data-stu-id="b6952-332">These methods are useful for making code work with servers other than Kestrel.</span></span> <span data-ttu-id="b6952-333">ただし、次の使用制限があることに注意してください。</span><span class="sxs-lookup"><span data-stu-id="b6952-333">However, be aware of the following limitations:</span></span>
+<span data-ttu-id="87ae2-332">コードを Kestrel 以外のサーバーで機能させるには、これらのメソッドが有用です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-332">These methods are useful for making code work with servers other than Kestrel.</span></span> <span data-ttu-id="87ae2-333">ただし、次の使用制限があることに注意してください。</span><span class="sxs-lookup"><span data-stu-id="87ae2-333">However, be aware of the following limitations:</span></span>
 
-* <span data-ttu-id="b6952-334">HTTPS エンドポイントの構成で (たとえば、前に説明したように `KestrelServerOptions` 構成または構成ファイルを使用して) 既定の証明書が提供されていない場合、これらの方法で SSL を使用することはできません。</span><span class="sxs-lookup"><span data-stu-id="b6952-334">SSL can't be used with these approaches unless a default certificate is provided in the HTTPS endpoint configuration (for example, using `KestrelServerOptions` configuration or a configuration file as shown earlier in this topic).</span></span>
-* <span data-ttu-id="b6952-335">`Listen` と `UseUrls` 両方の方法を同時に使用すると、`Listen` エンドポイントが `UseUrls` エンドポイントをオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="b6952-335">When both the `Listen` and `UseUrls` approaches are used simultaneously, the `Listen` endpoints override the `UseUrls` endpoints.</span></span>
+* <span data-ttu-id="87ae2-334">HTTPS エンドポイントの構成で (たとえば、前に説明したように `KestrelServerOptions` 構成または構成ファイルを使用して) 既定の証明書が提供されていない場合、これらの方法で SSL を使用することはできません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-334">SSL can't be used with these approaches unless a default certificate is provided in the HTTPS endpoint configuration (for example, using `KestrelServerOptions` configuration or a configuration file as shown earlier in this topic).</span></span>
+* <span data-ttu-id="87ae2-335">`Listen` と `UseUrls` 両方の方法を同時に使用すると、`Listen` エンドポイントが `UseUrls` エンドポイントをオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-335">When both the `Listen` and `UseUrls` approaches are used simultaneously, the `Listen` endpoints override the `UseUrls` endpoints.</span></span>
 
-### <a name="iis-endpoint-configuration"></a><span data-ttu-id="b6952-336">IIS エンドポイントの構成</span><span class="sxs-lookup"><span data-stu-id="b6952-336">IIS endpoint configuration</span></span>
+### <a name="iis-endpoint-configuration"></a><span data-ttu-id="87ae2-336">IIS エンドポイントの構成</span><span class="sxs-lookup"><span data-stu-id="87ae2-336">IIS endpoint configuration</span></span>
 
-<span data-ttu-id="b6952-337">IIS を使用するときは、IIS オーバーライド バインドに対する URL バインドを、`Listen` または `UseUrls` によって設定します。</span><span class="sxs-lookup"><span data-stu-id="b6952-337">When using IIS, the URL bindings for IIS override bindings are set by either `Listen` or `UseUrls`.</span></span> <span data-ttu-id="b6952-338">詳しくは、「[ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="b6952-338">For more information, see the [ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module) topic.</span></span>
+<span data-ttu-id="87ae2-337">IIS を使用するときは、IIS オーバーライド バインドに対する URL バインドを、`Listen` または `UseUrls` によって設定します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-337">When using IIS, the URL bindings for IIS override bindings are set by either `Listen` or `UseUrls`.</span></span> <span data-ttu-id="87ae2-338">詳しくは、「[ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="87ae2-338">For more information, see the [ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module) topic.</span></span>
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="listenoptionsprotocols"></a><span data-ttu-id="b6952-339">ListenOptions.Protocols</span><span class="sxs-lookup"><span data-stu-id="b6952-339">ListenOptions.Protocols</span></span>
+### <a name="listenoptionsprotocols"></a><span data-ttu-id="87ae2-339">ListenOptions.Protocols</span><span class="sxs-lookup"><span data-stu-id="87ae2-339">ListenOptions.Protocols</span></span>
 
-<span data-ttu-id="b6952-340">`Protocols`プロパティでは、接続エンドポイントまたはサーバーに対して有効にされる HTTP プロトコル (`HttpProtocols`) が確定されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-340">The `Protocols` property establishes the HTTP protocols (`HttpProtocols`) enabled on a connection endpoint or for the server.</span></span> <span data-ttu-id="b6952-341">`HttpProtocols` 列挙型から `Protocols` プロパティに値を割り当てます。</span><span class="sxs-lookup"><span data-stu-id="b6952-341">Assign a value to the `Protocols` property from the `HttpProtocols` enum.</span></span>
+<span data-ttu-id="87ae2-340">`Protocols`プロパティでは、接続エンドポイントまたはサーバーに対して有効にされる HTTP プロトコル (`HttpProtocols`) が確定されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-340">The `Protocols` property establishes the HTTP protocols (`HttpProtocols`) enabled on a connection endpoint or for the server.</span></span> <span data-ttu-id="87ae2-341">`HttpProtocols` 列挙型から `Protocols` プロパティに値を割り当てます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-341">Assign a value to the `Protocols` property from the `HttpProtocols` enum.</span></span>
 
-| <span data-ttu-id="b6952-342">`HttpProtocols` 列挙値</span><span class="sxs-lookup"><span data-stu-id="b6952-342">`HttpProtocols` enum value</span></span> | <span data-ttu-id="b6952-343">許可される接続プロトコル</span><span class="sxs-lookup"><span data-stu-id="b6952-343">Connection protocol permitted</span></span> |
+| <span data-ttu-id="87ae2-342">`HttpProtocols` 列挙値</span><span class="sxs-lookup"><span data-stu-id="87ae2-342">`HttpProtocols` enum value</span></span> | <span data-ttu-id="87ae2-343">許可される接続プロトコル</span><span class="sxs-lookup"><span data-stu-id="87ae2-343">Connection protocol permitted</span></span> |
 | -------------------------- | ----------------------------- |
-| `Http1`                    | <span data-ttu-id="b6952-344">HTTP/1.1 のみ。</span><span class="sxs-lookup"><span data-stu-id="b6952-344">HTTP/1.1 only.</span></span> <span data-ttu-id="b6952-345">TLS の有無にかかわらず使用できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-345">Can be used with or without TLS.</span></span> |
-| `Http2`                    | <span data-ttu-id="b6952-346">HTTP/2 のみ。</span><span class="sxs-lookup"><span data-stu-id="b6952-346">HTTP/2 only.</span></span> <span data-ttu-id="b6952-347">主に TLS と一緒に使用されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-347">Primarily used with TLS.</span></span> <span data-ttu-id="b6952-348">[予備知識モード](https://tools.ietf.org/html/rfc7540#section-3.4)がクライアントでサポートされている場合に限り、TLS なしで使用できます。</span><span class="sxs-lookup"><span data-stu-id="b6952-348">May be used without TLS only if the client supports a [Prior Knowledge mode](https://tools.ietf.org/html/rfc7540#section-3.4).</span></span> |
-| `Http1AndHttp2`            | <span data-ttu-id="b6952-349">HTTP/1.1 および HTTP/2。</span><span class="sxs-lookup"><span data-stu-id="b6952-349">HTTP/1.1 and HTTP/2.</span></span> <span data-ttu-id="b6952-350">HTTP/2 をネゴシエートするには TLS と[アプリケーション レイヤー プロトコル ネゴシエーション (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) が必要です。それ以外の場合、接続は既定では HTTP/1.1 となります。</span><span class="sxs-lookup"><span data-stu-id="b6952-350">Requires a TLS and [Application-Layer Protocol Negotiation (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) connection to negotiate HTTP/2; otherwise, the connection defaults to HTTP/1.1.</span></span> |
+| `Http1`                    | <span data-ttu-id="87ae2-344">HTTP/1.1 のみ。</span><span class="sxs-lookup"><span data-stu-id="87ae2-344">HTTP/1.1 only.</span></span> <span data-ttu-id="87ae2-345">TLS の有無にかかわらず使用できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-345">Can be used with or without TLS.</span></span> |
+| `Http2`                    | <span data-ttu-id="87ae2-346">HTTP/2 のみ。</span><span class="sxs-lookup"><span data-stu-id="87ae2-346">HTTP/2 only.</span></span> <span data-ttu-id="87ae2-347">主に TLS と一緒に使用されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-347">Primarily used with TLS.</span></span> <span data-ttu-id="87ae2-348">[予備知識モード](https://tools.ietf.org/html/rfc7540#section-3.4)がクライアントでサポートされている場合に限り、TLS なしで使用できます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-348">May be used without TLS only if the client supports a [Prior Knowledge mode](https://tools.ietf.org/html/rfc7540#section-3.4).</span></span> |
+| `Http1AndHttp2`            | <span data-ttu-id="87ae2-349">HTTP/1.1 および HTTP/2。</span><span class="sxs-lookup"><span data-stu-id="87ae2-349">HTTP/1.1 and HTTP/2.</span></span> <span data-ttu-id="87ae2-350">HTTP/2 をネゴシエートするには TLS と[アプリケーション レイヤー プロトコル ネゴシエーション (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) が必要です。それ以外の場合、接続は既定では HTTP/1.1 となります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-350">Requires a TLS and [Application-Layer Protocol Negotiation (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) connection to negotiate HTTP/2; otherwise, the connection defaults to HTTP/1.1.</span></span> |
 
-<span data-ttu-id="b6952-351">既定のプロトコルは HTTP/1.1 です。</span><span class="sxs-lookup"><span data-stu-id="b6952-351">The default protocol is HTTP/1.1.</span></span>
+<span data-ttu-id="87ae2-351">既定のプロトコルは HTTP/1.1 です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-351">The default protocol is HTTP/1.1.</span></span>
 
-<span data-ttu-id="b6952-352">HTTP/2 に対する TLS 制限事項:</span><span class="sxs-lookup"><span data-stu-id="b6952-352">TLS restrictions for HTTP/2:</span></span>
+<span data-ttu-id="87ae2-352">HTTP/2 に対する TLS 制限事項:</span><span class="sxs-lookup"><span data-stu-id="87ae2-352">TLS restrictions for HTTP/2:</span></span>
 
-* <span data-ttu-id="b6952-353">TLS バージョン 1.2 以降</span><span class="sxs-lookup"><span data-stu-id="b6952-353">TLS version 1.2 or later</span></span>
-* <span data-ttu-id="b6952-354">再ネゴシエーションは無効</span><span class="sxs-lookup"><span data-stu-id="b6952-354">Renegotiation disabled</span></span>
-* <span data-ttu-id="b6952-355">圧縮は無効</span><span class="sxs-lookup"><span data-stu-id="b6952-355">Compression disabled</span></span>
-* <span data-ttu-id="b6952-356">短期キー交換サイズの上限:</span><span class="sxs-lookup"><span data-stu-id="b6952-356">Minimum ephemeral key exchange sizes:</span></span>
-  * <span data-ttu-id="b6952-357">Elliptic curve Diffie-hellman (ECDHE) &lbrack; [RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 最小で 224 ビット</span><span class="sxs-lookup"><span data-stu-id="b6952-357">Elliptic curve Diffie-Hellman (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 224 bits minimum</span></span>
-  * <span data-ttu-id="b6952-358">Finite field Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack; &ndash; 最小で 2048 ビット</span><span class="sxs-lookup"><span data-stu-id="b6952-358">Finite field Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack; &ndash; 2048 bits minimum</span></span>
-* <span data-ttu-id="b6952-359">暗号スイートはブラック リストに登録されない</span><span class="sxs-lookup"><span data-stu-id="b6952-359">Cipher suite not blacklisted</span></span>
+* <span data-ttu-id="87ae2-353">TLS バージョン 1.2 以降</span><span class="sxs-lookup"><span data-stu-id="87ae2-353">TLS version 1.2 or later</span></span>
+* <span data-ttu-id="87ae2-354">再ネゴシエーションは無効</span><span class="sxs-lookup"><span data-stu-id="87ae2-354">Renegotiation disabled</span></span>
+* <span data-ttu-id="87ae2-355">圧縮は無効</span><span class="sxs-lookup"><span data-stu-id="87ae2-355">Compression disabled</span></span>
+* <span data-ttu-id="87ae2-356">短期キー交換サイズの上限:</span><span class="sxs-lookup"><span data-stu-id="87ae2-356">Minimum ephemeral key exchange sizes:</span></span>
+  * <span data-ttu-id="87ae2-357">Elliptic curve Diffie-hellman (ECDHE) &lbrack; [RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 最小で 224 ビット</span><span class="sxs-lookup"><span data-stu-id="87ae2-357">Elliptic curve Diffie-Hellman (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 224 bits minimum</span></span>
+  * <span data-ttu-id="87ae2-358">Finite field Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack; &ndash; 最小で 2048 ビット</span><span class="sxs-lookup"><span data-stu-id="87ae2-358">Finite field Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack; &ndash; 2048 bits minimum</span></span>
+* <span data-ttu-id="87ae2-359">暗号スイートはブラック リストに登録されない</span><span class="sxs-lookup"><span data-stu-id="87ae2-359">Cipher suite not blacklisted</span></span>
 
-<span data-ttu-id="b6952-360">`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; と P-256 elliptic curve &lbrack;`FIPS186`&rbrack; の組み合わせは既定ではサポートされています。</span><span class="sxs-lookup"><span data-stu-id="b6952-360">`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; with the P-256 elliptic curve &lbrack;`FIPS186`&rbrack; is supported by default.</span></span>
+<span data-ttu-id="87ae2-360">`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; と P-256 elliptic curve &lbrack;`FIPS186`&rbrack; の組み合わせは既定ではサポートされています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-360">`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; with the P-256 elliptic curve &lbrack;`FIPS186`&rbrack; is supported by default.</span></span>
 
-<span data-ttu-id="b6952-361">次の例では、HTTP/1.1 接続と HTTP/2 接続がポート 8000 上で許可されています。</span><span class="sxs-lookup"><span data-stu-id="b6952-361">The following example permits HTTP/1.1 and HTTP/2 connections on port 8000.</span></span> <span data-ttu-id="b6952-362">接続は、TLS と指定した証明書によってセキュリティで保護されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-362">Connections are secured by TLS with a supplied certificate:</span></span>
+<span data-ttu-id="87ae2-361">次の例では、HTTP/1.1 接続と HTTP/2 接続がポート 8000 上で許可されています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-361">The following example permits HTTP/1.1 and HTTP/2 connections on port 8000.</span></span> <span data-ttu-id="87ae2-362">接続は、TLS と指定した証明書によってセキュリティで保護されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-362">Connections are secured by TLS with a supplied certificate:</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -832,7 +832,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-<span data-ttu-id="b6952-363">必要に応じて、`IConnectionAdapter` 実装を作成することで、接続ごとに特定の暗号について TLS ハンドシェイクをフィルター処理します。</span><span class="sxs-lookup"><span data-stu-id="b6952-363">Optionally create an `IConnectionAdapter` implementation to filter TLS handshakes on a per-connection basis for specific ciphers:</span></span>
+<span data-ttu-id="87ae2-363">必要に応じて、`IConnectionAdapter` 実装を作成することで、接続ごとに特定の暗号について TLS ハンドシェイクをフィルター処理します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-363">Optionally create an `IConnectionAdapter` implementation to filter TLS handshakes on a per-connection basis for specific ciphers:</span></span>
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -890,11 +890,11 @@ private class TlsFilterAdapter : IConnectionAdapter
 }
 ```
 
-<span data-ttu-id="b6952-364">*構成からのプロトコルを設定する*</span><span class="sxs-lookup"><span data-stu-id="b6952-364">*Set the protocol from configuration*</span></span>
+<span data-ttu-id="87ae2-364">*構成からのプロトコルを設定する*</span><span class="sxs-lookup"><span data-stu-id="87ae2-364">*Set the protocol from configuration*</span></span>
 
-<span data-ttu-id="b6952-365">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) は既定で `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` を呼び出して Kestrel の構成を読み込みます。</span><span class="sxs-lookup"><span data-stu-id="b6952-365">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) calls `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` by default to load Kestrel configuration.</span></span>
+<span data-ttu-id="87ae2-365">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) は既定で `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` を呼び出して Kestrel の構成を読み込みます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-365">[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) calls `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` by default to load Kestrel configuration.</span></span>
 
-<span data-ttu-id="b6952-366">次に示す *appsettings.json* の例では、Kestrel のエンドポイントのすべてにおいて、既定の接続プロトコル (HTTP/1.1 および HTTP/2) が確定されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-366">In the following *appsettings.json* example, a default connection protocol (HTTP/1.1 and HTTP/2) is established for all of Kestrel's endpoints:</span></span>
+<span data-ttu-id="87ae2-366">次に示す *appsettings.json* の例では、Kestrel のエンドポイントのすべてにおいて、既定の接続プロトコル (HTTP/1.1 および HTTP/2) が確定されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-366">In the following *appsettings.json* example, a default connection protocol (HTTP/1.1 and HTTP/2) is established for all of Kestrel's endpoints:</span></span>
 
 ```json
 {
@@ -906,7 +906,7 @@ private class TlsFilterAdapter : IConnectionAdapter
 }
 ```
 
-<span data-ttu-id="b6952-367">次に示す構成ファイルの例では、特定のエンドポイントに対して接続プロトコルが確定されます。</span><span class="sxs-lookup"><span data-stu-id="b6952-367">The following configuration file example establishes a connection protocol for a specific endpoint:</span></span>
+<span data-ttu-id="87ae2-367">次に示す構成ファイルの例では、特定のエンドポイントに対して接続プロトコルが確定されます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-367">The following configuration file example establishes a connection protocol for a specific endpoint:</span></span>
 
 ```json
 {
@@ -921,27 +921,27 @@ private class TlsFilterAdapter : IConnectionAdapter
 }
 ```
 
-<span data-ttu-id="b6952-368">構成で設定された値は、コード内で指定されたプロトコルによってオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="b6952-368">Protocols specified in code override values set by configuration.</span></span>
+<span data-ttu-id="87ae2-368">構成で設定された値は、コード内で指定されたプロトコルによってオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-368">Protocols specified in code override values set by configuration.</span></span>
 
 ::: moniker-end
 
-## <a name="transport-configuration"></a><span data-ttu-id="b6952-369">トランスポート構成</span><span class="sxs-lookup"><span data-stu-id="b6952-369">Transport configuration</span></span>
+## <a name="transport-configuration"></a><span data-ttu-id="87ae2-369">トランスポート構成</span><span class="sxs-lookup"><span data-stu-id="87ae2-369">Transport configuration</span></span>
 
-<span data-ttu-id="b6952-370">ASP.NET Core 2.1 のリリースにより、Kestrel の既定のトランスポートは、Libuv に基づかなくなり、代わりにマネージド ソケットに基づくようになりました。</span><span class="sxs-lookup"><span data-stu-id="b6952-370">With the release of ASP.NET Core 2.1, Kestrel's default transport is no longer based on Libuv but instead based on managed sockets.</span></span> <span data-ttu-id="b6952-371">これは、[WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) を呼び出す 2.1 にアップグレードする ASP.NET Core 2.0 アプリにとっては破壊的変更であり、以下のいずれかのパッケージに依存しています。</span><span class="sxs-lookup"><span data-stu-id="b6952-371">This is a breaking change for ASP.NET Core 2.0 apps upgrading to 2.1 that call [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) and depend on either of the following packages:</span></span>
+<span data-ttu-id="87ae2-370">ASP.NET Core 2.1 のリリースにより、Kestrel の既定のトランスポートは、Libuv に基づかなくなり、代わりにマネージド ソケットに基づくようになりました。</span><span class="sxs-lookup"><span data-stu-id="87ae2-370">With the release of ASP.NET Core 2.1, Kestrel's default transport is no longer based on Libuv but instead based on managed sockets.</span></span> <span data-ttu-id="87ae2-371">これは、[WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) を呼び出す 2.1 にアップグレードする ASP.NET Core 2.0 アプリにとっては破壊的変更であり、以下のいずれかのパッケージに依存しています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-371">This is a breaking change for ASP.NET Core 2.0 apps upgrading to 2.1 that call [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) and depend on either of the following packages:</span></span>
 
-* <span data-ttu-id="b6952-372">[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (パッケージの直接の参照)</span><span class="sxs-lookup"><span data-stu-id="b6952-372">[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (direct package reference)</span></span>
-* [<span data-ttu-id="b6952-373">Microsoft.AspNetCore.App</span><span class="sxs-lookup"><span data-stu-id="b6952-373">Microsoft.AspNetCore.App</span></span>](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+* <span data-ttu-id="87ae2-372">[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (パッケージの直接の参照)</span><span class="sxs-lookup"><span data-stu-id="87ae2-372">[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (direct package reference)</span></span>
+* [<span data-ttu-id="87ae2-373">Microsoft.AspNetCore.App</span><span class="sxs-lookup"><span data-stu-id="87ae2-373">Microsoft.AspNetCore.App</span></span>](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
 
-<span data-ttu-id="b6952-374">[Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) メタパッケージを使用し Libuv を使用する必要のある ASP.NET Core 2.1 以降のプロジェクトでは、次が必要です。</span><span class="sxs-lookup"><span data-stu-id="b6952-374">For ASP.NET Core 2.1 or later projects that use the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) and require the use of Libuv:</span></span>
+<span data-ttu-id="87ae2-374">[Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) メタパッケージを使用し Libuv を使用する必要のある ASP.NET Core 2.1 以降のプロジェクトでは、次が必要です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-374">For ASP.NET Core 2.1 or later projects that use the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) and require the use of Libuv:</span></span>
 
-* <span data-ttu-id="b6952-375">アプリのプロジェクト ファイルに [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) パッケージの依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="b6952-375">Add a dependency for the [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) package to the app's project file:</span></span>
+* <span data-ttu-id="87ae2-375">アプリのプロジェクト ファイルに [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) パッケージの依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-375">Add a dependency for the [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) package to the app's project file:</span></span>
 
     ```xml
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
                       Version="<LATEST_VERSION>" />
     ```
 
-* <span data-ttu-id="b6952-376">[WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="b6952-376">Call [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):</span></span>
+* <span data-ttu-id="87ae2-376">[WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-376">Call [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):</span></span>
 
     ```csharp
     public class Program
@@ -958,41 +958,41 @@ private class TlsFilterAdapter : IConnectionAdapter
     }
     ```
 
-### <a name="url-prefixes"></a><span data-ttu-id="b6952-377">URL プレフィックス</span><span class="sxs-lookup"><span data-stu-id="b6952-377">URL prefixes</span></span>
+### <a name="url-prefixes"></a><span data-ttu-id="87ae2-377">URL プレフィックス</span><span class="sxs-lookup"><span data-stu-id="87ae2-377">URL prefixes</span></span>
 
-<span data-ttu-id="b6952-378">`UseUrls`、`--urls` コマンドライン引数、`urls` ホスト構成キー、または `ASPNETCORE_URLS` 環境変数を使用する場合、URL プレフィックスは次のいずれかの形式となります。</span><span class="sxs-lookup"><span data-stu-id="b6952-378">When using `UseUrls`, `--urls` command-line argument, `urls` host configuration key, or `ASPNETCORE_URLS` environment variable, the URL prefixes can be in any of the following formats.</span></span>
+<span data-ttu-id="87ae2-378">`UseUrls`、`--urls` コマンドライン引数、`urls` ホスト構成キー、または `ASPNETCORE_URLS` 環境変数を使用する場合、URL プレフィックスは次のいずれかの形式となります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-378">When using `UseUrls`, `--urls` command-line argument, `urls` host configuration key, or `ASPNETCORE_URLS` environment variable, the URL prefixes can be in any of the following formats.</span></span>
 
-<span data-ttu-id="b6952-379">HTTP URL プレフィックスのみが有効です。</span><span class="sxs-lookup"><span data-stu-id="b6952-379">Only HTTP URL prefixes are valid.</span></span> <span data-ttu-id="b6952-380">`UseUrls` を使用して URL バインドを構成する場合、kestrel は SSL をサポートしません。</span><span class="sxs-lookup"><span data-stu-id="b6952-380">Kestrel doesn't support SSL when configuring URL bindings using `UseUrls`.</span></span>
+<span data-ttu-id="87ae2-379">HTTP URL プレフィックスのみが有効です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-379">Only HTTP URL prefixes are valid.</span></span> <span data-ttu-id="87ae2-380">`UseUrls` を使用して URL バインドを構成する場合、kestrel は SSL をサポートしません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-380">Kestrel doesn't support SSL when configuring URL bindings using `UseUrls`.</span></span>
 
-* <span data-ttu-id="b6952-381">IPv4 アドレスとポート番号</span><span class="sxs-lookup"><span data-stu-id="b6952-381">IPv4 address with port number</span></span>
+* <span data-ttu-id="87ae2-381">IPv4 アドレスとポート番号</span><span class="sxs-lookup"><span data-stu-id="87ae2-381">IPv4 address with port number</span></span>
 
   ```
   http://65.55.39.10:80/
   ```
 
-  <span data-ttu-id="b6952-382">`0.0.0.0` は、すべての IPv4 アドレスにバインドする特別なケースです。</span><span class="sxs-lookup"><span data-stu-id="b6952-382">`0.0.0.0` is a special case that binds to all IPv4 addresses.</span></span>
+  <span data-ttu-id="87ae2-382">`0.0.0.0` は、すべての IPv4 アドレスにバインドする特別なケースです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-382">`0.0.0.0` is a special case that binds to all IPv4 addresses.</span></span>
 
-* <span data-ttu-id="b6952-383">IPv6 アドレスとポート番号</span><span class="sxs-lookup"><span data-stu-id="b6952-383">IPv6 address with port number</span></span>
+* <span data-ttu-id="87ae2-383">IPv6 アドレスとポート番号</span><span class="sxs-lookup"><span data-stu-id="87ae2-383">IPv6 address with port number</span></span>
 
   ```
   http://[0:0:0:0:0:ffff:4137:270a]:80/
   ```
 
-  <span data-ttu-id="b6952-384">IPv6 の `[::]` は IPv4 の `0.0.0.0` に相当します。</span><span class="sxs-lookup"><span data-stu-id="b6952-384">`[::]` is the IPv6 equivalent of IPv4 `0.0.0.0`.</span></span>
+  <span data-ttu-id="87ae2-384">IPv6 の `[::]` は IPv4 の `0.0.0.0` に相当します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-384">`[::]` is the IPv6 equivalent of IPv4 `0.0.0.0`.</span></span>
 
-* <span data-ttu-id="b6952-385">ホスト名とポート番号</span><span class="sxs-lookup"><span data-stu-id="b6952-385">Host name with port number</span></span>
+* <span data-ttu-id="87ae2-385">ホスト名とポート番号</span><span class="sxs-lookup"><span data-stu-id="87ae2-385">Host name with port number</span></span>
 
   ```
   http://contoso.com:80/
   http://*:80/
   ```
 
-  <span data-ttu-id="b6952-386">ホスト名、`*`、および `+` は特別ではありません。</span><span class="sxs-lookup"><span data-stu-id="b6952-386">Host names, `*`, and `+`, aren't special.</span></span> <span data-ttu-id="b6952-387">有効な IP アドレスまたは `localhost` と認識されないものはすべて、IPv4 および IPv6 のすべての IP にバインドします。</span><span class="sxs-lookup"><span data-stu-id="b6952-387">Anything not recognized as a valid IP address or `localhost` binds to all IPv4 and IPv6 IPs.</span></span> <span data-ttu-id="b6952-388">異なるホスト名を同じポート上の異なる ASP.NET Core アプリにバインドするには、[HTTP.sys](xref:fundamentals/servers/httpsys) を使用するか、または IIS、Nginx、Apache などのリバース プロキシ サーバーを使用します。</span><span class="sxs-lookup"><span data-stu-id="b6952-388">To bind different host names to different ASP.NET Core apps on the same port, use [HTTP.sys](xref:fundamentals/servers/httpsys) or a reverse proxy server, such as IIS, Nginx, or Apache.</span></span>
+  <span data-ttu-id="87ae2-386">ホスト名、`*`、および `+` は特別ではありません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-386">Host names, `*`, and `+`, aren't special.</span></span> <span data-ttu-id="87ae2-387">有効な IP アドレスまたは `localhost` と認識されないものはすべて、IPv4 および IPv6 のすべての IP にバインドします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-387">Anything not recognized as a valid IP address or `localhost` binds to all IPv4 and IPv6 IPs.</span></span> <span data-ttu-id="87ae2-388">異なるホスト名を同じポート上の異なる ASP.NET Core アプリにバインドするには、[HTTP.sys](xref:fundamentals/servers/httpsys) を使用するか、または IIS、Nginx、Apache などのリバース プロキシ サーバーを使用します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-388">To bind different host names to different ASP.NET Core apps on the same port, use [HTTP.sys](xref:fundamentals/servers/httpsys) or a reverse proxy server, such as IIS, Nginx, or Apache.</span></span>
 
   > [!WARNING]
-  > <span data-ttu-id="b6952-389">ホスト フィルタリングがリバース プロキシを使っていない場合は、[ホスト フィルタリング](#host-filtering)を有効にします。</span><span class="sxs-lookup"><span data-stu-id="b6952-389">If not using a reverse proxy with host filtering enabled, enable [host filtering](#host-filtering).</span></span>
+  > <span data-ttu-id="87ae2-389">ホスト フィルタリングがリバース プロキシを使っていない場合は、[ホスト フィルタリング](#host-filtering)を有効にします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-389">If not using a reverse proxy with host filtering enabled, enable [host filtering](#host-filtering).</span></span>
 
-* <span data-ttu-id="b6952-390">`localhost` 名とポート番号、またはループバック IP とポート番号</span><span class="sxs-lookup"><span data-stu-id="b6952-390">Host `localhost` name with port number or loopback IP with port number</span></span>
+* <span data-ttu-id="87ae2-390">`localhost` 名とポート番号、またはループバック IP とポート番号</span><span class="sxs-lookup"><span data-stu-id="87ae2-390">Host `localhost` name with port number or loopback IP with port number</span></span>
 
   ```
   http://localhost:5000/
@@ -1000,19 +1000,19 @@ private class TlsFilterAdapter : IConnectionAdapter
   http://[::1]:5000/
   ```
 
-  <span data-ttu-id="b6952-391">`localhost` が指定された場合、Kestrel は IPv4 ループバック インターフェイスと IPv6 ループバック インターフェイスの両方へのバインドを試みます。</span><span class="sxs-lookup"><span data-stu-id="b6952-391">When `localhost` is specified, Kestrel attempts to bind to both IPv4 and IPv6 loopback interfaces.</span></span> <span data-ttu-id="b6952-392">要求されたポートがいずれかのループバック インターフェイス上の別のサービスで使用中である場合、Kestrel は開始できません。</span><span class="sxs-lookup"><span data-stu-id="b6952-392">If the requested port is in use by another service on either loopback interface, Kestrel fails to start.</span></span> <span data-ttu-id="b6952-393">他の何らかの理由でいずれかのループバック インターフェイスが使用できない場合 (ほとんどの場合は IPv6 がサポートされていないことが理由)、Kestrel は警告をログに記録します。</span><span class="sxs-lookup"><span data-stu-id="b6952-393">If either loopback interface is unavailable for any other reason (most commonly because IPv6 isn't supported), Kestrel logs a warning.</span></span>
+  <span data-ttu-id="87ae2-391">`localhost` が指定された場合、Kestrel は IPv4 ループバック インターフェイスと IPv6 ループバック インターフェイスの両方へのバインドを試みます。</span><span class="sxs-lookup"><span data-stu-id="87ae2-391">When `localhost` is specified, Kestrel attempts to bind to both IPv4 and IPv6 loopback interfaces.</span></span> <span data-ttu-id="87ae2-392">要求されたポートがいずれかのループバック インターフェイス上の別のサービスで使用中である場合、Kestrel は開始できません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-392">If the requested port is in use by another service on either loopback interface, Kestrel fails to start.</span></span> <span data-ttu-id="87ae2-393">他の何らかの理由でいずれかのループバック インターフェイスが使用できない場合 (ほとんどの場合は IPv6 がサポートされていないことが理由)、Kestrel は警告をログに記録します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-393">If either loopback interface is unavailable for any other reason (most commonly because IPv6 isn't supported), Kestrel logs a warning.</span></span>
 
-## <a name="host-filtering"></a><span data-ttu-id="b6952-394">ホスト フィルタリング</span><span class="sxs-lookup"><span data-stu-id="b6952-394">Host filtering</span></span>
+## <a name="host-filtering"></a><span data-ttu-id="87ae2-394">ホスト フィルタリング</span><span class="sxs-lookup"><span data-stu-id="87ae2-394">Host filtering</span></span>
 
-<span data-ttu-id="b6952-395">Kestrel は `http://example.com:5000` などのプレフィックスに基づく構成をサポートしますが、Kestrel はほとんどのホスト名を無視します。</span><span class="sxs-lookup"><span data-stu-id="b6952-395">While Kestrel supports configuration based on prefixes such as `http://example.com:5000`, Kestrel largely ignores the host name.</span></span> <span data-ttu-id="b6952-396">ホスト `localhost` は、ループバック アドレスへのバインドに使用される特殊なケースです。</span><span class="sxs-lookup"><span data-stu-id="b6952-396">Host `localhost` is a special case used for binding to loopback addresses.</span></span> <span data-ttu-id="b6952-397">明示的な IP アドレス以外のすべてのホストは、すべてのパブリック IP アドレスにバインドします。</span><span class="sxs-lookup"><span data-stu-id="b6952-397">Any host other than an explicit IP address binds to all public IP addresses.</span></span> <span data-ttu-id="b6952-398">この情報のいずれも、要求の `Host` ヘッダーの検証には使用されません。</span><span class="sxs-lookup"><span data-stu-id="b6952-398">None of this information is used to validate request `Host` headers.</span></span>
+<span data-ttu-id="87ae2-395">Kestrel は `http://example.com:5000` などのプレフィックスに基づく構成をサポートしますが、Kestrel はほとんどのホスト名を無視します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-395">While Kestrel supports configuration based on prefixes such as `http://example.com:5000`, Kestrel largely ignores the host name.</span></span> <span data-ttu-id="87ae2-396">ホスト `localhost` は、ループバック アドレスへのバインドに使用される特殊なケースです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-396">Host `localhost` is a special case used for binding to loopback addresses.</span></span> <span data-ttu-id="87ae2-397">明示的な IP アドレス以外のすべてのホストは、すべてのパブリック IP アドレスにバインドします。</span><span class="sxs-lookup"><span data-stu-id="87ae2-397">Any host other than an explicit IP address binds to all public IP addresses.</span></span> <span data-ttu-id="87ae2-398">この情報のいずれも、要求の `Host` ヘッダーの検証には使用されません。</span><span class="sxs-lookup"><span data-stu-id="87ae2-398">None of this information is used to validate request `Host` headers.</span></span>
 
-<span data-ttu-id="b6952-399">これを解決するには、Host Filtering Middleware を使用します。</span><span class="sxs-lookup"><span data-stu-id="b6952-399">As a workaround, use Host Filtering Middleware.</span></span> <span data-ttu-id="b6952-400">Host Filtering Middleware は、[Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 以降) に含まれる、[Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) パッケージによって提供されています。</span><span class="sxs-lookup"><span data-stu-id="b6952-400">Host Filtering Middleware is provided by the [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) package, which is included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 or later).</span></span> <span data-ttu-id="b6952-401">このミドルウェアは、[AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering) を呼び出す、[CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) によって追加されています。</span><span class="sxs-lookup"><span data-stu-id="b6952-401">The middleware is added by [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), which calls [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):</span></span>
+<span data-ttu-id="87ae2-399">これを解決するには、Host Filtering Middleware を使用します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-399">As a workaround, use Host Filtering Middleware.</span></span> <span data-ttu-id="87ae2-400">Host Filtering Middleware は、[Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 以降) に含まれる、[Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) パッケージによって提供されています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-400">Host Filtering Middleware is provided by the [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) package, which is included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 or later).</span></span> <span data-ttu-id="87ae2-401">このミドルウェアは、[AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering) を呼び出す、[CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) によって追加されています。</span><span class="sxs-lookup"><span data-stu-id="87ae2-401">The middleware is added by [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), which calls [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):</span></span>
 
 [!code-csharp[](kestrel/samples-snapshot/2.x/KestrelSample/Program.cs?name=snippet_Program&highlight=9)]
 
-<span data-ttu-id="b6952-402">Host Filtering Middleware は既定では無効です。</span><span class="sxs-lookup"><span data-stu-id="b6952-402">Host Filtering Middleware is disabled by default.</span></span> <span data-ttu-id="b6952-403">このミドルウェアを有効にするには、*appsettings.json*/*appsettings.\<>.json* に、`AllowedHosts` キーを定義します。</span><span class="sxs-lookup"><span data-stu-id="b6952-403">To enable the middleware, define an `AllowedHosts` key in *appsettings.json*/*appsettings.\<EnvironmentName>.json*.</span></span> <span data-ttu-id="b6952-404">この値は、ポート番号を含まないホスト名のセミコロン区切りリストです。</span><span class="sxs-lookup"><span data-stu-id="b6952-404">The value is a semicolon-delimited list of host names without port numbers:</span></span>
+<span data-ttu-id="87ae2-402">Host Filtering Middleware は既定では無効です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-402">Host Filtering Middleware is disabled by default.</span></span> <span data-ttu-id="87ae2-403">このミドルウェアを有効にするには、*appsettings.json*/*appsettings.\<>.json* に、`AllowedHosts` キーを定義します。</span><span class="sxs-lookup"><span data-stu-id="87ae2-403">To enable the middleware, define an `AllowedHosts` key in *appsettings.json*/*appsettings.\<EnvironmentName>.json*.</span></span> <span data-ttu-id="87ae2-404">この値は、ポート番号を含まないホスト名のセミコロン区切りリストです。</span><span class="sxs-lookup"><span data-stu-id="87ae2-404">The value is a semicolon-delimited list of host names without port numbers:</span></span>
 
-<span data-ttu-id="b6952-405">*appsettings.json*:</span><span class="sxs-lookup"><span data-stu-id="b6952-405">*appsettings.json*:</span></span>
+<span data-ttu-id="87ae2-405">*appsettings.json*:</span><span class="sxs-lookup"><span data-stu-id="87ae2-405">*appsettings.json*:</span></span>
 
 ```json
 {
@@ -1021,13 +1021,14 @@ private class TlsFilterAdapter : IConnectionAdapter
 ```
 
 > [!NOTE]
-> <span data-ttu-id="b6952-406">[Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) には、[ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) オプションもあります。</span><span class="sxs-lookup"><span data-stu-id="b6952-406">[Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) also has an [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) option.</span></span> <span data-ttu-id="b6952-407">Forwarded Headers Middleware および Host Filtering Middleware には、異なるシナリオ用に類似した機能があります。</span><span class="sxs-lookup"><span data-stu-id="b6952-407">Forwarded Headers Middleware and Host Filtering Middleware have similar functionality for different scenarios.</span></span> <span data-ttu-id="b6952-408">リバース プロキシ サーバーまたはロード バランサーを使用して要求を転送するとき、ホスト ヘッダーが保存されていない場合、Forwarded Headers Middleware に `AllowedHosts` を設定するのが適切です。</span><span class="sxs-lookup"><span data-stu-id="b6952-408">Setting `AllowedHosts` with Forwarded Headers Middleware is appropriate when the Host header isn't preserved while forwarding requests with a reverse proxy server or load balancer.</span></span> <span data-ttu-id="b6952-409">Kestrel が一般向けエッジ サーバーとして使用されていたり、ホスト ヘッダーが直接転送されたりしている場合、Host Filtering Middleware に `AllowedHosts` を設定するのが適切です。</span><span class="sxs-lookup"><span data-stu-id="b6952-409">Setting `AllowedHosts` with Host Filtering Middleware is appropriate when Kestrel is used as a public-facing edge server or when the Host header is directly forwarded.</span></span>
+> <span data-ttu-id="87ae2-406">[Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) には、[ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) オプションもあります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-406">[Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) also has an [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) option.</span></span> <span data-ttu-id="87ae2-407">Forwarded Headers Middleware および Host Filtering Middleware には、異なるシナリオ用に類似した機能があります。</span><span class="sxs-lookup"><span data-stu-id="87ae2-407">Forwarded Headers Middleware and Host Filtering Middleware have similar functionality for different scenarios.</span></span> <span data-ttu-id="87ae2-408">リバース プロキシ サーバーまたはロード バランサーを使用して要求を転送するとき、ホスト ヘッダーが保存されていない場合、Forwarded Headers Middleware に `AllowedHosts` を設定するのが適切です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-408">Setting `AllowedHosts` with Forwarded Headers Middleware is appropriate when the Host header isn't preserved while forwarding requests with a reverse proxy server or load balancer.</span></span> <span data-ttu-id="87ae2-409">Kestrel が一般向けエッジ サーバーとして使用されていたり、ホスト ヘッダーが直接転送されたりしている場合、Host Filtering Middleware に `AllowedHosts` を設定するのが適切です。</span><span class="sxs-lookup"><span data-stu-id="87ae2-409">Setting `AllowedHosts` with Host Filtering Middleware is appropriate when Kestrel is used as a public-facing edge server or when the Host header is directly forwarded.</span></span>
 >
-> <span data-ttu-id="b6952-410">Forwarded Headers Middleware の詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="b6952-410">For more information on Forwarded Headers Middleware, see [Configure ASP.NET Core to work with proxy servers and load balancers](xref:host-and-deploy/proxy-load-balancer).</span></span>
+> <span data-ttu-id="87ae2-410">Forwarded Headers Middleware の詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="87ae2-410">For more information on Forwarded Headers Middleware, see [Configure ASP.NET Core to work with proxy servers and load balancers](xref:host-and-deploy/proxy-load-balancer).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="b6952-411">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="b6952-411">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="87ae2-411">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="87ae2-411">Additional resources</span></span>
 
-* [<span data-ttu-id="b6952-412">HTTPS の適用</span><span class="sxs-lookup"><span data-stu-id="b6952-412">Enforce HTTPS</span></span>](xref:security/enforcing-ssl)
-* [<span data-ttu-id="b6952-413">Kestrel ソース コード</span><span class="sxs-lookup"><span data-stu-id="b6952-413">Kestrel source code</span></span>](https://github.com/aspnet/KestrelHttpServer)
-* <span data-ttu-id="b6952-414">[RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)(RFC 7230: メッセージの構文と経路制御 (セクション 5.4: ホスト))</span><span class="sxs-lookup"><span data-stu-id="b6952-414">[RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)</span></span>
-* [<span data-ttu-id="b6952-415">プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する</span><span class="sxs-lookup"><span data-stu-id="b6952-415">Configure ASP.NET Core to work with proxy servers and load balancers</span></span>](xref:host-and-deploy/proxy-load-balancer)
+* <xref:test/troubleshoot>
+* <xref:security/enforcing-ssl>
+* <xref:host-and-deploy/proxy-load-balancer>
+* [<span data-ttu-id="87ae2-412">Kestrel ソース コード</span><span class="sxs-lookup"><span data-stu-id="87ae2-412">Kestrel source code</span></span>](https://github.com/aspnet/KestrelHttpServer)
+* <span data-ttu-id="87ae2-413">[RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)(RFC 7230: メッセージの構文と経路制御 (セクション 5.4: ホスト))</span><span class="sxs-lookup"><span data-stu-id="87ae2-413">[RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)</span></span>
