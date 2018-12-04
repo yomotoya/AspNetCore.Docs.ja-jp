@@ -4,7 +4,7 @@
 
 ## <a name="how-to-make-a-simple-correction-or-suggestion"></a>簡単な修正や提案を行う方法
 
-記事は、マークダウン ファイルとしてリポジトリに格納されています。 マークダウン ファイルの内容に対する簡単な変更は、ブラウザー ウィンドウの右上隅にある **[Edit]\(編集\)** リンクを選択して、ブラウザーで行います。 (幅の狭いブラウザー ウィンドウでは、**オプション** バーを展開して、**[Edit]\(編集\)** リンクを表示します。)指示に従ってプル要求 (PR) を作成します。 PR をレビューし、受け入れるか変更を提案します。
+記事は、マークダウン ファイルとしてリポジトリに格納されています。 マークダウン ファイルの内容に対する簡単な変更は、ブラウザー ウィンドウの右上隅にある **[Edit]\(編集\)** リンクを選択して、ブラウザーで行います。 (幅の狭いブラウザー ウィンドウでは、**オプション** バーを展開して、**[Edit]\(編集\)** リンクを表示します。)指示に従って pull request (PR) を作成します。 PR をレビューし、受け入れるか変更を提案します。
 
 ## <a name="how-to-make-a-more-complex-submission"></a>もっと複雑な提案を行う方法
 
@@ -16,7 +16,7 @@
 * PR にラベル "cla-required" が割り当てられた場合、[貢献者使用許諾契約書 (CLA) を作成します](https://cla.dotnetfoundation.org/)。
 * PR のフィードバックに対応します。
 
-このプロセスで新しい記事が公開された例については、.NET Docs リポジトリの[問題 &num;67](https://github.com/dotnet/docs/issues/67) と[プル要求 &num;798](https://github.com/dotnet/docs/pull/798) を参照してください。 新しい記事は「[XML コメントによるコードの文書化](https://docs.microsoft.com/dotnet/articles/csharp/codedoc)」です。
+このプロセスで新しい記事が公開された例については、.NET Docs リポジトリの[問題 &num;67](https://github.com/dotnet/docs/issues/67) と[Pull Request &num;798](https://github.com/dotnet/docs/pull/798) を参照してください。 新しい記事は「[XML コメントによるコードの文書化](https://docs.microsoft.com/dotnet/articles/csharp/codedoc)」です。
 
 ## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Visual Studio Code での Docs Authoring 拡張機能 
 
