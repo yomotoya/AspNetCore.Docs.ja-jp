@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR の Java クライアントを使用する方�
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 11/07/2018
 uid: signalr/java-client
-ms.openlocfilehash: 4ee4e61fc301ebeec4d95b1167f94f16c38f3ac5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: d0eff38c1f622b896ed1dc3002238aec7b6bfd38
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225422"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892095"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR の Java クライアント
 
@@ -26,13 +26,12 @@ Java クライアントでは、Java のコードは、Android アプリを含�
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR の Java クライアント パッケージをインストールします。
 
-*Signalr 1.0.0 preview3 35501* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。 JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr)します。
+*Signalr 1.0.0* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。 JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr)します。
 
 Gradle を使用する場合に、次の行を追加、`dependencies`のセクション、 *build.gradle*ファイル。
 
 ```gradle
-implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
 内の次の行を追加して Maven を使用した場合、`<dependencies>`の要素、 *pom.xml*ファイル。
@@ -75,6 +74,12 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 これは無視しても。
 
+## <a name="android-development-notes"></a>Android 開発メモ
+
+SignalR クライアントの機能の Android SDK の互換性、に関して、ターゲットの Android SDK のバージョンを指定するときに、次のもの考慮してください。
+
+* SignalR の Java クライアントは、Android API レベルの 16 以降に実行されます。
+* Android API レベル 20 以降が必要になります Azure SignalR サービス経由で接続するため、 [Azure SignalR サービス](/azure/azure-signalr/signalr-overview)TLS 1.2 を必要とし、SHA 1 ベースの暗号スイートをサポートしていません。 Android[暗号スイートの SHA 256 (以降) のサポートを追加](https://developer.android.com/reference/javax/net/ssl/SSLSocket)API レベル 20 でします。
 
 ## <a name="configure-bearer-token-authentication"></a>ベアラー トークン認証を構成します。
 
@@ -89,8 +94,6 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 ```
 
 ## <a name="known-limitations"></a>既知の制限事項
-
-これは、Java クライアントのプレビュー リリースです。 一部の機能はサポートされていません。
 
 * JSON プロトコルのみがサポートされています。
 * Websocket トランスポートのみがサポートされています。

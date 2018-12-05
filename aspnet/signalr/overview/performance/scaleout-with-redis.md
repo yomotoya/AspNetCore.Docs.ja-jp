@@ -8,23 +8,23 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: ebb61e4296f78bcd74622b729a10d45b60ebb724
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: f92946ae99bf8cb3840adb5d98004acb87e24925
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912788"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861291"
 ---
 <a name="signalr-scaleout-with-redis"></a>Redis による SignalR スケール アウト
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR 2 のバージョン
+> - SignalR バージョン 2.4
 >
 >
 >
@@ -34,7 +34,7 @@ ms.locfileid: "48912788"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 このチュートリアルでは使用して[Redis](http://redis.io/) 2 つの IIS インスタンスに配置されている SignalR アプリケーション間でメッセージを配信します。
@@ -65,7 +65,8 @@ Redis はメモリ内のキー値ストアです。 パブリッシュ/サブス
 2. これらの NuGet パッケージをアプリケーションに追加します。
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.Redis](http://nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
+    - [Microsoft.AspNet.SignalR.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.StackExchangeRedis)
+    
 3. SignalR アプリケーションを作成します。
 4. Startup.cs バック プレーンを構成するには、次のコードを追加します。
 
@@ -112,7 +113,7 @@ Redis の既定のポートが開かれたポート 6379 をリッスンしま�
 - [SignalR 2.0 の概要](../getting-started/tutorial-getting-started-with-signalr.md)
 - [SignalR 2.0 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-次に、私たち Redis によるスケール アウトをサポートするために、チャット アプリケーションを変更します。 まず、SignalR.Redis NuGet パッケージをプロジェクトに追加します。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、私たち Redis によるスケール アウトをサポートするために、チャット アプリケーションを変更します。 最初に、追加、`Microsoft.AspNet.SignalR.StackExchangeRedis`をプロジェクトに NuGet パッケージ。 Visual Studio から、**ツール**メニューの  **NuGet パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 

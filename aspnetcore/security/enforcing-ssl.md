@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core web アプリで HTTPS や TLS を必要とする方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d287d30203fbf367203afe65e05478806fafab34
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570049"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861525"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -77,12 +77,12 @@ Web アプリの呼び出しを実稼働 ASP.NET Core を推奨します。
   構成するときに、<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>で`Program`:
 
   [!code-csharp[](enforcing-ssl/sample-snapshot/Program.cs?name=snippet_Program&highlight=10)]
-* 使用して、セキュリティで保護されたスキームのポートを示す、`ASPNETCORE_URLS`環境変数。 環境変数は、サーバーを構成します。 ミドルウェアが使用して HTTPS ポートを直接検出<xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>します。 (は**いない**リバース プロキシの展開で動作します)。
+* 使用して、セキュリティで保護されたスキームのポートを示す、`ASPNETCORE_URLS`環境変数。 環境変数は、サーバーを構成します。 ミドルウェアが使用して HTTPS ポートを直接検出<xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>します。 このアプローチは、リバース プロキシの展開で動作しません。
 * 開発では、HTTPS URL を設定*launchsettings.json*します。 IIS Express を使用する場合は、HTTPS を有効にします。
-* HTTPS の URL のエンドポイントの公開 edge のデプロイを構成[Kestrel](xref:fundamentals/servers/kestrel)または[HTTP.sys](xref:fundamentals/servers/httpsys)します。 のみ**1 つの HTTPS ポート**アプリによって使用されます。 ミドルウェアを使用してポートを検出する<xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>します。
+* HTTPS の URL のエンドポイントの公開 edge のデプロイを構成[Kestrel](xref:fundamentals/servers/kestrel)サーバーまたは[HTTP.sys](xref:fundamentals/servers/httpsys)サーバー。 のみ**1 つの HTTPS ポート**アプリによって使用されます。 ミドルウェアを使用してポートを検出する<xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>します。
 
 > [!NOTE]
-> アプリを実行したリバース プロキシ (たとえば、IIS、IIS Express) の背後にあるときに`IServerAddressesFeature`は使用できません。 ポートを手動で構成する必要があります。 ポートが設定されていないときに要求をリダイレクトされません。
+> リバース プロキシ構成では、アプリの実行時に<xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>は使用できません。 このセクションで説明されているその他の方法のいずれかを使用してポートを設定します。
 
 パブリックに公開されたエッジ サーバーとして Kestrel または HTTP.sys を使用、Kestrel または HTTP.sys は、両方でリッスンするように構成する必要があります。
 

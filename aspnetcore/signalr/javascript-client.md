@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 247ccd40412cdb41f38edccbe96d4832751f12cf
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708388"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861988"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -113,7 +113,9 @@ SignalR JavaScript クライアントは自動的に再接続しません。 ク
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [JavaScript API リファレンス](/javascript/api/?view=signalr-js-latest)
+* [JavaScript のチュートリアル](xref:tutorials/signalr)
+* [WebPack と TypeScript のチュートリアル](xref:tutorials/signalr-typescript-webpack)
 * [ハブ](xref:signalr/hubs)
 * [.NET クライアント](xref:signalr/dotnet-client)
 * [Azure に発行する](xref:signalr/publish-to-azure-web-app)
-* [ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。](xref:security/cors)
+* [クロス オリジン要求 (CORS)](xref:security/cors)

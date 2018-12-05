@@ -3,16 +3,16 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Entity Framework 6 Code First MVC 5 の使用の概要 |Microsoft Docs
 author: tdykstra
 ms.author: riande
-ms.date: 10/04/2018
+ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd9a5a24d8c67c5190c98e3240d132eaa27661c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861434"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Entity Framework 6 Code First MVC 5 の使用の概要します。
 
@@ -21,7 +21,7 @@ ms.locfileid: "48912411"
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> A[このチュートリアル シリーズの新しいバージョン](/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1)が使用する使用可能な[Razor ページ](/aspnet/core/razor-pages)します。 Razor ページはページ ベースのプログラミング モデルであり、Web UI の開発を容易にし、生産性を高めます。 Razor ページのチュートリアルは、MVC のバージョンをお勧めします。 この Razor ページのチュートリアルの特徴は次のとおりです。
+> 新しい開発の場合はお勧めします[ASP.NET Core Razor ページ](/aspnet/core/razor-pages)ASP.NET MVC コント ローラーとビューを経由します。 このようなチュートリアルのシリーズは、Razor ページの使用可能な[Razor ページのチュートリアル](/aspnet/core/tutorials/razor-pages/razor-pages-start):
 >
 > * 理解しやすい。
 > * より多くの EF Core のベスト プラクティスが提供されている。

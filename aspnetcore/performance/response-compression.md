@@ -5,14 +5,14 @@ description: 応答圧縮と ASP.NET Core アプリで応答圧縮ミドルウ�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 12/01/2018
 uid: performance/response-compression
-ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207980"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861889"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core で応答の圧縮
 
@@ -24,7 +24,7 @@ ms.locfileid: "50207980"
 
 ## <a name="when-to-use-response-compression-middleware"></a>応答圧縮ミドルウェアを使用する場合
 
-IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジを使用します。 ミドルウェアのパフォーマンス一致しないことのサーバー モジュール。 [HTTP.sys サーバー](xref:fundamentals/servers/httpsys)と[Kestrel](xref:fundamentals/servers/kestrel)現在組み込みの圧縮のサポートを提供していません。
+IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジを使用します。 ミドルウェアのパフォーマンス一致しないことのサーバー モジュール。 [HTTP.sys サーバー](xref:fundamentals/servers/httpsys)サーバーと[Kestrel](xref:fundamentals/servers/kestrel)サーバーは、組み込みの圧縮のサポートを提供現在はありません。
 
 したら応答圧縮ミドルウェアを使用します。
 
@@ -33,8 +33,8 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
   * [Apache mod_deflate モジュール](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx の圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * 直接のホスティング。
-  * [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称[WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [HTTP.sys](xref:fundamentals/servers/httpsys) server (旧称[WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel)サーバー
 
 ## <a name="response-compression"></a>応答の圧縮
 
@@ -94,7 +94,7 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 * Gzip とカスタム圧縮プロバイダーを使用してアプリの応答の圧縮。
 * MIME の種類を圧縮する MIME の種類の既定の一覧に追加する方法。
 
-## <a name="package"></a>Package
+## <a name="package"></a>パッケージ
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -432,7 +432,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Nginx のリバース プロキシの背後にあるときにミドルウェアの問題
 
-要求が、Nginx によってプロキシの場合、`Accept-Encoding`ヘッダーを削除します。 これは、ミドルウェアが応答を圧縮することを防ぎます。 詳細については、次を参照してください。 [NGINX: 圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)します。 この問題を追跡する[Nginx (BasicMiddleware #123) のパススルー圧縮図](https://github.com/aspnet/BasicMiddleware/issues/123)します。
+要求が、Nginx によってプロキシの場合、`Accept-Encoding`ヘッダーを削除します。 削除、`Accept-Encoding`ヘッダーが応答を圧縮すると、ミドルウェアを防止します。 詳細については、次を参照してください。 [NGINX: 圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)します。 この問題を追跡する[Nginx のパススルー圧縮図 (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123)します。
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS 動的圧縮を使用します。
 
