@@ -6,24 +6,31 @@
 # [開始するには](xref:getting-started)
 
 # チュートリアル
+## [Web API の作成](xref:tutorials/first-web-api)
 ## Web アプリ
 ### Razor ページ
-#### [Visual Studio を使用](xref:tutorials/razor-pages/index)
-#### [Visual Studio Code を使用](xref:tutorials/razor-pages-vsc/index)
-#### [Visual Studio for Mac を使用](xref:tutorials/razor-pages-mac/index)
+#### [Razor ページを始める](xref:razor-pages/index)
+
+#### [Razor ページのチュートリアル](xref:tutorials/razor-pages/index)
+##### [開始するには](xref:tutorials/razor-pages/razor-pages-start)
+##### [モデルの追加](xref:tutorials/razor-pages/model)
+##### [スキャフォールディング](xref:tutorials/razor-pages/page)
+##### [DB の操作](xref:tutorials/razor-pages/sql)
+##### [ページの更新](xref:tutorials/razor-pages/da1)
+##### [検索の追加](xref:tutorials/razor-pages/search)
+##### [新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
+##### [検証の追加](xref:tutorials/razor-pages/validation)
+
 ### MVC
 #### [Visual Studio を使用](xref:tutorials/first-mvc-app/index)
 #### [Visual Studio Code を使用](xref:tutorials/first-mvc-app-xplat/index)
 #### [Visual Studio for Mac を使用](xref:tutorials/first-mvc-app-mac/index)
-## Web API
-### [Visual Studio を使用](xref:tutorials/first-web-api)
-### [Visual Studio Code を使用](xref:tutorials/web-api-vsc)
-### [Visual Studio for Mac を使用](xref:tutorials/first-web-api-mac)
-### [ネイティブ モバイル アプリの場合](xref:mobile/native-mobile-backend)
-### [MongoDB を使用](xref:tutorials/first-mongo-app)
+
 ## リアルタイムの Web アプリ
 ### [JavaScript による SignalR](xref:tutorials/signalr)
 ### [TypeScript による SignalR](xref:tutorials/signalr-typescript-webpack)
+## [ネイティブ モバイル アプリのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
+
 ## データ アクセス
 ### [EF Core と Razor Pages](xref:data/ef-rp/index)
 ### [EF Core と MVC、既存のデータベース](/ef/core/get-started/aspnetcore/existing-db)
@@ -58,33 +65,16 @@
 # Web アプリ
 ## Razor ページ
 ### [概要](xref:razor-pages/index)
-### チュートリアル
-#### Visual Studio による Razor Pages
-##### [概要](xref:tutorials/razor-pages/index)
-##### [開始するには](xref:tutorials/razor-pages/razor-pages-start)
-##### [モデルの追加](xref:tutorials/razor-pages/model)
-##### [スキャフォールディング](xref:tutorials/razor-pages/page)
-##### [SQL Server](xref:tutorials/razor-pages/sql)
-##### [ページの更新](xref:tutorials/razor-pages/da1)
-##### [検索の追加](xref:tutorials/razor-pages/search)
-##### [新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
-##### [検証の追加](xref:tutorials/razor-pages/validation)
-#### Visual Studio Code による Razor Pages
-##### [概要](xref:tutorials/razor-pages-vsc/index)
-##### [Razor ページの概要](xref:tutorials/razor-pages-vsc/razor-pages-start)
-##### [モデルの追加](xref:tutorials/razor-pages-vsc/model)
-##### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-vsc/page)
-##### [SQLite の使用](xref:tutorials/razor-pages-vsc/sql)
-##### [ページの更新](xref:tutorials/razor-pages-vsc/da1)
-##### [検索の追加](xref:tutorials/razor-pages-vsc/search)
-#### Visual Studio for Mac による Razor Pages
-##### [概要](xref:tutorials/razor-pages-mac/index)
-##### [Razor ページの概要](xref:tutorials/razor-pages-mac/razor-pages-start)
-##### [モデルの追加](xref:tutorials/razor-pages-mac/model)
-##### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-mac/page)
-##### [SQLite の使用](xref:tutorials/razor-pages-mac/sql)
-##### [ページの更新](xref:tutorials/razor-pages-mac/da1)
-##### [検索の追加](xref:tutorials/razor-pages-mac/search)
+### [Razor ページのチュートリアル](xref:tutorials/razor-pages/index)
+#### [開始するには](xref:tutorials/razor-pages/razor-pages-start)
+#### [モデルの追加](xref:tutorials/razor-pages/model)
+#### [スキャフォールディング](xref:tutorials/razor-pages/page)
+#### [DB の操作](xref:tutorials/razor-pages/sql)
+#### [ページの更新](xref:tutorials/razor-pages/da1)
+#### [検索の追加](xref:tutorials/razor-pages/search)
+#### [新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
+#### [検証の追加](xref:tutorials/razor-pages/validation)
+
 ### [フィルター](xref:razor-pages/filter)
 ### [Razor クラス ライブラリ](xref:razor-pages/ui-class)
 ### [ルートとアプリの規則](xref:razor-pages/razor-pages-conventions)
@@ -99,7 +89,7 @@
 ##### [コントローラーの追加](xref:tutorials/first-mvc-app/adding-controller)
 ##### [ビューの追加](xref:tutorials/first-mvc-app/adding-view)
 ##### [モデルの追加](xref:tutorials/first-mvc-app/adding-model)
-##### [SQL Server の使用](xref:tutorials/first-mvc-app/working-with-sql)
+##### [DB の操作](xref:tutorials/first-mvc-app/working-with-sql)
 ##### [コントローラー アクションとビュー](xref:tutorials/first-mvc-app/controller-methods-views)
 ##### [検索の追加](xref:tutorials/first-mvc-app/search)
 ##### [新しいフィールドの追加](xref:tutorials/first-mvc-app/new-field)
@@ -174,12 +164,9 @@
 
 # Web API
 ## [概要](xref:web-api/index)
-## チュートリアル
-### [Visual Studio での Web API](xref:tutorials/first-web-api)
-### [Visual Studio Code での Web API](xref:tutorials/web-api-vsc)
-### [Visual Studio for Mac での Web API](xref:tutorials/first-web-api-mac)
-### [ネイティブ モバイル アプリの Web API](xref:mobile/native-mobile-backend)
-### [MongoDB での Web API](xref:tutorials/first-mongo-app)
+
+## [Web API の作成](xref:tutorials/first-web-api)
+
 ## Swagger/OpenAPI
 ### [概要](xref:tutorials/web-api-help-pages-using-swagger)
 ### [Swashbuckle の概要](xref:tutorials/get-started-with-swashbuckle)
@@ -187,6 +174,7 @@
 ## [アクションの戻り値の型](xref:web-api/action-return-types)
 ## [応答データの書式設定](xref:web-api/advanced/formatting)
 ## [カスタム フォーマッタ](xref:web-api/advanced/custom-formatters)
+
 ## [アナライザー](xref:web-api/advanced/analyzers)
 ## [規則](xref:web-api/advanced/conventions)
 
@@ -209,7 +197,6 @@
 ### [Java API リファレンス](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 ### [JavaScript クライアント](xref:signalr/javascript-client)
 ### [JavaScript API リファレンス](/javascript/api/?view=signalr-js-latest)
-### [WebPack および TypeScript](xref:tutorials/signalr-typescript-webpack)
 ## ホスティングおよびスケーリング
 ### [概要](xref:signalr/scale)
 ### [Azure SignalR Service](/azure/azure-signalr/signalr-overview)
@@ -319,6 +306,7 @@
 ## [Visual Studio のプロファイルの発行](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [ディレクトリの構造](xref:host-and-deploy/directory-structure)
 ## [Azure App Service と IIS のエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
+## [正常性チェック](xref:host-and-deploy/health-checks)
 
 # セキュリティと ID
 ## [概要](xref:security/index)
@@ -455,6 +443,7 @@
 ### [HTTP モジュールからミドルウェアへ](xref:migration/http-modules)
 
 # 新機能
+## [2.2 の新機能](xref:aspnetcore-2.2)
 ## [2.1 の新機能](xref:aspnetcore-2.1)
 ## [2.0 の新機能](xref:aspnetcore-2.0)
 ## [1.1 の新機能](xref:aspnetcore-1.1)
