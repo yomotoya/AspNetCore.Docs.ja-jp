@@ -1,0 +1,2 @@
+* <span data-ttu-id="ce8ca-101">[Visual Studio 2017 バージョン 15.9 以降](https://visualstudio.microsoft.com/downloads/)で、 **ASP.NET および web 開発**ワークロード</span><span class="sxs-lookup"><span data-stu-id="ce8ca-101">[Visual Studio 2017 version 15.9 or later](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload</span></span>
+* [<span data-ttu-id="ce8ca-102">.NET core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="ce8ca-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
