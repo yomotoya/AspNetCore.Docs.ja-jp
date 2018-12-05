@@ -4,14 +4,14 @@ author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 1680b1377351fbfbfc38249868da389012dd5fb6
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450802"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862188"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -65,11 +65,11 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 **インプロセス ホスティング モデル**
 
-`CreateDefaultBuilder` では、`UseIIS` メソッドを呼び出し、[CoreCLR](/dotnet/standard/glossary#coreclr) を起動して IIS ワーカー プロセス (*w3wp.exe* または *iisexpress.exe*) 内のアプリをホストします。 パフォーマンス テストは、.NET Core アプリのインプロセス ホスティングでは、アプリのアウトプロセス ホスティングや [Kestrel](xref:fundamentals/servers/kestrel) へのプロキシ要求に比べ、スループットの要求が大幅に高くなることを示しています。
+`CreateDefaultBuilder` では、`UseIIS` メソッドを呼び出し、[CoreCLR](/dotnet/standard/glossary#coreclr) を起動して IIS ワーカー プロセス (*w3wp.exe* または *iisexpress.exe*) 内のアプリをホストします。 パフォーマンス テストは、.NET Core アプリのインプロセス ホスティングでは、アプリのアウトプロセス ホスティングや [Kestrel](xref:fundamentals/servers/kestrel) サーバーへのプロキシ要求に比べ、スループットの要求が大幅に高くなることを示しています。
 
 **アウトプロセス ホスティング モデル**
 
-IIS でのアウトプロセス ホスティングの場合、`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
+IIS でのアウトプロセス ホスティングの場合、`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
 ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`127.0.0.1`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `127.0.0.1:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
 
@@ -85,7 +85,7 @@ ASP.NET Core モジュールでは、バックエンド プロセスに割り当
 
 ::: moniker range="= aspnetcore-2.1"
 
-`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
+`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
 ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`127.0.0.1`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `127.0.0.1:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
 
@@ -99,7 +99,7 @@ ASP.NET Core モジュールでは、バックエンド プロセスに割り当
 
 ::: moniker range="= aspnetcore-2.0"
 
-`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
+`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
 ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`localhost`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `localhost:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
 
@@ -484,7 +484,7 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
 
 ## <a name="configuration-of-iis-with-webconfig"></a>web.config による IIS の構成
 
-IIS の構成は、リバース プロキシ構成に適用されるこれらの IIS 機能の *web.config*の **\<system.webServer>** セクションの影響を受けます。 IIS が動的な圧縮を使用するようにサーバー レベルで構成されている場合、アプリの *web.config* ファイルで **\<urlCompression>** 要素を使用して無効にすることができます。
+IIS の構成は ASP.NET Core モジュールを使用した ASP.NET Core アプリで機能する IIS シナリオの *web.config* の `<system.webServer>` セクションによる影響を受けます。 たとえば、IIS の構成は動的な圧縮で機能します。 IIS が動的な圧縮を使用するようにサーバー レベルで構成されている場合、アプリの *web.config* ファイルの `<urlCompression>` 要素を使用すると、それを ASP.NET Core アプリに対して無効にすることができます。
 
 詳細については、[\<system.webServer> の構成リファレンス](/iis/configuration/system.webServer/)、「[ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)」および「[IIS モジュールと ASP.NET Core](xref:host-and-deploy/iis/modules)」を参照してください。 分離されたアプリ プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定するには、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
 
@@ -492,10 +492,10 @@ IIS の構成は、リバース プロキシ構成に適用されるこれらの
 
 *web.config* の ASP.NET 4.x アプリの構成セクションは、ASP.NET Core アプリの構成では使用されません。
 
-* **\<system.web >**
-* **\<appSettings>**
-* **\<connectionStrings>**
-* **\<location>**
+* `<system.web>`
+* `<appSettings>`
+* `<connectionStrings>`
+* `<location>`
 
 ASP.NET Core アプリは、他の構成プロバイダーを使用して構成されます。 詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。
 

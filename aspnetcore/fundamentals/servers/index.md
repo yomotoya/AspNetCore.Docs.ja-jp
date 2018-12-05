@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core の Web サーバー Kestrel と HTTP.sys を検出します。 サーバーを選択する方法と、リバース プロキシ サーバーを使用するタイミングについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 12/01/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 965d69dd071ec71d283284d58e6e1a6e78604f90
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861357"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
@@ -19,20 +19,46 @@ ms.locfileid: "51505727"
 
 ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装は HTTP 要求をリッスンし、<xref:Microsoft.AspNetCore.Http.HttpContext> に構成された[要求機能](xref:fundamentals/request-features)のセットとしてアプリに公開します。
 
-ASP.NET Core には、次のサーバー実装が付属しています。
-
 ::: moniker range=">= aspnetcore-2.2"
 
-* [Kestrel](xref:fundamentals/servers/kestrel) は、ASP.NET Core 向けの既定のクロスプラットフォーム HTTP サーバーです。
-* `IISHttpServer` は、[インプロセス ホスティング モデル](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model)および Windows 上の [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)で使用されます。
-* [HTTP.sys](xref:fundamentals/servers/httpsys) は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 (ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+ASP.NET Core には次のものが付属しています。
+
+* [Kestrel サーバー](xref:fundamentals/servers/kestrel)は、既定のクロスプラットフォーム HTTP サーバーです。
+* IIS HTTP サーバー (`IISHttpServer`) は、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)で使用される[インプロセス IIS サーバー](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model)です。
+* [HTTP.sys サーバー](xref:fundamentals/servers/httpsys)は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+ASP.NET Core には、既定のクロスプラットフォーム HTTP サーバーである [Kestrel サーバー](xref:fundamentals/servers/kestrel)が付属しています。
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+ASP.NET Core には、既定のクロスプラットフォーム HTTP サーバーである [Kestrel サーバー](xref:fundamentals/servers/kestrel)が付属しています。
+
+---
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-* [Kestrel](xref:fundamentals/servers/kestrel) は、ASP.NET Core 向けの既定のクロスプラットフォーム HTTP サーバーです。
-* [HTTP.sys](xref:fundamentals/servers/httpsys) は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 (ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+ASP.NET Core には次のものが付属しています。
+
+* [Kestrel サーバー](xref:fundamentals/servers/kestrel)は、既定のクロスプラットフォーム HTTP サーバーです。
+* [HTTP.sys サーバー](xref:fundamentals/servers/httpsys)は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+ASP.NET Core には、既定のクロスプラットフォーム HTTP サーバーである [Kestrel サーバー](xref:fundamentals/servers/kestrel)が付属しています。
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+ASP.NET Core には、既定のクロスプラットフォーム HTTP サーバーである [Kestrel サーバー](xref:fundamentals/servers/kestrel)が付属しています。
+
+---
 
 ::: moniker-end
 
@@ -42,7 +68,10 @@ Kestrel は、ASP.NET Core のプロジェクト テンプレートに含まれ�
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Kestrel は単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
+Kestrel は次のように使用できます。
+
+* これ自体で、インターネットを含むネットワークから直接要求を処理するエッジ サーバーとして。
+* [インターネット インフォメーション サービス (IIS)](https://www.iis.net/)、[Nginx](http://nginx.org)、[Apache](https://httpd.apache.org/) などの*リバース プロキシ サーバー*と共に。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。
 
 ![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
 
@@ -58,7 +87,7 @@ Kestrel は単独で使用することも、IIS、Nginx、または Apache な�
 
 ![内部ネットワークと直接通信する Kestrel](kestrel/_static/kestrel-to-internal.png)
 
-アプリをインターネットに公開する場合は、Kestrel が*リバース プロキシ サーバー*として IIS、Nginx、または Apache を使用する必要があります。 以下の図のように、リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
+アプリをインターネットに公開する場合は、Kestrel が[インターネット インフォメーション サービス (IIS)](https://www.iis.net/)、[Nginx](http://nginx.org)、[Apache](https://httpd.apache.org/) などの*リバース プロキシ サーバー*を使用する必要があります。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。
 
 ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
@@ -67,8 +96,6 @@ Kestrel は単独で使用することも、IIS、Nginx、または Apache な�
 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
 ::: moniker-end
-
-IIS、Nginx、および Apache を Kestrel や[カスタム サーバー実装](#custom-servers)なしで使用することはできません。 ASP.NET Core は、プラットフォーム間で一貫して動作できるように、独自のプロセスで実行するように設計されています。 IIS、Nginx、および Apache では独自のスタートアップ プロシージャと環境が指定されます。 これらのサーバー テクノロジを直接使用するには、ASP.NET Core を各サーバーの要件に適合させる必要があります。 Kestrel などの Web サーバー実装を使用することで、ASP.NET Core は異なるサーバー テクノロジでホストされている場合でもスタートアップ プロセスと環境を制御できます。
 
 ### <a name="iis-with-kestrel"></a>IIS と Kestrel
 
@@ -82,23 +109,23 @@ IIS、Nginx、および Apache を Kestrel や[カスタム サーバー実装](
 
 ::: moniker range="< aspnetcore-2.2"
 
-ASP.NET Core のリバース プロキシとして [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用する場合、ASP.NET Core アプリは IIS ワーカー プロセスとは別のプロセスで実行されます。 IIS プロセスで、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がリバース プロキシの関係を調整します。 ASP.NET Core モジュールの主な機能は、ASP.NET Core アプリを開始し、クラッシュ時にアプリを再始動し、HTTP トラフィックをアプリに転送することです。 詳細については、「<xref:fundamentals/servers/aspnet-core-module>」を参照してください。
+ASP.NET Core のリバース プロキシとして [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用する場合、ASP.NET Core アプリは IIS ワーカー プロセスとは別のプロセスで実行されます。 IIS プロセスで、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がリバース プロキシの関係を調整します。 ASP.NET Core モジュールの主な機能は、アプリを開始し、クラッシュ時にアプリを再始動し、HTTP トラフィックをアプリに転送することです。 詳細については、「<xref:fundamentals/servers/aspnet-core-module>」を参照してください。
 
 ::: moniker-end
 
 ### <a name="nginx-with-kestrel"></a>Nginx と Kestrel
 
-Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、「[Host on Linux with Nginx](xref:host-and-deploy/linux-nginx)」(Nginx による Linux でのホスト) を参照してください。
+Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、<xref:host-and-deploy/linux-nginx> を参照してください。
 
 ### <a name="apache-with-kestrel"></a>Apache と Kestrel
 
-Kestrel のリバース プロキシ サーバーとして Linux で Apache を使用する方法については、「[Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)」を参照してください。
+Kestrel のリバース プロキシ サーバーとして Linux で Apache を使用する方法については、<xref:host-and-deploy/linux-apache> を参照してください。
 
 ## <a name="httpsys"></a>HTTP.sys
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Windows で ASP.NET Core アプリを実行する場合は、HTTP.sys を Kestrel の代わりに使用できます。 最適なパフォーマンスを得るには、通常は Kestrel をお勧めします。 HTTP.sys は、アプリがインターネットに公開されていて、必要な機能が HTTP.sys でサポートされているものの、Kestrel ではサポートされていないシナリオで使用できます。 HTTP.sys の情報については、[HTTP.sys](xref:fundamentals/servers/httpsys) に関するページを参照してください。
+Windows で ASP.NET Core アプリを実行する場合は、HTTP.sys を Kestrel の代わりに使用できます。 最適なパフォーマンスを得るには、通常は Kestrel をお勧めします。 HTTP.sys は、アプリがインターネットに公開されていて、必要な機能が HTTP.sys でサポートされているものの、Kestrel ではサポートされていないシナリオで使用できます。 詳細については、「<xref:fundamentals/servers/httpsys>」を参照してください。
 
 ![インターネットと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internet.png)
 

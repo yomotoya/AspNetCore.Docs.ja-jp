@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core のミドルウェアと要求パイプラインについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6daf201654d68de978141f3dd42d48732c1161f7
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570036"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861486"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core のミドルウェア
 
@@ -237,6 +237,7 @@ ASP.NET Core には、次のミドルウェア コンポーネントが付属し
 | [CORS](xref:security/cors) | クロス オリジン リソース共有を構成します。 | CORS を使うコンポーネントの前。 |
 | [診断](xref:fundamentals/error-handling) | 診断を構成します。 | エラーを生成するコンポーネントの前。 |
 | [転送されるヘッダー](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | プロキシされたヘッダーを現在の要求に転送します。 | 更新されたフィールドを使用するコンポーネントの前。 例: スキーム、ホスト、クライアント IP、メソッド。 |
+| [正常性チェック](xref:host-and-deploy/health-checks) | ASP.NET Core アプリとその依存関係の正常性を、データベースの可用性などで確認します。 | 要求が正常性チェックのエンドポイントと一致した場合の終端。 |
 | [HTTP メソッドのオーバーライド](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | メソッドをオーバーライドする受信 POST 要求を許可します。 | 更新されたメソッドを使うコンポーネントの前。 |
 | [HTTPS リダイレクト](xref:security/enforcing-ssl#require-https) | すべての HTTP 要求を HTTPS (ASP.NET Core 2.1 以降) にリダイレクトします。 | URL を使うコンポーネントの前。 |
 | [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | 特殊な応答ヘッダーを追加するセキュリティ拡張機能のミドルウェア (ASP.NET Core 2.1 以降)。 | 応答が送信される前と要求を変更するコンポーネントの後。 例: 転送されるヘッダー、URL リライト。 |

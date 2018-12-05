@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core アプリの構築に関する基本概念について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 12/01/2018
 uid: fundamentals/index
-ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8bd447632f915cadcc5199ec50b292ad27f6c3ba
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207473"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861590"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -26,7 +26,7 @@ ASP.NET Core アプリは、その `Program.Main` メソッドで Web サーバ�
 * [.NET Core ランタイム](https://github.com/dotnet/coreclr)を読み込みます。
 * エントリ ポイント (`Main`) を含むマネージド バイナリへのパスとして最初のコマンドライン引数を使用し、コードの実行を開始します。
 
-`Main` メソッドは、Web ホストを作成する[ビルダー パターン](https://wikipedia.org/wiki/Builder_pattern)に従う、[WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*) を呼び出します。 ビルダーには、Web サーバー (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> など) とスタートアップ クラス (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>) を定義するメソッドがあります。 前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが自動的に割り当てられます。 ASP.NET Core の Web ホストは、IIS (使用可能な場合) で実行を試みます。 [HTTP.sys](xref:fundamentals/servers/httpsys) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。 `UseStartup` については、次のセクションで詳しく説明します。
+`Main` メソッドは、Web ホストを作成する[ビルダー パターン](https://wikipedia.org/wiki/Builder_pattern)に従う、[WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*) を呼び出します。 ビルダーには、Web サーバー (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> など) とスタートアップ クラス (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>) を定義するメソッドがあります。 前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが自動的に割り当てられます。 ASP.NET Core の Web ホストは、[インターネット インフォメーション サービス (IIS)](https://www.iis.net/) (使用可能な場合) で実行を試みます。 [HTTP.sys](xref:fundamentals/servers/httpsys) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。 `UseStartup` については、「[スタートアップ](#startup)」のセクションで詳しく説明します。
 
 <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> (`WebHost.CreateDefaultBuilder` 呼び出しの戻り値の型) では、省略可能な多くのメソッドが提供されます。 これらのメソッドの一部には、HTTP.sys でアプリをホストするための `UseHttpSys` と、ルート コンテンツ ディレクトリを指定するための <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> が含まれています。 <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> および <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> メソッドは、アプリをホストし、HTTP 要求のリッスンを開始する <xref:Microsoft.AspNetCore.Hosting.IWebHost> オブジェクトをビルドします。
 
@@ -131,7 +131,50 @@ ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当�
 
 ## <a name="servers"></a>サーバー
 
-ASP.NET Core のホスティング モデルは、直接要求をリッスンしません。 ホスティング モデルは HTTP サーバー実装に依存して要求をアプリに転送します。 転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。 ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。 Kestrel は通常、リバース プロキシ構成で、[IIS](https://www.iis.net/) や [Nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+ASP.NET Core のホスティング モデルは、直接要求をリッスンしません。 ホスティング モデルは HTTP サーバー実装に依存して要求をアプリに転送します。
+
+::: moniker range=">= aspnetcore-2.2"
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+ASP.NET Core では、次のサーバー実装が提供されます。
+
+* [Kestrel](xref:fundamentals/servers/kestrel) サーバーは、管理された、クロスプラットフォームの Web サーバーです。 Kestrel は [IIS](https://www.iis.net/) を使用してリバース プロキシ構成で実行されることがよくあります。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+* IIS HTTP サーバー (`IISHttpServer`) は、[インプロセス IIS サーバー](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model)です。
+* [HTTP.sys](xref:fundamentals/servers/httpsys) サーバーは Windows 上の ASP.NET Core 用 Web サーバーです。
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+ASP.NET Core は [Kestrel](xref:fundamentals/servers/kestrel) サーバーの実装を使用します。 Kestrel は、管理された、クロスプラットフォームの Web サーバーです。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+ASP.NET Core は [Kestrel](xref:fundamentals/servers/kestrel) サーバーの実装を使用します。 Kestrel は、管理された、クロスプラットフォームの Web サーバーです。 Kestrel は [Nginx](http://nginx.org) または [Apache](https://httpd.apache.org/) を使用してリバース プロキシ構成で実行されることがよくあります。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+
+---
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+ASP.NET Core では、次のサーバー実装が提供されます。
+
+* [Kestrel](xref:fundamentals/servers/kestrel) サーバーは、管理された、クロスプラットフォームの Web サーバーです。 Kestrel は [IIS](https://www.iis.net/) を使用してリバース プロキシ構成で実行されることがよくあります。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+* [HTTP.sys](xref:fundamentals/servers/httpsys) サーバーは Windows 上の ASP.NET Core 用 Web サーバーです。
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+ASP.NET Core は [Kestrel](xref:fundamentals/servers/kestrel) サーバーの実装を使用します。 Kestrel は、管理された、クロスプラットフォームの Web サーバーです。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+ASP.NET Core は [Kestrel](xref:fundamentals/servers/kestrel) サーバーの実装を使用します。 Kestrel は、管理された、クロスプラットフォームの Web サーバーです。 Kestrel は [Nginx](http://nginx.org) または [Apache](https://httpd.apache.org/) を使用してリバース プロキシ構成で実行されることがよくあります。 ASP.NET Core 2.0 以降では、Kestrel は、インターネットに直接公開される一般向けエッジ サーバーとして実行することもできます。
+
+---
+
+::: moniker-end
 
 詳細については、「<xref:fundamentals/servers/index>」を参照してください。
 
