@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207616"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892121"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -25,15 +25,15 @@ Razor ページは、ページ コーディングに重点を置いたシナリ�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
 <a name="rpvs17"></a>
 
-## <a name="creating-a-razor-pages-project"></a>Razor ページ プロジェクトの作成
+## <a name="create-a-razor-pages-project"></a>Razor ページ プロジェクトを作成する
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Visual Studio を使用して Razor ページ プロジェクトを作成する詳細な手順については、「[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)」を参照してください。
+Razor ページ プロジェクトを作成する詳細な手順については、「[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)」を参照してください。
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
@@ -52,20 +52,6 @@ Visual Studio を使用して Razor ページ プロジェクトを作成する�
 Visual Studio for Mac から生成された *.csproj* ファイルを開きます。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-::: moniker range=">= aspnetcore-2.1"
-
-コマンド ラインから `dotnet new webapp` を実行します。
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-コマンド ラインから `dotnet new razor` を実行します。
-
-::: moniker-end
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -117,7 +103,7 @@ URL パスのページへの関連付けは、ファイル システム内のペ
 * 既定では、ランタイムが *Pages* フォルダー内で Razor ページ ファイルを検索します。
 * `Index` は、URL にページが含まれない場合の既定のページになります。
 
-## <a name="writing-a-basic-form"></a>基本フォームの作成
+## <a name="write-a-basic-form"></a>基本フォームを作成する
 
 Razor ページは、アプリの構築時に Web ブラウザーで使用される一般的なパターンを実装しやすくするために設計されています。 [モデル バインド](xref:mvc/models/model-binding)、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)、および HTML ヘルパーはすべて、Razor ページ クラスで定義されたプロパティで*機能します*。 `Contact` モデルの基本的な "お問い合わせ" フォームを実装するページを考察します。
 
@@ -173,10 +159,7 @@ db コンテキスト:
 
 既定では、Razor ページはプロパティを非 GET 動詞とのみバインドします。 プロパティをバインドすることで、記述すべきコードの量を削減できます。 同じプロパティを使用してバインドすることでコードを減らし、フィールド (`<input asp-for="Customer.Name" />`) からレンダリングして入力を受け入れます。
 
-> [!NOTE]
-> セキュリティ上の理由から、ページ モデルのプロパティに対して GET 要求データのバインドを選択する必要があります。 プロパティにマップする前に、ユーザー入力を確認してください。 この動作は、クエリ文字列やルート値に依存するシナリオに対処する場合に選択すると便利です。
->
-> GET 要求のプロパティをバインドするには、属性の `[BindProperty]` プロパティを `SupportsGet``true`: `[BindProperty(SupportsGet = true)]` に設定します
+[!INCLUDE[](~/includes/bind-get.md)]
 
 ホーム ページ (*Index.cshtml*):
 
@@ -246,7 +229,7 @@ HTML で削除ボタンがレンダリングされる場合、その `formaction
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>OnGet ハンドラーで HEAD 要求を管理する
 
-HEAD 要求を使用すると、特定のリソースに対するヘッダーを取得できます。 GET 要求とは異なり、HEAD 要求では応答本文は返されません。 
+HEAD 要求を使用すると、特定のリソースに対するヘッダーを取得できます。 GET 要求とは異なり、HEAD 要求では応答本文は返されません。
 
 通常、HEAD ハンドラーは HEAD 要求に対して作成され、呼び出されます。 
 
