@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) を利用し、データベース�
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: c4b23f75da298e4ee804f649219c2ce466b6d6ea
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 0d33901805d6728fb8006f14d41090b874ab28b1
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299444"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549121"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -213,6 +213,9 @@ Microsoft.EntityFrameworkCore.Model.Validation[30000]
 
 * アプリを実行し、ブラウザーで URL に `/Movies` を追加します (`http://localhost:port/movies`)。
 * **[作成]** リンクをテストします。
+
+  > [!NOTE]
+  > `Price` フィールドに小数点のコンマを入力できない場合があります。 小数点にコンマ (",") を使う英語以外のロケール、および英語 (米国) 以外の日付形式で、[jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する必要があります。 グローバル化の手順については、[この GitHub の記事](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420)をご覧ください。
 
   ![[作成] ページ](../../tutorials/razor-pages/model/_static/conan.png)
 
