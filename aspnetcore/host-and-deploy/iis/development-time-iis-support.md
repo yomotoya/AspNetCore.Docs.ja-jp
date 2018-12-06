@@ -4,14 +4,14 @@ author: shirhatti
 description: ASP.NET Core アプリが Windows Server の IIS の背後で実行されている場合に、そのデバッグのサポートを検出します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: eb8b4369d6d5434adbac187f59b18d7a2b80055c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277655"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549102"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
 
@@ -129,13 +129,19 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## <a name="run-the-project"></a>プロジェクトを実行する
 
-VS UI で、[実行] ボタンを **[IIS]** プロファイルに設定し、ボタンを選択してアプリを起動します。
+Visual Studio:
 
-!["IIS" プロファイルに設定された VS ツール バーの実行ボタン](development-time-iis-support/_static/toolbar.png)
+* ビルド構成のドロップダウン リストが **[デバッグ]** に設定されていることを確認します。
+* [実行] ボタンを **[IIS]** プロファイルに設定し、ボタンを選択してアプリを起動します。
+
+![VS ツールバーの [実行] ボタンは [IIS] プロファイルに設定され、ビルド構成のドロップダウン リストは [リリース] に構成されます。](development-time-iis-support/_static/toolbar.png)
 
 管理者として実行していない場合、Visual Studio によって再起動を求められる場合があります。 その場合は、Visual Studio を再起動します。
 
 信頼されていない開発証明書を使用すると、信頼されていない証明書に対する例外を作成するように、ブラウザーによって求められる場合があります。
+
+> [!NOTE]
+> [マイ コードのみ](/visualstudio/debugger/just-my-code)とコンパイラの最適化を使用してリリースのビルド構成をデバッグすると、エクスペリエンスの品質が低下します。 たとえば、ブレーク ポイントがヒットしません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

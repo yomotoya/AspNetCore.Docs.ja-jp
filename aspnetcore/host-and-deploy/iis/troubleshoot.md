@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 2ff870623de43676be38c5de8f338a7913e885a8
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225448"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450711"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -47,7 +47,8 @@ Visual Studio Code に組み込まれているデバッグのサポートにつ�
 
 ## <a name="app-startup-errors"></a>アプリ起動時のエラー
 
-**502.5 処理エラー**  
+### <a name="5025-process-failure"></a>502.5 処理エラー
+
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
 ASP.NET Core モジュールはバックエンドのドットネット プロセスの開始を試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。 
@@ -60,7 +61,7 @@ ASP.NET Core モジュールはバックエンドのドットネット プロセ
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**500.30 インプロセス起動エラー**
+### <a name="50030-in-process-startup-failure"></a>500.30 インプロセス起動エラー
 
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
@@ -68,7 +69,7 @@ ASP.NET Core モジュールは .NET Core CLR の開始をインプロセスで�
 
 一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。
 
-**500.0 インプロセス ハンドラーの読み込みエラー**
+### <a name="5000-in-process-handler-load-failure"></a>500.0 インプロセス ハンドラーの読み込みエラー
 
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
@@ -77,7 +78,7 @@ ASP.NET Core モジュールは .NET Core CLR の検出に失敗し、インプ�
 * アプリが [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) NuGet パッケージまたは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)を対象としている。
 * アプリが対象としているバージョンの ASP.NET Core 共有フレームワークが対象のコンピューターにインストールされている。
 
-**500.0 アウト プロセス ハンドラーの読み込みエラー**
+### <a name="5000-out-of-process-handler-load-failure"></a>500.0 アウト プロセス ハンドラーの読み込みエラー
 
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
@@ -85,12 +86,13 @@ ASP.NET Core モジュールは、アウト プロセスのホスティング要
 
 ::: moniker-end
 
-**500 内部サーバー エラー**  
+### <a name="500-internal-server-error"></a>500 内部サーバー エラー
+
 アプリは起動しますが、エラーのためにサーバーは要求を実行できません。
 
 このエラーは、起動時または応答の作成中に、アプリのコード内で発生します。 応答にコンテンツが含まれていないか、またはブラウザーに "*500 内部サーバー エラー*" という応答が表示される可能性があります。 通常、アプリケーション イベント ログではアプリが正常に起動したことが示されます。 サーバーから見るとそれは正しいことです。 アプリは起動しましたが、有効な応答を生成できません。 問題を解決するには、[サーバー上のコマンド プロンプトでアプリを実行する](#run-the-app-at-a-command-prompt)か、[ASP.NET Core モジュールの stdout ログを有効にします](#aspnet-core-module-stdout-log)。
 
-**接続のリセット**
+### <a name="connection-reset"></a>接続のリセット
 
 ヘッダー送信後にエラーが発生した場合、サーバーが **500 内部サーバー エラー**を送信するには遅すぎます。 このような状況は、応答に対する複雑なオブジェクトのシリアル化中にエラーが起きたときによく発生します。 この種のエラーは、クライアントでは "*接続リセット*" エラーとして表示されます。 この種のエラーのトラブルシューティングには、[アプリケーション ログ](xref:fundamentals/logging/index)が役に立つことがあります。
 
@@ -113,7 +115,7 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
 
 多くの起動時エラーでは、アプリケーション イベント ログに役に立つ情報が生成されません。 ホスティング システムのコマンド プロンプトでアプリを実行すると、エラーの原因がわかることがあります。
 
-**フレームワークに依存する展開**
+#### <a name="framework-dependent-deployment"></a>フレームワークに依存する展開
 
 アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)の場合:
 
@@ -121,7 +123,7 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
 1. エラーを示すアプリからのコンソール出力は、すべてコンソール ウィンドウに書き込まれます。
 1. アプリへの要求時にエラーが発生した場合は、Kestrel がリッスンしているホストとポートに要求が送信されます。 既定のホストと post を使用して `http://localhost:5000/` に要求を行います。 アプリが Kestrel のエンドポイント アドレスで正常に応答する場合、問題はリバース プロキシ設定に関連している可能性が高く、アプリ内が原因の可能性は低くなります。
 
-**自己完結型の展開**
+#### <a name="self-contained-deployment"></a>自己完結型の展開
 
 アプリが[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合:
 
@@ -142,7 +144,8 @@ stdout ログを有効にして表示するには:
 1. *logs* フォルダーに移動します。 最新の stdout ログを探して開きます。
 1. ログのエラーを調べます。
 
-**重要**。 トラブルシューティングが完了したら、stdout ログを無効にします。
+> [!IMPORTANT]
+> トラブルシューティングが完了したら、stdout ログを無効にします。
 
 1. *web.config* ファイルを編集します。
 1. **stdoutLogEnabled** を `false` に設定します。
@@ -153,9 +156,27 @@ stdout ログを有効にして表示するには:
 >
 > ASP.NET Core アプリでのルーチン ログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳細については、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」を参照してください。
 
-## <a name="enabling-the-developer-exception-page"></a>開発者例外ページを有効にする
+## <a name="enable-the-developer-exception-page"></a>開発者例外ページを有効にする
 
 開発環境でアプリを実行するには、`ASPNETCORE_ENVIRONMENT` [環境変数を web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) に追加することができます。 アプリの起動時にホスト ビルダー上で `UseEnvironment` によって環境がオーバーライドされない限り、環境変数を設定すると、アプリの実行時に[開発者例外ページ](xref:fundamentals/error-handling)が表示されます。
+
+::: moniker range=">= aspnetcore-2.2"
+
+```xml
+<aspNetCore processPath="dotnet"
+      arguments=".\MyApp.dll"
+      stdoutLogEnabled="false"
+      stdoutLogFile=".\logs\stdout"
+      hostingModel="inprocess">
+  <environmentVariables>
+    <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+  </environmentVariables>
+</aspNetCore>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -168,11 +189,17 @@ stdout ログを有効にして表示するには:
 </aspNetCore>
 ```
 
+::: moniker-end
+
 `ASPNETCORE_ENVIRONMENT` の環境変数を設定する方法は、インターネットに公開されないステージング サーバーやテスト用サーバーの場合にのみお勧めされます。 トラブルシューティング後は、必ず *web.config* ファイルからこの環境変数を削除してください。 *web.config* で環境変数を設定する方法の詳細については、[aspNetCore の environmentVariables 子要素](xref:host-and-deploy/aspnet-core-module#setting-environment-variables)を参照してください。
 
-## <a name="common-startup-errors"></a>起動時の一般的なエラー 
+## <a name="common-startup-errors"></a>起動時の一般的なエラー
 
 以下を参照してください。<xref:host-and-deploy/azure-iis-errors-reference> このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
+
+## <a name="obtain-data-from-an-app"></a>アプリからデータを取得する
+
+アプリが要求に応答できる場合は、ターミナル インライン ミドルウェアを使用して、要求、接続、その他のデータをアプリから取得します。 詳細およびサンプル コードについては、「<xref:test/troubleshoot#obtain-data-from-an-app>」を参照してください。
 
 ## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
 
@@ -190,7 +217,7 @@ Visual Studio ドキュメントの「[Remote Debug ASP.NET Core on a Remote IIS
 
 [Application Insights](/azure/application-insights/) は、IIS でホストされているアプリからのテレメトリを提供し、エラー ログやレポート機能を備えています。 Application Insights は、アプリのログ機能が使用可能になってアプリが起動した後で発生したエラーのみをレポートできます。 詳細については、「[Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)」を参照してください。
 
-## <a name="additional-troubleshooting-advice"></a>その他のトラブルシューティングのアドバイス
+## <a name="additional-advice"></a>その他の注意事項
 
 開発コンピューター上の .NET Core SDK またはアプリ内のパッケージ バージョンのいずれかをアップグレードした直後に、機能しているアプリが失敗することがあります。 場合によっては、パッケージに統一性がないと、メジャー アップグレード実行時にアプリが破壊されることがあります。 これらの問題のほとんどは、次の手順で解決できます。
 
@@ -201,11 +228,12 @@ Visual Studio ドキュメントの「[Remote Debug ASP.NET Core on a Remote IIS
 
 > [!TIP]
 > パッケージ キャッシュをクリアするには、コマンド プロンプトから `dotnet nuget locals all --clear` を実行する方法が便利です。
-> 
+>
 > パッケージ キャッシュをクリアするには、[nuget.exe](https://www.nuget.org/downloads) ツールを使用して `nuget locals all -clear` コマンドを実行する方法もあります。 *nuget.exe* は、Windows デスクトップ オペレーティング システムにバンドルされているインストールではなく、[NuGet Web サイト](https://www.nuget.org/downloads)から別に入手する必要があります。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* <xref:test/troubleshoot>
 * <xref:fundamentals/error-handling>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * <xref:host-and-deploy/aspnet-core-module>

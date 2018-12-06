@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 023b8d09511aa42966e2a7d1c85e407bb6e79b0f
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: ede9a46c160cf6a49aa93da710af0bf0b8f59acc
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635393"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710076"
 ---
 # <a name="use-web-api-conventions"></a>Web API 規約を使用する
 
@@ -26,7 +26,7 @@ ASP.NET Core 2.2 で、一般的な [API 文書](xref:tutorials/web-api-help-pag
 
 ## <a name="apply-web-api-conventions"></a>Web API 規約を適用する
 
-規約を適用する方法は 3 つあります。 規約では作成を行わず、各アクションを 1 つの規約だけに関連付けることができます。 より具体的な規約 (詳細は下記) の方が優先されます。 優先順位が同じである 2 つ以上の規約が 1 つのアクションに適用されていると、選択は不明確になります。 次のオプションは、規約をアクションに適用するためにあります。より具体的なものから並んでいます。
+規約を適用する方法は 3 つあります。 規約では作成を行われません。 各アクションを 1 つの規約だけに関連付けることができます。 より具体的な規約 (詳細は下記) の方が優先されます。 優先順位が同じである 2 つ以上の規約が 1 つのアクションに適用されていると、選択は不明確になります。 次のオプションは、規約をアクションに適用するためにあります。より具体的なものから並んでいます。
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; 個々のアクションに適用され、適用される規約の種類と規約のメソッドが指定されます。 次の例では、規約のメソッド `Microsoft.AspNetCore.Mvc.DefaultApiConventions.Put` が `Update` のアクションに適用されます。
 

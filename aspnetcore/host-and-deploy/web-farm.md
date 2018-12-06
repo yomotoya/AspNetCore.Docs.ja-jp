@@ -4,14 +4,14 @@ author: guardrex
 description: Web ファーム環境での共有リソースを使用して、ASP.NET Core アプリのインスタンスを複数ホストする方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 2435c24bc205486331c828337ca81c43e6e60448
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096090"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450672"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Web ファームでの ASP.NET Core のホスト
 
@@ -59,13 +59,15 @@ Web ファーム環境におけるキャッシュのメカニズムでは、Web 
 
 | シナリオ | 依存先 &hellip; |
 | -------- | ------------------- |
-| 認証 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、<xref:security/authentication/cookie> および <xref:security/cookie-sharing> を参照してください。 |
+| 認証 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、次のトピックを参照してください。 <xref:security/authentication/cookie> および <xref:security/cookie-sharing>. |
 | 同一。 | 認証とデータベースの構成。<br><br>詳細については、「<xref:security/authentication/identity>」を参照してください。 |
 | セッション | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) とキャッシュ (<xref:performance/caching/distributed> を参照)。<br><br>詳細については、[セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)をご覧ください。 |
 | TempData | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) またはセッション ([セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)を参照)。<br><br>詳細については、[セッションとアプリの状態に関する記事の「TempData」](xref:fundamentals/app-state#tempdata)をご覧ください。 |
 | 偽造防止 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、「<xref:security/anti-request-forgery>」を参照してください。 |
 
 ## <a name="troubleshoot"></a>トラブルシューティング
+
+### <a name="data-protection-and-caching"></a>データ保護とキャッシュ
 
 データ保護またはキャッシュが Web ファーム環境用に構成されていない場合、要求の処理中に断続的にエラーが発生します。 このエラーは、ノード間で同じリソースが共有されておらず、ユーザー要求が同じノードにルーティングされない場合があるために発生します。
 
@@ -80,4 +82,8 @@ Web ファーム環境におけるキャッシュのメカニズムでは、Web 
 * TempData が失敗する。
 * POST の失敗 &ndash; 偽造防止チェックが失敗する。
 
-Web ファームの展開に向けたデータ保護の構成について詳しくは、<xref:security/data-protection/configuration/overview> をご覧ください。 Web ファームの展開に向けたキャッシュの構成について詳しくは、<xref:performance/caching/distributed> をご覧ください。
+Web ファームの展開に向けたデータ保護の構成について詳しくは、<xref:security/data-protection/configuration/overview> をご覧ください。 Web ファームの展開に向けたキャッシュの構成について詳しくは、「<xref:performance/caching/distributed>」をご覧ください。
+
+## <a name="obtain-data-from-apps"></a>アプリからデータを取得する
+
+Web ファーム アプリが要求に応答できる場合は、ターミナル インライン ミドルウェアを使用して、要求、接続、その他のデータをアプリから取得します。 詳細およびサンプル コードについては、「<xref:test/troubleshoot#obtain-data-from-an-app>」を参照してください。

@@ -4,14 +4,14 @@ description: CentOS 上にリバース プロキシ サーバーとして Apache
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 1d303fbde2a398b4628d3390aea80957a59f711b
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d0e36d0a73df43a26c03dc4154962240683817b5
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253144"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450815"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
@@ -180,9 +180,9 @@ sudo systemctl restart httpd
 sudo systemctl enable httpd
 ```
 
-## <a name="monitoring-the-app"></a>アプリの監視
+## <a name="monitor-the-app"></a>アプリを監視する
 
-これで、`http://localhost:80` に対して行われた要求を Kestrel で実行されている ASP.NET Core アプリ (`http://127.0.0.1:5000`) に転送するように Apache が設定されました。  ただし、Apache は Kestrel プロセスを管理するようには設定されていません。 *systemd* を使って、基礎 Web アプリを起動して監視するサービス ファイルを作成します。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
+これで、`http://localhost:80` に対して行われた要求を Kestrel で実行されている ASP.NET Core アプリ (`http://127.0.0.1:5000`) に転送するように Apache が設定されました。 ただし、Apache は Kestrel プロセスを管理するようには設定されていません。 *systemd* を使って、基礎 Web アプリを起動して監視するサービス ファイルを作成します。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。
 
 ### <a name="create-the-service-file"></a>サービス ファイルを作成する
 
@@ -259,7 +259,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="viewing-logs"></a>ログを表示する
+### <a name="view-logs"></a>ログを表示する
 
 Kestrel を使う Web アプリは *systemd* を使って管理されるため、イベントとプロセスは中央のジャーナルに記録されます。 ただし、このジャーナルには、*systemd* によって管理されるすべてのサービスとプロセスのエントリが含まれます。 `kestrel-helloapp.service` 固有の項目を表示するには、次のコマンドを使用します。
 
@@ -288,7 +288,7 @@ sudo journalctl -fu kestrel-helloapp.service --since "2016-10-18" --until "2016-
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>
 
-## <a name="securing-the-app"></a>アプリのセキュリティ保護
+## <a name="secure-the-app"></a>アプリをセキュリティで保護する
 
 ### <a name="configure-firewall"></a>ファイアウォールを構成する
 
@@ -485,4 +485,5 @@ sudo nano /etc/httpd/conf.d/ratelimit.conf
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [Linux における .NET Core の前提条件](/dotnet/core/linux-prerequisites)
-* [プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)
+* <xref:test/troubleshoot>
+* <xref:host-and-deploy/proxy-load-balancer>

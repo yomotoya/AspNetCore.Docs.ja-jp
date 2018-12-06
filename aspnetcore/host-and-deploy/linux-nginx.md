@@ -4,14 +4,14 @@ author: rick-anderson
 description: Ubuntu 16.04 でリバース プロキシとして Nginx をセットアップし、Kestrel で実行している ASP.NET Core Web アプリに HTTP トラフィックを転送する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d29a9287cbce27a54e779fadfa05e57febec0413
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d4bffab80ba20d4cf77a358249c7b349033de5bd
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253118"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450789"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Nginx 搭載の Linux で ASP.NET Core をホストする
 
@@ -186,7 +186,7 @@ Nginx の構成を確立したら、`sudo nginx -t` を実行して構成ファ�
 
 アプリのテストが終了したら、コマンド プロンプトで `Ctrl+C` を使用してアプリをシャットダウンします。
 
-## <a name="monitoring-the-app"></a>アプリの監視
+## <a name="monitor-the-app"></a>アプリを監視する
 
 サーバーは、`http://<serveraddress>:80` に対する要求を Kestrel で実行されている ASP.NET Core アプリ (`http://127.0.0.1:5000`) に転送するようにセットアップされました。 ただし、Nginx は Kestrel プロセスを管理するようには設定されていません。 *systemd* を使用してサービス ファイルを作成し、基になる Web アプリを起動して監視できます。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
 
@@ -268,7 +268,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="viewing-logs"></a>ログを表示する
+### <a name="view-logs"></a>ログを表示する
 
 Kestrel を利用する Web アプリは `systemd` を使用して管理されるため、すべてのイベントとプロセスが記録され、中心的ジャーナルが生成されます。 ただし、このジャーナルには、`systemd` が管理するすべてのサービスとプロセスのすべてのエントリが含まれます。 `kestrel-helloapp.service` 固有の項目を表示するには、次のコマンドを使用します。
 
@@ -297,13 +297,13 @@ sudo journalctl -fu kestrel-helloapp.service --since "2016-10-18" --until "2016-
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>
 
-## <a name="securing-the-app"></a>アプリのセキュリティ保護
+## <a name="secure-the-app"></a>アプリをセキュリティで保護する
 
 ### <a name="enable-apparmor"></a>AppArmor を有効にする
 
 Linux Security Modules (LSM) は、Linux 2.6 以降の Linux カーネルに含まれるフレームワークです。 LSM は、セキュリティ モジュールのさまざまな実装に対応しています。 [AppArmor](https://wiki.ubuntu.com/AppArmor) は Mandatory Access Control システムを実装する LSM です。このシステムは、プログラムのリソース範囲を限定できます。 AppArmor が有効であり、正しく構成されていることを確認します。
 
-### <a name="configuring-the-firewall"></a>ファイアウォールの構成
+### <a name="configure-the-firewall"></a>ファイアウォールを構成する
 
 使用されていないすべての外部ポートを閉じます。 ufw (uncomplicated firewall/複雑ではないファイアウォール) は `iptables` のフロント エンドとなり、ファイアウォールを構成するためのコマンド ライン インターフェイスを提供します。
 
@@ -322,7 +322,7 @@ sudo ufw allow 443/tcp
 sudo ufw enable
 ```
 
-### <a name="securing-nginx"></a>Nginx のセキュリティを強化する
+### <a name="secure-nginx"></a>Nginx をセキュリティで保護する
 
 #### <a name="change-the-nginx-response-name"></a>Nginx 応答名を変更する
 
@@ -387,5 +387,6 @@ sudo nano /etc/nginx/nginx.conf
 
 * [Linux における .NET Core の前提条件](/dotnet/core/linux-prerequisites)
 * [Nginx: バイナリ リリース: 公式 Debian/Ubuntu パッケージ](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
-* [プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)
+* <xref:test/troubleshoot>
+* <xref:host-and-deploy/proxy-load-balancer>
 * [NGINX: 転送されるヘッダーの使用](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)
