@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: fe196e5db8fd1cecbe84b2eb970939303f9313d1
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: bd6611a03ee4940f5d4176ce23464f313b9ec884
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021457"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022506"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>WebMatrix を使用してサイトを発行する-ASP.NET Web Pages の概要
 ====================
@@ -50,7 +50,7 @@ ms.locfileid: "51021457"
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>既定のページの設定
 
-ユーザーは、web サイトのベース アドレスに移動して、ユーザーに、サイトの既定のページが表示されます。 たとえば、 www.contoso.com にあるサイトの既定のページとして Default.htm を設定するに移動し <strong>www.contoso.com</strong> に移動することと同じ <strong>www.contoso.com/Default.htm</strong> します。
+ユーザーは、web サイトのベース アドレスに移動して、ユーザーに、サイトの既定のページが表示されます。 たとえば、 *Default.htm*でサイトの既定のページとして設定されて`www.contoso.com`に移動し`www.contoso.com`に移動することと同じです`www.contoso.com/Default.htm`します。
 
 現時点では、サイトを使用して**Default.cshtml**として既定のページ。 このページは、既定のページでは、問題ありませんが、このチュートリアルではないコンテンツを追加した、そのページに空白のページを表示するためです。 Default.cshtml を開き、内容を次のコードに置き換えます。
 
@@ -95,19 +95,19 @@ WebMatrix performss かどうか、サーバーは、サイトとの互換性を
 
 ![互換性のテスト](publishing/_static/image7.png)
 
-選択**続行**します。
+**[続行]** を選択します。
 
 互換性テストの結果が表示されます。
 
 ![互換性の結果](publishing/_static/image8.png)
 
-選択**続行**します。
+**[続行]** を選択します。
 
 WebMatrix には、ファイルおよびサイトにパブリッシュされるデータベースが表示されます。 これは、サイトを発行して初めてであるため、すべてのファイルの一覧が表示されます。 発行する準備ができているファイルをオフにすることができます。 後続のパブリケーションで変更されたファイルのみが表示されます。 参照してください[、ライブ サイトを更新します。 再パブリッシュ](#update)します。
 
 ![発行のプレビュー](publishing/_static/image9.png)
 
-選択**続行**します。
+**[続行]** を選択します。
 
 サイトは、Azure にデプロイされたが後、は、デプロイが完了しているかを示すメッセージが表示されます。
 
