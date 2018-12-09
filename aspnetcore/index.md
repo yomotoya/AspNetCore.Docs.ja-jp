@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/16/2018
 uid: index
-ms.openlocfilehash: 1b075518b3a744fe8d8506c9a17a3e9c67394be1
-ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
+ms.openlocfilehash: 708fa3438c9d22a25eae9f37e4d17f69e27d3be9
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892108"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121740"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -132,4 +132,4 @@ WebHost.CreateDefaultBuilder(args)
 * [週 1 回の ASP.NET Community Standup](https://live.asp.net/) では、チームの進行状況とプランが報告され、 新しいブログやサード パーティ製ソフトウェアが取り上げられています。
 
 > [!NOTE]
-> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5)。
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82)。
