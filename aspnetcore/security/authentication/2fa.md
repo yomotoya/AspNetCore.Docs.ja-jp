@@ -5,13 +5,14 @@ description: ASP.NET Core アプリで 2 要素認証 (2 fa) を設定する方�
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
+ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205887"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121662"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core での SMS で 2 要素認証
 
@@ -57,7 +58,7 @@ ms.locfileid: "50205887"
 
 [!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
-設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、 [secret manager ツール](xref:security/app-secrets)します。 例えば:
+設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、 [secret manager ツール](xref:security/app-secrets)します。 例:
 
 ```none
 C:/Web2FA/src/WebApp1>dotnet user-secrets set SMSAccountIdentification 12345
@@ -97,7 +98,7 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 * アクティブ化するユーザー名をタップして、`Index`管理コント ローラー アクション メソッド。 電話番号の順にタップ**追加**リンク。
 
-![ビューを管理します。](2fa/_static/login2fa2.png)
+![ビューの管理 -"の追加 リンクをタップします。](2fa/_static/login2fa2.png)
 
 * 確認コードを受信してタップ、する電話番号を追加**確認コードを送信**します。
 
@@ -111,11 +112,11 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 * 電話番号が正常に追加された、管理ビューを示しています。
 
-![ビューを管理します。](2fa/_static/login2fa5.png)
+![ビュー - 電話番号が正常に追加の管理します。](2fa/_static/login2fa5.png)
 
 * タップ**を有効にする**2 要素認証を有効にします。
 
-![ビューを管理します。](2fa/_static/login2fa6.png)
+![ビューの管理 - 2 要素認証を有効にします。](2fa/_static/login2fa6.png)
 
 ### <a name="test-two-factor-authentication"></a>2 要素認証のテスト
 

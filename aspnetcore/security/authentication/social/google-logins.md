@@ -3,15 +3,15 @@ title: ASP.NET Core での Google 外部ログインのセットアップ
 author: rick-anderson
 description: このチュートリアルでは、既存の ASP.NET Core アプリに Google アカウントのユーザー認証の統合について説明します。
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: dfda83e1d7cf3c5ff8e31de20c15d468de5d15c0
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708453"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121532"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Google 外部ログインのセットアップ
 
@@ -27,7 +27,7 @@ ms.locfileid: "51708453"
 
 * リダイレクトされます**API Manager ライブラリ**ページ。
 
-![API Manager ライブラリのページ](index/_static/GoogleConsoleSwitchboard.png)
+![API Manager ライブラリのページを読み込む](index/_static/GoogleConsoleSwitchboard.png)
 
 * タップ**作成**を入力し、**プロジェクト名**:
 
@@ -35,15 +35,15 @@ ms.locfileid: "51708453"
 
 * ダイアログを受け入れた場合、新しいアプリの機能を選択できるようにライブラリ ページにリダイレクトされます。 検索**Google + API**リストを API 機能を追加するには、そのリンクをクリックします。
 
-![API Manager ライブラリのページ](index/_static/GoogleConsoleChooseApi.png)
+![API Manager ライブラリ ページで"Google + API"を検索します。](index/_static/GoogleConsoleChooseApi.png)
 
 * 新しく追加された API のページが表示されます。 タップ**を有効にする**機能で、アプリに Google + 記号を追加します。
 
-![Google + API の API マネージャー ページ](index/_static/GoogleConsoleEnableApi.png)
+![Google + API の API マネージャー ページを読み込む](index/_static/GoogleConsoleEnableApi.png)
 
 * API を有効にした後は、タップ**資格情報を作成**シークレットを構成します。
 
-![Google + API の API マネージャー ページ](index/_static/GoogleConsoleGoCredentials.png)
+![Google + API の API マネージャー ページで資格情報 ボタンを作成します。](index/_static/GoogleConsoleGoCredentials.png)
 
 * 選択するオプション
   * **Google+ API**

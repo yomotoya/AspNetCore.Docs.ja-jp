@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core および Azure を使用した DevOps |App Service にアプリをデプロイします。
+title: App Service - ASP.NET Core および Azure を使用した DevOps へアプリをデプロイします。
 author: CamSoper
-description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
+description: ASP.NET Core アプリのデプロイを Azure App Service に ASP.NET Core および Azure を使用した DevOps の最初の手順。
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090938"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121221"
 ---
 # <a name="deploy-an-app-to-app-service"></a>App Service にアプリをデプロイします。
 
@@ -150,12 +150,12 @@ ms.locfileid: "50090938"
 3. キーを押して**Ctrl**+**Shift**+**B**アプリをビルドします。
 4. ソリューション エクスプ ローラーでプロジェクトを右クリックし、をクリックして**発行**します。
 
-    ![右クリックし、発行](./media/deploying-to-app-service/publish.png)
+    ![右クリックし、発行を示すスクリーン ショット](./media/deploying-to-app-service/publish.png)
 5. Visual Studio は、新しい App Service リソースを作成できますが、この更新プログラムは、既存のデプロイで公開されます。 **発行先を選択**ダイアログ ボックスで、 **App Service** 、左側のリストから選び**既存の**。 **[発行]** をクリックします。
 6. **App Service**ダイアログ ボックスで、Microsoft または組織アカウントを Azure サブスクリプションを作成するために使用が右上に表示されることを確認します。 ない場合、ドロップダウン リストをクリックし、追加します。
 7. いることを確認、適切な Azure**サブスクリプション**が選択されています。 **ビュー**、**リソース グループ**します。 展開、 **azure チュートリアル**リソース グループと、既存の web アプリを選択します。 **[OK]** をクリックします。
 
-    ![App Service ダイアログを発行します。](./media/deploying-to-app-service/publish-dialog.png)
+    ![App Service の発行 ダイアログのスクリーン ショット](./media/deploying-to-app-service/publish-dialog.png)
 
 Visual Studio がビルドされ、アプリを Azure にデプロイします。 Web アプリの URL に移動します。 いることを確認、`<h2>`要素の変更がライブです。
 
@@ -211,7 +211,7 @@ Visual Studio がビルドされ、アプリを Azure にデプロイします�
 
 6. V3 がステージング スロットにデプロイされていることを確認するには、2 つのブラウザー ウィンドウを開きます。 1 つのウィンドウでは、元の web アプリの URL に移動します。 その他のウィンドウでは、ステージング web アプリの URL に移動します。 運用環境の URL では、アプリの V2 は機能します。 ステージング URL では、アプリの V3 は機能します。
 
-    ![ブラウザー ウィンドウを比較します。](./media/deploying-to-app-service/ready-to-swap.png)
+    ![ブラウザー ウィンドウを比較するスクリーン ショット](./media/deploying-to-app-service/ready-to-swap.png)
 
 7. Cloud Shell では、運用環境に検証/ウォーム アップのステージング スロットをスワップします。
 

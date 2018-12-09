@@ -1,16 +1,17 @@
 ---
-title: ASP.NET Core および Azure を使用した DevOps |継続的インテグレーションとデプロイ
+title: 継続的インテグレーションとデプロイ - ASP.NET Core および Azure を使用した DevOps
 author: CamSoper
-description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
+description: 継続的インテグレーションと ASP.NET Core と Azure で DevOps での展開
 ms.author: scaddie
 ms.date: 10/24/2018
+ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570088"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121595"
 ---
 # <a name="continuous-integration-and-deployment"></a>継続的インテグレーションとデプロイ
 
@@ -92,7 +93,7 @@ ms.locfileid: "51570088"
 
     ![GitHub のソースを選択します。](media/cicd/vsts-select-source.png)
 
-1. GitHub リポジトリにアクセスできる Azure DevOps 前に、承認が必要です。 入力 *< GitHub_username > GitHub 接続*で、**接続名**テキスト ボックス。 例えば:
+1. GitHub リポジトリにアクセスできる Azure DevOps 前に、承認が必要です。 入力 *< GitHub_username > GitHub 接続*で、**接続名**テキスト ボックス。 例:
 
     ![GitHub 接続名](media/cicd/vsts-repo-authz.png)
 
@@ -235,15 +236,15 @@ ms.locfileid: "51570088"
 
 ビルド定義のクリックして**概要**定義と共にビルドの履歴を表示するリンク。
 
-![ビルド定義の履歴](media/cicd/build-definition-summary.png)
+![スクリーン ショットが表示されたビルド定義の履歴](media/cicd/build-definition-summary.png)
 
 [結果] ページで、一意のビルド番号に対応するリンクをクリックします。
 
-![ビルド定義の概要 ページ](media/cicd/build-definition-completed.png)
+![スクリーン ショットが表示されたビルド定義の概要 ページ](media/cicd/build-definition-completed.png)
 
 この特定のビルドの概要が表示されます。 をクリックして、**成果物** タブに注意してください、*ドロップ*ビルドによって生成されたフォルダーが一覧表示。
 
-![ビルド定義の成果物のドロップ フォルダー](media/cicd/build-definition-artifacts.png)
+![ビルド定義の成果物ドロップ フォルダーを示すスクリーン ショット](media/cicd/build-definition-artifacts.png)
 
 使用して、**ダウンロード**と**探索**へのリンクを発行された成果物を検査します。
 
@@ -251,25 +252,25 @@ ms.locfileid: "51570088"
 
 リリース パイプラインは、名前で作成された*MyFirstProject ASP.NET Core-CD*:
 
-![リリース パイプラインの概要](media/cicd/release-definition-overview.png)
+![スクリーン ショットが表示されたリリース パイプラインの概要](media/cicd/release-definition-overview.png)
 
 リリース パイプラインの 2 つの主要なコンポーネントは、**成果物**と**環境**します。 ボックスをクリックすると、**成果物**セクションが次のパネルが表示されます。
 
-![リリース パイプラインの成果物](media/cicd/release-definition-artifacts.png)
+![スクリーン ショットが表示されたリリース パイプラインの成果物](media/cicd/release-definition-artifacts.png)
 
 **ソース (ビルド定義)** 値は、このリリースのパイプラインがリンクされているビルド定義を表します。 *.Zip*ビルド定義が正常に実行によって生成されたファイルが提供されます、*運用*環境を Azure に配置します。 をクリックして、*フェーズ 1、2 つのタスク*のリンクを*運用*環境のボックスに、リリース パイプラインのタスクを表示。
 
-![リリース パイプラインのタスク](media/cicd/release-definition-tasks.png)
+![スクリーン ショットが表示されたリリース パイプラインのタスク](media/cicd/release-definition-tasks.png)
 
 リリース パイプラインは、2 つのタスクで構成されています: *Azure App Service のデプロイ スロットを*と*管理 Azure App Service のスロット スワップ*します。 最初のタスクをクリックすると、次のタスクの構成が表示されます。
 
-![リリース パイプラインの展開タスク](media/cicd/release-definition-task1.png)
+![スクリーン ショットが表示されたリリース パイプラインの展開タスク](media/cicd/release-definition-task1.png)
 
 Azure サブスクリプション、サービスの種類、web アプリ名、リソース グループ、およびデプロイ スロットは、デプロイ タスクで定義されます。 **パッケージまたはフォルダー**を保持するテキスト ボックス、 *.zip*を抽出して展開するファイルのパス、*ステージング*のスロット、 *mywebapp\<一意数 (_n)\>*  web アプリ。
 
 スロット スワップのタスクをクリックすると、次のタスクの構成が表示されます。
 
-![リリース パイプラインのスロット スワップ タスク](media/cicd/release-definition-task2.png)
+![スクリーン ショットが表示されたリリース パイプラインのスロット スワップのタスク](media/cicd/release-definition-task2.png)
 
 サブスクリプション、リソース グループ、サービスの種類、web アプリ名、およびデプロイ スロットの詳細が提供されます。 **実稼働とスワップ**チェック ボックスがオンにします。 その結果、展開、bits、*ステージング*スロットが運用環境にスワップされます。
 

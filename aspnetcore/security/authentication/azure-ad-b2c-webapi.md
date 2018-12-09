@@ -1,19 +1,19 @@
 ---
-title: Web Api ASP.NET Core での Azure Active Directory b2c でのクラウド認証
+title: Web Api ASP.NET Core での Azure Active Directory B2C での認証
 author: camsoper
 description: ASP.NET Core Web API を使用した Azure Active Directory B2C の認証を設定する方法を説明します。 認証された web API と Postman をテストします。
 ms.author: casoper
 ms.date: 09/21/2018
-ms.custom: mvc
+ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: a7a109909d66b1016e78eedc8b802068143c65e3
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348547"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121714"
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api ASP.NET Core での Azure Active Directory b2c でのクラウド認証
+# <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api ASP.NET Core での Azure Active Directory B2C での認証
 
 作成者: [Cam Soper](https://twitter.com/camsoper)
 
@@ -57,8 +57,8 @@ Azure AD B2C テナントを作成[ドキュメント」の説明に従って](/
 | 設定                       | [値]               | メモ                                                                                  |
 |-------------------------------|---------------------|----------------------------------------------------------------------------------------|
 | **Name**                      | *API {name}*        | 入力、**名前**コンシューマーに、アプリについて説明しているアプリ。                     |
-| **Web アプリを含める/web API** | はい                 |                                                                                        |
-| **暗黙的なフローを許可します。**       | はい                 |                                                                                        |
+| **Web アプリを含める/web API** | [はい]                 |                                                                                        |
+| **暗黙的なフローを許可します。**       | [はい]                 |                                                                                        |
 | **応答 URL**                 | `https://localhost` | 応答 Url とは、Azure AD B2C が、アプリが要求したトークンを返すエンドポイントです。 |
 | **アプリ ID URI**                | *api*               | URI は、物理アドレスに解決する必要があります。 それだけ、一意である必要があります。     |
 | **ネイティブ クライアントを含める**     | いいえ                  |                                                                                        |
@@ -69,7 +69,7 @@ API は、登録後、テナント内のアプリと Api の一覧が表示さ�
 
 認証に Azure AD B2C テナントを使用する Visual Studio Web アプリケーション テンプレートを構成できます。
 
-Visual Studio で。
+Visual Studio:
 
 1. 新しい ASP.NET Core Web アプリケーションを作成します。 
 2. 選択**Web API**テンプレートの一覧から。
@@ -113,8 +113,8 @@ Postman は、Azure AD B2C テナントからトークンを取得する web ア
 | 設定                       | [値]                            | メモ                           |
 |-------------------------------|----------------------------------|---------------------------------|
 | **Name**                      | Postman                          |                                 |
-| **Web アプリを含める/web API** | はい                              |                                 |
-| **暗黙的なフローを許可します。**       | はい                              |                                 |
+| **Web アプリを含める/web API** | [はい]                              |                                 |
+| **暗黙的なフローを許可します。**       | [はい]                              |                                 |
 | **応答 URL**                 | `https://getpostman.com/postman` |                                 |
 | **アプリ ID URI**                | *{空白のままにしました*                  | このチュートリアルでは必要ありません。 |
 | **ネイティブ クライアントを含める**     | いいえ                               |                                 |

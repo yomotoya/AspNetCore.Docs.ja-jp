@@ -3,15 +3,15 @@ title: ASP.NET Core での Windows 認証を構成します。
 author: scottaddie
 description: ASP.NET core で IIS Express、IIS、HTTP.sys は、および WebListener を使用して Windows 認証を構成する方法について説明します。
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 342759a6ff4b5679e0d54c979188ae66d339562d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968294"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121298"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -31,7 +31,7 @@ Visual Studio Web アプリケーション テンプレートは、Windows 認�
 
 ### <a name="use-the-windows-authentication-app-template"></a>Windows 認証アプリ テンプレートを使用します。
 
-Visual Studio で。
+Visual Studio:
 
 1. 新しい ASP.NET Core Web アプリケーションを作成します。
 1. テンプレートの一覧から Web アプリケーションを選択します。
@@ -47,7 +47,7 @@ IIS Express を使用して開発作業では、テンプレートは、Windows 
 
 Visual Studio プロジェクト**プロパティ**ページの**デバッグ** タブでは、Windows 認証と匿名認証 チェック ボックスが用意されています。
 
-![Windows 認証のブラウザーのスクリーン ショット](windowsauth/_static/vs-auth-property-menu.png)
+![強調表示されている認証オプションを使用して、Windows 認証ブラウザーのスクリーン ショット](windowsauth/_static/vs-auth-property-menu.png)
 
 これら 2 つのプロパティを構成する代わりに、 *launchSettings.json*ファイル。
 

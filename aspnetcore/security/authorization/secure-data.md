@@ -3,14 +3,15 @@ title: 承認によって保護されたユーザー データと ASP.NET Core �
 author: rick-anderson
 description: 承認によって保護されたユーザー データと Razor ページ アプリを作成する方法について説明します。 HTTPS、認証、セキュリティ、ASP.NET Core Identity が含まれています。
 ms.author: riande
-ms.date: 7/24/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253222"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121636"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>承認によって保護されたユーザー データと ASP.NET Core アプリを作成します。
 
@@ -38,21 +39,21 @@ ms.locfileid: "50253222"
 
 次の図では、ユーザー Rick の (`rick@example.com`) がサインインしています。 Rick は許可されている連絡先のみを表示し、**編集**/**削除**/**新規作成**彼の連絡先へのリンク。 最後のレコードのみが Rick、表示によって作成された**編集**と**削除**リンク。 他のユーザーは、管理者は、状態を"Approved"に変わるまで、最後のレコードを表示されません。
 
-![イメージは、前に説明されています。](secure-data/_static/rick.png)
+![サインインして Rick を示すスクリーン ショット](secure-data/_static/rick.png)
 
 次の図の`manager@contoso.com`では、managers ロールでは署名します。
 
-![イメージは、前に説明されています。](secure-data/_static/manager1.png)
+![スクリーン ショットmanager@contoso.comサインイン](secure-data/_static/manager1.png)
 
 次の図は、連絡先の詳細ビューをマネージャーには。
 
-![イメージは、前に説明されています。](secure-data/_static/manager.png)
+![連絡先のマネージャーの表示](secure-data/_static/manager.png)
 
 **承認**と**拒否**ボタンは、管理者と管理者のみ表示されます。
 
 次の図の`admin@contoso.com`では、管理者ロールには署名します。
 
-![イメージは、前に説明されています。](secure-data/_static/admin.png)
+![スクリーン ショットadmin@contoso.comサインイン](secure-data/_static/admin.png)
 
 管理者は、すべての特権を持ちます。 彼女は、読み取り/編集/削除のいずれかの連絡先をことができ、連絡先の状態を変更します。
 
@@ -281,25 +282,32 @@ Entity Framework Core を使用してサービスを登録する必要があり�
 
 ## <a name="test-the-completed-app"></a>完成したアプリをテストします。
 
+シード処理されたユーザー アカウントのパスワードを設定していない場合は、使用、 [Secret Manager ツール](xref:security/app-secrets#secret-manager)パスワードを設定します。
+
+* 強力なパスワードを選択します。 8 を使用して、または詳細文字と少なくとも 1 つの大文字の文字、番号、およびシンボル。 たとえば、`Passw0rd!`強力なパスワード要件を満たしています。
+* プロジェクトのフォルダーから次のコマンドを実行、`<PW>`パスワードです。
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
 場合は、アプリでは、連絡先があります。
 
-* 内のすべてのレコードを削除、`Contact`テーブル。
+* すべてのレコードの削除、`Contact`テーブル。
 * データベースをシードするアプリを再起動します。
 
-連絡先を参照するためには、ユーザーを登録します。
+完成したアプリをテストする簡単な方法では、次の 3 つの異なるブラウザー (または incognito/inprivate ブラウズ セッション) を起動します。 1 つのブラウザーで新しいユーザーを登録します (たとえば、 `test@example.com`)。 ブラウザーごとに別のユーザーでサインインします。 次の操作を確認します。
 
-完成したアプリをテストする簡単な方法では、次の 3 つの異なるブラウザー (または incognito/InPrivate バージョン) を起動します。 1 つのブラウザーで新しいユーザーを登録します (たとえば、 `test@example.com`)。 ブラウザーごとに別のユーザーでサインインします。 次の操作を確認します。
-
-* 登録済みユーザーには、承認されたすべての連絡先データを表示できます。
+* 登録済みユーザーには、すべての承認済みの連絡先データを表示できます。
 * 登録済みユーザーは編集/削除が自分のデータ。
-* 管理者では、承認したり、連絡先データを拒否することができます。 `Details`ビューには、**承認**と**拒否**ボタン。
-* 管理者承認または却下でき、データの編集/削除できます。
+* 管理者では、連絡先データの承認または却下をします。 `Details`ビューには、**承認**と**拒否**ボタン。
+* 管理者承認または却下して編集/削除のすべてのデータ。
 
-| ユーザー| オプション |
-| ------------ | ---------|
-| test@example.com | データの編集、または削除できます。 |
-| manager@contoso.com | 承認または却下と編集/削除を所有できるデータ |
-| admin@contoso.com | 編集/削除とすべてのデータの承認または却下をことができます。|
+| ユーザー                | アプリによってシード処理 | オプション                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | いいえ                | 独自のデータを編集/削除します。                |
+| manager@contoso.com | [はい]               | 承認または却下と編集/削除は、データを所有します。 |
+| admin@contoso.com   | [はい]               | 承認または却下し、すべてのデータの編集/削除します。 |
 
 管理者のブラウザーで連絡先を作成します。 削除の URL をコピーし、管理者の連絡先から管理者を編集します。 テスト ユーザーのブラウザー テスト ユーザーがこれらの操作を実行できないことを確認するには、これらのリンクを貼り付けます。
 

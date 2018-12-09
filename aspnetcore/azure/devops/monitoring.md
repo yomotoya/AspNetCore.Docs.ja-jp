@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core および Azure を使用した DevOps |監視とデバッグ
+title: 監視とデバッグ - ASP.NET Core および Azure を使用した DevOps
 author: CamSoper
-description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
+description: 監視と ASP.NET Core と Azure で DevOps ソリューションの一部として、コードのデバッグ
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090194"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121610"
 ---
 # <a name="monitor-and-debug"></a>監視とデバッグ
 
@@ -35,7 +35,7 @@ App Service web apps が簡単にリアルタイムで監視されます。 Azur
 
 1. **概要**タブには、最新のメトリックを表示するグラフを含む、「概要」の有用な情報が表示されます。
 
-    ![概要パネル](./media/monitoring/overview.png)
+    ![スクリーン ショットが表示された [概要] パネル](./media/monitoring/overview.png)
 
     * **Http 5xx**: サーバー側エラーの数が、通常は ASP.NET Core コードの例外。
     * **データの**: web アプリに入ってくるデータ受信。
@@ -45,7 +45,7 @@ App Service web apps が簡単にリアルタイムで監視されます。 Azur
 
     このページ上のトラブルシューティングと最適化のためのいくつかのセルフ サービス ツールにもあります。
 
-    ![セルフ サービス ツール](./media/monitoring/wizards.png)
+    ![スクリーン ショットが表示されたセルフ サービス ツール](./media/monitoring/wizards.png)
 
     * **診断し、問題の解決**はセルフ サービスのトラブルシューティング ツール。
     * **Application Insights**パフォーマンスとアプリの動作のプロファイルには、このセクションでは、後述します。
@@ -103,7 +103,7 @@ Web アプリでは、ASP.NET Core と web サーバー (App Service) のログ�
 1. 開く、 [Azure portal](https://portal.azure.com)に移動し、 *mywebapp\<unique_number\>*  App Service。
 1. 左側のメニューでスクロールして、**監視**セクションし、選択**ログ ストリーム**します。
 
-    ![ログ ストリーム リンク](./media/monitoring/log-stream.png)
+    ![ログ ストリーム リンクを示すスクリーン ショット](./media/monitoring/log-stream.png)
 
 ログこともできます[Azure CLI または Azure PowerShell を使用してストリーミング](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs)など、Cloud Shell を使用します。
 

@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core および Azure を使用した DevOps |次の手順
+title: 次の手順 - ASP.NET Core および Azure を使用した DevOps
 author: CamSoper
-description: Azure でホストされる ASP.NET Core アプリの DevOps パイプラインの構築に関するエンドツーエンドのガイダンスを提供するガイド。
+description: ASP.NET Core および Azure による開発運用向けのラーニング パスを追加します。
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: b82e7251b507f8d141930673d50722cfaa576db5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7c3b1c701b13b2a2052c72f5f84bba33d4995ad7
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089880"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121325"
 ---
 # <a name="next-steps"></a>次の手順
 
