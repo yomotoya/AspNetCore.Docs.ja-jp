@@ -3,14 +3,15 @@ title: ASP.NET 4.x と ASP.NET Core の選択
 author: rick-anderson
 description: ASP.NET Core とASP.NET 4.x の違いと、どちらかを選択する方法について説明します。
 ms.author: riande
+ms.custom: seodec18
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: fa281a068dfdcd8a7c45dd5d0a0c3084c4bc8dbc
-ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
+ms.openlocfilehash: b75fbea330e48075c4a2789454e973d4c56ffa53
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52549073"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121181"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>ASP.NET 4.x と ASP.NET Core の選択
 
@@ -37,7 +38,7 @@ ASP.NET 4.x は成熟したフレームワークであり、Windows 上でエン
 |コンピューターごとに複数のバージョン|コンピューターごとに 1 つのバージョン|
 |Visual Studio、[Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)、または [Visual Studio Code](https://code.visualstudio.com/) で C# または F# を使って開発します|Visual Studio で C#、VB、または F# を使って開発します|
 |ASP.NET 4.x より高いパフォーマンス|よいパフォーマンス|
-|[.NET Framework または .NET Core ランタイムを選択します](/dotnet/articles/standard/choosing-core-framework-server)|.NET Framework ランタイムを使います|
+|[.NET Framework または .NET Core ランタイムを選択します](/dotnet/standard/choosing-core-framework-server)|.NET Framework ランタイムを使います|
 
 .NET Framework 上での ASP.NET Core 2.x のサポートについては、「[.NET Framework を対象とする ASP.NET Core](xref:index#target-framework)」を参照してください。
 
@@ -63,4 +64,4 @@ ASP.NET 4.x は成熟したフレームワークであり、Windows 上でエン
 * <xref:host-and-deploy/azure-apps/index>
 
 > [!NOTE]
-> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5)。
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82)。

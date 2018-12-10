@@ -434,7 +434,7 @@ app.Run(async (context) =>
 
 * "'Microsoft.AspNetCore.Session.DistributedSessionStore' を起動しようとしましたが、型 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' のサービスを解決できません。"
 
-  これは通常、少なくとも 1 つの `IDistributedCache` 実装で構成に失敗したことで発生します。 詳細については、次のトピックを参照してください。 <xref:performance/caching/distributed> および <xref:performance/caching/memory>.
+  これは通常、少なくとも 1 つの `IDistributedCache` 実装で構成に失敗したことで発生します。 詳細については、次のトピックを参照してください。 <xref:performance/caching/distributed> および <xref:performance/caching/memory>
 
 * セッション ミドルウェアがセッションを永続化できなかった場合 (バッキング ストアを利用できない場合など)、ミドルウェアは例外をログに記録し、要求は普通に続行されます。 これにより、予期しない動作が発生します。
 

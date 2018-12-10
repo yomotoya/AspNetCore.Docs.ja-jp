@@ -4,14 +4,14 @@ author: rick-anderson
 description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: cd06cb1056e1c856214d2440533aad5789907107
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: da854bafdb9d3741358fd69c2f862c3cdf1ee406
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207343"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121649"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 
@@ -271,7 +271,7 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 
 次のコードを使用して、*Pages/Departments/Delete.cshtml* を更新します。
 
-[!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,36,51)]
+[!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
 
 
 上記のマークアップは、次の変更を加えます。

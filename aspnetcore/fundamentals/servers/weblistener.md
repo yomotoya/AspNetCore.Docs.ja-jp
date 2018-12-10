@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: eaf76a44bc7750aef94319042e61aa294c6cba35
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 92a2e567e968cce59ba7b6f374ebd4bc189b81ee
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191270"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862123"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への WebListener Web サーバーの実装
 
@@ -87,7 +87,7 @@ WebListener では、Kerberos 認証プロトコルを使用したカーネル �
 
 * リッスンする URL とポートを構成する 
 
-  既定では、ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、`UseURLs` 拡張メソッド、`urls` コマンド ライン引数、または ASP.NET Core 構成システムを使用できます。 詳しくは、「[ASP.NET Core でのホスティング]\(xref:fundamentals/host/index)」をご覧ください。
+  既定では、ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、`UseURLs` 拡張メソッド、`urls` コマンド ライン引数、または ASP.NET Core 構成システムを使用できます。 詳細については、「[Host in ASP.NET Core](xref:fundamentals/host/index)」(ASP.NET Core でのホスティング) を参照してください。
 
   Web Listener は、[Http.Sys プレフィックス文字列形式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)を使用します。 WebListener に固有のプレフィックス文字列形式の要件はありません。
 

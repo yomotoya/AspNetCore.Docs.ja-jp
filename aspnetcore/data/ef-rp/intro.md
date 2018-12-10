@@ -3,14 +3,15 @@ title: ASP.NET Core での Entity Framework Core を使用した Razor ページ
 author: rick-anderson
 description: Entity Framework Core を使用して Razor ページ アプリを作成する方法について説明します
 ms.author: riande
+ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: afba4395fe9dbe22516b6c4ebdc4c582381981fd
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 34c7238b689993245e033625dcd0e728b7c45163
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299470"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121701"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
@@ -306,7 +307,7 @@ EF Core を利用する非同期コードの記述で注意すべき点:
 * EF Core コンテキストはスレッド セーフではありません。複数の操作を並列実行しないでください。
 * 非同期コードのパフォーマンス上の利点を最大限に活用するには、クエリをデータベースに送信させる EF Core メソッドを (ページングなどのための) ライブラリ パッケージで呼び出す場合、そのライブラリ パッケージで非同期が利用されていることを確認します。
 
-.NET での非同期プログラミングの詳細については、「[非同期の概要](/dotnet/articles/standard/async)」と「[Async および Await を使用した非同期プログラミング (C#)](/dotnet/csharp/programming-guide/concepts/async/)」を参照してください。
+.NET での非同期プログラミングの詳細については、「[非同期の概要](/dotnet/standard/async)」と「[Async および Await を使用した非同期プログラミング (C#)](/dotnet/csharp/programming-guide/concepts/async/)」を参照してください。
 
 次のチュートリアルでは、基本的な CRUD (作成、読み取り、更新、削除) の操作について説明します。
 

@@ -5,12 +5,12 @@ description: Web ページにサーバー ベースのコードを埋め込む�
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256581"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121591"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
@@ -508,7 +508,7 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 @functions { // C# Code }
 ```
 
-例:
+次に例を示します。
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -741,7 +741,7 @@ Razor ビュー エンジンによるビューの参照では、大文字と小�
 
 開発者には、ファイル名とディレクトリ名の大文字/小文字の使い分けを、次のものと一致させることをお勧めします。
 
-    * 領域、コントローラー、アクションの名前。
-    * Razor ページ。
+* 領域、コントローラー、アクションの名前。
+* Razor ページ。
 
 大文字と小文字の使い分けを一致させると、展開は基になっているファイル システムに関係なくビューを検索できます。
