@@ -1,17 +1,18 @@
 ---
 title: ASP.NET Core のクラス ライブラリの再利用可能 Razor UI
 author: Rick-Anderson
-description: クラス ライブラリで再利用可能 Razor UI を作成する方法について説明します。
+description: Razor を ASP.NET core クラス ライブラリの部分ビューを使用して再利用可能な UI を作成する方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/07/2018
+ms.custom: seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 4cbff1565fe82925d9196d8cd810651b97b293da
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: e5f329dcc423a7b7d6c247d0d359d35d95283de4
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206523"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121493"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core で Razor クラス ライブラリ プロジェクトを使用して再利用可能な UI を作成します。
 
@@ -39,7 +40,7 @@ Razor クラス ライブラリでは、次のプロジェクト ファイルが
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-コマンド ラインから `dotnet new razorclasslib` を実行します。 例えば:
+コマンド ラインから `dotnet new razorclasslib` を実行します。 例:
 
 ```console
 dotnet new razorclasslib -o RazorUIClassLib
@@ -134,7 +135,7 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 [!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
-`@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` は部分ビュー (`<partial name="_Message" />`) を使用するために必要です。 `@addTagHelper` ディレクティブを含める代わりに、*_ViewImports.cshtml* ファイルを追加できます。 例えば:
+`@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` は部分ビュー (`<partial name="_Message" />`) を使用するために必要です。 `@addTagHelper` ディレクティブを含める代わりに、*_ViewImports.cshtml* ファイルを追加できます。 例:
 
 ```console
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages

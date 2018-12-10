@@ -6,20 +6,11 @@
 # [開始するには](xref:getting-started)
 
 # チュートリアル
-## [Web API の作成](xref:tutorials/first-web-api)
+## Web API
+### [Web API の作成](xref:tutorials/first-web-api)
+### [MongoDB での Web API](xref:tutorials/first-mongo-app)
 ## Web アプリ
-### Razor ページ
-#### [Razor ページを始める](xref:razor-pages/index)
-
-#### [Razor ページのチュートリアル](xref:tutorials/razor-pages/index)
-##### [開始するには](xref:tutorials/razor-pages/razor-pages-start)
-##### [モデルの追加](xref:tutorials/razor-pages/model)
-##### [スキャフォールディング](xref:tutorials/razor-pages/page)
-##### [DB の操作](xref:tutorials/razor-pages/sql)
-##### [ページの更新](xref:tutorials/razor-pages/da1)
-##### [検索の追加](xref:tutorials/razor-pages/search)
-##### [新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
-##### [検証の追加](xref:tutorials/razor-pages/validation)
+### [Razor ページ](xref:tutorials/razor-pages/index)
 
 ### MVC
 #### [Visual Studio を使用](xref:tutorials/first-mvc-app/index)
@@ -165,7 +156,9 @@
 # Web API
 ## [概要](xref:web-api/index)
 
-## [Web API の作成](xref:tutorials/first-web-api)
+## チュートリアル
+### [Web API の作成](xref:tutorials/first-web-api)
+### [MongoDB での Web API](xref:tutorials/first-mongo-app)
 
 ## Swagger/OpenAPI
 ### [概要](xref:tutorials/web-api-help-pages-using-swagger)
@@ -420,7 +413,7 @@
 ## [トークンの変更](xref:fundamentals/change-tokens)
 ## [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin)
 ## [ホストされるサービスを使用するバックグラウンド タスク](xref:fundamentals/host/hosted-services)
-## [外部アセンブリからアプリを拡張する](xref:fundamentals/configuration/platform-specific-configuration)
+## [ホスティング スタートアップ アセンブリ](xref:fundamentals/configuration/platform-specific-configuration)
 ## [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)
 ## [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)
 ## [LoggerMessage によるログ記録](xref:fundamentals/logging/loggermessage)

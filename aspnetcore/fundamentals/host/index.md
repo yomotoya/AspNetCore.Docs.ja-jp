@@ -1,19 +1,19 @@
 ---
-title: ASP.NET Core でのホスティング
+title: ASP.NET Core の Web ホストおよび汎用ホスト
 author: guardrex
 description: アプリの起動と有効期間の管理を担当する、ASP.NET Core Web ホストと .NET 汎用ホストについて説明します。
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 3e67d8338aa7ac1b1530d0498ee0126d36a8d72b
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336051"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121519"
 ---
-# <a name="host-in-aspnet-core"></a>ASP.NET Core でのホスティング
+# <a name="web-host-and-generic-host-in-aspnet-core"></a>ASP.NET Core の Web ホストおよび汎用ホスト
 
 .NET アプリは*ホスト*を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 次の 2 つのホスト API を使用できます。
 
