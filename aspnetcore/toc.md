@@ -441,6 +441,6 @@
 ## [2.0 の新機能](xref:aspnetcore-2.0)
 ## [1.1 の新機能](xref:aspnetcore-1.1)
 
-# [API リファレンス](/dotnet/api/?view=aspnetcore-2.0)
+# [API リファレンス](/dotnet/api/?view=aspnetcore-2.2)
 
 # [寄稿](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)

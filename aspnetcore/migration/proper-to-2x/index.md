@@ -3,14 +3,14 @@ title: ASP.NET から ASP.NET Core への移行
 author: isaac2004
 description: 既存の ASP.NET MVC または Web API アプリを ASP.NET Core.web に移行するときのガイダンスをご覧ください
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.date: 12/10/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1a3e3f0b514c262cfe13ea8391ab97b95aa4384e
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148799"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216795"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET から ASP.NET Core への移行
 
@@ -66,7 +66,7 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 `Startup` は、`Configure` メソッドを含む必要があります。 `Configure` では、必要なミドルウェアをパイプラインに追加します。 (既定の Web サイト テンプレートからの) 次の例では、複数の拡張メソッドを使って、以下をサポートするパイプラインが構成されています。
 
-* [BrowserLink](http://vswebessentials.com/features/browserlink)
+* [ブラウザー リンク](xref:client-side/using-browserlink)
 * エラー ページ
 * 静的ファイル
 * ASP.NET Core MVC

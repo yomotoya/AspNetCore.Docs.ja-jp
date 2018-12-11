@@ -4,14 +4,14 @@ author: ardalis
 description: ASP.NET 4.x Web API から ASP.NET Core mvc web API の実装を移行する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/01/2018
+ms.date: 12/10/2018
 uid: migration/webapi
-ms.openlocfilehash: f5d886a7c3182b5cd372762ade67c2e748051049
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9806c502f8f5244740f9f9614657a40cfaa03314
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207278"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216834"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API から ASP.NET Core に移行します。
 
@@ -23,8 +23,7 @@ ASP.NET 4.x Web API は、クライアント、ブラウザーやモバイル �
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/all) 以降
-* **ASP.NET および Web 開発**ワークロードを含む [Visual Studio 2017](https://www.visualstudio.com/downloads/) バージョン 15.7.3 以降
+[!INCLUDE [net-core-prereqs-vs-2.2](../includes/net-core-prereqs-vs-2.2.md)]
 
 ## <a name="review-aspnet-4x-web-api-project"></a>ASP.NET 4.x Web API プロジェクトを確認してください。
 
@@ -34,15 +33,15 @@ ASP.NET 4.x Web API は、クライアント、ブラウザーやモバイル �
 
 [!code-csharp[](webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
 
-`WebApiConfig` 定義されている、 *App_Start*フォルダー。 1 つだけの静的`Register`メソッド。
+`WebApiConfig`クラスがある、 *App_Start*フォルダーが静的と`Register`メソッド。
 
-[!code-csharp[](webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15-20)]
+[!code-csharp[](webapi/sample/ProductsApp/App_Start/WebApiConfig.cs)]
 
 このクラスを構成します[属性ルーティング](/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)、実際には、プロジェクトで使用されています。 ASP.NET Web API で使用される、ルーティング テーブルも構成します。 ASP.NET 4.x Web API Url の形式に一致が必要ですがこの場合、`/api/{controller}/{id}`で`{id}`で省略可能します。
 
-*ProductsApp*プロジェクトには、1 つのコント ローラーが含まれています。 コント ローラーが継承`ApiController`と 2 つのメソッドを公開します。
+*ProductsApp*プロジェクトには、1 つのコント ローラーが含まれています。 コント ローラーが継承`ApiController`2 つのアクションが含まれています。
 
-[!code-csharp[](webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=19,24)]
+[!code-csharp[](webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=28,33)]
 
 `Product`によって使用されるモデル`ProductsController`は単純なクラスです。
 
@@ -88,6 +87,12 @@ ASP.NET Core mvc で属性ルーティングは、既定で含まれてとき<xr
 1. `using System.Web.Http;`を削除します。
 1. 変更、`GetProduct`アクションの戻り値の型から`IHttpActionResult`に`ActionResult<Product>`します。
 
+簡略化、`GetProduct`アクションの`return`次のステートメント。
+
+```csharp
+return product;
+```
+
 ## <a name="configure-routing"></a>ルーティングを構成します。
 
 次のようにルーティングを構成します。
@@ -102,11 +107,19 @@ ASP.NET Core mvc で属性ルーティングは、既定で含まれてとき<xr
     上記の[[ルート]](xref:Microsoft.AspNetCore.Mvc.RouteAttribute)属性は、コント ローラーの属性のルーティング パターンを構成します。 [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute)属性は、このコント ローラーで、すべてのアクションの要件をルーティングする属性。
 
     などのトークンをサポートする属性ルーティング`[controller]`と`[action]`します。 時に、各トークンに置き換えられますコント ローラーまたはアクションの名前、属性が適用されています。 トークンは、プロジェクト魔法の文字列の数を減らします。 トークンには、ルートに対応するコント ローラーとの同期を維持し、自動リファクタリングの名前を変更する際のアクションが適用されることも確認してください。
+1. ASP.NET Core 2.2 には、プロジェクトの互換性モードを設定します。
+
+    [!code-csharp[](webapi/sample/ProductsCore/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
+
+    上記の変更:
+
+    * 使用するために必要な`[ApiController]`コント ローラー レベルでの属性。
+    * 可能性のある ASP.NET Core 2.2 で導入された動作を分割することにオプトインします。
 1. HTTP Get 要求を有効にする、`ProductController`アクション。
     * 適用、 [[HttpGet]](xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute)属性を`GetAllProducts`アクション。
     * 適用、`[HttpGet("{id}")]`属性を`GetProduct`アクション。
 
-これらの変更と未使用の削除後`using`ステートメント、 *ProductsController.cs*ファイルは、次のようになります。
+上記の変更と未使用の削除後`using`ステートメント、 *ProductsController.cs*ファイルは、次のようになります。
 
 [!code-csharp[](webapi/sample/ProductsCore/Controllers/ProductsController.cs)]
 
@@ -147,3 +160,4 @@ Web API の互換性 shim は、移行する大規模な ASP.NET 4.x Web API プ
 
 * <xref:web-api/index>
 * <xref:web-api/action-return-types>
+* <xref:mvc/compatibility-version>
