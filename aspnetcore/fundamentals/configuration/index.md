@@ -4,14 +4,14 @@ author: guardrex
 description: 構成 API を使用して、ASP.NET Core アプリを構成する方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
-ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
+ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818396"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216899"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -201,7 +201,7 @@ ASP.NET Core アプリで使用できる構成プロバイダーを次の表に�
 
 ::: moniker range=">= aspnetcore-2.0"
 
-この一連のプロバイダーは、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を使用して新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化するときに配置されます。 詳細については、[Web ホストのホストの設定](xref:fundamentals/host/web-host#set-up-a-host)に関する記事をご覧ください。
+この一連のプロバイダーは、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を使用して新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化するときに配置されます。 詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。
 
 ::: moniker-end
 
@@ -260,7 +260,7 @@ Web ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.Host
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddCommandLine` が呼び出されます。 詳細については、[Web ホストのホストの設定](xref:fundamentals/host/web-host#set-up-a-host)に関する記事をご覧ください。
+<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddCommandLine` が呼び出されます。 詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。
 
 `CreateDefaultBuilder` では次のものも読み込まれます。
 
@@ -534,11 +534,11 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 環境変数内で階層キーを操作する場合、コロン区切り (`:`) がすべてのプラットフォームでは機能しない場合があります。 二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされ、コロンに置換されます。
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) を使用すると、環境変数構成プロバイダーを使用してアプリの構成をオーバーライドすることができる環境変数を、Azure Portal で設定できます。 詳細については、[Azure アプリの、Azure Portal を使用したアプリの構成のオーバーライド](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)に関する記事をご覧ください。
+[Azure App Service](https://azure.microsoft.com/services/app-service/) を使用すると、環境変数構成プロバイダーを使用してアプリの構成をオーバーライドすることができる環境変数を、Azure Portal で設定できます。 詳細については、「[Azure アプリ: Azure Portal を使用してアプリの構成をオーバーライドする](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)」を参照してください。
 
 ::: moniker range=">= aspnetcore-2.0"
 
-新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、`ASPNETCORE_` というプレフィックスが付いた環境変数に対して自動的に `AddEnvironmentVariables` が呼び出されます。 詳細については、[Web ホストのホストの設定](xref:fundamentals/host/web-host#set-up-a-host)に関する記事をご覧ください。
+新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、`ASPNETCORE_` というプレフィックスが付いた環境変数に対して自動的に `AddEnvironmentVariables` が呼び出されます。 詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。
 
 `CreateDefaultBuilder` では次のものも読み込まれます。
 
@@ -859,7 +859,7 @@ JSON ファイルの構成をアクティブにするには、<xref:Microsoft.Ex
 * *appsettings.json* &ndash; このファイルが最初に読み取られます。 ファイルの環境バージョンは、*appsettings.json* ファイルによって指定される値をオーバーライドできます。
 * *appsettings.{Environment}.json* &ndash; ファイルの環境バージョンは、[IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*) に基づいて読み込まれます。
 
-詳細については、[Web ホストのホストの設定](xref:fundamentals/host/web-host#set-up-a-host)に関する記事をご覧ください。
+詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。
 
 `CreateDefaultBuilder` では次のものも読み込まれます。
 
@@ -1136,6 +1136,8 @@ XML 構成ファイルでは、繰り返しのセクション用に個別の要�
 
 * ソースを構成する `Action<KeyPerFileConfigurationSource>` デリゲート。
 * ディレクトリを省略可能かどうか、またディレクトリへのパス。
+
+アンダースコア 2 つ (`__`) は、ファイル名で構成キーの区切り記号として使用されます。 たとえば、ファイル名 `Logging__LogLevel__System` では、構成キー `Logging:LogLevel:System` が生成されます。
 
 ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。
 
