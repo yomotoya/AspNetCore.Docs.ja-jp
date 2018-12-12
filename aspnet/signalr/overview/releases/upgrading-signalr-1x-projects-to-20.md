@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 450ddedb520035cc05a0dbcca1a2666dd1ba24c7
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 23ea23585b15395cf86bdad13885af32d1b64e79
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910552"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286845"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>SignalR 1.x プロジェクトをバージョン 2 にアップグレードします。
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このトピックでは、SignalR に既存の SignalR 1.x プロジェクトをアップグレードする方法を説明します。 2.x、およびアップグレードの処理中に発生する可能性のある問題をトラブルシューティングする方法。
 >
@@ -43,25 +45,25 @@ ms.locfileid: "48910552"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 SignalR 2 を使用して server プラットフォーム間で一貫性のある開発エクスペリエンスを提供する[OWIN](http://owin.org)します。 この記事では、バージョン 2 に SignalR 1.x アプリケーションを更新するために必要ないくつかの手順について説明します。
 
 SignalR 2 のアプリケーションをアップグレードすることをお勧め、SignalR 1.x でもがサポートされています。
 
-このチュートリアルでは、SignalR 2 の web ホスト アプリケーションをアップグレードする方法について説明します。 自己ホスト型アプリケーション (コンソール アプリケーション、Windows サービス、または他のプロセス内のサーバーをホストしているもの) は、SignalR 2 でサポートされるようになりました。 SignalR 2 による自己ホスト型アプリケーションの作成を開始する方法については、次を参照してください。[チュートリアル: SignalR セルフホスト](../deployment/tutorial-signalr-self-host.md)します。
+このチュートリアルでは、SignalR 2 の web ホスト アプリケーションをアップグレードする方法について説明します。 自己ホスト型アプリケーション (コンソール アプリケーション、Windows サービス、または他のプロセス内のサーバーをホストしているもの) は、SignalR 2 でサポートされるようになりました。 SignalR 2 による自己ホスト型アプリケーションの作成を開始する方法については、次を参照してください。[チュートリアル。SignalR セルフホスト](../deployment/tutorial-signalr-self-host.md)します。
 
 ## <a name="contents"></a>目次
 
 次のセクションでは、SignalR プロジェクト、および発生する可能性のある問題をトラブルシューティングする方法へのアップグレードに関連するタスクについて説明します。
 
-- [例: SignalR 2 のチュートリアル入門のアップグレード](#example)
+- [例:SignalR 2 のチュートリアル入門のアップグレード](#example)
 - [アップグレード中に発生したエラーのトラブルシューティング](#troubleshooting)
 
 <a id="example"></a>
 
-## <a name="example-upgrading-the-getting-started-tutorial-application-to-signalr-2"></a>例: SignalR 2 の概要チュートリアル アプリケーションのアップグレード
+## <a name="example-upgrading-the-getting-started-tutorial-application-to-signalr-2"></a>例:SignalR 2 の概要チュートリアル アプリケーションのアップグレード
 
 このセクションで作成したアプリケーションを更新します、[チュートリアル入門の SignalR 1.x バージョン](../older-versions/index.md)SignalR 2 を使用します。
 

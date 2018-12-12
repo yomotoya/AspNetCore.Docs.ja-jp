@@ -8,16 +8,18 @@ ms.date: 04/29/2013
 ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0cd1e64af031fea8078c8c1ca4c64b1e2e69d7e9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fffa424ea4b62a54b9df48aaa409541ab5d1608f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829963"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287599"
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>SignalR のスケール アウト入門 1.x
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 一般は、web アプリケーションのスケール設定の 2 つの方法があります:*スケール アップ*と*スケール アウト*します。
 
@@ -60,9 +62,9 @@ Signalr では、すべてのメッセージはメッセージ バスを通じ�
 
 バック プレーンを使用して、メッセージの最大スループットは、クライアントは、1 台のサーバー ノードに直接話すときよりも低い。 バック プレーンがバック プレーンがボトルネックになることができますので、すべてのノードにすべてのメッセージを転送するためです。 この制限は、問題であるかどうかは、アプリケーションによって異なります。 たとえば、SignalR の一般的なシナリオを示します。
 
-- [サーバー ブロードキャスト](tutorial-server-broadcast-with-aspnet-signalr.md)(たとえば、株価表示器): サーバー メッセージが送信される速度を制御するために、バック プレーンがこのシナリオに動作します。
-- [クライアントで](tutorial-getting-started-with-signalr.md)(チャットなど)。 このシナリオでのバック プレーン場合がありますボトルネックになっているクライアントの数のメッセージの数に合わせて; は、メッセージの数が増えた場合それに比例して増えるクライアントが参加します。
-- [高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)(リアルタイムのゲームなど)。 このシナリオのバック プレーンは推奨されません。
+- [サーバー ブロードキャスト](tutorial-server-broadcast-with-aspnet-signalr.md)(株価情報など)。バック プレーンがこのシナリオに動作するは、サーバー メッセージが送信される速度を制御するためです。
+- [クライアントで](tutorial-getting-started-with-signalr.md)(チャットなど)。このシナリオでバック プレーン場合があります、ボトルネックのメッセージの数に合わせてクライアントの数メッセージの数が増加した場合は、それに比例して増えるクライアントが参加します。
+- [高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)(リアルタイムのゲームなど)。このシナリオでは、バック プレーンは推奨されません。
 
 ## <a name="enabling-tracing-for-signalr-scaleout"></a>SignalR スケール アウトのトレースを有効にします。
 

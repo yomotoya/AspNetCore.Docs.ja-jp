@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: 'チュートリアル: SignalR 2 によるサーバーがブロードキャスト |Microsoft Docs'
+title: チュートリアル:SignalR 2 によるサーバー ブロードキャスト |Microsoft Docs
 author: tdykstra
 description: このチュートリアルでは、ASP.NET SignalR 2 を使用してサーバー ブロードキャストの機能を提供する web アプリケーションを作成する方法を示します。 サーバー ブロードキャストでは、その commun ことを意味しています.
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ad2eee8742d5bc45dc2bdc90f76736b4dc94d14b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288018"
 ---
-<a name="tutorial-server-broadcast-with-signalr-2"></a>チュートリアル: SignalR 2 によるサーバーがブロードキャスト
+<a name="tutorial-server-broadcast-with-signalr-2"></a>チュートリアル:SignalR 2 によるサーバー ブロードキャスト
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)、 [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このチュートリアルでは、ASP.NET SignalR 2 を使用してサーバー ブロードキャストの機能を提供する web アプリケーションを作成する方法を示します。 サーバー ブロードキャストでは、クライアントに送信される通信が、サーバーによって開始されたことを意味します。 このシナリオでは、チャット アプリケーションをクライアントに送信される通信が 1 つまたは複数のクライアントによって開始されたなどのピア ツー ピア シナリオよりもさまざまなプログラミングのアプローチが必要です。
 >
@@ -51,8 +53,7 @@ ms.locfileid: "48911543"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
-
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 ## <a name="overview"></a>概要
 

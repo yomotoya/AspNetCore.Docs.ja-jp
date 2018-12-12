@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: 'チュートリアル: SignalR 2 の概要 |Microsoft Docs'
+title: チュートリアル:SignalR 2 の概要 |Microsoft Docs
 author: pfletcher
 description: このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加され、HTML pa を作成しています.
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 676dc0854ef6f041e705ed6b39432e11dd8643ed
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3b06e7d0a602e061112adbceba92276f836f6311
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910903"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287339"
 ---
-<a name="tutorial-getting-started-with-signalr-2"></a>チュートリアル: SignalR 2 の概要
+<a name="tutorial-getting-started-with-signalr-2"></a>チュートリアル:SignalR 2 の概要
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
@@ -49,7 +51,7 @@ ms.locfileid: "48910903"
 > 
 > ## <a name="questions-and-comments"></a>意見やご質問
 > 
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 ## <a name="overview"></a>概要

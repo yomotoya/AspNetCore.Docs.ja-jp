@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: 7d9acfc8ed2dd692f36528a8a9700d92d86a4203
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 73b16ecf141732f0adc362dc5167073491cc2dea
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910448"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287014"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>SQL Server による SignalR スケール アウト
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
@@ -34,7 +36,7 @@ ms.locfileid: "48910448"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 このチュートリアルでは、2 つの IIS インスタンスで配置されている SignalR アプリケーション間でメッセージを配布するのに SQL Server を使用します。 1 つのテスト コンピューターで、このチュートリアルを実行することもできますが、完全な効果を取得するには SignalR アプリケーションを 2 つまたは複数のサーバーをデプロイする必要があります。 サーバーのいずれか、または別の専用サーバーでは、SQL Server をインストールすることもする必要があります。 別のオプションでは、Azure で Vm を使用してチュートリアルを実行します。
@@ -59,7 +61,7 @@ Microsoft SQL Server 2005 以降。 バック プレーンには、SQL Server �
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
-   このコードでは、バック プレーンを構成の既定値を持つ[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス: スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。
+   このコードでは、バック プレーンを構成の既定値を持つ[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス。スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。
 
 ## <a name="configure-the-database"></a>データベースを構成します。
 

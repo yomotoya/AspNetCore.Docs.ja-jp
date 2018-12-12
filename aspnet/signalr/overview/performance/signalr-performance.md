@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 269c10d7a73f181eaceac1c43ad51f3933d6711c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 9346f0ff9720361f07afe196f59305f0f38ffe8a
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911861"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287785"
 ---
 <a name="signalr-performance"></a>SignalR パフォーマンス
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このトピックでは、ための設計、計測、および SignalR アプリケーションのパフォーマンスを向上する方法について説明します。
 >
@@ -36,7 +38,7 @@ ms.locfileid: "48911861"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 SignalR パフォーマンスとスケーリングに最近行ったプレゼンテーションは、次を参照してください。 [ASP.NET SignalR によるリアルタイムの Web スケール](https://channel9.msdn.com/Events/Build/2013/3-502)します。
@@ -88,7 +90,7 @@ SignalR アプリケーションでパフォーマンスの向上のため、サ
 
 **SignalR の構成設定**
 
-- **DefaultMessageBufferSize**: 既定では、SignalR は接続ごとにハブあたりのメモリに 1000 メッセージを保持します。 サイズの大きいメッセージを使用している場合は、この値を減らすことで緩和できるメモリの問題を作成この可能性があります。 この設定を設定することができます、`Application_Start`または ASP.NET アプリケーションでのイベント ハンドラー、`Configuration`で自己ホスト型アプリケーションの OWIN startup クラスのメソッド。 次の例では、サーバーのメモリ使用量を削減するために、アプリケーションのメモリ使用量を減らすためにこの値を小さく方法を示しています。
+- **DefaultMessageBufferSize**:既定では、SignalR は 1000 メッセージごとの接続のハブあたりのメモリに保持されます。 サイズの大きいメッセージを使用している場合は、この値を減らすことで緩和できるメモリの問題を作成この可能性があります。 この設定を設定することができます、`Application_Start`または ASP.NET アプリケーションでのイベント ハンドラー、`Configuration`で自己ホスト型アプリケーションの OWIN startup クラスのメソッド。 次の例では、サーバーのメモリ使用量を削減するために、アプリケーションのメモリ使用量を減らすためにこの値を小さく方法を示しています。
 
     **既定のメッセージ バッファーのサイズを減らすため、Startup.cs で .NET サーバー コード**
 
@@ -96,10 +98,10 @@ SignalR アプリケーションでパフォーマンスの向上のため、サ
 
 **IIS の構成設定**
 
-- **アプリケーションごとの最大同時要求**: IIS の同時実行の数を増やして、要求で要求を提供するために使用可能なサーバー リソースが増加します。 既定値は 5000 です。この設定を向上させるのに管理者特権でコマンド プロンプトで、次のコマンドを実行します。
+- **アプリケーションごとの最大同時要求**:IIS の同時実行の数を増やす要求の要求の処理の使用可能なサーバー リソースが増加します。 既定値は 5000 です。この設定を向上させるのに管理者特権でコマンド プロンプトで、次のコマンドを実行します。
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
-- **ApplicationPool QueueLength**: これは、Http.sys がアプリケーション プールのキューを要求の最大数。 キューには、新しい要求は 503「サービスを利用できません」の応答を受信します。 既定値は 1000 です。
+- **ApplicationPool QueueLength**:これは、Http.sys がアプリケーション プールのキューを要求の最大数です。 キューには、新しい要求は 503「サービスを利用できません」の応答を受信します。 既定値は 1000 です。
 
     アプリケーションをホストしているアプリケーション プールでワーカー プロセスのキューの長さを短くと、メモリ リソースを節約します。 詳細については、次を参照してください。[管理、調整、およびアプリケーション プールの構成](https://technet.microsoft.com/library/cc745955.aspx)します。
 
@@ -112,10 +114,10 @@ SignalR アプリケーションでパフォーマンスの向上のため、サ
 
 SignalR パフォーマンスを向上させることがあります ASP.NET の設定を以下に示します。
 
-- **CPU ごとの同時要求の最大**: この設定を増やすとパフォーマンスのボトルネックを軽減する可能性があります。 この設定を大きくには、次の構成設定を追加、`aspnet.config`ファイル。
+- **CPU ごとの同時要求の最大**:この設定を増やすとパフォーマンスのボトルネックを軽減することがあります。 この設定を大きくには、次の構成設定を追加、`aspnet.config`ファイル。
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
-- **要求キューの制限**: 接続の合計数を超える場合、`maxConcurrentRequestsPerCPU`設定すると、ASP.NET は開始キューを使用して要求を調整します。 キューのサイズを増やすを増やすことができます、`requestQueueLimit`設定します。 これを行うには、次の構成設定を追加、`processModel`ノード`config/machine.config`(なく`aspnet.config`)。
+- **要求キューの制限**:接続の合計数を超える場合、`maxConcurrentRequestsPerCPU`設定すると、ASP.NET は開始キューを使用して要求を調整します。 キューのサイズを増やすを増やすことができます、`requestQueueLimit`設定します。 これを行うには、次の構成設定を追加、`processModel`ノード`config/machine.config`(なく`aspnet.config`)。
 
     [!code-xml[Main](signalr-performance/samples/sample6.xml)]
 
@@ -197,14 +199,14 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 次のメトリックは、SignalR メッセージ トラフィックによって生成されたエラーを測定します。 **ハブの解決**ハブまたはハブのメソッドは解決できない場合にエラーが発生します。 **ハブ呼び出し**エラーは、ハブ メソッドの呼び出し中にスローされる例外。 **トランスポート**エラーは、接続エラーの HTTP 要求または応答時にスローされます。
 
-- **エラー: すべての合計**
-- **エラー: 1 秒あたりのすべて**
-- **エラー: ハブの解像度の合計**
-- **エラー: ハブの解像度/秒**
-- **エラー: ハブ呼び出し合計**
-- **エラー: ハブ呼び出し/秒**
-- **エラー: トランスポートの合計**
-- **1 秒あたりのトランスポート エラー:**
+- **エラー:すべての合計**
+- **エラー:1 秒あたりのすべて**
+- **エラー:ハブの解像度の合計**
+- **エラー:ハブの解像度/秒**
+- **エラー:ハブ呼び出し合計**
+- **エラー:ハブ呼び出し数/秒**
+- **エラー:トランスポートの合計**
+- **エラー:1 秒あたりのトランスポート**
 
 <a id="scaleout_metrics"></a>
 

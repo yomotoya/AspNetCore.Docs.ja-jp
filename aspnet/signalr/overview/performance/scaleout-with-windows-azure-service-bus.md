@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 3adc8768eb7271de32180ba98f67864b22283510
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 5cdb9b5eb6d3f5ebd5c96e4b0d89926c18bddadd
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910799"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287612"
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>Azure Service Bus による SignalR スケール アウト
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 このチュートリアルでは、Service Bus のバック プレーンを使用して各ロール インスタンスにメッセージを配信する、Windows Azure の Web ロールに SignalR アプリケーションを展開します。 (Service Bus のバック プレーンとを使用することもできます[web アプリを Azure App Service で](https://docs.microsoft.com/azure/app-service-web/)。)。
 
@@ -49,13 +51,13 @@ Service Bus のバック プレーンでは、トピックを使用して、メ�
 
     [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample1.cs)]
 
-このコードでは、バック プレーンを構成の既定値を持つ[TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス: スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。
+このコードでは、バック プレーンを構成の既定値を持つ[TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)します。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス。スケール アウト メトリック](signalr-performance.md#scaleout_metrics)します。
 
 各アプリケーションでは、"YourAppName"を別の値を選択します。 複数のアプリケーションでは、同じ値を使用しません。
 
 ## <a name="create-the-azure-services"></a>Azure サービスを作成します。
 
-クラウド サービスを作成する」の説明に従って[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)します。 セクションの手順に従って"する方法: 簡易作成を使用してクラウド サービスの作成"します。 このチュートリアルでは、証明書をアップロードする必要はありません。
+クラウド サービスを作成する」の説明に従って[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)します。 セクションの手順に従って"する方法。"簡易作成によるクラウド サービスを作成します。 このチュートリアルでは、証明書をアップロードする必要はありません。
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
@@ -87,8 +89,8 @@ Visual Studio を起動します。 **ファイル** メニューのをクリッ
 
 プロジェクト ウィザードには、2 つのプロジェクトが作成されます。
 
-- ChatService: このプロジェクトは、Windows Azure アプリケーションです。 Azure のロールとその他の構成オプションを定義します。
-- SignalRChat: このプロジェクトは、ASP.NET MVC 5 プロジェクトです。
+- ChatService:このプロジェクトは、Windows Azure アプリケーションです。 Azure のロールとその他の構成オプションを定義します。
+- SignalRChat:このプロジェクトは、ASP.NET MVC 5 プロジェクトです。
 
 ## <a name="create-the-signalr-chat-application"></a>SignalR チャット アプリケーションを作成します。
 

@@ -8,16 +8,18 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: d597eebc958815b1b1b9fdffc256c4453efce6b3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 687d3d7787baa69410ee35d651a029c69d28c70b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910955"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287001"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus による SignalR スケール アウト (SignalR 1.x)
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 このチュートリアルでは、Service Bus のバック プレーンを使用して各ロール インスタンスにメッセージを配信する、Windows Azure の Web ロールに SignalR アプリケーションを展開します。
 
@@ -53,7 +55,7 @@ Service Bus のバック プレーンでは、トピックを使用して、メ�
 
 ## <a name="create-the-azure-services"></a>Azure サービスを作成します。
 
-クラウド サービスを作成する」の説明に従って[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)します。 セクションの手順に従って"する方法: 簡易作成を使用してクラウド サービスの作成"します。 このチュートリアルでは、証明書をアップロードする必要はありません。
+クラウド サービスを作成する」の説明に従って[を作成して、クラウド サービスをデプロイする方法](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)します。 セクションの手順に従って"する方法。"簡易作成によるクラウド サービスを作成します。 このチュートリアルでは、証明書をアップロードする必要はありません。
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
@@ -81,8 +83,8 @@ Visual Studio を起動します。 **ファイル** メニューのをクリッ
 
 **新しい ASP.NET MVC 4 プロジェクト**ウィザードで、**インターネット アプリケーション**します。 **[OK]** をクリックします。 プロジェクト ウィザードには、2 つのプロジェクトが作成されます。
 
-- ChatService: このプロジェクトは、Windows Azure アプリケーションです。 Azure のロールとその他の構成オプションを定義します。
-- SignalRChat: このプロジェクトは、ASP.NET MVC 4 プロジェクトです。
+- ChatService:このプロジェクトは、Windows Azure アプリケーションです。 Azure のロールとその他の構成オプションを定義します。
+- SignalRChat:このプロジェクトは、ASP.NET MVC 4 プロジェクトです。
 
 ## <a name="create-the-signalr-chat-application"></a>SignalR チャット アプリケーションを作成します。
 

@@ -8,23 +8,24 @@ ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: d522602c3523d97a12c74b2d901391bd00d4f2b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838410"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287373"
 ---
 <a name="supported-platforms"></a>サポートされているプラットフォーム
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > この記事では、どのようなクライアントとサーバーは、SignalR でサポートされてについて説明します。 
 > 
 > ## <a name="questions-and-comments"></a>意見やご質問
 > 
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
-
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 SignalR は、さまざまなサーバーおよびクライアントの構成でサポートされています。 また、各トランスポート オプションでは、一連の; 独自の要件トランスポートのシステム要件が利用できない場合は、SignalR は適切に他のトランスポートへのフェールオーバーにします。 SignalR をサポートするトランスポートの詳細については、次を参照してください。[トランスポートとフォールバック](introduction-to-signalr.md#transports)します。
 
@@ -91,7 +92,7 @@ SignalR を使用するさまざまなトランスポートでは特定のブラ
 | ForeverFrame | 8+ | N/A | N/A | N/A | 4.1 |
 | ロング ポーリング | 8+ | 現在の値-1 | 現在の値-1 | 現在の値-1 | 4.1 |
 
-\*: 6 + のすべての機能が必要です。
+\*:6 + のすべての機能が必要です。
 
 #### <a name="unsupported-browsers"></a>サポートされていないブラウザー
 

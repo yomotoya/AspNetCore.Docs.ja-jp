@@ -9,30 +9,32 @@ ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 7304ff17bb53f94bdee1e90602d206bf32184e37
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: bdd875201895c6eaf155b54582d0898c2570d93c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795461"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287716"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Azure Web ロールで SignalR パフォーマンス カウンターの使用
 
 作成者: [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 SignalR パフォーマンス カウンターは、Azure Web ロールで、アプリのパフォーマンスを監視するために使用されます。 カウンターは、Microsoft Azure Diagnostics によってキャプチャされます。 Azure で SignalR パフォーマンス カウンターをインストールする*signalr.exe*を同じツールをスタンドアロンまたはオンプレミスのアプリで使用します。 Azure ロールでは、一時的なものであるために、アプリをインストールし、起動時に SignalR パフォーマンス カウンターの登録を構成します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * Visual Studio 2015 または[2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
-* [Microsoft Azure SDK for Visual Studio](https://azure.microsoft.com/downloads/) **注: SDK のインストール後、コンピューターを再起動します。**
-* Microsoft Azure サブスクリプション: Azure の無料試用版アカウントのサインアップを参照してください。 [Azure 無料試用版](https://azure.microsoft.com/free/)します。
+* [Microsoft Azure SDK for Visual Studio](https://azure.microsoft.com/downloads/) **に注意してください。SDK をインストールした後、コンピューターを再起動します。**
+* Microsoft Azure サブスクリプション:無料 Azure 試用版アカウントのサインアップを参照してください。 [Azure 無料試用版](https://azure.microsoft.com/free/)します。
 
 ## <a name="creating-an-azure-web-role-application-that-exposes-signalr-performance-counters"></a>SignalR パフォーマンス カウンターを公開する Azure Web ロールのアプリケーションの作成
 
 1. Visual Studio を開きます。
 
-2. Visual Studio で、次のように選択します。**ファイル** > **新規** > **プロジェクト**します。
+2. Visual Studio で、**[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択します。
 
 3. **新しいプロジェクト**ダイアログ ボックスで、 **Visual c#** > **クラウド**、左側のカテゴリを選び、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**選択 **[ok]** します。
 

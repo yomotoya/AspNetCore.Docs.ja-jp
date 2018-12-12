@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: dcd4593b-1118-418a-af71-d12ff33fb36d
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 993ad7924d8335f79aa2c3e41c00ddfa8bc26874
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2d50a92cff96be5c5c60105bba6682d38f9666b6
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837724"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288093"
 ---
 <a name="signalr-1x-hubs-api-guide---javascript-client"></a>SignalR 1.x ハブ API ガイド - JavaScript クライアント
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、ブラウザーや Windows ストア (WinJS) アプリケーションなどの JavaScript クライアントではバージョン 1.1 SignalR ハブ API を使用するように紹介します。
 > 
@@ -443,13 +445,13 @@ ASP.NET Web フォーム アプリケーションで使用`ResolveClientUrl`プ�
 
 SignalR は、次の接続に処理できる有効期間イベントを提供します。
 
-- `starting`: すべてのデータが、接続経由で送信される前に発生します。
-- `received`: 接続でのデータが受信したときに発生します。 受信したデータを提供します。
-- `connectionSlow`: クライアントが低速または削除が頻繁に接続を検出したときに発生します。
-- `reconnecting`: 基になるトランスポートの再接続を開始するときに発生します。
-- `reconnected`: 基になるトランスポートが再接続されたときに発生します。
-- `stateChanged`: 接続状態が変更されたときに発生します。 以前の状態と新しい状態 (接続、接続、再接続、または切断) を提供します。
-- `disconnected`: 接続が切断されたときに発生します。
+- `starting`:すべてのデータが、接続経由で送信される前に発生します。
+- `received`:接続でデータを受信したときに発生します。 受信したデータを提供します。
+- `connectionSlow`:クライアントが低速または削除が頻繁に接続を検出したときに発生します。
+- `reconnecting`:基になるトランスポートの再接続を開始するときに発生します。
+- `reconnected`:基になるトランスポートが再接続されたときに発生します。
+- `stateChanged`:接続状態が変更されたときに発生します。 以前の状態と新しい状態 (接続、接続、再接続、または切断) を提供します。
+- `disconnected`:接続が切断されたときに発生します。
 
 たとえば、次のように顕著な遅延を引き起こす可能性のある接続の問題が発生する警告メッセージを表示する場合、処理、`connectionSlow`イベント。
 

@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: a14121ae-02cf-4024-8af0-9dd0dc810690
 msc.legacyurl: /signalr/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 607738e7531eaf9ee9f6a24267b65e153cc4d599
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: f5959902b030621a19d912d7db2ea0faf95b7a7c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912870"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287795"
 ---
 <a name="dependency-injection-in-signalr"></a>SignalR の依存関係の挿入
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
@@ -34,7 +36,7 @@ ms.locfileid: "48912870"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 依存関係の挿入は、簡単になります (モック オブジェクトを使用して) テストのいずれかのオブジェクトの依存関係を置換するか、実行時の動作を変更するオブジェクト間の依存関係をハードコーディングを削除する方法です。 このチュートリアルでは、SignalR ハブの依存関係の挿入を実行する方法を示します。 SignalR で IoC コンテナーを使用する方法も示します。 IoC コンテナーは、依存関係の挿入の一般的なフレームワークです。
@@ -99,8 +101,8 @@ SignalR は、作成する必要があるたびに、この匿名関数が呼び
 
 StockTicker サンプルでは、2 つの主要なクラスを定義します。
 
-- `StockTickerHub`:、ハブ クラスはクライアント接続を管理します。
-- `StockTicker`: 株価を保持し、定期的に更新するシングルトン。
+- `StockTickerHub`:ハブ クラスはクライアント接続を管理します。
+- `StockTicker`:株価を保持し、定期的に更新するシングルトン。
 
 `StockTickerHub` 参照を保持、`StockTicker`シングルトン、中に`StockTicker`への参照を保持、 **IHubConnectionContext**の`StockTickerHub`します。 このインターフェイスを使用して通信を`StockTickerHub`インスタンス。 (詳細については、次を参照してください[ASP.NET SignalR によるサーバー ブロードキャスト](../getting-started/tutorial-server-broadcast-with-signalr.md)。)。
 

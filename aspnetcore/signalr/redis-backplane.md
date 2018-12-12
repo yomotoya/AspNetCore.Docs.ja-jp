@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: c8b09c0d482da344b54d167c0c9757167eaa6186
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452985"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284471"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>ASP.NET Core SignalR スケール アウトの Redis のバック プレーンを設定します。
 
@@ -32,7 +32,7 @@ ms.locfileid: "52452985"
 
 ::: moniker range="= aspnetcore-2.1"
 
-* SignalR アプリでは、インストール、 `Microsoft.AspNetCore.SignalR.Redis` NuGet パッケージ。
+* SignalR アプリでは、インストール、 `Microsoft.AspNetCore.SignalR.Redis` NuGet パッケージ。 (も、`Microsoft.AspNetCore.SignalR.StackExchangeRedis`パッケージ化、ASP.NET Core 2.2 以降であることができます)。
 
 * `Startup.ConfigureServices`メソッドを呼び出します`AddRedis`後`AddSignalR`:
 
@@ -59,7 +59,10 @@ ms.locfileid: "52452985"
 
 ::: moniker range="> aspnetcore-2.1"
 
-* SignalR アプリでは、インストール、 `Microsoft.AspNetCore.SignalR.StackExchangeRedis` NuGet パッケージ。
+* SignalR アプリケーションでは、次の NuGet パッケージのいずれかをインストールします。
+
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` -StackExchange.Redis 2.X.X に依存します。 これは、ASP.NET Core 2.2 以降に推奨されるパッケージです。
+  * `Microsoft.AspNetCore.SignalR.Redis` -StackExchange.Redis 1.X.X に依存します。 このパッケージは、ASP.NET Core 3.0 に発送されません。
 
 * `Startup.ConfigureServices`メソッドを呼び出します`AddStackExchangeRedis`後`AddSignalR`:
 

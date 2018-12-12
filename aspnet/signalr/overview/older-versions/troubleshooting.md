@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: df949347cecd9ac617a52ad798f37bebdb8524fa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833539"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287694"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>SignalR トラブルシューティング (SignalR 1.x)
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、SignalR を使って一般的な問題のトラブルシューティングについて説明します。
 
@@ -53,7 +55,7 @@ SignalR では、JSON パーサーは、サーバーとクライアント間の�
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>ハブおよび PersistentConnection 構文を混在させる
 
-SignalR は、2 つの通信モデルを使用します。 ハブおよび PersistentConnections します。 これらの 2 つの通信モデルを呼び出すための構文は、クライアント コードで異なります。 サーバー コードにハブを追加した場合は、すべてのクライアント コードは適切なハブの構文を使用することを確認します。
+SignalR では、2 つの間の通信モデルを使用します。ハブおよび PersistentConnections します。 これらの 2 つの通信モデルを呼び出すための構文は、クライアント コードで異なります。 サーバー コードにハブを追加した場合は、すべてのクライアント コードは適切なハブの構文を使用することを確認します。
 
 **JavaScript クライアント内で、PersistentConnection を作成する JavaScript クライアント コード**
 
@@ -157,8 +159,8 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 この問題のいくつかの原因があります。 次のすべてを確認します。
 
-- **ハブ プロキシ アドレスの参照が正しくフォーマットされていません:** このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合によく見られます。 ハブ アドレスへの参照が正しく行われたことを確認します。 参照してください[動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
-- **ハブ ルートを追加する前にアプリケーションへのルートの追加:** アプリケーションでは、他のルートを使用する場合、最初のルートが追加の呼び出しの確認`MapHubs`します。
+- **ハブ プロキシのアドレス リファレンス形式が正しくありません。** このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合によく見られます。 ハブ アドレスへの参照が正しく行われたことを確認します。 参照してください[動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
+- **ハブ ルートを追加する前にアプリケーションへのルートの追加。** アプリケーションでは、他のルートを使用する場合、最初のルートが追加の呼び出しの確認`MapHubs`します。
 
 ### <a name="500-internal-server-error"></a>「500 内部サーバー エラー」
 
@@ -172,7 +174,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 パラメーター、メソッドに送信するには、シリアル化できない型 (ファイル ハンドル、データベース接続など) が含まれていないことを確認します。 使用 (またはセキュリティのためのシリアル化の理由から)、クライアントに送信したくないのサーバー側オブジェクトにメンバーを使用する必要がある場合、`JSONIgnore`属性。
 
-### <a name="protocol-error-unknown-transport-error"></a>"プロトコル エラー: 不明なトランスポート"エラー
+### <a name="protocol-error-unknown-transport-error"></a>"プロトコル エラー。不明なトランスポートは"エラー
 
 このエラーは、クライアントは SignalR を使用するトランスポートをサポートしていない場合に発生する可能性があります。 参照してください[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)についてを SignalR でブラウザーを使用できます。
 
@@ -184,11 +186,11 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 このエラーは、認証を使用して、接続が停止する前に、クライアントがログアウトした場合に発生する可能性があります。 ソリューションでは、クライアントをログアウトする前に SignalR 接続を停止します。
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"エラーをキャッチできない: SignalR: jQuery が見つかりませんでした。 SignalR.js ファイルの前に jQuery が参照されていることを確認してください"のエラー
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"エラーをキャッチできません。SignalR: jQuery が見つかりませんでした。 SignalR.js ファイルの前に jQuery が参照されていることを確認してください"のエラー
 
 SignalR JavaScript クライアントでは、jQuery を実行する必要があります。 JQuery への参照が使用されるパスが有効であるおよび SignalR への参照を前に jQuery への参照が正しいことを確認します。
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"TypeError をキャッチできない: プロパティを読み取ることができません '&lt;プロパティ&gt;' 未定義の"エラー
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"TypeError をキャッチできません。プロパティを読み取ることができません '&lt;プロパティ&gt;' 未定義の"エラー
 
 このエラーは、jQuery またはハブ プロキシを適切に参照されていないことから発生します。 JQuery、およびハブ プロキシへの参照が使用されるパスが有効であると、ハブ プロキシへの参照を前に jQuery への参照が正しいことを確認します。 ハブ プロキシを既定の参照は、次のようになります。
 

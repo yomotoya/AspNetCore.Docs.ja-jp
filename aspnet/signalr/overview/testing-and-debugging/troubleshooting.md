@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e41061f0310c021b10dc6667a5c3297788213b0a
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911692"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287954"
 ---
 <a name="signalr-troubleshooting"></a>SignalR トラブルシューティング
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、SignalR を使って一般的な問題のトラブルシューティングについて説明します。
 >
@@ -36,7 +38,7 @@ ms.locfileid: "48911692"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 このドキュメントには、次のセクションが含まれています。
@@ -71,7 +73,7 @@ SignalR では、JSON パーサーは、サーバーとクライアント間の�
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>ハブおよび PersistentConnection 構文を混在させる
 
-SignalR は、2 つの通信モデルを使用します。 ハブおよび PersistentConnections します。 これらの 2 つの通信モデルを呼び出すための構文は、クライアント コードで異なります。 サーバー コードにハブを追加した場合は、すべてのクライアント コードは適切なハブの構文を使用することを確認します。
+SignalR では、2 つの間の通信モデルを使用します。ハブおよび PersistentConnections します。 これらの 2 つの通信モデルを呼び出すための構文は、クライアント コードで異なります。 サーバー コードにハブを追加した場合は、すべてのクライアント コードは適切なハブの構文を使用することを確認します。
 
 **JavaScript クライアント内で、PersistentConnection を作成する JavaScript クライアント コード**
 
@@ -135,7 +137,7 @@ SignalR は自動的に JSON シリアル化に使用、メソッド パラメ�
 
 この動作は意図されたものです。 ユーザーがアクティブな SignalR 接続に関するページから移動しようとすると、SignalR クライアントは、クライアント接続が停止されることをサーバーに通知するベストエフォートの試行を加えます。 SignalR クライアントのベスト エフォート場合は、サーバーに到達する試行が失敗した後、構成可能な接続の破棄は、サーバー、`DisconnectTimeout`時点で、後で、`OnDisconnected`イベントが発生します。 試行が成功すると、SignalR クライアントのベスト エフォートである場合、`OnDisconnected`イベントは、すぐに発生します。
 
-設定の詳細について、`DisconnectTimeout`設定、表示[接続の有効期間イベントの処理: DisconnectTimeout](../guide-to-the-api/handling-connection-lifetime-events.md#disconnecttimeout)します。
+設定の詳細について、`DisconnectTimeout`設定、表示[接続の有効期間イベントを処理します。DisconnectTimeout](../guide-to-the-api/handling-connection-lifetime-events.md#disconnecttimeout)します。
 
 ### <a name="connection-limit-reached"></a>接続の上限に達しました
 
@@ -187,10 +189,10 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 この問題のいくつかの原因があります。 次のすべてを確認します。
 
-- **ハブ プロキシ アドレスの参照が正しくフォーマットされていません:** このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合によく見られます。 ハブ アドレスへの参照が正しく行われたことを確認します。 参照してください[動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
-- **ハブ ルートを追加する前にアプリケーションへのルートの追加:** アプリケーションでは、他のルートを使用する場合、最初のルートが追加の呼び出しの確認`MapSignalR`します。
-- **IIS 7 または 7.5、更新プログラムがない拡張子のない Url を使用して:** を使用して IIS 7 または 7.5、更新プログラムが必要拡張子のない Url、サーバーにハブの定義へのアクセスを提供できるように`/signalr/hubs`します。 更新プログラムが見つかります[ここ](https://support.microsoft.com/kb/980368)します。
-- **IIS が最新でないキャッシュまたは破損している:** キャッシュの内容が古くないことを確認するには、キャッシュをクリアする PowerShell ウィンドウで次のコマンドを入力します。
+- **ハブ プロキシのアドレス リファレンス形式が正しくありません。** このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合によく見られます。 ハブ アドレスへの参照が正しく行われたことを確認します。 参照してください[動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
+- **ハブ ルートを追加する前にアプリケーションへのルートの追加。** アプリケーションでは、他のルートを使用する場合、最初のルートが追加の呼び出しの確認`MapSignalR`します。
+- **IIS 7 または 7.5、更新プログラムがないを使用して、拡張子のない Url:** IIS 7 または 7.5 を使用して、サーバーにハブの定義へのアクセスを提供できるように、拡張子のない Url の更新プログラムを必要`/signalr/hubs`します。 更新プログラムが見つかります[ここ](https://support.microsoft.com/kb/980368)します。
+- **IIS のキャッシュ期限切れであるか、または壊れています。** キャッシュの内容が有効期限が切れていないことを確認するには、キャッシュをクリアする PowerShell ウィンドウで、次のコマンドを入力します。
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]
 
@@ -200,7 +202,7 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 ファイアウォールまたはプロキシが正しく構成されていない、書き換え要求ヘッダーの原因の場合、このエラーは発生も一般的です。 ソリューションでは、ファイアウォールまたはプロキシのポート 80 が有効であるかどうかを確認します。
 
-### <a name="unexpected-response-code-500"></a>"予期しない応答コード: 500"
+### <a name="unexpected-response-code-500"></a>"予期しない応答コード。500"
 
 このエラーは、アプリケーションで使用される .NET framework のバージョンが Web.Config で指定されたバージョンと一致しない場合に発生する可能性があります。このソリューションでは、.NET 4.5 がアプリケーションの設定と、Web.Config ファイルの両方で使用されていることを確認します。
 
@@ -212,7 +214,7 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 パラメーター、メソッドに送信するには、シリアル化できない型 (ファイル ハンドル、データベース接続など) が含まれていないことを確認します。 使用 (またはセキュリティのためのシリアル化の理由から)、クライアントに送信したくないのサーバー側オブジェクトにメンバーを使用する必要がある場合、`JSONIgnore`属性。
 
-### <a name="protocol-error-unknown-transport-error"></a>"プロトコル エラー: 不明なトランスポート"エラー
+### <a name="protocol-error-unknown-transport-error"></a>"プロトコル エラー。不明なトランスポートは"エラー
 
 このエラーは、クライアントは SignalR を使用するトランスポートをサポートしていない場合に発生する可能性があります。 参照してください[トランスポートとフォールバック](../getting-started/introduction-to-signalr.md#transports)についてを SignalR でブラウザーを使用できます。
 
@@ -224,11 +226,11 @@ SignalR のサーバーがわからないかどうか、クライアントが切
 
 このエラーは、認証を使用して、接続が停止する前に、クライアントがログアウトした場合に発生する可能性があります。 ソリューションでは、クライアントをログアウトする前に SignalR 接続を停止します。
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"エラーをキャッチできない: SignalR: jQuery が見つかりませんでした。 SignalR.js ファイルの前に jQuery が参照されていることを確認してください"のエラー
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"エラーをキャッチできません。SignalR: jQuery が見つかりませんでした。 SignalR.js ファイルの前に jQuery が参照されていることを確認してください"のエラー
 
 SignalR JavaScript クライアントでは、jQuery を実行する必要があります。 JQuery への参照が使用されるパスが有効であるおよび SignalR への参照を前に jQuery への参照が正しいことを確認します。
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"TypeError をキャッチできない: プロパティを読み取ることができません '&lt;プロパティ&gt;' 未定義の"エラー
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"TypeError をキャッチできません。プロパティを読み取ることができません '&lt;プロパティ&gt;' 未定義の"エラー
 
 このエラーは、jQuery またはハブ プロキシを適切に参照されていないことから発生します。 JQuery、およびハブ プロキシへの参照が使用されるパスが有効であると、ハブ プロキシへの参照を前に jQuery への参照が正しいことを確認します。 ハブ プロキシを既定の参照は、次のようになります。
 
@@ -282,7 +284,7 @@ Silverlight でイベントを送信するサーバーを使用する場合、�
 
 これは既知の問題で説明されている[ここ](https://github.com/SignalR/SignalR/issues/1963)します。 この現象は、最新 JQuery ライブラリを使用して表示する可能性があります。回避策では、JQuery 1.8.2 にアプリケーションをダウン グレードします。
 
-### <a name="invalidoperationexception-not-a-valid-web-socket-request"></a>"InvalidOperationException: 有効な web ソケット要求ではありません。
+### <a name="invalidoperationexception-not-a-valid-web-socket-request"></a>"InvalidOperationException:有効な web ソケット要求されません。
 
 このエラーは、WebSocket プロトコルを使用すると、ネットワーク プロキシが要求ヘッダーを変更する場合に発生する可能性があります。 ソリューションでは、ポート 80 で WebSocket を許可するプロキシを構成します。
 

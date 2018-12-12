@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 2d7dd1480694eacffc0cfa60ac0179b16348488d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0a2b24039259ef90579a7f215bb9e35ebef7b9b9
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912996"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288047"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>ASP.NET SignalR ハブ API ガイド - .NET クライアント (c#)
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、SignalR など、Windows ストア (WinRT)、WPF、Silverlight、およびコンソール アプリケーションの .NET クライアントのバージョン 2 の Hubs API の使用の概要を示します。
 >
@@ -40,8 +42,7 @@ ms.locfileid: "48912996"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
-
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 ## <a name="overview"></a>概要
 
@@ -329,12 +330,12 @@ HTTP ヘッダーを設定するには、使用、`Headers`接続オブジェク
 
 SignalR は、次の接続に処理できる有効期間イベントを提供します。
 
-- `Received`: 接続でのデータが受信したときに発生します。 受信したデータを提供します。
-- `ConnectionSlow`: クライアントが低速または削除が頻繁に接続を検出したときに発生します。
-- `Reconnecting`: 基になるトランスポートの再接続を開始するときに発生します。
-- `Reconnected`: 基になるトランスポートが再接続されたときに発生します。
-- `StateChanged`: 接続状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続に関する情報の状態の値を参照してください[ConnectionState 列挙](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)します。
-- `Closed`: 接続が切断されたときに発生します。
+- `Received`:接続でデータを受信したときに発生します。 受信したデータを提供します。
+- `ConnectionSlow`:クライアントが低速または削除が頻繁に接続を検出したときに発生します。
+- `Reconnecting`:基になるトランスポートの再接続を開始するときに発生します。
+- `Reconnected`:基になるトランスポートが再接続されたときに発生します。
+- `StateChanged`:接続状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続に関する情報の状態の値を参照してください[ConnectionState 列挙](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)します。
+- `Closed`:接続が切断されたときに発生します。
 
 たとえば、致命的ではありませんが、断続的な接続の問題が発生するエラーを警告メッセージを表示する場合は、パフォーマンスの低下や頻繁になど、接続の削除を処理、`ConnectionSlow`イベント。
 

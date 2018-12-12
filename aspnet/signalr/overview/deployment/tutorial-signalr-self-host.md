@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
-title: 'チュートリアル: SignalR セルフホスト |Microsoft Docs'
+title: チュートリアル:SignalR セルフホスト |Microsoft Docs
 author: pfletcher
 description: このチュートリアルでは、SignalR 2 の自己ホスト型サーバーを作成する方法と、JavaScript クライアントで接続する方法を説明します。 ソフトウェアのバージョンが V のチュートリアルで使用しています.
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: a08ce2e89ae13125cbc3915b44bcd1120fc22150
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911533"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287404"
 ---
-<a name="tutorial-signalr-self-host"></a>チュートリアル: SignalR セルフホスト
+<a name="tutorial-signalr-self-host"></a>チュートリアル:SignalR セルフホスト
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
 
@@ -45,7 +47,7 @@ ms.locfileid: "48911533"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 ## <a name="overview"></a>概要
@@ -91,7 +93,7 @@ IIS でホストしていない理由は次のとおりです。
 
     上記のコードには、3 つのクラスが含まれています。
 
-    - **プログラム**など、 **Main**メソッドの実行のプライマリ パスを定義します。 このメソッドでは、型の web アプリケーションで**スタートアップ**が開始されて、指定した URL (`http://localhost:8080`)。 エンドポイントのセキュリティが必要な場合は、SSL を実装できます。 参照してください[方法: SSL 証明書でポートを構成](https://msdn.microsoft.com/library/ms733791.aspx)詳細についてはします。
+    - **プログラム**など、 **Main**メソッドの実行のプライマリ パスを定義します。 このメソッドでは、型の web アプリケーションで**スタートアップ**が開始されて、指定した URL (`http://localhost:8080`)。 エンドポイントのセキュリティが必要な場合は、SSL を実装できます。 参照してください[方法。SSL 証明書でポートを構成](https://msdn.microsoft.com/library/ms733791.aspx)詳細についてはします。
     - **スタートアップ**、SignalR のサーバーの構成を含むクラス (このチュートリアルでは、のみの構成への呼び出しは、 `UseCors`) への呼び出し`MapSignalR`ハブのすべてのオブジェクトのルート プロジェクトを作成します。
     - **MyHub**アプリケーションをクライアントに提供する SignalR ハブ クラス。 このクラスは 1 つのメソッド、**送信**、接続されている他のすべてのクライアントにメッセージをブロードキャストするクライアントが呼び出すことです。
 6. アプリケーションをコンパイルして実行します。 サーバーを実行しているアドレスは、コンソール ウィンドウに表示されます。

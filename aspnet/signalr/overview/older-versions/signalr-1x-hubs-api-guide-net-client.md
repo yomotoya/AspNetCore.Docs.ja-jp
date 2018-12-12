@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 5889429645ea1c682ea43c4b17afb3745318e32d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 34356338f24788226351e8e22b47eaaf7ea03e61
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837120"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287984"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR ハブ API ガイド - .NET クライアント (SignalR 1.x)
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、SignalR など、Windows ストア (WinRT)、WPF、Silverlight、およびコンソール アプリケーションの .NET クライアントのバージョン 2 の Hubs API の使用の概要を示します。
 > 
@@ -314,12 +316,12 @@ HTTP ヘッダーを設定するには、使用、`Headers`接続オブジェク
 
 SignalR は、次の接続に処理できる有効期間イベントを提供します。
 
-- `Received`: 接続でのデータが受信したときに発生します。 受信したデータを提供します。
-- `ConnectionSlow`: クライアントが低速または削除が頻繁に接続を検出したときに発生します。
-- `Reconnecting`: 基になるトランスポートの再接続を開始するときに発生します。
-- `Reconnected`: 基になるトランスポートが再接続されたときに発生します。
-- `StateChanged`: 接続状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続に関する情報の状態の値を参照してください[ConnectionState 列挙](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)します。
-- `Closed`: 接続が切断されたときに発生します。
+- `Received`:接続でデータを受信したときに発生します。 受信したデータを提供します。
+- `ConnectionSlow`:クライアントが低速または削除が頻繁に接続を検出したときに発生します。
+- `Reconnecting`:基になるトランスポートの再接続を開始するときに発生します。
+- `Reconnected`:基になるトランスポートが再接続されたときに発生します。
+- `StateChanged`:接続状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続に関する情報の状態の値を参照してください[ConnectionState 列挙](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)します。
+- `Closed`:接続が切断されたときに発生します。
 
 たとえば、致命的ではありませんが、断続的な接続の問題が発生するエラーを警告メッセージを表示する場合は、パフォーマンスの低下や頻繁になど、接続の削除を処理、`ConnectionSlow`イベント。
 

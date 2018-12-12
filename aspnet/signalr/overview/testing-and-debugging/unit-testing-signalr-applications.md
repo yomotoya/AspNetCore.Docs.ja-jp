@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: ba8f5d4577403fe9765641d7ee5d88bde045680a
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d8f3afdc2749173d1e260096ee6bd4bf1ae4c7cb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910825"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287516"
 ---
 <a name="unit-testing-signalr-applications"></a>単体テストの SignalR アプリケーション
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > この記事では、SignalR 2 の単体テスト機能を使用して説明します。
 >
@@ -32,7 +34,7 @@ ms.locfileid: "48910825"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 <a id="unit"></a>
@@ -42,7 +44,7 @@ SignalR 2 の単体テストの機能を使用すると、SignalR アプリケ�
 
 このセクションで作成したアプリケーションの単体テストを追加します、[チュートリアル入門](../getting-started/tutorial-getting-started-with-signalr.md)を使用して[XUnit.net](https://github.com/xunit/xunit)と[Moq](https://github.com/Moq/moq4)します。
 
-XUnit.net; テストの制御に使用します。Moq の作成に使用される、[モック](http://en.wikipedia.org/wiki/Mock_object)をテストするためのオブジェクト。 必要な場合、その他のモック作成フレームワークを使用できます。[NSubstitute](http://nsubstitute.github.io/)もをお勧めします。 このチュートリアルは、2 つの方法でモック オブジェクトを設定する方法を示します。 最初に、を使用して、 `dynamic` (.NET Framework 4 で導入された)、オブジェクトとインターフェイスを使用して、2 番目です。
+XUnit.net; テストの制御に使用します。Moq の作成に使用される、[モック](http://en.wikipedia.org/wiki/Mock_object)をテストするためのオブジェクト。 必要な場合、その他のモック作成フレームワークを使用できます。[NSubstitute](http://nsubstitute.github.io/)もをお勧めします。 このチュートリアルでは、2 つの方法でモック オブジェクトを設定する方法を示します。最初を使用して、`dynamic`オブジェクト (.NET Framework 4 で導入された、)、第 2、インターフェイスを使用します。
 
 ### <a name="contents"></a>目次
 

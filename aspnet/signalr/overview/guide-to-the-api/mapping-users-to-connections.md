@@ -8,16 +8,18 @@ ms.date: 12/30/2014
 ms.assetid: f80c08b1-3f1f-432c-980c-c7b6edeb31b1
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 5c7f710ec672d4f81ac0d1606640054e43fc5af8
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: f24d3a4828bc0863f8213e53f054aa7914edffad
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021236"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287777"
 ---
 <a name="mapping-signalr-users-to-connections"></a>接続に SignalR ユーザーのマッピング
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。
 >
@@ -39,7 +41,6 @@ ms.locfileid: "51021236"
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
-
 
 ## <a name="introduction"></a>はじめに
 

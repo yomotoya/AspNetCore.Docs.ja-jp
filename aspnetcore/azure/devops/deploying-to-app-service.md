@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121221"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284540"
 ---
 # <a name="deploy-an-app-to-app-service"></a>App Service にアプリをデプロイします。
 
@@ -35,7 +35,7 @@ ms.locfileid: "53121221"
 
 コマンド シェルからコードをダウンロードしてプロジェクトをビルドして、次のように実行します。
 
-> *注: Linux/macos ユーザーくださいパスについて、適切な変更など、フォワード スラッシュを使用して (`/`) バック スラッシュではなく (`\`)。*
+> *注 :Linux または macOS ユーザーくださいパスについて、適切な変更など、フォワード スラッシュを使用して (`/`) バック スラッシュではなく (`\`)。*
 
 1. ローカル コンピューター上のフォルダーにコードを複製します。
 
@@ -73,7 +73,7 @@ ms.locfileid: "53121221"
 
 アプリを展開するには、アプリ サービスを作成する必要があります[Web アプリ](/azure/app-service/app-service-web-overview)します。 Web アプリの作成後は、Git を使用して、ローカル コンピューターからをデプロイします。
 
-1. サインイン、 [Azure Cloud Shell](https://shell.azure.com/bash)します。 注: 最初にサインインすると Cloud Shell の構成ファイルのストレージ アカウントを作成する求められます。 既定値を受け入れるか、一意の名前を指定します。
+1. サインイン、 [Azure Cloud Shell](https://shell.azure.com/bash)します。 メモ:初めてサインインすると、構成ファイルのストレージ アカウントを作成する Cloud Shell が求められます。 既定値を受け入れるか、一意の名前を指定します。
 
 2. 次の手順については、Cloud Shell を使用します。
 
@@ -141,7 +141,7 @@ ms.locfileid: "53121221"
 
 ## <a name="deployment-with-visual-studio"></a>Visual Studio でのデプロイ
 
-> *注: このセクションにのみ適用されます Windows。Linux および macOS ユーザーには、次のステップ 2 で説明されている変更を加える必要があります。ファイルを保存しをローカル リポジトリに変更をコミット`git commit`します。最後に、変更をプッシュ`git push`最初のセクションのようにします。*
+> *注 :このセクションでは、Windows にのみ適用されます。Linux および macOS ユーザーには、次のステップ 2 で説明されている変更を加える必要があります。ファイルを保存しをローカル リポジトリに変更をコミット`git commit`します。最後に、変更をプッシュ`git push`最初のセクションのようにします。*
 
 コマンド シェルから、アプリは既に展開されています。 Visual Studio の統合ツールを使用して、アプリに更新プログラムをデプロイしましょう。 バック グラウンドでは、Visual Studio には、Visual Studio の使い慣れた UI 内でコマンド ライン ツールと同じことが実現されます。
 

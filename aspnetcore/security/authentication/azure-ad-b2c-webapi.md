@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121714"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284618"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api ASP.NET Core での Azure Active Directory B2C での認証
 
@@ -19,7 +19,7 @@ ms.locfileid: "53121714"
 
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) は、web およびモバイル アプリのクラウド id 管理ソリューションです。 サービスは、クラウドとオンプレミスでホストされているアプリの認証を提供します。 認証の種類は、個々 のアカウントに、ソーシャル ネットワーク アカウントを含めるし、エンタープライズ アカウントをフェデレーションします。 Azure AD B2C では、最小構成での多要素認証も提供します。
 
-Azure Active Directory (Azure AD) と Azure AD B2C は個別の製品を提供します。 Azure AD テナントは、組織を表し、Azure AD B2C テナントは証明書利用者アプリケーションで使用される id のコレクションを表します。 詳細についてを参照してください。 [Azure AD B2C: よく寄せられる質問 (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs)します。
+Azure Active Directory (Azure AD) と Azure AD B2C は個別の製品を提供します。 Azure AD テナントは、組織を表し、Azure AD B2C テナントは証明書利用者アプリケーションで使用される id のコレクションを表します。 詳細についてを参照してください[Azure AD B2C:。よく寄せられる質問 (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs)します。
 
 Web Api にユーザー インターフェイスがあるないため、中、Azure AD B2C のような場合は、セキュリティ トークン サービスにユーザーをリダイレクトすること。 代わりに、API では、呼び出し元のアプリは、Azure AD B2C でユーザーが既に認証されてからベアラー トークンを渡されます。 API は、直接ユーザーの介入なしトークンを検証します。
 
@@ -175,14 +175,14 @@ Web API に認証された要求を作成するには、ベアラー トーク�
    |      <strong>トークン名</strong>       |                                          *トークン {name}*                                       |                                                                                                                   トークンのわかりやすい名前を入力します。                                                                                                                    |
    |      <strong>付与タイプ</strong>       |                                           暗黙的                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>コールバック URL</strong>      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
-   |       <strong>認証 URL</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  置換 *{テナント ドメイン名}* テナントのドメイン名を使用します。 **重要な**: この URL は、としてはあるものと同じドメイン名をいる必要があります`AzureAdB2C.Instance`で web API の*appsettings.json*ファイル。 注記&dagger;します。                                                  |
+   |       <strong>認証 URL</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  置換 *{テナント ドメイン名}* テナントのドメイン名を使用します。 **重要な**:この URL は、としてはあるものと同じドメイン名をいる必要があります`AzureAdB2C.Instance`で web API の*appsettings.json*ファイル。 注記&dagger;します。                                                  |
    |       <strong>クライアント ID</strong>       |                *{Postman アプリの入力<b>アプリケーション ID</b>}*                              |                                                                                                                                                                                                                                                                              |
    |         <strong>スコープ</strong>         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | 置換 *{テナント ドメイン名}* テナントのドメイン名を使用します。 置換 *{api}* アプリ ID URI を持つ指定した web API 最初に登録したときに (この場合、 `api`)。 URL のパターン:`https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`します。         |
    |         <strong>状態</strong>         |                                      *{空白のままにしました*                                          |                                                                                                                                                                                                                                                                              |
    | <strong>クライアントの認証</strong> |                                クライアントの資格情報の本文で送信します。                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]
-    > &dagger; Azure Active Directory B2C ポータルで、ポリシーの設定 ダイアログには、2 つの可能な Url が表示されます: 1 つの形式で`https://login.microsoftonline.com/`{テナント ドメイン名}/{追加パス情報} およびその他の形式で`https://{tenant name}.b2clogin.com/`{テナント ドメイン名}/{追加パス情報}。 **重要な**内にあるドメインで`AzureAdB2C.Instance`で web API の*appsettings.json*ファイル構造で、web アプリの使用と一致する*appsettings.json*ファイル。 これは、Postman の [認証 URL] フィールドに使用する同じドメインです。 Visual Studio が、ポータルに表示される内容よりもわずかに異なる URL 形式を使用することに注意してください。 ドメインが一致する限り、URL は機能します。
+    > &dagger; Azure Active Directory B2C ポータルで、ポリシーの設定 ダイアログでは、2 つの可能な Url が表示されます。1 つの形式で`https://login.microsoftonline.com/`{テナント ドメイン名}/{追加パス情報}、およびその他の形式で`https://{tenant name}.b2clogin.com/`{テナント ドメイン名}/{追加パス情報}。 **重要な**内にあるドメインで`AzureAdB2C.Instance`で web API の*appsettings.json*ファイル構造で、web アプリの使用と一致する*appsettings.json*ファイル。 これは、Postman の [認証 URL] フィールドに使用する同じドメインです。 Visual Studio が、ポータルに表示される内容よりもわずかに異なる URL 形式を使用することに注意してください。 ドメインが一致する限り、URL は機能します。
 
 3. 選択、**トークン要求**ボタンをクリックします。
 

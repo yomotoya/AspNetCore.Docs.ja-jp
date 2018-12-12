@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 8bb22dc6df9879e827ff9a5ac11e9e3ad5346dc2
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d4f3e210b0d3c79eaf2233f97a29a6d96cd69b39
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284384"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Facebook 外部ログインのセットアップ
 
@@ -121,7 +121,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 アプリケーションを実行し、をクリックして**ログイン**します。 Facebook でサインインするオプションが表示されます。
 
-![Web アプリケーション: ユーザーが認証されていません。](index/_static/DoneFacebook.png)
+![Web アプリケーション:ユーザーが認証されていません。](index/_static/DoneFacebook.png)
 
 クリックすると**Facebook**認証に Facebook にリダイレクトされます。
 
@@ -135,13 +135,13 @@ Facebook の資格情報を入力すると、電子メールを設定するサ�
 
 Facebook の資格情報を使用してログインしました。
 
-![Web アプリケーション: 認証されたユーザー](index/_static/Done.png)
+![Web アプリケーション:認証されたユーザー](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
+* **ASP.NET Core 2.x のみ。** ユーザーが呼び出すことによって構成されていない場合`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException:'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
 * 取得する場合は、初期移行を適用することで、サイト データベースが作成されていない*要求の処理中にデータベース操作が失敗しました*エラー。 タップ**適用移行**データベースを作成し、エラーを引き続き更新します。
 
 ## <a name="next-steps"></a>次の手順

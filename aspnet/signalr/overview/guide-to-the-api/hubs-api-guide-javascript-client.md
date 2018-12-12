@@ -8,16 +8,18 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 9edb7fd100a3f4c5331454045ac206d2f7a81961
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8e493eda256351904da49e1222773f188e6a2058
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912450"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288067"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>ASP.NET SignalR ハブ API ガイド - JavaScript クライアント
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、ブラウザーや Windows ストア (WinJS) アプリケーションなど、JavaScript クライアントで、バージョン 2 の SignalR ハブ API を使用するように紹介します。
 >
@@ -40,8 +42,7 @@ ms.locfileid: "48912450"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
-
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 ## <a name="overview"></a>概要
 
@@ -226,7 +227,7 @@ SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCross
 
 設定を明示的に有効にする必要があります (古いブラウザーでは、クロス ドメイン要求をサポート) をクライアントで JSONP が必要な場合`EnableJSONP`で、`HubConfiguration`オブジェクトを`true`以下に示すようにします。 CORS より安全であるために、既定では、JSONP が無効です。
 
-**Microsoft.Owin.Cors プロジェクトへの追加:** このライブラリをインストールするには、パッケージ マネージャー コンソールで、次のコマンドを実行します。
+**Microsoft.Owin.Cors をプロジェクトに追加します。** このライブラリをインストールするには、パッケージ マネージャー コンソールで、次のコマンドを実行します。
 
 `Install-Package Microsoft.Owin.Cors`
 
@@ -464,13 +465,13 @@ SignalR では 1.x では、クロス ドメイン要求が 1 つの EnableCross
 
 SignalR は、次の接続に処理できる有効期間イベントを提供します。
 
-- `starting`: すべてのデータが、接続経由で送信される前に発生します。
-- `received`: 接続でのデータが受信したときに発生します。 受信したデータを提供します。
-- `connectionSlow`: クライアントが低速または削除が頻繁に接続を検出したときに発生します。
-- `reconnecting`: 基になるトランスポートの再接続を開始するときに発生します。
-- `reconnected`: 基になるトランスポートが再接続されたときに発生します。
-- `stateChanged`: 接続状態が変更されたときに発生します。 以前の状態と新しい状態 (接続、接続、再接続、または切断) を提供します。
-- `disconnected`: 接続が切断されたときに発生します。
+- `starting`:すべてのデータが、接続経由で送信される前に発生します。
+- `received`:接続でデータを受信したときに発生します。 受信したデータを提供します。
+- `connectionSlow`:クライアントが低速または削除が頻繁に接続を検出したときに発生します。
+- `reconnecting`:基になるトランスポートの再接続を開始するときに発生します。
+- `reconnected`:基になるトランスポートが再接続されたときに発生します。
+- `stateChanged`:接続状態が変更されたときに発生します。 以前の状態と新しい状態 (接続、接続、再接続、または切断) を提供します。
+- `disconnected`:接続が切断されたときに発生します。
 
 たとえば、次のように顕著な遅延を引き起こす可能性のある接続の問題が発生する警告メッセージを表示する場合、処理、`connectionSlow`イベント。
 

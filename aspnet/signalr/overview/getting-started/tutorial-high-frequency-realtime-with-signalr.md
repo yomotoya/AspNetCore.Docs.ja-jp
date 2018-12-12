@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: 'チュートリアル: SignalR 2 によるの高頻度リアルタイム メッセージング |Microsoft Docs'
+title: チュートリアル:SignalR 2 による高頻度リアルタイム メッセージング |Microsoft Docs
 author: pfletcher
 description: このチュートリアルでは、ASP.NET SignalR を使用して、頻度の高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。 高頻度のメッセージングには.
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 23dc9cc7fd469e934ed9915922a3baa772d9e1ab
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 04ce650509268ee63daafe24bc8dcc9725aea16b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912033"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287729"
 ---
-<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>チュートリアル: SignalR 2 によるの高頻度リアルタイム メッセージング
+<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>チュートリアル:SignalR 2 による高頻度リアルタイム メッセージング
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
@@ -53,7 +55,7 @@ ms.locfileid: "48912033"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 ## <a name="overview"></a>概要

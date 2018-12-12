@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
-title: 'チュートリアル: SignalR 2 と MVC 5 の概要 |Microsoft Docs'
+title: チュートリアル:SignalR 2 と MVC 5 の概要 |Microsoft Docs
 author: pfletcher
 description: このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加され、チャットのビューを作成しています.
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: a58b95adfb5d0165887b95abd3247d3a829aa882
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 568f82daa67f33736c2bf7a45a3e1339f265c487
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912229"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287518"
 ---
-<a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>チュートリアル: SignalR 2 と MVC 5 の概要
+<a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>チュートリアル:SignalR 2 と MVC 5 の概要
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tim Teebken](https://github.com/timlt)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
@@ -50,7 +52,7 @@ ms.locfileid: "48912229"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 ## <a name="overview"></a>概要

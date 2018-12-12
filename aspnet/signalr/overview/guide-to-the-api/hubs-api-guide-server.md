@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758246"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288106"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR ハブ API ガイド - サーバー (c#)
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、一般的なオプションを示すコード サンプルを使用したバージョン 2 では、SignalR のサーバー側の ASP.NET SignalR ハブの API をプログラミングの概要を示します。
 > 
@@ -41,7 +43,6 @@ ms.locfileid: "50758246"
 > ## <a name="questions-and-comments"></a>意見やご質問
 > 
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
-
 
 ## <a name="overview"></a>概要
 
@@ -103,7 +104,7 @@ SignalR 2 のサーバー コンポーネントは .NET 4.5 でのみ利用で�
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
-ASP.NET MVC アプリケーションに SignalR の機能を追加する場合は、SignalR のルートが、他のルートの前に追加されたことを確認します。 詳細については、次を参照してください。[チュートリアル: SignalR 2 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)します。
+ASP.NET MVC アプリケーションに SignalR の機能を追加する場合は、SignalR のルートが、他のルートの前に追加されたことを確認します。 詳細については、次を参照してください。[チュートリアル。SignalR 2 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)します。
 
 <a id="signalrurl"></a>
 

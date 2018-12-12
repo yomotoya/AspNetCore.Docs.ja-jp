@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: e5ed2a65355a1dba34af09379f2583b3e73c24d7
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 28932cbef1cc797338980f3e0de8b09caee324c0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121428"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284605"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>ASP.NET Core でのキー管理の拡張性
 
@@ -175,7 +175,7 @@ services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
 
 `IXmlEncryptor`インターフェイスは、プレーン テキストの XML 要素を暗号化する型を表します。 1 つの API を公開しています。
 
-* (XElement plaintextElement) の暗号化: EncryptedXmlInfo
+* Encrypt(XElement plaintextElement):EncryptedXmlInfo
 
 場合、シリアル化された`IAuthenticatedEncryptorDescriptor`し、「暗号化を必要とする」としてマークされているすべての要素が含まれています`XmlKeyManager`経由、構成されたこれらの要素で実行される`IXmlEncryptor`の`Encrypt`メソッドをおよびそれにしたり、要素を保持ではなく、プレーン テキスト要素を`IXmlRepository`します。 出力、`Encrypt`メソッドは、`EncryptedXmlInfo`オブジェクト。 このオブジェクトはしたり、両方の結果を含むラッパー`XElement`と型を表す、`IXmlDecryptor`の対応する要素を復号化に使用できます。
 
@@ -210,7 +210,7 @@ services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
 
 `IXmlDecryptor`インターフェイスは、暗号化を解除する方法を認識する型を表す、`XElement`がしたりを使用して、`IXmlEncryptor`します。 1 つの API を公開しています。
 
-* (XElement encryptedElement) を暗号化解除: XElement
+* (XElement encryptedElement) の暗号化を解除します。XElement
 
 `Decrypt`メソッドによって実行された暗号化を元に戻します`IXmlEncryptor.Encrypt`します。 一般に、各具象`IXmlEncryptor`対応する具体的な実装が必要があります`IXmlDecryptor`実装します。
 

@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
-title: 'ハンズ オン ラボ: SignalR によるリアルタイムの Web アプリケーション |Microsoft Docs'
+title: ハンズ オン ラボ:SignalR によるリアルタイムの Web アプリケーション |Microsoft Docs
 author: rick-anderson
 description: リアルタイムの Web アプリケーションには、サーバー側の偶然ですが、リアルタイムで接続されているクライアントにコンテンツをプッシュする機能が機能します。 ASP.NET 開発者は、ASP.
 ms.author: riande
@@ -8,16 +8,19 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 59831fb8497c86ec5e02de3912b36a15f416597c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: de2f2349fc284e167bd8227ae55da79b9f1f4549
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913241"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288010"
 ---
-<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>SignalR によるリアルタイムの Web アプリケーションをハンズ オン ラボ:
+<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>ハンズ オン ラボ:SignalR によるリアルタイムの Web アプリケーション
 ====================
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Web のキャンプ トレーニング キットをダウンロードします。](http://aka.ms/webcamps-training-kit)
 
@@ -25,9 +28,9 @@ ms.locfileid: "48913241"
 > 
 > **SignalR**クライアント RPC サーバーを行うためのシンプルで高レベルの API も提供します (サーバー側の .NET コードからのクライアントのブラウザーで JavaScript 関数を呼び出す) で、ASP.NET アプリケーションとの接続管理などの便利なフックを追加します。など、接続/切断イベント、接続のグループ化、および承認します。
 > 
-> **SignalR**クライアントとサーバー間のリアルタイムの作業を行うには、必要なトランスポートの中に、抽象化です。 A **SignalR**接続は、HTTP、として起動しには、昇格を**WebSocket**使用可能な場合に接続します。 **WebSocket**の理想的なトランスポートは、 **SignalR**、サーバー メモリが最も効率的な使用には、最小の待機時間を備え、基になる最も機能があります (クライアント間の全二重通信など、サーバー) が最も厳しい要件があります: **WebSocket** 、サーバーを使用する必要があります**Windows Server 2012**または**Windows 8**、と共に **.NET framework 4.5**します。 これらの要件が満たされない場合**SignalR**他のトランスポートを使用して、その接続の確立を試みます (など*長いポーリングの Ajax*)。
+> **SignalR**クライアントとサーバー間のリアルタイムの作業を行うには、必要なトランスポートの中に、抽象化です。 A **SignalR**接続は、HTTP、として起動しには、昇格を**WebSocket**使用可能な場合に接続します。 **WebSocket**の理想的なトランスポートは、 **SignalR**、サーバー メモリが最も効率的な使用には、最小の待機時間を備え、基になる最も機能があります (クライアント間の全二重通信など、サーバー) では最も厳しい要件もあります。**WebSocket** 、サーバーを使用する必要があります**Windows Server 2012**または**Windows 8**、と共に **.NET Framework 4.5**します。 これらの要件が満たされない場合**SignalR**他のトランスポートを使用して、その接続の確立を試みます (など*長いポーリングの Ajax*)。
 > 
-> **SignalR** API には、クライアントとサーバー間の通信に 2 つのモデルが含まれています:**永続的な接続**と**Hubs**します。 A**接続**別にグループ化、またはブロードキャスト メッセージを受信者の 1 つの送信を単純なエンドポイントを表します。 A**ハブ**は、クライアントとサーバーが相互に直接メソッドを呼び出すことができる接続 API に基づいて構築されておりより高度なパイプラインです。
+> **SignalR** API には、クライアントとサーバー間の通信に 2 つのモデルが含まれています。**永続的な接続**と**Hubs**します。 A**接続**別にグループ化、またはブロードキャスト メッセージを受信者の 1 つの送信を単純なエンドポイントを表します。 A**ハブ**は、クライアントとサーバーが相互に直接メソッドを呼び出すことができる接続 API に基づいて構築されておりより高度なパイプラインです。
 > 
 > ![SignalR のアーキテクチャ](real-time-web-applications-with-signalr/_static/image1.png)
 > 
@@ -84,14 +87,14 @@ ms.locfileid: "48913241"
 1. [SignalR を使用してリアルタイムのデータの使用](#Exercise1)
 2. [SQL Server を使用したスケール アウト](#Exercise2)
 
-この演習の所要時間を推定: **60 分**
+この演習の所要時間を推定するには。**60 分**
 
 > [!NOTE]
 > Visual Studio を初めて起動すると、定義済みの設定のコレクションの 1 つを選択する必要があります。 定義済みの各コレクションは、特定の開発スタイルに一致するように設計されていて、ウィンドウのレイアウト、エディターの動作、IntelliSense コード スニペット、およびダイアログ ボックスのオプションを決定します。 このラボの手順を使用する場合は、Visual Studio で特定のタスクを実行するために必要な操作を記述する、**汎用開発設定**コレクション。 開発環境のさまざまな設定のコレクションを選択する場合、考慮する必要がある手順に違いがあります。
 
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-working-with-real-time-data-using-signalr"></a>手順 1: SignalR を使用してリアルタイムのデータの使用
+### <a name="exercise-1-working-with-real-time-data-using-signalr"></a>手順 1:SignalR を使用してリアルタイムのデータの使用
 
 全体を行うことができますチャットの使用が例としては、多くの場合、リアルタイム Web 機能を備えたより。 ユーザーは、新しいデータまたは長いポーリングが新しいデータを取得する Ajax ページの実装を表示する web ページを更新します。 いつでも SignalR を使用することができます。
 
@@ -248,7 +251,7 @@ SignalR をサポートしています**サーバー プッシュ**または**�
     *応答の後に更新された統計情報ページ*
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-scaling-out-using-sql-server"></a>手順 2: をスケール アウト、SQL Server の使用
+### <a name="exercise-2-scaling-out-using-sql-server"></a>手順 2:SQL Server を使用したスケール アウト
 
 選択できます一般に、web アプリケーションをスケーリングするときに*スケール アップ*と*スケール アウト*オプション。 *スケール アップ*中にその他のリソース (CPU、RAM など) で大規模なサーバーを使用することを意味*スケール アウト*負荷を処理するサーバーを追加することを意味します。 後者の場合、問題は、クライアント別のサーバーにルーティングできることです。 1 つのサーバーに接続されているクライアントは、別のサーバーから送信されたメッセージを受信しません。
 
@@ -269,9 +272,9 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 > [!NOTE]
 > バック プレーンがボトルネックになることがいくつかのシナリオがあります。 SignalR の一般的なシナリオを次に示します。
 > 
-> - [サーバー ブロードキャスト](tutorial-server-broadcast-with-signalr.md)(たとえば、株価表示器): サーバー メッセージが送信される速度を制御するために、バック プレーンがこのシナリオに動作します。
-> - [クライアントで](tutorial-getting-started-with-signalr.md)(チャットなど)。 このシナリオでのバック プレーン場合がありますボトルネックになっているクライアントの数のメッセージの数に合わせて; は、メッセージの数が増えた場合それに比例して増えるクライアントが参加します。
-> - [高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)(リアルタイムのゲームなど)。 このシナリオのバック プレーンは推奨されません。
+> - [サーバー ブロードキャスト](tutorial-server-broadcast-with-signalr.md)(株価情報など)。バック プレーンがこのシナリオに動作するは、サーバー メッセージが送信される速度を制御するためです。
+> - [クライアントで](tutorial-getting-started-with-signalr.md)(チャットなど)。このシナリオでバック プレーン場合があります、ボトルネックのメッセージの数に合わせてクライアントの数メッセージの数が増加した場合は、それに比例して増えるクライアントが参加します。
+> - [高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)(リアルタイムのゲームなど)。このシナリオでは、バック プレーンは推奨されません。
 
 
 この演習では使用して**SQL Server**間でメッセージを配布する、**ギーク Quiz**アプリケーション。 完全な効果を取得するために、構成を設定する方法については、1 つのテスト マシンでこれらのタスクを実行するは、SignalR アプリケーションを 2 つまたは複数のサーバーをデプロイする必要があります。 サーバーのいずれか、または別の専用サーバーでは、SQL Server をインストールすることもする必要があります。
@@ -346,7 +349,7 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
     ![サービス ブローカーの状態を照会](real-time-web-applications-with-signalr/_static/image25.png "サービス ブローカーの状態のクエリを実行します。")
 
     *サービス ブローカーの状態のクエリを実行します。*
-8. 場合の値、**は\_broker\_有効になっている**、データベース内の列が&quot;0&quot;、有効にする、次のコマンドを使用します。 置換 **&lt;、データベース&gt;** データベースを作成するときに設定した名前 (例:: SignalR)。
+8. 場合の値、**は\_broker\_有効になっている**、データベース内の列が&quot;0&quot;、有効にする、次のコマンドを使用します。 置換 **&lt;、データベース&gt;** データベースを作成するときに設定した名前 (例:。SignalR)。
 
     [!code-sql[Main](real-time-web-applications-with-signalr/samples/sample12.sql)]
 
@@ -375,7 +378,7 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 5. ここでも、 **Visual Studio**の 2 つのインスタンスが起動**ギーク Quiz**で別のポート。 他の画面の右側および左側に、ブラウザーのいずれかをピン留めし、資格情報でログインします。 左側のトリビアのページを保持しに移動**統計**ページイン適切なブラウザー。
 6. 左側のブラウザーでの質問に答えることを開始します。 今回は、**統計**バック プレーンに協力してくれたページが更新されます。 アプリケーションを切り替える (**統計**、左側のようになりましたが、**トリビア**が右側) ことが、両方のインスタンスの動作を検証するテストを繰り返すとします。 バック プレーンとして、*共有キャッシュ*、接続されている各サーバーと各サーバーのメッセージは、メッセージを保存する接続されているクライアントに配布するための独自のローカル キャッシュです。
 7. Visual Studio に戻るし、デバッグを停止します。
-8. SQL Server のバック プレーン コンポーネントには、指定したデータベースで必要なテーブルが自動的に生成されます。 **SQL Server オブジェクト エクスプ ローラー**パネルで、バック プレーン用に作成したデータベースを開きます (例:: SignalR) し、そのテーブルを展開します。 次の表が表示されます。
+8. SQL Server のバック プレーン コンポーネントには、指定したデータベースで必要なテーブルが自動的に生成されます。 **SQL Server オブジェクト エクスプ ローラー**パネルで、バック プレーン用に作成したデータベースを開きます (例。SignalR) し、そのテーブルを展開します。 次の表が表示されます。
 
     ![生成されたテーブルのバック プレーン](real-time-web-applications-with-signalr/_static/image27.png)
 

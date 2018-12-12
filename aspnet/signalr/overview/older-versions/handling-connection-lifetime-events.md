@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0e912540bf24abd8a7e91c73c87ed9213be487
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f965c38e18c442268f9bb1d7ffb5e98a135efade
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835352"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287685"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>SignalR で接続の有効期間イベントの処理の理解と 1.x
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > この記事では、SignalR 接続や再接続、切断イベントを処理することができますとタイムアウトとキープア ライブの設定を構成することができますの概要を示します。
 > 
@@ -63,7 +65,7 @@ ms.locfileid: "41835352"
 この記事では区別*SignalR 接続*、*トランスポート接続*、および*物理接続*:
 
 - **SignalR 接続**クライアントとサーバーの URL、SignalR の API によって管理され、接続の ID によって一意に識別間に論理リレーションシップを参照 このリレーションシップに関するデータは、SignalR が管理し、トランスポート接続を確立するために使用します。 クライアントを呼び出すときのデータのリレーションシップの end と SignalR が破棄、`Stop`メソッドまたはタイムアウト制限に達すると、SignalR が失われるトランスポート接続を再確立しようとしています。
-- **トランスポート接続**クライアントと管理 Api の 4 つのトランスポートのいずれかによって、サーバーの間の論理リレーションシップを指す: WebSockets、サーバーによって送信されるイベントが永久にフレーム、または長いポーリングします。 SignalR はトランスポート API を使用してトランスポート接続を作成して、トランスポートの API がトランスポート接続を作成する物理ネットワーク接続の存在に依存します。 トランスポート接続は、SignalR でが終了するとき、またはトランスポート API は、物理的な接続が切断されたことを検出したときに終了します。
+- **トランスポート接続**クライアントと管理 Api の 4 つのトランスポートのいずれかによって、サーバーの間の論理リレーションシップを参照します。Websocket、サーバーによって送信されるイベント、無限のフレームまたはポーリング時間の長い。 SignalR はトランスポート API を使用してトランスポート接続を作成して、トランスポートの API がトランスポート接続を作成する物理ネットワーク接続の存在に依存します。 トランスポート接続は、SignalR でが終了するとき、またはトランスポート API は、物理的な接続が切断されたことを検出したときに終了します。
 - **物理的な接続**を指す、物理ネットワークへのリンク - ワイヤ、ワイヤレス信号をルーター、- などをクライアント コンピューターとサーバー コンピューター間の通信を容易にします。 物理的な接続のトランスポート接続を確立するために存在する必要があり、SignalR の接続を確立するためにトランスポート接続を確立する必要があります。 ただし、互換性に影響する物理接続は常に即座に終了トランスポート接続や、SignalR 接続このトピックの後半で説明するようです。
 
 次の図で SignalR 接続は、ハブの API と PersistentConnection API SignalR レイヤーで表されるトランスポート接続は、トランスポート レイヤーで表され、物理接続は、サーバー間の線で表されますクライアントとします。

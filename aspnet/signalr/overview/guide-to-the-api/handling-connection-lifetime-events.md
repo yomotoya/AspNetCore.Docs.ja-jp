@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6a354179a82eba1d4a64184bfdeb302472fabf5f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911955"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287983"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>理解と SignalR で接続の有効期間イベントの処理
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > この記事では、SignalR 接続や再接続、切断イベントを処理することができますとタイムアウトとキープア ライブの設定を構成することができますの概要を示します。
 >
@@ -42,8 +44,7 @@ ms.locfileid: "48911955"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
-
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 ## <a name="overview"></a>概要
 
@@ -81,7 +82,7 @@ ms.locfileid: "48911955"
 この記事では区別*SignalR 接続*、*トランスポート接続*、および*物理接続*:
 
 - **SignalR 接続**クライアントとサーバーの URL、SignalR の API によって管理され、接続の ID によって一意に識別間に論理リレーションシップを参照 このリレーションシップに関するデータは、SignalR が管理し、トランスポート接続を確立するために使用します。 クライアントを呼び出すときのデータのリレーションシップの end と SignalR が破棄、`Stop`メソッドまたはタイムアウト制限に達すると、SignalR が失われるトランスポート接続を再確立しようとしています。
-- **トランスポート接続**クライアントと管理 Api の 4 つのトランスポートのいずれかによって、サーバーの間の論理リレーションシップを指す: WebSockets、サーバーによって送信されるイベントが永久にフレーム、または長いポーリングします。 SignalR はトランスポート API を使用してトランスポート接続を作成して、トランスポートの API がトランスポート接続を作成する物理ネットワーク接続の存在に依存します。 トランスポート接続は、SignalR でが終了するとき、またはトランスポート API は、物理的な接続が切断されたことを検出したときに終了します。
+- **トランスポート接続**クライアントと管理 Api の 4 つのトランスポートのいずれかによって、サーバーの間の論理リレーションシップを参照します。Websocket、サーバーによって送信されるイベント、無限のフレームまたはポーリング時間の長い。 SignalR はトランスポート API を使用してトランスポート接続を作成して、トランスポートの API がトランスポート接続を作成する物理ネットワーク接続の存在に依存します。 トランスポート接続は、SignalR でが終了するとき、またはトランスポート API は、物理的な接続が切断されたことを検出したときに終了します。
 - **物理的な接続**を指す、物理ネットワークへのリンク - ワイヤ、ワイヤレス信号をルーター、- などをクライアント コンピューターとサーバー コンピューター間の通信を容易にします。 物理的な接続のトランスポート接続を確立するために存在する必要があり、SignalR の接続を確立するためにトランスポート接続を確立する必要があります。 ただし、互換性に影響する物理接続は常に即座に終了トランスポート接続や、SignalR 接続このトピックの後半で説明するようです。
 
 次の図で SignalR 接続は、ハブの API と PersistentConnection API SignalR レイヤーで表されるトランスポート接続は、トランスポート レイヤーで表され、物理接続は、サーバー間の線で表されますクライアントとします。
@@ -146,7 +147,7 @@ SignalR 接続の有効期間イベント、クライアントで発生する可
 
 > [!NOTE]
 >
-> **重要な**: ここで説明するイベントの順序は保証されません。 SignalR は、このスキームに従って、予測可能な方法で接続の有効期間イベントを発生させるすべての試行が、ネットワーク イベントの多くのバリエーションとトランスポート Api などの基になる通信フレームワークがそれらに対応する多くの方法があります。 たとえば、`Reconnected`クライアントが再接続するとき、イベントが発生しないまたは`OnConnected`接続を確立する試行が成功すると、サーバー上のハンドラーが実行可能性があります。 このトピックでは、特定の一般的な状況によって通常生成される効果のみについて説明します。
+> **重要な**:ここで説明するイベントの順序は保証されません。 SignalR は、このスキームに従って、予測可能な方法で接続の有効期間イベントを発生させるすべての試行が、ネットワーク イベントの多くのバリエーションとトランスポート Api などの基になる通信フレームワークがそれらに対応する多くの方法があります。 たとえば、`Reconnected`クライアントが再接続するとき、イベントが発生しないまたは`OnConnected`接続を確立する試行が成功すると、サーバー上のハンドラーが実行可能性があります。 このトピックでは、特定の一般的な状況によって通常生成される効果のみについて説明します。
 
 
 <a id="clientdisconnect"></a>

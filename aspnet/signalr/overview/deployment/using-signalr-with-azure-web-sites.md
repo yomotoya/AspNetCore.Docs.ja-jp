@@ -8,16 +8,18 @@ ms.date: 07/01/2015
 ms.assetid: 2a7517a0-b88c-4162-ade3-9bf6ca7062fd
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: c5ede2891ef18b622ed269723603dea3b67a135d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: da69e1aba1b56d69ad8e710cddd2b492168f1255
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912606"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287767"
 ---
 <a name="using-signalr-with-web-apps-in-azure-app-service"></a>Azure App Service で Web アプリで SignalR を使用
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)
+提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > このドキュメントでは、Microsoft Azure で実行されている SignalR アプリケーションを構成する方法について説明します。
 >
@@ -33,7 +35,7 @@ ms.locfileid: "48912606"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)、 [StackOverflow.com](http://stackoverflow.com/)、または[Microsoft Azure フォーラム](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)、 [StackOverflow.com](http://stackoverflow.com/)、または[Microsoft Azure フォーラム](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
 
 
 ## <a name="table-of-contents"></a>目次
@@ -98,7 +100,7 @@ Azure App Service Web Apps で Websocket を使用するためには、web ア�
 
 [構成] ページで、 **Websocket**設定で選択**で**します。
 
-![Websocket の設定: 上](using-signalr-with-azure-web-sites/_static/image10.png)
+![Websocket の設定:オン](using-signalr-with-azure-web-sites/_static/image10.png)
 
 [構成] ページの下部には、次のように選択します。**保存**、変更を保存します。
 

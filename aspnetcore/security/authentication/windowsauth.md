@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 342759a6ff4b5679e0d54c979188ae66d339562d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 15e388433cc9b01e9db3e2fb56aca1ebb5ba5ba4
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121298"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284422"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -61,9 +61,9 @@ IIS を使用して、 [ASP.NET Core モジュール](xref:fundamentals/servers/
 
 Windows 認証の IIS の役割サービスを有効にします。 詳細については、次を参照してください。 [(手順 2 参照)、IIS の役割サービスで Windows 認証を有効にする](xref:host-and-deploy/iis/index#iis-configuration)します。
 
-IIS 統合ミドルウェアは、既定で自動的に要求の認証に構成されます。 詳細については、次を参照してください。 [ASP.NET Core の IIS と Windows ホスト: IIS のオプション (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options)します。
+IIS 統合ミドルウェアは、既定で自動的に要求の認証に構成されます。 詳細については、次を参照してください。 [ASP.NET Core の IIS と Windows ホスト。IIS のオプション (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options)します。
 
-ASP.NET Core モジュールは、既定では、アプリに Windows 認証トークンを転送するように構成されます。 詳細については、次を参照してください。 [ASP.NET Core モジュール構成リファレンス: aspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)します。
+ASP.NET Core モジュールは、既定では、アプリに Windows 認証トークンを転送するように構成されます。 詳細については、次を参照してください。 [ASP.NET Core モジュール構成リファレンス。AspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)します。
 
 ### <a name="create-a-new-iis-site"></a>新しい IIS サイトを作成します。
 

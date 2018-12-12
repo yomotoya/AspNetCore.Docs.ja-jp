@@ -8,16 +8,18 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 2035b3feebfa32dd7ec4d6adf715a7fee5e7b74f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910695"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287372"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>SignalR の依存関係挿入 1.x
 ====================
 によって[Mike Wasson](https://github.com/MikeWasson)、 [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 依存関係の挿入は、簡単になります (モック オブジェクトを使用して) テストのいずれかのオブジェクトの依存関係を置換するか、実行時の動作を変更するオブジェクト間の依存関係をハードコーディングを削除する方法です。 このチュートリアルでは、SignalR ハブの依存関係の挿入を実行する方法を示します。 SignalR で IoC コンテナーを使用する方法も示します。 IoC コンテナーは、依存関係の挿入の一般的なフレームワークです。
 
@@ -81,8 +83,8 @@ SignalR は、作成する必要があるたびに、この匿名関数が呼び
 
 StockTicker サンプルでは、2 つの主要なクラスを定義します。
 
-- `StockTickerHub`:、ハブ クラスはクライアント接続を管理します。
-- `StockTicker`: 株価を保持し、定期的に更新するシングルトン。
+- `StockTickerHub`:ハブ クラスはクライアント接続を管理します。
+- `StockTicker`:株価を保持し、定期的に更新するシングルトン。
 
 `StockTickerHub` 参照を保持、`StockTicker`シングルトン、中に`StockTicker`への参照を保持、 **IHubConnectionContext**の`StockTickerHub`します。 このインターフェイスを使用して通信を`StockTickerHub`インスタンス。 (詳細については、次を参照してください[ASP.NET SignalR によるサーバー ブロードキャスト](index.md)。)。
 

@@ -8,26 +8,26 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0b7e223b6b793d1860797157be6021ffb7f1bc12
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c865078c14b8615faa278819f86a9dd623a42f36
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090294"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287578"
 ---
 <a name="introduction-to-signalr"></a>SignalR の概要
 ====================
 
-参照してください[ASP.NET Core SignalR の概要](/aspnet/core/signalr/introduction)最新バージョンの Visual Studio を使用するこのチュートリアルの更新バージョン。 新しいチュートリアルでは使用[ASP.NET Core](/aspnet/core/)、このチュートリアルで多くの機能強化を提供します。
-
 提供者: [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 
 > この記事では、SignalR は、いくつかのソリューションを作成するため、デザインされたについて説明します。 
 > 
 > ## <a name="questions-and-comments"></a>意見やご質問
 > 
 > このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr)にて投稿してください。
-
 
 ## <a name="what-is-signalr"></a>SignalR とは何か
 
@@ -57,14 +57,14 @@ SignalR では、使用可能な場合は新しい WebSocket トランスポー�
 
 ## <a name="transports-and-fallbacks"></a>トランスポートとフォールバック
 
-SignalR は、クライアントとサーバー間のリアルタイムの作業を行うために必要なトランスポートの一部を抽象化したものです。 SignalR 接続は HTTP として起動し、WebSocket 接続が可能な場合は WebSocket 接続となります。 WebSocket は、サーバーのメモリを最も効率的に使用し、待機時間が最も短く、最も基本的な機能 (クライアントとサーバー間の全二重通信など) が備わっているため、SignalR の理想的なトランスポートですが、細かい要件があります。WebSocket では、Windows Server 2012 または Windows 8、および .NET Framework 4.5 を使用するサーバーが必要です。 これらの要件が満たされない場合、SignalR は、接続するために他のトランスポートの使用を試みます。
+SignalR は、クライアントとサーバー間のリアルタイムの作業を行うために必要なトランスポートの一部を抽象化したものです。 SignalR 接続は HTTP として起動し、WebSocket 接続が可能な場合は WebSocket 接続となります。 サーバーのメモリを最も効率的な使用によりが最も低い待機時間、および、(など、完全な双方向クライアントとサーバー間通信)、最も基本的な機能がいますが、最も厳格なので、WebSocket は、SignalR の理想的なトランスポート要件:WebSocket は、Windows Server 2012 または Windows 8、および .NET Framework 4.5 を使用するサーバーが必要です。 これらの要件が満たされない場合、SignalR は、接続するために他のトランスポートの使用を試みます。
 
 ### <a name="html-5-transports"></a>HTML 5 トランスポート
 
 これらのトランスポートは [HTML 5](http://en.wikipedia.org/wiki/HTML5) のサポートに依存します。 クライアントのブラウザーが HTML 5 の標準をサポートしていない場合は、古いトランスポートが使用されます。
 
 - **WebSocket** (サーバーとブラウザーの両方が Websocket をサポートすることを示す場合): WebSocket は、クライアントとサーバー間の通信における真に永続的な双方向接続を確立するためのトランスポートです。 ただし、WebSocket には細かい要件もあります。WebSocket は Microsoft Internet Explorer、Google Chrome、Mozilla Firefox の最新のバージョンでのみ完全にサポートされ、Opera や Safari などの他のブラウザーでは部分的にしか実装されません。
-- **Server Sent Events**: EventSource とも呼ばれます (ブラウザーがサーバー送信イベントをサポートする場合。基本的に Internet Explorer を除くすべてのブラウザーでサポートされます)。
+- **サーバー送信イベント**EventSource (ブラウザーがサポートする場合は Internet Explorer を除くすべてのブラウザーでは基本的にサーバー送信イベント、.) とも呼ばれます
 
 ### <a name="comet-transports"></a>Comet トランスポート
 
@@ -90,11 +90,11 @@ SignalR が使用するトランスポートを決定する手順を以下に示
      これらの条件のいずれかが満たされていない場合は、Long Polling が使用されます。 ドメイン間の接続の詳細については、「[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)」を参照してください。
 4. JSONP が設定されておらず、ドメイン間接続でない場合は WebSocket が使用されます (クライアントとサーバーの両方がサポートしている場合)。
 5. クライアントまたはサーバーのいずれかが WebSocket をサポートしていない場合は Server Sent Events が使用されます (利用可能に場合)。
-6. サーバー送信イベントが使用できない場合は、永久にフレームが試行されます。
+6. クライアントまたはサーバーのいずれかが WebSocket をサポートしていない場合は Server Sent Events が使用されます (利用可能に場合)。
 7. Server Sent Events が使用できない場合は、Forever Frame が試されます。
 
 <a id="MonitoringTransports"></a>
-### <a name="monitoring-transports"></a>トランスポートの監視
+### <a name="monitoring-transports"></a>Forever Frame が失敗すると、Long Polling が使用されます。
 
 ハブでログを有効にし、ブラウザーでコンソール ウィンドウを開くことによって、アプリケーションで使用されているトランスポートを特定できます。
 
@@ -132,7 +132,7 @@ SignalR が使用するトランスポートを決定する手順を以下に示
 
 ## <a name="connections-and-hubs"></a>接続とハブ
 
-SignalR の API には、クライアントとサーバー間の通信に 2 つのモデルが含まれています: 永続的な接続とハブ。
+SignalR の API には、クライアントとサーバー間の通信に 2 つのモデルが含まれています。永続的な接続とハブ。
 
 接続は、単一受信者メッセージ、グループ化メッセージ、またはブロードキャスト メッセージを送信するための単純なエンドポイントを表します。 固定接続 API (PersistentConnection クラスによって .NET コードで表される) は、SignalR が公開している低レベルの通信プロトコルへの直接アクセスを開発者に提供します。 接続の通信モデルは、Windows Communication Foundation などの接続に基づく API を使用したことのある開発者にとって使いやすいものです。
 

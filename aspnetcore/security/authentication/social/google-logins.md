@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 372504eb4f6fea412b5b160e0d5e9251dafe0d56
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121532"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284495"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Google 外部ログインのセットアップ
 
@@ -50,11 +50,11 @@ ms.locfileid: "53121532"
   * **Web サーバー (例: node.js、Tomcat)** と
   * **ユーザー データ**:
 
-![API マネージャーの資格情報 ページ: 必要なパネルをどのような種類の資格情報をご確認ください](index/_static/GoogleConsoleChooseCred.png)
+![API マネージャーの資格情報 ページ:必要なパネルをどのような種類の資格情報をご確認ください。](index/_static/GoogleConsoleChooseCred.png)
 
 * タップ**どのような資格情報が必要ですか?** アプリの構成の 2 番目の手順に移動する**OAuth 2.0 クライアント ID を作成**:
 
-![API マネージャーの資格情報 ページ: OAuth 2.0 クライアント ID の作成](index/_static/GoogleConsoleCreateClient.png)
+![API マネージャーの資格情報 ページ:OAuth 2.0 クライアント ID を作成します。](index/_static/GoogleConsoleCreateClient.png)
 
 * 1 つの機能 (サインイン)、同じ入力で Google + プロジェクトを作成するため**名前**としてプロジェクトを使用した OAuth 2.0 クライアントの id。
 
@@ -67,13 +67,13 @@ ms.locfileid: "53121532"
 
 * タップ**クライアント ID の作成**、3 番目の手順に移動する **、OAuth 2.0 同意画面設定**:
 
-![API マネージャーの資格情報 ページ: OAuth 2.0 同意画面設定](index/_static/GoogleConsoleAddCred.png)
+![API マネージャーの資格情報 ページ:OAuth 2.0 同意画面を設定します。](index/_static/GoogleConsoleAddCred.png)
 
 * 入力、パブリックを対象に**電子メール アドレス**と**製品名**Google + にサインインするユーザーを要求するときに、アプリに表示します。 追加のオプションが 利用可能な**その他のカスタマイズ オプション**します。
 
 * タップ**続行**最後の手順を続行する**資格情報をダウンロード**:
 
-![API マネージャーの資格情報 ページ: 資格情報のダウンロード](index/_static/GoogleConsoleFinish.png)
+![API マネージャーの資格情報 ページ:資格情報をダウンロードします。](index/_static/GoogleConsoleFinish.png)
 
 * タップ**ダウンロード**アプリケーションのシークレットの JSON ファイルを保存して**完了**新しいアプリの作成を完了します。
 
@@ -136,7 +136,7 @@ app.UseGoogleAuthentication(new GoogleOptions()
 
 アプリケーションを実行し、をクリックして**ログイン**します。 Google でサインインするためのオプションが表示されます。
 
-![Microsoft Edge で実行されている web アプリケーション: ユーザーが認証されていません。](index/_static/DoneGoogle.png)
+![Microsoft Edge で実行されている web アプリケーション:ユーザーが認証されていません。](index/_static/DoneGoogle.png)
 
 Google をクリックすると認証に Google にリダイレクトされます。
 
@@ -146,14 +146,14 @@ Google の資格情報を入力すると、し、リダイレクトされます�
 
 Google の資格情報を使用してログインしました。
 
-![Microsoft Edge で実行されている web アプリケーション: 認証されたユーザー](index/_static/Done.png)
+![Microsoft Edge で実行されている web アプリケーション:認証されたユーザー](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 * 表示された場合、`403 (Forbidden)`開発モード (または同じエラーでデバッガーを中断) で実行していることを確認すると、独自のアプリからのエラー ページ**Google + API**が有効になって、 **API Manager ライブラリ**記載されている手順に従って[このページで以前](#create-the-app-in-google-api-console)します。 サインインが機能しないすべてのエラー通知が届かない場合は、問題をデバッグしやすくする開発モードに切り替えます。
-* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
+* **ASP.NET Core 2.x のみ。** ユーザーが呼び出すことによって構成されていない場合`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException:'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合になります*要求の処理中にデータベース操作が失敗しました*エラー。 タップ**適用移行**データベースを作成し、エラーを引き続き更新します。
 
 ## <a name="next-steps"></a>次の手順
