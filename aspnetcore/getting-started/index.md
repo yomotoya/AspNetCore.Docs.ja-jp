@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core を使用して単純な Hello World アプリを作成し、実行する簡単なチュートリアルです。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/11/2018
 uid: getting-started
-ms.openlocfilehash: 29a328b610b0a6e1616cd6ebc70a8fa3e515eb92
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cf9e731f7638687b3f40b42864ef7ee8f5522b39
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861707"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284356"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>チュートリアル: ASP.NET Core の概要
 
@@ -31,7 +31,7 @@ ms.locfileid: "52861707"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE [](~/includes/2.1-SDK.md)] をインストールします。
+* [.NET Core 2.2 SDK](https://www.microsoft.com/net/download/all)
 
 ## <a name="create-a-web-app-project"></a>Web アプリ プロジェクトを作成する
 
@@ -91,11 +91,11 @@ dotnet run
 
 ## <a name="edit-a-razor-page"></a>Razor ページを編集する
 
-*Pages/About.cshtml* を開き、次の強調表示されたマークアップでページを変更します。
+*Pages/Index.cshtml* を開き、次の強調表示されたマークアップでページを変更します。
 
-[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
+[!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-[https://localhost:5001/About](https://localhost:5001/About) を参照して、変更が表示されていることを確認します。
+[https://localhost:5001](https://localhost:5001) を参照して、変更が表示されていることを確認します。
 
 ## <a name="next-steps"></a>次の手順
 

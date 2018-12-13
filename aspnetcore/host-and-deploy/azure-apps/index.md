@@ -5,14 +5,14 @@ description: この記事には、Azure のホストと展開リソースへの�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: b32dd3cb84a86d12c61e391b88355ab0411c2815
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: b6ff2124aac7e866f630cf359cbd188e88906844
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52951967"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284696"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
 
@@ -84,9 +84,11 @@ Azure Portal でアプリの設定が作成または変更され、**[保存]** 
 
 ## <a name="monitoring-and-logging"></a>監視およびログ記録
 
+App Service にデプロイされる ASP.NET Core アプリは、App Service の拡張機能、**ASP.NET Core ログ記録の拡張機能**を自動的に受け取ります。 この拡張機能により、Azure のログ記録が有効になります。
+
 監視、ログ記録、トラブルシューティングに関する情報は、次の記事を参照してください。
 
-[Azure App Service でアプリを監視する方法](/azure/app-service/web-sites-monitor)  
+[方法: Azure App Service でアプリを監視する](/azure/app-service/web-sites-monitor)  
 アプリと App Service プランに関するクォータとメトリックを確認する方法を説明します。
 
 [Azure App Service の Web アプリの診断ログの有効化](/azure/app-service/web-sites-enable-diagnostic-log)  
@@ -162,7 +164,7 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 
 **ARM テンプレートでプレビュー サイト拡張機能を使用する**
 
-ARM テンプレートを使用してアプリを作成し、展開する場合は、リソースの種類として `siteextensions` を使用してサイト拡張機能を Web アプリに追加することができます。 例:
+ARM テンプレートを使用してアプリを作成し、展開する場合は、リソースの種類として `siteextensions` を使用してサイト拡張機能を Web アプリに追加することができます。 次に例を示します。
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
@@ -211,7 +213,7 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 ## <a name="protocol-settings-https"></a>プロトコル設定 (HTTPS)
 
-セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 (*.pfx*) が必要です。 詳細については、「[チュートリアル: 既存のカスタム SSL 証明書を Azure Web Apps にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
+セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 (*.pfx*) が必要です。 詳しくは、「[チュートリアル: 既存のカスタム SSL 証明書を Azure Web Apps にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

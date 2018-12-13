@@ -3,14 +3,14 @@ title: ASP.NET から ASP.NET Core への移行
 author: isaac2004
 description: 既存の ASP.NET MVC または Web API アプリを ASP.NET Core.web に移行するときのガイダンスをご覧ください
 ms.author: scaddie
-ms.date: 12/10/2018
+ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216795"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284397"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET から ASP.NET Core への移行
 
@@ -20,7 +20,7 @@ ms.locfileid: "53216795"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+[.NET Core SDK 2.2 以降](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -28,15 +28,15 @@ ASP.NET Core プロジェクトを使うと、開発者は、.NET Core と .NET 
 
 .NET Framework を対象にする場合は、プロジェクトで個々の NuGet パッケージを参照する必要があります。
 
-.NET Core を対象にすると、ASP.NET Core [メタパッケージ](xref:fundamentals/metapackage)のおかげで、さまざまな明示的パッケージ参照をしなくて済みます。 `Microsoft.AspNetCore.All` メタパッケージをプロジェクトにインストールします。
+.NET Core を対象にすると、ASP.NET Core [メタパッケージ](xref:fundamentals/metapackage-app)のおかげで、さまざまな明示的パッケージ参照をしなくて済みます。 `Microsoft.AspNetCore.App` メタパッケージをプロジェクトにインストールします。
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+   <PackageReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
 
-メタパッケージを使うと、メタパッケージ内で参照されているパッケージはアプリでは展開されません。 .NET Core ランタイム ストアにはこれらのアセットが含まれており、パフォーマンス向上のためにプリコンパイルされています。 詳しくは、「[Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage)」(ASP.NET Core 2.x 用 Microsoft.AspNetCore.All メタパッケージ) をご覧ください。
+メタパッケージを使うと、メタパッケージ内で参照されているパッケージはアプリでは展開されません。 .NET Core ランタイム ストアにはこれらのアセットが含まれており、パフォーマンス向上のためにプリコンパイルされています。 詳細については、[ASP.NET Core 用の Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に関する記事を参照してください。
 
 ## <a name="project-structure-differences"></a>プロジェクトの構造の違い
 
@@ -64,15 +64,14 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 [!code-csharp[](samples/program.cs)]
 
-`Startup` は、`Configure` メソッドを含む必要があります。 `Configure` では、必要なミドルウェアをパイプラインに追加します。 (既定の Web サイト テンプレートからの) 次の例では、複数の拡張メソッドを使って、以下をサポートするパイプラインが構成されています。
+`Startup` は、`Configure` メソッドを含む必要があります。 `Configure` では、必要なミドルウェアをパイプラインに追加します。 (既定の Web サイト テンプレートからの) 次の例では、拡張メソッドにより、以下をサポートするパイプラインが構成されます。
 
-* [ブラウザー リンク](xref:client-side/using-browserlink)
 * エラー ページ
-* 静的ファイル
+* HTTP Strict Transport Security
+* HTTP への HTTP リダイレクト
 * ASP.NET Core MVC
-* 同一。
 
-[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](samples/startup.cs)]
 
 ホストとアプリケーションは切り離されており、将来別のプラットフォームに柔軟に移動できます。
 

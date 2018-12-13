@@ -4,14 +4,14 @@ author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/11/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5919fe66139260bace1c356c833abb132ba4b2e8
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: b71adcaad710ecfb7f81de0cc302f293d1728bec
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121753"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288119"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -32,6 +32,14 @@ ms.locfileid: "53121753"
 [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (以前の名称は [WebListener](xref:fundamentals/servers/weblistener)) が、IIS を含むリバース プロキシ構成で動作しません。 [Kestrel サーバー](xref:fundamentals/servers/kestrel)を使用します。
 
 Azure でのホスティングの情報については、「<xref:host-and-deploy/azure-apps/index>」を参照してください。
+
+## <a name="supported-platforms"></a>サポートされているプラットフォーム
+
+32 ビット (x86) および 64 ビット (x64) デプロイ用に発行されるアプリがサポートされています。 アプリが以下の場合を除き、32 ビット アプリをデプロイします。
+
+* 64 ビット アプリ用の大規模な仮想メモリ アドレス空間が必要。
+* 大規模な IIS スタック サイズが必要。
+* 64 ビットのネイティブの依存関係がある。
 
 ## <a name="application-configuration"></a>アプリケーション構成
 
@@ -230,7 +238,7 @@ Web SDK ファイルの変換を無効にすると、 *processPath*と*引数*�
    Windows 認証を有効にするには、**[Web サーバー]** > **[セキュリティ]** ノードを展開します。 **[Windows 認証]** 機能を選択します。 詳細については、「[Windows Authentication \<windowsAuthentication>](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)」および「[Configure Windows authentication](xref:security/authentication/windowsauth)」(Windows 認証の構成) を参照してください。
 
    **Websocket (省略可能)**  
-   WebSockets は、ASP.NET Core 1.1 以降でサポートされています。 Websocket を有効にするには、**[Web サーバー]** > **[アプリケーション開発]** ノードを展開します。 **[WebSocket プロトコル]** 機能を選択します。 詳細については、[WebSockets](xref:fundamentals/websockets) に関するページを参照してください。
+   WebSockets は、ASP.NET Core 1.1 以降でサポートされています。 WebSocket を有効にするには、**[Web サーバー]** > **[アプリケーション開発]** ノードを展開します。 **[WebSocket プロトコル]** 機能を選択します。 詳細については、[WebSockets](xref:fundamentals/websockets) に関するページを参照してください。
 
 1. **[確認]** のステップを経て Web サーバーの役割とサービスをインストールします。 **Web サーバー (IIS)** の役割をインストールした後、サーバーと IIS の再起動は必要ありません。
 
@@ -252,7 +260,7 @@ Web SDK ファイルの変換を無効にすると、 *processPath*と*引数*�
    Windows 認証を有効にするには、**[World Wide Web サービス]** > **[セキュリティ]** ノードを展開します。 **[Windows 認証]** 機能を選択します。 詳細については、「[Windows Authentication \<windowsAuthentication>](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)」および「[Configure Windows authentication](xref:security/authentication/windowsauth)」(Windows 認証の構成) を参照してください。
 
    **Websocket (省略可能)**  
-   WebSockets は、ASP.NET Core 1.1 以降でサポートされています。 Websocket を有効にするには、**[World Wide Web サービス]** > **[アプリケーション開発機能]** ノードを展開します。 **[WebSocket プロトコル]** 機能を選択します。 詳細については、[WebSockets](xref:fundamentals/websockets) に関するページを参照してください。
+   WebSockets は、ASP.NET Core 1.1 以降でサポートされています。 WebSocket を有効にするには、**[World Wide Web サービス]** > **[アプリケーション開発機能]** ノードを展開します。 **[WebSocket プロトコル]** 機能を選択します。 詳細については、[WebSockets](xref:fundamentals/websockets) に関するページを参照してください。
 
 1. IIS のインストールに再起動が必要な場合は、システムを再起動します。
 
@@ -330,7 +338,7 @@ Windows ホスティング バンドルのインストーラーでインスト�
 
     ASP.NET Core は、別個のプロセスで実行され、ランタイムを管理します。 ASP.NET Core を使用するためにデスクトップ CLR を読み込む必要はありません。 **[.NET CLR バージョン]** の **[マネージド コードなし]** への設定は、任意です。
 
-1. *ASP.NET Core 2.2 またはそれ以降*: [インプロセス ホスティング モデル](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model)を使用する 64 ビット (x64) の[自己完結型展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合、32 ビット (x86) プロセス用のアプリケーション プールを無効にします。
+1. *ASP.NET Core 2.2 以降*:[インプロセス ホスティング モデル](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model)を使用する 64 ビット (x64) の[自己完結型展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合、32 ビット (x86) プロセス用のアプリケーション プールを無効にします。
 
    IIS マネージャーの**アプリケーション プール**の **[操作]** サイド バーで、**[アプリケーション プールの既定値の設定]** または **[詳細設定]** を選択します。 **[32 ビット アプリケーションの有効化]** を探し、値を `False` に設定します。 この設定は[アウトプロセス ホスティング](xref:fundamentals/servers/aspnet-core-module#out-of-process-hosting-model)で展開されたアプリには影響しません。
 
@@ -404,7 +412,7 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 
   非 Web ファーム IIS のスタンドアロン インストールの場合、ASP.NET Core アプリで使用するアプリ プールごとに、[データ保護の PowerShell スクリプト Provision-AutoGenKeys.ps1](https://github.com/aspnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) を使用できます。 このスクリプトは、HKLM レジストリにレジストリ キーを作成します。そのキーは、アプリのアプリ プールのワーカー プロセス アカウントのみがアクセスできます。 キーは保存時に、DPAPI を使用して、コンピューター全体に適用するキーによって暗号化されます。
 
-  Web ファームのシナリオでは、UNC パスを使用してデータ保護キー リングを格納するようにアプリを構成できます。 既定では、データ保護キーは暗号化されません。 ネットワーク共有のファイルのアクセス許可が、アプリを実行する Windows アカウントに限定されていることを確認します。 保存時のキーを保護するために、X509 証明書を使用することができます。 ユーザーが証明書をアップデートできるメカニズムを検討している場合、ユーザーの信頼できる証明書ストアに証明書を配置し、ユーザーのアプリが実行されるすべてのコンピューターで証明書を利用できるようにします。 詳細については、「[ASP.NET Core データ保護の構成](xref:security/data-protection/configuration/overview)」を参照してください。
+  Web ファームのシナリオでは、UNC パスを使用してデータ保護キー リングを格納するようにアプリを構成できます。 既定では、データ保護キーは暗号化されません。 ネットワーク共有のファイルのアクセス許可が、アプリを実行する Windows アカウントに限定されていることを確認します。 保存時のキーを保護するために、X509 証明書を使用することができます。 ユーザーが証明書をアップロードできるメカニズムを検討している場合、ユーザーの信頼できる証明書ストアに証明書を配置し、ユーザーのアプリが実行されるすべてのコンピューターで証明書を利用できるようにします。 詳細については、「[ASP.NET Core データ保護の構成](xref:security/data-protection/configuration/overview)」を参照してください。
 
 * **ユーザー プロファイルを読み込むための IIS アプリケーション プールを構成する**
 
@@ -542,7 +550,7 @@ IIS 管理プロセスは、Windows セキュリティ システムでのアプ�
 
 1. **[選択するオブジェクト名を入力してください]** 領域に、「**IIS AppPool\\<app_pool_name>**」と入力します。 **[名前の確認]** を選択します。 *DefaultAppPool* で、**IIS AppPool\DefaultAppPool** を使用して名前を確認します。 **[名前の確認]** ボタンが選択されているときには、**DefaultAppPool** の値が、オブジェクト名領域に表示されます。 オブジェクト名の領域に直接アプリケーション プール名を入力することはできません。 オブジェクト名を確認するときには、**IIS AppPool\\<app_pool_name>** の形式を使用します。
 
-   ![アプリ フォルダーのユーザーまたはグループのダイアログを選択します。[名前の確認] を選択する前に、オブジェクト名領域で "DefaultAppPool" のアプリ名が "IIS AppPool\" に適用されます。](index/_static/select-users-or-groups-1.png)
+   ![アプリ フォルダーのユーザーまたはグループのダイアログを選択します。[名前の確認] を選択する前に、オブジェクト名領域で "DefaultAppPool" のアプリ プール名が "IIS AppPool\" に適用されます。](index/_static/select-users-or-groups-1.png)
 
 1. **[OK]** を選択します。
 
@@ -584,7 +592,7 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 * Windows Server 2016/Windows 10 以降、IIS 10 以降
 * 一般向けのエッジ サーバーでは HTTP/2 を使用しますが、[Kestrel サーバー](xref:fundamentals/servers/kestrel)へのリバース プロキシ接続では HTTP/1.1 を使用します。
-* ターゲット フレームワーク: HTTP/2 接続は IIS によって完全に処理されるため、アウトプロセスの展開には適用できません。
+* 対象のフレームワーク:HTTP/2 接続は IIS によって完全に処理されるため、アウトプロセスの展開には適用できません。
 * TLS 1.2 以降の接続
 
 Http/2 接続が確立されると、[HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) が `HTTP/1.1` を報告します。

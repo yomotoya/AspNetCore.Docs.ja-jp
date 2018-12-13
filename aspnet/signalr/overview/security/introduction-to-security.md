@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 6336d9608f41c367c46d5b9552141546bc782b7d
-ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
+ms.openlocfilehash: 4386e08d966d32abb0510be7f0393888d85258ac
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49401869"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287930"
 ---
 <a name="introduction-to-signalr-security"></a>SignalR セキュリティ入門
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > この記事では、SignalR アプリケーションを開発する際に考慮する必要があるセキュリティの問題について説明します。
 >
@@ -36,7 +38,7 @@ ms.locfileid: "49401869"
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
-> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
+> このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。 チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。
 
 
 ## <a name="overview"></a>概要

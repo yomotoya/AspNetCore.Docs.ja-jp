@@ -4,14 +4,14 @@ author: guardrex
 description: ホスティング環境を設定し、ASP.NET Core アプリを展開する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/index
-ms.openlocfilehash: 86022c33a3c5a8b82b14ae51b98c44497f39bd16
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862448"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284527"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>ASP.NET Core のホストと展開
 
@@ -72,7 +72,11 @@ ASP.NET Core アプリは、サーバーの起動時に起動し、クラッシ�
 
 ## <a name="publish-to-azure"></a>Azure に発行する
 
-Visual Studio を使って Azure にアプリを発行するための手順については、<xref:tutorials/publish-to-azure-webapp-using-vs> をご覧ください。 Azure へのアプリの発行は、[コマンド ライン](/azure/app-service/app-service-web-get-started-dotnet)で行うこともできます。
+Visual Studio を使って Azure にアプリを発行するための手順については、<xref:tutorials/publish-to-azure-webapp-using-vs> をご覧ください。 その他の例については、「[Azure に ASP.NET Core Web アプリを作成する](/azure/app-service/app-service-web-get-started-dotnet)」を参照してください。
+
+## <a name="publish-with-msdeploy-on-windows"></a>Windows での MSDeploy を使用した発行
+
+Visual Studio 発行プロファイルを使って (Windows コマンド プロンプトからの [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) コマンドの使用を含む) アプリを発行する方法については、「<xref:host-and-deploy/visual-studio-publish-profiles>」をご覧ください。
 
 ## <a name="host-in-a-web-farm"></a>Web ファームでのホスト
 
