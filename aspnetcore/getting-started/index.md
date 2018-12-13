@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: getting-started
-ms.openlocfilehash: cf9e731f7638687b3f40b42864ef7ee8f5522b39
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: dc85fe9189c93476859a6c00d60ec24d6eeec3fa
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284356"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335313"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>チュートリアル: ASP.NET Core の概要
 
@@ -111,6 +111,3 @@ ASP.NET Core の詳細については、次の概要を参照してください�
 
 > [!div class="nextstepaction"]
 > <xref:index>
-
-> [!NOTE]
-> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。 現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82)。
