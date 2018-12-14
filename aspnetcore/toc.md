@@ -177,6 +177,7 @@
 ## チュートリアル
 ### [JavaScript による SignalR](xref:tutorials/signalr)
 ### [TypeScript による SignalR](xref:tutorials/signalr-typescript-webpack)
+## [サンプル](https://github.com/aspnet/SignalR-samples)
 ## サーバーの概念
 ### [ハブ](xref:signalr/hubs)
 ### [HubContext](xref:signalr/hubcontext)
@@ -402,6 +403,7 @@
 ### [分散キャッシュ](xref:performance/caching/distributed)
 ### [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 ## [応答圧縮](xref:performance/response-compression)
+## [診断ツール](xref:performance/diagnostic-tools)
 
 # その他のトピック
 ## [グローバライズとローカライズ](xref:fundamentals/localization)
