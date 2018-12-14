@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swashbuckle を ASP.NET Core Web API プロジェクトに追加し、Swagger UI を統合する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9832e1ea2b59085b6680820469b16d549f4b0582
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635343"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862344"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle と ASP.NET Core の概要
 
@@ -108,7 +108,7 @@ Swagger UI は `http://localhost:<port>/swagger` にあります。 Swagger UI �
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-仮想ディレクトリ (IIS やリバース プロキシなど) を使用している場合は、`./` プレフィックスを使用して Swagger のエンドポイントを相対パスに設定します。 たとえば、`./swagger/v1/swagger.json` のようにします。 `/swagger/v1/swagger.json` を使用することで、アプリが URL の真のルート (使用されている場合は、これに加えてルート プレフィックス) にある JSON ファイルを検索するように指示されます。 たとえば、`http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` ではなく `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json` を使用します。
+IIS やリバース プロキシを使用するディレクトリを使用している場合は、`./` プレフィックスを使用して Swagger のエンドポイントを相対パスに設定します。 たとえば、`./swagger/v1/swagger.json` のようにします。 `/swagger/v1/swagger.json` を使用することで、アプリが URL の真のルート (使用されている場合は、これに加えてルート プレフィックス) にある JSON ファイルを検索するように指示されます。 たとえば、`http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json` の代わりに `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` を使用します。
 
 ## <a name="customize-and-extend"></a>カスタマイズと拡張
 

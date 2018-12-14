@@ -4,29 +4,29 @@ description: CentOS 上にリバース プロキシ サーバーとして Apache
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: d0e36d0a73df43a26c03dc4154962240683817b5
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 46cdb764b872e86f0fd7d19133aae14891bdd452
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862461"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
 作成者: [Shayne Boyer](https://github.com/spboyer)
 
-このガイドでは、[CentOS 7](https://www.centos.org/) 上にリバース プロキシ サーバーとして [Apache](https://httpd.apache.org/) をセットアップし、[Kestrel](xref:fundamentals/servers/kestrel) 上で実行されている ASP.NET Core Web アプリに HTTP トラフィックを転送する方法について説明します。 [mod_proxy 拡張機能](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html)および関連するモジュールは、サーバーのリバース プロキシを作成します。
+このガイドでは、[CentOS 7](https://www.centos.org/) 上にリバース プロキシ サーバーとして [Apache](https://httpd.apache.org/) をセットアップし、[Kestrel](xref:fundamentals/servers/kestrel) サーバー上で実行されている ASP.NET Core Web アプリに HTTP トラフィックをリダイレクトする方法について説明します。 [mod_proxy 拡張機能](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html)および関連するモジュールは、サーバーのリバース プロキシを作成します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. CentOS 7 を実行しているサーバーと、sudo 特権を持つ標準ユーザー アカウント。
-1. サーバーへの .NET Core ランタイムのインストール。
+* CentOS 7 を実行しているサーバーと、sudo 特権を持つ標準ユーザー アカウント。
+* サーバーへの .NET Core ランタイムのインストール。
    1. [.NET の「All Downloads」 (すべてのダウンロード) ページ](https://www.microsoft.com/net/download/all)に移動します。
    1. プレビューではない最新のランタイムを、**Runtime** (ランタイム) の一覧から選択します。
    1. CentOS/Oracle の手順を選択し、それに従います。
-1. 既存の ASP.NET Core アプリ。
+* 既存の ASP.NET Core アプリ。
 
 ## <a name="publish-and-copy-over-the-app"></a>アプリを介して発行およびコピーする
 

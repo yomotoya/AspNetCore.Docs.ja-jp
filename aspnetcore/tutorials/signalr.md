@@ -5,14 +5,14 @@ description: このチュートリアルでは、ASP.NET Core SignalR を使用�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 190717dc6e6f9f2766ba92aa7472f4cdea9b6827
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: c52041b34d6c9d1d8f06f980c900b805a0933293
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458531"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861984"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>チュートリアル: ASP.NET Core SignalR の概要
 
@@ -32,27 +32,10 @@ ms.locfileid: "52458531"
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 > [!NOTE]
-> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5)。
+> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82)。
 
-## <a name="prerequisites"></a>必須コンポーネント
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* **ASP.NET および Web 開発**ワークロードを含む [Visual Studio 2017](https://www.visualstudio.com/downloads/) バージョン 15.8 以降
-* [.NET Core SDK 2.1 以降](https://www.microsoft.com/net/download/all)
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 2.1 以降](https://www.microsoft.com/net/download/all)
-* [Visual Studio Code 用 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-* [Visual Studio for Mac バージョン 7.5.4 以降](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.1 以降](https://www.microsoft.com/net/download/all) (Visual Studio インストールに含まれている)
-
----
+[!INCLUDE [|Prerequisites](~/includes/net-core-prereqs-all-2.2.md)]
 
 ## <a name="create-a-web-project"></a>Web プロジェクトを作成する
 
@@ -66,7 +49,7 @@ ms.locfileid: "52458531"
 
 * **[Web アプリケーション]** を選択して、Razor Pages を使用するプロジェクトを作成します。
 
-* **.NET Core** のターゲット フレームワークを選択し、**ASP.NET Core 2.1** を選択して、**[OK]** をクリックします。
+* **.NET Core** のターゲット フレームワークを選択し、**ASP.NET Core 2.2** を選択して、**[OK]** をクリックします。
 
   ![Visual Studio の [新しいプロジェクト] ダイアログ ボックス](signalr/_static/signalr-new-project-choose-type.png)
 

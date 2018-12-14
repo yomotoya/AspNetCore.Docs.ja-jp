@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリの Web ホスト (アプリの起動と有効期間の管理を担当する) について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 12/01/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 5af09ad715768d51ce8ef2c8425cc51ebada6859
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597824"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862279"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core の Web ホスト
 
@@ -45,7 +45,7 @@ public class Program
 
 `CreateDefaultBuilder` では次のタスクを実行します。
 
-* [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、アプリのホスティング構成プロバイダーを使用してサーバーを構成します。 Kestrel の既定のオプションについては、<xref:fundamentals/servers/kestrel#kestrel-options> を参照してください。
+* アプリのホスティング構成プロバイダーを使用して [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成します。 Kestrel サーバーの既定のオプションについては、<xref:fundamentals/servers/kestrel#kestrel-options> を参照してください。
 * [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory) によって返されるパスにコンテンツ ルートを設定します。
 * 次から[ ホスト構成](#host-configuration-values)を読み込みます。
   * `ASPNETCORE_` のプレフィックスが付いた環境変数 (たとえば、`ASPNETCORE_ENVIRONMENT`)。
@@ -57,7 +57,7 @@ public class Program
   * 環境変数。
   * コマンド ライン引数。
 * コンソールとデバッグ出力の[ログ](xref:fundamentals/logging/index)を構成します。 ログには、*appsettings.json* または *appsettings.{Environment}.json* ファイルのログ構成セクションで指定される[ログ フィルター](xref:fundamentals/logging/index#log-filtering)規則が含まれます。
-* IIS の背後での実行時に、[IIS 統合](xref:host-and-deploy/iis/index)を有効にします。 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)の使用時にサーバーがリッスンする基本パスとポートを構成します。 このモジュールは、IIS と Kestrel の間にリバース プロキシを作成します。 また、[スタートアップ エラーをキャプチャする](#capture-startup-errors)ようにアプリを構成します。 IIS の既定のオプションについては、<xref:host-and-deploy/iis/index#iis-options> を参照してください。
+* [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用して IIS の背後で実行されている場合は、`CreateDefaultBuilder` によってアプリのベース アドレスとポートが構成される [IIS の統合](xref:host-and-deploy/iis/index)が有効になります。 IIS の統合により、[スタートアップ エラーをキャプチャする](#capture-startup-errors)アプリも構成されます。 IIS の既定のオプションについては、<xref:host-and-deploy/iis/index#iis-options> を参照してください。
 * アプリの環境が開発の場合、[ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) を `true` に設定します。 詳しくは、「[スコープの検証](#scope-validation)」をご覧ください。
 
 `CreateDefaultBuilder` によって定義された構成は、[ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration)、[ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging)、そして [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) のその他のメソッドと拡張メソッドによってオーバーライドされ、拡張されます。 以下に、いくつかの例を示します。

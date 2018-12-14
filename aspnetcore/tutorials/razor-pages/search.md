@@ -2,46 +2,39 @@
 title: ASP.NET Core Razor ページへの検索の追加
 author: rick-anderson
 description: ASP.NET Core Razor ページに検索を追加する方法を紹介します
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
-ms.date: 05/30/2018
+ms.date: 12/3/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 80292f8cfecd5363fb8acc8578f9bb0ca9ee5969
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 8e047024180b20e3b649085647a9136140911fee
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090164"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892069"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor ページへの検索の追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-この記事では、ムービーを*ジャンル*や*題名*で検索できるように検索機能を索引ページに追加しています。
+[!INCLUDE[](~/includes/rp/download.md)]
+
+次のセクションでは、*ジャンル*または*名前*による映画検索が追加されます。
 
 強調表示されている次のプロパティを *Pages/Movies/Index.cshtml.cs* に追加します。
 
-::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-* `SearchString`: ユーザーが検索テキスト ボックスに入力したテキストが含まれる。
-* `Genres`: ジャンル一覧が含まれる。 これにより、ユーザーは一覧からジャンルを選択できます。
+* `SearchString`: ユーザーが検索テキスト ボックスに入力したテキストが含まれる。 `SearchString` は [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) 属性で修飾されています。 `[BindProperty]` により、プロパティと同じ名前に基づきフォーム値とクエリ文字列がバインドされます。 GET 要求でのバインドには `(SupportsGet = true)` が必要です。
+* `Genres`: ジャンル一覧が含まれる。 `Genres` により、ユーザーは一覧からジャンルを選択できます。 `SelectList` には `using Microsoft.AspNetCore.Mvc.Rendering;` が必要です。
 * `MovieGenre`: "Western (西部劇)" など、ユーザーが選択する特定のジャンルが含まれる。
+* `Genres` と `MovieGenre` は、このチュートリアルで後述します。
 
-`Genres` プロパティと `MovieGenre` プロパティについては、このドキュメントで後述します。
+[!INCLUDE[](~/includes/bind-get.md)]
 
 索引ページの `OnGetAsync` メソッドを次のコードに変更します。
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_1stSearch)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_1stSearch)]
 
 `OnGetAsync` メソッドの最初の行により、ムービーを選択する [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) クエリが作成されます。
 
@@ -53,21 +46,19 @@ var movies = from m in _context.Movie
 
 このクエリはこの時点で*のみ*定義されます。データベースに対して**実行されていません**。
 
-`searchString` パラメーターに文字列が含まれる場合、検索文字列で絞り込むようにムービークエリが変更されます。
+`SearchString` プロパティが null でも空でもない場合、検索文字列で絞り込むようにムービークエリが変更されます。
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SearchNull)]
 
 `s => s.Title.Contains()` コードは[ラムダ式](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions)です。 ラムダは、メソッド ベースの [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) クエリで、[Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) メソッドや `Contains` (先のコードで使用されています) など、標準クエリ演算子メソッドの引数として使用されます。 LINQ クエリは、`Where`、`Contains`、`OrderBy` などのメソッドの呼び出しで定義または変更されたときには実行されません。 クエリ実行は先送りされます。 つまり、その具体値が繰り返されるか、`ToListAsync` メソッドが呼び出されるまで、式の評価が延ばされます。 詳細については、「[クエリ実行](/dotnet/framework/data/adonet/ef/language-reference/query-execution)」を参照してください。
 
 **注:** [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) メソッドは C# コードではなく、データベースで実行されます。 クエリの大文字と小文字の区別は、データベースや照合順序に依存します。 SQL Server では、`Contains` は大文字/小文字の区別がない [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql) にマッピングされます。 SQLite では、既定の照合順序で、大文字と小文字が区別されます。
 
-最後に、`OnGetAsync` メソッドの最後の行に、ユーザーの検索値を持つ `SearchString` プロパティが代入されます。 `SearchString` プロパティが代入されると、検索の実行後、検索ボックス内に検索値が保持されます。
-
-ムービーページに移動し、`?searchString=Ghost` のようなクエリ文字列を URL に追加します (例: `http://localhost:5000/Movies?searchString=Ghost`)。 フィルターされたムービーが表示されます。
+ムービーページに移動し、`?searchString=Ghost` のようなクエリ文字列を URL に追加します (例: `https://localhost:5001/Movies?searchString=Ghost`)。 フィルターされたムービーが表示されます。
 
 ![インデックス ビュー](search/_static/ghost.png)
 
-次のルート テンプレートが索引ページに追加される場合、検索文字列を URL セグメントとして渡すことができます (例: `http://localhost:5000/Movies/Ghost`)。
+次のルート テンプレートが索引ページに追加される場合、検索文字列を URL セグメントとして渡すことができます (例: `https://localhost:5001/Movies/Ghost`)。
 
 ```cshtml
 @page "{searchString?}"
@@ -77,13 +68,20 @@ var movies = from m in _context.Movie
 
 ![ghost という単語が URL に追加された索引ビュー。Ghostbusters と Ghostbusters 2 という 2 本のムービーからなるムービーリストが返されています。](search/_static/g2.png)
 
+ASP.NET Core ランタイムでは[モデル バインド](xref:mvc/models/model-binding)を使用し、クエリ文字列 (`?searchString=Ghost`) またはルート データ (`https://localhost:5001/Movies/Ghost`) から `SearchString` プロパティの値が設定されます。 モデル バインドでは、大文字と小文字が区別されません。
+
 ただし、URL を変更してムービーを検索することをユーザーに求めることはできません。 この手順では、ムービーを絞り込むための UI を追加します。 ルート制約 `"{searchString?}"` を追加した場合、それを削除します。
 
 *Pages/Movies/Index.cshtml* ファイルを開き、次のコードで強調表示されている `<form>` マークアップを追加します。
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index2.cshtml?highlight=14-19&range=1-22)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index2.cshtml?highlight=14-19&range=1-22)]
 
-HTML `<form>` タグは[フォーム タグ ヘルパー](xref:mvc/views/working-with-forms#the-form-tag-helper)を使用します。 フォームが提出されると、フィルター文字列が*ページ/ムービー/索引*ページに送信されます。 変更を保存し、フィルターをテストします。
+HTML `<form>` タグでは、次の[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)が使用されます。
+
+* [フォーム タグ ヘルパー](xref:mvc/views/working-with-forms#the-form-tag-helper) フォームが提出されると、フィルター文字列がクエリ文字列経由で*ページ/ムービー/索引*ページに送信されます。
+* [入力タグ ヘルパー](xref:mvc/views/working-with-forms#the-input-tag-helper)
+
+変更を保存し、フィルターをテストします。
 
 ![タイトル フィルター テキストボックスに ghost という単語が入力されたインデックス ビュー](search/_static/filter.png)
 
@@ -91,31 +89,21 @@ HTML `<form>` タグは[フォーム タグ ヘルパー](xref:mvc/views/working
 
 `OnGetAsync` メソッドを次のコードで更新します。
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SearchGenre)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SearchGenre)]
 
 次のコードは、データベースからすべてのジャンルを取得する LINQ クエリです。
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
 
 ジャンルの `SelectList` は、別個のジャンルを推定することで作成されます。
 
-<!-- BUG in OPS
-Tag snippet_selectlist's start line '75' should be less than end line '29' when resolving "[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
 
-There's no start line.
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
--->
-
-```csharp
-Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
-```
-
-### <a name="adding-search-by-genre"></a>ジャンルによる検索の追加
+### <a name="add-search-by-genre-to-the-razor-page"></a>ジャンル検索を Razor ページに追加します。
 
 *Index.cshtml* を次のように変更します。
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 ジャンルまたはムービーのタイトル、あるいはその両方で検索して、アプリをテストします。
 

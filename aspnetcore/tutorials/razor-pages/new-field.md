@@ -5,25 +5,30 @@ description: Entity Framework Core を使用した Razor ページへの新し�
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: f8be269887903797803257d8a21e002519102047
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e280bc9553113982a1f1a77eabab32575c905237
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089514"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862292"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいファイルを追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このセクションでは、[Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
+[!INCLUDE[](~/includes/rp/download.md)]
+
+このセクションでは [Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations を次の目的で使用します。
+
+* モデルに新しいフィールドを追加する。
+* 新しいフィールド スキーマの変更をデータベースに移行する。
 
 EF Code First を使用してデータベースを自動的に作成する場合、Code First では次が実行されます。
 
 * テーブルをデータベースに追加し、データベースのスキーマが生成元のモデル クラスと同期しているかを追跡します。
-* モデル クラスがデータベースと同期されていない場合、EF は例外をスローします。 
+* モデル クラスがデータベースと同期されていない場合、EF は例外をスローします。
 
 同期中のスキーマ/モデルが自動的に検証されるようにすると、整合性のないデータベース/コードの問題を発見しやすくなります。
 
@@ -31,47 +36,29 @@ EF Code First を使用してデータベースを自動的に作成する場合
 
 *Models/Movie.cs* ファイルを開き、`Rating` プロパティを追加します。
 
-::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRating.cs?highlight=13&name=snippet)]
-
-::: moniker-end
-
-アプリをビルドします (Ctrl+Shift+B)。
+アプリをビルドします。
 
 *Pages/Movies/Index.cshtml* を編集し、`Rating` フィールドを追加します。
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml.?highlight=40-42,61-63)]
 
-[削除] と [詳細] ページに、`Rating` フィールドを追加します。
+次のページを更新します。
 
-*Create.cshtml* を `Rating` フィールドを使用して更新します。 前の `<div>` 要素をコピー/貼り付けし、intelliSense にフィールドを更新させることができます。 IntelliSense は[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)と連動します。
-
-![開発者は、ビューの 2 番目のラベル要素で、asp-for の属性値に文字 R を入力しました。 Intellisense のコンテキスト メニューが表示され、[評価] を含む、利用可能なフィールドが表示されました。[評価] は一覧の中で自動的に強調表示されています。 開発者はこのフィールドをクリックするか、キーボードの Enter を押すと、値が [評価] に設定されます。](new-field/_static/cr.png)
-
-次に、`Rating` フィールドがある *Create.cshtml* のコードを示します。
-
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
-
-[編集] ページに、`Rating` フィールドを追加します。
+* [削除] と [詳細] ページに、`Rating` フィールドを追加します。
+* [Create.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) を `Rating` フィールドを使用して更新します。
+* [編集] ページに、`Rating` フィールドを追加します。
 
 DB を更新して新しいフィールドが含まれるようになるまでアプリは動作しません。 ここで実行すると、アプリによって `SqlException` がスローされます。
 
-```
-SqlException: Invalid column name 'Rating'.
-```
+`SqlException: Invalid column name 'Rating'.`
 
 このエラーが表示されるのは、更新された Movie モデル クラスがデータベースの Movie テーブルのスキーマと異なるためです。 (データベース テーブルに `Rating` 列はありません)。
 
 このエラーを解決するための手法がいくつかあります。
 
-1. Entity Framework に、新しいモデル クラス スキーマを使用してデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 これの欠点は、データベースで既存のデータが失われることです。 実稼働データベースでこの方法は使用したくないでしょう。 スキーマの変更時に DB を削除し、初期化子を使用して、データベースにテスト データを自動的にシードすることは、多くの場合、アプリケーションを開発する上で有益な方法となります。
+1. Entity Framework に、新しいモデル クラス スキーマを使用してデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 これの欠点は、データベースで既存のデータが失われることです。 実稼働データベースでこの方法は使用しないでください。 スキーマの変更時に DB を削除し、初期化子を使用して、データベースにテスト データを自動的にシードすることは、多くの場合、アプリケーションを開発する上で有益な方法となります。
 
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 
@@ -81,23 +68,18 @@ SqlException: Invalid column name 'Rating'.
 
 新しい列に値を提供するように、`SeedData` クラスを更新します。 下に変更のサンプルがありますが、`new Movie` ブロックごとにこの変更を行ってください。
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
-::: moniker range="= aspnetcore-2.0"
-
-[完成した SeedData.cs ファイル](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs)を参照してください。
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[完成した SeedData.cs ファイル](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/SeedDataRating.cs)を参照してください。
-
-::: moniker-end
+[完成した SeedData.cs ファイル](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs)を参照してください。
 
 ソリューションをビルドします。
 
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
 <a name="pmc"></a>
+
+### <a name="add-a-migration-for-the-rating-field"></a>評価フィールドの移行を追加する
 
 **[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
 PMC で、次のコマンドを入力します。
@@ -128,7 +110,40 @@ DB 内のすべてのレコードを削除すると、初期化子は DB にデ�
   Update-Database
   ```
 
-アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 データベースがシードされていない場合は IIS Express を停止し、アプリを実行します。
+<!-- Code -------------------------->
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+<!-- copy/paste this tab to the next. Not worth an include  --> SQLite は、移行をサポートしていません。
+
+* データベースを削除するか、*appsettings.json* ファイルのデータベース名を変更します。
+* *移行*フォルダー (およびフォルダー内のすべてのファイル) を削除します。
+
+次の .NET Core CLI コマンドを実行します。
+
+```console
+dotnet ef migrations add Rating
+dotnet ef database update
+```
+
+<!-- Mac -------------------------->
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+SQLite は、移行をサポートしていません。
+
+* データベースを削除するか、*appsettings.json* ファイルのデータベース名を変更します。
+* *移行*フォルダー (およびフォルダー内のすべてのファイル) を削除します。
+
+次の .NET Core CLI コマンドを実行します。
+
+```console
+dotnet ef migrations add Rating
+dotnet ef database update
+```
+
+---  
+<!-- End of VS tabs -->
+
+アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 データベースがシード処理されない場合は、`SeedData.Initialize` メソッドでブレークポイントを設定します。
 
 > [!div class="step-by-step"]
 > [前: 検索の追加](xref:tutorials/razor-pages/search)

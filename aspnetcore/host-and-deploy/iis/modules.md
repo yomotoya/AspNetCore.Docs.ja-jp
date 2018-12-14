@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリに対してアクティブおよび非アクティブな IIS モジュールについて、さらに IIS モジュールの管理方法についてを把握します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b417d479d0c3f8b3e739d4c72b52247de0e88e56
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325953"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862240"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core での IIS モジュール
 
@@ -21,41 +21,41 @@ ms.locfileid: "49325953"
 
 ## <a name="native-modules"></a>ネイティブ モジュール
 
-次の表では、ASP.NET Core アプリへのリバース プロキシ要求に対して機能するネイティブ IIS モジュールを示します。
+次の表は、ASP.NET Core アプリおよび ASP.NET Core モジュールで機能するネイティブ IIS モジュールを示します。
 
 | Module | ASP.NET Core アプリで機能するか | ASP.NET Core のオプション |
 | --- | :---: | --- |
-| **匿名認証**<br>`AnonymousAuthenticationModule`                                  | [はい] | |
-| **基本認証**<br>`BasicAuthenticationModule`                                          | [はい] | |
-| **クライアント証明書マッピング認証**<br>`CertificateMappingAuthenticationModule`      | [はい] | |
+| **匿名認証**<br>`AnonymousAuthenticationModule`                                  | はい | |
+| **基本認証**<br>`BasicAuthenticationModule`                                          | はい | |
+| **クライアント証明書マッピング認証**<br>`CertificateMappingAuthenticationModule`      | はい | |
 | **CGI**<br>`CgiModule`                                                                           | ×  | |
-| **構成検証**<br>`ConfigurationValidationModule`                                  | [はい] | |
+| **構成検証**<br>`ConfigurationValidationModule`                                  | はい | |
 | **HTTP エラー**<br>`CustomErrorModule`                                                           | ×  | [状態コード ページ ミドルウェア](xref:fundamentals/error-handling#configure-status-code-pages) |
-| **カスタム ログ**<br>`CustomLoggingModule`                                                      | [はい] | |
+| **カスタム ログ**<br>`CustomLoggingModule`                                                      | はい | |
 | **既定のドキュメント**<br>`DefaultDocumentModule`                                                  | ×  | [既定のファイル ミドルウェア](xref:fundamentals/static-files#serve-a-default-document) |
 | **ダイジェスト認証**<br>`DigestAuthenticationModule`                                        | [はい] | |
 | **ディレクトリの参照**<br>`DirectoryListingModule`                                               | ×  | [ディレクトリ参照ミドルウェア](xref:fundamentals/static-files#enable-directory-browsing) |
-| **動的圧縮**<br>`DynamicCompressionModule`                                            | [はい] | [応答圧縮ミドルウェア](xref:performance/response-compression) |
+| **動的圧縮**<br>`DynamicCompressionModule`                                            | はい | [応答圧縮ミドルウェア](xref:performance/response-compression) |
 | **トレース**<br>`FailedRequestsTracingModule`                                                     | [はい] | [ASP.NET Core のログ](xref:fundamentals/logging/index#tracesource-provider) |
 | **ファイル キャッシュ**<br>`FileCacheModule`                                                            | ×  | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware) |
 | **HTTP キャッシュ**<br>`HttpCacheModule`                                                            | ×  | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware) |
-| **HTTP ログ**<br>`HttpLoggingModule`                                                          | [はい] | [ASP.NET Core のログ](xref:fundamentals/logging/index) |
+| **HTTP ログ**<br>`HttpLoggingModule`                                                          | はい | [ASP.NET Core のログ](xref:fundamentals/logging/index) |
 | **HTTP リダイレクト**<br>`HttpRedirectionModule`                                                  | [はい] | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
 | **IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | [はい] | |
 | **IP およびドメインの制限**<br>`IpRestrictionModule`                                          | [はい] | |
-| **ISAPI フィルター**<br>`IsapiFilterModule`                                                         | [はい] | [ミドルウェア](xref:fundamentals/middleware/index) |
+| **ISAPI フィルター**<br>`IsapiFilterModule`                                                         | はい | [ミドルウェア](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule`                                                                       | [はい] | [ミドルウェア](xref:fundamentals/middleware/index) |
 | **プロトコル サポート**<br>`ProtocolSupportModule`                                                  | [はい] | |
-| **要求のフィルタリング**<br>`RequestFilteringModule`                                                | [はい] | [URL リライト ミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
-| **要求監視**<br>`RequestMonitorModule`                                                    | [はい] | |
-| **URL リライト**&#8224;<br>`RewriteModule`                                                      | [はい] | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
+| **要求のフィルタリング**<br>`RequestFilteringModule`                                                | はい | [URL リライト ミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **要求監視**<br>`RequestMonitorModule`                                                    | はい | |
+| **URL リライト**&#8224;<br>`RewriteModule`                                                      | はい | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
 | **サーバー側インクルード**<br>`ServerSideIncludeModule`                                            | ×  | |
 | **静的圧縮**<br>`StaticCompressionModule`                                              | ×  | [応答圧縮ミドルウェア](xref:performance/response-compression) |
 | **静的コンテンツ**<br>`StaticFileModule`                                                         | ×  | [静的ファイル ミドルウェア](xref:fundamentals/static-files) |
-| **トークン キャッシュ**<br>`TokenCacheModule`                                                          | [はい] | |
-| **URI キャッシュ**<br>`UriCacheModule`                                                              | [はい] | |
-| **URL 認証**<br>`UrlAuthorizationModule`                                                | [はい] | [ASP.NET Core ID](xref:security/authentication/identity) |
-| **Windows 認証**<br>`WindowsAuthenticationModule`                                      | [はい] | |
+| **トークン キャッシュ**<br>`TokenCacheModule`                                                          | はい | |
+| **URI キャッシュ**<br>`UriCacheModule`                                                              | はい | |
+| **URL 認証**<br>`UrlAuthorizationModule`                                                | はい | [ASP.NET Core ID](xref:security/authentication/identity) |
+| **Windows 認証**<br>`WindowsAuthenticationModule`                                      | はい | |
 
 &#8224; URL リライト モジュールの `isFile` および `isDirectory` 一致タイプは、[ディレクトリ構造](xref:host-and-deploy/directory-structure)の変更のため、ASP.NET Core アプリでは動作しません。
 

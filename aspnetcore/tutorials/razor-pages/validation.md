@@ -2,17 +2,17 @@
 title: ASP.NET Core Razor ページに検証を追加する
 author: rick-anderson
 description: ASP.NET Core で Razor ページに検証を追加する方法について説明します。
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505779"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862370"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
@@ -22,7 +22,10 @@ ms.locfileid: "51505779"
 
 ## <a name="validation"></a>検証
 
-ソフトウェア開発には、[DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself" (繰り返しを避けること)) という重要な理念があります。 Razor ページでは、機能を一度規定したら、それをアプリ全体に反映する開発を推奨しています。 DRY によって、アプリのコード量を減らすことができます。 DRY を実施すると、コードのエラーが発生する可能性が低くなり、テストと保守が簡単になります。
+ソフトウェア開発には、[DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself" (繰り返しを避けること)) という重要な理念があります。 Razor ページでは、機能を一度規定したら、それをアプリ全体に反映する開発を推奨しています。 DRY は次の場合に役立ちます。
+
+* アプリのコード量を減らす。
+* コードのエラーが発生する可能性を低くし、テストと保守を簡単にする。
 
 Razor ページと Entity Framework が提供している検証のサポートは、DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に規定され、アプリの任意の場所で適用されます。
 
@@ -32,17 +35,7 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 検証属性で、モデルのプロパティに適用されている動作を指定します。
 
@@ -113,11 +106,8 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 `DataType.Date` は、表示される日付の書式を指定しません。 既定で、日付フィールドはサーバーの `CultureInfo` に基づき、既定の書式に従って表示されます。
 
-::: moniker range=">= aspnetcore-2.1"
 
 `[Column(TypeName = "decimal(18, 2)")]` データ注釈は、Entity Framework Core がデータベースの通貨と `Price` を正しくマッピングできるようにするために必要です。 詳細については、「[Data Types](/ef/core/modeling/relational/data-types)」(データ型) を参照してください。
-
-::: moniker-end
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
@@ -144,17 +134,7 @@ public DateTime ReleaseDate { get; set; }
 
 次のコードは、1 行で複数の属性を組み合わせる例です。
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Razor Pages と EF Core の概要](xref:data/ef-rp/intro)に関するページでは、Razor Pages での EF Core 操作についてより詳しく説明されています。
 
