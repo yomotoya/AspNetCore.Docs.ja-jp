@@ -3,14 +3,14 @@ title: ASP.NET Core のビュー コンポーネント
 author: rick-anderson
 description: ASP.NET Core でのビュー コンポーネントの使用方法とそれらをアプリに追加する方法を説明します。
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253133"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861330"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -63,13 +63,13 @@ ms.locfileid: "50253133"
 
 ### <a name="view-component-methods"></a>ビュー コンポーネント メソッド
 
-ビュー コンポーネントでは、`IViewComponentResult` を返す `InvokeAsync` メソッドでそのロジックを定義します。 パラメーターは、モデル バインドではなく、ビュー コンポーネントから直接取得します。 ビュー コンポーネントが要求を直接処理することはありません。 通常、ビュー コンポーネントは、モデルを初期化し、`View` メソッドを呼び出してビューに渡します。 要約すると、ビュー コンポーネント メソッドの特徴は次のとおりです。
+ビュー コンポーネントでは、`Task<IViewComponentResult>` を返す `InvokeAsync` メソッドまたは `IViewComponentResult` を返す同期 `Invoke` メソッドでロジックを定義します。 パラメーターは、モデル バインドではなく、ビュー コンポーネントから直接取得します。 ビュー コンポーネントが要求を直接処理することはありません。 通常、ビュー コンポーネントは、モデルを初期化し、`View` メソッドを呼び出してビューに渡します。 要約すると、ビュー コンポーネント メソッドの特徴は次のとおりです。
 
-* `IViewComponentResult` を返す `InvokeAsync` メソッドを定義します
-* 通常、モデルを初期化し、`ViewComponent` `View` メソッドを呼び出してビューに渡します
-* パラメーターは HTTP ではなく、呼び出しメソッドから取得されます。モデル バインドはありません
-* HTTP エンドポイントとして直接到達することはできません。自分のコード (通常はビュー内) から呼び出されます。 ビュー コンポーネントは要求を処理しません
-* 現在の HTTP 要求からの詳細ではなく、シグネチャでオーバーロードされます
+* `Task<IViewComponentResult>` を返す `InvokeAsync` メソッドまたは `IViewComponentResult` を返す同期 `Invoke` メソッドを定義します。
+* 通常、モデルを初期化し、`ViewComponent` `View` メソッドを呼び出してビューに渡します。
+* パラメーターは HTTP ではなく、呼び出し元のメソッドから取得されます。 モデル バインドはありません。
+* HTTP エンドポイントとして直接到達することはできません。 (通常はビュー内で) コードから呼び出されます。 ビュー コンポーネントでは要求が処理されません。
+* 現在の HTTP 要求からの詳細ではなく、シグネチャでオーバーロードされます。
 
 ### <a name="view-search-path"></a>ビューの検索パス
 

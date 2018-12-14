@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256568"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861915"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>ASP.NET Core の URL リライト ミドルウェア
 
@@ -193,15 +193,15 @@ URL 書き換えのルールを作成するには、<xref:Microsoft.AspNetCore.R
 
 | パス                               | 一致したもの |
 | ---------------------------------- | :---: |
-| `/redirect-rule/1234/5678`         | [はい]   |
+| `/redirect-rule/1234/5678`         | はい   |
 | `/my-cool-redirect-rule/1234/5678` | [はい]   |
-| `/anotherredirect-rule/1234/5678`  | [はい]   |
+| `/anotherredirect-rule/1234/5678`  | はい   |
 
 書き換えルール `^rewrite-rule/(\d+)/(\d+)` は、`rewrite-rule/` で始まる場合のみパスと一致します。 次の表では、一致の違いに注意してください。
 
 | パス                              | 一致したもの |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | [はい]   |
+| `/rewrite-rule/1234/5678`         | はい   |
 | `/my-cool-rewrite-rule/1234/5678` | ×    |
 | `/anotherrewrite-rule/1234/5678`  | ×    |
 
@@ -210,7 +210,7 @@ URL 書き換えのルールを作成するには、<xref:Microsoft.AspNetCore.R
 リソースを取得するためのサーバーへのラウンドトリップはありません。 リソースが存在する場合は、取得され、*200 - OK* 状態コードと共にクライアントに返されます。 クライアントはリダイレクトされていないため、ブラウザーのアドレス バーの URL は変更されません。 クライアントは、URL の書き換え操作がサーバーで発生したことを検出できません。
 
 > [!NOTE]
-> 式内の照合ルールは計算量が多く、アプリの応答時間が短縮されるので、可能な限り `skipRemainingRules: true` を使用します。 最も高速なアプリの応答を実現するには以下のようにします。
+> 式内の照合ルールは計算量が多く、アプリの応答時間が長くなるので、可能な限り `skipRemainingRules: true` を使用します。 最も高速なアプリの応答を実現するには以下のようにします。
 >
 > * 一致する頻度が最も多いルールから一致頻度が最も少ないルールへの順番で書き換えルールを並べ替えます。
 > * 一致が発生し、追加の処理が必要ないときに残りのルールの処理をスキップします。

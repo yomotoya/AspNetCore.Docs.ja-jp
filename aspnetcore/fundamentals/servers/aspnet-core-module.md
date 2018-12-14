@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core モジュール
 author: guardrex
-description: Kestrel Web サーバーが IIS または IIS Express をリバース プロキシ サーバーとして使用できるようにするための ASP.NET Core モジュールについて説明します。
+description: Kestrel Web サーバーが IIS または IIS Express を使用できるようにするための ASP.NET Core モジュールについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: d3f3a42dd7aebc425905b865376a584bcf0e5153
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191257"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861460"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 
@@ -36,7 +36,7 @@ ASP.NET Core モジュールでは、リバース プロキシの構成で ASP.N
 
 ::: moniker range=">= aspnetcore-2.2"
 
-インプロセスでホストする場合、モジュールには独自のサーバー実装 `IISHttpServer` があります。
+インプロセス ホスティングの場合、モジュールでは IIS インプロセス サーバー実装である IIS HTTP サーバー (`IISHttpServer`) が使用されます。
 
 アウト プロセスでホストする場合、モジュールは Kestrel に対してのみ機能します。 このモジュールは、[HTTP.sys](xref:fundamentals/servers/httpsys) (旧称 [WebListener](xref:fundamentals/servers/weblistener)) と互換性がありません。
 
@@ -73,9 +73,9 @@ ASP.NET Core モジュール:
 
 ![ASP.NET Core モジュール](aspnet-core-module/_static/ancm-inprocess.png)
 
-Web からカーネル モードの HTTP.sys ドライバーに要求が届きます。 このドライバーによって、Web サイトの構成ポート (通常は 80 (HTTP) または 443 (HTTPS)) 上で IIS へのネイティブ要求がルーティングされます。 モジュールによってネイティブ要求が受信されると、モジュールから `IISHttpServer` に制御が渡されます。IISHttpServer では要求がネイティブからマネージドに変換されます。
+Web からカーネル モードの HTTP.sys ドライバーに要求が届きます。 このドライバーによって、Web サイトの構成ポート (通常は 80 (HTTP) または 443 (HTTPS)) 上で IIS へのネイティブ要求がルーティングされます。 モーダルは、ネイティブ要求を受け取り、それを IIS HTTP サーバー (`IISHttpServer`) に渡します。 IIS HTTP サーバーは、要求をネイティブからマネージドに変換する IIS インプロセス サーバー実装です。
 
-`IISHttpServer` によって要求が取り込まれた後、その要求は ASP.NET Core ミドルウェア パイプラインにプッシュされます。 ミドルウェア パイプラインは要求を処理し、`HttpContext` インスタンスとしてアプリのロジックに渡します。 アプリの応答が IIS に戻され、IIS はその応答を、要求を開始した HTTP クライアントに返します。
+IIS HTTP サーバーによって要求が処理された後、その要求は ASP.NET Core ミドルウェア パイプラインにプッシュされます。 ミドルウェア パイプラインは要求を処理し、`HttpContext` インスタンスとしてアプリのロジックに渡します。 アプリの応答が IIS に渡され、その応答は IIS から要求を開始したクライアントにプッシュで戻されます。
 
 ### <a name="out-of-process-hosting-model"></a>アウト プロセス ホスティング モデル
 

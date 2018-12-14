@@ -2,17 +2,17 @@
 title: Windows サービスでの ASP.NET Core のホスト
 author: guardrex
 description: Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。
-monikerRange: '>= aspnetcore-2.2'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f857e96108b68bb6ec64a85910bf4d889cdf2822
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: f53c303dc63e092f08e933fea79eb805523cde9b
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861395"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -38,202 +38,250 @@ ASP.NET Core アプリは、IIS を 使用せずに、[Windows サービス](/do
 
 既存の ASP.NET Core プロジェクトに次の変更を加え、アプリをサービスとして実行します。
 
-1. どの[展開の種類](#deployment-type)を選択したかに基づいて、プロジェクト ファイルを更新します。
+### <a name="project-file-updates"></a>プロジェクト ファイルの更新
 
-   * **フレームワーク依存型展開 (FDD)** &ndash; Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を、ターゲット フレームワークを含む `<PropertyGroup>` に追加します。 `false` に設定した `<SelfContained>` プロパティを追加します。 `true` に設定した `<IsTransformWebConfigDisabled>` プロパティを追加して、*web.config* ファイルの作成を無効にします。
+どの[展開の種類](#deployment-type)を選択したかに基づいて、プロジェクト ファイルを更新します。
 
-     ```xml
-     <PropertyGroup>
-       <TargetFramework>netcoreapp2.2</TargetFramework>
-       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-       <SelfContained>false</SelfContained>
-       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-     </PropertyGroup>
-     ```
+#### <a name="framework-dependent-deployment-fdd"></a>フレームワーク依存型展開 (FDD)
 
-     **自己完結型展開 (SCD)** &ndash; Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) があることを確認するか、RID をターゲット フレームワークを含む `<PropertyGroup>` に追加します。 `true` に設定した `<IsTransformWebConfigDisabled>` プロパティを追加して、*web.config* ファイルの作成を無効にします。
+Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を、ターゲット フレームワークを含む `<PropertyGroup>` に追加します。 `false` に設定した `<SelfContained>` プロパティを追加します。 `true` に設定した `<IsTransformWebConfigDisabled>` プロパティを追加して、*web.config* ファイルの作成を無効にします。
 
-     ```xml
-     <PropertyGroup>
-       <TargetFramework>netcoreapp2.2</TargetFramework>
-       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-     </PropertyGroup>
-     ```
+::: moniker range=">= aspnetcore-2.2"
 
-     複数の RID を発行するには、次の処理を実行します。
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <SelfContained>false</SelfContained>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-     * セミコロンで区切られたリストの形式で RID を指定します。
-     * プロパティ名 `<RuntimeIdentifiers>` (複数形) を使用します。
+::: moniker-end
 
-     詳細については、「[.NET Core の RID カタログ](/dotnet/core/rid-catalog)」を参照してください。
+::: moniker range="= aspnetcore-2.1"
 
-   * [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices) のパッケージ参照を追加します。
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <UseAppHost>true</UseAppHost>
+  <SelfContained>false</SelfContained>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-   * Windows イベント ログのログ記録を有効にするには、[Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) のパッケージ参照を追加します。
+::: moniker-end
 
-     詳しくは、「[イベントの開始と停止を扱う](#handle-starting-and-stopping-events)」セクションをご覧ください。
+#### <a name="self-contained-deployment-scd"></a>自己完結型の展開 (SCD)
 
-1. `Program.Main` で次の変更を行います。
+Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) があることを確認するか、RID をターゲット フレームワークを含む `<PropertyGroup>` に追加します。 `true` に設定した `<IsTransformWebConfigDisabled>` プロパティを追加して、*web.config* ファイルの作成を無効にします。
 
-   * サービスの外部で実行しているときにテストとデバッグを行うには、アプリがサービスとして実行しているかコンソール アプリとして実行しているかを判別するコードを追加します。 デバッガーがアタッチされているか、`--console` コマンドライン引数が存在するかを検査します。
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-     いずれかの条件が満たされる場合 (アプリがサービスとして実行していない場合)、Web ホストで <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> を呼び出します。
+複数の RID を発行するには、次の処理を実行します。
 
-     条件が満たされない場合 (アプリがサービスとして実行している場合):
+* セミコロンで区切られたリストの形式で RID を指定します。
+* プロパティ名 `<RuntimeIdentifiers>` (複数形) を使用します。
 
-     * <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> を呼び出し、アプリの発行場所のパスを使用します。 パスを取得するために <xref:System.IO.Directory.GetCurrentDirectory*> を呼び出さないでください。`GetCurrentDirectory` が呼び出されると、Windows サービス アプリは *C:\\WINDOWS\\system32* フォルダーを戻すためです。 詳しくは、「[現在のディレクトリとコンテンツのルート](#current-directory-and-content-root)」セクションをご覧ください。
-     * <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> を呼び出して、アプリをサービスとして実行します。
+  詳細については、「[.NET Core の RID カタログ](/dotnet/core/rid-catalog)」を参照してください。
 
-     [コマンドライン構成プロバイダー](xref:fundamentals/configuration/index#command-line-configuration-provider)では、コマンドライン引数に名前と値の組が必要であるため、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> が引数を受け取る前に `--console` スイッチは引数から削除されます。
+[Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices) のパッケージ参照を追加します。
 
-   * Windows イベント ログに書き込むには、EventLog プロバイダーを <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*> に追加します。 *appsettings.Production.json* ファイルで `Logging:LogLevel:Default` キーを使用してログ レベルを設定します。 デモとテストの目的のために、サンプル アプリの Production 設定ファイルでは、ログ レベルが `Information` に設定されます。 運用環境で、値は通常は `Error` に設定します。 詳細については、「<xref:fundamentals/logging/index#windows-eventlog-provider>」を参照してください。
+Windows イベント ログのログ記録を有効にするには、[Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) のパッケージ参照を追加します。
 
-   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
+詳しくは、「[イベントの開始と停止を扱う](#handle-starting-and-stopping-events)」セクションをご覧ください。
 
-1. [dotnet publish](/dotnet/articles/core/tools/dotnet-publish)、[Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)、または Visual Studio Code を使用してアプリを発行します。 Visual Studio を使用する場合、**[発行]** ボタンを選択する前に、**[FolderProfile]** を選択して **[ターゲットの場所]** を構成します。
+### <a name="programmain-updates"></a>Program.Main の更新
 
-   コマンドライン インターフェイス (CLI) ツールを使用してサンプル アプリを発行するには、プロジェクト フォルダーからコマンド プロンプトで [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行し、その際にリリース構成を [-c|--configuration](/dotnet/core/tools/dotnet-publish#options) オプションに渡します。 アプリ外部のフォルダーに発行するには、[-o|--output](/dotnet/core/tools/dotnet-publish#options) オプションをパスと一緒に使用します。
+`Program.Main` で次の変更を行います。
 
-   * **フレームワーク依存型展開 (FDD)**
+* サービスの外部で実行しているときにテストとデバッグを行うには、アプリがサービスとして実行しているかコンソール アプリとして実行しているかを判別するコードを追加します。 デバッガーがアタッチされているか、`--console` コマンドライン引数が存在するかを検査します。
 
-     次の例では、アプリは *c:\\svc* フォルダーに発行されます。
+  いずれかの条件が満たされる場合 (アプリがサービスとして実行していない場合)、Web ホストで <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> を呼び出します。
 
-     ```console
-     dotnet publish --configuration Release --output c:\svc
-     ```
+  条件が満たされない場合 (アプリがサービスとして実行している場合):
 
-   * **自己完結型展開 (SCD)** &ndash; プロジェクト ファイルの `<RuntimeIdenfifier>` (または `<RuntimeIdentifiers>`) プロパティに RID を指定する必要があります。 ランタイムを `dotnet publish` コマンドの [-r|--runtime](/dotnet/core/tools/dotnet-publish#options) オプションに指定します。
+  * <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> を呼び出し、アプリの発行場所のパスを使用します。 パスを取得するために <xref:System.IO.Directory.GetCurrentDirectory*> を呼び出さないでください。`GetCurrentDirectory` が呼び出されると、Windows サービス アプリは *C:\\WINDOWS\\system32* フォルダーを戻すためです。 詳しくは、「[現在のディレクトリとコンテンツのルート](#current-directory-and-content-root)」セクションをご覧ください。
+  * <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> を呼び出して、アプリをサービスとして実行します。
 
-     次の例では、`win7-x64` ランタイムに関してアプリが *c:\\svc* フォルダーに発行されます。
+  [コマンドライン構成プロバイダー](xref:fundamentals/configuration/index#command-line-configuration-provider)では、コマンドライン引数に名前と値の組が必要であるため、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> が引数を受け取る前に `--console` スイッチは引数から削除されます。
 
-     ```console
-     dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
-     ```
+* Windows イベント ログに書き込むには、EventLog プロバイダーを <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*> に追加します。 *appsettings.Production.json* ファイルで `Logging:LogLevel:Default` キーを使用してログ レベルを設定します。 デモとテストの目的のために、サンプル アプリの Production 設定ファイルでは、ログ レベルが `Information` に設定されます。 運用環境で、値は通常は `Error` に設定します。 詳細については、「<xref:fundamentals/logging/index#windows-eventlog-provider>」を参照してください。
 
-1. `net user` コマンドを使用して、サービス用のユーザー アカウントを作成します。
+[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
-   ```console
-   net user {USER ACCOUNT} {PASSWORD} /add
-   ```
+### <a name="publish-the-app"></a>アプリの発行
 
-   サンプル アプリでは、名前 `ServiceUser` とパスワードを持つユーザー アカウントを作成します。 次のコマンド内の `{PASSWORD}` を、[強力なパスワード](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements)に置き換えます。
+[dotnet publish](/dotnet/articles/core/tools/dotnet-publish)、[Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)、または Visual Studio Code を使用してアプリを発行します。 Visual Studio を使用する場合、**[発行]** ボタンを選択する前に、**[FolderProfile]** を選択して **[ターゲットの場所]** を構成します。
 
-   ```console
-   net user ServiceUser {PASSWORD} /add
-   ```
+コマンドライン インターフェイス (CLI) ツールを使用してサンプル アプリを発行するには、プロジェクト フォルダーからコマンド プロンプトで [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行し、その際にリリース構成を [-c|--configuration](/dotnet/core/tools/dotnet-publish#options) オプションに渡します。 アプリ外部のフォルダーに発行するには、[-o|--output](/dotnet/core/tools/dotnet-publish#options) オプションをパスと一緒に使用します。
 
-   ユーザーをグループに追加する必要がある場合は、`net localgroup` コマンドを使用します。`{GROUP}` にはグループの名前を指定します。
+#### <a name="publish-a-framework-dependent-deployment-fdd"></a>フレームワーク依存型展開 (FDD) を発行する
 
-   ```console
-   net localgroup {GROUP} {USER ACCOUNT} /add
-   ```
+次の例では、アプリは *c:\\svc* フォルダーに発行されます。
 
-   詳細については、「[Service User Accounts](/windows/desktop/services/service-user-accounts)」(サービス ユーザー アカウント) をご覧ください。
+```console
+dotnet publish --configuration Release --output c:\svc
+```
 
-1. [icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
+#### <a name="publish-a-self-contained-deployment-scd"></a>自己完結型展開 (SCD) を発行する
 
-   ```console
-   icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
-   ```
+プロジェクト ファイルの `<RuntimeIdenfifier>` (または `<RuntimeIdentifiers>`) プロパティに RID を指定する必要があります。 ランタイムを `dotnet publish` コマンドの [-r|--runtime](/dotnet/core/tools/dotnet-publish#options) オプションに指定します。
 
-   * `{PATH}` &ndash; アプリのフォルダーへのパス。
-   * `{USER ACCOUNT}` &ndash; ユーザー アカウント (SID)。
-   * `(OI)` &ndash; オブジェクトの継承フラグ。下位のファイルにアクセス許可を反映します。
-   * `(CI)` &ndash; コンテナーの継承フラグ。下位のフォルダーにアクセス許可を反映します。
-   * `{PERMISSION FLAGS}` &ndash; アプリのアクセス許可を設定します。
-     * 書き込み (`W`)
-     * 読み取り (`R`)
-     * 実行 (`X`)
-     * フル アクセス (`F`)
-     * 変更 (`M`)
-   * `/t` &ndash; 存在する下位のフォルダーおよびファイルに再帰的に適用します。
+次の例では、`win7-x64` ランタイムに関してアプリが *c:\\svc* フォルダーに発行されます。
 
-   *c:\\svc* フォルダーに発行されるサンプル アプリと、書き込み/読み取り/実行アクセス許可を持つ `ServiceUser` アカウントに対して、次のコマンドを使用します。
+```console
+dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
+```
 
-   ```console
-   icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
-   ```
+### <a name="create-a-user-account"></a>ユーザー アカウントを作成する
 
-   詳細については、「[icacls](/windows-server/administration/windows-commands/icacls)」をご覧ください。
+`net user` コマンドを使用して、サービス用のユーザー アカウントを作成します。
 
-1. [sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) と、各パラメーターおよび値の引用符文字の間には、スペースが必要です。**
+```console
+net user {USER ACCOUNT} {PASSWORD} /add
+```
 
-   ```console
-   sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
-   ```
+サンプル アプリでは、名前 `ServiceUser` とパスワードを持つユーザー アカウントを作成します。 次のコマンド内の `{PASSWORD}` を、[強力なパスワード](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements)に置き換えます。
 
-   * `{SERVICE NAME}` &ndash; [サービス コントロール マネージャー](/windows/desktop/services/service-control-manager)でサービスに割り当てる名前。
-   * `{PATH}` &ndash; サービス実行可能ファイルへのパス。
-   * `{DOMAIN}` &ndash; ドメイン参加済みマシンのドメイン。 マシンがドメインに参加していない場合は、ローカル マシン名。
-   * `{USER ACCOUNT}` &ndash; サービスが実行されるユーザー アカウント。
-   * `{PASSWORD}` &ndash; ユーザー アカウントのパスワード。
+```console
+net user ServiceUser {PASSWORD} /add
+```
 
-   > [!WARNING]
-   > `obj` パラメーターを省略**しない**でください。 `obj` の既定値は、[LocalSystem アカウント](/windows/desktop/services/localsystem-account) アカウントです。 `LocalSystem` アカウントでサービスを実行すると、重大なセキュリティ リクスが生じます。 常に、特権が制限されているユーザー アカウントでサービスを実行します。
+ユーザーをグループに追加する必要がある場合は、`net localgroup` コマンドを使用します。`{GROUP}` にはグループの名前を指定します。
 
-   サンプル アプリの例を次に示します。
+```console
+net localgroup {GROUP} {USER ACCOUNT} /add
+```
 
-   * サービスは **MyService** という名前です。
-   * 発行されたサービスは、*c:\\svc* フォルダーに配置されます。 アプリの実行可能ファイルの名前は *SampleApp.exe* です。 `binPath` 値を二重引用符 (") で囲みます。
-   * サービスは `ServiceUser` アカウントで実行されます。 `{DOMAIN}` を、ユーザー アカウントのドメインまたはローカル コンピューター名に置き換えます。 `obj` 値を二重引用符 (") で囲みます。 例: ホスト システムが `MairaPC` という名前のローカル コンピューターである場合は、`obj` を `"MairaPC\ServiceUser"` に設定にします。
-   * `{PASSWORD}` をユーザー アカウントのパスワードに置き換えます。 `password` 値を二重引用符 (") で囲みます。
+詳細については、「[Service User Accounts](/windows/desktop/services/service-user-accounts)」(サービス ユーザー アカウント) をご覧ください。
 
-   ```console
-   sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
-   ```
+### <a name="set-permissions"></a>アクセス許可を設定する
 
-   > [!IMPORTANT]
-   > パラメーターの等号とパラメーターの値の間にスペースがあることを確認します。
+[icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
 
-1. サービスを `sc start {SERVICE NAME}` コマンドで開始します。
+```console
+icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+```
 
-   サンプル アプリ サービスを開始するには、次のコマンドを使用します。
+* `{PATH}` &ndash; アプリのフォルダーへのパス。
+* `{USER ACCOUNT}` &ndash; ユーザー アカウント (SID)。
+* `(OI)` &ndash; オブジェクトの継承フラグ。下位のファイルにアクセス許可を反映します。
+* `(CI)` &ndash; コンテナーの継承フラグ。下位のフォルダーにアクセス許可を反映します。
+* `{PERMISSION FLAGS}` &ndash; アプリのアクセス許可を設定します。
+  * 書き込み (`W`)
+  * 読み取り (`R`)
+  * 実行 (`X`)
+  * フル アクセス (`F`)
+  * 変更 (`M`)
+* `/t` &ndash; 存在する下位のフォルダーおよびファイルに再帰的に適用します。
 
-   ```console
-   sc start MyService
-   ```
+*c:\\svc* フォルダーに発行されるサンプル アプリと、書き込み/読み取り/実行アクセス許可を持つ `ServiceUser` アカウントに対して、次のコマンドを使用します。
 
-   このコマンドでサービスを開始するには数秒かかります。
+```console
+icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+```
 
-1. サービスの状態を確認するには、`sc query {SERVICE NAME}` コマンドを使用します。 この状態は、次のいずれかの値として報告されます。
+詳細については、「[icacls](/windows-server/administration/windows-commands/icacls)」をご覧ください。
 
-   * `START_PENDING`
-   * `RUNNING`
-   * `STOP_PENDING`
-   * `STOPPED`
+## <a name="manage-the-service"></a>サービスを管理する
 
-   次のコマンドを使用し、サンプル アプリ サービスの状態を確認します。
+### <a name="create-the-service"></a>サービスを作成する
 
-   ```console
-   sc query MyService
-   ```
+[sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) と、各パラメーターおよび値の引用符文字の間には、スペースが必要です。**
 
-1. サービスの状態が `RUNNING` で、サービスが Web アプリである場合、そのアプリとそのパスを参照します (既定では、[HTTPS Redirection Middleware](xref:security/enforcing-ssl) の使用時に `https://localhost:5001` にリダイレクトされる `http://localhost:5000`)。
+```console
+sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+```
 
-   サンプル アプリ サービスの場合、アプリは `http://localhost:5000` で参照します。
+* `{SERVICE NAME}` &ndash; [サービス コントロール マネージャー](/windows/desktop/services/service-control-manager)でサービスに割り当てる名前。
+* `{PATH}` &ndash; サービス実行可能ファイルへのパス。
+* `{DOMAIN}` &ndash; ドメイン参加済みマシンのドメイン。 マシンがドメインに参加していない場合は、ローカル マシン名。
+* `{USER ACCOUNT}` &ndash; サービスが実行されるユーザー アカウント。
+* `{PASSWORD}` &ndash; ユーザー アカウントのパスワード。
 
-1. `sc stop {SERVICE NAME}` コマンドを使用して、サービスを停止します。
+> [!WARNING]
+> `obj` パラメーターを省略**しない**でください。 `obj` の既定値は、[LocalSystem アカウント](/windows/desktop/services/localsystem-account) アカウントです。 `LocalSystem` アカウントでサービスを実行すると、重大なセキュリティ リクスが生じます。 常に、特権が制限されているユーザー アカウントでサービスを実行します。
 
-   サンプル アプリ サービスは、次のコマンドで停止できます。
+サンプル アプリの例を次に示します。
 
-   ```console
-   sc stop MyService
-   ```
+* サービスは **MyService** という名前です。
+* 発行されたサービスは、*c:\\svc* フォルダーに配置されます。 アプリの実行可能ファイルの名前は *SampleApp.exe* です。 `binPath` 値を二重引用符 (") で囲みます。
+* サービスは `ServiceUser` アカウントで実行されます。 `{DOMAIN}` を、ユーザー アカウントのドメインまたはローカル コンピューター名に置き換えます。 `obj` 値を二重引用符 (") で囲みます。 例: ホスト システムが `MairaPC` という名前のローカル コンピューターである場合は、`obj` を `"MairaPC\ServiceUser"` に設定にします。
+* `{PASSWORD}` をユーザー アカウントのパスワードに置き換えます。 `password` 値を二重引用符 (") で囲みます。
 
-1. サービスの停止の少し後に、`sc delete {SERVICE NAME}` コマンドを使用して、サービスをアンインストールします。
+```console
+sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+```
 
-   サンプル アプリ サービスの状態を確認します。
+> [!IMPORTANT]
+> パラメーターの等号とパラメーターの値の間にスペースがあることを確認します。
 
-   ```console
-   sc query MyService
-   ```
+### <a name="start-the-service"></a>サービスを開始する
 
-   サンプル アプリ サービスの状態が `STOPPED` 状態の場合、次のコマンドを使用して、サンプル アプリ サービスをアンインストールします。
+サービスを `sc start {SERVICE NAME}` コマンドで開始します。
 
-   ```console
-   sc delete MyService
-   ```
+サンプル アプリ サービスを開始するには、次のコマンドを使用します。
+
+```console
+sc start MyService
+```
+
+このコマンドでサービスを開始するには数秒かかります。
+
+### <a name="determine-the-service-status"></a>サービスの状態を確認する
+
+サービスの状態を確認するには、`sc query {SERVICE NAME}` コマンドを使用します。 この状態は、次のいずれかの値として報告されます。
+
+* `START_PENDING`
+* `RUNNING`
+* `STOP_PENDING`
+* `STOPPED`
+
+次のコマンドを使用し、サンプル アプリ サービスの状態を確認します。
+
+```console
+sc query MyService
+```
+
+### <a name="browse-a-web-app-service"></a>Web アプリ サービスを参照する
+
+サービスの状態が `RUNNING` で、サービスが Web アプリである場合、そのアプリとそのパスを参照します (既定では、[HTTPS Redirection Middleware](xref:security/enforcing-ssl) の使用時に `https://localhost:5001` にリダイレクトされる `http://localhost:5000` )。
+
+サンプル アプリ サービスの場合、アプリは `http://localhost:5000` で参照します。
+
+### <a name="stop-the-service"></a>サービスを停止して
+
+`sc stop {SERVICE NAME}` コマンドを使用して、サービスを停止します。
+
+サンプル アプリ サービスは、次のコマンドで停止できます。
+
+```console
+sc stop MyService
+```
+
+### <a name="delete-the-service"></a>サービスを削除する
+
+サービスの停止の少し後に、`sc delete {SERVICE NAME}` コマンドを使用して、サービスをアンインストールします。
+
+サンプル アプリ サービスの状態を確認します。
+
+```console
+sc query MyService
+```
+
+サンプル アプリ サービスの状態が `STOPPED` 状態の場合、次のコマンドを使用して、サンプル アプリ サービスをアンインストールします。
+
+```console
+sc delete MyService
+```
 
 ## <a name="handle-starting-and-stopping-events"></a>イベントの開始と停止を扱う
 

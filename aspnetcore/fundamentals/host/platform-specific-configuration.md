@@ -1,20 +1,20 @@
 ---
-title: IHostingStartup を使用して ASP.NET Core の外部アセンブリからアプリを拡張する
+title: ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 author: guardrex
 description: IHostingStartup 実装を使用して、外部アセンブリから ASP.NET Core アプリを拡張する方法について説明します。
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 6c38242afee46b80bafcba47a8f77e2c05f6537e
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299457"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121727"
 ---
-# <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>IHostingStartup を使用して ASP.NET Core の外部アセンブリからアプリを拡張する
+# <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 
 作成者: [Luke Latham](https://github.com/guardrex) および [Pavel Krymets](https://github.com/pakrym)
 
