@@ -266,7 +266,7 @@ dotnet new angular
   * ソース マップを除外します。
   * バンドルと縮小を使用してクライアント側のコードを最適化します。
 
-ASP.NET Core という環境変数を使用して`ASPNETCORE_ENVIRONMENT`構成モードを格納します。 参照してください**[環境を設定](xref:fundamentals/environments#set-the-environment)** 詳細についてはします。
+ASP.NET Core という環境変数を使用して`ASPNETCORE_ENVIRONMENT`構成モードを格納します。 参照してください **[環境を設定](xref:fundamentals/environments#set-the-environment)** 詳細についてはします。
 
 ### <a name="running-with-net-core-cli"></a>.NET Core CLI で実行します。
 
