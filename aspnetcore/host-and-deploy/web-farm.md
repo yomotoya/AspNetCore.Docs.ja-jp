@@ -59,7 +59,7 @@ Web ファーム環境におけるキャッシュのメカニズムでは、Web 
 
 | シナリオ | 依存先 &hellip; |
 | -------- | ------------------- |
-| 認証 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、次のトピックを参照してください。 <xref:security/authentication/cookie> および <xref:security/cookie-sharing>. |
+| 認証 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、次のトピックを参照してください。 <xref:security/authentication/cookie> および <xref:security/cookie-sharing> |
 | 同一。 | 認証とデータベースの構成。<br><br>詳細については、「<xref:security/authentication/identity>」を参照してください。 |
 | セッション | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) とキャッシュ (<xref:performance/caching/distributed> を参照)。<br><br>詳細については、[セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)をご覧ください。 |
 | TempData | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) またはセッション ([セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)を参照)。<br><br>詳細については、[セッションとアプリの状態に関する記事の「TempData」](xref:fundamentals/app-state#tempdata)をご覧ください。 |
