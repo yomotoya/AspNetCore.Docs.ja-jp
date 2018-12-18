@@ -37,7 +37,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 * 呼び出すことによって、非同期実行をブロック[Task.Wait](/dotnet/api/system.threading.tasks.task.wait)または[Task.Result](/dotnet/api/system.threading.tasks.task-1.result)します。
 * 一般的なコード パスでロックを取得します。 ASP.NET Core アプリでは、最も効率的なコードを並列で実行するように構築する場合です。
 
-****:
+**行う**
 
 * ように[ホット コード パス](#hot)非同期です。
 * データ アクセスと実行時間の長い操作の Api を非同期的に呼び出します。
@@ -51,8 +51,8 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 推奨事項:
 
-* **** よく使われる大規模なオブジェクトのキャッシュを検討してください。 ラージ オブジェクトをキャッシュには、高価な割り当てができないようにします。
-* **** を使用してバッファーをプールする[ `ArrayPool<T>` ](/dotnet/api/system.buffers.arraypool-1)大きな配列を格納します。
+* **行う** よく使われる大規模なオブジェクトのキャッシュを検討してください。 ラージ オブジェクトをキャッシュには、高価な割り当てができないようにします。
+* **行う** を使用してバッファーをプールする[ `ArrayPool<T>` ](/dotnet/api/system.buffers.arraypool-1)大きな配列を格納します。
 * **しない**に割り当てる大きなオブジェクトの有効期間が短い、[ホット コード パス](#hot)します。
 
 メモリの問題でガベージ コレクション (GC) の統計情報を確認して、上記を診断できるように[PerfView](https://github.com/Microsoft/perfview)を調べること。
@@ -69,13 +69,13 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 推奨事項:
 
-* **** すべてのデータ アクセス Api を非同期的に呼び出します。
+* **行う** すべてのデータ アクセス Api を非同期的に呼び出します。
 * **しない**は必要以上のデータを取得します。 現在の HTTP 要求のために必要なデータだけを返すクエリを記述します。
 * **** が若干古くなっているデータの許容される場合は、データベースやリモート サービスから取得されたデータをアクセス頻繁にキャッシュを検討してください。 シナリオによっては、使用する場合があります、 [MemoryCache](xref:performance/caching/memory)または[DistributedCache](xref:performance/caching/distributed)します。 詳細については、「 <xref:performance/caching/response> 」を参照してください。
 * 最小限のネットワーク ラウンド トリップします。 目標は、いくつかの呼び出しではなく、1 回の呼び出しで必要なすべてのデータを取得します。
-* **** 使用[追跡なしのクエリ](/ef/core/querying/tracking#no-tracking-queries)読み取り専用の目的でデータにアクセスするときに、Entity Framework Core でします。 EF Core より効率的に追跡なしのクエリの結果を返すことができます。
-* **** フィルターと集計の LINQ クエリ (と`.Where`、 `.Select`、または`.Sum`ステートメントなどの) データベースをフィルター処理ができるようにします。
-* **** EF Core に、クライアントは、非効率的なクエリの実行につながる可能性のいくつかのクエリ演算子が解決されることを検討してください。 詳細については、次を参照してください[クライアント評価のパフォーマンスの問題。](/ef/core/querying/client-eval#client-evaluation-performance-issues)
+* **行う** 使用[追跡なしのクエリ](/ef/core/querying/tracking#no-tracking-queries)読み取り専用の目的でデータにアクセスするときに、Entity Framework Core でします。 EF Core より効率的に追跡なしのクエリの結果を返すことができます。
+* **行う** フィルターと集計の LINQ クエリ (と`.Where`、 `.Select`、または`.Sum`ステートメントなどの) データベースをフィルター処理ができるようにします。
+* **行う** EF Core に、クライアントは、非効率的なクエリの実行につながる可能性のいくつかのクエリ演算子が解決されることを検討してください。 詳細については、次を参照してください[クライアント評価のパフォーマンスの問題。](/ef/core/querying/client-eval#client-evaluation-performance-issues)
 * **しない**プロジェクション クエリを使用して、"n+1"を実行するがこのコレクションは、上の SQL クエリ。 詳細については、次を参照してください。[相関サブクエリの最適化](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries)します。
 
 参照してください[EF 高性能](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)のための手法を高スケールのアプリでのパフォーマンスを向上させる可能性があります。
@@ -93,8 +93,8 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 推奨事項:
 
-* **しない**の作成し、破棄の`HttpClient`直接インスタンス化します。
-* **** 使用[HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)を取得する`HttpClient`インスタンス。 詳細については、次を参照してください。[回復力のある HTTP 要求を実装するために使用 HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)します。
+* **行う**の作成し、破棄の`HttpClient`直接インスタンス化します。
+* **行う** 使用[HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)を取得する`HttpClient`インスタンス。 詳細については、次を参照してください。[回復力のある HTTP 要求を実装するために使用 HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)します。
 
 ## <a name="keep-common-code-paths-fast"></a>高速の一般的なコード パスを維持します。
 
@@ -106,7 +106,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 推奨事項:
 
 * **しない**実行時間の長いタスクでカスタムのミドルウェア コンポーネントを使用します。
-* **** パフォーマンス プロファイリング ツールを使用して (ような[Visual Studio 診断ツール](/visualstudio/profiling/profiling-feature-tour)または[PerfView](https://github.com/Microsoft/perfview)) を識別する[ホット コード パス](#hot)します。
+* **行う** パフォーマンス プロファイリング ツールを使用して (ような[Visual Studio 診断ツール](/visualstudio/profiling/profiling-feature-tour)または[PerfView](https://github.com/Microsoft/perfview)) を識別する[ホット コード パス](#hot)します。
 
 ## <a name="complete-long-running-tasks-outside-of-http-requests"></a>HTTP 要求の外部で長時間タスクを完了します。
 
@@ -115,8 +115,8 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 推奨事項:
 
 * **しない**実行時間の長いタスクが通常の HTTP 要求の処理の一部として完了するまで待ちます。
-* **** での実行時間の長い要求の処理を検討してください[バック グラウンド サービス](/aspnet/core/fundamentals/host/hosted-services)またはアウト プロセスで、 [Azure 関数](/azure/azure-functions/)します。 作業のアウト プロセスの完了は、CPU を消費するタスクに特に有益です。
-* **** などのリアルタイム通信オプションを使用して、 [SignalR](xref:signalr/introduction)クライアントを非同期的に通信します。
+* **行う** での実行時間の長い要求の処理を検討してください[バック グラウンド サービス](/aspnet/core/fundamentals/host/hosted-services)またはアウト プロセスで、 [Azure 関数](/azure/azure-functions/)します。 作業のアウト プロセスの完了は、CPU を消費するタスクに特に有益です。
+* **行う** などのリアルタイム通信オプションを使用して、 [SignalR](xref:signalr/introduction)クライアントを非同期的に通信します。
 
 ## <a name="minify-client-assets"></a>クライアントの資産を縮小します。
 
@@ -127,8 +127,8 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 推奨事項:
 
-* **** で ASP.NET Core の使用[組み込みサポート](xref:client-side/bundling-and-minification)バンドルと縮小クライアント資産。
-* **** などの他のサード パーティ製ツールを検討してください[Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp)または[Webpack](https://webpack.js.org/)クライアント資産管理をより複雑なのです。
+* **行う** で ASP.NET Core の使用[組み込みサポート](xref:client-side/bundling-and-minification)バンドルと縮小クライアント資産。
+* **行う** などの他のサード パーティ製ツールを検討してください[Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp)または[Webpack](https://webpack.js.org/)クライアント資産管理をより複雑なのです。
 
 ## <a name="use-the-latest-aspnet-core-release"></a>ASP.NET Core の最新のリリースを使用します。
 
@@ -144,7 +144,7 @@ Maybe skip this TBD link as each version will have perf improvements -->
 推奨事項:
 
 * **しない**使用スローまたはホット コード パスで特にの通常のプログラム フローの手段として例外をキャッチします。
-* **** ロジックを検出して例外の原因となる条件を処理するアプリケーションに含めることができます。
-* **** スローまたは異常なまたは予期しない条件の例外をキャッチします。
+* **行う** ロジックを検出して例外の原因となる条件を処理するアプリケーションに含めることができます。
+* **行う** スローまたは異常なまたは予期しない条件の例外をキャッチします。
 
 (Application Insights) のようなアプリの診断ツールは、パフォーマンスに影響を与えるアプリケーションの一般的な例外を識別するのに役立ちます。
