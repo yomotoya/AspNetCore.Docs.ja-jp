@@ -71,7 +71,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 * **行う** すべてのデータ アクセス Api を非同期的に呼び出します。
 * **しない**は必要以上のデータを取得します。 現在の HTTP 要求のために必要なデータだけを返すクエリを記述します。
-* **** が若干古くなっているデータの許容される場合は、データベースやリモート サービスから取得されたデータをアクセス頻繁にキャッシュを検討してください。 シナリオによっては、使用する場合があります、 [MemoryCache](xref:performance/caching/memory)または[DistributedCache](xref:performance/caching/distributed)します。 詳細については、「 <xref:performance/caching/response> 」を参照してください。
+* **行う**が若干古くなっているデータの許容される場合は、データベースやリモート サービスから取得されたデータをアクセス頻繁にキャッシュを検討してください。 シナリオによっては、使用する場合があります、 [MemoryCache](xref:performance/caching/memory)または[DistributedCache](xref:performance/caching/distributed)します。 詳細については、「 <xref:performance/caching/response> 」を参照してください。
 * 最小限のネットワーク ラウンド トリップします。 目標は、いくつかの呼び出しではなく、1 回の呼び出しで必要なすべてのデータを取得します。
 * **行う** 使用[追跡なしのクエリ](/ef/core/querying/tracking#no-tracking-queries)読み取り専用の目的でデータにアクセスするときに、Entity Framework Core でします。 EF Core より効率的に追跡なしのクエリの結果を返すことができます。
 * **行う** フィルターと集計の LINQ クエリ (と`.Where`、 `.Select`、または`.Sum`ステートメントなどの) データベースをフィルター処理ができるようにします。
