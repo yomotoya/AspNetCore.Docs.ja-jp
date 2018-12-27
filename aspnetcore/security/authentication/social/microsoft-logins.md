@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 4909a0084994654777ad7a6ebda866ac727f0528
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708401"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735753"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core での Microsoft アカウントの外部ログインのセットアップ
 
@@ -80,9 +80,9 @@ Microsoft のような機密性の高い設定リンク`Application ID`と`Passw
 Microsoft アカウント サービスの追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 {
@@ -119,7 +119,7 @@ Microsoft 開発者ポータルで使用される用語は、これらのトー�
 
 アプリケーションを実行し、をクリックして**ログイン**します。 Microsoft アカウントでサインインするためのオプションが表示されます。
 
-![Web ページで、アプリケーション ログ: ユーザーが認証されていません。](index/_static/DoneMicrosoft.png)
+![Web ページでは、アプリケーション ログ。ユーザーが認証されていません。](index/_static/DoneMicrosoft.png)
 
 Microsoft をクリックすると、認証のように、Microsoft にリダイレクトされます。 (サインインされていない) 場合、Microsoft アカウントでサインインしたら、アプリの情報にアクセスできるようにするよう求められます。
 
@@ -129,7 +129,7 @@ Microsoft をクリックすると、認証のように、Microsoft にリダイ
 
 Microsoft の資格情報を使用してログインしました。
 
-![Web アプリケーション: 認証されたユーザー](index/_static/Done.png)
+![Web アプリケーション:認証されたユーザー](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -138,7 +138,7 @@ Microsoft の資格情報を使用してログインしました。
 * Microsoft アカウント プロバイダーでは、サインイン エラー ページにリダイレクトするの場合、エラーのタイトルと説明クエリ文字列パラメーターの直後に注意してください、 `#` (ハッシュタグ) uri。
 
   エラー メッセージを Microsoft 認証に問題を示すために見えますが、最も一般的な原因は、アプリケーション Uri と一致しない、**リダイレクト Uri**の指定、 **Web**プラットフォーム.
-* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
+* **ASP.NET Core 2.x のみ。** ユーザーが呼び出すことによって構成されていない場合`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException:'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合になります*要求の処理中にデータベース操作が失敗しました*エラー。 タップ**適用移行**データベースを作成し、エラーを引き続き更新します。
 
 ## <a name="next-steps"></a>次の手順

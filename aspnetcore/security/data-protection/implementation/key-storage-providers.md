@@ -3,14 +3,14 @@ title: ASP.NET Core でのキー記憶域プロバイダー
 author: rick-anderson
 description: キー記憶域プロバイダーでは、ASP.NET Core とキー記憶域の場所を構成する方法について説明します。
 ms.author: riande
-ms.date: 12/06/2018
+ms.date: 12/19/2018
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: e10271d5979b503a8a842f8866a0e2a3fa040656
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d6dabc9e4581e0891d1dd14f73e086d50b45bba4
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121454"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735740"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET Core でのキー記憶域プロバイダー
 
@@ -125,6 +125,38 @@ EF Core プロバイダーを構成するには、呼び出し、 [ `PersistKeys
 ジェネリック パラメーター、`TContext`から継承する必要があります[DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext)と[IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
+
+作成、`DataProtectionKeys`テーブル。 
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+次のコマンドの実行、**パッケージ マネージャー コンソール**(PMC) ウィンドウ。
+
+```PowerShell
+Add-Migration AddDataProtectionKeys -Context MyKeysContext
+Update-Database -Context MyKeysContext
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+コマンド シェルで次のコマンドを実行します。
+
+```console
+dotnet ef migrations add AddDataProtectionKeys --context MyKeysContext
+dotnet ef database update --context MyKeysContext
+```
+
+---
+
+`MyKeysContext` `DbContext`上記のコード サンプルで定義されています。 使用している場合、`DbContext`別の名前で置き換えて、`DbContext`の名前`MyKeysContext`します。
+
+`DataProtectionKeys`クラス/エンティティは、次の表に示す構造を採用します。
+
+| プロパティ/フィールド | CLR 型 | SQL 型              |
+| -------------- | -------- | --------------------- |
+| `Id`           | `int`    | `int`、PK、null でないです。   |
+| `FriendlyName` | `string` | `nvarchar(MAX)`、null |
+| `Xml`          | `string` | `nvarchar(MAX)`、null |
 
 ::: moniker-end
 

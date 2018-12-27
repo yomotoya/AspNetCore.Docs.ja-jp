@@ -3,15 +3,15 @@ title: 承認によって保護されたユーザー データと ASP.NET Core �
 author: rick-anderson
 description: 承認によって保護されたユーザー データと Razor ページ アプリを作成する方法について説明します。 HTTPS、認証、セキュリティ、ASP.NET Core Identity が含まれています。
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121636"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637834"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>承認によって保護されたユーザー データと ASP.NET Core アプリを作成します。
 
@@ -57,15 +57,15 @@ ms.locfileid: "53121636"
 
 管理者は、すべての特権を持ちます。 彼女は、読み取り/編集/削除のいずれかの連絡先をことができ、連絡先の状態を変更します。
 
-によって、アプリが作成された[スキャフォールディング](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller)次`Contact`モデル。
+によって、アプリが作成された[スキャフォールディング](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model)次`Contact`モデル。
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 
 サンプルには、次の承認ハンドラーが含まれています。
 
-* `ContactIsOwnerAuthorizationHandler`: により、ユーザーは、そのデータにのみ編集できます。
-* `ContactManagerAuthorizationHandler`: を承認または拒否の連絡先のマネージャーを使用します。
-* `ContactAdministratorsAuthorizationHandler`: 管理者承認または却下の連絡先と連絡先の編集/削除を使用できます。
+* `ContactIsOwnerAuthorizationHandler`:により、ユーザーは、そのデータにのみ編集できます。
+* `ContactManagerAuthorizationHandler`:承認または拒否の連絡先のマネージャーを使用します。
+* `ContactAdministratorsAuthorizationHandler`:管理者を承認または拒否の連絡先と連絡先の編集/削除に使用できます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -284,7 +284,7 @@ Entity Framework Core を使用してサービスを登録する必要があり�
 
 シード処理されたユーザー アカウントのパスワードを設定していない場合は、使用、 [Secret Manager ツール](xref:security/app-secrets#secret-manager)パスワードを設定します。
 
-* 強力なパスワードを選択します。 8 を使用して、または詳細文字と少なくとも 1 つの大文字の文字、番号、およびシンボル。 たとえば、`Passw0rd!`強力なパスワード要件を満たしています。
+* 強力なパスワードを選択します。以上の文字し、少なくとも 1 つの大文字の文字数、およびシンボルまたは 8 を使用しています。 たとえば、`Passw0rd!`強力なパスワード要件を満たしています。
 * プロジェクトのフォルダーから次のコマンドを実行、`<PW>`パスワードです。
 
   ```console

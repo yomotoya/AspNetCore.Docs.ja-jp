@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 43a5ea59d8853d297ae2c1ec3f4b1c0c14ec80c3
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 49db8b921fde169380ca284f46e535786b2b8a30
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708427"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735805"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>ASP.NET Core での twitter 外部ログインのセットアップ
 
@@ -62,9 +62,9 @@ Twitter などの機密設定をリンク`Consumer Key`と`Consumer Secret`ア�
 Twitter サービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddTwitter(twitterOptions =>
 {
@@ -99,7 +99,7 @@ app.UseTwitterAuthentication(new TwitterOptions()
 
 アプリケーションを実行し、をクリックして**ログイン**します。 Twitter でサインインするためのオプションが表示されます。
 
-![Web アプリケーション: ユーザーが認証されていません。](index/_static/DoneTwitter.png)
+![Web アプリケーション:ユーザーが認証されていません。](index/_static/DoneTwitter.png)
 
 クリックすると**Twitter**認証の Twitter にリダイレクトします。
 
@@ -109,13 +109,13 @@ Twitter の資格情報を入力した後、電子メールを設定する web �
 
 これで、Twitter の資格情報を使用してをログインしています。
 
-![Web アプリケーション: 認証されたユーザー](index/_static/Done.png)
+![Web アプリケーション:認証されたユーザー](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
+* **ASP.NET Core 2.x のみ。** ユーザーが呼び出すことによって構成されていない場合`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException:'SignInScheme' オプションを指定する必要があります*します。 このチュートリアルで使用するプロジェクト テンプレートによりこれが行われるようになります。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合になります*要求の処理中にデータベース操作が失敗しました*エラー。 タップ**適用移行**データベースを作成し、エラーを引き続き更新します。
 
 ## <a name="next-steps"></a>次の手順

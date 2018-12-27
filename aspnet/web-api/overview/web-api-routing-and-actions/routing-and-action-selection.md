@@ -4,16 +4,16 @@ title: ルーティングと ASP.NET Web API の操作の選択 |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
-ms.date: 07/27/2012
+ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: b4912d3ee1e13651f2a63d54d7dbfd92e00f85f8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce54181996376cb5dde3b91c10c16f33b3c6a570
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838885"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425173"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>ルーティングと ASP.NET Web API の操作の選択
 ====================
@@ -58,11 +58,11 @@ URI セグメントがプレース ホルダーを照合する方法を制限す
 
 ### <a name="defaults"></a>既定値
 
-既定値を指定する場合、ルートはこれらのセグメントが不足している URI に一致します。 例えば:
+既定値を指定する場合、ルートはこれらのセグメントが不足している URI に一致します。 例:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-URI"`http://localhost/api/products`"このルートと一致します。 "{Category}"セグメントには、「すべて」の既定値が割り当てられます。
+Uri`http://localhost/api/products/all`と`http://localhost/api/products`前のルートと一致します。 後者の uri に不足している`{category}`セグメントには、既定値が割り当てられている`all`します。
 
 ### <a name="route-dictionary"></a>ルート ディクショナリ
 
@@ -70,7 +70,7 @@ URI"`http://localhost/api/products`"このルートと一致します。 "{Categ
 
 このルートの一致フェーズ中に、特別な"{controller}"と"{action}"プレース ホルダーは、他のプレース ホルダーと同じように扱われます。 単にその他の値をディクショナリに格納されます。
 
-既定値は、特殊な値を持つことができます**RouteParameter.Optional**します。 プレース ホルダーには、この値が割り当てられている取得する場合、値はルート ディクショナリに追加されません。 例えば:
+既定値は、特殊な値を持つことができます**RouteParameter.Optional**します。 プレース ホルダーには、この値が割り当てられている取得する場合、値はルート ディクショナリに追加されません。 例:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample5.cs)]
 
@@ -83,16 +83,16 @@ URI のパス「api/製品」では、ルート ディクショナリが含ま�
 
 - コント ローラー:"products"
 - category: "toys"
-- id:「123」
+- Id:「123」
 
-既定値は、ルート テンプレートで任意の場所に表示されていない値を含めることができますも。 ルートが一致すると、その値がディクショナリに格納します。 例えば:
+既定値は、ルート テンプレートで任意の場所に表示されていない値を含めることができますも。 ルートが一致すると、その値がディクショナリに格納します。 例:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample6.cs)]
 
 URI のパスが「api/ルート/8」の場合は、2 つの値がディクショナリに含まれます。
 
 - コント ローラー:"customers"
-- id:「8」
+- Id:「8」
 
 ## <a name="selecting-a-controller"></a>コント ローラーを選択します。
 
@@ -122,7 +122,7 @@ URI のパスが「api/ルート/8」の場合は、2 つの値がディクシ�
 
 **HTTP メソッド。** フレームワークには、次のように、要求の HTTP メソッドに一致するアクションのみ選択されます。
 
-1. 属性を使用する HTTP メソッドを指定できます: **AcceptVerbs**、 **HttpDelete**、 **HttpGet**、 **HttpHead**、 **HttpOptions**、 **HttpPatch**、 **HttpPost**、または**HttpPut**します。
+1. 属性では、HTTP メソッドを指定できます。**AcceptVerbs**、 **HttpDelete**、 **HttpGet**、 **HttpHead**、 **HttpOptions**、 **HttpPatch**、 **HttpPost**、または**HttpPut**します。
 2. それ以外の場合、コント ローラー メソッドの名前は、"Get"、"Post"、"Put"、"Delete"、"Head"、「オプション」または「パッチ」で始まる場合、規則によって、アクションがサポートする HTTP メソッド。
 3. 上記のいずれの場合、メソッドは POST をサポートします。
 
@@ -189,7 +189,7 @@ HTTP 要求:
 URI では、"DefaultApi"という名前のルートと一致します。 ルート ディクショナリには、次のエントリが含まれています。
 
 - コント ローラー:"products"
-- id: "1"
+- Id:"1"
 
 クエリ文字列パラメーター、"version"と「詳細」を含まないルート ディクショナリが、これらのアクションの選択中にも考慮されます。
 

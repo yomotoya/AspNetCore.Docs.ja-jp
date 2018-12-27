@@ -4,20 +4,20 @@ author: rick-anderson
 description: このチュートリアルでは、既存の ASP.NET Core アプリに Facebook アカウントのユーザー認証の統合について説明します。
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/11/2018
+ms.date: 12/18/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: d4f3e210b0d3c79eaf2233f97a29a6d96cd69b39
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 66f895c7c8dcc00d991c0ea57535f2ed56431a77
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284384"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735779"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Facebook 外部ログインのセットアップ
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、サンプルの ASP.NET Core 2.0 プロジェクトが作成を使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法、[前のページ](xref:security/authentication/social/index)します。 Facebook の認証が必要です、 [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) NuGet パッケージ。 まず Facebook アプリケーションの ID の作成を[公式手順](https://developers.facebook.com)します。
+このチュートリアルでは、サンプルの ASP.NET Core 2.0 プロジェクトが作成を使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法、[前のページ](xref:security/authentication/social/index)します。 まず Facebook アプリケーションの ID の作成を[公式手順](https://developers.facebook.com)します。
 
 ## <a name="create-the-app-in-facebook"></a>Facebook で、アプリを作成します。
 
@@ -74,9 +74,9 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 Facebook のサービスを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddFacebook(facebookOptions =>
 {
@@ -145,6 +145,8 @@ Facebook の資格情報を使用してログインしました。
 * 取得する場合は、初期移行を適用することで、サイト データベースが作成されていない*要求の処理中にデータベース操作が失敗しました*エラー。 タップ**適用移行**データベースを作成し、エラーを引き続き更新します。
 
 ## <a name="next-steps"></a>次の手順
+
+* 追加、 [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)高度な Facebook の認証シナリオには、プロジェクトに NuGet パッケージ。 このパッケージは、アプリで Facebook 外部ログイン機能を統合する必要はありません。 
 
 * この記事では、Facebook を認証する方法を示しました。 記載されているその他のプロバイダーで認証する同様のアプローチを利用できる、[前のページ](xref:security/authentication/social/index)します。
 

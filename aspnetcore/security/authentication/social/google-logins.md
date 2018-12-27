@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: 372504eb4f6fea412b5b160e0d5e9251dafe0d56
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 4bb5a36cf654deb694d60da126fa42baf382f729
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284495"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735766"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Google 外部ログインのセットアップ
 
@@ -92,9 +92,9 @@ Google のような機密性の高い設定リンク`Client ID`と`Client Secret
 Google のサービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddGoogle(googleOptions =>
 {

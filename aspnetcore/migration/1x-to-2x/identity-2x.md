@@ -3,14 +3,14 @@ title: ASP.NET Core 2.0 への認証と Id を移行します。
 author: scottaddie
 description: この記事では、ASP.NET Core 2.0 に移行する ASP.NET Core 1.x の認証と Id の最も一般的な手順について説明します。
 ms.author: scaddie
-ms.date: 10/26/2017
+ms.date: 12/18/2018
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 6d457d42ad29ca579ba74e3b097d143bd6531b72
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d28b4af483c7ec9d6cff6db3e2f1693e765d4202
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829316"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637613"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>ASP.NET Core 2.0 への認証と Id を移行します。
 
@@ -283,7 +283,7 @@ Windows 認証の 2 つのバリエーションがあります。
 
 上記で説明した最初のコマンドは、2.0 の変更による影響はありません。
 
-上記で説明した 2 つ目のバリエーションは 2.0 の変更の影響を受けます。 例として、する可能性があります使用することの匿名ユーザーに、IIS アプリケーションにまたは[HTTP.sys](xref:fundamentals/servers/weblistener)レイヤーのコント ローラー レベルで、承認ユーザー。 このシナリオで、既定のスキームを設定`IISDefaults.AuthenticationScheme`で、`ConfigureServices`メソッドの*Startup.cs*:
+上記で説明した 2 つ目のバリエーションは 2.0 の変更の影響を受けます。 例として、する可能性があること匿名ユーザーに、IIS でアプリまたは[HTTP.sys](xref:fundamentals/servers/httpsys)レイヤーのコント ローラー レベルで、承認ユーザー。 このシナリオで、既定のスキームを設定`IISDefaults.AuthenticationScheme`で、`Startup.ConfigureServices`メソッド。
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);

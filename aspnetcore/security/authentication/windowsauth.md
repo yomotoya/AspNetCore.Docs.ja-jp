@@ -1,23 +1,23 @@
 ---
 title: ASP.NET Core での Windows 認証を構成します。
 author: scottaddie
-description: ASP.NET core で IIS Express、IIS、HTTP.sys は、および WebListener を使用して Windows 認証を構成する方法について説明します。
+description: ASP.NET core で IIS Express、IIS、および HTTP.sys を使用して Windows 認証を構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/01/2018
+ms.date: 12/18/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15e388433cc9b01e9db3e2fb56aca1ebb5ba5ba4
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 94dff2f47b2b076cb15f8d385239179b52786678
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284422"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637821"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
 作成者: [Steve Smith](https://ardalis.com)、[Scott Addie](https://twitter.com/Scott_Addie)
 
-Windows 認証は、IIS でホストされている ASP.NET Core アプリ用に構成できます[HTTP.sys](xref:fundamentals/servers/httpsys)、または[WebListener](xref:fundamentals/servers/weblistener)します。
+IIS でホストされている ASP.NET Core アプリに対して Windows 認証を構成できますか[HTTP.sys](xref:fundamentals/servers/httpsys)します。
 
 ## <a name="windows-authentication"></a>Windows 認証
 
@@ -55,7 +55,7 @@ Visual Studio プロジェクト**プロパティ**ページの**デバッグ** 
 
 ## <a name="enable-windows-authentication-with-iis"></a>IIS での Windows 認証を有効にします。
 
-IIS を使用して、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)ASP.NET Core アプリをホストします。 Windows 認証は、アプリケーションではなく、IIS で構成されます。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリを構成する方法を示します。
+IIS を使用して、 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)ASP.NET Core アプリをホストします。 Windows 認証は、アプリケーションではなく、IIS で構成されます。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリを構成する方法を示します。
 
 ### <a name="iis-configuration"></a>IIS 構成
 
@@ -89,8 +89,6 @@ ASP.NET Core モジュールは、既定では、アプリに Windows 認証ト�
 
 Windows 認証が動作していることを確認するアプリを起動します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 ## <a name="enable-windows-authentication-with-httpsys"></a>HTTP.sys を使用して Windows 認証を有効にします。
 
 使用することができますが、Kestrel が Windows 認証をサポートしていない[HTTP.sys](xref:fundamentals/servers/httpsys) Windows で自己ホスト型のシナリオをサポートします。 次の例は、Windows 認証を使用した HTTP.sys を使用するアプリの web ホストを構成します。
@@ -103,28 +101,13 @@ Windows 認証が動作していることを確認するアプリを起動しま
 > [!NOTE]
 > HTTP.sys は、Nano Server バージョン 1709 以降でサポートされていません。 Nano Server の Windows 認証と HTTP.sys を使用する、 [(microsoft/windowsservercore) の Server Core コンテナー](https://hub.docker.com/r/microsoft/windowsservercore/)します。 Server Core の詳細については、次を参照してください。 [Windows Server の Server Core インストール オプションとは何ですか?](/windows-server/administration/server-core/what-is-server-core)します。
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-## <a name="enable-windows-authentication-with-weblistener"></a>WebListener での Windows 認証を有効にします。
-
-使用することができますが、Kestrel が Windows 認証をサポートしていない[WebListener](xref:fundamentals/servers/weblistener) Windows で自己ホスト型のシナリオをサポートします。 次の例は、Windows 認証で WebListener を使用するアプリの web ホストを構成します。
-
-[!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
-
-> [!NOTE]
-> WebListener では、Kerberos 認証プロトコルを使用したカーネル モード認証に処理が委任されます。 Kerberos および WebListener ではユーザー モード認証がサポートされていません。 Active Directory から取得され、クライアントによって、ユーザーを認証するサーバーに転送される Kerberos トークン/チケットを暗号化解除するには、コンピューター アカウントを使用する必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
-
-::: moniker-end
-
 ## <a name="work-with-windows-authentication"></a>Windows 認証を使用します。
 
 匿名アクセスの構成の状態にする方法が決定します、`[Authorize]`と`[AllowAnonymous]`属性は、アプリで使用します。 次の 2 つのセクションでは、匿名アクセスの許可されていないと、許可されている構成の状態を処理する方法について説明します。
 
 ### <a name="disallow-anonymous-access"></a>匿名アクセスを禁止します。
 
-Windows 認証が有効になっており、匿名アクセスが無効になっているときに、`[Authorize]`と`[AllowAnonymous]`属性は影響ありません。 IIS サイト (または HTTP.sys または WebListener サーバー) を匿名アクセスを許可しないように構成する場合、要求がアプリに到達しません。 このため、`[AllowAnonymous]`属性には適用されません。
+Windows 認証が有効になっており、匿名アクセスが無効になっているときに、`[Authorize]`と`[AllowAnonymous]`属性は影響ありません。 IIS サイト (または HTTP.sys) を匿名アクセスを許可しないように構成する場合、要求がアプリに到達しません。 このため、`[AllowAnonymous]`属性には適用されません。
 
 ### <a name="allow-anonymous-access"></a>匿名アクセスを許可します。
 

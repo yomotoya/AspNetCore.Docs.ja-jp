@@ -5,14 +5,14 @@ description: 応答圧縮と ASP.NET Core アプリで応答圧縮ミドルウ�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861889"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637756"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core で応答の圧縮
 
@@ -33,12 +33,12 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
   * [Apache mod_deflate モジュール](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx の圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * 直接のホスティング。
-  * [HTTP.sys](xref:fundamentals/servers/httpsys) server (旧称[WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel)サーバー
+  * [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称 WebListener)
+  * [Kestrel サーバー](xref:fundamentals/servers/kestrel)
 
-## <a name="response-compression"></a>応答の圧縮
+## <a name="response-compression"></a>応答圧縮
 
-通常は、ネイティブに圧縮された応答は、応答の圧縮を利用できます。 ネイティブに通常は圧縮された応答が含まれます。 CSS、JavaScript、HTML、XML、および JSON。 PNG ファイルなどのネイティブ圧縮されたアセットを圧縮することはできません。 場合にさらに、ネイティブ圧縮された応答を圧縮しようとすると、サイズと転送時間の小さなそれ以上は低下は可能性がありますする影が薄くなって、圧縮処理にかかった時間によって。 (ファイルの内容および圧縮の効率) に応じて約 150 ~ 1000 バイトよりも小さいファイルを圧縮されていません。 圧縮されたファイルのサイズが圧縮されていないファイルよりも小さいファイルの圧縮のオーバーヘッドがあります。
+通常は、ネイティブに圧縮された応答は、応答の圧縮を利用できます。 ネイティブに通常は圧縮された応答は次のとおりです。CSS、JavaScript、HTML、XML、および JSON。 PNG ファイルなどのネイティブ圧縮されたアセットを圧縮することはできません。 場合にさらに、ネイティブ圧縮された応答を圧縮しようとすると、サイズと転送時間の小さなそれ以上は低下は可能性がありますする影が薄くなって、圧縮処理にかかった時間によって。 (ファイルの内容および圧縮の効率) に応じて約 150 ~ 1000 バイトよりも小さいファイルを圧縮されていません。 圧縮されたファイルのサイズが圧縮されていないファイルよりも小さいファイルの圧縮のオーバーヘッドがあります。
 
 クライアントが送信することによってその機能のサーバーに通知する必要があります、クライアントは、圧縮されたコンテンツを処理できますが、ときに、`Accept-Encoding`ヘッダーを要求します。 内の情報を含める必要があります、サーバーは、圧縮されたコンテンツを送信するとき、`Content-Encoding`ヘッダーを圧縮された応答をエンコードする方法。 ミドルウェアによってサポートされているコンテンツのエンコードの指定は、次の表に表示されます。
 
@@ -49,10 +49,10 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 | `br`                            | [はい] (既定値)        | [Brotli 圧縮データの形式](https://tools.ietf.org/html/rfc7932) |
 | `deflate`                       | いいえ                   | [DEFLATE 圧縮データの形式](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | いいえ                   | [W3C の効率的な XML インターチェンジ](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
-| `gzip`                          | はい                  | [Gzip ファイル形式](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | はい                  | 「エンコードなし」の識別子: 応答をエンコードする必要があります。 |
+| `gzip`                          | [はい]                  | [Gzip ファイル形式](https://tools.ietf.org/html/rfc1952) |
+| `identity`                      | [はい]                  | 「エンコードなし」の識別子:応答をエンコードする必要があります。 |
 | `pack200-gzip`                  | いいえ                   | [Java アーカイブのネットワーク転送の形式](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | はい                  | 明示的に要求されたエンコードは、利用可能なコンテンツ |
+| `*`                             | [はい]                  | 明示的に要求されたエンコードは、利用可能なコンテンツ |
 
 ::: moniker-end
 
@@ -64,9 +64,9 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 | `deflate`                       | いいえ                   | [DEFLATE 圧縮データの形式](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | いいえ                   | [W3C の効率的な XML インターチェンジ](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | [はい] (既定値)        | [Gzip ファイル形式](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | はい                  | 「エンコードなし」の識別子: 応答をエンコードする必要があります。 |
+| `identity`                      | [はい]                  | 「エンコードなし」の識別子:応答をエンコードする必要があります。 |
 | `pack200-gzip`                  | いいえ                   | [Java アーカイブのネットワーク転送の形式](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | はい                  | 明示的に要求されたエンコードは、利用可能なコンテンツ |
+| `*`                             | [はい]                  | 明示的に要求されたエンコードは、利用可能なコンテンツ |
 
 ::: moniker-end
 
@@ -74,7 +74,7 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 
 カスタムの圧縮は追加のプロバイダーを追加することができます、ミドルウェア`Accept-Encoding`ヘッダー値。 詳細については、次を参照してください。[カスタム プロバイダー](#custom-providers)以下。
 
-ミドルウェアが品質の値に対応できる (qvalue、 `q`) 圧縮スキームを優先するクライアントによって送信されたときに重み付けします。 詳細については、次を参照してください。 [RFC 7231: Accept-encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)します。
+ミドルウェアが品質の値に対応できる (qvalue、 `q`) 圧縮スキームを優先するクライアントによって送信されたときに重み付けします。 詳細については、次を参照してください。 [RFC 7231。Accept-encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4)します。
 
 圧縮アルゴリズムは、圧縮速度と、圧縮の効果のトレードオフが適用されます。 *有効性*このコンテキストの圧縮後の出力のサイズを指します。 最小サイズは、ほとんどによって実現*最適な*圧縮します。
 
@@ -432,7 +432,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Nginx のリバース プロキシの背後にあるときにミドルウェアの問題
 
-要求が、Nginx によってプロキシの場合、`Accept-Encoding`ヘッダーを削除します。 削除、`Accept-Encoding`ヘッダーが応答を圧縮すると、ミドルウェアを防止します。 詳細については、次を参照してください。 [NGINX: 圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)します。 この問題を追跡する[Nginx のパススルー圧縮図 (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123)します。
+要求が、Nginx によってプロキシの場合、`Accept-Encoding`ヘッダーを削除します。 削除、`Accept-Encoding`ヘッダーが応答を圧縮すると、ミドルウェアを防止します。 詳細については、次を参照してください[NGINX:。圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)します。 この問題を追跡する[Nginx のパススルー圧縮図 (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123)します。
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS 動的圧縮を使用します。
 
@@ -464,7 +464,7 @@ public void ConfigureServices(IServiceCollection services)
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
-* [Mozilla の Developer Network: Accept-encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [RFC 7231 セクション 3.1.2.1: コンテンツのコーディング](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
-* [RFC 7230 セクション 4.2.3: Gzip コーディング](https://tools.ietf.org/html/rfc7230#section-4.2.3)
+* [Mozilla 開発者ネットワーク:Accept-encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
+* [RFC 7231 セクション 3.1.2.1:コンテンツのコーディング](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [RFC 7230 セクション 4.2.3:Gzip コーディング](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [GZIP ファイル形式の仕様バージョン 4.3](http://www.ietf.org/rfc/rfc1952.txt)
