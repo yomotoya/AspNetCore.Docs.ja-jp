@@ -1,2 +1,2 @@
-* [<span data-ttu-id="d8349-101">Visual Studio for Mac バージョン 7.7 以降</span><span class="sxs-lookup"><span data-stu-id="d8349-101">Visual Studio for Mac version 7.7 or later</span></span>](https://www.visualstudio.com/downloads/)
-* [<span data-ttu-id="d8349-102">.NET core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="d8349-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="fcb66-101">Visual Studio for Mac バージョン 7.7 以降</span><span class="sxs-lookup"><span data-stu-id="fcb66-101">Visual Studio for Mac version 7.7 or later</span></span>](https://www.visualstudio.com/downloads/)
+* [<span data-ttu-id="fcb66-102">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="fcb66-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
