@@ -1,3 +1,3 @@
-* [<span data-ttu-id="b9e64-101">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="b9e64-101">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="b9e64-102">.NET core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="b9e64-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
-* [<span data-ttu-id="b9e64-103">C#Visual Studio Code バージョン 1.17.1 またはそれ以降</span><span class="sxs-lookup"><span data-stu-id="b9e64-103">C# for Visual Studio Code version 1.17.1 or later</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [<span data-ttu-id="6c8ba-101">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6c8ba-101">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="6c8ba-102">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="6c8ba-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="6c8ba-103">C# for Visual Studio Code バージョン 1.17.1 またはそれ以降</span><span class="sxs-lookup"><span data-stu-id="6c8ba-103">C# for Visual Studio Code version 1.17.1 or later</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
