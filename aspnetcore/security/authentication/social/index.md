@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 19074d5014a09446ceec1b89449e78760fc8e7cf
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708375"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53735727"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
@@ -25,8 +25,6 @@ ms.locfileid: "51708375"
 
 ユーザーが既存の資格情報でサインインできるようにすると、ユーザーにとって便利なだけでなく、サインイン プロセスを管理する複雑な処理の多くをサードパーティに移行できます。 ソーシャル ログインによってトラフィックとユーザーの変換を促進する方法の例については、[Facebook](https://www.facebook.com/unsupportedbrowser) と [Twitter](https://dev.twitter.com/resources/case-studies) によるケース スタディを参照してください。
 
-注: ここで紹介するパッケージでは、OAuth 認証フローの複雑な処理の多くを抽象化していますが、トラブルシューティングの際には詳細を理解することが必要になる場合があります。 利用できる資料は多数あります。たとえば、「[Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)」(OAuth 2 の紹介) や「[Understanding OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/)」(OAuth 2 の概要) を参照してください。 「[ASP.NET Core source code for the provider packages](https://github.com/aspnet/Security/tree/master/src)」(プロバイダー パッケージ用の ASP.NET Core ソース コード) を参照すると、いくつかの問題を解決できます。
-
 ## <a name="create-a-new-aspnet-core-project"></a>新しい .NET Core プロジェクトを作成する
 
 * Visual Studio 2017 のスタート ページから、または **[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択して、新しいプロジェクトを作成します。
@@ -39,7 +37,7 @@ ms.locfileid: "51708375"
 
 ![[新しい Web アプリケーションの作成] ダイアログ](index/_static/select-project.png)
 
-注: このチュートリアルは、ASP.NET Core 2.0 SDK バージョンに適用されます。バージョンはウィザードの上部で選択できます。
+メモ:このチュートリアルは、ASP.NET Core 2.0 SDK バージョンに適用されます。バージョンはウィザードの上部で選択できます。
 
 ## <a name="apply-migrations"></a>移行を適用する
 
