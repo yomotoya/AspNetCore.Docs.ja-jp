@@ -11,11 +11,7 @@
 ### [MongoDB での Web API](xref:tutorials/first-mongo-app)
 ## Web アプリ
 ### [Razor ページ](xref:tutorials/razor-pages/index)
-
-### MVC
-#### [Visual Studio を使用](xref:tutorials/first-mvc-app/index)
-#### [Visual Studio Code を使用](xref:tutorials/first-mvc-app-xplat/index)
-#### [Visual Studio for Mac を使用](xref:tutorials/first-mvc-app-mac/index)
+### [MVC](xref:tutorials/first-mvc-app/index)
 
 ## リアルタイムの Web アプリ
 ### [JavaScript による SignalR](xref:tutorials/signalr)
@@ -46,11 +42,7 @@
 ### [概要](xref:fundamentals/host/index)
 ### [Web ホスト](xref:fundamentals/host/web-host)
 ### [汎用ホスト](xref:fundamentals/host/generic-host)
-## サーバー
-### [概要](xref:fundamentals/servers/index)
-### [Kestrel](xref:fundamentals/servers/kestrel)
-### [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)
-### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [サーバー](xref:fundamentals/servers/index)
 ## [HTTP 要求の開始](xref:fundamentals/http-requests)
 
 # Web アプリ
@@ -66,50 +58,26 @@
 #### [新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
 #### [検証の追加](xref:tutorials/razor-pages/validation)
 
+## MVC
+### [MVC の概要](xref:mvc/overview)
+### [MVC のチュートリアル](xref:tutorials/first-mvc-app/index)
+#### [開始するには](xref:tutorials/first-mvc-app/start-mvc)
+#### [コントローラーの追加](xref:tutorials/first-mvc-app/adding-controller)
+#### [ビューの追加](xref:tutorials/first-mvc-app/adding-view)
+#### [モデルの追加](xref:tutorials/first-mvc-app/adding-model)
+#### [DB の操作](xref:tutorials/first-mvc-app/working-with-sql)
+#### [コントローラー アクションとビュー](xref:tutorials/first-mvc-app/controller-methods-views)
+#### [検索の追加](xref:tutorials/first-mvc-app/search)
+#### [新しいフィールドの追加](xref:tutorials/first-mvc-app/new-field)
+#### [検証の追加](xref:tutorials/first-mvc-app/validation)
+#### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
+
 ### [フィルター](xref:razor-pages/filter)
 ### [Razor クラス ライブラリ](xref:razor-pages/ui-class)
 ### [ルートとアプリの規則](xref:razor-pages/razor-pages-conventions)
 ### [ファイルのアップロード](xref:razor-pages/upload-files)
 ### [Razor SDK](xref:razor-pages/sdk)
-## MVC
-### [概要](xref:mvc/overview)
-### チュートリアル
-#### Visual Studio による MVC
-##### [概要](xref:tutorials/first-mvc-app/index)
-##### [開始するには](xref:tutorials/first-mvc-app/start-mvc)
-##### [コントローラーの追加](xref:tutorials/first-mvc-app/adding-controller)
-##### [ビューの追加](xref:tutorials/first-mvc-app/adding-view)
-##### [モデルの追加](xref:tutorials/first-mvc-app/adding-model)
-##### [DB の操作](xref:tutorials/first-mvc-app/working-with-sql)
-##### [コントローラー アクションとビュー](xref:tutorials/first-mvc-app/controller-methods-views)
-##### [検索の追加](xref:tutorials/first-mvc-app/search)
-##### [新しいフィールドの追加](xref:tutorials/first-mvc-app/new-field)
-##### [検証の追加](xref:tutorials/first-mvc-app/validation)
-##### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
-#### Visual Studio Code による MVC
-##### [概要](xref:tutorials/first-mvc-app-xplat/index)
-##### [開始するには](xref:tutorials/first-mvc-app-xplat/start-mvc)
-##### [コントローラーの追加](xref:tutorials/first-mvc-app-xplat/adding-controller)
-##### [ビューの追加](xref:tutorials/first-mvc-app-xplat/adding-view)
-##### [モデルの追加](xref:tutorials/first-mvc-app-xplat/adding-model)
-##### [SQLite の使用](xref:tutorials/first-mvc-app-xplat/working-with-sql)
-##### [コントローラーのメソッドとビュー](xref:tutorials/first-mvc-app-xplat/controller-methods-views)
-##### [検索の追加](xref:tutorials/first-mvc-app-xplat/search)
-##### [新しいフィールドの追加](xref:tutorials/first-mvc-app-xplat/new-field)
-##### [検証の追加](xref:tutorials/first-mvc-app-xplat/validation)
-##### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
-#### Visual Studio for Mac による MVC
-##### [概要](xref:tutorials/first-mvc-app-mac/index)
-##### [開始するには](xref:tutorials/first-mvc-app-mac/start-mvc)
-##### [コントローラーの追加](xref:tutorials/first-mvc-app-mac/adding-controller)
-##### [ビューの追加](xref:tutorials/first-mvc-app-mac/adding-view)
-##### [モデルの追加](xref:tutorials/first-mvc-app-mac/adding-model)
-##### [SQLite の使用](xref:tutorials/first-mvc-app-mac/working-with-sql)
-##### [コントローラーのメソッドとビュー](xref:tutorials/first-mvc-app-mac/controller-methods-views)
-##### [検索の追加](xref:tutorials/first-mvc-app-mac/search)
-##### [新しいフィールドの追加](xref:tutorials/first-mvc-app-mac/new-field)
-##### [検証の追加](xref:tutorials/first-mvc-app-mac/validation)
-##### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
+
 ### [ビュー](xref:mvc/views/overview)
 ### [部分ビュー](xref:mvc/views/partial)
 ### [コントローラー](xref:mvc/controllers/actions)
@@ -284,9 +252,11 @@
 ## IIS による Windows 上のホスト
 ### [概要](xref:host-and-deploy/iis/index)
 ### [IIS でのトラブルシューティング](xref:host-and-deploy/iis/troubleshoot)
-### [ASP.NET Core モジュールのリファレンス](xref:host-and-deploy/aspnet-core-module)
+### [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)
 ### [Visual Studio での IIS サポート](xref:host-and-deploy/iis/development-time-iis-support)
 ### [IIS モジュール](xref:host-and-deploy/iis/modules)
+## [Kestrel](xref:fundamentals/servers/kestrel)
+## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Windows サービスでのホスト](xref:host-and-deploy/windows-service)
 ## [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
 ## [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
