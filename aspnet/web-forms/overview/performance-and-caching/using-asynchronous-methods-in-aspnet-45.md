@@ -4,16 +4,16 @@ title: ASP.NET 4.5 で非同期メソッドの使用 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Web は、無料の Visual Studio Express 2012 を使用して非同期の ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: riande
-ms.date: 06/06/2012
+ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: c36749f82051ee8965035eca9c2e4e57a5dbd616
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225487"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997345"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 で非同期メソッドの使用
 ====================
@@ -38,7 +38,7 @@ ASP.NET 4.5 Web ページの組み合わせで[.NET 4.5](https://msdn.microsoft.
 
 使用して、詳細については[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードと[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間には、次の参照を参照してください。
 
-- [.NET での非同期のホワイト ペーパー:](https://go.microsoft.com/fwlink/?LinkId=204844)
+- [ホワイト ペーパー:.NET での非同期性](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [Async/await のよく寄せられる質問](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
 - [Visual Studio の非同期プログラミング](https://msdn.microsoft.com/vstudio/gg316360)
 
@@ -68,7 +68,7 @@ Web アプリケーションの起動時に同時要求の数が多いを参照�
 - 操作は、ネットワーク バインドまたは O バウンド CPU バインドではなくです。
 - 並列処理は、コードの簡潔さよりも重要です。
 - ユーザーが実行時間の長い要求をキャンセルできるようにするメカニズムを提供します。
-- ときにスレッドの切り替えの利点は、重みのコンテキストの切り替えのコスト。 一般に、する必要がありますメソッドを非同期に同期メソッドは、作業を行っていないときに、ASP.NET 要求スレッドをブロックする場合。 非同期呼び出しを行って、ASP.NET 要求スレッドがブロックされていない web サービス要求の完了を待つ間に作業が行いません。
+- ときにスレッドの切り替えの利点は、コンテキスト スイッチのコストを上回ります。 一般に、する必要がありますメソッドを非同期に同期メソッドは、作業を行っていないときに、ASP.NET 要求スレッドをブロックする場合。 非同期呼び出しを行って、ASP.NET 要求スレッドがブロックされていない web サービス要求の完了を待つ間に作業が行いません。
 - テストには、ブロック操作が、サイトのパフォーマンスのボトルネックになると、IIS がこれらのブロック呼び出しの非同期メソッドを使用して、多くの要求をサービスするが表示されます。
 
   ダウンロード可能なサンプルでは、非同期メソッドを効果的に使用する方法を示します。 このサンプルでは、ASP.NET 4.5 での非同期プログラミングの簡単なデモを提供する設計されました。 サンプルは、ASP.NET での非同期プログラミング向けのリファレンス アーキテクチャではありません。 サンプル プログラムの呼び出し[ASP.NET Web API](../../../web-api/index.md)メソッドを呼び出す[Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx)実行時間の長い web サービスの呼び出しをシミュレートします。 ほとんどの実稼働アプリケーションでは、非同期メソッドを使用してこのような明らかなメリットは表示されません。   
@@ -79,9 +79,9 @@ Web アプリケーションの起動時に同時要求の数が多いを参照�
 
 サンプル アプリケーションをダウンロードする[ https://github.com/RickAndMSFT/Async-ASP.NET ](https://github.com/RickAndMSFT/Async-ASP.NET)上、 [GitHub](https://github.com/)サイト。 リポジトリは、3 つのプロジェクトで構成されます。
 
-- *WebAppAsync*: Web API を使用する、ASP.NET Web フォーム プロジェクト**WebAPIpwg**サービス。 コードのほとんどは、このチュートリアルでは、これからのプロジェクト。
-- *WebAPIpgw*: を実装する ASP.NET MVC 4 Web API プロジェクト、`Products, Gizmos and Widgets`コント ローラー。 データを提供しますが、 *WebAppAsync*プロジェクトと*Mvc4Async*プロジェクト。
-- *Mvc4Async*: 別のチュートリアルで使用するコードが含まれています: ASP.NET MVC 4 プロジェクト。 Web API の呼び出し、 **WebAPIpwg**サービス。
+- *WebAppAsync*:Web API を使用する ASP.NET Web フォーム プロジェクト**WebAPIpwg**サービス。 コードのほとんどは、このチュートリアルでは、これからのプロジェクト。
+- *WebAPIpgw*:実装する ASP.NET MVC 4 Web API プロジェクト、`Products, Gizmos and Widgets`コント ローラー。 データを提供しますが、 *WebAppAsync*プロジェクトと*Mvc4Async*プロジェクト。
+- *Mvc4Async*:別のチュートリアルで使用するコードを含む、ASP.NET MVC 4 プロジェクトです。 Web API の呼び出し、 **WebAPIpwg**サービス。
 
 ## <a id="GizmosSynch"></a>  ギズモ同期ページ
 
