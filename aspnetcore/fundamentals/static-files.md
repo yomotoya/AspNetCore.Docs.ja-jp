@@ -4,14 +4,14 @@ author: rick-anderson
 description: 静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4c08d65cc1f658ef08a9b4b362ac7f8a3a243557
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570127"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637782"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイル
 
@@ -246,7 +246,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 
 * `UseDirectoryBrowser` と `UseStaticFiles` で公開されるコンテンツの URL では、大文字と小文字が区別され、基になるファイル システムの文字制限の影響を受けます。 たとえば、Windows では大文字小文字は区別されますが、macOS と Linux ではされません。
 
-* IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 モジュールによって処理される前に、これで要求が処理されることはありません。
+* IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 モジュールによって処理される前に、これで要求が処理されることはありません。
 
 * IIS マネージャーで次の手順を実行し、サーバーまたは Web サイト レベルで IIS の静的ファイル ハンドラーを削除します。
     1. **[モジュール]** 機能に移動します。
