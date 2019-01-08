@@ -1,228 +1,255 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: チュートリアル:SignalR 2 による高頻度リアルタイム メッセージング |Microsoft Docs
+title: 'チュートリアル: SignalR 2 使用頻度の高いリアルタイム アプリの作成 |Microsoft Docs'
 author: pfletcher
-description: このチュートリアルでは、ASP.NET SignalR を使用して、頻度の高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。 高頻度のメッセージングには.
+description: このチュートリアルでは、ASP.NET SignalR を使用して、頻度の高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。
 ms.author: riande
-ms.date: 06/10/2014
+ms.date: 01/02/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 04ce650509268ee63daafe24bc8dcc9725aea16b
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.topic: tutorial
+ms.openlocfilehash: 85503db0b41be6f87136627667d6dd71f0d4f609
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287729"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098591"
 ---
-<a name="tutorial-high-frequency-realtime-with-signalr-2"></a><span data-ttu-id="f9535-104">チュートリアル:SignalR 2 による高頻度リアルタイム メッセージング</span><span class="sxs-lookup"><span data-stu-id="f9535-104">Tutorial: High-Frequency Realtime with SignalR 2</span></span>
-====================
-<span data-ttu-id="f9535-105">提供者: [Patrick Fletcher](https://github.com/pfletcher)</span><span class="sxs-lookup"><span data-stu-id="f9535-105">by [Patrick Fletcher](https://github.com/pfletcher)</span></span>
+# <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a><span data-ttu-id="213ed-103">チュートリアル: SignalR 2 使用頻度の高いリアルタイム アプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-103">Tutorial: Create high-frequency real-time app with SignalR 2</span></span>
+
+<span data-ttu-id="213ed-104">このチュートリアルでは、ASP.NET SignalR 2 を使用して、頻度の高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="213ed-104">This tutorial shows how to create a web application that uses ASP.NET SignalR 2 to provide high-frequency messaging functionality.</span></span> <span data-ttu-id="213ed-105">この場合は、「頻度の高いメッセージング」は、サーバーは、固定の率での更新を送信します。</span><span class="sxs-lookup"><span data-stu-id="213ed-105">In this case, "high-frequency messaging" means the server sends updates at a fixed rate.</span></span> <span data-ttu-id="213ed-106">1 秒間に最大 10 個のメッセージを送信するとします。</span><span class="sxs-lookup"><span data-stu-id="213ed-106">You send up to 10 messages a second.</span></span>
+
+<span data-ttu-id="213ed-107">アプリケーションを作成するには、ユーザーがドラッグできるシェイプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-107">The application you create displays a shape that users can drag.</span></span> <span data-ttu-id="213ed-108">サーバーは、時間指定の更新プログラムを使用して、ドラッグした図形の位置に一致するように接続されているすべてのブラウザーでの図形の位置を更新します。</span><span class="sxs-lookup"><span data-stu-id="213ed-108">The server updates the position of the shape in all connected browsers to match the position of the dragged shape using timed updates.</span></span>
+
+<span data-ttu-id="213ed-109">このチュートリアルで導入された概念には、リアルタイムのゲームでのアプリケーションおよびその他のシミュレーション アプリケーションがあります。</span><span class="sxs-lookup"><span data-stu-id="213ed-109">Concepts introduced in this tutorial have applications in real-time gaming and other simulation applications.</span></span>
+
+<span data-ttu-id="213ed-110">このチュートリアルでしました。</span><span class="sxs-lookup"><span data-stu-id="213ed-110">In this tutorial, you:</span></span>
+
+> [!div class="checklist"]
+> * <span data-ttu-id="213ed-111">プロジェクトを設定します。</span><span class="sxs-lookup"><span data-stu-id="213ed-111">Set up the project</span></span>
+> * <span data-ttu-id="213ed-112">ベースのアプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-112">Create the base application</span></span>
+> * <span data-ttu-id="213ed-113">アプリの開始時に、ハブにマップします。</span><span class="sxs-lookup"><span data-stu-id="213ed-113">Map to the hub when app starts</span></span>
+> * <span data-ttu-id="213ed-114">クライアントを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-114">Add the client</span></span>
+> * <span data-ttu-id="213ed-115">アプリを実行する</span><span class="sxs-lookup"><span data-stu-id="213ed-115">Run the app</span></span>
+> * <span data-ttu-id="213ed-116">クライアントのループを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-116">Add the client loop</span></span>
+> * <span data-ttu-id="213ed-117">サーバー ループを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-117">Add the server loop</span></span>
+> * <span data-ttu-id="213ed-118">滑らかなアニメーションを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-118">Add smooth animation</span></span>
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[<span data-ttu-id="f9535-106">完成したプロジェクトのダウンロード</span><span class="sxs-lookup"><span data-stu-id="f9535-106">Download Completed Project</span></span>](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
+## <a name="prerequisites"></a><span data-ttu-id="213ed-119">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="213ed-119">Prerequisites</span></span>
 
-> <span data-ttu-id="f9535-107">このチュートリアルでは、ASP.NET SignalR 2 を使用して、頻度の高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="f9535-107">This tutorial shows how to create a web application that uses ASP.NET SignalR 2 to provide high-frequency messaging functionality.</span></span> <span data-ttu-id="f9535-108">この場合、固定の率で送信される更新プログラムを意味頻度の高いメッセージングこのアプリケーションの場合、最大 10 個のメッセージを 2 回目です。</span><span class="sxs-lookup"><span data-stu-id="f9535-108">High-frequency messaging in this case means updates that are sent at a fixed rate; in the case of this application, up to 10 messages a second.</span></span>
->
-> <span data-ttu-id="f9535-109">このチュートリアルで作成するアプリケーションには、ユーザーがドラッグできるシェイプが表示されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-109">The application you'll create in this tutorial displays a shape that users can drag.</span></span> <span data-ttu-id="f9535-110">その他のすべての接続されたブラウザーでの図形の位置は、時間指定の更新プログラムを使用して、ドラッグした図形の位置に一致するように更新されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-110">The position of the shape in all other connected browsers will then be updated to match the position of the dragged shape using timed updates.</span></span>
->
-> <span data-ttu-id="f9535-111">このチュートリアルで導入された概念には、リアルタイムのゲームでのアプリケーションおよびその他のシミュレーション アプリケーションがあります。</span><span class="sxs-lookup"><span data-stu-id="f9535-111">Concepts introduced in this tutorial have applications in real-time gaming and other simulation applications.</span></span>
->
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="f9535-112">このチュートリアルで使用されるソフトウェアのバージョン</span><span class="sxs-lookup"><span data-stu-id="f9535-112">Software versions used in the tutorial</span></span>
->
->
-> - [<span data-ttu-id="f9535-113">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="f9535-113">Visual Studio 2013</span></span>](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
-> - <span data-ttu-id="f9535-114">.NET 4.5</span><span class="sxs-lookup"><span data-stu-id="f9535-114">.NET 4.5</span></span>
-> - <span data-ttu-id="f9535-115">SignalR 2 のバージョン</span><span class="sxs-lookup"><span data-stu-id="f9535-115">SignalR version 2</span></span>
->
->
->
-> ## <a name="using-visual-studio-2012-with-this-tutorial"></a><span data-ttu-id="f9535-116">このチュートリアルで Visual Studio 2012 の使用</span><span class="sxs-lookup"><span data-stu-id="f9535-116">Using Visual Studio 2012 with this tutorial</span></span>
->
->
-> <span data-ttu-id="f9535-117">このチュートリアルでは、Visual Studio 2012 を使用するには、次の操作を行います。</span><span class="sxs-lookup"><span data-stu-id="f9535-117">To use Visual Studio 2012 with this tutorial, do the following:</span></span>
->
-> - <span data-ttu-id="f9535-118">更新プログラム、[パッケージ マネージャー](http://docs.nuget.org/docs/start-here/installing-nuget)最新バージョンにします。</span><span class="sxs-lookup"><span data-stu-id="f9535-118">Update your [Package Manager](http://docs.nuget.org/docs/start-here/installing-nuget) to the latest version.</span></span>
-> - <span data-ttu-id="f9535-119">インストール、 [Web プラットフォーム インストーラー](https://www.microsoft.com/web/downloads/platform.aspx)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-119">Install the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).</span></span>
-> - <span data-ttu-id="f9535-120">Web Platform Installer で検索してインストール**ASP.NET と Visual Studio 2012 for Web Tools 2013.1**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-120">In the Web Platform Installer, search for and install **ASP.NET and Web Tools 2013.1 for Visual Studio 2012**.</span></span> <span data-ttu-id="f9535-121">SignalR クラスの Visual Studio テンプレートなどのインストールはこの**ハブ**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-121">This will install Visual Studio templates for SignalR classes such as **Hub**.</span></span>
-> - <span data-ttu-id="f9535-122">一部のテンプレート (など**OWIN Startup クラス**) はできなくなります。 これらの場合には、クラス ファイルを代わりに使用します。</span><span class="sxs-lookup"><span data-stu-id="f9535-122">Some templates (such as **OWIN Startup Class**) will not be available; for these, use a Class file instead.</span></span>
->
->
-> ## <a name="tutorial-versions"></a><span data-ttu-id="f9535-123">チュートリアルのバージョン</span><span class="sxs-lookup"><span data-stu-id="f9535-123">Tutorial Versions</span></span>
->
-> <span data-ttu-id="f9535-124">SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-124">For information about earlier versions of SignalR, see [SignalR Older Versions](../older-versions/index.md).</span></span>
->
-> ## <a name="questions-and-comments"></a><span data-ttu-id="f9535-125">意見やご質問</span><span class="sxs-lookup"><span data-stu-id="f9535-125">Questions and comments</span></span>
->
-> <span data-ttu-id="f9535-126">このチュートリアルの良い点に関するフィードバックや、ページ下部にあるコメントで改善できる点をお知らせください。</span><span class="sxs-lookup"><span data-stu-id="f9535-126">Please leave feedback on how you liked this tutorial and what we could improve in the comments at the bottom of the page.</span></span> <span data-ttu-id="f9535-127">チュートリアルに直接関係のない質問がある場合は、[ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)にて投稿してください。</span><span class="sxs-lookup"><span data-stu-id="f9535-127">If you have questions that are not directly related to the tutorial, you can post them to the [ASP.NET SignalR forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) or [StackOverflow.com](http://stackoverflow.com/).</span></span>
+* <span data-ttu-id="213ed-120">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)で、 **ASP.NET および web 開発**ワークロード。</span><span class="sxs-lookup"><span data-stu-id="213ed-120">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.</span></span>
 
+## <a name="set-up-the-project"></a><span data-ttu-id="213ed-121">プロジェクトを設定します。</span><span class="sxs-lookup"><span data-stu-id="213ed-121">Set up the project</span></span>
 
-## <a name="overview"></a><span data-ttu-id="f9535-128">概要</span><span class="sxs-lookup"><span data-stu-id="f9535-128">Overview</span></span>
+<span data-ttu-id="213ed-122">このセクションでは、Visual Studio 2017 でプロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-122">In this section, you create the project in Visual Studio 2017.</span></span>
 
-<span data-ttu-id="f9535-129">このチュートリアルでは、リアルタイムでの他のブラウザーとオブジェクトの状態を共有するアプリケーションを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="f9535-129">This tutorial demonstrates how to create an application that shares the state of an object with other browsers in real time.</span></span> <span data-ttu-id="f9535-130">ここで作成するアプリケーションには、MoveShape が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-130">The application we'll create is called MoveShape.</span></span> <span data-ttu-id="f9535-131">MoveShape ページ、ユーザーがドラッグできます。 HTML Div 要素が表示されます。ユーザーが、Div をドラッグしたときは、新しい位置を送信して、サーバーは、一致するように、図形の位置を更新するその他のすべての接続されているクライアントに表示されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-131">The MoveShape page will display an HTML Div element that the user can drag; when the user drags the Div, its new position will be sent to the server, which will then tell all other connected clients to update the shape's position to match.</span></span>
+<span data-ttu-id="213ed-123">このセクションでは、Visual Studio 2017 を使用して、空の ASP.NET Web アプリケーションを作成し、SignalR と jQuery.UI ライブラリを追加する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="213ed-123">This section shows how to use Visual Studio 2017 to create an empty ASP.NET Web Application and add the SignalR and jQuery.UI libraries.</span></span>
 
-![アプリケーション ウィンドウ](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
+1. <span data-ttu-id="213ed-124">Visual Studio で ASP.NET Web アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-124">In Visual Studio, create an ASP.NET Web Application.</span></span>
 
-<span data-ttu-id="f9535-133">このチュートリアルで作成したアプリケーションは Damian Edwards によるデモに基づきます。</span><span class="sxs-lookup"><span data-stu-id="f9535-133">The application created in this tutorial is based on a demo by Damian Edwards.</span></span> <span data-ttu-id="f9535-134">このデモを格納しているビデオがわかるように[ここ](https://channel9.msdn.com/Series/Building-Web-Apps-with-ASP-NET-Jump-Start/Building-Web-Apps-with-ASPNET-Jump-Start-08-Real-time-Communication-with-SignalR)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-134">A video containing this demo can be seen [here](https://channel9.msdn.com/Series/Building-Web-Apps-with-ASP-NET-Jump-Start/Building-Web-Apps-with-ASPNET-Jump-Start-08-Real-time-Communication-with-SignalR).</span></span>
+    ![Web を作成します。](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
 
-<span data-ttu-id="f9535-135">このチュートリアルは、各図形をドラッグとして起動されるイベントから SignalR メッセージを送信する方法を示すから始めます。</span><span class="sxs-lookup"><span data-stu-id="f9535-135">The tutorial will start by demonstrating how to send SignalR messages from each event that fires as the shape is dragged.</span></span> <span data-ttu-id="f9535-136">接続されている各クライアントは、メッセージを受信するたびに、図形のローカル バージョンの位置をし更新されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-136">Each connected client will then update the position of the local version of the shape each time a message is received.</span></span>
+1. <span data-ttu-id="213ed-126">**新しい ASP.NET Web アプリケーション - MoveShapeDemo**  ウィンドウのままに**空**を選択し、選択**OK**。</span><span class="sxs-lookup"><span data-stu-id="213ed-126">In the **New ASP.NET Web Application - MoveShapeDemo** window, leave **Empty** selected and select **OK**.</span></span>
 
-<span data-ttu-id="f9535-137">このメソッドを使用して、アプリケーションは機能、中にこれは推奨されるプログラミング モデルでは、送信されないため、メッセージによっては、クライアントとサーバーを圧迫取得でしたし、パフォーマンスが低下するメッセージの数に上限がなくなるため.</span><span class="sxs-lookup"><span data-stu-id="f9535-137">While the application will function using this method, this is not a recommended programming model, since there would be no upper limit to the number of messages getting sent, so the clients and server could get overwhelmed with messages and performance would degrade.</span></span> <span data-ttu-id="f9535-138">クライアントで表示されているアニメーションはそれぞれの新しい場所にスムーズに移動するのではなくの各メソッドによって、図形は瞬時に移動すると、不整合にもなります。</span><span class="sxs-lookup"><span data-stu-id="f9535-138">The displayed animation on the client would also be disjointed, as the shape would be moved instantly by each method, rather than moving smoothly to each new location.</span></span> <span data-ttu-id="f9535-139">このチュートリアルの以降のセクションは、クライアントまたはサーバーによってメッセージが送信される最大転送率を制限するタイマー関数を作成する方法と場所の間でスムーズに図形を移動する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="f9535-139">Later sections of the tutorial will demonstrate how to create a timer function that restricts the maximum rate at which messages are sent by either the client or server, and how to move the shape smoothly between locations.</span></span> <span data-ttu-id="f9535-140">このチュートリアルで作成したアプリケーションの最終バージョンをからダウンロードできます[コード ギャラリー](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-140">The final version of the application created in this tutorial can be downloaded from [Code Gallery](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a).</span></span>
+1. <span data-ttu-id="213ed-127">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-127">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
 
-<span data-ttu-id="f9535-141">このチュートリアルには、次のセクションが含まれています。</span><span class="sxs-lookup"><span data-stu-id="f9535-141">This tutorial contains the following sections:</span></span>
+1. <span data-ttu-id="213ed-128">**新しい項目の追加 - MoveShapeDemo**、**インストール済み** > **Visual C#**   >  **Web**  > **SignalR**選び**SignalR ハブ クラス (v2)** します。</span><span class="sxs-lookup"><span data-stu-id="213ed-128">In **Add New Item - MoveShapeDemo**, select **Installed** > **Visual C#** > **Web** > **SignalR**  and then select **SignalR Hub Class (v2)**.</span></span>
 
-- [<span data-ttu-id="f9535-142">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="f9535-142">Prerequisites</span></span>](#prerequisites)
-- [<span data-ttu-id="f9535-143">プロジェクトを作成し、SignalR と JQuery.UI NuGet パッケージの追加</span><span class="sxs-lookup"><span data-stu-id="f9535-143">Create the project and add the SignalR and JQuery.UI NuGet package</span></span>](#createtheproject2013)
-- [<span data-ttu-id="f9535-144">ベースのアプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="f9535-144">Create the base application</span></span>](#baseapp)
-- [<span data-ttu-id="f9535-145">アプリケーションの起動時に、ハブの起動</span><span class="sxs-lookup"><span data-stu-id="f9535-145">Starting the hub when the application starts</span></span>](#startup2013)
-- [<span data-ttu-id="f9535-146">クライアントのループを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-146">Add the client loop</span></span>](#clientloop)
-- [<span data-ttu-id="f9535-147">サーバー ループを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-147">Add the server loop</span></span>](#serverloop)
-- [<span data-ttu-id="f9535-148">クライアントで滑らかなアニメーションを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-148">Add smooth animation on the client</span></span>](#animation)
-- [<span data-ttu-id="f9535-149">以降の手順</span><span class="sxs-lookup"><span data-stu-id="f9535-149">Further Steps</span></span>](#furthersteps)
+1. <span data-ttu-id="213ed-129">クラスの名前*MoveShapeHub*し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-129">Name the class *MoveShapeHub* and add it to the project.</span></span>
 
-<a id="prerequisites"></a>
+    <span data-ttu-id="213ed-130">この手順で作成、 *MoveShapeHub.cs*クラス ファイル。</span><span class="sxs-lookup"><span data-stu-id="213ed-130">This step creates the *MoveShapeHub.cs* class file.</span></span> <span data-ttu-id="213ed-131">同時に、一連のスクリプト ファイルとプロジェクトに SignalR をサポートするアセンブリ参照を追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-131">Simultaneously, it adds  a set of script files and assembly references that support SignalR to the project.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="f9535-150">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="f9535-150">Prerequisites</span></span>
+1. <span data-ttu-id="213ed-132">選択**ツール** > **NuGet パッケージ マネージャー** > **パッケージ マネージャー コンソール**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-132">Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.</span></span>
 
-<span data-ttu-id="f9535-151">このチュートリアルでは、Visual Studio 2013 が必要です。</span><span class="sxs-lookup"><span data-stu-id="f9535-151">This tutorial requires Visual Studio 2013.</span></span>
+1. <span data-ttu-id="213ed-133">**パッケージ マネージャー コンソール**、このコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="213ed-133">In **Package Manager Console**, run this command:</span></span>
 
-<a id="createtheproject2013"></a>
+    ```console
+    Install-Package jQuery.UI.Combined
+    ```
 
-## <a name="create-the-project-and-add-the-signalr-and-jqueryui-nuget-package"></a><span data-ttu-id="f9535-152">プロジェクトを作成し、SignalR と JQuery.UI NuGet パッケージの追加</span><span class="sxs-lookup"><span data-stu-id="f9535-152">Create the project and add the SignalR and JQuery.UI NuGet package</span></span>
+    <span data-ttu-id="213ed-134">コマンドは、jQuery UI ライブラリをインストールします。</span><span class="sxs-lookup"><span data-stu-id="213ed-134">The command installs the jQuery UI library.</span></span> <span data-ttu-id="213ed-135">これを使用して、図形をアニメーション化します。</span><span class="sxs-lookup"><span data-stu-id="213ed-135">You use it to animate the shape.</span></span>
 
-<span data-ttu-id="f9535-153">このセクションでは、Visual Studio 2013 でプロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="f9535-153">In this section, we'll create the project in Visual Studio 2013.</span></span>
+1. <span data-ttu-id="213ed-136">**ソリューション エクスプ ローラー**スクリプトを展開します。</span><span class="sxs-lookup"><span data-stu-id="213ed-136">In **Solution Explorer**, expand the Scripts node.</span></span>
 
-<span data-ttu-id="f9535-154">次の手順では、空の ASP.NET Web アプリケーションを作成し、SignalR と jQuery.UI ライブラリを追加する Visual Studio 2013 を使用します。</span><span class="sxs-lookup"><span data-stu-id="f9535-154">The following steps use Visual Studio 2013 to create an ASP.NET Empty Web Application and add the SignalR and jQuery.UI libraries:</span></span>
+    ![スクリプト ライブラリの参照](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
 
-1. <span data-ttu-id="f9535-155">Visual Studio では、ASP.NET Web アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="f9535-155">In Visual Studio create an ASP.NET Web Application.</span></span>
+    <span data-ttu-id="213ed-138">JQuery や jQueryUI、SignalR のスクリプト ライブラリは、プロジェクトに表示されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-138">Script libraries for jQuery, jQueryUI, and SignalR are visible in the project.</span></span>
 
-    ![Web を作成します。](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
-2. <span data-ttu-id="f9535-157">**新しい ASP.NET プロジェクト** ウィンドウのままに**空**選択およびクリックして**プロジェクトの作成**。</span><span class="sxs-lookup"><span data-stu-id="f9535-157">In the **New ASP.NET Project** window, leave **Empty** selected and click **Create Project**.</span></span>
+## <a name="create-the-base-application"></a><span data-ttu-id="213ed-139">ベースのアプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-139">Create the base application</span></span>
 
-    ![空の web を作成します。](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
-3. <span data-ttu-id="f9535-159">**ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)** します。</span><span class="sxs-lookup"><span data-stu-id="f9535-159">In **Solution Explorer**, right-click the project, select **Add | SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="f9535-160">クラスの名前**MoveShapeHub.cs**し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-160">Name the class **MoveShapeHub.cs** and add it to the project.</span></span> <span data-ttu-id="f9535-161">この手順で作成、 **MoveShapeHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照をプロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-161">This step creates the **MoveShapeHub** class and adds to the project a set of script files and assembly references that support SignalR.</span></span>
+<span data-ttu-id="213ed-140">このセクションでは、ブラウザー アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-140">In this section, you create a browser application.</span></span> <span data-ttu-id="213ed-141">アプリは、各マウス移動イベント中に、図形の場所をサーバーに送信します。</span><span class="sxs-lookup"><span data-stu-id="213ed-141">The app sends the location of the shape to the server during each mouse move event.</span></span> <span data-ttu-id="213ed-142">サーバーは、リアルタイムで接続されているその他のすべてのクライアントにこの情報をブロードキャストします。</span><span class="sxs-lookup"><span data-stu-id="213ed-142">The server broadcasts this information to all other connected clients in real time.</span></span> <span data-ttu-id="213ed-143">以降のセクションでは、このアプリケーションの詳細について説明します。</span><span class="sxs-lookup"><span data-stu-id="213ed-143">You learn more about this application in later sections.</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="f9535-162">クリックして、プロジェクトに SignalR を追加することもできます**ツール > NuGet パッケージ マネージャー > パッケージ マネージャー コンソール**コマンドを実行しているとします。</span><span class="sxs-lookup"><span data-stu-id="f9535-162">You can also add SignalR to a project by clicking **Tools > NuGet Package Manager > Package Manager Console** and running a command:</span></span>
+1. <span data-ttu-id="213ed-144">開く、 *MoveShapeHub.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="213ed-144">Open the *MoveShapeHub.cs* file.</span></span>
 
-    <span data-ttu-id="f9535-163">`install-package Microsoft.AspNet.SignalR`。</span><span class="sxs-lookup"><span data-stu-id="f9535-163">`install-package Microsoft.AspNet.SignalR`.</span></span>
-
-    <span data-ttu-id="f9535-164">SignalR を追加する、コンソールを使用する場合は、SignalR を追加した後に、別のステップとして、SignalR ハブ クラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="f9535-164">If you use the console to add SignalR, create the SignalR hub class as a separate step after you add SignalR.</span></span>
-4. <span data-ttu-id="f9535-165">クリックして**ツール > NuGet パッケージ マネージャー > パッケージ マネージャー コンソール**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-165">Click **Tools > NuGet Package Manager > Package Manager Console**.</span></span> <span data-ttu-id="f9535-166">パッケージ マネージャー ウィンドウでは、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="f9535-166">In the package manager window, run the following command:</span></span>
-
-    `Install-Package jQuery.UI.Combined`
-
-    <span data-ttu-id="f9535-167">これは、図形をアニメーション化するのに使用する jQuery UI ライブラリをインストールします。</span><span class="sxs-lookup"><span data-stu-id="f9535-167">This installs the jQuery UI library, which you'll use to animate the shape.</span></span>
-5. <span data-ttu-id="f9535-168">**ソリューション エクスプ ローラー**スクリプト ノードを展開します。</span><span class="sxs-lookup"><span data-stu-id="f9535-168">In **Solution Explorer** expand the Scripts node.</span></span> <span data-ttu-id="f9535-169">JQuery や jQueryUI、SignalR のスクリプト ライブラリは、プロジェクトに表示されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-169">Script libraries for jQuery, jQueryUI, and SignalR are visible in the project.</span></span>
-
-    ![スクリプト ライブラリの参照](tutorial-high-frequency-realtime-with-signalr/_static/image4.png)
-
-<a id="baseapp"></a>
-
-## <a name="create-the-base-application"></a><span data-ttu-id="f9535-171">ベースのアプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="f9535-171">Create the base application</span></span>
-
-<span data-ttu-id="f9535-172">このセクションで各マウス移動イベント中に、図形の場所をサーバーに送信するブラウザー アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="f9535-172">In this section, we'll create a browser application that sends the location of the shape to the server during each mouse move event.</span></span> <span data-ttu-id="f9535-173">受信すると、サーバーは、接続されている他のすべてのクライアントにこの情報をブロードキャストします。</span><span class="sxs-lookup"><span data-stu-id="f9535-173">The server then broadcasts this information to all other connected clients as it is received.</span></span> <span data-ttu-id="f9535-174">以降のセクションでは、このアプリケーションに拡張します。</span><span class="sxs-lookup"><span data-stu-id="f9535-174">We'll expand on this application in later sections.</span></span>
-
-1. <span data-ttu-id="f9535-175">MoveShapeHub.cs クラスをまだ作成していないかどうかは**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加**、**クラス.**.クラスの名前**MoveShapeHub**クリック**追加**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-175">If you haven't already created the MoveShapeHub.cs class, in **Solution Explorer**, right-click on the project and select **Add**, **Class...**. Name the class **MoveShapeHub** and click **Add**.</span></span>
-2. <span data-ttu-id="f9535-176">新しいコードを置き換える**MoveShapeHub**クラスを次のコード。</span><span class="sxs-lookup"><span data-stu-id="f9535-176">Replace the code in the new **MoveShapeHub** class with the following code.</span></span>
+1. <span data-ttu-id="213ed-145">コードに置き換えます、 *MoveShapeHub.cs*このコード ファイル。</span><span class="sxs-lookup"><span data-stu-id="213ed-145">Replace the code in the *MoveShapeHub.cs* file with this code:</span></span>
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.cs)]
 
-    <span data-ttu-id="f9535-177">`MoveShapeHub`上記のクラスは、SignalR ハブの実装。</span><span class="sxs-lookup"><span data-stu-id="f9535-177">The `MoveShapeHub` class above is an implementation of a SignalR hub.</span></span> <span data-ttu-id="f9535-178">[SignalR の概要](tutorial-getting-started-with-signalr.md)チュートリアルでは、ハブに直接に、クライアントが呼び出すメソッドがあります。</span><span class="sxs-lookup"><span data-stu-id="f9535-178">As in the [Getting Started with SignalR](tutorial-getting-started-with-signalr.md) tutorial, the hub has a method that the clients will call directly.</span></span> <span data-ttu-id="f9535-179">この場合、クライアントは新しいを格納するオブジェクトを送信する、サーバーでは、接続されている他のすべてのクライアントにブロードキャストを取得し、図形の X および Y 座標。</span><span class="sxs-lookup"><span data-stu-id="f9535-179">In this case, the client will send an object containing the new X and Y coordinates of the shape to the server, which then gets broadcasted to all other connected clients.</span></span> <span data-ttu-id="f9535-180">SignalR には、JSON を使用してこのオブジェクトは自動的にシリアル化します。</span><span class="sxs-lookup"><span data-stu-id="f9535-180">SignalR will automatically serialize this object using JSON.</span></span>
+1. <span data-ttu-id="213ed-146">ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="213ed-146">Save the file.</span></span>
 
-    <span data-ttu-id="f9535-181">クライアントに送信されるオブジェクト (`ShapeModel`) 図形の位置を格納するメンバーが含まれます。</span><span class="sxs-lookup"><span data-stu-id="f9535-181">The object that will be sent to the client (`ShapeModel`) contains members to store the position of the shape.</span></span> <span data-ttu-id="f9535-182">サーバー上のオブジェクトのバージョンも含まれていますを追跡するにはメンバー クライアントのデータが格納される、特定のクライアントで独自のデータが送信されないようにします。</span><span class="sxs-lookup"><span data-stu-id="f9535-182">The version of the object on the server also contains a member to track which client's data is being stored, so that a given client won't be sent their own data.</span></span> <span data-ttu-id="f9535-183">このメンバーを使用して、`JsonIgnore`からシリアル化され、クライアントに送信されるようにする属性。</span><span class="sxs-lookup"><span data-stu-id="f9535-183">This member uses the `JsonIgnore` attribute to keep it from being serialized and sent to the client.</span></span>
+<span data-ttu-id="213ed-147">`MoveShapeHub`クラスは、SignalR ハブの実装。</span><span class="sxs-lookup"><span data-stu-id="213ed-147">The `MoveShapeHub` class is an implementation of a SignalR hub.</span></span> <span data-ttu-id="213ed-148">[SignalR の概要](tutorial-getting-started-with-signalr.md)チュートリアルでは、ハブには、クライアントを直接呼び出すメソッドがあります。</span><span class="sxs-lookup"><span data-stu-id="213ed-148">As in the [Getting Started with SignalR](tutorial-getting-started-with-signalr.md) tutorial, the hub has a method that the clients call directly.</span></span> <span data-ttu-id="213ed-149">この場合、クライアントから送信図形をサーバーの新しい X 座標と Y を持つオブジェクトを調整します。</span><span class="sxs-lookup"><span data-stu-id="213ed-149">In this case, the client sends an object with the new X and Y coordinates of the shape to the server.</span></span> <span data-ttu-id="213ed-150">これらの座標は、接続されている他のすべてのクライアントにブロードキャストを取得します。</span><span class="sxs-lookup"><span data-stu-id="213ed-150">Those coordinates get broadcasted to all other connected clients.</span></span> <span data-ttu-id="213ed-151">SignalR には、このオブジェクトの JSON を使用して自動的にシリアル化します。</span><span class="sxs-lookup"><span data-stu-id="213ed-151">SignalR automatically serializes this object using JSON.</span></span>
 
-<a id="startup2013"></a>
-## <a name="starting-the-hub-when-the-application-starts"></a><span data-ttu-id="f9535-184">アプリケーションの起動時に、ハブの起動</span><span class="sxs-lookup"><span data-stu-id="f9535-184">Starting the hub when the application starts</span></span>
+<span data-ttu-id="213ed-152">アプリの送信、`ShapeModel`クライアント オブジェクトです。</span><span class="sxs-lookup"><span data-stu-id="213ed-152">The app sends the `ShapeModel` object to the client.</span></span> <span data-ttu-id="213ed-153">図形の位置を格納するメンバーが存在します。</span><span class="sxs-lookup"><span data-stu-id="213ed-153">It has members to store the position of the shape.</span></span> <span data-ttu-id="213ed-154">サーバー上のオブジェクトのバージョンには、どのクライアントのデータが格納されるを追跡するにはメンバーもあります。</span><span class="sxs-lookup"><span data-stu-id="213ed-154">The version of the object on the server also has a member to track which client's data is being stored.</span></span> <span data-ttu-id="213ed-155">このオブジェクトは、サーバーがそれ自体へのクライアントのデータを送信することを防ぎます。</span><span class="sxs-lookup"><span data-stu-id="213ed-155">This object prevents the server from sending a client's data back to itself.</span></span> <span data-ttu-id="213ed-156">このメンバーを使用して、`JsonIgnore`からデータをシリアル化して、それをクライアントに送信するアプリケーションを保持する属性。</span><span class="sxs-lookup"><span data-stu-id="213ed-156">This member uses the `JsonIgnore` attribute to keep the application from serializing the data and sending it back to the client.</span></span>
 
-1. <span data-ttu-id="f9535-185">次に、アプリケーションの起動時に、ハブへのマッピングを設定します。</span><span class="sxs-lookup"><span data-stu-id="f9535-185">Next, we'll set up mapping to the hub when the application starts.</span></span> <span data-ttu-id="f9535-186">SignalR 2 で、呼び出しは、OWIN startup クラスを追加することでこれは、`MapSignalR`ときに、スタートアップ クラスの`Configuration`メソッドは、OWIN の開始時に実行されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-186">In SignalR 2, this is done by adding an OWIN startup class, which will call `MapSignalR` when the startup class' `Configuration` method is executed when OWIN starts.</span></span> <span data-ttu-id="f9535-187">OWIN のスタートアップに、クラスが追加処理を使用して、`OwinStartup`アセンブリ属性。</span><span class="sxs-lookup"><span data-stu-id="f9535-187">The class is added to OWIN's startup process using the `OwinStartup` assembly attribute.</span></span>
+## <a name="map-to-the-hub-when-app-starts"></a><span data-ttu-id="213ed-157">アプリの開始時に、ハブにマップします。</span><span class="sxs-lookup"><span data-stu-id="213ed-157">Map to the hub when app starts</span></span>
 
-    <span data-ttu-id="f9535-188">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして**追加 |OWIN Startup クラス**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-188">In **Solution Explorer**, right-click the project, then click **Add | OWIN Startup Class**.</span></span> <span data-ttu-id="f9535-189">クラスの名前*スタートアップ* をクリック**OK**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-189">Name the class *Startup* and click **OK**.</span></span>
-2. <span data-ttu-id="f9535-190">Startup.cs の内容を次のように変更します。</span><span class="sxs-lookup"><span data-stu-id="f9535-190">Change the contents of Startup.cs to the following:</span></span>
+<span data-ttu-id="213ed-158">次に、設定、ハブへのマッピングをアプリケーションの起動時にします。</span><span class="sxs-lookup"><span data-stu-id="213ed-158">Next, you set up mapping to the hub when the application starts.</span></span> <span data-ttu-id="213ed-159">SignalR 2 で OWIN startup クラスを追加するマッピングを作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-159">In SignalR 2, adding an OWIN startup class creates the mapping.</span></span>
+
+1. <span data-ttu-id="213ed-160">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-160">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
+
+1. <span data-ttu-id="213ed-161">**新しい項目の追加 - MoveShapeDemo**選択**インストール済み** > **Visual C#**   >  **Web**し選択**OWIN Startup クラス**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-161">In **Add New Item - MoveShapeDemo** select **Installed** > **Visual C#** > **Web** and then select **OWIN Startup Class**.</span></span>
+
+1. <span data-ttu-id="213ed-162">クラスの名前*スタートアップ*選択と**OK**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-162">Name the class *Startup* and select **OK**.</span></span>
+
+1. <span data-ttu-id="213ed-163">既定のコードを置き換える、 *Startup.cs*このコード ファイル。</span><span class="sxs-lookup"><span data-stu-id="213ed-163">Replace the default code in the *Startup.cs* file with this code:</span></span>
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample2.cs)]
 
-<a id="client"></a>
-## <a name="adding-the-client"></a><span data-ttu-id="f9535-191">クライアントを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-191">Adding the client</span></span>
+<span data-ttu-id="213ed-164">OWIN スタートアップ クラスの呼び出し`MapSignalR`、アプリが実行される場合、`Configuration`メソッド。</span><span class="sxs-lookup"><span data-stu-id="213ed-164">The OWIN startup class calls `MapSignalR` when the app executes the `Configuration` method.</span></span> <span data-ttu-id="213ed-165">OWIN のスタートアップにクラス処理を使用してアプリを追加、`OwinStartup`アセンブリ属性。</span><span class="sxs-lookup"><span data-stu-id="213ed-165">The app adds the class to OWIN's startup process using the `OwinStartup` assembly attribute.</span></span>
 
-1. <span data-ttu-id="f9535-192">次に、クライアントを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-192">Next, we'll add the client.</span></span> <span data-ttu-id="f9535-193">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして**追加 |新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-193">In **Solution Explorer**, right-click the project, then click **Add | New Item**.</span></span> <span data-ttu-id="f9535-194">**新しい項目の追加**ダイアログ ボックスで、 **Html ページ**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-194">In the **Add New Item** dialog, select **Html Page**.</span></span> <span data-ttu-id="f9535-195">ページの名前を付けます**Default.html**クリック**追加**。</span><span class="sxs-lookup"><span data-stu-id="f9535-195">Name the page **Default.html** and click **Add**.</span></span>
-2. <span data-ttu-id="f9535-196">**ソリューション エクスプ ローラー**で作成したページを右クリックし、をクリックして**スタート ページとして設定**します。</span><span class="sxs-lookup"><span data-stu-id="f9535-196">In **Solution Explorer**, right-click the page you just created and click **Set as Start Page**.</span></span>
-3. <span data-ttu-id="f9535-197">HTML ページの既定のコードを次のコード スニペットに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="f9535-197">Replace the default code in the HTML page with the following code snippet.</span></span>
+## <a name="add-the-client"></a><span data-ttu-id="213ed-166">クライアントを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-166">Add the client</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="f9535-198">Scripts フォルダーにプロジェクトに追加のパッケージの一致の下、スクリプトが参照を確認します。</span><span class="sxs-lookup"><span data-stu-id="f9535-198">Verify that the script references below match the packages added to your project in the Scripts folder.</span></span>
+<span data-ttu-id="213ed-167">クライアントの HTML ページを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-167">Add the HTML page for the client.</span></span>
 
-    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample3.html)]
+1. <span data-ttu-id="213ed-168">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**追加** > **HTML ページ**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-168">In **Solution Explorer**, right-click the project and select **Add** > **HTML Page**.</span></span>
 
-    <span data-ttu-id="f9535-199">上の HTML および JavaScript コード図形と呼ばれる赤い Div を作成し、jQuery ライブラリを使用して、図形のドラッグ動作を有効にし、図形の使用`drag`図形の位置をサーバーに送信するイベントです。</span><span class="sxs-lookup"><span data-stu-id="f9535-199">The above HTML and JavaScript code creates a red Div called Shape, enables the shape's dragging behavior using the jQuery library, and uses the shape's `drag` event to send the shape's position to the server.</span></span>
-4. <span data-ttu-id="f9535-200">F5 キーを押してアプリケーションを起動します。</span><span class="sxs-lookup"><span data-stu-id="f9535-200">Start the application by pressing F5.</span></span> <span data-ttu-id="f9535-201">ページの URL をコピーして、2 番目のブラウザー ウィンドウに貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="f9535-201">Copy the page's URL, and paste it into a second browser window.</span></span> <span data-ttu-id="f9535-202">ブラウザー ウィンドウのいずれかで、図形をドラッグします。別のブラウザー ウィンドウ内の図形を移動する必要があります。</span><span class="sxs-lookup"><span data-stu-id="f9535-202">Drag the shape in one of the browser windows; the shape in the other browser window should move.</span></span>
+1. <span data-ttu-id="213ed-169">ページの名前を付けます**既定**選択 **[ok]**。</span><span class="sxs-lookup"><span data-stu-id="213ed-169">Name the page **Default** and select **OK**.</span></span>
 
-    ![アプリケーション ウィンドウ](tutorial-high-frequency-realtime-with-signalr/_static/image5.png)
+1. <span data-ttu-id="213ed-170">**ソリューション エクスプ ローラー**、右クリック*Default.html*選択と**スタート ページとして設定**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-170">In **Solution Explorer**, right-click *Default.html* and select **Set as Start Page**.</span></span>
 
-<a id="clientloop"></a>
+1. <span data-ttu-id="213ed-171">既定のコードを置き換える、 *Default.html*このコード ファイル。</span><span class="sxs-lookup"><span data-stu-id="213ed-171">Replace the default code in the *Default.html* file with this code:</span></span>
 
-## <a name="add-the-client-loop"></a><span data-ttu-id="f9535-204">クライアントのループを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-204">Add the client loop</span></span>
+    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample3.html?highlight=14-16)]
 
-<span data-ttu-id="f9535-205">すべてのマウス移動イベントに図形の位置を送信すると、ネットワーク トラフィック量が不要なを作成するため、クライアントからメッセージを抑制される必要があります。</span><span class="sxs-lookup"><span data-stu-id="f9535-205">Since sending the location of the shape on every mouse move event will create an unneccesary amount of network traffic, the messages from the client need to be throttled.</span></span> <span data-ttu-id="f9535-206">使用して、javascript`setInterval`固定の率でサーバーに新しい位置情報を送信するループを設定する関数。</span><span class="sxs-lookup"><span data-stu-id="f9535-206">We'll use the javascript `setInterval` function to set up a loop that sends new position information to the server at a fixed rate.</span></span> <span data-ttu-id="f9535-207">このループは非常に基本的な「ゲーム ループ」を繰り返し呼び出された関数でドライブのすべてのゲームやその他のシミュレーションの機能を表したものです。</span><span class="sxs-lookup"><span data-stu-id="f9535-207">This loop is a very basic representation of a "game loop", a repeatedly called function that drives all of the functionality of a game or other simulation.</span></span>
+1. <span data-ttu-id="213ed-172">**ソリューション エクスプ ローラー**、展開**スクリプト**します。</span><span class="sxs-lookup"><span data-stu-id="213ed-172">In **Solution Explorer**, expand **Scripts**.</span></span>
 
-1. <span data-ttu-id="f9535-208">次のコード スニペットを一致するように HTML ページ内のクライアント コードを更新します。</span><span class="sxs-lookup"><span data-stu-id="f9535-208">Update the client code in the HTML page to match the following code snippet.</span></span>
+    <span data-ttu-id="213ed-173">JQuery と SignalR 用のスクリプト ライブラリは、プロジェクトに表示されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-173">Script libraries for jQuery and SignalR are visible in the project.</span></span>
 
-    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample4.html)]
+    > [!IMPORTANT]
+    > <span data-ttu-id="213ed-174">パッケージ マネージャーは、以降のバージョンの SignalR スクリプトをインストールします。</span><span class="sxs-lookup"><span data-stu-id="213ed-174">The package manager installs a later version of the SignalR scripts.</span></span>
 
-    <span data-ttu-id="f9535-209">上記の更新プログラムの追加、 `updateServerModel` 、固定周波数に呼び出される関数。</span><span class="sxs-lookup"><span data-stu-id="f9535-209">The above update adds the `updateServerModel` function, which gets called on a fixed frequency.</span></span> <span data-ttu-id="f9535-210">この関数は、位置データをサーバーに送信されるたびに、`moved`フラグは、送信する新しい位置データがあることを示します。</span><span class="sxs-lookup"><span data-stu-id="f9535-210">This function sends the position data to the server whenever the `moved` flag indicates that there is new position data to send.</span></span>
-2. <span data-ttu-id="f9535-211">F5 キーを押してアプリケーションを起動します。</span><span class="sxs-lookup"><span data-stu-id="f9535-211">Start the application by pressing F5.</span></span> <span data-ttu-id="f9535-212">ページの URL をコピーして、2 番目のブラウザー ウィンドウに貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="f9535-212">Copy the page's URL, and paste it into a second browser window.</span></span> <span data-ttu-id="f9535-213">ブラウザー ウィンドウのいずれかで、図形をドラッグします。別のブラウザー ウィンドウ内の図形を移動する必要があります。</span><span class="sxs-lookup"><span data-stu-id="f9535-213">Drag the shape in one of the browser windows; the shape in the other browser window should move.</span></span> <span data-ttu-id="f9535-214">サーバーに送信するメッセージの数は制限されますので、アニメーションは、前のセクションのようにスムーズ表示されません。</span><span class="sxs-lookup"><span data-stu-id="f9535-214">Since the number of messages that get sent to the server will be throttled, the animation will not appear as smooth as in the previous section.</span></span>
+1. <span data-ttu-id="213ed-175">プロジェクト内のスクリプト ファイルのバージョンに対応するコード ブロック内のスクリプト参照を更新します。</span><span class="sxs-lookup"><span data-stu-id="213ed-175">Update the script references in the code block to correspond to the versions of the script files in the project.</span></span>
 
-    ![アプリケーション ウィンドウ](tutorial-high-frequency-realtime-with-signalr/_static/image6.png)
+<span data-ttu-id="213ed-176">この HTML および JavaScript コードの作成、red`div`と呼ばれる`shape`します。</span><span class="sxs-lookup"><span data-stu-id="213ed-176">This HTML and JavaScript code creates a red `div` called `shape`.</span></span> <span data-ttu-id="213ed-177">JQuery ライブラリを使用して、図形のドラッグ動作を有効にしを使用して、`drag`図形の位置をサーバーに送信するイベントです。</span><span class="sxs-lookup"><span data-stu-id="213ed-177">It enables the shape's dragging behavior using the jQuery library and uses the `drag` event to send the shape's position to the server.</span></span>
 
-<a id="serverloop"></a>
+## <a name="run-the-app"></a><span data-ttu-id="213ed-178">アプリを実行する</span><span class="sxs-lookup"><span data-stu-id="213ed-178">Run the app</span></span>
 
-## <a name="add-the-server-loop"></a><span data-ttu-id="f9535-216">サーバー ループを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-216">Add the server loop</span></span>
+<span data-ttu-id="213ed-179">アプリを実行する se'e に作動します。</span><span class="sxs-lookup"><span data-stu-id="213ed-179">You can run the app to se\`e it work.</span></span> <span data-ttu-id="213ed-180">ブラウザー ウィンドウを囲む、図形をドラッグすると、図形にも、他のブラウザーで移動します。</span><span class="sxs-lookup"><span data-stu-id="213ed-180">When you drag the shape around a browser window, the shape moves in the other browsers too.</span></span>
 
-<span data-ttu-id="f9535-217">現在のアプリケーションで、サーバーからクライアントに送信されるメッセージは受信するときに多くの場合、移動します。</span><span class="sxs-lookup"><span data-stu-id="f9535-217">In the current application, messages sent from the server to the client go out as often as they are received.</span></span> <span data-ttu-id="f9535-218">クライアントで発生していたように、同様の問題を表示しますメッセージは、必要なものと、接続が溢れて結果としてより多くの場合、送信できます。</span><span class="sxs-lookup"><span data-stu-id="f9535-218">This presents a similar problem as was seen on the client; messages can be sent more often than they are needed, and the connection could become flooded as a result.</span></span> <span data-ttu-id="f9535-219">このセクションでは、送信メッセージのレートを調整するタイマーを実装するためにサーバーを更新する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="f9535-219">This section describes how to update the server to implement a timer that throttles the rate of the outgoing messages.</span></span>
+1. <span data-ttu-id="213ed-181">ツールバーで、有効にする**スクリプトのデバッグ**し、アプリケーションをデバッグ モードで実行する [再生] ボタンを選択します。</span><span class="sxs-lookup"><span data-stu-id="213ed-181">In the toolbar, turn on **Script Debugging** and then select the play button to run the application in Debug mode.</span></span>
 
-1. <span data-ttu-id="f9535-220">内容を置き換える`MoveShapeHub.cs`次のコード スニペットを使用します。</span><span class="sxs-lookup"><span data-stu-id="f9535-220">Replace the contents of `MoveShapeHub.cs` with the following code snippet.</span></span>
+    ![ユーザー モードをデバッグし、[再生] を選択のスクリーン ショット。](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
+
+    <span data-ttu-id="213ed-183">右上隅の赤色の図形と、ブラウザー ウィンドウが開きます。</span><span class="sxs-lookup"><span data-stu-id="213ed-183">A browser window opens with the red shape in the upper-right corner.</span></span>
+
+1. <span data-ttu-id="213ed-184">ページの URL をコピーします。</span><span class="sxs-lookup"><span data-stu-id="213ed-184">Copy the page's URL.</span></span>
+
+1. <span data-ttu-id="213ed-185">別のブラウザーを開き、アドレス バーに URL を貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="213ed-185">Open another browser and paste the URL into the address bar.</span></span>
+
+1. <span data-ttu-id="213ed-186">ブラウザー ウィンドウのいずれかで、図形をドラッグします。</span><span class="sxs-lookup"><span data-stu-id="213ed-186">Drag the shape in one of the browser windows.</span></span> <span data-ttu-id="213ed-187">別のブラウザー ウィンドウ内の図形に従います。</span><span class="sxs-lookup"><span data-stu-id="213ed-187">The shape in the other browser window follows.</span></span>
+
+<span data-ttu-id="213ed-188">アプリケーションの中にこのメソッドを使用して関数は推奨されるプログラミング モデル。</span><span class="sxs-lookup"><span data-stu-id="213ed-188">While the application functions using this method, it's not a recommended programming model.</span></span> <span data-ttu-id="213ed-189">メッセージの送信先の数に上限はありません。</span><span class="sxs-lookup"><span data-stu-id="213ed-189">There's no upper limit to the number of messages getting sent.</span></span> <span data-ttu-id="213ed-190">その結果、クライアントとサーバー メッセージを使用した負荷がかかって取得おり、パフォーマンスが低下します。</span><span class="sxs-lookup"><span data-stu-id="213ed-190">As a result, the clients and server get overwhelmed with messages and performance degrades.</span></span> <span data-ttu-id="213ed-191">また、アプリでは、クライアントの不整合なアニメーションを表示します。</span><span class="sxs-lookup"><span data-stu-id="213ed-191">Also, the app displays a disjointed animation on the client.</span></span> <span data-ttu-id="213ed-192">このぎくしゃくしたアニメーションは、各メソッドによって、図形が瞬時に移動するために発生します。</span><span class="sxs-lookup"><span data-stu-id="213ed-192">This jerky animation happens because the shape moves instantly by each method.</span></span> <span data-ttu-id="213ed-193">図形は、それぞれの新しい場所にスムーズに移動しますを用意することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="213ed-193">It's better if the shape moves smoothly to each new location.</span></span> <span data-ttu-id="213ed-194">次に、こうした問題を修正する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="213ed-194">Next, you learn how to fix those issues.</span></span>
+
+## <a name="add-the-client-loop"></a><span data-ttu-id="213ed-195">クライアントのループを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-195">Add the client loop</span></span>
+
+<span data-ttu-id="213ed-196">すべてのマウス移動イベントに図形の位置を送信するには、ネットワーク トラフィック量が不要なが作成されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-196">Sending the location of the shape on every mouse move event creates an unnecessary amount of network traffic.</span></span> <span data-ttu-id="213ed-197">アプリは、クライアントからメッセージを抑制する必要があります。</span><span class="sxs-lookup"><span data-stu-id="213ed-197">The app needs to throttle the messages from the client.</span></span>
+
+<span data-ttu-id="213ed-198">Javascript を使用して、`setInterval`固定の率でサーバーに新しい位置情報を送信するループを設定する関数。</span><span class="sxs-lookup"><span data-stu-id="213ed-198">Use the javascript `setInterval` function to set up a loop that sends new position information to the server at a fixed rate.</span></span> <span data-ttu-id="213ed-199">このループは「ゲーム ループ」の基本的な表現</span><span class="sxs-lookup"><span data-stu-id="213ed-199">This loop is a basic representation of a "game loop."</span></span> <span data-ttu-id="213ed-200">ゲームのすべての機能を駆動する繰り返し呼び出された関数になります。</span><span class="sxs-lookup"><span data-stu-id="213ed-200">It's a repeatedly called function that drives all the functionality of a game.</span></span>
+
+1. <span data-ttu-id="213ed-201">クライアント コードに置き換えます、 *Default.html*このコード ファイル。</span><span class="sxs-lookup"><span data-stu-id="213ed-201">Replace the client code in the *Default.html* file with this code:</span></span>
+
+    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample4.html?highlight=14-16)]
+
+    > [!IMPORTANT]
+    > <span data-ttu-id="213ed-202">もう一度スクリプト参照を交換する必要があります。</span><span class="sxs-lookup"><span data-stu-id="213ed-202">You have to replace the script references again.</span></span> <span data-ttu-id="213ed-203">これらは、プロジェクト内のスクリプトのバージョンと一致する必要があります。</span><span class="sxs-lookup"><span data-stu-id="213ed-203">They must match the versions of the scripts in the project.</span></span>
+
+    <span data-ttu-id="213ed-204">この新しいコードを追加、`updateServerModel`関数。</span><span class="sxs-lookup"><span data-stu-id="213ed-204">This new code adds the `updateServerModel` function.</span></span> <span data-ttu-id="213ed-205">固定の頻度にこれが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-205">It gets called on a fixed frequency.</span></span> <span data-ttu-id="213ed-206">関数は、位置データをサーバーに送信するたびに、`moved`フラグは、送信する新しい位置データがあることを示します。</span><span class="sxs-lookup"><span data-stu-id="213ed-206">The function sends the position data to the server whenever the `moved` flag indicates that there's new position data to send.</span></span>
+
+1. <span data-ttu-id="213ed-207">アプリケーションを起動する再生ボタンを選択します。</span><span class="sxs-lookup"><span data-stu-id="213ed-207">Select the play button to start the application</span></span>
+
+1. <span data-ttu-id="213ed-208">ページの URL をコピーします。</span><span class="sxs-lookup"><span data-stu-id="213ed-208">Copy the page's URL.</span></span>
+
+1. <span data-ttu-id="213ed-209">別のブラウザーを開き、アドレス バーに URL を貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="213ed-209">Open another browser and paste the URL into the address bar.</span></span>
+
+1. <span data-ttu-id="213ed-210">ブラウザー ウィンドウのいずれかで、図形をドラッグします。</span><span class="sxs-lookup"><span data-stu-id="213ed-210">Drag the shape in one of the browser windows.</span></span> <span data-ttu-id="213ed-211">別のブラウザー ウィンドウ内の図形に従います。</span><span class="sxs-lookup"><span data-stu-id="213ed-211">The shape in the other browser window follows.</span></span>
+
+<span data-ttu-id="213ed-212">アプリは、アニメーションをスムーズに表示されません、サーバーに送信するメッセージの数を調整するため最初でした。</span><span class="sxs-lookup"><span data-stu-id="213ed-212">Since the app throttles the number of messages that get sent to the server, the animation won't appear as smooth did at first.</span></span>
+
+## <a name="add-the-server-loop"></a><span data-ttu-id="213ed-213">サーバー ループを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-213">Add the server loop</span></span>
+
+<span data-ttu-id="213ed-214">現在のアプリケーションで、サーバーからクライアントに送信されるメッセージは受信しているときに多くの場合、移動します。</span><span class="sxs-lookup"><span data-stu-id="213ed-214">In the current application, messages sent from the server to the client go out as often as they're received.</span></span> <span data-ttu-id="213ed-215">このネットワーク トラフィックは、クライアントでわかるとおり、同様の問題を表示します。</span><span class="sxs-lookup"><span data-stu-id="213ed-215">This network traffic presents a similar problem as we see on the client.</span></span>
+
+<span data-ttu-id="213ed-216">アプリでは、必要なときよりもより多くの場合、メッセージを送信できます。</span><span class="sxs-lookup"><span data-stu-id="213ed-216">The app can send messages more often than they're needed.</span></span> <span data-ttu-id="213ed-217">接続は、その結果大量に送られたなります。</span><span class="sxs-lookup"><span data-stu-id="213ed-217">The connection can become flooded as a result.</span></span> <span data-ttu-id="213ed-218">このセクションでは、送信メッセージのレートを調整するタイマーを追加するサーバーを更新する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="213ed-218">This section describes how to update the server to add a timer that throttles the rate of the outgoing messages.</span></span>
+
+1. <span data-ttu-id="213ed-219">内容を置き換える`MoveShapeHub.cs`次のコードで。</span><span class="sxs-lookup"><span data-stu-id="213ed-219">Replace the contents of `MoveShapeHub.cs` with this code:</span></span>
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample5.cs)]
 
-    <span data-ttu-id="f9535-221">上記のコードを追加するクライアントの展開、`Broadcaster`クラスは、調整、送信メッセージを使用して、 `Timer` .NET framework からクラス。</span><span class="sxs-lookup"><span data-stu-id="f9535-221">The above code expands the client to add the `Broadcaster` class, which throttles the outgoing messages using the `Timer` class from the .NET framework.</span></span>
+1. <span data-ttu-id="213ed-220">アプリケーションを起動する再生ボタンを選択します。</span><span class="sxs-lookup"><span data-stu-id="213ed-220">Select the play button to start the application.</span></span>
 
-    <span data-ttu-id="f9535-222">ハブ自体は一時的なので (必要なたびに)、作成、`Broadcaster`はシングルトンとして作成されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-222">Since the hub itself is transitory (it is created every time it is needed), the `Broadcaster` will be created as a singleton.</span></span> <span data-ttu-id="f9535-223">(.NET 4 で導入) 遅延初期化を使用して、作成を遅らせる必要になるまでは、タイマーを開始する前に、ハブの最初のインスタンスが完全に作成されたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="f9535-223">Lazy initialization (introduced in .NET 4) is used to defer its creation until it is needed, ensuring that the first hub instance is completely created before the timer is started.</span></span>
+1. <span data-ttu-id="213ed-221">ページの URL をコピーします。</span><span class="sxs-lookup"><span data-stu-id="213ed-221">Copy the page's URL.</span></span>
 
-    <span data-ttu-id="f9535-224">クライアントの呼び出し`UpdateShape`関数は、ハブからは移動し、`UpdateModel`メソッド、ことがすぐに着信メッセージを受信するたびに呼び出されないようにします。</span><span class="sxs-lookup"><span data-stu-id="f9535-224">The call to the clients' `UpdateShape` function is then moved out of the hub's `UpdateModel` method, so that it is no longer called immediately whenever incoming messages are received.</span></span> <span data-ttu-id="f9535-225">25 の呼び出し、1 秒あたりのレートで、クライアントにメッセージの送信される代わりに、によって管理される、`_broadcastLoop`内からタイマー、`Broadcaster`クラス。</span><span class="sxs-lookup"><span data-stu-id="f9535-225">Instead, the messages to the clients will be sent at a rate of 25 calls per second, managed by the `_broadcastLoop` timer from within the `Broadcaster` class.</span></span>
+1. <span data-ttu-id="213ed-222">別のブラウザーを開き、アドレス バーに URL を貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="213ed-222">Open another browser and paste the URL into the address bar.</span></span>
 
-    <span data-ttu-id="f9535-226">ハブから直接、クライアント メソッドを呼び出すことではなく、最後に、`Broadcaster`クラスは、現在の作業ハブへの参照を取得する必要があります (`_hubContext`) を使用して、`GlobalHost`します。</span><span class="sxs-lookup"><span data-stu-id="f9535-226">Lastly, instead of calling the client method from the hub directly, the `Broadcaster` class needs to obtain a reference to the currently operating hub (`_hubContext`) using the `GlobalHost`.</span></span>
-2. <span data-ttu-id="f9535-227">F5 キーを押してアプリケーションを起動します。</span><span class="sxs-lookup"><span data-stu-id="f9535-227">Start the application by pressing F5.</span></span> <span data-ttu-id="f9535-228">ページの URL をコピーして、2 番目のブラウザー ウィンドウに貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="f9535-228">Copy the page's URL, and paste it into a second browser window.</span></span> <span data-ttu-id="f9535-229">ブラウザー ウィンドウのいずれかで、図形をドラッグします。別のブラウザー ウィンドウ内の図形を移動する必要があります。</span><span class="sxs-lookup"><span data-stu-id="f9535-229">Drag the shape in one of the browser windows; the shape in the other browser window should move.</span></span> <span data-ttu-id="f9535-230">前のセクションからブラウザーで表示される相違点されませんが、クライアントに送信するメッセージの数は制限されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-230">There will not be a visible difference in the browser from the previous section, but the number of messages that get sent to the client will be throttled.</span></span>
+1. <span data-ttu-id="213ed-223">ブラウザー ウィンドウのいずれかで、図形をドラッグします。</span><span class="sxs-lookup"><span data-stu-id="213ed-223">Drag the shape in one of the browser windows.</span></span>
 
-    ![アプリケーション ウィンドウ](tutorial-high-frequency-realtime-with-signalr/_static/image7.png)
+<span data-ttu-id="213ed-224">このコードを追加するクライアントの展開、`Broadcaster`クラス。</span><span class="sxs-lookup"><span data-stu-id="213ed-224">This code expands the client to add the `Broadcaster` class.</span></span> <span data-ttu-id="213ed-225">新しいクラスを使用して、送信メッセージの調整、 `Timer` .NET framework からクラス。</span><span class="sxs-lookup"><span data-stu-id="213ed-225">The new class throttles the outgoing messages using the `Timer` class from the .NET framework.</span></span>
 
-<a id="animation"></a>
+<span data-ttu-id="213ed-226">については、ハブ自体が一時的なものであることをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="213ed-226">It's good to learn that the hub itself is transitory.</span></span> <span data-ttu-id="213ed-227">これが必要になるたびに作成されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-227">It's created every time it's needed.</span></span> <span data-ttu-id="213ed-228">したがって、アプリを作成し、`Broadcaster`をシングルトンとして。</span><span class="sxs-lookup"><span data-stu-id="213ed-228">So the app creates the `Broadcaster` as a singleton.</span></span> <span data-ttu-id="213ed-229">遅延初期化を遅延を使用して、`Broadcaster`の作成が必要になるまでです。</span><span class="sxs-lookup"><span data-stu-id="213ed-229">It uses lazy initialization to defer the `Broadcaster`'s creation until it's needed.</span></span> <span data-ttu-id="213ed-230">確実にタイマーを開始する前にこと、アプリが最初のハブ インスタンスを完全に作成します。</span><span class="sxs-lookup"><span data-stu-id="213ed-230">That guarantees that the app creates the first hub instance completely before starting the timer.</span></span>
 
-## <a name="add-smooth-animation-on-the-client"></a><span data-ttu-id="f9535-232">クライアントで滑らかなアニメーションを追加します。</span><span class="sxs-lookup"><span data-stu-id="f9535-232">Add smooth animation on the client</span></span>
+<span data-ttu-id="213ed-231">クライアントの呼び出し`UpdateShape`関数は、ハブからは移動し、`UpdateModel`メソッド。</span><span class="sxs-lookup"><span data-stu-id="213ed-231">The call to the clients' `UpdateShape` function is then moved out of the hub's `UpdateModel` method.</span></span> <span data-ttu-id="213ed-232">アプリが着信メッセージを受信するたびにすぐにできなく呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-232">It's no longer called immediately whenever the app receives incoming messages.</span></span> <span data-ttu-id="213ed-233">代わりに、アプリでは、1 秒あたり 25 の呼び出しのレートでクライアントに、メッセージを送信します。</span><span class="sxs-lookup"><span data-stu-id="213ed-233">Instead, the app sends the messages to the clients at a rate of 25 calls per second.</span></span> <span data-ttu-id="213ed-234">によって、プロセスが管理されている、`_broadcastLoop`内からタイマー、`Broadcaster`クラス。</span><span class="sxs-lookup"><span data-stu-id="213ed-234">The process is  managed by the `_broadcastLoop` timer from within the `Broadcaster` class.</span></span>
 
-<span data-ttu-id="f9535-233">アプリケーションがほぼ完全には、1 つ以上向上、クライアント上の図形の動きにサーバー メッセージへの応答での移動時にすることもできます。</span><span class="sxs-lookup"><span data-stu-id="f9535-233">The application is almost complete, but we could make one more improvement, in the motion of the shape on the client as it is moved in response to server messages.</span></span> <span data-ttu-id="f9535-234">JQuery UI ライブラリの使用、サーバーで指定された新しい場所に図形の位置を設定するのではなく`animate`の現在および新しい位置の間でスムーズに図形を移動する関数。</span><span class="sxs-lookup"><span data-stu-id="f9535-234">Rather than setting the position of the shape to the new location given by the server, we'll use the JQuery UI library's `animate` function to move the shape smoothly between its current and new position.</span></span>
+<span data-ttu-id="213ed-235">ハブから直接、クライアント メソッドを呼び出すことではなく、最後に、`Broadcaster`クラスは、現在オペレーティング システムへの参照を取得する必要がある`_hubContext`ハブ。</span><span class="sxs-lookup"><span data-stu-id="213ed-235">Lastly, instead of calling the client method from the hub directly, the `Broadcaster` class needs to get a reference to the currently operating `_hubContext` hub.</span></span> <span data-ttu-id="213ed-236">参照を取得、`GlobalHost`します。</span><span class="sxs-lookup"><span data-stu-id="213ed-236">It gets the reference with the `GlobalHost`.</span></span>
 
-1. <span data-ttu-id="f9535-235">クライアントの更新`updateShape`を検索するメソッドなどの次の強調表示されたコード。</span><span class="sxs-lookup"><span data-stu-id="f9535-235">Update the client's `updateShape` method to look like the highlighted code below:</span></span>
+## <a name="add-smooth-animation"></a><span data-ttu-id="213ed-237">滑らかなアニメーションを追加します。</span><span class="sxs-lookup"><span data-stu-id="213ed-237">Add smooth animation</span></span>
+
+<span data-ttu-id="213ed-238">アプリケーションが終了間近には、1 つ以上の向上することもできます。</span><span class="sxs-lookup"><span data-stu-id="213ed-238">The application is almost finished, but we could make one more improvement.</span></span> <span data-ttu-id="213ed-239">アプリは、クライアント上のサーバー メッセージに応答して、図形を移動します。</span><span class="sxs-lookup"><span data-stu-id="213ed-239">The app moves the shape on the client in response to server messages.</span></span> <span data-ttu-id="213ed-240">サーバーで指定された新しい場所に図形の位置を設定する代わりに、JQuery UI ライブラリを使用して、`animate`関数。</span><span class="sxs-lookup"><span data-stu-id="213ed-240">Instead of setting the position of the shape to the new location given by the server, use the JQuery UI library's `animate` function.</span></span> <span data-ttu-id="213ed-241">現在および新しい位置の間に滑らかに図形を移動できます。</span><span class="sxs-lookup"><span data-stu-id="213ed-241">It can move the shape smoothly between its current and new position.</span></span>
+
+1. <span data-ttu-id="213ed-242">クライアントの更新`updateShape`メソッドで、 *Default.html*ファイルを強調表示されたコードのようになります。</span><span class="sxs-lookup"><span data-stu-id="213ed-242">Update the client's `updateShape` method in the *Default.html* file to look like the highlighted code:</span></span>
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample6.html?highlight=33-40)]
 
-    <span data-ttu-id="f9535-236">上記のコードでは、(この例では、100 ミリ秒) では、アニメーションの間隔の過程で、サーバーで指定された新しい 1 つに、古い場所から図形を移動します。</span><span class="sxs-lookup"><span data-stu-id="f9535-236">The above code moves the shape from the old location to the new one given by the server over the course of the animation interval (in this case, 100 milliseconds).</span></span> <span data-ttu-id="f9535-237">新しいアニメーションが開始される前に、図形で実行されている任意の前のアニメーションがクリアされます。</span><span class="sxs-lookup"><span data-stu-id="f9535-237">Any previous animation running on the shape is cleared before the new animation starts.</span></span>
-2. <span data-ttu-id="f9535-238">F5 キーを押してアプリケーションを起動します。</span><span class="sxs-lookup"><span data-stu-id="f9535-238">Start the application by pressing F5.</span></span> <span data-ttu-id="f9535-239">ページの URL をコピーして、2 番目のブラウザー ウィンドウに貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="f9535-239">Copy the page's URL, and paste it into a second browser window.</span></span> <span data-ttu-id="f9535-240">ブラウザー ウィンドウのいずれかで、図形をドラッグします。別のブラウザー ウィンドウ内の図形を移動する必要があります。</span><span class="sxs-lookup"><span data-stu-id="f9535-240">Drag the shape in one of the browser windows; the shape in the other browser window should move.</span></span> <span data-ttu-id="f9535-241">その他のウィンドウで、図形の移動には、その動きが受信メッセージごとに 1 回設定されているのではなく、時間に補間と小さいぎくしゃくが表示されます。</span><span class="sxs-lookup"><span data-stu-id="f9535-241">The movement of the shape in the other window should appear less jerky as its movement is interpolated over time rather than being set once per incoming message.</span></span>
+1. <span data-ttu-id="213ed-243">アプリケーションを起動する再生ボタンを選択します。</span><span class="sxs-lookup"><span data-stu-id="213ed-243">Select the play button to start the application.</span></span>
 
-    ![アプリケーション ウィンドウ](tutorial-high-frequency-realtime-with-signalr/_static/image8.png)
+1. <span data-ttu-id="213ed-244">ページの URL をコピーします。</span><span class="sxs-lookup"><span data-stu-id="213ed-244">Copy the page's URL.</span></span>
 
-<a id="furthersteps"></a>
+1. <span data-ttu-id="213ed-245">別のブラウザーを開き、アドレス バーに URL を貼り付けます。</span><span class="sxs-lookup"><span data-stu-id="213ed-245">Open another browser and paste the URL into the address bar.</span></span>
 
-## <a name="further-steps"></a><span data-ttu-id="f9535-243">以降の手順</span><span class="sxs-lookup"><span data-stu-id="f9535-243">Further Steps</span></span>
+1. <span data-ttu-id="213ed-246">ブラウザー ウィンドウのいずれかで、図形をドラッグします。</span><span class="sxs-lookup"><span data-stu-id="213ed-246">Drag the shape in one of the browser windows.</span></span>
 
-<span data-ttu-id="f9535-244">このチュートリアルでは、クライアントとサーバー間の頻度の高いメッセージを送信する SignalR アプリケーションをプログラミングする方法を学習できました。</span><span class="sxs-lookup"><span data-stu-id="f9535-244">In this tutorial, you've learned how to program a SignalR application that sends high-frequency messages between clients and servers.</span></span> <span data-ttu-id="f9535-245">この通信パラダイムはなど、オンライン ゲームとその他のシミュレーションを開発するために役立ちます[SignalR を使って作成された ShootR ゲーム](https://shootr.azurewebsites.net/)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-245">This communication paradigm is useful for developing online games and other simulations, such as [the ShootR game created with SignalR](https://shootr.azurewebsites.net/).</span></span>
+<span data-ttu-id="213ed-247">他のウィンドウで、図形の移動が小さい画像が表示されます。</span><span class="sxs-lookup"><span data-stu-id="213ed-247">The movement of the shape in the other window appears less jerky.</span></span> <span data-ttu-id="213ed-248">アプリでは、受信メッセージごとに 1 回設定されているのではなく、時間経由でその動きを補間します。</span><span class="sxs-lookup"><span data-stu-id="213ed-248">The app interpolates its movement over time rather than being set once per incoming message.</span></span>
 
-<span data-ttu-id="f9535-246">このチュートリアルで作成した完全なアプリケーションをからダウンロードできます[コード ギャラリー](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-246">The complete application created in this tutorial can be downloaded from [Code Gallery](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a).</span></span>
+<span data-ttu-id="213ed-249">このコードは、元の場所を新しい図形を移動します。</span><span class="sxs-lookup"><span data-stu-id="213ed-249">This code moves the shape from the old location to the new one.</span></span> <span data-ttu-id="213ed-250">サーバーは、アニメーションの間隔の過程で、図形の位置を示します。</span><span class="sxs-lookup"><span data-stu-id="213ed-250">The server gives the position of the shape over the course of the animation interval.</span></span> <span data-ttu-id="213ed-251">この場合、100 ミリ秒です。</span><span class="sxs-lookup"><span data-stu-id="213ed-251">In this case, that's 100 milliseconds.</span></span> <span data-ttu-id="213ed-252">アプリでは、新しいアニメーションが開始される前に、図形の実行の前のアニメーションをクリアします。</span><span class="sxs-lookup"><span data-stu-id="213ed-252">The app clears any previous animation running on the shape before the new animation starts.</span></span>
 
-<span data-ttu-id="f9535-247">SignalR 開発の概念に関する詳細については、SignalR のソース コードおよびリソースは、次のサイトを参照してください。</span><span class="sxs-lookup"><span data-stu-id="f9535-247">To learn more about SignalR development concepts, visit the following sites for SignalR source code and resources:</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="213ed-253">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="213ed-253">Additional resources</span></span>
 
-- [<span data-ttu-id="f9535-248">SignalR プロジェクト</span><span class="sxs-lookup"><span data-stu-id="f9535-248">SignalR Project</span></span>](http://signalr.net)
-- [<span data-ttu-id="f9535-249">SignalR Github とサンプル</span><span class="sxs-lookup"><span data-stu-id="f9535-249">SignalR Github and Samples</span></span>](https://github.com/SignalR/SignalR)
-- [<span data-ttu-id="f9535-250">SignalR の Wiki</span><span class="sxs-lookup"><span data-stu-id="f9535-250">SignalR Wiki</span></span>](https://github.com/SignalR/SignalR/wiki)
+<span data-ttu-id="213ed-254">学習した通信パラダイムはこのようなオンライン ゲームとその他のシミュレーションを開発するために便利です[SignalR を使って作成された ShootR ゲーム](https://shootr.azurewebsites.net/)します。</span><span class="sxs-lookup"><span data-stu-id="213ed-254">The communication paradigm you just learned about is useful for developing online games and other simulations, like [the ShootR game created with SignalR](https://shootr.azurewebsites.net/).</span></span>
 
-<span data-ttu-id="f9535-251">SignalR アプリケーションを Azure にデプロイする方法のチュートリアルは、次を参照してください。 [Azure App Service Web apps を使用して SignalR](../deployment/using-signalr-with-azure-web-sites.md)します。</span><span class="sxs-lookup"><span data-stu-id="f9535-251">For a walkthrough on how to deploy a SignalR application to Azure, see [Using SignalR with Web Apps in Azure App Service](../deployment/using-signalr-with-azure-web-sites.md).</span></span> <span data-ttu-id="f9535-252">Visual Studio web プロジェクトを Windows Azure の Web サイトにデプロイする方法の詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)です。</span><span class="sxs-lookup"><span data-stu-id="f9535-252">For detailed information about how to deploy a Visual Studio web project to a Windows Azure Web Site, see [Create an ASP.NET web app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).</span></span>
+<span data-ttu-id="213ed-255">詳細については、SignalR は、次のリソースを参照してください。</span><span class="sxs-lookup"><span data-stu-id="213ed-255">For more about SignalR, see the following resources:</span></span>
+
+* [<span data-ttu-id="213ed-256">SignalR プロジェクト</span><span class="sxs-lookup"><span data-stu-id="213ed-256">SignalR Project</span></span>](http://signalr.net)
+
+* [<span data-ttu-id="213ed-257">SignalR GitHub とサンプル</span><span class="sxs-lookup"><span data-stu-id="213ed-257">SignalR GitHub and Samples</span></span>](https://github.com/SignalR/SignalR)
+
+* [<span data-ttu-id="213ed-258">SignalR の Wiki</span><span class="sxs-lookup"><span data-stu-id="213ed-258">SignalR Wiki</span></span>](https://github.com/SignalR/SignalR/wiki)
+
+## <a name="next-steps"></a><span data-ttu-id="213ed-259">次の手順</span><span class="sxs-lookup"><span data-stu-id="213ed-259">Next steps</span></span>
+
+<span data-ttu-id="213ed-260">このチュートリアルでしました。</span><span class="sxs-lookup"><span data-stu-id="213ed-260">In this tutorial, you:</span></span>
+
+> [!div class="checklist"]
+> * <span data-ttu-id="213ed-261">プロジェクトを設定します。</span><span class="sxs-lookup"><span data-stu-id="213ed-261">Set up the project</span></span>
+> * <span data-ttu-id="213ed-262">ベースのアプリケーションの作成</span><span class="sxs-lookup"><span data-stu-id="213ed-262">Created the base application</span></span>
+> * <span data-ttu-id="213ed-263">アプリの起動時に、ハブにマップ</span><span class="sxs-lookup"><span data-stu-id="213ed-263">Mapped to the hub when app starts</span></span>
+> * <span data-ttu-id="213ed-264">クライアントの追加</span><span class="sxs-lookup"><span data-stu-id="213ed-264">Added the client</span></span>
+> * <span data-ttu-id="213ed-265">アプリの実行</span><span class="sxs-lookup"><span data-stu-id="213ed-265">Ran the app</span></span>
+> * <span data-ttu-id="213ed-266">クライアントのループの追加</span><span class="sxs-lookup"><span data-stu-id="213ed-266">Added the client loop</span></span>
+> * <span data-ttu-id="213ed-267">サーバー ループの追加</span><span class="sxs-lookup"><span data-stu-id="213ed-267">Added the server loop</span></span>
+> * <span data-ttu-id="213ed-268">滑らかなアニメーションを追加しました</span><span class="sxs-lookup"><span data-stu-id="213ed-268">Added smooth animation</span></span>
+
+<span data-ttu-id="213ed-269">ASP.NET SignalR 2 を使用してサーバー ブロードキャストの機能を提供する web アプリケーションを作成する方法については、次の記事に進んでください。</span><span class="sxs-lookup"><span data-stu-id="213ed-269">Advance to the next article to learn how to create a web application that uses ASP.NET SignalR 2 to provide server broadcast functionality.</span></span>
+> [!div class="nextstepaction"]
+> [<span data-ttu-id="213ed-270">SignalR 2 とサーバー ブロードキャスト</span><span class="sxs-lookup"><span data-stu-id="213ed-270">SignalR 2 and server broadcasting</span></span>](tutorial-server-broadcast-with-signalr.md)
