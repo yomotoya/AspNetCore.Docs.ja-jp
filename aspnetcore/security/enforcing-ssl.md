@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861525"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098975"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -70,9 +70,9 @@ Web アプリの呼び出しを実稼働 ASP.NET Core を推奨します。
 
   **キー**: `https_port`  
   **型**: *文字列*  
-  **既定**: 既定値が設定されていません。  
+  **既定の**:既定値が設定されていません。  
   **次を使用して設定**: `UseSetting`  
-  **環境変数**: `<PREFIX_>HTTPS_PORT` (プレフィックスは`ASPNETCORE_`を使用する場合、 [Web ホスト](xref:fundamentals/host/web-host))。
+  **環境変数**:`<PREFIX_>HTTPS_PORT` (プレフィックスは`ASPNETCORE_`を使用する場合、 [Web ホスト](xref:fundamentals/host/web-host))。
 
   構成するときに、<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>で`Program`:
 
@@ -99,7 +99,7 @@ Web アプリの呼び出しを実稼働 ASP.NET Core を推奨します。
 
 使用して、要求はリバース プロキシ構成で転送され場合、 [Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) HTTPS リダイレクト ミドルウェアを呼び出す前にします。 ヘッダーのミドルウェアの更新プログラムを転送、`Request.Scheme`を使用して、`X-Forwarded-Proto`ヘッダー。 ミドルウェアの許可は、正常に動作するには、Uri と他のセキュリティ ポリシーにリダイレクトします。 Forwarded Headers Middleware が使用されていないときに、バックエンド アプリ可能性がありますいない正しいスキームを受信およびのリダイレクト ループ。 一般的なエンド ユーザー エラー メッセージは、リダイレクトが多すぎますが発生したことです。
 
-Azure App Service にデプロイするときのガイダンスに従って[チュートリアル: Azure Web Apps に既存のカスタム SSL 証明書をバインド](/azure/app-service/app-service-web-tutorial-custom-ssl)します。
+Azure App Service にデプロイするときのガイダンスに従って[チュートリアル。既存のカスタム SSL 証明書を Azure Web Apps にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
 
 ### <a name="options"></a>オプション
 
@@ -193,9 +193,9 @@ ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。
 
 `UseHsts` 次のループバック ホストを除外するには。
 
-* `localhost` IPv4 ループバック アドレス。
-* `127.0.0.1` IPv4 ループバック アドレス。
-* `[::1]` IPv6 ループバック アドレス。
+* `localhost` は、次のとおりです。IPv4 ループバック アドレス。
+* `127.0.0.1` は、次のとおりです。IPv4 ループバック アドレス。
+* `[::1]` は、次のとおりです。IPv6 ループバック アドレス。
 
 ::: moniker-end
 
@@ -261,7 +261,7 @@ dotnet dev-certs https --help
 ## <a name="additional-information"></a>追加情報
 
 * <xref:host-and-deploy/proxy-load-balancer>
-* [Apache による Linux で ASP.NET Core のホスト: SSL の構成](xref:host-and-deploy/linux-apache#ssl-configuration)
-* [Nginx による Linux で ASP.NET Core のホスト: SSL の構成](xref:host-and-deploy/linux-nginx#configure-ssl)
+* [Apache による Linux で ASP.NET Core をホストするには。HTTPS の構成](xref:host-and-deploy/linux-apache#https-configuration)
+* [Nginx による Linux で ASP.NET Core をホストするには。HTTPS の構成](xref:host-and-deploy/linux-nginx#https-configuration)
 * [IIS で SSL を設定する方法](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis)
 * [OWASP HSTS ブラウザー サポート](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support)

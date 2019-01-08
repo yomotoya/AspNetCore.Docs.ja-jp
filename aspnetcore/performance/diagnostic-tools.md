@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 12/07/2018
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 3093b7d646e4fa943334c7b1e70ddc007ab18780
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: 0b1de069e7892fff451617f2c6570fa789808c4f
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329201"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099053"
 ---
 # <a name="performance-diagnostic-tools"></a>パフォーマンスの診断ツール
 
@@ -21,13 +21,25 @@ ms.locfileid: "53329201"
 
 ## <a name="visual-studio-diagnostic-tools"></a>Visual Studio 診断ツール
 
-[プロファイリングと診断ツール](/visualstudio/profiling)パフォーマンスの問題の調査を開始点としては、Visual Studio に組み込まれています。 これらのツールとは、強力で、Visual Studio 開発環境から使用すると便利です。 ツールは、ASP.NET Core アプリでの CPU 使用率、メモリ使用量とパフォーマンス イベントの分析を使用できます。
+[プロファイリングと診断ツール](/visualstudio/profiling)パフォーマンスの問題の調査を開始点としては、Visual Studio に組み込まれています。 これらのツールとは、強力で、Visual Studio 開発環境から使用すると便利です。 ツールは、ASP.NET Core アプリでの CPU 使用率、メモリ使用量とパフォーマンス イベントの分析を使用できます。 組み込みの中では開発時に簡単にプロファイルします。
 
 詳細については[Visual Studio ドキュメント](/visualstudio/profiling/profiling-overview)します。
 
 ## <a name="application-insights"></a>Application Insights
 
 [Application Insights](/azure/application-insights/app-insights-overview)アプリの詳細なパフォーマンス データを提供します。 Application Insights は、自動的に反応率、エラー率、依存関係の応答時間に関するデータを収集します。 Application Insights では、アプリにカスタム イベントとメトリックが特定のログ記録をサポートします。
+
+Azure Application Insights では、監視対象のアプリで洞察を提供する複数の方法を提供します。
+
+- [アプリケーション マップ](/azure/application-insights/app-insights-app-map)– 分散アプリのすべてのコンポーネント間でスポット パフォーマンスのボトルネックや障害ホット スポットに役立ちます。
+- [Application Insights ポータルの [メトリック] ブレード](/azure/application-insights/app-insights-metrics-explorer?toc=/azure/azure-monitor/toc.json)表示測定値とイベントをカウントします。
+- [Application Insights ポータルの [パフォーマンス] ブレード](/azure/application-insights/app-insights-tutorial-performance):
+
+  - 監視対象のアプリでは、さまざまな操作のパフォーマンスの詳細を示しています。
+  - すべての部分と依存関係を長い期間に影響を確認する 1 つの操作へのドリル ダウンできます。
+  - パフォーマンス トレースはオンデマンドで収集するには、ここでは、Profiler を起動できます。
+
+- [Azure Application Insights Profiler](/azure/azure-monitor/app/profiler)定期的かつオンデマンドでの .NET アプリのプロファイリングを使用します。  Azure ポータルの表示では、呼び出し履歴とホット パスのパフォーマンス トレースをキャプチャします。 PerfView を使用して、詳細な分析のトレース ファイルをダウンロードすることもできます。
 
 Application Insights は、さまざまな環境で使用できます。
 
@@ -43,6 +55,10 @@ Application Insights は、さまざまな環境で使用できます。
 
 PerfView および開始する方法の詳細については、 [PerfView のチュートリアル ビデオ](http://channel9.msdn.com/Series/PerfView-Tutorial)またはツールで使用可能なユーザー ガイドを参照してまたは[github](https://github.com/Microsoft/perfview)します。
 
+## <a name="windows-performance-toolkit"></a>Windows パフォーマンス ツールキット
+
+[Windows パフォーマンス ツールキット](/windows-hardware/test/wpt/)(WPT) は、2 つのコンポーネントで構成されています。Windows Performance Recorder (WPR) と Windows パフォーマンス アナライザー (WPA)。 ツールは、Windows オペレーティング システムおよびアプリの詳細なパフォーマンス プロファイルを生成します。 WPT がデータを視覚化するための豊富な方法が、そのデータの収集は PerfView のよりも低い。
+
 ## <a name="perfcollect"></a>PerfCollect
 
 PerfView が .NET シナリオ用の便利なパフォーマンス分析ツールの中でしか実行できません Windows のため、これを使用して、Linux 環境で実行されている ASP.NET Core アプリからトレースを収集することはできません。
@@ -50,3 +66,11 @@ PerfView が .NET シナリオ用の便利なパフォーマンス分析ツー�
 [PerfCollect](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md)ネイティブ Linux のプロファイリング ツールを使用する bash スクリプトは、([Perf](https://perf.wiki.kernel.org/index.php/Main_Page)と[LTTng](https://lttng.org/)) PerfView で分析できる Linux 上のトレースを収集します。 PerfCollect は、PerfView を直接使用することはできません、Linux 環境でパフォーマンスの問題を表示する場合に便利です。 代わりに、PerfCollect すると、PerfView を使用して Windows コンピューター上で、分析し、.NET Core アプリからトレースを収集できます。
 
 インストールして PerfCollect の使用方法の詳細については、使用可能な[github](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md)します。
+
+## <a name="other-third-party-performance-tools"></a>その他のサード パーティ製のパフォーマンス ツール
+
+次に、.NET Core アプリケーションのパフォーマンス調査に役立ついくつかのサードパーティ製のパフォーマンス ツールの一覧を表示します。
+
+- [MiniProfiler](https://miniprofiler.com/)
+- dotTrace、dotMemory jetbrains
+- Intel から VTune

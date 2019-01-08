@@ -3,14 +3,14 @@ title: ASP.NET Core で応答のキャッシュ
 author: rick-anderson
 description: 応答キャッシュを使用し、帯域幅要件を下げ、ASP.NET Core アプリのパフォーマンスを上げる方法について説明します。
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 01/07/2018
 uid: performance/caching/response
-ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5fbcaddff6e53d01a19ba8a7455c719feb614326
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207369"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098949"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -23,7 +23,7 @@ ms.locfileid: "50207369"
 
 応答のキャッシュ クライアントまたはプロキシは、web サーバーに要求の数が減少します。 応答のキャッシュ量が減少も、応答を生成する作業の web サーバーを実行します。 応答のキャッシュは、クライアント、プロキシ、およびミドルウェアが応答をキャッシュする方法を指定するヘッダーによって制御されます。
 
-追加すると、web サーバーが応答をキャッシュできます[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)します。
+[ResponseCache 属性](#responsecache-attribute)応答のキャッシュ クライアントが応答をキャッシュする場合に従うことがあります、ヘッダーの設定に参加します。 [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)サーバーの応答をキャッシュに使用できます。 ミドルウェアが使用できる`ResponseCache`属性のサーバー側のキャッシュ動作を決定するプロパティ。
 
 ## <a name="http-based-response-caching"></a>応答の HTTP ベースのキャッシュ
 
@@ -35,9 +35,9 @@ ms.locfileid: "50207369"
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | キャッシュは、応答を格納することができます。 |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | 共有キャッシュで応答を格納する必要がありません。 プライベート キャッシュを格納および応答を再利用できます。 |
-| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | クライアントは応答として、年齢が指定した秒数より大きいを受け付けません。 例: `max-age=60` (60 秒) `max-age=2592000` (1 か月) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **要求で**: キャッシュでは、要求を満たすためストアド応答を使用する必要があります。 注: は、配信元サーバーがクライアントの場合、応答を再生成し、ミドルウェアがストアドのキャッシュに応答を更新します。<br><br>**応答に**: 後続の要求、配信元サーバーの検証を行わず、応答を使用しない必要があります。 |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **要求で**: キャッシュが要求を格納する必要があります。<br><br>**応答に**: キャッシュでは、応答の一部を格納する必要があります。 |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | クライアントは応答として、年齢が指定した秒数より大きいを受け付けません。 次に例を示します。`max-age=60` (60 秒) `max-age=2592000` (1 か月) |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **要求で**:キャッシュ要求を満たすためにストアド応答を使用する必要があります。 メモ:配信元サーバーがクライアントの場合、応答を再生成し、ミドルウェアがそのキャッシュ内のストアドの応答を更新します。<br><br>**応答に**:後続の要求、配信元サーバーの検証を行わずに、応答を使用しない必要があります。 |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **要求で**:キャッシュは、要求を格納する必要があります。<br><br>**応答に**:キャッシュは、応答の一部を格納する必要があります。 |
 
 次の表は、キャッシュ内の役割を果たすその他のキャッシュ ヘッダーに表示されます。
 
@@ -54,7 +54,7 @@ ms.locfileid: "50207369"
 
 クライアントを常に受け入れること`Cache-Control`HTTP キャッシュの目的を検討する場合に要求ヘッダーを意味します。 公式の仕様では、キャッシュは、クライアント、プロキシ、およびサーバーのネットワーク要求を満たすの待機時間とネットワークのオーバーヘッドを削減するもの。 必ずしも、配信元サーバーの負荷を制御する方法はありません。
 
-使用する場合、このキャッシュの動作に対する現在の開発者コントロールがない、[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)ミドルウェアは、公式のキャッシュの仕様に準拠しているためです。 [ミドルウェアは将来拡張](https://github.com/aspnet/ResponseCaching/issues/96)要求を無視するミドルウェアを構成するを許可する`Cache-Control`ヘッダー キャッシュされた応答を処理するために決定する際にします。 これが提供されますが、サーバーの管理、負荷を改善する機会、ミドルウェアを使用する場合。
+使用する場合、このキャッシュの動作に対する開発者のコントロールがない、[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)ミドルウェアは、公式のキャッシュの仕様に準拠しているためです。 [ミドルウェアの機能強化を計画](https://github.com/aspnet/AspNetCore/issues/2612)要求を無視するミドルウェアを構成する機会は`Cache-Control`ヘッダー キャッシュされた応答を処理するために決定する際にします。 計画的な機能強化では、管理サーバーの負荷を向上する機会を提供します。
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>ASP.NET Core でのキャッシュの他のテクノロジ
 
@@ -91,7 +91,7 @@ ms.locfileid: "50207369"
 
 [VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys)ストアドの応答を指定した一連のクエリ キーの値によって異なります。 1 つの値のときに`*`応答により、すべての要求クエリ文字列パラメーターが指定されて、ミドルウェアによって異なります。 `VaryByQueryKeys` ASP.NET Core 1.1 以降が必要です。
 
-応答キャッシュ ミドルウェアは、設定を有効にする必要があります、`VaryByQueryKeys`プロパティ。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティ。 プロパティは、応答キャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を処理するためにミドルウェアのクエリ文字列とクエリ文字列の値は、前の要求に一致する必要があります。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
+[応答キャッシュ ミドルウェア](xref:performance/caching/middleware)設定を有効にする必要があります、`VaryByQueryKeys`プロパティ。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティ。 プロパティは、応答キャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を処理するためにミドルウェアのクエリ文字列とクエリ文字列の値は、前の要求に一致する必要があります。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
 
 | 要求                          | 結果                   |
 | -------------------------------- | ------------------------ |
@@ -136,7 +136,7 @@ ms.locfileid: "50207369"
 
 場合`NoStore`は`false`と`Location`は`None`、`Cache-Control`と`Pragma`に設定されている`no-cache`します。
 
-通常は設定`NoStore`に`true`エラー ページ。 例えば:
+通常は設定`NoStore`に`true`エラー ページ。 例:
 
 ::: moniker range=">= aspnetcore-2.0"
 

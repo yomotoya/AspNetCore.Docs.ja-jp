@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: fde7f08ae2310b0b9bf9b7fe25a1dfc4a568adb6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284471"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099356"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>ASP.NET Core SignalR スケール アウトの Redis のバック プレーンを設定します。
 
@@ -24,7 +24,10 @@ ms.locfileid: "53284471"
 
 * Redis サーバーをデプロイします。
 
-  運用環境で使用、Redis バック プレーンは、オンプレミスのインフラストラクチャに対してのみお勧めします。 待機時間を最小限に抑えるには、Redis サーバーは、SignalR のアプリと同じデータ センターでなければなりません。 SignalR アプリが Azure クラウドで実行している場合は、Redis のバック プレーンではなく Azure SignalR サービスを推奨します。 開発用の Azure Redis Cache Service を使用し、環境をテストできます。 詳細については、次のリソースを参照してください。
+  > [!IMPORTANT] 
+  > 運用環境で使用、Redis のバック プレーンは SignalR アプリと同じデータ センターでの実行時にのみお勧めします。 それ以外の場合、ネットワーク待機時間には、パフォーマンスが低下します。 SignalR アプリが Azure クラウドで実行している場合は、Redis のバック プレーンではなく Azure SignalR サービスを推奨します。 開発用の Azure Redis Cache Service を使用し、環境をテストできます。
+
+  詳細については、次のリソースを参照してください。
 
   * <xref:signalr/scale>
   * [Redis のドキュメント](https://redis.io/)

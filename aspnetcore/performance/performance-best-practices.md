@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core アプリでのパフォーマンスが向上し、一般的なパフォーマンスの問題を回避するためのヒント。
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 11/29/2018
+ms.date: 1/9/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 25aa4c1e22ead7db4775c6e5e81b6fd627c6d7a6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618117"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099066"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core のパフォーマンスに関するベスト プラクティス
 
@@ -19,8 +19,7 @@ ms.locfileid: "52618117"
 
 このトピックでは、ASP.NET Core でのベスト プラクティス、パフォーマンスのガイドラインを示します。
 
-<a name="hot"></a>
-<!-- TODO review hot code paths is jargon that won't MT (machine translate) and is not well defined for native speakers. --> このドキュメントでは、ホット コード パスが頻繁に呼び出され、実行時間の大部分が発生したコード パスとして定義されます。 通常、ホット コード パスは、アプリのスケール アウトとパフォーマンスを制限します。
+<a name="hot"></a> このドキュメントでは、ホット コード パスが頻繁に呼び出され、実行時間の大部分が発生したコード パスとして定義されます。 通常、ホット コード パスは、アプリのスケール アウトとパフォーマンスを制限します。
 
 ## <a name="cache-aggressively"></a>積極的にキャッシュします。
 
@@ -129,6 +128,10 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 * **行う** で ASP.NET Core の使用[組み込みサポート](xref:client-side/bundling-and-minification)バンドルと縮小クライアント資産。
 * **行う** などの他のサード パーティ製ツールを検討してください[Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp)または[Webpack](https://webpack.js.org/)クライアント資産管理をより複雑なのです。
+
+## <a name="compress-responses"></a>応答を圧縮します。
+
+ 通常、応答のサイズを小さく、アプリの応答性を多くの場合、大幅に増加します。 ペイロードのサイズを小さく 1 つの方法は、アプリの応答を圧縮します。 詳細については、次を参照してください。[応答圧縮](xref:performance/response-compression)します。
 
 ## <a name="use-the-latest-aspnet-core-release"></a>ASP.NET Core の最新のリリースを使用します。
 

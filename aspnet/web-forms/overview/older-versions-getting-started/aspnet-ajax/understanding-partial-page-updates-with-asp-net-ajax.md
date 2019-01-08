@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4883046aa16d5e67b7f0c92e15c897ef1a933b67
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827669"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098936"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX の理解の部分的ページ更新します。
 ====================
@@ -53,11 +53,11 @@ ms.locfileid: "41827669"
 2. 基本的な ASP.NET マークアップに空の既定のページが表示されます (サーバー側のフォームと`@Page`ディレクティブ)。 という名前のラベルにドロップ`Label1`ボタンと呼ばれると`Button1`フォーム要素内でページ上にします。 自由にそのテキスト プロパティを設定することがあります。
 3. デザイン ビューで、ダブルクリック`Button1`分離コードのイベント ハンドラーを生成します。 このイベント ハンドラー内で次のように設定します。 `Label1.Text` 、 をクリックします。 .
 
-**部分的なレンダリングを有効にするには default.aspx のマークアップをリスト 1:**
+**リスト 1。部分的なレンダリングを有効にするには default.aspx のマークアップ**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**リスト 2: 分離コードが default.aspx.cs の (切り捨て)**
+**リスト 2。(トリム) で default.aspx.cs 分離コード**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
@@ -85,13 +85,13 @@ ms.locfileid: "41827669"
 1. 任意の場所、`<form>`要素をダブルクリックして、ScriptManager コントロールを含める、`ScriptManager`ツールボックスの項目。
 2. 編集、`<asp:ScriptManager>`タグ、属性が含まれるように`EnablePartialRendering= true`します。
 
-**部分的なレンダリングを有効になっている default.aspx のマークアップの 3 を一覧表示します。**
+**3 を一覧表示します。部分的なレンダリングを有効になっている default.aspx のマークアップ**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample3.aspx)]
 
 1. Web.config ファイルを開きます。 Visual Studio が System.Web.Extensions.dll への参照をコンパイルを自動的に追加することを確認します。
 
-1. Visual Studio 2008 では新機能: ASP.NET Web サイト プロジェクトのテンプレートを自動的に付属する web.config、ASP.NET AJAX Extensions に必要なすべての参照が含まれていて、可能性のある構成情報のセクションでにはコメントが含まれています追加の機能を有効にされていないコメント。 Visual Studio 2005 では、ASP.NET 2.0 AJAX Extensions がインストールされたときのようなテンプレートがありました。 ただし、Visual Studio 2008 で AJAX の拡張機能は、オプトアウト既定で (つまり、既定では、参照されるが参照として削除されることができます)。
+1. Visual Studio 2008 の新機能新機能。ASP.NET Web サイトで自動的にプロジェクト テンプレートは、ASP.NET AJAX Extensions に必要なすべての参照が含まれています、含まれていますが付属している web.config のコメント追加を有効にすることができる構成情報のセクションのコメント機能。 Visual Studio 2005 では、ASP.NET 2.0 AJAX Extensions がインストールされたときのようなテンプレートがありました。 ただし、Visual Studio 2008 で AJAX の拡張機能は、オプトアウト既定で (つまり、既定では、参照されるが参照として削除されることができます)。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
@@ -153,7 +153,7 @@ Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みの�
 
 ScriptManager コントロールは、ASP.NET AJAX 拡張機能の重要なコアです。 (広範なクライアント側スクリプトの型システムを含む)、スクリプト ライブラリにアクセスできるように、部分的なレンダリングをサポートし、(認証と、プロファイルも他の Web サービス) などの他の ASP.NET サービスの広範なサポートを提供します。 ScriptManager コントロールでは、クライアント スクリプトのグローバリゼーションおよびローカリゼーションのサポートも提供します。
 
-## <a name="providing-alterative-and-supplemental-scripts"></a>こうしたと補足スクリプト
+## <a name="providing-alternative-and-supplemental-scripts"></a>代替と補足スクリプト
 
 開発者が自由にカスタマイズしたスクリプト ファイルに、ScriptManager をリダイレクトしたり、登録中に、Microsoft ASP.NET 2.0 AJAX Extensions では、両方のデバッグに全体のスクリプト コードを追加、参照されたアセンブリに埋め込まれたリソースとしてエディションを離すと、必要なスクリプトを追加します。
 
@@ -169,7 +169,7 @@ UpdatePanel コントロールによって指定されたトリガーによっ�
 
 クライアント側のカスタマイズが既定の警告ボックス; を使用する代わりにこともできます。たとえば、カスタマイズされた表示したい場合があります`<div>`既定のブラウザーのモーダル ダイアログ ボックスではなく要素。 この場合、クライアント スクリプトでエラーを処理できます。
 
-**カスタム エラーを表示するクライアント側スクリプトの 5 を一覧表示します。**
+**5 を一覧表示します。カスタム エラーを表示するクライアント側スクリプト**
 
 [!code-html[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample4.html)]
 
@@ -315,4 +315,4 @@ UpdatePanel コントロールを使用する場合は、開発者が潜在的�
 1997 年からマイクロソフトの Web テクノロジで働いてあり myKB.com プレジデント、Scott Cate ([www.myKB.com](http://www.myKB.com)) ベースのナレッジ ベースのソフトウェア ソリューションに重点を置いてアプリケーションを ASP.NET の記述を専門としています。 Scott は時に電子メールが接続可能[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)またはで彼のブログ[ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
-> [次へ](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [Next](understanding-asp-net-ajax-updatepanel-triggers.md)

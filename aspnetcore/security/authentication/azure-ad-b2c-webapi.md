@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 6d0365b103572d6059ce61c54b9b3406da9e5bd4
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284618"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098702"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api ASP.NET Core での Azure Active Directory B2C での認証
 
@@ -157,8 +157,8 @@ Web API に認証が必要であることを確認するには、まず認証を
     ![401 応答](./azure-ad-b2c-webapi/postman-401-status.png)
 
 > [!IMPORTANT]
-> 「ことが、すべての応答を取得できません」エラーが発生する場合で SSL 証明書の検証を無効にする必要があります、 [Postman 設定](https://learning.getpostman.com/docs/postman/launching_postman/settings)します。 
- 
+> 「ことが、すべての応答を取得できません」エラーが発生した場合で SSL 証明書の検証を無効にする必要があります、 [Postman 設定](https://learning.getpostman.com/docs/postman/launching_postman/settings)します。
+
 ### <a name="obtain-a-bearer-token"></a>ベアラー トークンを取得します。
 
 Web API に認証された要求を作成するには、ベアラー トークンが必要です。 Postman では、簡単に Azure AD B2C テナントにサインインし、トークンを取得できます。

@@ -4,16 +4,16 @@ title: Edit メソッドと編集ビューの確認 |Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 29ece7754bc6e25ea968c25a99a2f48ab837e12c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 75fd3a7dd55107cbdb9095d5b54b616133b4f65e
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911546"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099397"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Edit メソッドと編集ビューの確認
 ====================
@@ -83,15 +83,19 @@ ms.locfileid: "48911546"
 
 [ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx)属性を検証、 [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)によって生成されたトークン、`@Html.AntiForgeryToken()`ビューで呼び出します。
 
-[ASP.NET MVC モデル バインダー](https://msdn.microsoft.com/library/dd410405.aspx)ポストされたフォーム値を受け取り、作成、`Movie`オブジェクトとして渡される、`movie`パラメーター。 `ModelState.IsValid` メソッドは、フォームで送信されたデータを使って `Movie` オブジェクトを変更 (編集または更新) できることを検証します。 ムービー データに保存して、データが有効な場合、`Movies`のコレクション、`db(MovieDBContext`インスタンス)。 新しいムービー データが呼び出すことによって、データベースに保存、`SaveChanges`メソッドの`MovieDBContext`します。 データを保存した後、コードはユーザーを `MoviesController` クラスの `Index` アクション メソッドにリダイレクトします。そこでは、行われたばかりの変更を含むムービー コレクションが表示されます。
+[ASP.NET MVC モデル バインダー](https://msdn.microsoft.com/library/dd410405.aspx)ポストされたフォーム値を受け取り、作成、`Movie`オブジェクトとして渡される、`movie`パラメーター。 `ModelState.IsValid`形式で送信されたデータを変更 (編集または更新) を使用できることを確認、`Movie`オブジェクト。 ムービー データに保存して、データが有効な場合、`Movies`のコレクション、 `db`(`MovieDBContext`インスタンス)。 新しいムービー データが呼び出すことによって、データベースに保存、`SaveChanges`メソッドの`MovieDBContext`します。 データを保存した後、コードはユーザーを `MoviesController` クラスの `Index` アクション メソッドにリダイレクトします。そこでは、行われたばかりの変更を含むムービー コレクションが表示されます。
 
-クライアント側の検証は、フィールドの値が無効かを判断しますとすぐに、エラー メッセージが表示されます。 JavaScript を無効にした場合は、クライアント側の検証する必要はありませんが、サーバーを検出し、ポストされた値が有効でないフォームの値は、エラー メッセージと共に再表示されます。 チュートリアルの後半では、さらに詳しく検証を調べます。
+クライアント側の検証を判断されると、フィールドの値が無効ですとすぐに、エラー メッセージが表示されます。 JavaScript が無効になっている場合は、クライアント側の検証が無効です。 ただし、ポストされた値が無効になると、およびフォーム値は、エラー メッセージと共に再表示は、サーバーを検出します。
+
+検証は、チュートリアルの後半で詳しく説明します。
 
 `Html.ValidationMessageFor`のヘルパー、 *Edit.cshtml*ビュー テンプレートを適切なエラー メッセージを表示する処理します。
 
 ![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image4.png)
 
 すべての`HttpGet`メソッドと同様のパターンに従います。 ムービー オブジェクトを取得する (またはの場合、オブジェクトの一覧`Index`)、ビューにモデルを渡すとします。 `Create`メソッドは、作成ビューに空のムービー オブジェクトを渡します。 データの作成、編集、削除、またはそれ以外の変更を行うすべてのメソッドは、メソッドの `HttpPost` のオーバーロードでそれを行います。 ブログの投稿」の説明に従って、セキュリティ リスクには、HTTP GET メソッドでデータを変更する[ASP.NET MVC ヒントと 46 – セキュリティ ホールを作成するため、削除のリンクを使用しない](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)します。 HTTP のベスト プラクティスと、アーキテクチャに違反 GET メソッドのデータの変更も[REST](http://en.wikipedia.org/wiki/Representational_State_Transfer)パターン, を指定する GET 要求には、アプリケーションの状態は変更しないでください。 つまり、GET 操作の実行は、副作用がなく、永続化されたデータを変更しない、安全な操作である必要があります。
+
+## <a name="jquery-validation-for-non-english-locales"></a>英語以外のロケールの jQuery の検証
 
 英語 (米国) のコンピューターを使用している場合は、このセクションをスキップし、次のチュートリアルに移動します。 このチュートリアルの Globalize バージョンをダウンロードする[ここ](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=16475)します。 国際化に関する優れた 2 部構成チュートリアルを参照してください[Nadeem の ASP.NET MVC 5 の国際化](http://afana.me/post/aspnet-mvc-internationalization.aspx)します。
 

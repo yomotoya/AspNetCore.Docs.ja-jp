@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: bdba706c1ef24ebe35129cb8bb2d9949196245a1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637834"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098923"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>承認によって保護されたユーザー データと ASP.NET Core アプリを作成します。
 
@@ -59,7 +59,7 @@ ms.locfileid: "53637834"
 
 によって、アプリが作成された[スキャフォールディング](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model)次`Contact`モデル。
 
-[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
 サンプルには、次の承認ハンドラーが含まれています。
 
@@ -314,33 +314,33 @@ Entity Framework Core を使用してサービスを登録する必要があり�
 ## <a name="create-the-starter-app"></a>スターター アプリを作成します。
 
 * 「ContactManager」という名前の Razor ページ アプリの作成
-   * 使用してアプリを作成する**個々 のユーザー アカウント**します。
-   * ファイル名「ContactManager」名前空間サンプルで使用する名前空間が一致するようにします。
-   * `-uld` SQLite の代わりに LocalDB を指定します
+  * 使用してアプリを作成する**個々 のユーザー アカウント**します。
+  * ファイル名「ContactManager」名前空間サンプルで使用する名前空間が一致するようにします。
+  * `-uld` SQLite の代わりに LocalDB を指定します
 
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* 追加*Models\Contact.cs*:
+* 追加*Models/Contact.cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
 * スキャフォールディング、`Contact`モデル。
 * 最初の移行を作成し、データベースを更新します。
 
-```console
-dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
-dotnet ef database drop -f
-dotnet ef migrations add initial
-dotnet ef database update
-```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
+  dotnet ef database drop -f
+  dotnet ef migrations add initial
+  dotnet ef database update
+  ```
 
 * 更新プログラム、 **ContactManager**で固定、 *Pages/_Layout.cshtml*ファイル。
 
-```cshtml
-<a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
-```
+  ```cshtml
+  <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
+  ```
 
 * 作成、編集、および連絡先を削除して、アプリをテストします。
 

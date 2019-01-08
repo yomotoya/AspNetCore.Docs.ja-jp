@@ -2,62 +2,77 @@
 title: ASP.NET Core での Windows 認証を構成します。
 author: scottaddie
 description: ASP.NET core で IIS Express、IIS、および HTTP.sys を使用して Windows 認証を構成する方法について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 12/18/2018
+ms.date: 12/23/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 94dff2f47b2b076cb15f8d385239179b52786678
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 64178c8fce71445fc6a728a236d811484b21e3e0
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637821"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099261"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
-作成者: [Steve Smith](https://ardalis.com)、[Scott Addie](https://twitter.com/Scott_Addie)
+によって[Scott Addie](https://twitter.com/Scott_Addie)と[Luke Latham](https://github.com/guardrex)
 
-IIS でホストされている ASP.NET Core アプリに対して Windows 認証を構成できますか[HTTP.sys](xref:fundamentals/servers/httpsys)します。
+[Windows 認証](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)でホストされている ASP.NET Core アプリ用に構成できます[IIS](xref:host-and-deploy/iis/index)または[HTTP.sys](xref:fundamentals/servers/httpsys)します。
 
-## <a name="windows-authentication"></a>Windows 認証
-
-Windows 認証は、ASP.NET Core アプリのユーザーを認証するオペレーティング システムに依存します。 ユーザーを識別するために Active Directory ドメインの id またはその他の Windows アカウントを使用して、企業ネットワークで、サーバーの実行時に、Windows 認証を使用できます。 Windows 認証は、同じ Windows ドメインにユーザー、クライアント アプリケーション、および web サーバーが属している、イントラネット環境に最適です。
-
-[Windows 認証の詳細について説明し、IIS のインストール、](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)します。
+Windows 認証は、ASP.NET Core アプリのユーザーを認証するオペレーティング システムに依存します。 ユーザーを識別するために Active Directory ドメインの id または Windows アカウントを使用して、企業ネットワークで、サーバーの実行時に、Windows 認証を使用できます。 Windows 認証は、同じ Windows ドメインに属しているユーザー、クライアント アプリ、および web サーバーのイントラネット環境に最適です。
 
 ## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>ASP.NET Core アプリで Windows 認証を有効にします。
 
-Visual Studio Web アプリケーション テンプレートは、Windows 認証をサポートするために構成できます。
+**Web アプリケーション**Windows 認証をサポートする Visual Studio または .NET Core CLI を使用して利用可能なテンプレートを構成することができます。
 
-### <a name="use-the-windows-authentication-app-template"></a>Windows 認証アプリ テンプレートを使用します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>新しいプロジェクトに Windows 認証アプリ テンプレートを使用
 
 Visual Studio:
 
-1. 新しい ASP.NET Core Web アプリケーションを作成します。
-1. テンプレートの一覧から Web アプリケーションを選択します。
+1. 新規作成**ASP.NET Core Web アプリケーション**します。
+1. 選択**Web アプリケーション**テンプレートの一覧から。
 1. 選択、**認証の変更**ボタンをクリックし、選択**Windows 認証**します。
 
-アプリを実行します。 上部にある ユーザー名が表示されます、アプリの右。
+アプリを実行します。 ユーザー名は、レンダリングされたアプリのユーザー インターフェイスに表示されます。
 
-![Windows 認証のブラウザーのスクリーン ショット](windowsauth/_static/browser-screenshot.png)
+### <a name="manual-configuration-for-an-existing-project"></a>既存のプロジェクトの手動構成
 
-IIS Express を使用して開発作業では、テンプレートは、Windows 認証を使用するために必要なすべての構成を提供します。 次のセクションでは、Windows 認証用の ASP.NET Core アプリを手動で構成する方法を示します。
+プロジェクトのプロパティは、Windows 認証を有効にして、匿名認証を無効化を使用します。
 
-### <a name="visual-studio-settings-for-windows-and-anonymous-authentication"></a>Windows と匿名認証用 visual Studio の設定
+1. Visual studio のプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**プロパティ**します。
+1. **[デバッグ]** タブを選択します。
+1. チェック ボックスをオフ**匿名認証を有効にする**します。
+1. チェック ボックスをオン**Windows 認証を有効にする**します。
 
-Visual Studio プロジェクト**プロパティ**ページの**デバッグ** タブでは、Windows 認証と匿名認証 チェック ボックスが用意されています。
+プロパティを構成する代わりに、`iisSettings`のノード、 *launchSettings.json*ファイル。
 
-![強調表示されている認証オプションを使用して、Windows 認証ブラウザーのスクリーン ショット](windowsauth/_static/vs-auth-property-menu.png)
+[!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-これら 2 つのプロパティを構成する代わりに、 *launchSettings.json*ファイル。
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-[!code-json[](windowsauth/sample/launchSettings.json?highlight=3-4)]
+使用して、 **Windows 認証**アプリ テンプレート。
+
+実行、[新しい dotnet](/dotnet/core/tools/dotnet-new)コマンドと、`webapp`引数 (ASP.NET Core Web アプリ) と`--auth Windows`スイッチします。
+
+```console
+dotnet new webapp --auth Windows
+```
+
+---
 
 ## <a name="enable-windows-authentication-with-iis"></a>IIS での Windows 認証を有効にします。
 
-IIS を使用して、 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)ASP.NET Core アプリをホストします。 Windows 認証は、アプリケーションではなく、IIS で構成されます。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリを構成する方法を示します。
+IIS を使用して、 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)ASP.NET Core アプリをホストします。 使用した IIS の Windows 認証が構成されている、 *web.config*ファイル。 以下のセクションで表示する方法。
+
+* ローカルの提供*web.config*ファイルをアプリが展開されると、サーバーで Windows 認証をアクティブにします。
+* IIS マネージャーを使用して、構成、 *web.config*サーバーに既に展開されている ASP.NET Core アプリのファイル。
 
 ### <a name="iis-configuration"></a>IIS 構成
+
+これをいない場合は、ASP.NET Core アプリをホストする IIS を有効にします。 詳細については、「 <xref:host-and-deploy/iis/index> 」を参照してください。
 
 Windows 認証の IIS の役割サービスを有効にします。 詳細については、次を参照してください。 [(手順 2 参照)、IIS の役割サービスで Windows 認証を有効にする](xref:host-and-deploy/iis/index#iis-configuration)します。
 
@@ -69,23 +84,53 @@ ASP.NET Core モジュールは、既定では、アプリに Windows 認証ト�
 
 名前とフォルダーを指定し、新しいアプリケーション プールを作成することを許可します。
 
-### <a name="customize-authentication"></a>認証をカスタマイズします。
+### <a name="enable-windows-authentication-for-the-app-in-iis"></a>IIS でアプリケーションの Windows 認証を有効にします。
 
-サイトの認証機能を開きます。
+使用**か**の次の方法。
 
-![IIS 認証 メニュー](windowsauth/_static/iis-authentication-menu.png)
+* [アプリを発行する前に開発側の構成](#development-side-configuration-with-a-local-webconfig-file)(*推奨*)
+* [アプリを発行した後、サーバー側の構成](#server-side-configuration-with-the-iis-manager)
 
-匿名認証を無効にして、Windows 認証を有効にします。
+#### <a name="development-side-configuration-with-a-local-webconfig-file"></a>ローカルの web.config ファイルを使用して開発側の構成
 
-![IIS 認証の設定](windowsauth/_static/iis-auth-settings.png)
+次の手順に従います**する前に**する[発行し、プロジェクトを配置](#publish-and-deploy-your-project-to-the-iis-site-folder)します。
 
-### <a name="publish-your-project-to-the-iis-site-folder"></a>IIS サイトのフォルダーにプロジェクトを発行します。
+次の追加*web.config*ファイルをプロジェクトのルート。
 
-目的のフォルダーにアプリを発行する Visual Studio または .NET Core CLI を使用して。
+[!code-xml[](windowsauth/sample_snapshot/web_2.config)]
 
-![Visual Studio の発行 ダイアログ](windowsauth/_static/vs-publish-app.png)
+プロジェクトが SDK によって公開されると (なし、`<IsTransformWebConfigDisabled>`プロパティに設定`true`プロジェクト ファイル内)、公開された*web.config*ファイルが含まれています、`<location><system.webServer><security><authentication>`セクション。 詳細については、`<IsTransformWebConfigDisabled>`プロパティを参照してください<xref:host-and-deploy/iis/index#webconfig-file>します。
 
-詳細については[IIS への発行](xref:host-and-deploy/iis/index)します。
+#### <a name="server-side-configuration-with-the-iis-manager"></a>IIS マネージャーでサーバー側の構成
+
+次の手順に従います**後**する[発行し、プロジェクトを配置](#publish-and-deploy-your-project-to-the-iis-site-folder)します。
+
+1. IIS マネージャーで、下にある IIS サイトを選択して、**サイト**のノード、**接続**サイドバーです。
+1. ダブルクリック**認証**で、 **IIS**領域。
+1. 選択**匿名認証**します。 選択**を無効にする**で、**アクション**サイドバーです。
+1. 選択**Windows 認証**します。 選択**を有効にする**で、**アクション**サイドバーです。
+
+これらのアクションが実行したときに、IIS マネージャーは、アプリを変更します*web.config*ファイル。 A`<system.webServer><security><authentication>`ノードが更新された設定を使用した追加`anonymousAuthentication`と`windowsAuthentication`:
+
+[!code-xml[](windowsauth/sample_snapshot/web_1.config?highlight=4-5)]
+
+`<system.webServer>`セクションに追加、 *web.config*ファイルを IIS マネージャーでは、アプリの外部で`<location>`は .NET Core SDK により、アプリが公開されるときに追加されたセクションです。 外部のセクションが追加されるため、`<location>`ノード、いずれかで、設定が継承されます[サブ アプリ](xref:host-and-deploy/iis/index#sub-applications)現在のアプリにします。 継承を防ぐためには、移動、追加した`<security>`内のセクション、`<location><system.webServer>`セクション、SDK が提供されます。
+
+IIS マネージャーを使用するには、IIS の構成を追加する、影響を受けるのみアプリの*web.config*サーバー上のファイル。 場合、アプリの後続の配置は、サーバーの設定を上書き可能性があります、サーバーのコピーの*web.config*はプロジェクトの置き換え*web.config*ファイル。 使用**か**の設定を管理する次の方法。
+
+* 設定をリセットする IIS マネージャーを使用して、 *web.config*ファイルについては、展開で、ファイルが上書きされます。
+* 追加、 *web.config ファイル*アプリの設定でローカルにします。 詳細については、次を参照してください。、[開発側の構成](#development-side-configuration-with-a-local-webconfig-file)セクション。
+
+### <a name="publish-and-deploy-your-project-to-the-iis-site-folder"></a>発行し、IIS サイトのフォルダーにプロジェクトを配置
+
+Visual Studio または .NET Core CLI を使用して、発行し、目的のフォルダーに、アプリをデプロイします。
+
+IIS でホストの詳細については、発行、および配置では、次のトピックを参照してください。
+
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/visual-studio-publish-profiles>
 
 Windows 認証が動作していることを確認するアプリを起動します。
 
@@ -93,7 +138,7 @@ Windows 認証が動作していることを確認するアプリを起動しま
 
 使用することができますが、Kestrel が Windows 認証をサポートしていない[HTTP.sys](xref:fundamentals/servers/httpsys) Windows で自己ホスト型のシナリオをサポートします。 次の例は、Windows 認証を使用した HTTP.sys を使用するアプリの web ホストを構成します。
 
-[!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
+[!code-csharp[](windowsauth/sample_snapshot/Program.cs?highlight=9-14)]
 
 > [!NOTE]
 > HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モード認証に処理が委任されます。 Kerberos および HTTP.sys ではユーザー モード認証がサポートされていません。 Active Directory から取得され、クライアントによって、ユーザーを認証するサーバーに転送される Kerberos トークン/チケットを暗号化解除するには、コンピューター アカウントを使用する必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
@@ -140,8 +185,8 @@ services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 
 ### <a name="impersonation"></a>偽装
 
-ASP.NET Core では、権限借用を実装しません。 アプリのアプリ プールまたはプロセス id を使用して、すべての要求 id をアプリケーションで実行されます。 明示的に、ユーザーに代わって操作を実行する必要がある場合を使用して、`WindowsIdentity.RunImpersonated`します。 このコンテキストで 1 つのアクションを実行し、コンテキストを閉じます。
+ASP.NET Core では、権限借用を実装しません。 アプリは、アプリ プールまたはプロセス id を使用して、すべての要求をアプリの id で実行します。 明示的に、ユーザーに代わって操作を実行する必要がある場合を使用して、 [WindowsIdentity.RunImpersonated](xref:System.Security.Principal.WindowsIdentity.RunImpersonated*)で、[ターミナル インライン ミドルウェア](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)で`Startup.Configure`します。 このコンテキストで 1 つのアクションを実行し、コンテキストを閉じます。
 
-[!code-csharp[](windowsauth/sample/Startup.cs?name=snippet_Impersonate&highlight=10-18)]
+[!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
-なお`RunImpersonated`非同期操作をサポートしていないし、複雑なシナリオでは使用しないでください。 全体要求またはミドルウェアのチェーンをラッピングされていないサポートなど、お勧めします。
+`RunImpersonated` 非同期操作をサポートしていないし、複雑なシナリオでは使用しないでください。 全体要求またはミドルウェアのチェーンをラッピングされていないサポートなど、お勧めします。

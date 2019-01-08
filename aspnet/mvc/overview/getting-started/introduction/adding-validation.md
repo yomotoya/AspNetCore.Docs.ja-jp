@@ -4,16 +4,16 @@ title: 検証の追加 |Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 22e59a99a179a7a414447036b973e3ad3b462515
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6831259ce19c3747c179d6fc1b7e2095051a603b
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577952"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099027"
 ---
 <a name="adding-validation"></a>検証の追加
 ====================
@@ -97,7 +97,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-最初の (HTTP GET の) `Create` アクション メソッドは、初期の作成フォームを表示します。 2 番目の (`[HttpPost]`) バージョンは、フォームの送信を処理します。 2 番目の `Create` メソッド (`HttpPost` バージョン) は、`ModelState.IsValid` を呼び出してムービーに検証エラーがあるかどうかを確認します。 このメソッドを呼び出すと、オブジェクトに適用されているすべての検証属性が評価されます。 オブジェクトに検証エラーがある場合、`Create` メソッドはフォームを再表示します。 エラーがない場合、メソッドはデータベースに新しいムービーを保存します。 このムービーの例で**サーバーには、クライアント側で検出された検証エラーがある場合に、フォームは送信されません、2 つ目** `Create`**メソッドが呼び出されない**します。 クライアントの検証が無効になっている場合は、ブラウザーで JavaScript を無効にして、HTTP POST`Create`メソッドの呼び出し`ModelState.IsValid`ムービーに検証エラーがあるかどうかを確認します。
+最初の (HTTP GET の) `Create` アクション メソッドは、初期の作成フォームを表示します。 2 番目の (`[HttpPost]`) バージョンは、フォームの送信を処理します。 2 番目の`Create`メソッド (、`HttpPost`バージョン) を確認します`ModelState.IsValid`をムービーに検証エラーがあるかどうかを確認します。 このプロパティを取得するには、オブジェクトに適用されているすべての検証属性が評価されます。 オブジェクトに検証エラーがある場合、`Create`メソッドには、フォームが再表示します。 エラーがない場合、メソッドはデータベースに新しいムービーを保存します。 このムービーの例で**フォームがサーバーにポストされていない、クライアント側で検出された検証エラーがある場合に、2 つ目** `Create` **メソッドが呼び出されない**します。 クライアント検証が無効な場合、および HTTP POST は、ブラウザーで JavaScript を無効にした場合`Create`メソッド取得`ModelState.IsValid`ムービーに検証エラーがあるかどうかを確認します。
 
 `HttpPost Create` メソッドにブレークポイントを設定し、メソッドが呼び出されないことを確認できます。検証エラーが検出された場合、クライアント側の検証はフォームのデータを送信しません。 ブラウザーで JavaScript を無効にすると、エラーのあるフォームが送信され、ブレークポイントがヒットします。 JavaScript がなくても完全な検証が行われます。 次の図は、Internet Explorer で JavaScript を無効にする方法を示します。
 
@@ -159,7 +159,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 次のコードは、1 行で複数の属性を組み合わせる例です。
 
-[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=6,10)]
+[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=4,6,10,12)]
 
 このシリーズの次のパートでは、アプリケーションを確認し、自動的に生成される `Details` および `Delete` メソッドに対していくつかの改良を行います。
 
