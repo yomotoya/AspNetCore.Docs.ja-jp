@@ -179,7 +179,9 @@
 ## [スナップショットのデバッグ](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Visual Studio のスナップショットのデバッグ](/visualstudio/debugger/debug-live-azure-applications)
 ## [統合テスト](xref:test/integration-tests)
+## [ロード テストおよびストレス テスト](xref:test/loadtests)
 ## [トラブルシューティング](xref:test/troubleshoot)
+## [ログ](xref:fundamentals/logging/index)
 
 # データ アクセス
 ## チュートリアル
@@ -392,6 +394,7 @@
 ## [ファイル ウォッチャーの使用](xref:tutorials/dotnet-watch)
 
 # 移行
+## [2.2 から 3.0](xref:migration/22-to-30)
 ## [2.1 から 2.2](xref:migration/21-to-22)
 ## [2.0 から 2.1](xref:migration/20_21)
 ## 1.x から 2.0
@@ -406,6 +409,7 @@
 ### [ClaimsPrincipal.Current](xref:migration/claimsprincipal-current)
 ### [メンバーシップから ID へ](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [HTTP モジュールからミドルウェアへ](xref:migration/http-modules)
+## [ログ記録 (ASP.NET Core 以外)](xref:migration/logging-nonaspnetcore)
 
 # 新機能
 ## [2.2 の新機能](xref:aspnetcore-2.2)
