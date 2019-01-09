@@ -6,16 +6,16 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 579e472e01efd08bbafe949e37a3b655a42a5b46
-ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
+ms.openlocfilehash: 933501411169d89c4b24edda743c47591aa7a87a
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156920"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098962"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core Security の概要
 
-ASP.NET Core を使用することで、開発者はアプリのセキュリティを簡単に構成して管理することができます。 ASP.NET Core には、認証、承認、データ保護、SSL の適用、アプリ シークレット、リクエスト フォージェリの対策保護、および CORS を管理するための機能が含まれています。 これらのセキュリティ機能を使用すれば、堅牢かつセキュアな ASP.NET Core アプリを構築できます。
+ASP.NET Core を使用することで、開発者はアプリのセキュリティを簡単に構成して管理することができます。 ASP.NET Core には、認証、承認、データ保護、HTTPS の適用、アプリ シークレット、リクエスト フォージェリの対策保護、および CORS を管理するための機能が含まれています。 これらのセキュリティ機能を使用すれば、堅牢かつセキュアな ASP.NET Core アプリを構築できます。
 
 ## <a name="aspnet-core-security-features"></a>ASP.NET Core セキュリティ機能
 

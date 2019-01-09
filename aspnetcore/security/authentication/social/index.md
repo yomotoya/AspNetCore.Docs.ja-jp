@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53735727"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098819"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
@@ -46,11 +46,11 @@ ms.locfileid: "53735727"
 * 新しいアカウントの電子メール アドレスとパスワードを入力し、**[登録]** を選択します。
 * 指示に従って移行を適用します。
 
-## <a name="require-ssl"></a>SSL を必須にする
+## <a name="require-https"></a>HTTPS を要求する
 
-OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用する必要があります。
+OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL/TLS を使用する必要があります。
 
-ASP.NET Core 2.1 以降の **Web アプリケーション**または **Web API** を使用して作成されたプロジェクトは、自動的に SSL を有効にするように構成されます。 プロジェクト ウィザードの **[認証の変更] ダイアログ**で **[個人のユーザー アカウント]** のオプションが選択されている場合、アプリはセキュリティで保護された既定のエンドポイントで起動します。
+ASP.NET Core 2.1 以降で **Web アプリケーション**または **Web API** のプロジェクト テンプレートを使用して作成したプロジェクトは、自動的に HTTPS を有効にするように構成されます。 プロジェクト ウィザードの **[認証の変更] ダイアログ**で **[個人のユーザー アカウント]** のオプションが選択されている場合、アプリはセキュリティで保護された既定のエンドポイントで起動します。
 
 詳細については、「<xref:security/enforcing-ssl>」を参照してください。
 

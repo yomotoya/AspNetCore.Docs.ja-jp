@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core アプリの構築に関する基本概念について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637771"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099235"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -63,7 +63,7 @@ ASP.NET Core アプリは、その `Program.Main` メソッドで Web サーバ�
 
 ::: moniker-end
 
-`Startup` クラスでは、要求処理パイプラインを定義し、アプリで必要なサービスが構成されます。 `Startup` クラスはパブリックであり、次のメソッドを含む必要があります。
+`Startup` クラスでは、アプリで必要なサービスを構成し、要求処理パイプラインを定義します。 `Startup` クラスはパブリックで、通常は次のメソッドを含む必要があります。 `Startup.ConfigureServices` は省略可能です。
 
 ::: moniker range=">= aspnetcore-2.0"
 
