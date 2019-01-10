@@ -5,26 +5,23 @@ description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys 
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8810fd295e8c4269812e712ce2fdc9b9fa2bbb4f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a779fee53109d4c1cabb2005896e757f23467540
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861694"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637626"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Chris Ross](https://github.com/Tratcher)、[Luke Latham](https://github.com/guardrex)
 
-> [!NOTE]
-> このトピックは、ASP.NET Core 2.0 以降に適用されます。 以前のバージョンの ASP.NET Core では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) という名前です。
-
 [HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) は、Windows 上でのみ動作する [ASP.NET Core 用 Web サーバー](xref:fundamentals/servers/index)です。 HTTP.sys は [Kestrel](xref:fundamentals/servers/kestrel) サーバーの代替製品であり、Kestrel では提供されていない機能がいくつか用意されています。
 
 > [!IMPORTANT]
-> HTTP.sys は [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)と互換性がなく、IIS または IIS Express と共に使用することはできません。
+> HTTP.sys は [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)と互換性がなく、IIS または IIS Express と共に使用することはできません。
 
 HTTP.sys は、次の機能をサポートします。
 
@@ -140,7 +137,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 1. アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)である場合は、.NET Core、.NET Framework、またはその両方 (アプリが .NET Framework をターゲットとする .NET Core アプリである場合) をインストールします。
 
    * **.NET Core** &ndash; アプリが .NET Core を必要とする場合は、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)から .NET Core インストーラーを取得して実行します。
-   * **.NET framework** &ndash; アプリが .NET Framework を必要とする場合は、[.NET Framework のインストール ガイド](/dotnet/framework/install/)に関する記事を参照してインストール手順を確認します。 必要な .NET Framework をインストールします。 最新の .NET Framework のインストーラーは、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)にあります。
+   * **.NET Framework** &ndash; アプリで .NET Framework が必要な場合は、インストール手順について、.NET Framework の「[インストール ガイド](/dotnet/framework/install/)」を参照してください。 必要な .NET Framework をインストールします。 最新の .NET Framework のインストーラーは、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)にあります。
 
 2. アプリ用の URL とポートを構成します。
 
@@ -190,7 +187,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
    2. 必要な場合は、自己署名 X.509 証明書を作成します。
 
-      [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
+      [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
 4. トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 *netsh.exe* または [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906) を使用します。
 

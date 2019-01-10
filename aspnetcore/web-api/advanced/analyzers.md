@@ -5,18 +5,18 @@ description: Microsoft.AspNetCore.Mvc.Api.Analyzers の Web API アナライザ�
 monikerRange: '>= aspnetcore-2.2'
 ms.author: pranavkm
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 89424d89ec2b3125fd3c6b7c86fed2d292b153e6
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635390"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425095"
 ---
 # <a name="use-web-api-analyzers"></a>Web API アナライザーを使用する
 
-ASP.NET Core 2.2 で、Web API のアナライザーが含まれる [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) NuGet パッケージが導入されています。 アナライザーは、[API 規約](xref:web-api/advanced/conventions)の設定中に <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> の注釈が付けられたコントローラーで動作します。
+ASP.NET Core 2.2 以降に、Web API のアナライザーを含む [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) NuGet パッケージが含まれています。 アナライザーは、[API 規約](xref:web-api/advanced/conventions)の設定中に <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> の注釈が付けられたコントローラーで動作します。
 
 ## <a name="package-installation"></a>パッケージ インストール
 
@@ -66,10 +66,16 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ## <a name="analyzers-for-api-conventions"></a>API 規約のアナライザー
 
-Open API ドキュメントには、アクションによって返される可能性のある状態コードと応答の種類が含まれます。 ASP.NET Core MVC では、<xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> や <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> などの属性がアクションの文書化に使用されます。 <xref:tutorials/web-api-help-pages-using-swagger> では、API の文書化についてさらに詳しく説明しています。
+OpenAPI ドキュメントには、アクションによって返される可能性のある状態コードと応答の種類が含まれます。 ASP.NET Core MVC では、<xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> や <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> などの属性がアクションの文書化に使用されます。 <xref:tutorials/web-api-help-pages-using-swagger> では、API の文書化についてさらに詳しく説明しています。
 
 パッケージのいずれかのアナライザーが、<xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> の注釈が付けられたコントローラーを検査し、応答全体を文書化していないアクションを特定します。 次に例を示します。
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
 前のアクションでは、HTTP 200 の成功の戻り値の型は文書化していますが、HTTP 404 のエラー状態コードは文書化していません。 アナライザーは、HTTP 404 状態コードの文書化の不備を警告として報告します。 問題を解決するためのオプションが提供されます。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* <xref:web-api/advanced/conventions>
+* <xref:tutorials/web-api-help-pages-using-swagger>
+* [ApiController 属性を使用した注釈](xref:web-api/index#annotation-with-apicontroller-attribute)

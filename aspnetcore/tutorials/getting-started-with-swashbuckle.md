@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swashbuckle を ASP.NET Core Web API プロジェクトに追加し、Swagger UI を統合する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a8c3d999cfddb4d3d888455d7cc0b899a71e427e
+ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862344"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53595348"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle と ASP.NET Core の概要
 
@@ -258,7 +258,7 @@ namespace TodoApi
 
 ::: moniker-end
 
-前述のコードでは、[Reflection](/dotnet/csharp/programming-guide/concepts/reflection) を使用し、Web API プロジェクトの名前に一致する XML ファイル名が構築されます。 [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) プロパティは、XML ファイルのパス構築に使用されます。
+前述のコードでは、[Reflection](/dotnet/csharp/programming-guide/concepts/reflection) を使用し、Web API プロジェクトの名前に一致する XML ファイル名が構築されます。 [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) プロパティは、XML ファイルのパス構築に使用されます。
 
 アクションにトリプル スラッシュのコメントを追加すると、セクション ヘッダーに説明が追加され、Swagger UI が向上します。 `Delete` アクションの上に [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) 要素を追加します。
 
@@ -371,7 +371,7 @@ Web API のデータの注釈の使用量が多いほど、UI と API のヘル�
 
 ### <a name="describe-response-types"></a>応答の種類の説明
 
-開発者は、何が返されるかを、具体的には、応答の種類とエラー コード (標準以外の場合) を最も考慮します。 応答の種類とエラー コードは、XML コメントとデータ注釈に示されます。
+Web API を使用する開発者は、何が返されるかを最も考慮します&mdash;具体的には、応答の種類とエラー コードです (標準以外の場合)。 応答の種類とエラー コードは、XML コメントとデータ注釈に示されます。
 
 `Create` アクションでは、成功すると HTTP 201 状態コードが返されます。 HTTP 400 状態コードは、投稿された要求本文が null のときに返されます。 Swagger UI に適切なドキュメントがないと、利用者にはこれらの予期される結果の知識がありません。 その問題を解決するために、次の例では強調表示された行を追加しています。
 
@@ -390,6 +390,12 @@ Web API のデータの注釈の使用量が多いほど、UI と API のヘル�
 Swagger UI は、予期される HTTP 応答コードを明確に記述するようになりました。
 
 ![ステータスコードの POST 応答クラスの説明 'Returns the newly created Todo item' and '400 - If the item is null' および応答メッセージの下に理由を示す Swagger UI](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+ASP.NET Core 2.2 以降では、明示的に個別のアクションを `[ProducesResponseType]` で装飾する代わりに、規約を使用できます。 詳細については、「<xref:web-api/advanced/conventions>」を参照してください。
+
+::: moniker-end
 
 ### <a name="customize-the-ui"></a>UI をカスタマイズする
 

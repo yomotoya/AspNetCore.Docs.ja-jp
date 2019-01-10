@@ -4,15 +4,15 @@ author: guardrex
 description: IHostingStartup 実装を使用して、外部アセンブリから ASP.NET Core アプリを拡張する方法について説明します。
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.custom: mvc,seodec18
+ms.custom: mvc, seodec18
 ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 6c38242afee46b80bafcba47a8f77e2c05f6537e
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: cf7114698635ab2d61fa19eb15b6a8c61a751e5b
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121727"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284722"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 
@@ -26,7 +26,7 @@ ms.locfileid: "53121727"
 
 [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) 属性は、実行時にアクティブ化されるホスティング スタートアップ アセンブリが存在することを示しています。
 
-入力アセンブリまたは `Startup` クラスを含むアセンブリは、`HostingStartup` 属性について自動的にスキャンされます。 `HostingStartup` 属性を検索するアセンブリの一覧は、[WebHostDefaults.HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) 内の構成からランタイム時に読み込まれます。 検出から除外されるアセンブリの一覧は、[WebHostDefaults.HostingStartupExcludeAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupexcludeassemblieskey) から読み込まれます。 詳細については、Web ホストに関するページの「[ホスティング スタートアップ アセンブリ](xref:fundamentals/host/web-host#hosting-startup-assemblies)」および[除外するホスティング スタートアップ アセンブリ](xref:fundamentals/host/web-host#hosting-startup-exclude-assemblies)に関するセクションを参照してください。
+入力アセンブリまたは `Startup` クラスを含むアセンブリは、`HostingStartup` 属性について自動的にスキャンされます。 `HostingStartup` 属性を検索するアセンブリの一覧は、[WebHostDefaults.HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) 内の構成からランタイム時に読み込まれます。 検出から除外されるアセンブリの一覧は、[WebHostDefaults.HostingStartupExcludeAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupexcludeassemblieskey) から読み込まれます。 詳細については、「[Web ホスト: ホスティング スタートアップ アセンブリ](xref:fundamentals/host/web-host#hosting-startup-assemblies)と[Web ホスト: 除外するホスティング スタートアップ アセンブリ](xref:fundamentals/host/web-host#hosting-startup-exclude-assemblies)
 
 次に例では、ホスティング スタートアップ アセンブリの名前空間は `StartupEnhancement` となります。 ホスティング スタートアップ コードを含むクラスは `StartupEnhancementHostingStartup` です。
 

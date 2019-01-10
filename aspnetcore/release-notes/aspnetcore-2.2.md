@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core 2.2 の新機能について説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: d0bb0698526e2f7af8f0e99b0393f3ce48657b34
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52952058"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637730"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2.2 の新機能
 
@@ -25,7 +25,7 @@ Open API (Swagger とも呼ばれます) は、REST API を記述するために
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [ASP.NET Core 2.2.0-preview1: Open API のアナライザーと規則](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-preview1:Open API のアナライザーと規則](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>問題の詳細のサポート
 
@@ -72,7 +72,7 @@ HTTP/2 は HTTP プロトコルのメジャー リビジョンです。 HTTP/2 �
 
 以前のバージョンの ASP.NET Core では、IIS はリバース プロキシとして機能しています。 2.2 では、ASP.NET Core モジュールで CoreCLR を起動し、IIS worker プロセス (*w3wp.exe*) 内でアプリをホストすることができます。 インプロセス ホスティングを IIS で実行すると、パフォーマンスと診断機能が向上します。
 
-詳細については、[IIS のインプロセス ホスティング](xref:fundamentals/servers/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model)に関する記事を参照してください。
+詳細については、[IIS のインプロセス ホスティング](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model)に関する記事を参照してください。
 
 ## <a name="signalr-java-client"></a>SignalR Java クライアント
 

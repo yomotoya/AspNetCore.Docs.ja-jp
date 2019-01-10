@@ -5,24 +5,24 @@ description: ASP.NET Core で Web API のカスタム フォーマッタを作�
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: ee6f166ced41c41506f2a17a7d362399c165b718
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 2861a15a80725dcc237d33313a24822cf8aa9c7e
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51020651"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997293"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API のカスタム フォーマッタ
 
 著者: [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用して、Web API でデータを交換するためのサポートが組み込まれています。 この記事では、カスタム フォーマッタを作成して、追加形式のサポートを追加する方法を示します。
+ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを交換するためのサポートが組み込まれています。 この記事では、カスタム フォーマッタを作成して、追加形式のサポートを追加する方法を示します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="when-to-use-custom-formatters"></a>カスタム フォーマッタを使用するタイミング
 
-組み込みフォーマッタ (JSON、XML、プレーン テキスト) でサポートされていないコンテンツの種類を[コンテンツ ネゴシエーション](xref:web-api/advanced/formatting#content-negotiation) プロセスでサポートする場合は、カスタム フォーマッタを使用します。
+組み込みフォーマッタ (JSON と XML) でサポートされていないコンテンツの種類を[コンテンツ ネゴシエーション](xref:web-api/advanced/formatting#content-negotiation) プロセスでサポートする場合は、カスタム フォーマッタを使用します。
 
 たとえば、Web API の一部のクライアントが [Protobuf](https://github.com/google/protobuf) 形式を処理できる場合、より効率的であるため、それらのクライアントで Protobuf を使用することができます。 あるいは、Web API を使用して、[vCard](https://wikipedia.org/wiki/VCard) 形式 (連絡先データを交換する場合に一般的に使用される) で連絡先の名前とアドレスを送信することもできます。 この記事で提供するサンプル アプリでは単純な vCard フォーマッタを実装します。
 
@@ -103,7 +103,8 @@ ASP.NET Core MVC には、JSON、XML、プレーン テキスト形式を使用�
 
 ## <a name="next-steps"></a>次の手順
 
-単純な vCard の入力と出力フォーマッタを実装するサンプル アプリケーションについては、[こちら](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)を参照してください。 アプリケーションでは、次の例のように vCard の読み取りと書き込みを行います。
+* [GitHub のプレーンテキスト フォーマッタのサンプル コード](https://github.com/aspnet/Entropy/tree/master/samples/Mvc.Formatters)
+* [このドキュメント用のサンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)。このアプリを使用して、シンプルな vCard の入力と出力フォーマッタを実装します。 アプリでは、次の例のように vCard の読み取りと書き込みを行います。
 
 ```
 BEGIN:VCARD

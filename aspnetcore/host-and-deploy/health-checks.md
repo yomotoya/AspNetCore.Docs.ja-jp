@@ -5,14 +5,14 @@ description: アプリやデータベースなど、ASP.NET Core インフラス
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/12/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: d8fd43d9d689396cf30ca371763cdf7ac9423c77
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862633"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329147"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core の正常性チェック
 
@@ -36,10 +36,12 @@ ASP.NET Core からは、アプリ インフラストラクチャ コンポー�
 
 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)を参照するか、[Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) パッケージへのパッケージ参照を追加します。
 
-サンプル アプリからは、いくつかのシナリオで正常性チェックを実演するスタートアップ コードが提供されます。 [データベース プローブ](#database-probe) シナリオでは、[BeatPulse](https://github.com/Xabaril/BeatPulse) を使用し、データベース接続の正常性が調べられます。 [DbContext プローブ](#entity-framework-core-dbcontext-probe) シナリオでは、EF Core `DbContext` を使用し、データベースが調べられます。 サンプル アプリを使用してデータベース シナリオをいろいろ試すには:
+サンプル アプリからは、いくつかのシナリオで正常性チェックを実演するスタートアップ コードが提供されます。 [データベース プローブ](#database-probe) シナリオでは、[BeatPulse](https://github.com/Xabaril/BeatPulse) を使用して、データベース接続の正常性がチェックされます。 [DbContext プローブ](#entity-framework-core-dbcontext-probe) シナリオでは、EF Core `DbContext` を使用して、データベースがチェックされます。 データベース シナリオを探索するために、サンプル アプリでは次のことが行われます:
 
-* データベースを作成し、アプリの *appsettings.json* ファイルにその接続文字列を指定します。
-* [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/) へのパッケージ参照を追加します。
+* データベースを作成して、*appsettings.json* ファイルにその接続文字列を指定します。
+* そのプロジェクト ファイルに次のパッケージ参照が含まれています: 
+  * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
+  * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
 > Microsoft は [BeatPulse](https://github.com/Xabaril/BeatPulse) に対して保守管理もサポートも行っていません。
@@ -50,7 +52,7 @@ ASP.NET Core からは、アプリ インフラストラクチャ コンポー�
 
 多くのアプリでは、アプリが要求を処理できること (*活動性*) を報告する基本的な正常性チェック構成で十分にアプリの状態を検出できます。
 
-基本の構成では、正常性チェック サービスを登録し、正常性チェック ミドルウェアを呼び出します。このミドルウェアが特定の URL エンドポイントにおける正常性を返します。 既定では、特定の依存関係またはサブシステムをテストする正常性チェックは登録されていません。 正常性エンドポイント URL で応答できる場合、そのアプリは正常であると見なされます。 既定の応答ライターによって、プレーンテキストの応答として状態 (`HealthCheckStatus`) がクライアントに書き込まれます。このとき、状態として `HealthCheckResult.Healthy` または `HealthCheckResult.Unhealthy` が示されます。
+基本の構成では、正常性チェック サービスを登録し、正常性チェック ミドルウェアを呼び出します。このミドルウェアが特定の URL エンドポイントにおける正常性を返します。 既定では、特定の依存関係またはサブシステムをテストする正常性チェックは登録されていません。 正常性エンドポイント URL で応答できる場合、そのアプリは正常であると見なされます。 既定の応答ライターによって、プレーンテキストの応答として状態 (`HealthStatus`) がクライアントに書き込まれます。このとき、状態として `HealthStatus.Healthy`、`HealthStatus.Degraded`、または `HealthStatus.Unhealthy` が示されます。
 
 正常性チェック サービスを `Startup.ConfigureServices` の `AddHealthChecks` に登録します。 `Startup.Configure` の要求処理パイプラインに正常性チェック ミドルウェアと `UseHealthChecks` を追加します。
 
@@ -216,12 +218,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     app.UseHealthChecks("/health", new HealthCheckOptions()
     {
         // The following StatusCodes are the default assignments for
-        // the HealthCheckStatus properties.
+        // the HealthStatus properties.
         ResultStatusCodes =
         {
-            [HealthCheckStatus.Healthy] = StatusCodes.Status200OK,
-            [HealthCheckStatus.Degraded] = StatusCodes.Status200OK,
-            [HealthCheckStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+            [HealthStatus.Healthy] = StatusCodes.Status200OK,
+            [HealthStatus.Degraded] = StatusCodes.Status200OK,
+            [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
         }
     });
 }
@@ -314,9 +316,17 @@ dotnet run --scenario db
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext プローブ
 
-`DbContext` チェックは、[Entity Framework (EF) Core](/ef/core/) を使用するアプリでサポートされています。 このチェックでは、EF Core `DbContext` に設定されているデータベースとアプリが通信できることが確認されます。 既定では、`DbContextHealthCheck` によって EF Core の `CanConnectAsync` メソッドが呼び出されます。 `AddDbContextCheck` メソッドのオーバーロードを使用して正常性を確認するときに実行される操作をカスタマイズできます。
+`DbContext` チェックでは、EF Core `DbContext` に対して構成されているデータベースとアプリとが通信できることが確認されます。 `DbContext` チェックは、次のようなアプリでサポートされています。
 
-`AddDbContextCheck<TContext>` によって `DbContext` の正常性チェックが登録されます (`TContext`)。 既定では、正常性チェックの名前は `TContext` 型の名前になります。 オーバーロードはエラー状態、タグ、カスタム テスト クエリの設定に利用できます。
+* [Entity Framework (EF) Core を使用する](/ef/core/)。
+* [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/) へのパッケージ参照を含んでいる。
+
+`AddDbContextCheck<TContext>` によって `DbContext` の正常性チェックが登録されます。 `DbContext` は `TContext` としてメソッドに指定されます。 オーバーロードはエラー状態、タグ、カスタム テスト クエリの設定に利用できます。
+
+既定では: 
+
+* `DbContextHealthCheck` によって EF Core の `CanConnectAsync` メソッドが呼び出されます。 `AddDbContextCheck` メソッドのオーバーロードを使用して正常性を確認するときに実行される操作をカスタマイズできます。
+* 正常性チェックの名前は `TContext` 型の名前になります。
 
 サンプル アプリでは、`AppDbContext` が `AddDbContextCheck` に提供され、`Startup.ConfigureServices` でサービスとして登録されます。
 

@@ -4,78 +4,86 @@ author: rick-anderson
 description: Entity Framework Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: e58d5af90b997c66cb749ab8f1b2f8049b8f7303
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c6e7fe13a55a14533949d212bfb149ccd91103e5
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089687"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997241"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの新しいフィールドの追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このセクションでは、[Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
+このセクションでは [Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First Migrations を次の目的で使用します。
 
-EF Code First を利用してデータベースを自動作成すると、Code First はテーブルをデータベースに追加し、データベースのスキーマが生成元のモデル クラスと同期しているか追跡します。 同期していない場合、EF は例外をスローします。 一貫性のないデータベース/コードの問題を簡単に見つけられます。
+* モデルに新しいフィールドを追加する。
+* 新しいフィールドをデータベースに移行する。
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
+EF Code First を使用してデータベースを自動的に作成する場合、Code First では次が実行されます。
 
-*Models/Movie.cs* ファイルを開き、`Rating` プロパティを追加します。
+* テーブルをデータベースに追加して、データベースのスキーマを追跡します。
+* データベースが生成されたモデル クラスと同期されていることを確認します。 同期していない場合、EF は例外をスローします。 一貫性のないデータベース/コードの問題を簡単に見つけられます。
 
-::: moniker range=">= aspnetcore-2.1"
+## <a name="add-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+`Rating` プロパティを *Models/Movie.cs* に追加します。
 
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
 アプリをビルドします (Ctrl+Shift+B)。
 
-新しいフィールドを `Movie` クラスに追加したので、この新しいプロパティが含まれるように、拘束力のあるホワイト リストを更新する必要もあります。 *MoviesController.cs* で、アクション メソッドの `Create` と `Edit` の両方の `[Bind]` 属性を更新し、`Rating` プロパティが含まれるようにします。
+新しいフィールドを `Movie` クラスに追加したので、この新しいプロパティが含まれるように、拘束力のあるホワイト リストを更新する必要があります。 *MoviesController.cs* で、アクション メソッドの `Create` と `Edit` の両方の `[Bind]` 属性を更新し、`Rating` プロパティが含まれるようにします。
 
 ```csharp
 [Bind("ID,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-ブラウザー ビューで新しい `Rating` プロパティを表示、作成、編集する目的でビュー テンプレートを更新する必要もあります。
+ブラウザー ビューで新しい `Rating` プロパティを表示、作成、編集するためにビュー テンプレートを更新します。
 
 */Views/Movies/Index.cshtml* ファイルを編集し、`Rating` フィールドを追加します。
 
-[!code-HTML[](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
-*/Views/Movies/Create.cshtml* を `Rating` フィールドで更新します。 前の "form group" をコピー/貼り付けし、intelliSense にフィールドを更新させることができます。 IntelliSense は[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)と連動します。 注: RTM バージョンの Visual Studio 2017 では、Razor intelliSense の [Razor 言語サービス](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices)をインストールする必要があります。 これは次のリリースで修正されます。
+*/Views/Movies/Create.cshtml* を `Rating` フィールドで更新します。
+
+<!-- VS -------------------------->
+# <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio / Visual Studio for Mac](#tab/visual-studio+visual-studio-mac)
+
+前の "form group" をコピー/貼り付けし、intelliSense にフィールドを更新させることができます。 IntelliSense は[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)と連動します。
 
 ![開発者は、ビューの 2 番目のラベル要素で、asp-for の属性値に文字 R を入力しました。 Intellisense のコンテキスト メニューが表示され、[評価] を含む、利用可能なフィールドが表示されました。[評価] は一覧の中で自動的に強調表示されています。 開発者はこのフィールドをクリックするか、キーボードの Enter を押すと、値が [評価] に設定されます。](new-field/_static/cr.png)
 
-DB を更新して新しいフィールドが含まれるようになるまでアプリは動作しません。 ここですぐに実行すると、次の `SqlException` が表示されます。
-
-`SqlException: Invalid column name 'Rating'.`
-
-このエラーが表示されるのは、更新された Movie モデル クラスが既存のデータベースの Movie テーブルのスキーマと異なるためです  (データベース テーブルに [評価] 列はありません)。
-
-このエラーを解決するための手法がいくつかあります。
-
-1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 ただし、欠点もあり、データベースの既存データが失われます。本稼働データベースではこの手法は推奨されません。 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。
-
-2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
-
-3. Code First Migrations を使用して、データベース スキーマを更新します。
-
-このチュートリアルでは、Code First Migrations を利用します。
+<!-- Code -------------------------->
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+<!-- This tab intentionally left blank. -->
+---  
+<!-- End of VS tabs -->
 
 新しい列に値を提供するように、`SeedData` クラスを更新します。 下に変更のサンプルがありますが、`new Movie` ごとにこの変更を行ってください。
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
-ソリューションをビルドします。
+DB を更新して新しいフィールドが含まれるようになるまでアプリは動作しません。 ここで実行すると、次の `SqlException` がスローされます。
+
+`SqlException: Invalid column name 'Rating'.`
+
+このエラーは、更新された Movie モデル クラスが既存のデータベースの Movie テーブルのスキーマと異なるために発生します。 (データベース テーブルに `Rating` 列はありません)。
+
+このエラーを解決するための手法がいくつかあります。
+
+1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 ただし、欠点もあり、データベースの既存データが失われます。本稼働データベースではこの手法は推奨されません。 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。 これは、初期の開発や SQLite を使用するときに適した方法です。
+
+2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
+
+3. Code First Migrations を使用して、データベース スキーマを更新します。
+
+このチュートリアルでは、Code First Migrations を使用します。
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 **[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
 
@@ -88,11 +96,27 @@ Add-Migration Rating
 Update-Database
 ```
 
-`Add-Migration` コマンドは移行フレームワークに現在の `Movie` モデルを現在の `Movie` DB スキーマで調べ、DB を新しいモデルに移行するために必要なコードを作成します。 "Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。 移行ファイルには意味のある名前を使用すると便利です。
+`Add-Migration` コマンドは移行フレームワークに現在の `Movie` モデルを現在の `Movie` DB スキーマで調べ、DB を新しいモデルに移行するために必要なコードを作成します。
 
-DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これはブラウザーの削除リンクで行うか、SSOX から行うことができます。
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
-アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 また、`Rating` フィールドはビュー テンプレートの `Edit`、`Details`、`Delete` にも追加してください。
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
+
+次のコマンドを実行します。
+
+```cli
+dotnet ef migrations add Rating
+dotnet ef database update
+```
+
+---  
+<!-- End of VS tabs -->
+
+"Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。 移行ファイルには意味のある名前を使用すると便利です。
+
+DB 内のレコードをすべて削除すると、初期化メソッドで DB がシードされ、`Rating` フィールドが追加されします。
+
+アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 `Rating` フィールドはビュー テンプレートの `Edit`、`Details`、`Delete` に追加する必要があります。
 
 > [!div class="step-by-step"]
 > [前へ](search.md)

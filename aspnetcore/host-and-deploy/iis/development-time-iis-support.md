@@ -4,14 +4,14 @@ author: shirhatti
 description: ASP.NET Core アプリが Windows Server の IIS の背後で実行されている場合に、そのデバッグのサポートを検出します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 44570bb28451ce4c5fde12ec77e3856fb5bd3062
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862383"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637665"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
 
@@ -54,9 +54,9 @@ IIS には、次のように構成された Web サイトが含まれている�
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Visual Studio の開発時 IIS サポートを有効にする
 
 1. Visual Studio インストーラーを起動します。
-1. **[開発時 IIS サポート]** コンポーネントを選択します。 **[ASP.NET と Web 開発]** ワークロードの **[概要]** パネルに、このコンポーネントがオプションとして表示されます。 このコンポーネントにより、IIS を使用した ASP.NET Core アプリの実行に必要なネイティブの IIS モジュールである [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。
+1. **[開発時 IIS サポート]** コンポーネントを選択します。 **[ASP.NET と Web 開発]** ワークロードの **[概要]** パネルに、このコンポーネントがオプションとして表示されます。 このコンポーネントにより、IIS を使用した ASP.NET Core アプリの実行に必要なネイティブの IIS モジュールである [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)がインストールされます。
 
-![Visual Studio の機能の変更: [ワークロード] タブが選択されています。 [Web & Cloud]\(Web とクラウド\) のセクションでは、[ASP.NET と Web 開発] パネルが選択されています。 右側の [概要] パネルの [省略可能] 領域には、[開発時 IIS サポート] のチェックボックスがあります。](development-time-iis-support/_static/development_time_support.png)
+![Visual Studio の機能を変更する: [ワークロード] タブが選択されます。 [Web & Cloud]\(Web とクラウド\) のセクションでは、[ASP.NET と Web 開発] パネルが選択されています。 右側の [概要] パネルの [省略可能] 領域には、[開発時 IIS サポート] のチェックボックスがあります。](development-time-iis-support/_static/development_time_support.png)
 
 ## <a name="configure-the-project"></a>プロジェクトを構成する
 
@@ -146,6 +146,6 @@ Visual Studio:
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index)
-* [ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)
+* [ASP.NET Core モジュールの概要](xref:host-and-deploy/aspnet-core-module)
 * [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
 * [HTTPS の適用](xref:security/enforcing-ssl)

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: e280bc9553113982a1f1a77eabab32575c905237
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 9b3ad5f6c4b1c9b5f016f5591127c8d1b213948d
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862292"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329134"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいファイルを追加する
 
@@ -96,9 +96,13 @@ Update-Database
 
 "Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。 移行ファイルには意味のある名前を使用すると便利です。
 
+フレームワークは、データベースにスキーマ変更を適用するように、`Update-Database` コマンドから指示されます。
+
 <a name="ssox"></a>
 
-DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これはブラウザーの削除リンクで行うか、[Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX) から行うことができます。 SSOX からデータベースを削除するには:
+DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これはブラウザーの削除リンクで行うか、[Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX) から行うことができます。
+
+別のオプションとしては、データベースを削除してから、移行を使用することで、データベースを再作成することもできます。 SSOX 内でデータベースを削除するには: 
 
 * SSOX でデータベースを選択します。
 * データベースを右クリックし、*[削除]* を選択します。
@@ -111,12 +115,9 @@ DB 内のすべてのレコードを削除すると、初期化子は DB にデ�
   ```
 
 <!-- Code -------------------------->
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
-<!-- copy/paste this tab to the next. Not worth an include  --> SQLite は、移行をサポートしていません。
-
-* データベースを削除するか、*appsettings.json* ファイルのデータベース名を変更します。
-* *移行*フォルダー (およびフォルダー内のすべてのファイル) を削除します。
+<!-- copy/paste this tab to the next. Not worth an include  -->
 
 次の .NET Core CLI コマンドを実行します。
 
@@ -125,20 +126,28 @@ dotnet ef migrations add Rating
 dotnet ef database update
 ```
 
-<!-- Mac -------------------------->
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+`ef migrations add` コマンドにより、フレームワークに次の指示があります。
 
-SQLite は、移行をサポートしていません。
+* `Movie` モデルを、`Movie` DB のスキーマと比較します。
+* DB スキーマを新しいモデルに移行するコードを作成します。
 
-* データベースを削除するか、*appsettings.json* ファイルのデータベース名を変更します。
-* *移行*フォルダー (およびフォルダー内のすべてのファイル) を削除します。
+"Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。 移行ファイルには意味のある名前を使用すると便利です。
 
-次の .NET Core CLI コマンドを実行します。
+フレームワークは、データベースにスキーマ変更を適用するように、`ef database update` コマンドから指示されます。
+
+DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これを行うには、ブラウザー内の削除リンクを使用することも、SQLite ツールを使用することもできます。
+
+別のオプションとしては、データベースを削除してから、移行を使用することで、データベースを再作成することもできます。 データベースを削除するには、データベース ファイル (*MvcMovie.db*) を削除します。 次に、`ef database update` コマンドを実行します。 
 
 ```console
-dotnet ef migrations add Rating
 dotnet ef database update
 ```
+
+> [!NOTE]
+> スキーマ変更操作の多くは、EF Core の SQLite プロバイダーによってサポートされていません。 たとえば、列の追加はサポートされていますが、列の削除はサポートされていません。 移行を追加することで列を削除する場合、`ef migrations add` コマンドは成功しますが、`ef database update` コマンドは失敗します。 制限事項の一部を解決するには、手動で移行コードを記述してテーブルのリビルドを実行します。 テーブルのリビルドには、既存のテーブルの名前変更、新しいテーブルの作成、新しいテーブルへのデータのコピー、および古いテーブルの削除が必要です。 詳細については、次のリソースを参照してください。
+> * [SQLite EF Core データベース プロバイダーの制限事項](/ef/core/providers/sqlite/limitations)
+> * [移行コードをカスタマイズする](/ef/core/managing-schemas/migrations/#customize-migration-code)
+> * [データのシード処理](/ef/core/modeling/data-seeding)
 
 ---  
 <!-- End of VS tabs -->
@@ -146,5 +155,5 @@ dotnet ef database update
 アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 データベースがシード処理されない場合は、`SeedData.Initialize` メソッドでブレークポイントを設定します。
 
 > [!div class="step-by-step"]
-> [前: 検索の追加](xref:tutorials/razor-pages/search)
-> [次: 検証の追加](xref:tutorials/razor-pages/validation)
+> [前へ:検索の追加](xref:tutorials/razor-pages/search)
+> [次へ: 検証の追加](xref:tutorials/razor-pages/validation)

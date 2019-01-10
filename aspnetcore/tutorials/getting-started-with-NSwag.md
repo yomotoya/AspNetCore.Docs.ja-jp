@@ -4,14 +4,14 @@ author: zuckerthoben
 description: NSwag を使用し、ASP.NET Core Web API のドキュメント ページとヘルプ ページを生成する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 09/20/2018
+ms.date: 12/18/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 6c7d76e2202bf47c8d3e5d296e64e9e8c820e2a1
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8af5bed1e042c4f6d83043b05084c51b3064a548
+ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207850"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53595361"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag と ASP.NET Core の概要
 
@@ -280,9 +280,11 @@ NSwag では、[Reflection](/dotnet/csharp/programming-guide/concepts/reflection
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
-先行するアクションによって `ActionResult<T>` が返されますが、このアクションの内部では [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) を返しています。 コントローラーは、[[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) 属性で修飾されるため、応答として [BadRequest](/dotnet/api/system.web.http.apicontroller.badrequest) も可能です。 詳細については、「[自動的な HTTP 400 応答](xref:web-api/index#automatic-http-400-responses)」を参照してください。 データ注釈は、このアクションによって返される既知の HTTP 応答コードをクライアントに通知します。 アクションに次の属性を追加します。
+前のアクションでは、`ActionResult<T>` を返します。 アクションの内部では、[CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*) を返します。 コントローラーは、[[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性で修飾されるため、応答として [BadRequest](xref:System.Web.Http.ApiController.BadRequest*) も可能です。 詳細については、「[自動的な HTTP 400 応答](xref:web-api/index#automatic-http-400-responses)」を参照してください。 データ注釈は、このアクションによって返される既知の HTTP 応答コードをクライアントに通知します。 アクションに次の属性を追加します。
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
+
+ASP.NET Core 2.2 以降では、明示的に個別のアクションを `[ProducesResponseType]` で装飾する代わりに、規約を使用できます。 詳細については、「<xref:web-api/advanced/conventions>」を参照してください。
 
 ::: moniker-end
 

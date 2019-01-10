@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core アプリで生成済みページを更新する方法について説明します。
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
-ms.date: 12/3/2018
+ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: b88dcd12ee670eb2e0919bdb07b9b7556a5b80e7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 396cb9b9eeaab2d3db6108feeba71dbc2bc8981d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862409"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997202"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core アプリで生成済みページを更新する
 
@@ -69,21 +69,21 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 @page "{id:int?}"
 ```
 
-動作または `@page "{id:int?}"` をテストするには:
+`@page "{id:int?}"` の動作をテストするには
 
-* *Pages/Movies/Details.cshtml* の page ディレクティブを `@page "{id:int?}"` に設定します
+* *Pages/Movies/Details.cshtml* の page ディレクティブを `@page "{id:int?}"` に設定します。
 * `public async Task<IActionResult> OnGetAsync(int? id)` (*Pages/Movies/Details.cshtml.cs* で) にブレークポイントを設定します
-* `https://localhost:5001/Movies/Details/` に移動します
+* `https://localhost:5001/Movies/Details/` に移動します。
 
 `@page "{id:int}"` ディレクティブでは、ブレークポイントがヒットすることはありません。 ルーティング エンジンは、HTTP 404 を返します。 `@page "{id:int?}"` を使用すると、`OnGetAsync` メソッドは `NotFound` (HTTP 404) を返します。
 
-推奨はされませんが、delete メソッドを次のように記述することもできます。
+お勧めできませんが、`OnGetAsync` メソッド (*Pages/Movies/Delete.cshtml.cs* 内) を次のように記述できます。
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Delete.cshtml.cs?name=snippet)]
 
 上のコードをテストします。
 
-* 削除のリンクを選択します。
+* **削除**のリンクを選択します。
 * URL から ID を削除します。 たとえば、`https://localhost:5001/Movies/Delete/8` を `https://localhost:5001/Movies/Delete` に変更します。
 * デバッガーのコードを実行します。
 
@@ -125,7 +125,7 @@ Movies/Edit ページが投稿された場合:
   public Movie Movie { get; set; }
   ```
 
-* モデル状態にエラーがある (たとえば、`ReleaseDate` を日付に変換できない) 場合、フォームは送信された値で再度投稿されます。
+* モデル状態にエラーがある (たとえば、`ReleaseDate` を日付に変換できない) 場合、フォームは送信された値で表示されます。
 * モデル エラーがない場合、ムービーは保存されます。
 
 [インデックス]、[作成]、および [削除] Razor ページの HTTP GET メソッドも同様のパターンに従います。 [作成] Razor ページの HTTP POST `OnPostAsync` メソッドも [編集] Razor ページの `OnPostAsync` メソッドと同様のパターンに従います。
@@ -133,5 +133,5 @@ Movies/Edit ページが投稿された場合:
 次のチュートリアルでは検索を追加します。
 
 > [!div class="step-by-step"]
-> [前 - データベースの操作](xref:tutorials/razor-pages/sql)
-> [次 - 検索の追加](xref:tutorials/razor-pages/search)
+> [前: データベースの操作](xref:tutorials/razor-pages/sql)
+> [次: 検索の追加](xref:tutorials/razor-pages/search)

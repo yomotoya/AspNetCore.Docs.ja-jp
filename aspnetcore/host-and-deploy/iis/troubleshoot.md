@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6d43057639ea88bb21ac66f2799062e06fffc530
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121688"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637691"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -34,7 +34,7 @@ Visual Studio では、ASP.NET Core プロジェクトのデバッグ時に [IIS
 その他のトラブルシューティング トピック:
 
 <xref:host-and-deploy/azure-apps/troubleshoot>  
-App Service は[ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module)と IIS を使用してアプリをホストしますが、App Service 固有の手順については、この専用のトピックを参照してください。
+App Service は[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module)と IIS を使用してアプリをホストしますが、App Service 固有の手順については、この専用のトピックを参照してください。
 
 <xref:fundamentals/error-handling>  
 ローカル システム上で開発しているときに発生する ASP.NET Core アプリのエラーを処理する方法について説明しています。
@@ -242,7 +242,7 @@ stdout ログを有効にして表示するには:
 
 * [ProcDump](/sysinternals/downloads/procdump)
 * [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
-* WinDbg: 「[Download Debugging tools for Windows](https://developer.microsoft.com/windows/hardware/download-windbg)」(Windows 用デバッグ ツールのダウンロード)、「[Debugging Using WinDbg](/windows-hardware/drivers/debugger/debugging-using-windbg)」(WinDbg を使用したデバッグ)
+* WinDbg:[Windows 用デバッグ ツールのダウンロード](https://developer.microsoft.com/windows/hardware/download-windbg)、[WinDbg を使用したデバッグ](/windows-hardware/drivers/debugger/debugging-using-windbg)
 
 ## <a name="remote-debugging"></a>リモート デバッグ
 

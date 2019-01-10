@@ -4,14 +4,14 @@ author: rick-anderson
 description: Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7eab773746f76b00e8e796387c4ee1dc042a4c23
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121272"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577813"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio を使用して Azure に ASP.NET Core アプリを発行する
 
@@ -68,10 +68,10 @@ Visual Studio によってソリューションが作成されます。
 
 * **[登録]** を選択して、新しいユーザーを登録します。 架空の電子メール アドレスを使用できます。 送信すると、ページに次のエラーが表示されます。
 
-    *Internal Server Error: A database operation failed while processing the request. /(内部サーバーエラー: 要求の処理中にデータベースの操作に失敗しました。/)SQL exception: Cannot open the database. /(SQL 例外: データベースを開くことができません。/)Applying existing migrations for Application DB context may resolve this issue. /(アプリケーション DB コンテキストの既存の移行を適用すると問題が解決する場合があります。/)*
+    *"内部サーバー エラー: 要求の処理中にデータベースの操作に失敗しました。SQL 例外: データベースを開けません。Applying existing migrations for Application DB context may resolve this issue. /(アプリケーション DB コンテキストの既存の移行を適用すると問題が解決する場合があります。/)*
 * **[Apply Migrations]/(移行を適用する/)** を選択し、移行が完了したら、ページを更新します。
 
-![Internal Server Error: A database operation failed while processing the request./(内部サーバーエラー: 要求の処理中にデータベースの操作に失敗しました。/) SQL exception: Cannot open the database. /(SQL 例外: データベースを開くことができません。/) Applying existing migrations for Application DB context may resolve this issue. /(アプリケーション DB コンテキスト用の既存の以降を適用すると問題が解決する場合があります。/)](publish-to-azure-webapp-using-vs/_static/mig.png)
+![内部サーバー エラー: 要求の処理中にデータベースの操作に失敗しました。 SQL 例外: データベースを開けません。 Applying existing migrations for Application DB context may resolve this issue. /(アプリケーション DB コンテキスト用の既存の以降を適用すると問題が解決する場合があります。/)](publish-to-azure-webapp-using-vs/_static/mig.png)
 
 アプリには、新しいユーザーの登録に使用した電子メールと **[ログアウト]** リンクが表示されます。
 
@@ -140,7 +140,7 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 * **[保存]** を選択します。 Visual Studio が **[発行]** ダイアログに戻ります。 
 
-![[発行] ダイアログ: [設定] パネル](publish-to-azure-webapp-using-vs/_static/pubs.png)
+![[発行] ダイアログ:[設定] パネル](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
 **[発行]** をクリックします。 Visual Studio が Azure にアプリを発行します。 デプロイが完了すると、ブラウザーでアプリが開きます。
 
@@ -154,7 +154,9 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 ### <a name="update-the-app"></a>アプリを更新する
 
-* *Pages/About.cshtml* Razor ページを編集して、その内容を変更します。 たとえば、次のように、"Hello ASP.NET Core!" と表示されるように段落を修正できます。[!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* *Pages/About.cshtml* Razor ページを編集して、その内容を変更します。 たとえば、"Hello ASP.NET Core!" と表示されるように段落を修正できます。
+
+    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * プロジェクトを右クリックし、**[発行]** をもう一度選択します。
 
@@ -170,11 +172,11 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 * **[リソース グループ]** を選択し、作成したリソース グループを選択します。
 
-![Azure Portal: サイドバー メニューの [リソース グループ]](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Azure Portal:サイドバー メニューの [リソース グループ]](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * **[リソース グループ]** ページで、**[削除]** を選択します。
 
-![Azure Portal: [リソース グループ] ページ](publish-to-azure-webapp-using-vs/_static/rgd.png)
+![Azure Portal:[リソース グループ] ページ](publish-to-azure-webapp-using-vs/_static/rgd.png)
 
 * リソース グループ名を入力し、**[削除]** を選択します。 このチュートリアルで作成されたアプリとその他すべてのリソースが Azure から削除されます。
 
@@ -187,4 +189,5 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 * [Azure App Service](/azure/app-service/app-service-web-overview)
 * [Azure リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Database](/azure/sql-database/)
+* <xref:host-and-deploy/visual-studio-publish-profiles>
 * <xref:host-and-deploy/azure-apps/troubleshoot>

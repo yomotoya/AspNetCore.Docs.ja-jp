@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 930a6f2b860c71b6f499cff53e0d909a130f7948
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090976"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637899"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
 
@@ -47,7 +47,7 @@ https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)�
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) 属性では、データベースの組み込み型よりも具体的なデータ型を指定します。 ここでは、日付と時刻ではなく、日付のみを表示する必要があります。 [DataType 列挙型](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1)は、Date、Time、PhoneNumber、Currency、EmailAddress など、多くのデータ型のために用意されています。また、`DataType` 属性を使用して、アプリで型固有の機能を自動的に提供することもできます。 例:
+[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) 属性では、データベースの組み込み型よりも具体的なデータ型を指定します。 ここでは、日付と時刻ではなく、日付のみを表示する必要があります。 [DataType 列挙型](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1)は、Date、Time、PhoneNumber、Currency、EmailAddress など、多くのデータ型のために用意されています。また、`DataType` 属性を使用して、アプリで型固有の機能を自動的に提供することもできます。 次に例を示します。
 
 * `mailto:` リンクは `DataType.EmailAddress` に対して自動的に作成されます。
 * ほとんどのブラウザーでは、`DataType.Date` に日付セレクターが提供されます。
@@ -384,7 +384,7 @@ public Instructor Administrator { get; set; }
 public ICollection<Course> Courses { get; set; }
 ```
 
-注: 規則により、EF Core では null 非許容の FK と多対多リレーションシップに対して連鎖削除が有効になります。 連鎖削除では、循環連鎖削除規則が適用される可能性があります。 循環連鎖削除規則が適用されると、移行の追加時に例外が発生します。
+メモ:規則により、EF Core では null 非許容の FK と多対多リレーションシップに対して連鎖削除が有効になります。 連鎖削除では、循環連鎖削除規則が適用される可能性があります。 循環連鎖削除規則が適用されると、移行の追加時に例外が発生します。
 
 たとえば、`Department.InstructorID` プロパティが null 許容として定義されなかった場合、次のようになります。
 
@@ -444,7 +444,7 @@ public Student Student { get; set; }
 
 `Instructor` および `Course` エンティティには、純粋結合テーブルを使用する多対多リレーションシップがあります。
 
-注: EF 6.x では多対多リレーションシップの暗黙の結合テーブルがサポートされますが、EF Core ではサポートされません。 詳細については、「[Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/)」 (EF Core 2.0 の多対多リレーションシップ) を参照してください。
+メモ:EF 6.x では多対多リレーションシップの暗黙の結合テーブルがサポートされますが、EF Core ではサポートされません。 詳細については、「[Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/)」 (EF Core 2.0 の多対多リレーションシップ) を参照してください。
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment エンティティ
 
@@ -538,10 +538,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-上のコードでは、新しいエンティティのシード データが提供されます。 このコードのほとんどで新しいエンティティ オブジェクトが作成され、サンプル データが読み込まれます。 サンプル データはテストに使用されます。 上のコードでは、次の多対多リレーションシップが作成されます。
-
-* `Enrollments`
-* `CourseAssignment`
+上のコードでは、新しいエンティティのシード データが提供されます。 このコードのほとんどで新しいエンティティ オブジェクトが作成され、サンプル データが読み込まれます。 サンプル データはテストに使用されます。 多対多結合テーブルがシードされる方法の例については、`Enrollments` と `CourseAssignments` を参照してください。
 
 ## <a name="add-a-migration"></a>移行を追加する
 
@@ -581,7 +578,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 既存のデータベースができたので、将来の変更を適用する方法について検討する必要があります。 このチュートリアルでは、2 つの方法を示します。
 
 * [データベースを削除して再作成する](#drop)
-* [移行を既存のデータベースに適用する](#applyexisting)。 この方法はより複雑で時間がかかりますが、実際の運用環境では推奨される方法です。 **注**: これは、チュートリアルのオプションのセクションです。 削除と再作成の手順を行い、このセクションはスキップしてもかまいません。 このセクションの手順に従う場合は、削除と再作成の手順を行わないでください。 
+* [移行を既存のデータベースに適用する](#applyexisting)。 この方法はより複雑で時間がかかりますが、実際の運用環境では推奨される方法です。 **注**:これは、チュートリアルのオプションのセクションです。 削除と再作成の手順を行い、このセクションはスキップしてもかまいません。 このセクションの手順に従う場合は、削除と再作成の手順を行わないでください。 
 
 <a name="drop"></a>
 

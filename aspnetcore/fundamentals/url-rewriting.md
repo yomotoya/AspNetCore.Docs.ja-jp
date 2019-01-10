@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリケーションの URL リライト ミドルウェアを使用した URL の書き換えとリダイレクトについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861915"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637808"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>ASP.NET Core の URL リライト ミドルウェア
 
@@ -56,7 +56,7 @@ URL の書き換えは、1 つまたは複数の事前定義された規則に�
 
 * "*302 - 検出*" 状態コードは、リダイレクトが一時的である場合、または一般に変更される可能性がある場合に使用されます。 302 状態コードは、URL を保存して後で再利用しないようクライアントに指示します。
 
-状態コードについて詳しくは、「[RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」(RFC 2616: 状態コードの定義) をご覧ください。
+状態コードの詳細については、[RFC 2616: 状態コードの定義](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)に関するページを参照してください。
 
 "*URL 書き換え*" はサーバー側の操作であり、クライアントが要求したものとは異なるリソース アドレスからリソースが提供されます。 URL 書き換えでは、サーバーへのラウンドトリップは必要ありません。 書き換えられた URL は、クライアントに返されず、ブラウザーのアドレス バーに表示されません。
 
@@ -78,7 +78,7 @@ URL の書き換えは、1 つまたは複数の事前定義された規則に�
 * [Apache サーバー上の Apache mod_rewrite モジュール](https://httpd.apache.org/docs/2.4/rewrite/)
 * [Nginx での URL 書き換え](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
-また、アプリが [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称 [WebListener](xref:fundamentals/servers/weblistener)) でホストされているときも、ミドルウェアを使用します。
+また、アプリが [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称 WebListener) でホストされているときも、ミドルウェアを使用します。
 
 IIS、Apache、Nginx でサーバー ベースの URL 書き換えテクノロジが使用される主な理由は次のとおりです。
 
@@ -193,15 +193,15 @@ URL 書き換えのルールを作成するには、<xref:Microsoft.AspNetCore.R
 
 | パス                               | 一致したもの |
 | ---------------------------------- | :---: |
-| `/redirect-rule/1234/5678`         | はい   |
+| `/redirect-rule/1234/5678`         | [はい]   |
 | `/my-cool-redirect-rule/1234/5678` | [はい]   |
-| `/anotherredirect-rule/1234/5678`  | はい   |
+| `/anotherredirect-rule/1234/5678`  | [はい]   |
 
 書き換えルール `^rewrite-rule/(\d+)/(\d+)` は、`rewrite-rule/` で始まる場合のみパスと一致します。 次の表では、一致の違いに注意してください。
 
 | パス                              | 一致したもの |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | はい   |
+| `/rewrite-rule/1234/5678`         | [はい]   |
 | `/my-cool-rewrite-rule/1234/5678` | ×    |
 | `/anotherrewrite-rule/1234/5678`  | ×    |
 

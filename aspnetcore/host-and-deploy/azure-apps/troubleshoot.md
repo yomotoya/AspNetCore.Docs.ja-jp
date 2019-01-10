@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090746"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637653"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -19,14 +19,14 @@ ms.locfileid: "50090746"
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-この記事では、Azure App Service の診断ツールを使って ASP.NET Core アプリの起動時の問題を診断する方法の手順を説明します。 トラブルシューティングの役に立つ他の情報については、Azure ドキュメントの「[Azure App Service 診断の概要](/azure/app-service/app-service-diagnostics)」および「[Azure App Service でアプリを監視する方法](/azure/app-service/web-sites-monitor)」をご覧ください。
+この記事では、Azure App Service の診断ツールを使って ASP.NET Core アプリの起動時の問題を診断する方法の手順を説明します。 追加のトラブルシューティングのアドバイスについては、Azure ドキュメントの「[Azure App Service 診断の概要](/azure/app-service/app-service-diagnostics)」と「[方法: Azure App Service のアプリの監視](/azure/app-service/web-sites-monitor)」を参照してください。
 
 ## <a name="app-startup-errors"></a>アプリ起動時のエラー
 
 **502.5 処理エラー**  
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
-[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)はワーカー プロセスの開始を試みますが、開始に失敗します。 この種の問題のトラブルシューティングには、アプリケーション イベント ログを調べると役に立つことがよくあります。 ログへのアクセスについては、「[アプリケーション イベント ログ](#application-event-log)」セクションで説明します。
+[ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)はワーカー プロセスの開始を試みますが、開始に失敗します。 この種の問題のトラブルシューティングには、アプリケーション イベント ログを調べると役に立つことがよくあります。 ログへのアクセスについては、「[アプリケーション イベント ログ](#application-event-log)」セクションで説明します。
 
 正しく構成されていないアプリによりワーカー プロセスが失敗する場合、"*502.5 処理エラー*" のエラー ページが返されます。
 
@@ -164,7 +164,7 @@ stdout ログが有効になっていない場合は、次の手順のように�
 1. Azure portal で **[問題の診断と解決]** ブレードに移動します。
 1. サイド バーの **[SUPPORT TOOLS]\(サポート ツール\)** 領域で、**[Failed Request Tracing Logs]\(失敗した要求のトレース ログ\)** を選びます。
 
-詳しくは、[「Azure App Service の Web アプリの診断ログの有効化」トピックの「失敗した要求トレース」セクション](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces)および[「Azure での Web アプリのアプリケーションパフォーマンスに関するよくあるご質問」の「失敗した要求トレースをオンにするにはどうすればよいですか?」](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing)をご覧ください。
+詳しくは、[「Azure App Service の Web アプリの診断ログの有効化」トピックの「失敗した要求トレース」セクション](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces)および[「Azure での Web アプリのアプリケーション パフォーマンスに関するよくあるご質問」の「失敗した要求トレースをオンにするにはどうすればよいですか?」](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing)をご覧ください。
 
 詳しくは、「[Azure App Service の Web アプリの診断ログの有効化](/azure/app-service/web-sites-enable-diagnostic-log)」をご覧ください。
 

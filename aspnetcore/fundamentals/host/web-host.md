@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリの Web ホスト (アプリの起動と有効期間の管理を担当する) について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862279"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637847"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core の Web ホスト
 
@@ -57,7 +57,7 @@ public class Program
   * 環境変数。
   * コマンド ライン引数。
 * コンソールとデバッグ出力の[ログ](xref:fundamentals/logging/index)を構成します。 ログには、*appsettings.json* または *appsettings.{Environment}.json* ファイルのログ構成セクションで指定される[ログ フィルター](xref:fundamentals/logging/index#log-filtering)規則が含まれます。
-* [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用して IIS の背後で実行されている場合は、`CreateDefaultBuilder` によってアプリのベース アドレスとポートが構成される [IIS の統合](xref:host-and-deploy/iis/index)が有効になります。 IIS の統合により、[スタートアップ エラーをキャプチャする](#capture-startup-errors)アプリも構成されます。 IIS の既定のオプションについては、<xref:host-and-deploy/iis/index#iis-options> を参照してください。
+* [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)を使用して IIS の背後で実行されている場合は、`CreateDefaultBuilder` によってアプリのベース アドレスとポートが構成される [IIS の統合](xref:host-and-deploy/iis/index)が有効になります。 IIS の統合により、[スタートアップ エラーをキャプチャする](#capture-startup-errors)アプリも構成されます。 IIS の既定のオプションについては、<xref:host-and-deploy/iis/index#iis-options> を参照してください。
 * アプリの環境が開発の場合、[ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) を `true` に設定します。 詳しくは、「[スコープの検証](#scope-validation)」をご覧ください。
 
 `CreateDefaultBuilder` によって定義された構成は、[ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration)、[ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging)、そして [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) のその他のメソッドと拡張メソッドによってオーバーライドされ、拡張されます。 以下に、いくつかの例を示します。
@@ -137,7 +137,7 @@ public class Program
 
 **キー**: applicationName  
 **型**: *文字列*  
-**既定**: アプリのエントリ ポイントを含むアセンブリの名前。  
+**既定値**:アプリのエントリ ポイントを含むアセンブリの名前。  
 **次を使用して設定**: `UseSetting`  
 **環境変数**: `ASPNETCORE_APPLICATIONNAME`
 
@@ -152,7 +152,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: captureStartupErrors  
 **型**: *ブール* (`true` または `1`)  
-**既定値**: アプリが IIS の背後で Kestrel を使用して実行されている場合 (既定値は `true`) を除き、既定では `false` に設定されます。  
+**既定値**:アプリが IIS の背後で Kestrel を使用して実行されている場合 (既定値は `true`) を除き、既定では `false` に設定されます。  
 **次を使用して設定**: `CaptureStartupErrors`  
 **環境変数**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
@@ -169,7 +169,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: contentRoot  
 **型**: *文字列*  
-**既定値**: 既定でアプリ アセンブリが存在するフォルダーに設定されます。  
+**既定値**:既定でアプリ アセンブリが存在するフォルダーに設定されます。  
 **次を使用して設定**: `UseContentRoot`  
 **環境変数**: `ASPNETCORE_CONTENTROOT`
 
@@ -203,7 +203,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: 環境  
 **型**: *文字列*  
-**既定値**: Production  
+**既定値**:実稼働  
 **次を使用して設定**: `UseEnvironment`  
 **環境変数**: `ASPNETCORE_ENVIRONMENT`
 
@@ -220,7 +220,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: hostingStartupAssemblies  
 **型**: *文字列*  
-**既定値**: 空の文字列  
+**既定値**:空の文字列  
 **次を使用して設定**: `UseSetting`  
 **環境変数**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
@@ -237,9 +237,9 @@ WebHost.CreateDefaultBuilder(args)
 
 HTTPS リダイレクト ポートを設定します。 [HTTPS の適用](xref:security/enforcing-ssl)に使用されます。
 
-**キー**: https_port **型**: *string*
-**既定値**: 既定値は設定されません。
-**次を使用して設定**: `UseSetting`
+**キー**: https_port **型**: *文字列*
+**既定値**:既定値は設定されていません。
+**次を使用して設定**:`UseSetting`
 **環境変数**: `ASPNETCORE_HTTPS_PORT`
 
 ```csharp
@@ -253,7 +253,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: hostingStartupExcludeAssemblies  
 **型**: *文字列*  
-**既定値**: 空の文字列  
+**既定値**:空の文字列  
 **次を使用して設定**: `UseSetting`  
 **環境変数**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
@@ -317,7 +317,7 @@ Web ホストがシャットダウンするまで待機する時間を指定し�
 
 **キー**: shutdownTimeoutSeconds  
 **型**: *int*  
-**既定値**: 5  
+**既定値**:5  
 **次を使用して設定**: `UseShutdownTimeout`  
 **環境変数**: `ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
 
@@ -341,7 +341,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: startupAssembly  
 **型**: *文字列*  
-**既定値**: アプリのアセンブリ  
+**既定値**:アプリのアセンブリ  
 **次を使用して設定**: `UseStartup`  
 **環境変数**: `ASPNETCORE_STARTUPASSEMBLY`
 
@@ -363,7 +363,7 @@ WebHost.CreateDefaultBuilder(args)
 
 **キー**: webroot  
 **型**: *文字列*  
-**既定値**: 指定されていない場合、既定値は "(Content Root)/wwwroot" となります (パスが存在する場合)。 パスが存在しない場合は、no-op ファイル プロバイダーが使用されます。  
+**既定値**:指定されていない場合、既定値は "(コンテンツ ルート)/wwwroot" となります (パスが存在する場合)。 パスが存在しない場合は、no-op ファイル プロバイダーが使用されます。  
 **次を使用して設定**: `UseWebRoot`  
 **環境変数**: `ASPNETCORE_WEBROOT`
 

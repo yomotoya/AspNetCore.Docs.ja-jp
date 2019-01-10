@@ -2,17 +2,16 @@
 title: ASP.NET Core SignalR の概要
 author: tdykstra
 description: このチュートリアルでは、ASP.NET Core SignalR を使用するチャット アプリを作成します。
-monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: c52041b34d6c9d1d8f06f980c900b805a0933293
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 36296513726f7e098a536afc22fcbfb2cafe946d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861984"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997280"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>チュートリアル: ASP.NET Core SignalR の概要
 
@@ -30,10 +29,6 @@ ms.locfileid: "52861984"
 ![SignalR のサンプル アプリ](signalr/_static/signalr-get-started-finished.png)
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
-
-> [!NOTE]
-> ASP.NET Core の目次の提案された新しい構造の有用性をテストしています。  現在または提案された目次で 7 つのトピックを探す演習をする時間がある場合は、[ここをクリックして、調査に参加してください](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82)。
-
 
 [!INCLUDE [|Prerequisites](~/includes/net-core-prereqs-all-2.2.md)]
 
@@ -168,7 +163,7 @@ SignalR サーバー ライブラリは、`Microsoft.AspNetCore.App` メタパ�
 
   `ChatHub` クラスは、SignalR `Hub` クラスを継承します。 `Hub` クラスでは、接続、グループ、およびメッセージングが管理されます。
 
-  `SendMessage` メソッドは、接続されている任意のクライアントによって呼び出すことができます。 それによって、受信したメッセージがすべてのクライアントに送信されます。 最大のスケーラビリティを実現するために、SignalR コードは非同期になっています。
+  `SendMessage` メソッドは、メッセージをすべてのクライアントに送信するために、接続されたクライアントによって呼び出される場合があります。 このメソッドを呼び出す JavaScript クライアント コードは、チュートリアルの後半で示されます。 最大のスケーラビリティを実現するために、SignalR コードは非同期になっています。
 
 ## <a name="configure-signalr"></a>SignalR を構成する
 

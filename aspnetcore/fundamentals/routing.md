@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core のルーティングでどのように要求 URI をエンドポイント セレクターにマッピングし、受信要求をエンドポイントに配布するかについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/29/2018
 uid: fundamentals/routing
-ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: c57b309e4474f9aff5c0594a3d9d1c796990d31e
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256594"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997358"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -83,7 +83,7 @@ services.AddMvc()
 
 Web API では、属性ルーティングを使用して、HTTP 動詞で操作を表現するリソースのセットとしてアプリの機能をモデル化する必要があります。 つまり、同じ論理リソース上の多くの操作 (たとえば GET や POST) で、同じ URL を使用します。 属性ルーティングでは、API のパブリック エンドポイント レイアウトを慎重に設計するために必要となるコントロールのレベルが提供されます。
 
-Razor Pages アプリでは既定の規則ルーティングを使用して、アプリの *Pages* フォルダーの名前付きリソースを提供します。 Razor Pages のルーティング動作をカスタマイズできる追加の規則を使用できます。 詳細については、次のトピックを参照してください。 <xref:razor-pages/index> および <xref:razor-pages/razor-pages-conventions>.
+Razor Pages アプリでは既定の規則ルーティングを使用して、アプリの *Pages* フォルダーの名前付きリソースを提供します。 Razor Pages のルーティング動作をカスタマイズできる追加の規則を使用できます。 詳細については、次のトピックを参照してください。 <xref:razor-pages/index> および <xref:razor-pages/razor-pages-conventions>
 
 URL 生成サポートを使用すると、アプリを相互にリンクする URL をハード コーディングすることなくアプリを開発できます。 このサポートにより、基本的なルーティング構成を使用して作業を開始し、アプリのリソース レイアウトが決まった後でルートを変更することができます。
 
@@ -292,6 +292,8 @@ ASP.NET Core 2.2 以降でのエンドポイント ルーティングと、ASP.N
 次の例では、ミドルウェアで `LinkGenerator` API を使用して、商品をリストするアクション メソッドへのリンクを作成します。 リンク ジェネレーターは、クラスに挿入し、`GenerateLink` を呼び出すことで、アプリのどのクラスでも使用できます。
 
 ```csharp
+using Microsoft.AspNetCore.Routing;
+
 public class ProductsLinkMiddleware
 {
     private readonly LinkGenerator _linkGenerator;
@@ -303,8 +305,7 @@ public class ProductsLinkMiddleware
 
     public async Task InvokeAsync(HttpContext httpContext)
     {
-        var url = _linkGenerator.GenerateLink(new { controller = "Store",
-                                                    action = "ListProducts" });
+        var url = _linkGenerator.GetPathByAction("ListProducts", "Store");
 
         httpContext.Response.ContentType = "text/plain";
 
@@ -679,12 +680,23 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 
 たとえば、`Url.Action(new { article = "MyTestArticle" })` のルート パターン `blog\{article:slugify}` のカスタム `slugify` パラメーター トランスフォーマーでは、`blog\my-test-article` が生成されます。
 
+ルート パターンでパラメーター トランスフォーマーを使用するには、まず `Startup.ConfigureServices` で <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> を使用してこれを構成します。
+
+```csharp
+services.AddRouting(options =>
+{
+    // Replace the type and the name used to refer to it with your own
+    // IOutboundParameterTransformer implementation
+    options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+});
+```
+
 パラメーター トランスフォーマーは、エンドポイントが解決される URI を変換するためにフレームワークで使用されます。 たとえば、ASP.NET Core MVC ではパラメーター トランスフォーマーを使用して、`area`、`controller`、`action`、`page` を照合するために使用されるルート値を変換します。
 
 ```csharp
 routes.MapRoute(
     name: "default",
-    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+    template: "{controller:slugify=Home}/{action:slugify=Index}/{id?}");
 ```
 
 上記のルートでは、アクション `SubscriptionManagementController.GetAll()` は URI `/subscription-management/get-all` と一致します。 パラメーター トランスフォーマーでは、リンクを生成するために使用されるルート値は変更されません。 たとえば、`Url.Action("GetAll", "SubscriptionManagement")` では `/subscription-management/get-all` が出力されます。

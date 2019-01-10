@@ -1,33 +1,43 @@
 ---
-title: ASP.NET Core モジュール構成リファレンス
+title: ASP.NET Core モジュール
 author: guardrex
 description: ASP.NET Core アプリをホストするための ASP.NET Core モジュールを構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 0ad73d89ffa3a8a3625c6e248efaad821e1b4d0a
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: dee4fe7a498d211cb8ef6a3c49017c3cc8a56847
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121558"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637860"
 ---
-# <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成リファレンス
+# <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 
-著者: [Luke Latham](https://github.com/guardrex)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Sourabh Shirhatti](https://twitter.com/sshirhatti)、[Justin Kotalik](https://github.com/jkotalik)
-
-このドキュメントでは、ASP.NET Core アプリをホストするための ASP.NET Core モジュールの構成方法について説明します。 ASP.NET Core モジュールの概要とインストールの説明については、「[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)」をご覧ください。
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Strahl](https://github.com/RickStrahl)、[Chris Ross](https://github.com/Tratcher)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Sourabh Shirhatti](https://twitter.com/sshirhatti)、[Justin Kotalik](https://github.com/jkotalik)、[Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="hosting-model"></a>ホスティング モデル
+ASP.NET Core モジュールはネイティブな IIS モジュールであり、次のいずれかを目的として、IIS パイプラインにプラグインされます。
 
-.NET Core 2.2 以降で実行されるアプリの場合、モジュールでは、インプロセス ホスティング モデルがサポートされています。このモデルを使用するとリバース プロキシ (アウト ホスティング) と比較してパフォーマンスが改善されます。 詳細については、「<xref:fundamentals/servers/aspnet-core-module#aspnet-core-module-description>」を参照してください。
+* IIS ワーカー プロセス (`w3wp.exe`) の内部で ASP.NET Core アプリをホストします。これは、[インプロセス ホスティング モデル](#in-process-hosting-model)と呼ばれています。
+* [Kestrel サーバー](xref:fundamentals/servers/kestrel)を実行しているバックエンドの ASP.NET Core アプリに Web 要求を転送します。これは、[アウト プロセス ホスティング モデル](#out-of-process-hosting-model)と呼ばれています。
 
-インプロセス ホスティングは既存のアプリではオプトインになっていますが、[dotnet new](/dotnet/core/tools/dotnet-new) テンプレートは既定ではすべての IIS および IIS Express シナリオにおいてインプロセス ホスティング モデルに設定されています。
+サポートされている Windows バージョン:
 
-アプリに対してインプロセス ホスティングを構成するには、そのアプリのプロジェクト ファイルに `<AspNetCoreHostingModel>` プロパティ (*MyApp.csproj* など) を追加して、値を `InProcess` に設定します。(アウト プロセス ホスティングは `outofprocess` を使用して設定します)。
+* Windows 7 以降
+* Windows Server 2008 R2 以降
+
+インプロセス ホスティングの場合、モジュールでは IIS HTTP サーバー (`IISHttpServer`) と呼ばれる IIS 用のインプロセス サーバー実装が使用されます。
+
+アウト プロセスでホストする場合、モジュールは Kestrel に対してのみ機能します。 モジュールは [HTTP.sys](xref:fundamentals/servers/httpsys) と互換性はありません。
+
+## <a name="hosting-models"></a>ホスティング モデル
+
+### <a name="in-process-hosting-model"></a>インプロセス ホスティング モデル
+
+アプリに対してインプロセス ホスティングを構成するには、そのアプリのプロジェクト ファイルに `<AspNetCoreHostingModel>` プロパティを追加して、値を `InProcess` に設定します。(アウト プロセス ホスティングは `OutOfProcess` を使用して設定します)。
 
 ```xml
 <PropertyGroup>
@@ -35,9 +45,11 @@ ms.locfileid: "53121558"
 </PropertyGroup>
 ```
 
+`<AspNetCoreHostingModel>` プロパティがファイルに存在しない場合、既定値は `OutOfProcess` です。
+
 インプロセスでホストする場合は、次の特性が適用されます。
 
-* [Kestrel](xref:fundamentals/servers/kestrel) サーバーの代わりに IIS HTTP サーバー (`IISHttpServer`) が使用されます。 IIS HTTP サーバー (`IISHttpServer`) は、アプリで処理するためにネイティブの IIS 要求を ASP.NET Core 管理対象要求に変換する、もう 1 つの <xref:Microsoft.AspNetCore.Hosting.Server.IServer> 実装です。
+* [Kestrel](xref:fundamentals/servers/kestrel) サーバーの代わりに、IIS HTTP サーバー (`IISHttpServer`) が使用されます。
 
 * [requestTimeout 属性](#attributes-of-the-aspnetcore-element) は、インプロセス ホスティングには適用されません。
 
@@ -55,6 +67,21 @@ ms.locfileid: "53121558"
 
   アプリの現在のディレクトリを設定するサンプル コードについては、「[CurrentDirectoryHelpers クラス](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs)」を参照してください。 `SetCurrentDirectory` メソッドを呼び出します。 <xref:System.IO.Directory.GetCurrentDirectory*> の後続の呼び出しによって、アプリのディレクトリが指定されます。
 
+### <a name="out-of-process-hosting-model"></a>アウト プロセス ホスティング モデル
+
+アウト プロセス ホスティング用のアプリを構成するには、プロジェクト ファイルで次の方法のいずれかを使用します。
+
+* `<AspNetCoreHostingModel>` プロパティは指定しないでください。 `<AspNetCoreHostingModel>` プロパティがファイルに存在しない場合、既定値は `OutOfProcess` です。
+* `<AspNetCoreHostingModel>` プロパティの値を `OutOfProcess` に設定します (インプロセス ホスティングは `InProcess` で設定されます)。
+
+```xml
+<PropertyGroup>
+  <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+</PropertyGroup>
+```
+
+IIS HTTP サーバー (`IISHttpServer`) の代わりに、[Kestrel](xref:fundamentals/servers/kestrel) サーバーが使用されます。
+
 ### <a name="hosting-model-changes"></a>ホスティング モデルの変更
 
 `hostingModel` 設定が *web.config* ファイル内で変更された場合 (「[web.config での構成](#configuration-with-webconfig)」セクションを参照)、モジュールによって IIS 用のワーカー プロセスがリサイクルされます。
@@ -66,6 +93,43 @@ IIS Express の場合、モジュールによってワーカー プロセスの�
 `Process.GetCurrentProcess().ProcessName` から、`w3wp`/`iisexpress` (インプロセス) または `dotnet` (アウト プロセス) がレポートされます。
 
 ::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+ASP.NET Core モジュールは、ネイティブな IIS モジュールであり、バックエンドの ASP.NET Core アプリに Web 要求を転送するために IIS パイプラインにプラグインされます。
+
+サポートされている Windows バージョン:
+
+* Windows 7 以降
+* Windows Server 2008 R2 以降
+
+モジュールは、Kestrel に対してのみ機能します。 モジュールは [HTTP.sys](xref:fundamentals/servers/httpsys) と互換性はありません。
+
+ASP.NET Core アプリは IIS ワーカー プロセスとは独立したプロセスで実行されるため、モジュールもプロセス管理を処理します。 モジュールは、最初の要求を受信したときに ASP.NET Core アプリのプロセスを開始し、プロセスがクラッシュした場合はアプリを再起動します。 この動作は、IIS のインプロセスで実行され、[WAS (Windows プロセス アクティブ化サービス)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was) によって管理される ASP.NET 4.x アプリと基本的に同じです。
+
+次の図は、IIS (ASP.NET Core モジュール) とアプリの間のリレーションシップを示しています。
+
+![ASP.NET Core モジュール](aspnet-core-module/_static/ancm-outofprocess.png)
+
+要求は、Web からカーネル モードの HTTP.sys ドライバーに到着します。 ドライバーは、Web サイトの構成ポート (通常は 80 (HTTP) または 443 (HTTPS)) で IIS への要求をルーティングします。 モジュールでは、アプリのランダムなポート (ポート 80 または 443 ではありません) で Kestrel に要求が転送されます。
+
+モジュールが起動時に環境変数を介してポートを指定すると、サーバーは `http://localhost:{port}` をリッスンするように、IIS 統合ミドルウェアによって構成されます。 追加のチェックが実行され、モジュールから発生していない要求は拒否されます。 モジュールでは HTTPS 転送がサポートされていないため、要求は HTTPS を介して IIS によって受信された場合でも、HTTP を介して転送されます。
+
+Kestrel によってモジュールから要求が取り込まれた後、その要求は ASP.NET Core ミドルウェア パイプラインにプッシュされます。 ミドルウェア パイプラインは要求を処理し、`HttpContext` インスタンスとしてアプリのロジックに渡します。 IIS 統合によって追加されたミドルウェアでは、カーネルへの要求の転送を考慮して、スキーム、リモート IP、およびパスベースが更新されます。 アプリの応答が IIS に戻され、IIS はその応答を、要求を開始した HTTP クライアントに返します。
+
+::: moniker-end
+
+Windows 認証などの多くのネイティブなモジュールは、アクティブなままです。 ASP.NET Core モジュールと共にアクティブな IIS モジュールの詳細については、「<xref:host-and-deploy/iis/modules>」を参照してください。
+
+ASP.NET Core モジュールでは次のことも行えます。
+
+* ワーカー プロセスの環境変数を設定する
+* 起動に関する問題をトラブルシューティングするために、Stdout 出力をファイル ストレージに記録する
+* Windows 認証トークンを転送する
+
+## <a name="how-to-install-and-use-the-aspnet-core-module"></a>ASP.NET Core モジュールをインストールして使用する方法
+
+ASP.NET Core モジュールをインストールして使用する方法の詳細については、「<xref:host-and-deploy/iis/index>」を参照してください。
 
 ## <a name="configuration-with-webconfig"></a>web.config での構成
 
@@ -395,7 +459,7 @@ ASP.NET Core モジュールは、強化された診断ログを提供するよ�
 
 ASP.NET Core モジュールと Kestrel の間に作成されるプロキシは、HTTP プロトコルを使います。 HTTP を使うと、パフォーマンスが最適化されます。この場合、モジュールと Kestrel の間のトラフィックは、ネットワーク インターフェイスから切り離されたループバック アドレスで発生します。 モジュールと Kestrel の間のトラフィックが、サーバーから離れた場所で傍受される危険はありません。
 
-ペアリング トークンを使用すると、Kestrel によって受信される要求が IIS によってプロキシされたものであり、他のソースからのものでないことを保証できます。 ペアリング トークンは、モジュールによって作成されて、環境変数 (`ASPNETCORE_TOKEN`) に設定されます。 ペアリング トークンはまた、プロキシされたすべての要求のヘッダー (`MSAspNetCoreToken`) にも設定されます。 IIS ミドルウェアは、受信した各要求をチェックし、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認します。 トークンの値が一致しない場合、要求はログに記録され、拒否されます。 ペアリング トークン環境変数およびモジュールと Kestrel の間のトラフィックには、サーバーから離れた場所からアクセスすることはできません。 ペアリング トークンの値がわからなければ、攻撃者は IIS ミドルウェアのチェックをバイパスする要求を送信できません。
+ペアリング トークンを使用すると、Kestrel によって受信される要求が IIS によってプロキシされたものであり、他のソースからのものでないことを保証できます。 ペアリング トークンは、モジュールによって作成されて、環境変数 (`ASPNETCORE_TOKEN`) に設定されます。 ペアリング トークンはまた、プロキシされたすべての要求のヘッダー (`MS-ASPNETCORE-TOKEN`) にも設定されます。 IIS ミドルウェアは、受信した各要求をチェックし、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認します。 トークンの値が一致しない場合、要求はログに記録され、拒否されます。 ペアリング トークン環境変数およびモジュールと Kestrel の間のトラフィックには、サーバーから離れた場所からアクセスすることはできません。 ペアリング トークンの値がわからなければ、攻撃者は IIS ミドルウェアのチェックをバイパスする要求を送信できません。
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>IIS 共有構成での ASP.NET Core モジュール
 
@@ -481,3 +545,9 @@ ASP.NET Core モジュールのインストーラーは、**SYSTEM** アカウ�
    * %ProgramFiles%\IIS Express\config\templates\PersonalWebServer\applicationHost.config
 
 ファイルは、*applicationHost.config* ファイルで *aspnetcore* を検索することにより見つかります。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* <xref:host-and-deploy/iis/index>
+* [ASP.NET Core モジュールの GitHub リポジトリ (参照元)](https://github.com/aspnet/AspNetCoreModule)
+* <xref:host-and-deploy/iis/modules>

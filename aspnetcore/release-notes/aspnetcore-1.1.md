@@ -3,14 +3,14 @@ title: ASP.NET Core 1.1 の新機能
 author: rick-anderson
 description: ASP.NET Core 1.1 の新機能について説明します。
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/18/2018
 uid: aspnetcore-1.1
-ms.openlocfilehash: 1f35874b253ca23743e1b046732723c3a75e855e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a21b2b82bfefb5b24898cf58ef97284a143e2e4a
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207824"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637600"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>ASP.NET Core 1.1 の新機能
 
@@ -24,7 +24,7 @@ ASP.NET Core 1.1 には次の新機能があります。
 - [Azure App Service ログ プロバイダー](xref:fundamentals/logging/index#azure-app-service-provider)
 - [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)
 - [Azure と Redis のストレージ データ保護キー リポジトリ](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)
-- [Windows 用 WebListener Server](xref:fundamentals/servers/weblistener)
+- Windows 用 WebListener サーバー
 - [WebSocket のサポート](xref:fundamentals/websockets)
 
 ## <a name="choosing-between-versions-10-and-11-of-aspnet-core"></a>ASP.NET Core のバージョン 1.0 と 1.1 の選択
