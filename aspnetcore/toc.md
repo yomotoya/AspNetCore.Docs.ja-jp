@@ -1,3 +1,5 @@
+# [ASP.NET Core ドキュメント](/aspnet/#pivot=core)
+
 # 概要
 ## [ASP.NET Core について](xref:index)
 ## [ASP.NET Core と ASP.NET の比較](xref:fundamentals/choose-between-aspnet-and-aspnetcore)
@@ -5,8 +7,14 @@
 
 # [開始するには](xref:getting-started)
 
+# 新機能
+## [2.2 の新機能](xref:aspnetcore-2.2)
+## [2.1 の新機能](xref:aspnetcore-2.1)
+## [2.0 の新機能](xref:aspnetcore-2.0)
+## [1.1 の新機能](xref:aspnetcore-1.1)
+
 # チュートリアル
-## Web API
+## Web API アプリ
 ### [Web API の作成](xref:tutorials/first-web-api)
 ### [MongoDB での Web API](xref:tutorials/first-mongo-app)
 ## Web アプリ
@@ -121,7 +129,7 @@
 ### [カスタム モデル バインド](xref:mvc/advanced/custom-model-binding)
 ### [互換バージョン](xref:mvc/compatibility-version)
 
-# Web API
+# Web API アプリ
 ## [概要](xref:web-api/index)
 
 ## チュートリアル
@@ -376,6 +384,7 @@
 ### [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 ## [応答圧縮](xref:performance/response-compression)
 ## [診断ツール](xref:performance/diagnostic-tools)
+## [ロード テストおよびストレス テスト](xref:test/loadtests)
 
 # その他のトピック
 ## [グローバライズとローカライズ](xref:fundamentals/localization)
@@ -410,12 +419,6 @@
 ### [メンバーシップから ID へ](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [HTTP モジュールからミドルウェアへ](xref:migration/http-modules)
 ## [ログ記録 (ASP.NET Core 以外)](xref:migration/logging-nonaspnetcore)
-
-# 新機能
-## [2.2 の新機能](xref:aspnetcore-2.2)
-## [2.1 の新機能](xref:aspnetcore-2.1)
-## [2.0 の新機能](xref:aspnetcore-2.0)
-## [1.1 の新機能](xref:aspnetcore-1.1)
 
 # [API リファレンス](/dotnet/api/?view=aspnetcore-2.2)
 
