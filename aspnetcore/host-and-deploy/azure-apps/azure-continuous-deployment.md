@@ -4,14 +4,14 @@ author: rick-anderson
 description: Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2016
+ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340200"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284443"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置
 
@@ -71,7 +71,7 @@ Azure Portal で次の手順を実行して Web アプリを作成します。
 
 1. **[Web + モバイル]** > **[Web アプリ]** の順に選択します。
 
-   ![Microsoft Azure Portal: [新規作成] ボタン: [Marketplace] の [Web + モバイル]: [おすすめアプリ] の [Web アプリ] ボタン](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Microsoft Azure Portal:新しいボタン:Marketplace での Web + モバイル:おすすめアプリでの Web アプリのボタン](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
 1. **[Web アプリ]** ブレードに **[App Service の名前]** の一意の名前を入力します。
 
@@ -98,7 +98,7 @@ Git は分散型バージョン管理システムであり、これを利用し�
 
 1. **[デプロイ]** ブレードで、**[デプロイ オプション]** > **[ソースの選択]** > **[ローカル Git リポジトリ]** の順に選択します。
 
-   ![[設定] ブレード: [展開元] ブレード: [ソースの選択] ブレード](azure-continuous-deployment/_static/deployment-options.png)
+   ![[設定] ブレード:[展開ソース] ブレード:[ソースの選択] ブレード](azure-continuous-deployment/_static/deployment-options.png)
 
 1. **[OK]** を選択します。
 
@@ -184,7 +184,7 @@ Git は分散型バージョン管理システムであり、これを利用し�
 
 [Azure Portal](https://portal.azure.com) で、Web アプリを選択します。 **[デプロイ]** > **[デプロイ オプション]** の順に選択します。
 
-![Azure Portal: [設定] ブレード: [デプロイ] ブレードにデプロイ成功が表示されています](azure-continuous-deployment/_static/13-verify-deployment.png)
+![Azure Portal: [設定] ブレード:[デプロイ] ブレードにデプロイ成功が表示されています](azure-continuous-deployment/_static/13-verify-deployment.png)
 
 ## <a name="run-the-app-in-azure"></a>Azure でアプリを実行する
 
@@ -230,3 +230,4 @@ Web アプリが Azure に展開されたら、アプリを実行します。
 
 * [Azure Pipelines による最初のパイプラインの作成](/azure/devops/pipelines/get-started-yaml)
 * [プロジェクト Kudu](https://github.com/projectkudu/kudu/wiki)
+* <xref:host-and-deploy/visual-studio-publish-profiles>

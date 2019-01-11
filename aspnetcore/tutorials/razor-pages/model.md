@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 91fee1db820493be671fecaee3cfb4c1b7df8bd3
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 0915c525d5fb96a3d32f91fbd65a4e1f62ee28b8
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121364"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577865"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -114,16 +114,16 @@ ms.locfileid: "53121364"
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* **Windows の場合**: 次のコマンドを実行します。
+* **Windows の場合**:次のコマンドを実行します。
 
   ```console
-  dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
+  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* **macOS および Linux の場合**: 次のコマンドを実行します。
+* **macOS および Linux の場合**:次のコマンドを実行します。
 
   ```console
-  dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
+  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
@@ -133,6 +133,11 @@ ms.locfileid: "53121364"
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
+* スキャフォールディング ツールをインストールします。
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
 * 次のコマンドを実行します。
 
   ```console
@@ -197,7 +202,7 @@ Update-Database
 ---  
 <!-- End of VS tabs -->
 
-`ef migrations add InitialCreate` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。 このスキーマは、`DbContext` で指定されたモデルに基づきます (*Models/RazorPagesMovieContext.cs* ファイル内)。 `InitialCreate` 引数は移行の命名に使用されます。 任意の名前を使用できますが、規則により、移行を説明する名前が選択されます。
+`ef migrations add InitialCreate` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。 このスキーマは、`DbContext` で指定されたモデルに基づきます (*RazorPagesMovieContext.cs* ファイル内)。 `InitialCreate` 引数は移行の命名に使用されます。 任意の名前を使用できますが、規則により、移行を説明する名前が選択されます。
 
 `ef database update` コマンドは、*Migrations/\<time-stamp>_InitialCreate.cs* ファイルの `Up` メソッドを実行します。 `Up` メソッドにより、データベースが作成されます。
 
@@ -266,4 +271,4 @@ Login failed for user 'User-name'.
 
 > [!div class="step-by-step"]
 > [前: はじめに](xref:tutorials/razor-pages/razor-pages-start)
-> [次: Razor ページのスキャフォールディング](xref:tutorials/razor-pages/page)
+> [次: スキャフォールディングされた Razor Pages](xref:tutorials/razor-pages/page)

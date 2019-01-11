@@ -3,16 +3,15 @@ title: 'チュートリアル: ASP.NET Core MVC で Web API を作成する'
 author: rick-anderson
 description: ASP.NET Core MVC で Web API をビルドする
 ms.author: riande
-monikerRange: '> aspnetcore-2.1'
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1af14b85cbaefc00fd97db7c721c4f9436a65fb2
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: c2b4dcddd5332330cd6e6abe7d3a12697cde845e
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121467"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382005"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>チュートリアル: ASP.NET Core MVC で Web API を作成する
 
@@ -75,7 +74,7 @@ ms.locfileid: "53121467"
    code -r TodoApi
    ```
 
-  これらのコマンドは、新しい Web API プロジェクトを作成し、新しいプロジェクト フォルダー内に Visual Studio Code の新しいインスタンスを開きます。
+  これらのコマンドでは、新しい Web API プロジェクトが作成され、新しいプロジェクト フォルダー内に Visual Studio Code の新しいインスタンスが開かれます。
 
 * ダイアログ ボックスで、プロジェクトに必要な資産を追加するかどうかを確認されたら、**[はい]** を選択します。
 
@@ -359,7 +358,7 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`PutTodoItem` は `PostTodoItem` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、変更だけでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、[HTTP PATCH](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) を使用します。
+`PutTodoItem` は `PostTodoItem` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、変更だけでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、[HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute) を使用します。
 
 ### <a name="test-the-puttodoitem-method"></a>PutTodoItem メソッドのテスト
 

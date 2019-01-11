@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core 用のクロスプラットフォーム Web サーバーである Kestrel について説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 2a6a3786aa3a78bb83f497db22acac873512f939
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: af1f330f2afa340ef98a6b4bd5008859f4b0f914
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861928"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637912"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
@@ -25,7 +25,7 @@ ms.locfileid: "52861928"
 
 Kestrel は、[ASP.NET Core 向けのクロスプラットフォーム Web サーバー](xref:fundamentals/servers/index)です。 Kestrel は、ASP.NET Core のプロジェクト テンプレートに既定で含まれる Web サーバーです。
 
-Kestrel は、次の機能をサポートします。
+Kestrel では、次のシナリオがサポートされます。
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -76,7 +76,11 @@ Http/2 は既定では無効になっています。 構成の詳細について
 
 Kestrel を単独で使用することも、[インターネット インフォメーション サービス (IIS)](https://www.iis.net/)、[Nginx](http://nginx.org)、[Apache](https://httpd.apache.org/) などの*リバース プロキシ サーバー*と併用することもできます。 リバース プロキシ サーバーはネットワークから HTTP 要求を受け取り、これを Kestrel に転送します。
 
+エッジ (インターネットに接続する) Web サーバーとして使用される Kestrel:
+
 ![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
+
+リバース プロキシ構成で使用される Kestrel:
 
 ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
@@ -470,7 +474,7 @@ Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証
 
 詳しくは、「[サーバーの URL](xref:fundamentals/host/web-host#server-urls)」および「[構成のオーバーライド](xref:fundamentals/host/web-host#override-configuration)」をご覧ください。
 
-これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。 セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000;http://localhost:8001"`)。
+これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。 セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000; http://localhost:8001"`)。
 
 *構成から既定の証明書を置き換える*
 
@@ -790,7 +794,7 @@ Listening on the following addresses: http://127.0.0.1:48508
 
 ### <a name="iis-endpoint-configuration"></a>IIS エンドポイントの構成
 
-IIS を使用するときは、IIS オーバーライド バインドに対する URL バインドを、`Listen` または `UseUrls` によって設定します。 詳しくは、「[ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)」をご覧ください。
+IIS を使用するときは、IIS オーバーライド バインドに対する URL バインドを、`Listen` または `UseUrls` によって設定します。 詳しくは、「[ASP.NET Core モジュールの概要](xref:host-and-deploy/aspnet-core-module)」をご覧ください。
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -1033,4 +1037,4 @@ Host Filtering Middleware は既定では無効です。 このミドルウェ�
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>
 * [Kestrel ソース コード](https://github.com/aspnet/KestrelHttpServer)
-* [RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)(RFC 7230: メッセージの構文と経路制御 (セクション 5.4: ホスト))
+* [RFC 7230: メッセージの構文と経路制御 (セクション 5.4: ホスト)](https://tools.ietf.org/html/rfc7230#section-5.4)
