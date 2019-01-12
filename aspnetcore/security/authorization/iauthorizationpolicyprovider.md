@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: fdd8f9232c4332aa8307b9dbdfba6af48dfafa72
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: ef3e81da6fb9e2e332b553607be35fcd79e9362d
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045498"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249374"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>ASP.NET Core で IAuthorizationPolicyProvider を使用してカスタム承認ポリシー プロバイダー 
 
@@ -25,7 +25,7 @@ ms.locfileid: "48045498"
 * (別の部屋番号または例では、年齢層) 用のさまざまなポリシーを使用して、これは無意味で各個々 の承認ポリシーを追加する、`AuthorizationOptions.AddPolicy`呼び出します。
 * (データベース) のような外部データ ソース内の情報に基づいて実行時ポリシーを作成するか、別のメカニズムによって承認要件を動的に決定します。
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider)から、 [aspnet/AuthSamples GitHub リポジトリ](https://github.com/aspnet/AuthSamples)します。 Aspnet/AuthSamples リポジトリの ZIP ファイルをダウンロードします。
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/AuthSamples/)から、 [AspNetCore GitHub リポジトリ](https://github.com/aspnet/AspNetCore)します。 Aspnet/AuthSamples リポジトリの ZIP ファイルをダウンロードします。
 解凍、 *AuthSamples master.zip*ファイル。 移動し、*サンプル/CustomPolicyProvider*プロジェクト フォルダーです。
 
 ## <a name="customize-policy-retrieval"></a>ポリシーの取得をカスタマイズします。

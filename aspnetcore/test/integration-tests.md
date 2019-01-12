@@ -5,14 +5,14 @@ description: 統合テストによってデータベース、ファイル シス
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 01/11/2019
 uid: test/integration-tests
-ms.openlocfilehash: 9729925c89c212bb6e6fac1a484b6288697afe57
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 0f919d7715a26f1efdb37d35b047a7050e46a272
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450750"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249517"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core で統合テスト
 
@@ -72,9 +72,9 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 
 1. SUT の web ホストが構成されます。
 1. テスト サーバーのクライアントを作成すると、アプリに要求を送信します。
-1. *配置*テスト ステップが実行されます。 テスト アプリが要求を準備します。
-1. *Act*テスト ステップが実行されます。 クライアント要求を送信すると、応答を受信します。
-1. *Assert*テスト ステップが実行された:*実際*として応答が検証された、*渡す*または*失敗*に基づいて、*が必要です*応答します。
+1. *配置*テスト ステップが実行されます。テスト アプリでは、要求を準備します。
+1. *Act*テスト ステップが実行されます。クライアントは、要求を送信し、応答を受け取ります。
+1. *Assert*テスト ステップが実行されます。*実際*として応答が検証された、*渡す*または*失敗*に基づいて、*予想*応答。
 1. すべてのテストが実行されるまで、処理が続きます。
 1. テスト結果が報告されます。
 
@@ -114,7 +114,7 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 
 [WebApplicationFactory&lt;TEntryPoint&gt; ](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1)を作成するために使用する[TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)統合テスト用です。 `TEntryPoint` SUT のエントリ ポイント クラスは、通常、`Startup`クラス。
 
-テスト クラスの実装を*クラス フィクスチャ*インターフェイス (`IClassFixture`) を示す、クラスは、テストが含まれ、クラスのテストの間で共有されたオブジェクトのインスタンスを提供します。
+テスト クラスの実装を*クラス フィクスチャ*インターフェイス ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) を示す、クラスは、テストが含まれ、クラスのテストの間で共有されたオブジェクトのインスタンスを提供します。
 
 ### <a name="basic-test-of-app-endpoints"></a>アプリのエンドポイントの基本的なテスト
 
@@ -151,7 +151,7 @@ SUT で、`/SecurePage`ページ使用して、 [AuthorizePage](/dotnet/api/micr
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   データベースでシード処理で、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples)によって実行されます、`InitializeDbForTests`メソッド。 メソッドが記載されて、[統合サンプルのテスト: 組織のアプリをテスト](#test-app-organization)セクション。
+   データベースでシード処理で、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples)によって実行されます、`InitializeDbForTests`メソッド。 メソッドが記載されて、[統合サンプルをテストします。組織のアプリをテスト](#test-app-organization)セクション。
 
 2. ユーザー設定を使用して、`CustomWebApplicationFactory`テスト クラスにします。 次のコードの例では、工場で、`IndexPageTests`クラス。
 
@@ -173,9 +173,9 @@ SUT への POST 要求は、アプリのによって自動的に行われた偽�
 
 * `GetDocumentAsync` &ndash; 受信、 [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage)を返します、`IHtmlDocument`します。 `GetDocumentAsync` 準備するファクトリを使用して、*仮想応答*元に基づいて`HttpResponseMessage`します。 詳細については、次を参照してください。、 [AngleSharp ドキュメント](https://github.com/AngleSharp/AngleSharp#documentation)します。
 * `SendAsync` 拡張メソッド、 `HttpClient` compose、 [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage)を呼び出すと[SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) SUT に要求を送信します。 オーバー ロード`SendAsync`HTML フォームを受け入れる (`IHtmlFormElement`) および次。
-  - フォームのボタンの送信 (`IHtmlElement`)
-  - フォーム値のコレクション (`IEnumerable<KeyValuePair<string, string>>`)
-  - 送信ボタン (`IHtmlElement`) の値を形成し、(`IEnumerable<KeyValuePair<string, string>>`)
+  * フォームのボタンの送信 (`IHtmlElement`)
+  * フォーム値のコレクション (`IEnumerable<KeyValuePair<string, string>>`)
+  * 送信ボタン (`IHtmlElement`) の値を形成し、(`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
 > [AngleSharp](https://anglesharp.github.io/)サード パーティがこのトピックおよびサンプル アプリケーションのデモンストレーションを目的として使用されるライブラリを解析します。 AngleSharp はサポートされているがないか、ASP.NET Core アプリの統合をテストするために必要です。 その他のパーサーができますなど、 [Html 機敏性パック (HAP)](http://html-agility-pack.net/)します。 別の方法では、偽造防止システムの要求検証トークンと偽造防止 cookie を直接処理するコードを作成します。
