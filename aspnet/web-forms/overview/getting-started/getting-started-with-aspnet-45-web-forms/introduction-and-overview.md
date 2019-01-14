@@ -19,7 +19,7 @@ ms.locfileid: "52450685"
 ====================
 によって[Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys のサンプル プロジェクト (c#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
 このステップ バイ ステップ チュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 
 
@@ -33,9 +33,9 @@ ms.locfileid: "52450685"
 
 ### <a name="download-completed-project"></a>プロジェクトのダウンロードが完了しました
 
-完了したチュートリアルを含む c# プロジェクトをダウンロードすることができます。
+完了したチュートリアルを含む C# プロジェクトをダウンロードすることができます。
 
-- [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(c#)
+- [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#)
 
 ### <a name="review-the-content-by-taking-the-related-aspnet-web-forms-quiz"></a>関連する ASP.NET Web フォームのクイズを実行してコンテンツを確認します。
 
@@ -54,7 +54,7 @@ ms.locfileid: "52450685"
 
 上記の領域を確認したい場合は、次の内容の確認を検討してください。
 
-- [Visual c# の概要](https://msdn.microsoft.com/library/a72418yk.aspx)
+- [Visual C# の概要](https://msdn.microsoft.com/library/a72418yk.aspx)
 - [Web 開発](https://msdn.microsoft.com/beginner/bb308760.aspx)、 [HTML、CSS、JavaScript、SQL、PHP、JQuery](http://w3schools.com/)
 - [リレーショナル データベース](http://en.wikipedia.org/wiki/Relational_database)
 - [複数層アーキテクチャ](http://en.wikipedia.org/wiki/Multitier_architecture)
@@ -170,23 +170,23 @@ Visual Studio のバージョンがインストールされている、既にあ
 
 #### <a name="download-the-file-from-msdn-samples-site"></a>MSDN のサンプル サイトからファイルをダウンロードします。
 
-[ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(c#) 
+[ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#) 
 
-ダウンロードが、 <em>.zip</em>ファイル。 このチュートリアル シリーズを作成する完成したプロジェクト、検索と選択して、 <em>c#</em>フォルダーで、 <em>.zip</em>ファイル。 保存、 <em>c#</em>フォルダー、フォルダーを使用して、Visual Studio 2013 プロジェクトを操作します。 既定では、次に、Visual Studio 2013 のプロジェクト フォルダー示します。
+ダウンロードが、 <em>.zip</em>ファイル。 このチュートリアル シリーズを作成する完成したプロジェクト、検索と選択して、 <em>C#</em>フォルダーで、 <em>.zip</em>ファイル。 保存、 <em>C#</em>フォルダー、フォルダーを使用して、Visual Studio 2013 プロジェクトを操作します。 既定では、次に、Visual Studio 2013 のプロジェクト フォルダー示します。
 
 <strong>C:\Users&#92;</strong><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual Studio 2013 \projects</strong>
 
-名前を変更、 ***c#*** フォルダー ***WingtipToys***です。
+名前を変更、 ***C#*** フォルダー ***WingtipToys***です。
 
 > [!NOTE]
-> という名前のフォルダーが既にある場合*WingtipToys* Projects フォルダーに名前を一時的にその既存のフォルダーの名前変更する前に、 *c#* フォルダー *WingtipToys*です。
+> という名前のフォルダーが既にある場合*WingtipToys* Projects フォルダーに名前を一時的にその既存のフォルダーの名前変更する前に、 *C#* フォルダー *WingtipToys*です。
 
 
 完成したプロジェクトを実行するには、開く、 *WingtipToys*フォルダーをダブルクリックします、 *WingtipToys.sln*ファイル。 Visual Studio 2013 には、プロジェクトが開きます。 次に、右クリックし、 *Default.aspx*ソリューション エクスプ ローラー ウィンドウでファイルを開き、右クリック メニューからブラウザーで表示をクリックします。
 
 ### <a name="tutorial-support-and-comments"></a>チュートリアルのサポートとコメント
 
-付属の Q &AMP; A セクションを使用して、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)質問またはコメントのサンプル (c#)。
+付属の Q &AMP; A セクションを使用して、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)質問またはコメントのサンプル (C#)。
 
 このチュートリアル シリーズのコメントは、[ようこそ]、およびあらゆる努力をアカウントの修正または提案のチュートリアルのコメントに用意されている改善点を考慮できるようにこのチュートリアル シリーズが更新されたときにします。
 
