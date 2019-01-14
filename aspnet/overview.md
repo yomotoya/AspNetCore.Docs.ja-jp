@@ -2,7 +2,7 @@
 uid: overview
 title: ASP.NET の概要 |Microsoft Docs
 author: rick-anderson
-description: ASP.NET、web サイト、web アプリケーション、および web Api を作成するための無償のフレームワークを紹介します。
+description: ASP.NET、web サイト、web アプリケーション、および web API を作成するための無償のフレームワークを紹介します。
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
 ms.author: riande
 ms.date: 03/12/2010
@@ -20,7 +20,7 @@ ms.locfileid: "48794812"
 
 ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript を使用して web アプリケーションを構築するための無料の web フレームワークです。 Web Api を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
 
-[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は asp.net の代替です。  参照してください、 [ASP.NET と ASP.NET Core のどちらを選択する方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)します。
+[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は ASP.NET の代替です。  参照してください、 [ASP.NET と ASP.NET Core のどちらを選択する方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)します。
 
 ## <a name="get-started"></a>作業開始
 
