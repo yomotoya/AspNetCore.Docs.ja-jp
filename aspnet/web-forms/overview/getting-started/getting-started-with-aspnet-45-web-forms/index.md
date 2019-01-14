@@ -17,7 +17,7 @@ ms.locfileid: "48255868"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要
 ====================
-> このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 このチュートリアル シリーズに付随する c# ソース コードを Visual Studio 2013 プロジェクトがあります。
+> このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 このチュートリアル シリーズに付随する C# ソース コードを Visual Studio 2013 プロジェクトがあります。
 
 
 - [Web フォームと Visual Studio の概要](introduction-and-overview.md)
