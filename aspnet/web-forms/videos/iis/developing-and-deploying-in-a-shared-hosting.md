@@ -2,7 +2,7 @@
 uid: web-forms/videos/iis/developing-and-deploying-in-a-shared-hosting
 title: 共有ホスティングの開発と展開 |Microsoft Docs
 author: JoeStagner
-description: このビデオでは、共有ホスティング環境で ASP.NET アプリケーションの開発を紹介で&quot;ライブ編集&quot;と&quot;リモート パブリケーション (& a).
+description: このビデオでは、「ライブ編集」および「リモート パブリケーション」機能のデモで、共有ホスティング環境で ASP.NET アプリケーションの開発について説明します。
 ms.author: riande
 ms.date: 03/09/2009
 ms.assetid: fb6b54c6-5459-4528-98a0-1fb16144836a
