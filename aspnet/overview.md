@@ -2,7 +2,7 @@
 uid: overview
 title: ASP.NET の概要 |Microsoft Docs
 author: rick-anderson
-description: ASP.NET、web サイト、web アプリケーション、および web Api を作成するための無償のフレームワークを紹介します。
+description: ASP.NET、web サイト、web アプリケーション、および web API を作成するための無償のフレームワークを紹介します。
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
 ms.author: riande
 ms.date: 03/12/2010
@@ -18,7 +18,7 @@ ms.locfileid: "48794812"
 ---
 # <a name="aspnet-overview"></a>ASP.NET の概要
 
-ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript を使用して web アプリケーションを構築するための無料の web フレームワークです。 Web Api を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
+ASP.NET は、すばらしい web サイトと HTML、CSS、および JavaScript を使用して web アプリケーションを構築するための無料の web フレームワークです。 Web API を作成し、Web ソケットなどのリアルタイム テクノロジを使用できます。
 
 [ASP.NET Core](https://docs.microsoft.com/aspnet/core/)は asp.net の代替です。  参照してください、 [ASP.NET と ASP.NET Core のどちらを選択する方法に関するガイダンス](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)します。
 
@@ -74,7 +74,7 @@ ASP.NET Web API をさまざまなブラウザーやモバイル デバイスな
 
 ## <a name="real-time-technologies"></a>リアルタイム テクノロジ
 
-ASP.NET SignalR は、ASP.NET 開発者向けの新しいライブラリをリアルタイム web 機能の開発が容易です。 SignalR では、サーバーとクライアント間の双方向通信を許可します。 サーバーに接続されているクライアントにすぐに利用可能になったコンテンツをプッシュできます。 SignalR では、Web ソケットの場合をサポートし、古いブラウザーの互換性のあるその他の手法にフォールバックします。 SignalR には接続管理用の Api が含まれています (接続し、切断イベントなど)、接続、および承認をグループ化します。
+ASP.NET SignalR は、ASP.NET 開発者向けの新しいライブラリをリアルタイム web 機能の開発が容易です。 SignalR では、サーバーとクライアント間の双方向通信を許可します。 サーバーに接続されているクライアントにすぐに利用可能になったコンテンツをプッシュできます。 SignalR では、Web ソケットの場合をサポートし、古いブラウザーの互換性のあるその他の手法にフォールバックします。 SignalR には接続管理用の API が含まれています (接続し、切断イベントなど)、接続、および承認をグループ化します。
 
 [詳細については、SignalR は](signalr/index.md)
 
@@ -96,7 +96,7 @@ ASP.NET Single Page Application (SPA) を使用して、HTML 5、CSS 3、JavaScr
 
 ## <a name="webhooks"></a>Web フック
 
-Webhook は、Web Api と SaaS サービスをまとめて配線の単純なパブリッシュ/サブスクライブ モデルを提供する軽量な HTTP パターンです。 サービスで、イベントが発生したときに通知が登録されているサブスクライバーに HTTP POST 要求の形式で送信されます。 POST 要求には、それに従って動作する受信者を表すことができます、イベントに関する情報が含まれています。
+Webhook は、Web API と SaaS サービスをまとめて配線の単純なパブリッシュ/サブスクライブ モデルを提供する軽量な HTTP パターンです。 サービスで、イベントが発生したときに通知が登録されているサブスクライバーに HTTP POST 要求の形式で送信されます。 POST 要求には、それに従って動作する受信者を表すことができます、イベントに関する情報が含まれています。
 
 Webhook は、Dropbox、GitHub、Instagram、MailChimp、PayPal、Slack、Trello、およびその他を含むサービスの数が多いによって公開されます。 たとえば、WebHook では、こと、ファイルが Dropbox では、変更または GitHub でコード変更がコミットされた、PayPal の支払いが開始されたまたは Trello カードが作成されてを指定できます。
 
