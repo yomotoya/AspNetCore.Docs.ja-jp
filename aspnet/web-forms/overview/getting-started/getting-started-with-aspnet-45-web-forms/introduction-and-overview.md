@@ -186,7 +186,7 @@ Visual Studio のバージョンがインストールされている、既にあ
 
 ### <a name="tutorial-support-and-comments"></a>チュートリアルのサポートとコメント
 
-付属の Q &AMP; A セクションを使用して、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)質問またはコメントのサンプル (C#)。
+付属の Q &AMP; A セクションを使用して、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)質問またはコメントのサンプル (c#)。
 
 このチュートリアル シリーズのコメントは、[ようこそ]、およびあらゆる努力をアカウントの修正または提案のチュートリアルのコメントに用意されている改善点を考慮できるようにこのチュートリアル シリーズが更新されたときにします。
 
