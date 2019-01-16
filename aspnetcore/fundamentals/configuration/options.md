@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリの関連のある設定のグループを表すオプション パターンを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 12/29/2018
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 0e3784de18be16e3217a015dd94f1b43b6621c1c
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 20365a078327d76693a40fa79a4a594e29e0901c
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577891"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099248"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core のオプション パターン
 
@@ -217,7 +217,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 サンプル アプリの例 &num;6 は、<xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> による名前付きオプションのサポートです。
 
-*名前付きオプション*をサポートすることで、アプリでは名前付きオプション構成が区別されます。 同じサンプル アプリで、名前付きオプションが <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*> を使用して宣言されます。 `Configure` は、拡張メソッド <xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*> を呼び出します。
+*名前付きオプション*をサポートすることで、アプリでは名前付きオプション構成が区別されます。 サンプル アプリでは、名前付きオプションは [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*) で宣言されます。これは、[ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) 拡張メソッドを呼び出します。
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: フォームで使用される組み込みのタグ ヘルパーについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 1/11/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 7319fbbfe3e78e61526f9042b2b6004a351c2186
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: cd15c641fbf702071bd57510a1d51737f6ab8e19
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234619"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099014"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
 
@@ -108,7 +108,7 @@ Type expected
 |---|---|
 |Bool|type="checkbox"|
 |String|type="text"|
-|DateTime|type="datetime"|
+|DateTime|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Byte|type="number"|
 |Int|type="number"|
 |Single、Double|type="number"|
@@ -401,7 +401,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * HTML ヘルパーの代替の `Html.DropDownListFor` と `Html.ListBoxFor` があります
 
-`Select Tag Helper` `asp-for` は [select](https://www.w3.org/wiki/HTML/Elements/select) 要素のモデル プロパティ名を指定し、`asp-items` は [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を指定します。  例:
+`Select Tag Helper` `asp-for` は [select](https://www.w3.org/wiki/HTML/Elements/select) 要素のモデル プロパティ名を指定し、`asp-items` は [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を指定します。  次に例を示します。
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 

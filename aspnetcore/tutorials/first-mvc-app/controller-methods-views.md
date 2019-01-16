@@ -5,18 +5,18 @@ description: ASP.NET Core でコントローラー メソッド、ビュー、Da
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: e6bdaec6dfe681582a54bd39ce1c76bebe6f5fb2
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997254"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249413"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>ASP.NET Core のコントローラーのメソッドとビュー
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ムービー アプリは上々の滑り出しでしたが、表示が理想的ではありません。 時刻の表示が好ましくありませんし (下の画像の 12:00:00 AM)、**ReleaseDate** は 2 つの単語にするべきです。
+ムービー アプリは上々の滑り出しでしたが、表示が理想的ではありません。たとえば、**ReleaseDate** は 2 語でなければなりません。
 
 ![インデックス ビュー:Release Date が 1 語 (スペースなし) で、ムービーの公開日がすべて午前 12 時になっています](working-with-sql/_static/m55.png)
 

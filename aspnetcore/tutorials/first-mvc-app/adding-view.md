@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core MVC アプリにビューを追加する
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 5267e5a49bb6ecdd4cef671989f111eae7a64ec4
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381817"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249452"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのビューの追加
 
@@ -24,7 +24,7 @@ ms.locfileid: "53381817"
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-上のコードは `View` オブジェクトを返します。 ビュー テンプレートを使用して、ブラウザーへの HTML 応答を生成します。 上記の `Index` メソッドなどのコントローラー メソッド (アクション メソッドともいう) は、一般に、string などの型ではなく、[IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (または `ActionResult` から派生したクラス) を返します。
+上のコードでは、コントローラーの <xref:Microsoft.AspNetCore.Mvc.Controller.View*> メソッドを呼び出します。 ビュー テンプレートを使用して、HTML 応答を生成します。 上記の `Index` メソッドなどのコントローラー メソッド (*アクション メソッド*ともいう) は、一般に、`string` などの型ではなく、<xref:Microsoft.AspNetCore.Mvc.IActionResult> (または <xref:Microsoft.AspNetCore.Mvc.ActionResult> から派生したクラス) を返します。
 
 ## <a name="add-a-view"></a>ビューを追加する
 
@@ -86,9 +86,9 @@ ms.locfileid: "53381817"
 
 [[レイアウト]](xref:mvc/views/layout) テンプレートでは、1 か所でサイトの HTML コンテナー レイアウトを指定し、それをサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` は、作成したビュー固有のページがすべて表示されるプレースホルダーで、レイアウト ページに*ラップ*されます。 たとえば、**[プライバシー]** リンクを選択した場合、`RenderBody` メソッド内で **Views/Home/Privacy.cshtml** ビューがレンダリングされます。
 
-## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>レイアウト ファイルでのタイトルおよびメニュー リンクの変更
+## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>レイアウト ファイルでのタイトル、フッター、およびメニュー リンクの変更
 
-* タイトル要素で、`MvcMovie` を `Movie App` に変更します。
+* タイトル要素とフッター要素で、`MvcMovie` を `Movie App` に変更します。
 * アンカー要素を `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` に `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>` 変更します。
 
 次のマークアップには、強調表示された変更点が示されています。

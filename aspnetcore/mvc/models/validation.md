@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC でのモデルの検証について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/04/2019
 uid: mvc/models/validation
-ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: f3a34972006b5fdee307c9a8d9989b2cc1e36893
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225461"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099384"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -44,23 +44,23 @@ public string MyProperty { get; set; }
 
 モデルに目を通すだけでこのアプリのデータについてのルールがわかり、コードの保守が簡単になります。 いくつかの一般的な組み込み検証属性を次に示します。
 
-* `[CreditCard]`: プロパティがクレジット カード形式であることを検証します。
+* `[CreditCard]`:プロパティがクレジット カード形式であることを検証します。
 
-* `[Compare]`: モデルの 2 つのプロパティが一致することを検証します。
+* `[Compare]`:モデルの 2 つのプロパティが一致することを検証します。
 
-* `[EmailAddress]`: プロパティが電子メール形式であることを検証します。
+* `[EmailAddress]`:プロパティが電子メール形式であることを検証します。
 
-* `[Phone]`: プロパティが電話番号形式であることを検証します。
+* `[Phone]`:プロパティが電話番号形式であることを検証します。
 
-* `[Range]`: プロパティの値が特定の範囲内であることを検証します。
+* `[Range]`:プロパティの値が特定の範囲内であることを検証します。
 
-* `[RegularExpression]`: データが指定した正規表現と一致することを検証します。
+* `[RegularExpression]`:データが指定した正規表現と一致することを検証します。
 
-* `[Required]`: プロパティを必須にします。
+* `[Required]`:プロパティを必須にします。
 
-* `[StringLength]`: 文字列プロパティが指定した最大長以下であることを検証します。
+* `[StringLength]`:文字列プロパティが指定した最大長以下であることを検証します。
 
-* `[Url]`: プロパティが URL 形式であることを検証します。
+* `[Url]`:プロパティが URL 形式であることを検証します。
 
 MVC は、検証のために `ValidationAttribute` から派生した任意の属性をサポートします。 [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) 名前空間には多くの便利な検証属性が含まれています。
 
@@ -84,7 +84,7 @@ MVC モデル バインドは、検証および検証属性には関わりがあ
 
 MVC は、エラー数の最大数 (既定値は 200) に達するまで、フィールドの検証を続けます。 この数は、`Startup.ConfigureServices` の次のコードを使用して構成します。
 
-[!code-csharp[](validation/sample/Startup.cs?range=27)]
+[!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors)]
 
 ## <a name="handle-model-state-errors"></a>モデルの状態エラーの処理
 

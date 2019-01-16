@@ -5,14 +5,14 @@ description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys 
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/03/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: a779fee53109d4c1cabb2005896e757f23467540
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 46538d256ae2c5f3b7e6c725fa8f29092759f69f
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637626"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098855"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -21,7 +21,7 @@ ms.locfileid: "53637626"
 [HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) は、Windows 上でのみ動作する [ASP.NET Core 用 Web サーバー](xref:fundamentals/servers/index)です。 HTTP.sys は [Kestrel](xref:fundamentals/servers/kestrel) サーバーの代替製品であり、Kestrel では提供されていない機能がいくつか用意されています。
 
 > [!IMPORTANT]
-> HTTP.sys は [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)と互換性がなく、IIS または IIS Express と共に使用することはできません。
+> HTTP.sys は [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)と互換性がなく、IIS や IIS Express で使用することはできません。
 
 HTTP.sys は、次の機能をサポートします。
 
@@ -134,62 +134,133 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
 ### <a name="configure-windows-server"></a>Windows Server を構成する
 
+1. アプリに対して開くポートを決めたら、Windows ファイアウォールか [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906)を使用して、トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 Azure VM に展開する場合は、[ネットワーク セキュリティ グループ](/azure/virtual-network/security-overview)内でポートを開きます。 次のコマンドとアプリの構成では、ポート 443 を使用します。
+
+1. 必要に応じて、X.509 証明書を取得してインストールします。
+
+   Windows の場合は、[New-SelfSignedCertificate PowerShell コマンドレット](/powershell/module/pkiclient/new-selfsignedcertificate)を使用して自己署名証明書を作成します。 サポート対象外の例については、[UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1) を参照してください。
+
+   自己署名証明書か CA 署名証明書のいずれかをサーバーの **Local Machine** > **Personal** ストアにインストールします。
+
 1. アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)である場合は、.NET Core、.NET Framework、またはその両方 (アプリが .NET Framework をターゲットとする .NET Core アプリである場合) をインストールします。
 
-   * **.NET Core** &ndash; アプリが .NET Core を必要とする場合は、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)から .NET Core インストーラーを取得して実行します。
-   * **.NET Framework** &ndash; アプリで .NET Framework が必要な場合は、インストール手順について、.NET Framework の「[インストール ガイド](/dotnet/framework/install/)」を参照してください。 必要な .NET Framework をインストールします。 最新の .NET Framework のインストーラーは、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)にあります。
+   * **.NET Core** &ndash; アプリで .NET Core が必要な場合は、[.NET Core のダウンロード](https://dotnet.microsoft.com/download) ページから **.NET Core Runtime** インストーラーを取得して実行します。 サーバーに SDK 全体をインストールしないでください。
+   * **.NET Framework** &ndash; アプリで .NET Framework が必要な場合は、[.NET Framework のインストール ガイド](/dotnet/framework/install/)を参照してください。 必要な .NET Framework をインストールします。 最新の .NET Framework のインストーラーは [.NET Core のダウンロード](https://dotnet.microsoft.com/download) ページから入手できます。
 
-2. アプリ用の URL とポートを構成します。
+   アプリが[自己完結型の展開](/dotnet/core/deploying/#framework-dependent-deployments-scd)の場合、アプリの展開内にランタイムが含まれています。 サーバーにフレームワークをインストールする必要はありません。
 
-   既定では、ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、次のオプションが使用できます。
+1. アプリに URL とポートを構成します。
+
+   既定では、ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、次のオプションがあります。
 
    * [UseUrls](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useurls)
    * `urls` コマンド ライン引数
    * `ASPNETCORE_URLS` 環境変数
    * [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes)
 
-   [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes) を使用する方法を、次のコード例に示します。
+   次のコード例は、[UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes) でサーバーのローカル IP アドレス `10.0.0.4` とポート 443 を使用する方法を示しています。
 
-   [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=11)]
+   [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=11)]
 
    `UrlPrefixes` の利点は、プレフィックスの形式が正しくなかった場合、すぐにエラー メッセージが生成されることです。
 
-   `UrlPrefixes` の設定は `UseUrls`/`urls`/`ASPNETCORE_URLS` の設定をオーバーライドします。 したがって、`UseUrls`、`urls`、および `ASPNETCORE_URLS` 環境変数の利点は、Kestrel と HTTP.sys を簡単に切り替えられることです。 `UseUrls`、`urls`、`ASPNETCORE_URLS` について詳しくは、「[ASP.NET Core でのホスティング](xref:fundamentals/host/index)」をご覧ください。
+   `UrlPrefixes` の設定は `UseUrls`/`urls`/`ASPNETCORE_URLS` の設定をオーバーライドします。 したがって、`UseUrls`、`urls`、および `ASPNETCORE_URLS` 環境変数の利点は、Kestrel と HTTP.sys を簡単に切り替えられることです。 詳細については、「<xref:fundamentals/host/web-host>」を参照してください。
 
    HTTP.sys では、[HTTP サーバー API の UrlPrefix 文字列形式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)が使用されます。
 
    > [!WARNING]
-   > 最上位のワイルドカードのバインド ( `http://*:80/` と `http://+:80` ) は使用しては **いけません** 。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
+   > 最上位のワイルドカードのバインド ( `http://*:80/` と `http://+:80` ) は使用しては **いけません** 。 最上位のワイルドカードのバインドを使用すると、アプリにセキュリティの脆弱性が生じます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名か IP アドレスを使用してください。 親ドメイン全体を制御する場合、サブドメインのワイルドカードのバインド (たとえば、`*.mysub.com`) がセキュリティ リスクになることはありません (脆弱である `*.com` とは対照的)。 詳細については、[RFC 7230:セクション 5.4:ホスト](https://tools.ietf.org/html/rfc7230#section-5.4)に関するページを参照してください。
 
-3. HTTP.sys にバインドする URL プレフィックスを事前登録し、x.509 証明書を設定します。
+1. サーバーで URL プレフィックスを事前登録します。
 
-   URL プレフィックスが Windows に事前登録されていない場合は、管理者特権でアプリを実行します。 唯一の例外は、(HTTPS ではなく) HTTPを使用して、1024 より大きいポート番号で、localhost にバインドする場合です。 この場合、管理者特権は必要ありません。
+   HTTP.sys を構成するための組み込みツールは、*netsh.exe* です。 *netsh.exe* を使用して、URL プレフィックスを予約し、X.509 証明書を割り当てることができます。 ツールを使用するには管理者特権が必要です。
 
-   1. HTTP.sys を構成するための組み込みツールは、*netsh.exe* です。 *netsh.exe* を使用して、URL プレフィックスを予約し、X.509 証明書を割り当てることができます。 ツールを使用するには管理者特権が必要です。
+   *netsh.exe* ツールを使用して、アプリ用に URL を登録します。
 
-      ポート 80 と 443 の URL プレフィックスを予約するためのコマンドを、次の例に示します。
+   ```console
+   netsh http add urlacl url=<URL> user=<USER>
+   ```
 
-      ```console
-      netsh http add urlacl url=http://+:80/ user=Users
-      netsh http add urlacl url=https://+:443/ user=Users
-      ```
+   * `<URL>` &ndash; 完全修飾 URL (Uniform Resource Locator)。 ワイルドカードのバインドは使用しないでください。 有効なホスト名かローカル IP アドレスを使用してください。 "*URL の末尾にはスラッシュが必要です。*"
+   * `<USER>` &ndash; ユーザーまたはユーザー グループの名前を指定します。
 
-      次の例は、X.509 証明書を割り当てる方法を示しています。
+   次の例では、サーバーのローカル IP アドレスは `10.0.0.4` です。
 
-      ```console
-      netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000000-0000-0000-0000-000000000000}"
-      ```
+   ```console
+   netsh http add urlacl url=https://10.0.0.4:443/ user=Users
+   ```
 
-      以下は、*netsh.exe* のリファレンス ドキュメントです。
+   URL が登録されると、ツールから `URL reservation successfully added` という応答があります。
 
-      * [Netsh Commands for Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx) (ハイパーテキスト転送プロトコル (HTTP) 用の Netsh コマンド)
-      * [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx) (UrlPrefix 文字列)
+   登録済みの URL を削除するには、`delete urlacl` コマンドを使用します。
 
-   2. 必要な場合は、自己署名 X.509 証明書を作成します。
+   ```console
+   netsh http delete urlacl url=<URL>
+   ```
 
-      [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
+1. サーバーで X.509 証明書を登録します。
 
-4. トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 *netsh.exe* または [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906) を使用します。
+   *netsh.exe* ツールを使用して、アプリ用の証明書を登録します。
+
+   ```console
+   netsh http add sslcert ipport=<IP>:<PORT> certhash=<THUMBPRINT> appid="{<GUID>}"
+   ```
+
+   * `<IP>` &ndash; バインド用のローカル IP アドレスを指定します。 ワイルドカードのバインドは使用しないでください。 有効な IP アドレスを使用してください。
+   * `<PORT>` &ndash; バインド用のポートを指定します。
+   * `<THUMBPRINT>` &ndash; X.509 証明書の拇印です。
+   * `<GUID>` &ndash; 情報提供を目的として開発者によって生成された、アプリを表す GUID です。
+
+   参照用に、この GUID をパッケージ タグとしてアプリに格納します。
+
+   * Visual Studio:
+     * **ソリューション エクスプローラー**内でアプリを右クリックし、**[プロパティ]** をクリックして、アプリのプロジェクト プロパティを開きます。
+     * **[パッケージ]** タブを選択します。
+     * 作成した GUID を **[タグ]** フィールドに入力します。
+   * Visual Studio を使用しない場合:
+     * アプリのプロジェクト ファイルを開きます。
+     * 作成した GUID を指定した `<PackageTags>` プロパティを、新規または既存の `<PropertyGroup>` に追加します。
+
+       ```xml
+       <PropertyGroup>
+         <PackageTags>9412ee86-c21b-4eb8-bd89-f650fbf44931</PackageTags>
+       </PropertyGroup>
+       ```
+
+   次に例を示します。
+
+   * サーバーのローカル IP アドレスは `10.0.0.4` です。
+   * オンラインのランダム GUID ジェネレーターによって、`appid` の値が提供されます。
+
+   ```console
+   netsh http add sslcert 
+       ipport=10.0.0.4:443 
+       certhash=b66ee04419d4ee37464ab8785ff02449980eae10 
+       appid="{9412ee86-c21b-4eb8-bd89-f650fbf44931}"
+   ```
+
+   証明書が登録されると、ツールから `SSL Certificate successfully added` という応答があります。
+
+   証明書の登録を削除するには、`delete sslcert` コマンドを使用します。
+
+   ```console
+   netsh http delete sslcert ipport=<IP>:<PORT>
+   ```
+
+   以下は、*netsh.exe* のリファレンス ドキュメントです。
+
+   * [Netsh Commands for Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx) (ハイパーテキスト転送プロトコル (HTTP) 用の Netsh コマンド)
+   * [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx) (UrlPrefix 文字列)
+
+1. アプリを実行します。
+
+   1024 より大きいポート番号で (HTTPS ではなく) HTTP を使用して localhost にバインドする場合、アプリの実行に管理者権限は必要ありません。 その他の構成の場合 (たとえば、ローカル IP アドレスを使用する場合やポート 443 にバインドする場合)、管理者権限でアプリを実行します。
+
+   サーバーのパブリック IP アドレスでアプリが応答します。 この例では、サーバーは自身のパブリック IP アドレス `104.214.79.47` でインターネットからアクセスされます。
+
+   この例では開発証明書が使用されています。 証明書が信頼できないというブラウザーの警告がバイパスされた後に、ページが安全に読み込まれます。
+
+   ![読み込まれたアプリのインデックス ページを表示するブラウザー ウィンドウ](httpsys/_static/browser.png)
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
 
@@ -197,6 +268,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* [HTTP.sys を使用して Windows 認証を有効にする](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [aspnet/HttpSysServer GitHub リポジトリ (ソース コード)](https://github.com/aspnet/HttpSysServer/)
 * <xref:fundamentals/host/index>

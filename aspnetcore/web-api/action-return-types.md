@@ -4,14 +4,14 @@ author: scottaddie
 description: ASP.NET Core Web API でのさまざまなコントローラー アクション メソッドの戻り値の型の使用について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 01/04/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 98d70e0379d353cff98a6d7a13f2dd00eb4da206
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207525"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098741"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API のコントローラー アクションの戻り値の型
 
@@ -68,13 +68,18 @@ ASP.NET Core では、Web API コントローラー アクションの戻り値�
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-前のアクションでは、モデルの検証に失敗し、[BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) ヘルパー メソッドが呼び出されるときに、400 状態コードが返されます。 たとえば、次のモデルでは、要求で `Name` プロパティと値を提供する必要があることを示しています。 そのため、要求で適切な `Name` を提供するのに失敗すると、モデルの検証が失敗します。
+上のコードでは以下の操作が行われます。
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
+* 製品の説明に "XYZ Widget" が含まれている場合、ASP.NET Core ランタイムによって 400 状態コード ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) が返されます。
+* 製品が作成されると、[CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) メソッドによって 201 状態コードが生成されます。 このコード パスでは、`Product` オブジェクトが返されます。
 
-前のアクションのその他の既知のリターン コードは、[CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction) ヘルパー メソッドで生成される 201 です。 このパスでは、`Product` オブジェクトが返されます。
+たとえば、次のモデルでは、要求に `Name` プロパティと `Description` プロパティを含める必要があることを示しています。 そのため、要求で `Name` と `Description` を提供するのに失敗すると、モデルの検証が失敗します。
+
+[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 以降の [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性が適用されている場合、モデルの検証エラーによって 400 状態コードが返されます。 詳細については、「[自動的な HTTP 400 応答](xref:web-api/index#automatic-http-400-responses)」を参照してください。
 
 ## <a name="actionresultt-type"></a>ActionResult\<T> 型
 
@@ -114,7 +119,12 @@ public ActionResult<IEnumerable<Product>> Get()
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-モデルの検証に失敗すると、[BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest#Microsoft_AspNetCore_Mvc_ControllerBase_BadRequest_Microsoft_AspNetCore_Mvc_ModelBinding_ModelStateDictionary_) メソッドが呼び出され、400 状態コードが返されます。 特定の検証エラーを含む [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) プロパティが渡されます。 モデルの検証に成功すると、データベースに製品が作成されます。 201 状態コードが返されます。
+上のコードでは以下の操作が行われます。
+
+* 次の場合に ASP.NET Core ランタイムによって 400 状態コード ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) 返されます。
+  * [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性が適用されていて、モデルの検証が失敗する。
+  * 製品の説明に "XYZ Widget" が含まれている。
+* 製品が作成されると、[CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) メソッドによって 201 状態コードが生成されます。 このコード パスでは、`Product` オブジェクトが返されます。
 
 > [!TIP]
 > ASP.NET Core 2.1 以降では、コントローラー クラスが `[ApiController]` 属性で修飾されていると、アクション パラメーター バインディング ソースの推論が有効になります。 複合型パラメーターは、要求本文を使用して自動的にバインドされます。 したがって、前のアクションの `product` パラメーターは、[[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) 属性を使用して明示的に注釈付けされません。

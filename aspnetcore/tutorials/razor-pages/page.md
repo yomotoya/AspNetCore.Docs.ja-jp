@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: acfc446732803c67714943fe3e5b7a31055ebcd7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 2b68523ac84596bda2914d9c348ddea8c7ea9465
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862006"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207383"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core でスキャフォールディングされた Razor ページ
 
@@ -57,6 +57,12 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 `@model` ディレクティブは、Razor ページに渡されるモデルの型を指定します。 前の例の `@model` 行は、Razor ページで `PageModel` 派生クラスを使用できるようにします。 モデルは、ページの `@Html.DisplayNameFor` および `@Html.DisplayFor` [HTML ヘルパーで](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers)使用されます。
+
+### <a name="the-layout-page"></a>レイアウト ページ
+
+メニューのリンク (**[RazorPagesMovie]**、**[ホーム]**、**[プライバシー]**) を選択します。 各ページには同じメニューのレイアウトが表示されます。 メニューのレイアウトは、*Pages/Shared/_Layout.cshtml* ファイルに実装されています。 *Pages/Shared/_Layout.cshtml* ファイルを開きます。
+
+[[レイアウト]](xref:mvc/views/layout) テンプレートでは、1 か所でサイトの HTML コンテナー レイアウトを指定し、それをサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` は、作成したページ固有のビューがすべて表示されるプレースホルダーで、レイアウト ページに*ラップ*されます。 たとえば、**[プライバシー]** リンクを選択した場合、`RenderBody` メソッド内で **Pages/Privacy.cshtml** ビューがレンダリングされます。
 
 <a name="vd"></a>
 ### <a name="viewdata-and-layout"></a>ViewData とレイアウト
@@ -168,5 +174,5 @@ Visual Studio for Mac に、タグ ヘルパーで使用される独特な太字
 [入力タグ ヘルパー](xref:mvc/views/working-with-forms) (`<input asp-for="Movie.Title" class="form-control" />`) は [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 属性を使用し、クライアント側で jQuery 検証に必要な HTML 属性を生成します。
 
 > [!div class="step-by-step"]
-> [前: モデルの追加](xref:tutorials/razor-pages/model)
-> [次: データベース](xref:tutorials/razor-pages/sql)
+> [前へ:モデルの追加](xref:tutorials/razor-pages/model)
+> [次:データ ベース](xref:tutorials/razor-pages/sql)

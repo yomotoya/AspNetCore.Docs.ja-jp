@@ -5,12 +5,12 @@ description: このチュートリアルでは、.NET Core CLI のファイル �
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: fc08efa433f688a0b9009aed35fdee2b0c228619
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: f1e0d91b27df4af7cbfb6f2547c94c0370c65d0d
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063300"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207503"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>ファイル ウォッチャーを使用した ASP.NET Core アプリの開発
 
@@ -20,7 +20,7 @@ ms.locfileid: "39063300"
 
 このチュートリアルでは、エンドポイントが 2 つの既存の Web API を利用します。合計を返すエンドポイントと積を返すエンドポイントです。 積のメソッドにはバグがあり、このチュートリアルで修正します。
 
-[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample)をダウンロードしてください。 これは、*WebApp* (ASP.NET Core Web API) と *WebAppTests* (Web API の単体テスト) という 2 つのプロジェクトで構成されます。
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample)をダウンロードしてください。 これには次の 2 つのプロジェクトが含まれています。*WebApp* (ASP.NET Core Web API) および *WebAppTests* (Web API の単体テスト)。
 
 コマンド シェルで、*WebApp* フォルダーに移動します。 次のコマンドを実行します。
 
@@ -66,7 +66,7 @@ Web ブラウザーで、`http://localhost:<port number>/api/math/sum?a=4&b=5` �
 
 ## <a name="run-net-core-cli-commands-using-dotnet-watch"></a>`dotnet watch` を使用した .NET Core CLI コマンドの実行
 
-[.NET Core CLI コマンド](/dotnet/core/tools#cli-commands) はいずれも、`dotnet watch` との組み合わせで実行することができます。 例:
+[.NET Core CLI コマンド](/dotnet/core/tools#cli-commands) はいずれも、`dotnet watch` との組み合わせで実行することができます。 次に例を示します。
 
 | コマンド | コマンドと watch |
 | ---- | ----- |
@@ -179,4 +179,4 @@ VSTest は、いずれかのテスト プロジェクトでファイルが変更
 
 ## <a name="dotnet-watch-in-github"></a>GitHub での `dotnet-watch`
 
-`dotnet-watch` は GitHub [DotNetTools リポジトリ](https://github.com/aspnet/DotNetTools/tree/master/src/dotnet-watch)に含まれます。
+`dotnet-watch` は GitHub の [aspnet/AspNetCore リポジトリ](https://github.com/aspnet/AspNetCore/tree/master/src/Tools/dotnet-watch)に含まれています。
