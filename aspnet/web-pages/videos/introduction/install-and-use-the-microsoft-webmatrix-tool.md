@@ -15,14 +15,14 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41827389"
 ---
-<a name="install-and-use-the-microsoft-webmatrix-tool"></a><span data-ttu-id="a5d45-103">インストールして、Microsoft WebMatrix ツールを使用します。</span><span class="sxs-lookup"><span data-stu-id="a5d45-103">Install and Use the Microsoft WebMatrix Tool</span></span>
+<a name="install-and-use-the-microsoft-webmatrix-tool"></a><span data-ttu-id="5dbd1-103">インストールして、Microsoft WebMatrix ツールを使用します。</span><span class="sxs-lookup"><span data-stu-id="5dbd1-103">Install and Use the Microsoft WebMatrix Tool</span></span>
 ====================
-<span data-ttu-id="a5d45-104">によって[Advaiya](https://twitter.com/Advaiyasolns)</span><span class="sxs-lookup"><span data-stu-id="a5d45-104">by [Advaiya](https://twitter.com/Advaiyasolns)</span></span>
+<span data-ttu-id="5dbd1-104">によって[Advaiya](https://twitter.com/Advaiyasolns)</span><span class="sxs-lookup"><span data-stu-id="5dbd1-104">by [Advaiya](https://twitter.com/Advaiyasolns)</span></span>
 
 > [!NOTE] 
-> <span data-ttu-id="a5d45-105">WebMatrix は推奨されなくの統合開発環境として ASP.NET Web Pages の。</span><span class="sxs-lookup"><span data-stu-id="a5d45-105">WebMatrix is no longer recommended as an integrated development environment for ASP.NET Web Pages.</span></span> <span data-ttu-id="a5d45-106">使用[Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)します。</span><span class="sxs-lookup"><span data-stu-id="a5d45-106">Use [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) or [Visual Studio Code](https://code.visualstudio.com/).</span></span>
+> <span data-ttu-id="5dbd1-105">WebMatrix はASP.NET Webページの統合開発環境としては推奨されなくなりました。</span><span class="sxs-lookup"><span data-stu-id="5dbd1-105">WebMatrix is no longer recommended as an integrated development environment for ASP.NET Web Pages.</span></span> <span data-ttu-id="5dbd1-106">[Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio)または[Visual Studio Code](https://code.visualstudio.com/)を使用してください。</span><span class="sxs-lookup"><span data-stu-id="5dbd1-106">Use [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) or [Visual Studio Code](https://code.visualstudio.com/).</span></span>
 
 
-<span data-ttu-id="a5d45-107">第 1 部では、WebMatrix とインストールして、それを使用する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="a5d45-107">Part 1 introduces you to WebMatrix and how you can install and use it.</span></span>
+<span data-ttu-id="5dbd1-107">第 1 部では、WebMatrix とインストールして、それを使用する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="5dbd1-107">Part 1 introduces you to WebMatrix and how you can install and use it.</span></span>
 
-[<span data-ttu-id="a5d45-108">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="a5d45-108">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/install-and-use-the-microsoft-webmatrix-tool)
+[<span data-ttu-id="5dbd1-108">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="5dbd1-108">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/install-and-use-the-microsoft-webmatrix-tool)
