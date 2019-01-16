@@ -1,28 +1,25 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: Entity Framework 6 Code First MVC 5 の使用の概要 |Microsoft Docs
+title: 'チュートリアル: Entity Framework 6 Code First MVC 5 の使用の概要 |Microsoft Docs'
+description: このチュートリアル シリーズでは、データ アクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。
 author: tdykstra
 ms.author: riande
-ms.date: 12/04/2018
+ms.date: 01/10/2019
+ms.topic: tutorial
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 5d524c981af2d9d8f44254c61631937e6f049cdb
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861434"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341707"
 ---
-# <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Entity Framework 6 Code First MVC 5 の使用の概要します。
-
-によって[Tom Dykstra](https://github.com/tdykstra)
-
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+# <a name="tutorial-get-started-with-entity-framework-6-code-first-using-mvc-5"></a>チュートリアル: Entity Framework 6 Code First MVC 5 の使用の概要します。
 
 > [!NOTE]
-> 新しい開発の場合はお勧めします[ASP.NET Core Razor ページ](/aspnet/core/razor-pages)ASP.NET MVC コント ローラーとビューを経由します。 このようなチュートリアルのシリーズは、Razor ページの使用可能な[Razor ページのチュートリアル](/aspnet/core/tutorials/razor-pages/razor-pages-start):
->
+> 新しい開発の場合はお勧めします[ASP.NET Core Razor ページ](/aspnet/core/razor-pages)ASP.NET MVC コント ローラーとビューを経由します。 このようなチュートリアルのシリーズの Razor ページを使用して、参照してください[チュートリアル。ASP.NET Core で Razor ページの概要](/aspnet/core/tutorials/razor-pages/razor-pages-start)します。 新しいチュートリアル:
 > * 理解しやすい。
 > * より多くの EF Core のベスト プラクティスが提供されている。
 > * より効率的なクエリを使用している。
@@ -30,59 +27,45 @@ ms.locfileid: "52861434"
 > * 多くの機能をカバーしている。
 > * 新しいアプリケーションの開発で推奨されるアプローチである。
 
-> この記事では、Entity Framework 6 と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 このチュートリアルでは、Code First ワークフローを使用します。 Code First、Database First または Model First を選択する方法については、次を参照してください。[モデルを作成する](/ef/ef6/modeling/)します。
->
-> サンプル アプリケーションは、Contoso University という名前の架空の大学の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。 このチュートリアル シリーズでは、Contoso University のサンプル アプリケーションを構築する方法について説明します。 できます[、完成したアプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)します。
->
-> Mike Brind によって変換された Visual Basic バージョンを利用できます: [Visual Basic での EF 6 と MVC 5](http://www.mikesdotnetting.com/Article/241/MVC-5-with-EF-6-in-Visual-Basic-Creating-an-Entity-Framework-Data-Model) Mikesdotnetting サイト。
->
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
->
-> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
-> - [Entity Framework 6](https://www.nuget.org/packages/EntityFramework)
-> - [Windows Azure SDK 2.2](https://go.microsoft.com/fwlink/p/?linkid=323510) (省略可能)
->
-> ## <a name="tutorial-versions"></a>チュートリアルのバージョン
->
-> このチュートリアルの以前のバージョンを参照してください。 [EF 4.1/MVC 3 の電子書籍](https://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#GettingStartedwiththeEntityFramework4.1usingASP.NETMVC)と[MVC 4 を使用して EF 5 の概要](../../older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
->
-> ## <a name="questions-and-comments"></a>意見やご質問
->
-> このチュートリアルと何が立った方法でフィードバックを送信してください、ページの下部にコメントを使用して改善できました。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)または[StackOverflow.com](http://stackoverflow.com/)します。
->
-> 解決できない問題が発生した場合は、ダウンロードできる完成したプロジェクトにコードを比較することで、問題を解決する一般的に検索できます。 一般的なエラーとその解決方法は、次を参照してください。[の一般的なエラーと解決方法または回避策](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)します。
+このチュートリアル シリーズでは、データ アクセスに Entity Framework 6 を使用する ASP.NET MVC 5 アプリケーションを構築する方法について説明します。 このチュートリアルでは、Code First ワークフローを使用します。 Code First、Database First または Model First を選択する方法については、次を参照してください。[モデルを作成する](/ef/ef6/modeling/)します。
 
-## <a name="the-contoso-university-web-app"></a>Contoso University Web アプリ
-
-これらのチュートリアルを組み込むアプリケーションは、簡単な大学向け web サイトです。 ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 ここでは、いくつかの画面を作成します。
+このチュートリアル シリーズでは、Contoso University のサンプル アプリケーションを構築する方法について説明します。 サンプル アプリケーションは、簡単な大学向け web サイトです。 それには表示して学生、コース、およびインストラクターの情報を更新します。 作成する画面の 2 つを次に示します。
 
 ![Students_Index_page](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
 ![学生を編集します。](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image2.png)
 
-このチュートリアルは Entity Framework を使用する方法に重点を置いて、ように組み込みテンプレートによって生成されたものから多くの web サイトのユーザー インターフェイスは変更されません。
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * MVC web アプリを作成します。
+> * サイトのスタイルを設定する
+> * Entity Framework 6 をインストールします。
+> * データ モデルを作成する
+> * データベース コンテキストの作成
+> * テスト データで DB を初期化します。
+> * LocalDB を使用するよう EF 6 に設定します。
+> * コント ローラーとビューを作成します。
+> * データベースを表示します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-参照してください**ソフトウェア バージョン**ページの上部にあります。 Entity Framework 6 は、このチュートリアルの一部として、EF の NuGet パッケージをインストールするための前提条件ではありません。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 
 ## <a name="create-an-mvc-web-app"></a>MVC web アプリを作成します。
 
-1. Visual Studio を開き、新しい c# web プロジェクトを作成、 **ASP.NET Web アプリケーション (.NET Framework)** テンプレート。 "ContosoUniversity"プロジェクトの名前を付けます。
+1. Visual Studio を開き、作成、 C# web プロジェクトを使用して、 **ASP.NET Web アプリケーション (.NET Framework)** テンプレート。 プロジェクトに名前を*ContosoUniversity*選択**OK**。
 
    ![Visual Studio で新しいプロジェクト ダイアログ ボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/new-project-dialog.png)
 
-2. 新しい ASP.NET プロジェクト ダイアログ ボックスで、選択、 **MVC**テンプレート。
+1. **新しい ASP.NET Web アプリケーション - ContosoUniversity**、 **MVC**します。
 
    ![Visual Studio での新しい web アプリ ダイアログ ボックス](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/new-web-app-dialog.png)
 
-3. 場合**認証**に設定されていない**認証なし**、 をクリックして変更する**認証の変更**します。
+    > [!NOTE]
+    > 既定で、**認証**にオプションが設定されている**認証なし**します。 このチュートリアルでは、web アプリにサインインするユーザーを必要としません。 また、これサインインしているユーザーに基づくアクセスは制限されません。
 
-   **認証の変更**ダイアログ ボックスで、**認証なし**、選び、 **OK**します。 このチュートリアルでは、web アプリは、サインインするユーザーを必要としないもサインインしているユーザーに基づくアクセスは制限します。
-
-   ![Visual Studio での認証ダイアログ ボックスを変更します。](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/change-authentication.png)
-
-4. 新しい ASP.NET プロジェクト ダイアログ ボックスで、戻る をクリックして**OK**プロジェクトを作成します。
+1. **[OK]** をクリックして、プロジェクトを作成します。
 
 ## <a name="set-up-the-site-style"></a>サイトのスタイルを設定する
 
@@ -101,9 +84,7 @@ ms.locfileid: "52861434"
 
    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample2.cshtml)]
 
-3. キーを押して**Ctrl**+**F5** web サイトを実行します。 メイン メニューで、ホーム ページを参照してください。
-
-   ![Contoso University のホーム ページ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image6.png)
+3. Web サイトを実行するには、Ctrl + F5 キーを押します。 メイン メニューで、ホーム ページを参照してください。
 
 ## <a name="install-entity-framework-6"></a>Entity Framework 6 をインストールします。
 
@@ -115,17 +96,18 @@ ms.locfileid: "52861434"
    Install-Package EntityFramework
    ```
 
-   ![EF のインストール](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image7.png)
-
-   イメージがインストールされている 6.0.0 を示していますが、NuGet は (プレリリース版を除く)、Entity Framework の最新バージョンをインストールは、チュートリアルの最新の更新の時点では 6.2.0。
-
 この手順は、このチュートリアルでは、手動で行うことがいる可能性がありますが完了に自動的に ASP.NET MVC のスキャフォールディング機能によって、いくつかの手順のいずれかです。 Entity Framework (EF) を使用するために必要な手順が表示されるため、それらを手動で行ってしています。 MVC コント ローラーとビューを作成して後でスキャフォールディングを使用します。 別の方法はスキャフォールディングを自動的に EF の NuGet パッケージをインストール、データベース コンテキスト クラスを作成および接続文字列を作成します。 方法で実行する準備ができたら、行う必要があるすべてがこれらの手順をスキップし、エンティティ クラスを作成した後に、MVC コント ローラーをスキャフォールディングします。
 
 ## <a name="create-the-data-model"></a>データ モデルを作成する
 
 次に、Contoso University アプリケーションのエンティティ クラスを作成します。 次の 3 つのエンティティをから始めます。
 
-![Class_diagram](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image8.png)
+**コース** <-> **登録** <-> **学生**
+
+| エンティティ | Relationship |
+| -------- | ------------ |
+| コースの登録を | 一対多 |
+| 学生を登録する | 一対多 |
 
 `Student` エンティティと `Enrollment` エンティティの間に一対多の関係があり、`Course` エンティティと `Enrollment` エンティティの間に一対多の関係があります。 言い換えると、1 人の学生をさまざまな講座に登録し、1 つの講座にたくさんの学生を登録できます。
 
@@ -135,8 +117,6 @@ ms.locfileid: "52861434"
 > これらのエンティティ クラスのすべての作成を完了する前に、プロジェクトをコンパイルしようとすると、コンパイラ エラーが表示されます。
 
 ### <a name="the-student-entity"></a>Student エンティティ
-
-![Student_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image9.png)
 
 - *モデル*フォルダー、という名前のクラス ファイルを作成する*Student.cs*でフォルダーを右クリックして**ソリューション エクスプ ローラー**を選択して**追加**  > **クラス**します。 テンプレート コードを次のコードに置き換えます。
 
@@ -151,8 +131,6 @@ ms.locfileid: "52861434"
 ナビゲーション プロパティに複数のエンティティが含まれる場合 (多対多または一対多の関係で)、その型はリストにする必要があります。`ICollection` のように、エンティティを追加、削除、更新できるリストです。
 
 ### <a name="the-enrollment-entity"></a>Enrollment エンティティ
-
-![Enrollment_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image10.png)
 
 - *[Models]* フォルダーで、*Enrollment.cs* を作成し、既存のコードを次のコードに変更します。
 
@@ -169,8 +147,6 @@ ms.locfileid: "52861434"
 Entity Framework がという名前が場合に、外部キー プロパティとしてプロパティを解釈 *&lt;ナビゲーション プロパティの名前&gt;&lt;主キー プロパティ名&gt;* (たとえば、 `StudentID`の`Student`からナビゲーション プロパティ、`Student`エンティティの主キーが`ID`)。 外部キー プロパティできますも同じ名前に単に *&lt;主キー プロパティ名&gt;* (たとえば、`CourseID`ので、`Course`エンティティの主キーが`CourseID`)。
 
 ### <a name="the-course-entity"></a>Course エンティティ
-
-![Course_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image11.png)
 
 - *モデル*フォルダー作成*Course.cs*、テンプレート コードを次のコードに置き換えます。
 
@@ -210,7 +186,7 @@ Entity Framework がという名前が場合に、外部キー プロパティ�
 
 `modelBuilder.Conventions.Remove`内のステートメント、 [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、複数の中からテーブル名を防ぎます。 このしなかった場合、データベースで生成されたテーブルの名前は`Students`、 `Courses`、および`Enrollments`します。 代わりに、テーブル名になります`Student`、 `Course`、および`Enrollment`します。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルは、単数形を使用しますが、重要な点が含むかのコード行を省略すると、希望するどのフォームを選択することができます。
 
-## <a name="set-up-ef-to-initialize-the-database-with-test-data"></a>データベースにテスト データを初期化するために EF を設定します。
+## <a name="initialize-db-with-test-data"></a>テスト データで DB を初期化します。
 
 Entity Framework できます自動的に作成 (または削除して再作成) すると、アプリケーションの実行時のデータベース。 アプリケーションを実行するたびに、または既存のデータベースと同期されていません。 モデルの場合にのみこの行わ 必要がありますを指定できます。 記述することも、`Seed`その Entity Framework メソッドのテスト データを格納するために、データベースを作成した後。
 
@@ -235,7 +211,7 @@ Entity Framework できます自動的に作成 (または削除して再作成)
 > [!NOTE]
 > 実稼働 web サーバーにアプリケーションを展開するときに、削除するか、削除し、データベースを再作成するコードを無効にする必要があります。 このシリーズの以降のチュートリアルを実行してみましょう。
 
-## <a name="set-up-ef-to-use-a-sql-server-express-localdb-database"></a>SQL Server Express LocalDB データベースを使用するよう EF に設定します。
+## <a name="set-up-ef-6-to-use-localdb"></a>LocalDB を使用するよう EF 6 に設定します。
 
 [LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb?view=sql-server-2017)は、SQL Server Express データベース エンジンの軽量バージョンです。 簡単にインストールして構成するには、オンデマンドで開始およびユーザー モードで実行します。 LocalDB は SQL Server Express データベースとして使用することができますの特殊な実行モードで実行 *.mdf*ファイル。 LocalDB のデータベース ファイルを配置することができます、*アプリ\_データ*プロジェクトにデータベースをコピーする場合は、web プロジェクトのフォルダー。 SQL Server express ユーザー インスタンス機能では使用することもできます *.mdf*ユーザー インスタンスの機能は、ファイルが非推奨とされます。 そのため、LocalDB を使用するため推奨 *.mdf*ファイル。 LocalDB は、Visual Studio では、既定でインストールされます。
 
@@ -249,7 +225,7 @@ Entity Framework できます自動的に作成 (または削除して再作成)
 
 内の接続文字列を実際には必要はありません、 *Web.config*ファイル。 接続文字列を指定しない場合、Entity Framework には、コンテキスト クラスに基づいた既定の接続文字列が使用されます。 詳細については、次を参照してください。[新しいデータベースを Code First](/ef/ef6/modeling/code-first/workflows/new-database)します。
 
-## <a name="create-a-student-controller-and-views"></a>学生向けのコント ローラーとビューを作成します。
+## <a name="create-controller-and-views"></a>コント ローラーとビューを作成します。
 
 これでデータを表示する web ページを作成します。 データを自動的に要求するプロセスは、データベースの作成をトリガーします。 新しいコント ローラーの作成から始めます。 その前に、モデルおよびコンテキスト クラスを MVC コント ローラーのスキャフォールディングを使用できるようにプロジェクトを作成します。
 
@@ -261,11 +237,9 @@ Entity Framework できます自動的に作成 (または削除して再作成)
 3. **コント ローラーの追加**ダイアログ ボックスで、次の項目を選択し、**追加**:
 
    - モデル クラス:**学生 (ContosoUniversity.Models)** します。 (プロジェクトのビルド ドロップダウン リストでは、このオプションが表示されない場合ともう一度やり直してください。)
-   - データ コンテキスト クラス: **SchoolContext (ContosoUniversity.DAL)** します。
-   - コント ローラー名: **StudentController** (StudentsController されません)。
+   - データ コンテキスト クラス:**[Schoolcontext] (ContosoUniversity.DAL)** します。
+   - コント ローラー名:**StudentController** (StudentsController されません)。
    - その他のフィールドの既定値のままにします。
-
-     ![Visual Studio でのコント ローラーのダイアログを追加します。](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/add-controller.png)
 
      クリックすると**追加**をスキャフォールダーの作成、 *StudentController.cs*ファイルと、一連のビュー (*.cshtml*ファイル)、コント ローラーと連動します。 今後の Entity Framework を使用するプロジェクトを作成する場合は、ことができますも活用する、スキャフォールダーの追加機能の一部: 最初のモデル クラスを作成、接続文字列を作成しませんし、 **追加コントローラー**ボックス指定**新しいデータ コンテキスト**を選択して、 **+** 横に**データ コンテキスト クラス**します。 スキャフォールダーの作成、`DbContext`だけでなく、コント ローラーおよびビューのクラスとの接続文字列します。
 4. Visual Studio を開き、 *Controllers\StudentController.cs*ファイル。 クラスの変数が作成されているデータベースのコンテキスト オブジェクトをインスタンス化するを参照してください。
@@ -279,13 +253,11 @@ Entity Framework できます自動的に作成 (または削除して再作成)
      *Student\Index.cshtml*ビューは、テーブルのこの一覧を表示します。
 
      [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cshtml)]
-5. キーを押して**Ctrl**+**F5**プロジェクトを実行します。 (「シャドウ コピーを作成できません」エラーが発生する場合、ブラウザーを閉じてもう一度お試し。)
+5. Ctrl + f5 キーを押してプロジェクトを実行します。 (「シャドウ コピーを作成できません」エラーが発生する場合、ブラウザーを閉じてもう一度お試し。)
 
      をクリックして、**学生**テスト データを表示するタブを`Seed`メソッドを挿入します。 どの幅の狭いブラウザー ウィンドウが、最上位のアドレス バーに受講者 タブのリンクが表示されますかに応じてへのリンクを参照してください。 右上隅をクリックする必要があります。
 
      ![メニュー ボタン](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
-
-     ![受講者の Index ページ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image15.png)
 
 ## <a name="view-the-database"></a>データベースを表示します。
 
@@ -296,11 +268,8 @@ Students のページを実行すると、アプリケーションが、デー�
 1. ブラウザーを閉じます。
 2. **サーバー エクスプ ローラー**、展開**データ接続**(最初に更新 ボタンを選択する必要があります、) 展開**学校のコンテキスト (ContosoUniversity)** 順に展開**テーブル**に新しいデータベースのテーブルを参照してください。
 
-    ![サーバー エクスプ ローラーでデータベース テーブル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image16.png)
-
 3. 右クリックし、**学生**テーブルし、クリックして**テーブル データの表示**に作成された列とテーブルに挿入された行を参照してください。
 
-    ![Student テーブル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/table-data.png)
 4. 閉じる、**サーバー エクスプ ローラー**接続します。
 
 *ContosoUniversity1.mdf*と *.ldf*データベース ファイルは、 *%userprofile%* フォルダー。
@@ -316,15 +285,32 @@ Students のページを実行すると、アプリケーションが、デー�
 - という名前のエンティティ プロパティ`ID`または*classname* `ID`主キー プロパティとして認識されます。
 - という名前が場合、外部キー プロパティとして、プロパティの解釈 *&lt;ナビゲーション プロパティの名前&gt;&lt;主キー プロパティ名&gt;* (たとえば、 `StudentID` の`Student`からナビゲーション プロパティ、`Student`エンティティの主キーが`ID`)。 外部キー プロパティできますも同じ名前に単に&lt;主キー プロパティ名&gt;(たとえば、`EnrollmentID`ので、`Enrollment`エンティティの主キーが`EnrollmentID`)。
 
-規則をオーバーライドできることを見てきました。 たとえば、テーブル名を複数化しないでくださいと、後述することを指定を外部キー プロパティとしてプロパティを明示的にマークする方法。 規則とでこれらをオーバーライドする方法の詳細を学習、[詳細の複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)このシリーズの後半のチュートリアル。 規則の詳細については、次を参照してください。[コードの最初の規則](/ef/ef6/modeling/code-first/conventions/built-in)します。
+規則をオーバーライドできることを見てきました。 たとえば、テーブル名を複数化しないでくださいと、後述することを指定を外部キー プロパティとしてプロパティを明示的にマークする方法。
+## <a name="additional-resources"></a>その他の技術情報
 
-## <a name="summary"></a>まとめ
+詳細については、EF 6 は、次の記事を参照してください。
 
-Entity Framework と SQL Server Express LocalDB を使用して格納し、データを表示する単純なアプリケーションを作成しました。 次のチュートリアルの基本的なを実行する方法について説明します作成、読み取り、更新、および削除 (CRUD) 操作。
+* [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+* [コードの最初の規則](/ef/ef6/modeling/code-first/conventions/built-in)
 
-その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+* [より複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
 
-> [!div class="step-by-step"]
-> [次へ](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * MVC web アプリの作成
+> * サイトのスタイルを設定する
+> * インストールされている Entity Framework 6
+> * データ モデルの作成
+> * データベース コンテキストの作成
+> * テスト データを使用して初期化された DB
+> * LocalDB を使用するよう EF 6 に設定します。
+> * 作成されたコント ローラーとビュー
+> * データベースの表示
+
+確認しカスタマイズの作成、読み取り、更新、コント ローラーとビューの (CRUD) のコードを削除する方法については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [基本的な CRUD 機能を実装します。](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

@@ -1,33 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 接続復元性と、ASP.NET MVC アプリケーションで Entity Framework とコマンド傍受 |Microsoft Docs
+title: 'チュートリアル: ASP.NET MVC アプリで ef 接続の回復性とコマンド傍受を使用して、'
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
+description: このチュートリアルでは、接続の回復性とコマンド傍受を使用する方法を学習します。 これは、Entity Framework 6 の 2 つの重要な機能です。
 ms.author: riande
-ms.date: 01/13/2015
+ms.date: 01/14/2018
+ms.topic: tutorial
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: fae5c7e1ad1000ed90630c3620b853de3a735d60
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911787"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341733"
 ---
-<a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>接続復元性と、ASP.NET MVC アプリケーションで Entity Framework とコマンド傍受
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
-
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
+# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>チュートリアル: 接続の回復性とコマンド傍受を Entity Framework で ASP.NET MVC アプリで使用します。
 
 これまでに、アプリケーションを実行したローカル IIS Express で開発用コンピューターにします。 で実際のアプリケーションをインターネット経由で使用するには、他のユーザーに使用できるように、web ホスティング プロバイダーにデプロイする必要があるし、データベース サーバーにデータベースを展開します。
 
-このチュートリアルでは、クラウド環境にデプロイするときに特に重要である Entity Framework 6 の 2 つの機能を使用する方法が学習: (一時的なエラーの自動再試行) の接続復元性とコマンド傍受 (すべての SQL クエリデータベースに送信ログまたはそれらを変更するために)。
+このチュートリアルでは、接続の回復性とコマンド傍受を使用する方法を学習します。 Entity Framework 6 のクラウド環境にデプロイするときに特に役に立つできる 2 つの重要な機能は: (一時的なエラーの自動再試行) の接続復元性とコマンド傍受 (catch データベースに送信するすべての SQL クエリまたはするためにログ変更)。
 
 この接続の回復性とコマンド傍受チュートリアルでは、省略可能です。 このチュートリアルをスキップする場合は、若干の調整が以降のチュートリアルで作成する必要があります。
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 接続の回復を有効にします。
+> * コマンド傍受を有効にします。
+> * 新しい構成をテストします。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [並べ替え、フィルター処理、ページング](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-connection-resiliency"></a>接続の回復を有効にします。
 
@@ -56,7 +62,7 @@ Entity Framework プロバイダーでサポートされている任意のデー
 3. *StudentController.cs*、追加、`using`ステートメント`System.Data.Entity.Infrastructure`します。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
-4. すべての変更、`catch`その catch ブロック`DataException`例外をキャッチするように`RetryLimitExceededException`例外代わりにします。 例えば:
+4. すべての変更、`catch`その catch ブロック`DataException`例外をキャッチするように`RetryLimitExceededException`例外代わりにします。 例:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs?highlight=1)]
 
@@ -135,7 +141,7 @@ A[ベスト プラクティスのログ記録](../../../../aspnet/overview/devel
 
     UI で、別の値を入力して一時的なエラーが発生することができる方法では、一時的なエラーのシミュレーション コードを記述しました。 代わりには、常に特定のパラメーター値をチェックすることがなく一時的な例外のシーケンスを生成するインターセプター コードを記述する可能性があります。 一時的なエラーを生成する場合にのみ、インターセプターを追加できます。 これを行う場合、データベースの初期化が完了した後までインターセプター追加しないでください。 つまり、一時的なエラーの生成を開始する前に、クエリなど、エンティティ セットの 1 つ上の少なくとも 1 つのデータベースの操作を実行します。 Entity Framework がデータベースの初期化中にいくつかのクエリを実行し、ため、初期化中にエラーが発生する一貫性のない状態を取得するコンテキストのトランザクションでは実行されず。
 
-## <a name="test-logging-and-connection-resiliency"></a>テストのログ記録と接続の回復性
+## <a name="test-the-new-configuration"></a>新しい構成をテストします。
 
 1. キーを押して**f5 キーを押して**デバッグ モードでアプリケーションを実行し、**学生**タブ。
 2. Visual Studio を見て**出力**トレース出力を表示するウィンドウ。 一部の JavaScript エラー、ロガーによって書き込まれたログを表示するスクロールする必要があります。
@@ -167,14 +173,19 @@ A[ベスト プラクティスのログ記録](../../../../aspnet/overview/devel
     ![ダミーの例外](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 5. コメントを解除、 *SetExecutionStrategy*行*SchoolConfiguration.cs*します。
 
-## <a name="summary"></a>まとめ
-
-このチュートリアルでは、接続の回復を有効にして、Entity Framework は、作成し、データベースに送信する SQL コマンドをログする方法を説明しました。 次のチュートリアルでは、Code First Migrations を使用して、データベースを展開する、インターネットにアプリケーションをデプロイします。
-
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [次へ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 有効な接続の回復
+> * 有効なコマンド傍受
+> * 新しい構成のテスト
+
+Code First migrations と Azure の展開の詳細については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [Code First migrations と Azure のデプロイ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)

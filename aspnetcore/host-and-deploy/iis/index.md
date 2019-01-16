@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3239b4652d739ed2ac205c9daae7754dbd8e918c
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 83c084beb059d803811e9739d34bdbdd6bcff463
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249558"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341798"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -312,11 +312,6 @@ Windows ホスティング バンドルのインストーラーでインスト�
 ## <a name="create-the-iis-site"></a>IIS サイトを作成する
 
 1. ホスト システムで、アプリの公開フォルダーとファイルを格納するフォルダーを作成します。 アプリの展開レイアウトについては、「[ディレクトリ構造](xref:host-and-deploy/directory-structure)」のトピックを参照してください。
-
-1. 新しいフォルダー内で、stdout ログが有効になっている場合に ASP.NET Core Module stdout ログを保持するための *logs* フォルダーを作成します。 ペイロードに *logs* フォルダーを含めてアプリを配置する場合は、この手順をスキップします。 プロジェクトがローカルでビルドされるときに、MSBuild を有効にして、*logs* フォルダーを自動的に作成する手順については、「[ディレクトリ構造](xref:host-and-deploy/directory-structure)」のトピックを参照してください。
-
-   > [!IMPORTANT]
-   > stdout ログは、アプリケーションの起動エラーのトラブルシューティングにのみ使用します。 日常的なアプリのログ記録に、stdout ログを使用しないでください。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 アプリケーション プールは、ログが書き込まれる場所への書き込みアクセス権を持っている必要があります。 ログの場所へのパス上のフォルダーがすべて存在する必要があります。 stdout ログの詳細については、「[Log creation and redirection](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)」(ログの作成とリダイレクト) を参照してください。 ASP.NET Core アプリケーションのログ記録の詳細については、「[ログ](xref:fundamentals/logging/index)」のトピックを参照してください。
 
 1. **IIS マネージャー**の **[接続]** パネルでサーバーのノードを開きます。 **[サイト]** フォルダーを右クリックします。 コンテキスト メニューで **[Web サイトの追加]** を選択します。
 
