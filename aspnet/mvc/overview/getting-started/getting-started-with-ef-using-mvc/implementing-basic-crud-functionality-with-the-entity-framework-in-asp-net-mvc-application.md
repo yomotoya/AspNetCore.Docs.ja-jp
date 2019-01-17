@@ -1,40 +1,49 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: ASP.NET MVC アプリケーションで Entity Framework での基本的な CRUD 機能を実装する |Microsoft Docs
+title: 'チュートリアル: ASP.NET mvc と Entity Framework CRUD 機能を実装する |Microsoft Docs'
+description: 確認しカスタマイズの作成、読み取り、更新、MVC のスキャフォールディングがコント ローラーとビューで自動的に作成されます (CRUD) のコードを削除します。
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: riande
-ms.date: 10/05/2015
+ms.date: 01/11/2019
+ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 08b5d38b38d3323e347f0f849ccc0c25fe49efb9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912668"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341725"
 ---
-<a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework での基本的な CRUD 機能を実装します。
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>チュートリアル: ASP.NET mvc と Entity Framework CRUD 機能を実装します。
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
-前のチュートリアルでは、Entity Framework と SQL Server LocalDB を使ってデータを保存して表示する MVC アプリケーションを作成しました。 このチュートリアルでするを確認しカスタマイズの作成、読み取り、更新、MVC スキャフォールディングが自動的にコント ローラーとビューを作成する (CRUD) のコードを削除します。
+[前のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)、保存し、Entity Framework (EF) 6 と SQL Server LocalDB を使用してデータを表示する MVC アプリケーションを作成します。 このチュートリアルでする確認しカスタマイズの作成、読み取り、更新、MVC のスキャフォールディングが自動的にコント ローラーとビューを作成する (CRUD) のコードを削除します。
 
 > [!NOTE]
-> コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 この一連のチュートリアルが複雑にならないようにし、Entity Framework 自体の使い方に集中できるように、チュートリアルではリポジトリは使われていません。 リポジトリを実装する方法については、次を参照してください。、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+> コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 シンプルで EF 6 自体の使用方法に焦点をこれらのチュートリアルを保持するには、リポジトリを使用するはありません。 リポジトリを実装する方法については、次を参照してください。、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-このチュートリアルでは、次の web ページを作成します。
+作成する web ページの例を次に示します。
 
-![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
+![学生の詳細ページのスクリーン ショット。](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
 
-![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image2.png)
+![生徒のスクリーン ショットでは、ページを作成します。](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image2.png)
 
-![Student_delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image3.png)
+![スクリーン ショット ot 受講者がページを削除します。](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image3.png)
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 詳細ページを作成します。
+> * Create ページを更新する
+> * HttpPost の Edit メソッドを更新します。
+> * [削除] ページを更新する
+> * データベースを閉じる接続
+> * トランザクションを処理します。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [Entity Framework データ モデルを作成します。](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 ## <a name="create-a-details-page"></a>詳細ページを作成します。
 
@@ -46,7 +55,7 @@ ms.locfileid: "48912668"
 
 キーの値としてメソッドに渡されます、`id`パラメーター由来*データ ルーティング*で、**詳細**Index ページにハイパーリンク。
 
-### <a name="tip-route-data"></a>ヒント:**ルート データ**
+### <a name="tip-route-data"></a>ヒント :**ルート データ**
 
 ルート データは、モデル バインダーがルーティング テーブルで指定された URL セグメントであるデータです。 たとえば、既定のルートを指定します`controller`、 `action`、および`id`セグメント。
 
@@ -86,9 +95,7 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
 3. プログラムを起動して、詳細ページを開きます (**Ctrl**+**f5 キーを押して**)、選択、**学生** タブをクリックして、 **の詳細** Alexander Carson のリンク。 (キーを押す場合**Ctrl**+**F5**中に、 *Details.cshtml*ファイルを開いて、HTTP 400 エラーが発生しました。 これは、Visual Studio の詳細ページを実行しようとしました。 表示する受講者を示すリンクから、達してためです。 場合、URL から「学生/詳細」を削除し、もう一度やり直して、またはブラウザーを閉じて、プロジェクトを右クリックし、 をクリックして**ビュー** > **ブラウザーで表示**)。
 
-    選んだ受講者のコースとグレードの一覧が表示されます。
-
-    ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image4.png)
+    選択した受講者コースとグレードの一覧を参照してください。
 
 4. ブラウザーを閉じます。
 
@@ -136,19 +143,15 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
 3. 名前と、無効な日付を入力し、クリックして**作成**エラー メッセージを確認します。
 
-    ![Students_Create_page_error_message](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image6.png)
-
     これは、サーバー側の検証が既定で表示します。 後のチュートリアルでは、クライアント側検証用のコードを生成する属性を追加する方法を確認します。 次の強調表示されたコードでモデルの検証チェックを示しています、**作成**メソッド。
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs?highlight=1)]
 
 4. 日付を有効な値に変更し、**[Create]** をクリックして、新しい学生が **[Index]** ページに表示されることを確認します。
 
-    ![Students_Index_page_with_new_student](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image7.png)
-
 5. ブラウザーを閉じます。
 
-## <a name="update-the-edit-httppost-method"></a>更新プログラムの編集の HttpPost メソッド
+## <a name="update-httppost-edit-method"></a>HttpPost の Edit メソッドを更新します。
 
 1. 置換、 <xref:System.Web.Mvc.HttpPostAttribute> `Edit`アクション メソッドを次のコード。
 
@@ -189,11 +192,7 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
 2. 、プログラムを起動して、ページの実行を選択すると、**学生** タブをクリックして、**編集**ハイパーリンク。
 
-   ![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image8.png)
-
 3. データをいくつか変更し、**[Save]** をクリックします。 Index ページで、変更されたデータを表示します。
-
-   ![Students_Index_page_after_edit](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image9.png)
 
 4. ブラウザーを閉じます。
 
@@ -229,11 +228,9 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
 
-4. 、プログラムを起動して、ページの実行を選択すると、**学生** タブをクリックして、**削除**ハイパーリンク。
+4. 、プログラムを起動して、ページの実行を選択すると、**受講者** タブをクリックして、**削除**ハイパーリンク。
 
-    ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
-
-5. 選択**削除**というページで**削除してよろしいでしょうか**。
+5. 選択**削除**というページで**削除してよろしいでしょうか。**。
 
     削除された学生インデックス ページを表示します。 (エラー処理のアクションにコードの例が表示されます、[同時実行チュートリアル](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md))。
 
@@ -249,16 +246,24 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
 既定では、Entity Framework はトランザクションを暗黙的に実装します。 複数の行またはテーブルに変更を加えるし、呼び出しのシナリオで`SaveChanges`、Entity Framework は自動的に、すべての変更は成功か、またはすべてが失敗することを確認します。 一部の変更が完了した後でエラーが発生した場合、それらの変更は自動的にロールバックされます。 制御が必要なシナリオの&mdash;トランザクションでは Entity Framework の外部で実行する操作を追加する場合など&mdash;を参照してください[トランザクション操作](/ef/ef6/saving/transactions)します。
 
-## <a name="summary"></a>まとめ
+## <a name="additional-resources"></a>その他の技術情報
 
-単純な CRUD 操作を実行するページの完全なセットがあるようになりました`Student`エンティティ。 MVC ヘルパーを使用すると、データ フィールドの UI 要素を生成します。 MVC ヘルパーの詳細については、次を参照してください。 [HTML ヘルパーを使用してフォームをレンダリング](/previous-versions/aspnet/dd410596(v=vs.98))(アーティクルは MVC 3 がは MVC 5 にも引き続き該当)。
+単純な CRUD 操作を実行するページの完全なセットがあるようになりました`Student`エンティティ。 MVC ヘルパーを使用すると、データ フィールドの UI 要素を生成します。 MVC ヘルパーに関する詳細については、次を参照してください。 [HTML ヘルパーを使用してフォームをレンダリング](/previous-versions/aspnet/dd410596(v=vs.98))(アーティクルは MVC 3 がは MVC 5 にも引き続き該当)。
 
-次のチュートリアルでは、並べ替えとページングを追加することで、インデックス ページの機能を拡張します。
+EF 6 の他のリソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="next-steps"></a>次の手順
 
-その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+このチュートリアルでは、次の作業を行いました。
 
-> [!div class="step-by-step"]
-> [前へ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-> [次へ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="checklist"]
+> * 詳細ページの作成
+> * [作成] ページの更新
+> * HttpPost の Edit メソッドを更新
+> * Delete ページの更新
+> * 閉じたデータベース接続
+> * 処理されたトランザクション
+
+並べ替え、フィルター処理、およびページングをプロジェクトに追加する方法については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [並べ替え、フィルター処理、ページング](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)

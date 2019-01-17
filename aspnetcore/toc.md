@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341681"
+---
 # [ASP.NET Core ドキュメント](/aspnet/#pivot=core)
 
 # 概要
@@ -251,7 +259,9 @@
 ### [CLI ツールでの公開](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 ### [Visual Studio および Git での公開](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 ### [Azure Pipelines による継続的配置](/azure/devops/pipelines/get-started-yaml)
-### [起動エラーのトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)
+### [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)
+### [トラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)
+### [エラー リファレンス](xref:host-and-deploy/azure-iis-errors-reference)
 ## DevOps 
 ### [概要](xref:azure/devops/index)
 ### [ツールとダウンロード](xref:azure/devops/tools-and-downloads)
@@ -261,10 +271,11 @@
 ### [次の手順](xref:azure/devops/next-steps)
 ## IIS による Windows 上のホスト
 ### [概要](xref:host-and-deploy/iis/index)
-### [IIS でのトラブルシューティング](xref:host-and-deploy/iis/troubleshoot)
 ### [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)
 ### [Visual Studio での IIS サポート](xref:host-and-deploy/iis/development-time-iis-support)
 ### [IIS モジュール](xref:host-and-deploy/iis/modules)
+### [トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)
+### [エラー リファレンス](xref:host-and-deploy/azure-iis-errors-reference)
 ## [Kestrel](xref:fundamentals/servers/kestrel)
 ## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Windows サービスでのホスト](xref:host-and-deploy/windows-service)
@@ -279,7 +290,6 @@
 ## [Web ファームでのホスト](xref:host-and-deploy/web-farm)
 ## [Visual Studio のプロファイルの発行](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [ディレクトリの構造](xref:host-and-deploy/directory-structure)
-## [Azure App Service と IIS のエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
 ## [正常性チェック](xref:host-and-deploy/health-checks)
 
 # セキュリティと ID
@@ -420,6 +430,6 @@
 ### [HTTP モジュールからミドルウェアへ](xref:migration/http-modules)
 ## [ログ記録 (ASP.NET Core 以外)](xref:migration/logging-nonaspnetcore)
 
-# [API リファレンス](/dotnet/api/?view=aspnetcore-2.2)
+# [API リファレンス](/dotnet/api/?view=aspnetcore-2.1)
 
 # [寄稿](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
