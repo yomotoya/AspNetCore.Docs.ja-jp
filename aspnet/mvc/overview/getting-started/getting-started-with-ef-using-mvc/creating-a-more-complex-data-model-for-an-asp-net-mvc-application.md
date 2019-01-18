@@ -1,36 +1,49 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
-title: ASP.NET MVC アプリケーション用のより複雑なデータ モデルの作成 |Microsoft Docs
+title: 'チュートリアル: ASP.NET MVC アプリのより複雑なデータ モデルを作成します。'
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
+description: このチュートリアルでは、複数のエンティティとリレーションシップを追加し、書式設定、検証、およびデータベース マッピングの規則を指定することで、データ モデルをカスタマイズします。
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/16/2019
+ms.topic: tutorial
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 25cec8bb9384dbd053f8af12855171a54675a40e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 50cbc184983b3e37c34332dad52bc0d70ade18c2
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912489"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396299"
 ---
-<a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーション用のより複雑なデータ モデルの作成
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-create-a-more-complex-data-model-for-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリのより複雑なデータ モデルを作成します。
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
-
-前のチュートリアルでは、3 つのエンティティで構成されている単純なデータ モデルと連携してください。 このチュートリアルでは、複数のエンティティとリレーションシップを追加し、書式設定、検証、およびデータベース マッピングの規則を指定することで、データ モデルをカスタマイズします。 データ モデルをカスタマイズする 2 つの方法が表示されます: エンティティ クラス、およびデータベース コンテキスト クラスにコードを追加することで、属性を追加しています。
+前のチュートリアルでは、3 つのエンティティで構成されている単純なデータ モデルと連携してください。 エンティティとリレーションシップをさらに追加するこのチュートリアルでは、書式設定、検証、およびデータベース マッピングの規則を指定して、データ モデルをカスタマイズする. この記事では、データ モデルをカスタマイズする 2 つの方法: エンティティ クラス、およびデータベース コンテキスト クラスにコードを追加することで、属性を追加しています。
 
 完了すると、エンティティ クラスは、以下の図のように完成したデータ モデルを構成します。
 
 ![School_class_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>属性を使用してデータ モデルをカスタマイズする
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * データ モデルをカスタマイズします。
+> * Student エンティティを更新します。
+> * Instructor エンティティを作成します。
+> * OfficeAssignment エンティティを作成します。
+> * Course エンティティを変更します。
+> * Department エンティティを作成する
+> * Enrollment エンティティを変更する
+> * データベース コンテキストにコードを追加します。
+> * シード データベースにテスト データ
+> * 移行を追加する
+> * データベースを更新する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [コードの最初の移行と展開](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="customize-the-data-model"></a>データ モデルをカスタマイズします。
 
 このセクションでは、書式設定、検証、データベース マッピング規則を指定する属性を使用して、データ モデルをカスタマイズする方法を示します。 次のセクションでは、いくつかを作成し、完全な`School`を追加してデータ モデルのクラスに属性を既にモデル内の残りのエンティティ型の新しいクラスを作成し、作成します。
 
@@ -62,7 +75,7 @@ ms.locfileid: "48912489"
 
 使用する場合、`DataType`属性指定する必要が、日付フィールドを持つ、 `DisplayFormat` Chrome ブラウザーで、フィールドが正常に表示されることを確認するためにも属性。 詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)します。
 
-MVC では、その他の日付形式を処理する方法の詳細についてを参照してください[MVC 5 の概要: メソッドの編集とビューの編集](../introduction/examining-the-edit-methods-and-edit-view.md)と検索のページで&quot;国際化&quot;します。
+MVC では、その他の日付形式を処理する方法の詳細についてを参照してください[MVC 5 の概要。メソッドの編集とビューの編集](../introduction/examining-the-edit-methods-and-edit-view.md)と検索のページで&quot;国際化&quot;します。
 
 Student インデックス ページを再度実行し、登録日の時刻が表示されていないことに注意してください。 True を使用する任意のビューを同じになります、`Student`モデル。
 
@@ -96,9 +109,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 移行ファイル名に付加タイムスタンプは、移行を注文する Entity Framework によって使用されます。 実行する前に複数の移行を作成することができます、`update-database`コマンド、およびすべての移行後は、作成された順序で適用されます。
 
-実行、**作成**ページ、および 50 文字より長くのいずれかの名前を入力します。 **[作成]** をクリックすると、クライアント側の検証でエラー メッセージが表示されます。
-
-![クライアント側の val エラー](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image3.png)
+実行、**作成**ページ、および 50 文字より長くのいずれかの名前を入力します。 クリックすると**作成**クライアント側の検証エラー メッセージを示しています。*[姓] フィールドは、50 の最大長の文字列である必要があります。*
 
 ### <a name="the-column-attribute"></a>列の属性
 
@@ -116,8 +127,6 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 **サーバー エクスプ ローラー**、オープン、*学生*テーブル デザイナーをダブルクリックして、*学生*テーブル。
 
-![](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image4.png)
-
 次の図は、最初の 2 つの移行を適用する前に、元の列名を示します。 列の名前を変更するだけでなく`FirstMidName`に`FirstName`から 2 つの名前の列が変更された`MAX`50 文字の長さ。
 
 ![](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image5.png)
@@ -127,10 +136,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 > [!NOTE]
 > 次のセクションですべてのエンティティ クラスの作成を完了する前にコンパイルしようとすると、コンパイラ エラーが発生する可能性があります。
 
-
-## <a name="complete-changes-to-the-student-entity"></a>Student エンティティへの変更します。
-
-![Student_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image6.png)
+## <a name="update-student-entity"></a>Student エンティティを更新します。
 
 *Models\Student.cs*、追加したコードを前の手順を次のコードに置き換えます。 変更が強調表示されます。
 
@@ -150,9 +156,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 `FullName` は集計プロパティであり、2 つの別のプロパティを連結して作成される値を返します。 したがってがのみ、`get`アクセサー、および no`FullName`データベース内の列が生成されます。
 
-## <a name="create-the-instructor-entity"></a>Instructor エンティティを作成する
-
-![Instructor_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image7.png)
+## <a name="create-instructor-entity"></a>Instructor エンティティを作成します。
 
 作成*Models\Instructor.cs*、テンプレート コードを次のコードに置き換えます。
 
@@ -176,9 +180,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
-## <a name="create-the-officeassignment-entity"></a>OfficeAssignment エンティティを作成します。
-
-![OfficeAssignment_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image8.png)
+## <a name="create-officeassignment-entity"></a>OfficeAssignment エンティティを作成します。
 
 作成*Models\OfficeAssignment.cs*を次のコード。
 
@@ -208,9 +210,7 @@ Student インデックス ページを再度実行し、登録日の時刻が�
 
 配置すること、`[Required]`関連のインストラクターでは、必要がありますが、必要はありません (これもこのテーブルにキーには) InstructorID 外部キーが null 非許容のために指定する Instructor ナビゲーション プロパティの属性。
 
-## <a name="modify-the-course-entity"></a>Course エンティティを変更する
-
-![Course_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image9.png)
+## <a name="modify-the-course-entity"></a>Course エンティティを変更します。
 
 *Models\Course.cs*、追加したコードを前の手順を次のコードに置き換えます。
 
@@ -240,9 +240,7 @@ Course エンティティが外部キー プロパティ`DepartmentID`どの地�
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample19.cs)]
 
-## <a name="create-the-department-entity"></a>Department エンティティを作成します。
-
-![Department_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image10.png)
+## <a name="create-the-department-entity"></a>Department エンティティを作成する
 
 作成*Models\Department.cs*を次のコード。
 
@@ -268,14 +266,11 @@ Course エンティティが外部キー プロパティ`DepartmentID`どの地�
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample23.cs)]
 
   > [!NOTE]
-  > 規則により、Entity Framework では null 非許容の外部キーと多対多リレーションシップに対して連鎖削除が有効になります。 これにより、循環連鎖削除規則が適用される可能性があり、移行を追加しようとすると例外が発生します。 たとえば、定義していない場合、`Department.InstructorID`プロパティを null 許容型として、次の例外メッセージを取得、:「参照関係になります、循環参照は許可されていません」。 ビジネス ルールが必要な場合`InstructorID`プロパティが null 許容、以下の fluent API ステートメントを使用して、リレーションシップで連鎖削除を無効にする必要があります。
+  > 規則により、Entity Framework では null 非許容の外部キーと多対多リレーションシップに対して連鎖削除が有効になります。 これにより、循環連鎖削除規則が適用される可能性があり、移行を追加しようとすると例外が発生します。 たとえば、定義していない場合、`Department.InstructorID`プロパティを null 許容型として、次の例外メッセージを取得は。「参照関係になります、循環参照は許可されていません。」 ビジネス ルールが必要な場合`InstructorID`プロパティが null 許容、以下の fluent API ステートメントを使用して、リレーションシップで連鎖削除を無効にする必要があります。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
-
-## <a name="modify-the-enrollment-entity"></a>Enrollment エンティティを変更します。
-
-![Enrollment_entity](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image11.png)
+## <a name="modify-the-enrollment-entity"></a>Enrollment エンティティを変更する
 
  *Models\Enrollment.cs*、追加したコードを前の手順を次のコードに置き換えます
 
@@ -312,15 +307,15 @@ Course エンティティが外部キー プロパティ`DepartmentID`どの地�
 
 Entity Framework を自動的に作成、`CourseInstructor`して、テーブルの読み取りし、更新しない、直接の読み取りと更新によって、`Instructor.Courses`と`Course.Instructors`ナビゲーション プロパティ。
 
-## <a name="entity-diagram-showing-relationships"></a>リレーションシップを示すエンティティ図
+## <a name="entity-relationship-diagram"></a>エンティティ関係図
 
 次の図では、完成した School モデルに対して Entity Framework Power Tools で作成される図を示します。
 
-![School_data_model_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image15.png)
+![School_data_model_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
 多対多リレーションシップの線だけでなく (\*に\*) と一対多リレーションシップの線 (1 ~ \*)、ご覧のとおり、0 または 1 に 1 つのリレーションシップの線 (1 対 0..1) の間、`Instructor`と`OfficeAssignment`エンティティと 0-または-1-対多リレーションシップの線 (0..1 対\*) Instructor および Department エンティティの間。
 
-## <a name="customize-the-data-model-by-adding-code-to-the-database-context"></a>データベース コンテキストにコードを追加することで、データ モデルをカスタマイズします。
+## <a name="add-code-to-database-context"></a>データベース コンテキストにコードを追加します。
 
 次に、新しいエンティティを追加します、`SchoolContext`クラスし、マッピングを使用して、一部をカスタマイズ[fluent API](https://msdn.microsoft.com/data/jj591617)呼び出し。 多くの場合、一連の次の例のように、1 つのステートメントにまとめてメソッドの呼び出しで使用されているために、API は"fluent"。
 
@@ -346,7 +341,7 @@ Entity Framework を自動的に作成、`CourseInstructor`して、テーブル
 
 バック グラウンドで実行は"fluent API"ステートメントについては、次を参照してください。、 [Fluent API](https://blogs.msdn.com/b/aspnetue/archive/2011/05/04/entity-framework-code-first-tutorial-supplement-what-is-going-on-in-a-fluent-api-call.aspx)ブログの投稿。
 
-## <a name="seed-the-database-with-test-data"></a>テスト データでデータベースをシードする
+## <a name="seed-database-with-test-data"></a>シード データベースにテスト データ
 
 コードに置き換えます、 *migrations \configuration.cs*を作成した新しいエンティティのシード データを提供するために次のコード ファイル。
 
@@ -358,7 +353,7 @@ Entity Framework を自動的に作成、`CourseInstructor`して、テーブル
 
 作成するときに、`Course`オブジェクトを初期化する、`Instructors`ナビゲーション プロパティをコードを使用して空のコレクションとして`Instructors = new List<Instructor>()`します。 追加が可能になります。`Instructor`これに関連するエンティティ`Course`を使用して、`Instructors.Add`メソッド。 空のリストを作成していない場合はできるこれらの関係を追加するため、`Instructors`プロパティは null にして、必要はありません、`Add`メソッド。 コンス トラクターに、リストの初期化を追加することもできます。
 
-## <a name="add-a-migration-and-update-the-database"></a>移行を追加して、データベースの更新
+## <a name="add-a-migration"></a>移行を追加する
 
 PMC から入力、`add-migration`コマンド (しないで、`update-database`コマンドはまだ)。
 
@@ -376,6 +371,8 @@ PMC から入力、`add-migration`コマンド (しないで、`update-database`
 
 ときに、`Seed`メソッドを実行内の行が挿入されますが、`Department`テーブルの既存の関連`Course`これら新しい行`Department`行。 UI でどのコースも受講を追加していない場合が不要になった"Temp"学科または既定値で、`Course.DepartmentID`列。 を、だれかが追加可能性がコース、アプリケーションを使用して可能性を許可するのにはも更新する、`Seed`ことを確認するメソッドのコードすべて`Course`行 (の以前の実行によって挿入されたものだけでなく、`Seed`メソッド) があります。有効な`DepartmentID`値、既定値を削除する前に、列の値し、"Temp"学科を削除します。
 
+## <a name="update-the-database"></a>データベースを更新する
+
 編集が完了した後、 &lt;*タイムスタンプ&gt;\_ComplexDataModel.cs*ファイルで、入力、`update-database`移行を実行する PMC コマンド。
 
 [!code-powershell[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample35.ps1)]
@@ -391,7 +388,6 @@ PMC から入力、`add-migration`コマンド (しないで、`update-database`
 >
 > `update-database -TargetMigration:0`
 
-
 データベースを開く**サーバー エクスプ ローラー**以前を展開すると、**テーブル**ノードをすべてのテーブルが作成されたことを確認します。 (がある場合**サーバー エクスプ ローラー**以前の状態からを開き、、**更新**ボタンをクリックします)。
 
 ![](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image16.png)
@@ -402,14 +398,28 @@ PMC から入力、`add-migration`コマンド (しないで、`update-database`
 
 ![Table_data_in_CourseInstructor_table](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image17.png)
 
-## <a name="summary"></a>まとめ
-
-これで、より複雑なデータ モデルと対応するデータベースの準備ができました。 次のチュートリアルを関連データにアクセスするさまざまな方法をについて説明します。
-
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [次へ](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * データ モデルのカスタマイズ
+> * 更新された Student エンティティ
+> * Instructor エンティティの作成
+> * OfficeAssignment エンティティの作成
+> * Course エンティティの変更
+> * Department エンティティを作成します。
+> * Enrollment エンティティの変更
+> * データベース コンテキストにコードを追加しました
+> * シード データベースにテスト データ
+> * 移行を追加
+> * データベースの更新
+
+読み取りおよびに Entity Framework がナビゲーション プロパティを読み込む関連のデータを表示する方法については、次の記事に進んでください。
+
+> [!div class="nextstepaction"]
+> [関連データの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

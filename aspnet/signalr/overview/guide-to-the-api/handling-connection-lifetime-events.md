@@ -4,20 +4,19 @@ title: 理解と SignalR で接続の有効期間イベントの処理 |Microsof
 author: pfletcher
 description: この記事では、ハブ API によって公開されるイベントを使用する方法について説明します。
 ms.author: riande
-ms.date: 06/10/2014
+ms.date: 01/15/2019
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 6a354179a82eba1d4a64184bfdeb302472fabf5f
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 5aaec6795f714ba0877ec3b22eff45eb281b44aa
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287983"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396169"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>理解と SignalR で接続の有効期間イベントの処理
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
@@ -32,7 +31,7 @@ ms.locfileid: "53287983"
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
 >
-> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 > - .NET 4.5
 > - SignalR 2 のバージョン
 >
@@ -147,7 +146,7 @@ SignalR 接続の有効期間イベント、クライアントで発生する可
 
 > [!NOTE]
 >
-> **重要な**:ここで説明するイベントの順序は保証されません。 SignalR は、このスキームに従って、予測可能な方法で接続の有効期間イベントを発生させるすべての試行が、ネットワーク イベントの多くのバリエーションとトランスポート Api などの基になる通信フレームワークがそれらに対応する多くの方法があります。 たとえば、`Reconnected`クライアントが再接続するとき、イベントが発生しないまたは`OnConnected`接続を確立する試行が成功すると、サーバー上のハンドラーが実行可能性があります。 このトピックでは、特定の一般的な状況によって通常生成される効果のみについて説明します。
+> **重要**: ここで説明するイベントの順序は保証されません。 SignalR は、このスキームに従って、予測可能な方法で接続の有効期間イベントを発生させるすべての試行が、ネットワーク イベントの多くのバリエーションとトランスポート Api などの基になる通信フレームワークがそれらに対応する多くの方法があります。 たとえば、`Reconnected`クライアントが再接続するとき、イベントが発生しないまたは`OnConnected`接続を確立する試行が成功すると、サーバー上のハンドラーが実行可能性があります。 このトピックでは、特定の一般的な状況によって通常生成される効果のみについて説明します。
 
 
 <a id="clientdisconnect"></a>

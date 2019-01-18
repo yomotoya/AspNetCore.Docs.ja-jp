@@ -1,28 +1,22 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: ASP.NET MVC アプリケーションで Entity Framework での関連データの読み取り |Microsoft Docs
+title: 'チュートリアル: ASP.NET MVC アプリでの EF で関連データを読み取り'
+description: このチュートリアルでを読み取るし、関連データを表示、つまり、Entity Framework がナビゲーション プロパティに読み込まれるデータ。
 author: tdykstra
-description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/17/2019
+ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913204"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396208"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>関連する ASP.NET MVC アプリケーションで Entity Framework でのデータの読み取り
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
-
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
+# <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリでの EF で関連データを読み取り
 
 前のチュートリアルでは、School データ モデルを完了しました。 このチュートリアルでを読み取るし、関連データを表示、つまり、Entity Framework がナビゲーション プロパティに読み込まれるデータ。
 
@@ -32,7 +26,18 @@ ms.locfileid: "48913204"
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="lazy-eager-and-explicit-loading-of-related-data"></a>関連データの遅延、意欲、および明示的な読み込み
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 関連データを読み込む方法について説明します
+> * Courses ページを作成します。
+> * Instructors ページを作成します。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [複雑なデータ モデルを作成します。](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+
+## <a name="learn-how-to-load-related-data"></a>関連データを読み込む方法について説明します
 
 いくつかの方法が、Entity Framework がエンティティのナビゲーション プロパティに関連するデータを読み込むことができます。
 
@@ -54,7 +59,7 @@ ms.locfileid: "48913204"
 
 その一方で、一部のシナリオで遅延読み込みが効率的です。 一括読み込み SQL Server を効率的に処理できない、生成される非常に複雑な結合が発生する可能性があります。 または、処理しているエンティティのセットのサブセットについてのみ、エンティティのナビゲーション プロパティにアクセスする必要がある場合は、一括読み込みでは、必要以上に多くのデータを取得するために、遅延読み込みを優れて可能性があります。 パフォーマンスが重要な場合、最適な選択を行うために、両方の方法でパフォーマンスをテストすることをお勧めします。
 
-遅延読み込みは、パフォーマンスの問題が発生するコードをマスクできます。 たとえば、eager または明示的な読み込みが指定されていないが、大量のエンティティを処理し、各イテレーションでいくつかのナビゲーション プロパティを使用するコードできない可能性があります非常に効率的な (データベースに多くのラウンド トリップ) が原因です。 オンプレミスの SQL server を使用した開発にも実行するアプリケーションを待機時間の増加と遅延読み込みのための Azure SQL Database に移動すると、パフォーマンスの問題があります。 現実的なテスト負荷をデータベースにクエリをプロファイリング遅延読み込みが適切なかどうかを判断する際に役立ちます。 詳細については、次を参照してください。 [Entity Framework 手法の分かりやすい解説: 関連データの読み込み](https://msdn.microsoft.com/magazine/hh205756.aspx)と[SQL Azure へのネットワーク待ち時間の短縮に Entity Framework を使用して](https://msdn.microsoft.com/magazine/gg309181.aspx)します。
+遅延読み込みは、パフォーマンスの問題が発生するコードをマスクできます。 たとえば、eager または明示的な読み込みが指定されていないが、大量のエンティティを処理し、各イテレーションでいくつかのナビゲーション プロパティを使用するコードできない可能性があります非常に効率的な (データベースに多くのラウンド トリップ) が原因です。 オンプレミスの SQL server を使用した開発にも実行するアプリケーションを待機時間の増加と遅延読み込みのための Azure SQL Database に移動すると、パフォーマンスの問題があります。 現実的なテスト負荷をデータベースにクエリをプロファイリング遅延読み込みが適切なかどうかを判断する際に役立ちます。 詳細については、次を参照してください。 [Entity Framework 手法の分かりやすい解説。関連データの読み込み](https://msdn.microsoft.com/magazine/hh205756.aspx)と[Entity Framework を使用して SQL Azure へのネットワーク待機時間を減らす](https://msdn.microsoft.com/magazine/gg309181.aspx)します。
 
 ### <a name="disable-lazy-loading-before-serialization"></a>シリアル化する前に遅延読み込みを無効にします。
 
@@ -73,13 +78,19 @@ Dto を使用していない場合は、遅延読み込みを無効にして、�
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Courses ページを作成するには、その表示部門名
+## <a name="create-a-courses-page"></a>Courses ページを作成します。
 
 `Course`エンティティには含むナビゲーション プロパティが含まれています、`Department`部門に割り当てられているコースのエンティティ。 コースのリストでは、割り当てられた部門の名前を表示するには、取得する必要があります、`Name`プロパティから、`Department`エンティティ内にある、`Course.Department`ナビゲーション プロパティ。
 
-という名前のコント ローラーを作成する`CourseController`(CoursesController されません) の`Course`と同じオプションを使用して、エンティティ型、 **MVC 5 コント ローラーとビュー、Entity Framework を使用して**の前に行ったscaffolder`Student`コント ローラーで、次の図に示すようにします。
+という名前のコント ローラーを作成する`CourseController`(CoursesController されません) の`Course`と同じオプションを使用して、エンティティ型、 **MVC 5 コント ローラーとビュー、Entity Framework を使用して**の前に行ったscaffolder`Student`コント ローラー。
 
-![Add_Controller_dialog_box_for_Course_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+| 設定 | [値] |
+| ------- | ----- |
+| モデル クラス | 選択**コース (ContosoUniversity.Models)** します。 |
+| データ コンテキスト クラス | 選択**SchoolContext (ContosoUniversity.DAL)** します。 |
+| コント ローラー名 | 入力*CourseController*します。 ここでも、いない*CoursesController*で、 *s*します。 選択した**コース (ContosoUniversity.Models)**、**コント ローラー名**値が自動的に設定されます。 値を変更する必要があります。 |
+
+その他の既定値のままにし、コント ローラーを追加します。
 
 開いている*Controllers\CourseController.cs*を見て、`Index`メソッド。
 
@@ -103,15 +114,9 @@ Dto を使用していない場合は、遅延読み込みを無効にして、�
 
 ページの実行 (選択、**コース**Contoso University のホーム ページのタブ) 部門名の一覧を表示します。
 
-![Courses_index_page_with_department_names](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+## <a name="create-an-instructors-page"></a>Instructors ページを作成します。
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>コースと登録を示す Instructors ページを作成します。
-
-このセクションでをコント ローラーを作成し、表示、`Instructor`エンティティ、Instructors ページを表示するには。
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
-このページは、次の方法で関連データを読み取って表示します。
+このセクションでをコント ローラーを作成し、表示、 `Instructor` Instructors ページを表示するためにエンティティ。 このページは、次の方法で関連データを読み取って表示します。
 
 - インストラクターのリストから関連するデータが表示されます、`OfficeAssignment`エンティティ。 `Instructor` エンティティと `OfficeAssignment` エンティティは、一対ゼロまたは一対一のリレーションシップです。 一括読み込みを使用して、`OfficeAssignment`エンティティ。 前述のように、通常、一括読み込みは、主テーブルで取得したすべての行の関連データが必要なときにより効率的です。 このケースでは、割り当てられたすべてのインストラクターのオフィスの割り当てを表示する必要があります。
 - ユーザーが関連する、インストラクターを選択すると`Course`エンティティが表示されます。 `Instructor` エンティティと `Course` エンティティは多対多リレーションシップです。 一括読み込みを使用して、`Course`エンティティとその関連`Department`エンティティ。 この場合、遅延読み込みをより効率的なためのみ、選択したインストラクターのコースを必要があります。 ただし、この例では、ナビゲーション プロパティにあるエンティティ内のナビゲーション プロパティに一括読み込みを使用する方法を示します。
@@ -127,9 +132,15 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 
 ### <a name="create-the-instructor-controller-and-views"></a>Instructor コント ローラーとビューを作成します。
 
-作成、 `InstructorController` (InstructorsController されません) の次の図に示すように、EF 読み取り/書き込みアクションがコント ローラー。
+作成、 `InstructorController` (InstructorsController されません) で EF の読み取り/書き込みアクションのコント ローラー。
 
-![Add_Controller_dialog_box_for_Instructor_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+| 設定 | [値] |
+| ------- | ----- |
+| モデル クラス | 選択**インストラクター (ContosoUniversity.Models)** します。 |
+| データ コンテキスト クラス | 選択**SchoolContext (ContosoUniversity.DAL)** します。 |
+| コント ローラー名 | 入力*InstructorController*します。 ここでも、いない*InstructorsController*で、 *s*します。 選択した**コース (ContosoUniversity.Models)**、**コント ローラー名**値が自動的に設定されます。 値を変更する必要があります。 |
+
+その他の既定値のままにし、コント ローラーを追加します。
 
 開いている*Controllers\InstructorController.cs*を追加し、`using`のステートメント、`ViewModels`名前空間。
 
@@ -193,8 +204,6 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 
 アプリケーションを実行し、選択、 **Instructors**タブ。ページが表示されます、`Location`関連のプロパティ`OfficeAssignment`エンティティと空のテーブル セルがある場合に関連しない`OfficeAssignment`エンティティ。
 
-![Instructors_index_page_with_nothing_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
-
 *Views\Instructor\Index.cshtml*終了後にファイルを`table`(ファイルの末尾) にある要素は、次のコードを追加します。 このコードでは、インストラクターが選択されたときに、インストラクターに関連するコースのリストを表示します。
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cshtml)]
@@ -203,8 +212,6 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 
 ページを実行し、インストラクターを選択します。 選択したインストラクターに割り当てられたコースを表示するグリッドを表示し、各コースに割り当てられた部門の名前を表示します。
 
-![Instructors_index_page_with_instructor_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
 追加したコード ブロックの後に、次のコードを追加します。 このコードは、コースを選択したときに、コースに登録されている受講者のリストを表示します。
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml)]
@@ -212,8 +219,6 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 このコードを読み取り、`Enrollments`コースに受講者の一覧を表示するには、ビュー モデルのプロパティを登録します。
 
 ページを実行し、インストラクターを選択します。 次に、コースを選択して、登録済みの受講者とその成績のリストを表示します。
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
 ### <a name="adding-explicit-loading"></a>明示的読み込みを追加します。
 
@@ -239,14 +244,20 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 
 Instructor インデックス ページを今すぐ実行してわかりますなし ページで、表示される内容の違い、データを取得する方法を変更しているにもかかわらずです。
 
-## <a name="summary"></a>まとめ
-
-ナビゲーション プロパティに関連するデータを読み込むすべての 3 つ方法 (レイジー、意欲、および明示的な) を使用したようになりました。 次のチュートリアルでは、関連データの更新方法を学習します。
-
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-> [次へ](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 関連するデータを読み込む方法を学習しました。
+> * Courses ページを作成します。
+> * Instructors ページを作成
+
+関連データを更新する方法については、次の記事に進んでください。
+
+> [!div class="nextstepaction"]
+> [関連データの更新](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

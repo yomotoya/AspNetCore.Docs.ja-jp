@@ -4,20 +4,19 @@ title: ASP.NET SignalR ハブ API ガイド - JavaScript クライアント |Mic
 author: pfletcher
 description: このドキュメントでは、ブラウザーや Windows ストア (WinJS) applicat など、JavaScript クライアントで、バージョン 2 の SignalR ハブ API を使用するように紹介しています.
 ms.author: riande
-ms.date: 09/28/2015
+ms.date: 01/15/2019
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: a8352045d99b77713c94ab809417c5dc4675557f
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 12d675b6a2f2f6acdd8c3a5d0d27b5ad2fb1efc4
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099274"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396312"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>ASP.NET SignalR ハブ API ガイド - JavaScript クライアント
 ====================
-によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
@@ -30,7 +29,7 @@ ms.locfileid: "54099274"
 > ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 >
 >
-> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 > - .NET 4.5
 > - SignalR 2 のバージョン
 >
@@ -142,9 +141,7 @@ ASP.NET Web フォーム アプリケーションで使用`ResolveClientUrl`プ�
 
 一般的な規則としては、CSS または JavaScript ファイルを使用する「/signalr ハブ」の URL を指定するため、同じメソッドを使用します。 URL を指定するには、チルダを使用せず、一部のシナリオで、アプリケーションは正しく動作 IIS Express を使用して Visual Studio でのテストが完全な IIS に展開するときは、404 エラーで失敗する際にします。 詳細については、次を参照してください。**ルート レベルのリソースへの参照を解決する**で[ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx) MSDN サイト。
 
-デバッグ モードで Visual Studio 2013 で web プロジェクトを実行すると、お使いのブラウザーとして Internet Explorer を使用する場合は、プロキシ ファイルを確認できます**ソリューション エクスプ ローラー** **スクリプト ドキュメント**のように、次の図。
-
-![ソリューション エクスプ ローラーでの JavaScript 生成されるプロキシ ファイル](hubs-api-guide-javascript-client/_static/image1.png)
+Visual Studio 2017 でデバッグ モードで web プロジェクトを実行すると、お使いのブラウザーとして Internet Explorer を使用する場合は、プロキシ ファイルを確認できます**ソリューション エクスプ ローラー** **スクリプト**します。
 
 ファイルの内容を表示するをダブルクリックして**hubs**します。 Visual Studio 2012 または 2013 および Internet Explorer で使用しない場合、またはデバッグ モードでない場合は、「/signalR ハブ」の URL を参照してファイルの内容を取得することもできます。 サイトが実行されている場合など`http://localhost:56699`に移動して、`http://localhost:56699/SignalR/hubs`お使いのブラウザーでします。
 
