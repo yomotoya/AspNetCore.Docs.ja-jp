@@ -5,12 +5,12 @@ description: ASP.NET Core アプリで複数の環境にわたりアプリの動
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 865257d127084671036147dd1f28c9c4843feef6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206849"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341668"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -111,9 +111,9 @@ Windows と macOS では、環境変数と値で大文字と小文字が区別�
 
 アプリが [dotnet run](/dotnet/core/tools/dotnet-run) で起動すると、`"commandName": "Project"` を含む最初のプロファイルが使用されます。 `commandName` の値により、起動する Web サーバーが指定されます。 `commandName` は次のいずれかになります。
 
-* IIS Express
-* IIS
-* プロジェクト (Kestrel を起動する)
+* `IISExpress`
+* `IIS`
+* `Project` (Kestrel を起動する)
 
 アプリが [dotnet run](/dotnet/core/tools/dotnet-run) で起動されるとき:
 
@@ -276,8 +276,8 @@ Linux ディストリビューションの場合、セッション ベースの�
 
 環境ごとに構成を読み込む場合の推奨事項は次のとおりです。
 
-* *appsettings* ファイル (*appsettings.&lt;<Environment>&gt;.json)。 [構成に関するページの「ファイル構成プロバイダー」](xref:fundamentals/configuration/index#file-configuration-provider)を参照してください。
-* 環境変数 (アプリがホストされている各システムで設定します)。 [構成に関するページの「ファイル構成プロバイダー」](xref:fundamentals/configuration/index#file-configuration-provider)と[開発中のアプリ シークレットの安全な格納に関するページの「環境変数」](xref:security/app-secrets#environment-variables)を参照してください。
+* *appsettings* ファイル (*appsettings.&lt;<Environment>&gt;.json)。 構成に関するページの「[構成: ファイル構成プロバイダー](xref:fundamentals/configuration/index#file-configuration-provider)」を参照してください。
+* 環境変数 (アプリがホストされている各システムで設定します)。 構成に関するページの「[構成: ファイル構成プロバイダー」](xref:fundamentals/configuration/index#file-configuration-provider)と[開発中のアプリ シークレットの安全な格納に関するページの「環境変数」](xref:security/app-secrets#environment-variables)を参照してください。
 * Secret Manager (開発環境の場合のみ) 以下を参照してください。<xref:security/app-secrets>
 
 ## <a name="environment-based-startup-class-and-methods"></a>環境別の起動のクラスとメソッド

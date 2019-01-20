@@ -3,14 +3,15 @@ title: ASP.NET Core MVC と EF Core - 上級 - 10/10
 author: rick-anderson
 description: このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Core Web アプリを開発する際に、活用できるいくつかのトピックを紹介します。
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 5cdba79c0b8edd9b865bda8328c86356cbe6a0a2
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010924"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50090785"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC と EF Core - 上級 - 10/10
 
@@ -100,7 +101,7 @@ Contoso University の管理者が、すべてのコースの単位数を変更�
 
 実稼働コードでは、更新の結果が常に有効なデータになることが保証される点に注意してください。 ここに示した簡略化されたコードは、5 より大きい数値になるように単位数を乗算できます  (`Credits` プロパティには `[Range(0, 5)]` 属性があります)。更新クエリは機能しますが、無効なデータによって、5 以下の単位数を想定していたシステムの他の部分で予期しない結果が発生する可能性があります。
 
-SQL クエリの詳細については、「[Raw SQL Queries](https://docs.microsoft.com/ef/core/querying/raw-sql)」 (生 SQL クエリ) を参照してください。
+SQL クエリの詳細については、「[Raw SQL Queries](/ef/core/querying/raw-sql)」 (生 SQL クエリ) を参照してください。
 
 ## <a name="examine-sql-sent-to-the-database"></a>データベースに送信される SQL を調べる
 
@@ -162,7 +163,7 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 
 * ChangeTracker.Entries
 
-多数のエンティティを追跡していて、これらのいずれかのメソッドをループ内で何度も呼び出す場合、`ChangeTracker.AutoDetectChangesEnabled` プロパティを使用して変更の自動検出を一時的にオフにすると、パフォーマンスが大幅に向上する場合があります。 例:
+多数のエンティティを追跡していて、これらのいずれかのメソッドをループ内で何度も呼び出す場合、`ChangeTracker.AutoDetectChangesEnabled` プロパティを使用して変更の自動検出を一時的にオフにすると、パフォーマンスが大幅に向上する場合があります。 次に例を示します。
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -176,7 +177,7 @@ Entity Framework Core のソースは、[https://github.com/aspnet/EntityFramewo
 
 ## <a name="reverse-engineer-from-existing-database"></a>既存のデータベースからのリバース エンジニアリング
 
-既存のデータベースからエンティティ クラスを含むデータ モデルをリバース エンジニアリングするには、[scaffold-dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) コマンドを使用します。 [入門用チュートリアル](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)を参照してください。
+既存のデータベースからエンティティ クラスを含むデータ モデルをリバース エンジニアリングするには、[scaffold-dbcontext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) コマンドを使用します。 [入門用チュートリアル](/ef/core/get-started/aspnetcore/existing-db)を参照してください。
 
 <a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>動的な LINQ を使用して並べ替え選択コードを簡略化する
@@ -189,11 +190,11 @@ Entity Framework Core のソースは、[https://github.com/aspnet/EntityFramewo
 
 これで、ASP.NET Core MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。
 
-EF Core の詳細については、「[Entity Framework Core 概要](https://docs.microsoft.com/ef/core)」を参照してください。 書籍「[Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action)」も利用できます。
+EF Core の詳細については、「[Entity Framework Core 概要](/ef/core)」を参照してください。 書籍「[Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action)」もご利用いただけます。
 
-Web アプリの展開方法については、「[ASP.NET Core のホストと展開](xref:host-and-deploy/index)」を参照してください。
+Web アプリの展開方法については、「<xref:host-and-deploy/index>」を参照してください。
 
-認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「[ASP.NET Core](xref:index)」を参照してください。
+認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「<xref:index>」を参照してください。
 
 ## <a name="acknowledgments"></a>謝辞
 
@@ -239,7 +240,7 @@ dotnet ef database drop
 
 エラー メッセージ:
 
-> SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー: SQL ネットワーク インターフェイス、エラー: 26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)。
+> SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー:SQL ネットワーク インターフェイス、エラー:26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)
 
 解決方法 : 
 

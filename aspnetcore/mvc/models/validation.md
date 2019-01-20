@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC でのモデルの検証について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 01/14/2019
 uid: mvc/models/validation
-ms.openlocfilehash: f3a34972006b5fdee307c9a8d9989b2cc1e36893
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 7c8255097dfc72480794930ebe4d6cb568edbd7c
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099384"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396195"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -35,7 +35,7 @@ ASP.NET Core 2.2 以降の ASP.NET Core ランタイムでは、特定のモデ�
 
 ```csharp
 [Required]
-public string MyProperty { get; set; } 
+public string MyProperty { get; set; }
 ```
 
 次に示すのは、映画やテレビ番組に関する情報を格納するアプリの注釈付き `Movie` モデルです。 ほとんどのプロパティは必須であり、一部の文字列プロパティには長さの要件があります。 さらに、`Price` プロパティには 0 から $999.99 までの数値範囲制限が、カスタム検証属性と共に適用されています。
@@ -78,6 +78,37 @@ MVC モデル バインドは、検証および検証属性には関わりがあ
 
 クライアント側検証では、`Required` とマークされているモデル プロパティに対応するフォーム フィールドの値、および `Required` とマークされていない null 非許容型のプロパティの値を必須にします。 `Required` を使って、クライアント側検証のエラー メッセージを制御できます。
 
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="top-level-node-validation"></a>最上位ノードの検証
+
+最上位ノードには次が含まれています。
+
+* アクションのパラメーター
+* コントローラーのプロパティ
+* ページ ハンドラーのパラメーター
+* ページ モデルのプロパティ
+
+モデルのパラメーター検証に加え、モデルが関連付けられた最上位ノードが検証されます。 サンプル アプリからの次の例では、`VerifyPhone` メソッドでは <xref:System.ComponentModel.DataAnnotations.RegularExpressionAttribute> を使用し、フォームの Phone フィールドのユーザー データを検証します。
+
+[!code-csharp[](validation/sample/UsersController.cs?name=snippet_VerifyPhone)]
+
+最上位ノードでは、検証属性と共に <xref:Microsoft.AspNetCore.Mvc.ModelBinding.BindRequiredAttribute> を使用できます。 サンプル アプリからの次の例では、`CheckAge` メソッドによって、フォームの送信時、クエリ文字列から `age` パラメーターを関連付ける必要があることが指定されます。
+
+[!code-csharp[](validation/sample/UsersController.cs?name=snippet_CheckAge)]
+
+[年齢確認] ページ (*CheckAge.cshtml*) には 2 つのフォームがあります。 最初のフォームでは、`Age` の値 `99` がクエリ文字列 `https://localhost:5001/Users/CheckAge?Age=99` として送信されます。
+
+クエリ文字列の正しく書式設定された `age` パラメーターが送信されると、フォームの有効性が確認されます。
+
+[年齢確認] ページの 2 番目のフォームでは、要求本文で `Age` 値が送信され、検証は不合格となります。 `age` パラメーターはクエリ文字列で渡される必要があるため、バインドが失敗します。
+
+検証は既定で有効になっており、<xref:Microsoft.AspNetCore.Mvc.MvcOptions> の <xref:Microsoft.AspNetCore.Mvc.MvcOptions.AllowValidatingTopLevelNodes*> プロパティによって制御されます。 最上位ノードの検証を無効にするには、MVC オプション (`Startup.ConfigureServices`) で `AllowValidatingTopLevelNodes` を `false` に設定します。
+
+[!code-csharp[](validation/sample_snapshot/Startup.cs?name=snippet_AddMvc&highlight=4)]
+
+::: moniker-end
+
 ## <a name="model-state"></a>モデルの状態
 
 モデルの状態は、送信された HTML フォーム値での検証エラーを表します。
@@ -104,7 +135,7 @@ Web API コントローラーで `[ApiController]` 属性を使用して `ModelS
 
 検証の手動実行が必要になることがあります。 その場合は、次に示すように `TryValidateModel` メソッドを呼び出します。
 
-[!code-csharp[](validation/sample/MoviesController.cs?range=52)]
+[!code-csharp[](validation/sample/MoviesController.cs?name=snippet_TryValidateModel)]
 
 ## <a name="custom-validation"></a>カスタム検証
 
@@ -112,17 +143,17 @@ Web API コントローラーで `[ApiController]` 属性を使用して `ModelS
 
 次のサンプルのビジネス ルールでは、ユーザーは 1960 年より後にリリースされた映画のジャンルを *Classic* に設定できないことになっています。 `[ClassicMovie]` 属性は最初にジャンルをチェックし、それが Classic である場合、次にリリース日をチェックして、それが 1960 年以降であるかを確認します。 1960 年より後にリリースされている場合、検証は失敗します。 この属性には、データの検証に使うことができる、年を表す整数パラメーターを指定します。 次のように、属性のコンストラクターでパラメーターの値をキャプチャすることができます。
 
-[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?name=snippet_ClassicMovieAttribute)]
 
 上の `movie` 変数は、フォーム送信からのデータを検証のために格納している `Movie` オブジェクトを表します。 この例では、検証コードはルールに従って `ClassicMovieAttribute` クラスの `IsValid` メソッドで日付とジャンルをチェックします。 検証に成功すると、`IsValid` によって `ValidationResult.Success` コードが返されます。 検証に失敗すると、`ValidationResult` が次のエラー メッセージとともに返されます。
 
-[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=55-58)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?name=snippet_GetErrorMessage)]
 
 ユーザーが `Genre` フィールドを変更してフォームを送信すると、`ClassicMovieAttribute` の `IsValid` メソッドは映画が Classic かどうかを検証します。 他の組み込み属性と同じように、`ClassicMovieAttribute` を `ReleaseDate` などのプロパティに適用し、検証が確実に行われるようにします (前のコード例を参照)。 この例は `Movie` 型でのみ機能するので、次の段落で示すように、`IValidatableObject` を使うのがさらによい方法です。
 
 または、`IValidatableObject` インターフェイスに `Validate` メソッドを実装することで、これと同じコードをモデルに配置することもできます。 カスタム検証属性は個別のプロパティを検証する場合に使えるのに対し、`IValidatableObject` の実装は、ここで示すようにクラス レベルの検証を実装するために使うことができます。
 
-[!code-csharp[](validation/sample/MovieIValidatable.cs?range=32-40)]
+[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet_Validate)]
 
 ## <a name="client-side-validation"></a>クライアント側の検証
 
@@ -130,13 +161,13 @@ Web API コントローラーで `[ApiController]` 属性を使用して `ModelS
 
 クライアント側検証が動作するには、ここで示すように、適切な JavaScript スクリプト参照をビューに設定する必要があります。
 
-[!code-cshtml[](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-cshtml[](validation/sample/Views/Shared/_Layout.cshtml?name=snippet_ScriptTag)]
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 [jQuery Unobtrusive Validation](https://github.com/aspnet/jquery-validation-unobtrusive) スクリプトは、人気のある [jQuery Validate](https://jqueryvalidation.org/) プラグインを基に作成された Microsoft のカスタム フロントエンド ライブラリです。 jQuery Unobtrusive Validation を使わないと、同じ検証ロジックを 2 か所でコーディングする必要があります。1 つはモデル プロパティでのサーバー側検証属性で、もう 1 つはクライアント側スクリプトです (jQuery Validate の [`validate()`](https://jqueryvalidation.org/validate/) メソッドの例を見ると、これがどれほど複雑になるかがわかります)。 代わりに、MVC の[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)および [HTML ヘルパー](xref:mvc/views/overview)では、モデル プロパティの検証属性と型メタデータを使って、検証の必要なフォーム要素に HTML 5 の [data- 属性](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes)をレンダリングできます。 MVC は、組み込み属性とカスタム属性の両方に対して、`data-` 属性を生成します。 その後、jQuery Unobtrusive Validation は `data-` 属性を解析し、ロジックを jQuery Validate に渡して、クライアントにサーバー側検証ロジックを実質的に "コピー" します。 次に示すように、関連するタグ ヘルパーを使って、クライアントで検証エラーを表示できます。
 
-[!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?name=snippet_ReleaseDate&highlight=4-5)]
 
 上記のタグ ヘルパーは、以下の HTML をレンダリングします。 HTML 出力の `data-` 属性が、`ReleaseDate` プロパティの検証属性に対応していることに注意してください。 下の `data-val-required` 属性には、ユーザーがリリース日フィールドを入力していない場合に表示するエラー メッセージが含まれています。 jQuery Unobtrusive Validation はこの値を jQuery Validate の [`required()`](https://jqueryvalidation.org/required-method/) メソッドに渡し、このメソッドは付随する **\<span>** 要素にそのメッセージを表示します。
 
@@ -211,7 +242,7 @@ $.get({
 
 カスタム属性のクライアント側ロジックを作成することができ、[jquery 検証](http://jqueryvalidation.org/documentation/)へのアダプターを作成する [Unobtrusive Validation](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) はそれを検証の一部としてクライアントで自動的に実行します。 最初に、次に示すように `IClientModelValidator` インターフェイスを実装することで、追加される data- 属性を制御します。
 
-[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?name=snippet_AddValidation)]
 
 このインターフェイスを実装する属性は、生成されるフィールドに HTML 属性を追加できます。 `ReleaseDate` 要素の出力を調べると、前の例と似た HTML であることがわかりますが、ここでは、`IClientModelValidator` の `AddValidation` メソッドで定義された `data-val-classicmovie` 属性があります。
 
@@ -236,7 +267,7 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 
 リモート検証は、2 ステップのプロセスで実装できます。 最初に、`[Remote]` 属性でモデルに注釈を付ける必要があります。 `[Remote]` 属性には複数のオーバーロードが指定できるので、それを使って、クライアント側の JavaScript が適切なコードを呼び出すようにします。 次の例では、`Users` コントローラーの `VerifyEmail` アクション メソッドを指し示しています。
 
-[!code-csharp[](validation/sample/User.cs?range=7-8)]
+[!code-csharp[](validation/sample/User.cs?name=snippet_UserEmailProperty)]
 
 2 番目のステップでは、`[Remote]` 属性で定義されている対応するアクション メソッドに、検証コードを配置します。 Jquery Validate の[リモート](https://jqueryvalidation.org/remote-method/) メソッドに関するドキュメントによれば、サーバーの応答は次のいずれかの JSON 文字列である必要があります。
 
@@ -247,17 +278,17 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 
 次に示すように、`VerifyEmail` メソッドの定義はこれらの規則に従います。 このメソッドは、メール アドレスが使われている場合は検証エラー メッセージを返し、メール アドレスが空いている場合は `true` を返します。また、結果を `JsonResult` オブジェクトにラップします。 クライアント側では、返された値を使って、続行するか、必要な場合はエラーを表示できます。
 
-[!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
+[!code-csharp[](validation/sample/UsersController.cs?name=snippet_VerifyEmail)]
 
 ユーザーがメール アドレスを入力すると、ビューの JavaScript はリモート呼び出しを行って、そのメール アドレスが使われているかどうかを確認し、使われている場合はエラー メッセージを表示します。 使われていない場合は、ユーザーは普通にフォームを送信できます。
 
 `[Remote]` 属性の `AdditionalFields` プロパティは、フィールドの組み合わせをサーバー上のデータに対して検証するときに役立ちます。 たとえば、上の `User` モデルに `FirstName` および `LastName` という名前の 2 つの追加プロパティがある場合、その名前のペアを使う既存ユーザーがいないことを確認したい場合があるかもしれません。 次のコードで示すように、新しいプロパティを定義します。
 
-[!code-csharp[](validation/sample/User.cs?range=10-13)]
+[!code-csharp[](validation/sample/User.cs?name=snippet_UserNameProperties)]
 
 `AdditionalFields` を文字列 `"FirstName"` および `"LastName"` に明示的に設定することもできますが、[`nameof`](/dotnet/csharp/language-reference/keywords/nameof) 演算子をこのように使うと、後のリファクタリングが容易になります。 検証を実行するアクション メソッドには、`FirstName` の値と `LastName` の値のそれぞれに対応する 2 つの引数を指定する必要があります。
 
-[!code-csharp[](validation/sample/UsersController.cs?range=30-39)]
+[!code-csharp[](validation/sample/UsersController.cs?name=snippet_VerifyName)]
 
 ここで、ユーザーが姓と名を入力すると、JavaScript は以下のことを行います。
 
@@ -272,4 +303,4 @@ Unobtrusive Validation は、`data-` 属性のデータを使ってエラー メ
 public string MiddleName { get; set; }
 ```
 
-他の属性引数と同じように、`AdditionalFields` も定数式である必要があります。 したがって、[補間文字列](/dotnet/csharp/language-reference/keywords/interpolated-strings)を使ったり、[`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) を呼び出して `AdditionalFields` を初期化したりすることはできません。 `[Remote]` 属性に新しいフィールドを追加するごとに、対応するコントローラー アクション メソッドに別の引数を追加する必要があります。
+他の属性引数と同じように、`AdditionalFields` も定数式である必要があります。 したがって、[補間文字列](/dotnet/csharp/language-reference/keywords/interpolated-strings)を使ったり、<xref:System.String.Join*> を呼び出して `AdditionalFields` を初期化したりすることはできません。 `[Remote]` 属性に新しいフィールドを追加するごとに、対応するコントローラー アクション メソッドに別の引数を追加する必要があります。

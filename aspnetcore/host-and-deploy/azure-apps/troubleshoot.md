@@ -1,17 +1,17 @@
 ---
-title: Azure App Service での ASP.NET Core 起動エラーのトラブルシューティング
+title: Azure App Service での ASP.NET Core のトラブルシューティング
 author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637653"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341642"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -51,15 +51,15 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
 
 アプリケーション イベント ログにアクセスするには、Azure portal の **[問題の診断と解決]** ブレードを使います。
 
-1. Azure portal の **[App Services]** ブレードで、アプリのブレードを開きます。
-1. **[問題の診断と解決]** ブレードを選びます。
-1. **[SELECT PROBLEM CATEGORY]\(問題カテゴリの選択\)** で、**[Web App Down]\(Web アプリのダウン\)** ボタンを選びます。
-1. **[Suggested Solutions]\(推奨される解決方法\)** で、, open the pane for **[Open Application Event Logs]\(アプリケーション イベント ログを開く\)** のウィンドウを開きます。 **[Open Application Event Logs]\(アプリケーション イベント ログを開く\)** ボタンを選びます。
-1. **[Source]\(ソース\)** 列で、*IIS AspNetCoreModule* によって提供された最新のエラーを調べます。
+1. Azure portal の **[App Services]** でアプリを開きます。
+1. **[問題の診断と解決]** を選択します。
+1. **[診断ツール]** という見出しを選択します。
+1. **[サポート ツール]** で **[アプリケーション イベント]** ボタンを選択します。
+1. **[Source]\(ソース\)** 列で、*IIS AspNetCoreModule* または *IIS AspNetCoreModule V2* によって提供された最新のエラーを調べます。
 
 **[問題の診断と解決]** ブレードを使う代わりに、[Kudu](https://github.com/projectkudu/kudu/wiki) を使ってアプリケーション イベント ログ ファイルを直接調べることもできます。
 
-1. **[開発ツール]** 領域で **[高度なツール]** ブレードを選びます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. **[開発ツール]** 領域で **[高度なツール]** を開きます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
 1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
 1. **LogFiles** フォルダーを開きます。
 1. *eventlog.xml* ファイルの横にある鉛筆アイコンを選びます。
@@ -69,7 +69,7 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
 
 多くの起動時エラーでは、アプリケーション イベント ログに役に立つ情報が生成されません。 [Kudu](https://github.com/projectkudu/kudu/wiki) のリモート実行コンソールでアプリを実行すると、エラーを検出することができます。
 
-1. **[開発ツール]** 領域で **[高度なツール]** ブレードを選びます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. **[開発ツール]** 領域で **[高度なツール]** を開きます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
 1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
 1. パス **site** > **wwwroot** へのフォルダーを開きます。
 1. コンソールで、アプリのアセンブリを実行することによってアプリを実行します。
@@ -95,7 +95,7 @@ ASP.NET Core モジュールの stdout には、アプリケーション イベ�
 1. **[Modified]\(変更日\)** 列を調べて、変更日が最新の stdout ログの鉛筆アイコンを選んで編集します。
 1. ログ ファイルが開くと、エラーが表示されます。
 
-**重要**。 トラブルシューティングが完了したら、stdout ログを無効にします。
+トラブルシューティングが完了したら、stdout ログを無効にします。
 
 1. Kudu の**診断コンソール** で、パス **site** > **wwwroot** に戻り、*web.config* ファイルを表示します。 鉛筆アイコンを選んで **web.config** ファイルを再び開きます。
 1. **stdoutLogEnabled** を `false` に設定します。
@@ -104,9 +104,39 @@ ASP.NET Core モジュールの stdout には、アプリケーション イベ�
 > [!WARNING]
 > stdout ログを無効にしないと、アプリまたはサーバーで障害が発生する可能性があります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 stdout ログは、アプリ起動時の問題のトラブルシューティングにのみ使ってください。
 >
+> 起動後の ASP.NET Core アプリでの一般的なログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳細については、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」を参照してください。
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="aspnet-core-module-debug-log"></a>ASP.NET Core モジュール デバッグ ログ
+
+ASP.NET Core モジュール デバッグ ログでは、ASP.NET Core モジュールのさらに詳しいログが提供されます。 stdout ログを有効にして表示するには:
+
+1. 強化された診断ログを有効にするには、次のいずれかを実行します。
+   * 「[強化された診断ログ](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs)」の指示に従い、強化された診断ログをアプリに対して設定します。 アプリを再デプロイします。
+   * Kudu コンソールを利用し、「`<handlerSettings>`強化された診断ログ[」にある ](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) をライブ アプリの *web.config* ファイルに追加します。
+     1. **[開発ツール]** 領域で **[高度なツール]** を開きます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+     1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
+     1. パス **site** > **wwwroot** へのフォルダーを開きます。 鉛筆アイコンを選択し、*web.config* ファイルを編集します。 「[強化された診断ログ](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs)」にある `<handlerSettings>` セクションを追加します。 **[保存]** ボタンを選択します。
+1. **[開発ツール]** 領域で **[高度なツール]** を開きます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
+1. パス **site** > **wwwroot** へのフォルダーを開きます。 *aspnetcore-debug.log* ファイルにパスを指定しなかった場合、ファイルが一覧に表示されます。 パスを指定した場合、ログ ファイルの場所に移動します。
+1. ファイル名の隣にある鉛筆アイコンでログ ファイルを開きます。
+
+トラブルシューティングが完了したら、debug ログを無効にします。
+
+1. 強化されたデバッグ ログを無効にするには、次のいずれかを実行します。
+   * ローカルの *web.config* ファイルから `<handlerSettings>` を削除し、アプリを再デプロイします。
+   * Kudu コンソールを使用して *web.config* ファイルを編集し、`<handlerSettings>` セクションを削除します。 ファイルを保存します。
+
+> [!WARNING]
+> debug ログを無効にしないと、アプリまたはサーバーで障害が発生する可能性があります。 ログ ファイルのサイズに制限はありません。 debug ログは、アプリ起動時の問題のトラブルシューティングにのみ使ってください。
+>
 > 起動後の ASP.NET Core アプリでの一般的なログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳しくは、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」をご覧ください。
 
-## <a name="common-startup-errors"></a>起動時の一般的なエラー 
+::: moniker-end
+
+## <a name="common-startup-errors"></a>起動時の一般的なエラー
 
 以下を参照してください。<xref:host-and-deploy/azure-iis-errors-reference> このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
 
@@ -157,7 +187,7 @@ stdout ログが有効になっていない場合は、次の手順のように�
 1. アプリに対して要求します。
 1. ログ ストリーム データ内で、エラーの原因が示されます。
 
-**重要**。 トラブルシューティングが完了したら、stdout ログを無効にしてください。 「[ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)」セクションの説明をご覧ください。
+トラブルシューティングが完了したら、stdout ログを無効にしてください。 「[ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)」セクションの説明をご覧ください。
 
 失敗した要求のトレース ログ (FREB ログ) を見るには:
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ee0bebb8b5c688f8471d6420d1641b87ac271f6c
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 4bc5ead8e24c4bb7fe6cd2f52fd2aa622187180c
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284566"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341395"
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core のディレクトリ構造
 
@@ -37,7 +37,7 @@ ms.locfileid: "53284566"
 
 *Wwwroot* ディレクトリが存在する場合は、静的資産のみが含まれます。
 
-stdout の *Logs* ディレクトリは、次の 2 つの方法のいずれかを使って展開用に作成できます。
+*Logs* ディレクトリは、次の 2 つの方法のいずれかを使って展開用に作成できます。
 
 * プロジェクト ファイルに次の `<Target>` 要素を追加します。
 
@@ -57,6 +57,8 @@ stdout の *Logs* ディレクトリは、次の 2 つの方法のいずれか�
 * 展開内のサーバー上に *Logs* ディレクトリを物理的に作成します。
 
 展開ディレクトリには、読み取り/実行アクセス許可が必要です。 *Logs* ディレクトリには、読み取り/書き込みアクセス許可が必要です。 ファイルが書き込まれる追加のディレクトリには、読み取り/書き込みアクセス許可が必要です。
+
+[ASP.NET Core モジュール stdout ログ](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)では、デプロイに *Logs* フォルダーを必要としません。 このモジュールでは、ログ ファイルの作成時、`stdoutLogFile` パスにフォルダーを作成できます。 [ASP.NET Core モジュールの強化されたデバッグ ログ](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs)では、*Logs* フォルダーを作成すると便利です。 `<handlerSetting>` 値に提供されるパスのフォルダーがこのモジュールによって自動的に作成されることはありません。デバッグ ログの書き込みをモジュールに許可するには、フォルダーがデプロイに事前に存在する必要があります。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
