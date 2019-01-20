@@ -19,9 +19,9 @@ ms.locfileid: "41825942"
 ====================
 によって[Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys のサンプル プロジェクト (c#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys のサンプル プロジェクト (C#) をダウンロード](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)または[電子書籍 (PDF) をダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと c# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
+> このチュートリアル シリーズでは、Web 用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visual Studio 2013[プロジェクトと C# ソース コード](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)このチュートリアル シリーズをと共に使用できます。
 
 
 このチュートリアルでは、Wingtip Toys のストア フロント アプリケーションの機能をサポートするために既定の Web アプリケーションの UI を変更します。 また、単純なを追加、データには、ナビゲーションがバインドされています。 このチュートリアルでは、「データ アクセス層を作成する」前のチュートリアルに基づいており、Wingtip Toys のチュートリアル シリーズのパートです。
@@ -65,7 +65,7 @@ ASP.NET Web フォームを使用すると、動的なコンテンツを Web ア
 
 最もよく使用される、ディレクティブは、`@Page`ディレクティブで、ページで、次を含む多くの構成オプションを指定することができます。
 
-1. プログラミング言語 ページで、c# などのコードをサーバーです。
+1. プログラミング言語 ページで、C# などのコードをサーバーです。
 2. かどうか、ページは、単一ファイル ページと呼ばれると、ページに直接サーバー コード ページまたは分離コード ページと呼ばれる別のクラス ファイル内のコードを含むページがかどうか。
 3. ページが関連付けられているマスター ページがあるしているため、かどうかは、コンテンツ ページとして扱われます。
 4. デバッグ出力およびトレース オプション。
@@ -87,7 +87,7 @@ ASP.NET Web フォームを使用すると、動的なコンテンツを Web ア
 
 ### <a name="server-code"></a>サーバー コード
 
-ほとんどの ASP.NET Web フォーム アプリケーションには、ページが処理されるときに、サーバーで実行されるコードが含まれます。 前述のとおり、ListView コントロールにデータを追加するなど、いろいろなを実行するサーバー コードを使用できます。 ASP.NET では、c#、Visual Basic、j#、および他のユーザーを含む、サーバー上で実行する多くの言語をサポートします。
+ほとんどの ASP.NET Web フォーム アプリケーションには、ページが処理されるときに、サーバーで実行されるコードが含まれます。 前述のとおり、ListView コントロールにデータを追加するなど、いろいろなを実行するサーバー コードを使用できます。 ASP.NET では、C#、Visual Basic、j#、および他のユーザーを含む、サーバー上で実行する多くの言語をサポートします。
 
 ASP.NET は、Web ページのサーバー コードを記述するための 2 つのモデルをサポートします。 モデルでは、1 つのファイル、ページのコードが開始タグが含まれているスクリプト要素では、`runat="server"`属性。 また、分離コード モデルと呼ばれる別のクラス ファイルで、ページのコードを作成できます。 この場合は、ASP.NET Web フォーム ページ一般にコードが含まれないサーバー。 代わりに、`@Page`ディレクティブにリンクしている情報が含まれています、 *.aspx*関連する分離コード ファイルとページ。
 
@@ -121,7 +121,7 @@ ASP.NET は、Web ページのサーバー コードを記述するための 2 �
 
 #### <a name="download-from-msdn-samples-site"></a>MSDN サンプル集のサイトからダウンロードします。
 
-[ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(c#)
+[ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys 概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#)
 
 ダウンロードにはリソースが含まれています、 *WingtipToys 資産*サンプル アプリケーションの作成に使用されるフォルダー。
 
@@ -145,7 +145,7 @@ Web アプリケーションへのナビゲーションを追加する前に最�
 
 1. **ソリューション エクスプ ローラー**、右クリックして**WingtipToys**、 をクリックして**追加**、順にクリックします**新しい項目の**します。   
  **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. 選択、 **Visual c#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**マスター ページを使用した Web フォーム**中央から一覧表示し、名前を*ProductList.aspx*します。 
+2. 選択、 **Visual C#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**マスター ページを使用した Web フォーム**中央から一覧表示し、名前を*ProductList.aspx*します。 
 
     ![UI とナビゲーション - 新しい項目 ダイアログ ボックスを追加します。](ui_and_navigation/_static/image3.png)
 3. 選択**Site.Master**を新しく作成されたマスター ページをアタッチする *.aspx*ページ。 
