@@ -4,20 +4,20 @@ author: rick-anderson
 description: このチュートリアルでは、OAuth 2.0 と外部の認証プロバイダーを使用して ASP.NET Core 2.x アプリを構築する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 1/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098819"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396143"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、ユーザーが OAuth 2.0 と外部の認証プロバイダーの資格情報を使用してログインできる、ASP.NET Core 2.x アプリケーションを構築する方法について説明します。
+このチュートリアルでは、ユーザーが OAuth 2.0 と外部の認証プロバイダーの資格情報を使用してログインできる、ASP.NET Core 2.2 アプリケーションを構築する方法について説明します。
 
 ここでは、[Facebook](xref:security/authentication/facebook-logins)、[Twitter](xref:security/authentication/twitter-logins)、[Google](xref:security/authentication/google-logins)、および [Microsoft](xref:security/authentication/microsoft-logins) の各プロバイダーを対象に説明します。 他のプロバイダーは、[AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers)、[AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers) などのサードパーティ パッケージで利用できます。
 
@@ -30,29 +30,13 @@ ms.locfileid: "54098819"
 * Visual Studio 2017 のスタート ページから、または **[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択して、新しいプロジェクトを作成します。
 
 * **[Visual C#]** > **[.NET Core]** カテゴリにある **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。
-
-![[新しいプロジェクト] ダイアログ](index/_static/new-project.png)
-
-* **[Web アプリケーション]** をタップし、**[認証]** が **[個人のユーザー アカウント]** に設定されていることを確認します
-
-![[新しい Web アプリケーションの作成] ダイアログ](index/_static/select-project.png)
-
-メモ:このチュートリアルは、ASP.NET Core 2.0 SDK バージョンに適用されます。バージョンはウィザードの上部で選択できます。
+* **[認証の変更]** を選択し、認証を **[個人のユーザー アカウント]** に設定します。
 
 ## <a name="apply-migrations"></a>移行を適用する
 
-* アプリを実行して **[ログイン]** リンクを選択します。
-* **[新規ユーザーとして登録する]** リンクを選択します。
+* アプリを実行し、**[登録]** リンクを選択します。
 * 新しいアカウントの電子メール アドレスとパスワードを入力し、**[登録]** を選択します。
 * 指示に従って移行を適用します。
-
-## <a name="require-https"></a>HTTPS を要求する
-
-OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL/TLS を使用する必要があります。
-
-ASP.NET Core 2.1 以降で **Web アプリケーション**または **Web API** のプロジェクト テンプレートを使用して作成したプロジェクトは、自動的に HTTPS を有効にするように構成されます。 プロジェクト ウィザードの **[認証の変更] ダイアログ**で **[個人のユーザー アカウント]** のオプションが選択されている場合、アプリはセキュリティで保護された既定のエンドポイントで起動します。
-
-詳細については、「<xref:security/enforcing-ssl>」を参照してください。
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -83,11 +67,11 @@ ASP.NET Core 2.1 以降で **Web アプリケーション**または **Web API**
 
 外部プロバイダーでのサインイン プロセス中に設定した電子メール アドレスを使用して、パスワードを作成し、サインインするには、次の手順を実行します。
 
-* 右上にある **[Hello]&lt; 電子メール エイリアス&gt;** リンクをタップして**管理**ビューに移動します。
+* 右上にある **[Hello &lt; 電子メール エイリアス&gt;]** リンクを選択して**管理**ビューに移動します。
 
 ![Web アプリケーションの管理ビュー](index/_static/pass1a.png)
 
-* **[作成]** をタップします
+* **[作成]** を選択します。
 
 ![パスワード ページを設定する](index/_static/pass2a.png)
 
