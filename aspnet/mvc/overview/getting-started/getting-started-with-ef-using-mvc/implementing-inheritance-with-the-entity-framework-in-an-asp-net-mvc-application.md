@@ -1,34 +1,43 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: ASP.NET MVC 5 アプリケーション (12 の 11) で Entity Framework 6 による継承の実装 |Microsoft Docs
+title: テンプレート:ASP.NET MVC 5 アプリで ef の継承を実装します。
+description: このチュートリアルでは、データ モデルで継承を実装する方法を示します。
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/21/2019
+ms.topic: tutorial
 ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 613494d58d7652f69a52241bcd3a7e896bc5407c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: df8715e4416ce3ccdf1d9e380addcded553d85f8
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912710"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444286"
 ---
-<a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>ASP.NET MVC 5 アプリケーション (12 の 11) で Entity Framework 6 による継承の実装
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
-
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
+# <a name="template-implement-inheritance-with-ef-in-an-aspnet-mvc-5-app"></a>テンプレート:ASP.NET MVC 5 アプリで ef の継承を実装します。
 
 前のチュートリアルでは、同時実行例外を処理します。 このチュートリアルでは、データ モデルで継承を実装する方法を示します。
 
 オブジェクト指向のプログラミングで使用できます[継承](http://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming))を容易にする[コードの再利用](http://en.wikipedia.org/wiki/Code_reuse)します。 このチュートリアルでは、`Instructor` と `Student` クラスを `Person` 基底クラスから派生するように変更します。この基底クラスはインストラクターと受講者の両方に共通な `LastName` などのプロパティを含んでいます。 どの Web ページも追加または変更しませんが、コードの一部を変更し、それらの変更はデータベースに自動的に反映されます。
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>継承をデータベース テーブルにマップするためのオプション
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 継承をデータベースにマップするについて説明します
+> * Person クラスの作成
+> * 更新プログラムの Instructor と Student
+> * モデルにユーザーを追加します。
+> * 作成し、移行の更新
+> * 実装をテストします。
+> * Azure に配置する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [継承の実装](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="map-inheritance-to-database"></a>継承をデータベースにマップします。
 
 `Instructor`と`Student`クラス、`School`データ モデルが同一であるいくつかのプロパティがあります。
 
@@ -62,7 +71,9 @@ TPC および TPH 継承パターンは、TPT パターンが複雑な結合ク�
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Person クラスから Student クラスと Instructor クラスを派生させる
+## <a name="update-instructor-and-student"></a>更新プログラムの Instructor と Student
+
+今すぐ更新、 *Instructor.cs*と*Sudent.cs*から値を継承するように、 *Person.sc*します。
 
 *Instructor.cs*、派生、`Instructor`クラスから、`Person`クラスし、キーと名前のフィールドを削除します。 コードは次の例のように表示されます。
 
@@ -72,7 +83,7 @@ TPC および TPH 継承パターンは、TPT パターンが複雑な結合ク�
 
 [!code-csharp[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-## <a name="add-the-person-entity-type-to-the-model"></a>Person エンティティ型をモデルに追加します。
+## <a name="add-person-to-the-model"></a>モデルにユーザーを追加します。
 
 *SchoolContext.cs*、追加、`DbSet`プロパティを`Person`エンティティの種類。
 
@@ -80,7 +91,7 @@ TPC および TPH 継承パターンは、TPT パターンが複雑な結合ク�
 
 Table-per-Hierarchy 継承を構成するために Entity Framework に必要なのことはこれですべてです。 わかる、データベースが更新されたとき、`Person`テーブルの代わりに、`Student`と`Instructor`テーブル。
 
-## <a name="create-and-update-a-migrations-file"></a>作成し、移行ファイルを更新
+## <a name="create-and-update-migrations"></a>作成し、移行の更新
 
 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
 
@@ -121,18 +132,13 @@ Table-per-Hierarchy 継承を構成するために Entity Framework に必要な
 >
 > 新しいデータベースを移行するデータがないと、`update-database`コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する方法の詳細については、次を参照してください。 [Visual Studio 2012 からデータベースを削除する方法](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/)します。 チュートリアルを続行するにはこの方法を実行する場合は、このチュートリアルの最後に、展開の手順をスキップまたは新しいサイトとデータベースを展開します。 既にするデプロイされたしたのと同じサイトに更新プログラムを展開する場合の移行を自動的に実行時に EF は、同じエラーがありますを取得します。 移行エラーのトラブルシューティングを行う場合は、最適なリソースは、Entity Framework のフォーラムまたは StackOverflow.com のいずれか。
 
-
-## <a name="testing"></a>テスト
+## <a name="test-the-implementation"></a>実装をテストします。
 
 サイトを実行し、さまざまなページをお試しください。 すべてが前と同じように動作します。
 
 **サーバー エクスプ ローラー**展開**データ Connections\SchoolContext**し**テーブル**、ことを確認して、**学生**と**インストラクター**テーブルに置換された、 **Person**テーブル。 展開、 **Person**テーブルとするすべてに使用されていた列があるを参照してください、**学生**と**インストラクター**テーブル。
 
-![Server_Explorer_showing_Person_table](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
 Person テーブルを右クリックし、**[テーブル データの表示]** をクリックして識別子列を表示します。
-
-![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 次の図は、新しい School データベースの構造を示しています。
 
@@ -144,22 +150,37 @@ Person テーブルを右クリックし、**[テーブル データの表示]**
 
 1. Visual Studio でのプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択と**発行**コンテキスト メニュー。
 
-    ![プロジェクトのコンテキスト メニューを発行します。](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 2. **[発行]** をクリックします。
 
-    ![publish](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
+    Web アプリは、既定のブラウザーで開きます。
 
-   Web アプリが既定のブラウザーで開きます。
 3. アプリケーションをテストして確認することが動作します。
 
     初めてページを実行するデータベースにアクセスする、Entity Framework で実行されるすべての移行`Up`データベースの現在のデータ モデルで最新の状態に必要なメソッドです。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-`Person`、`Student`、および `Instructor` クラスの Table-per-Hierarchy 継承を実装しました。 これと他の継承構造の詳細については、次を参照してください。 [TPT 継承パターン](https://msdn.microsoft.com/data/jj618293)と[TPH 継承パターン](https://msdn.microsoft.com/data/jj618292)msdn です。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [次へ](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+これと他の継承構造の詳細については、次を参照してください。 [TPT 継承パターン](https://msdn.microsoft.com/data/jj618293)と[TPH 継承パターン](https://msdn.microsoft.com/data/jj618292)msdn です。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 継承をデータベースにマップするについて説明しました。
+> * Person クラスを作成します。
+> * 更新されたインストラクターと受講者
+> * モデルに追加されたユーザー
+> * 作成され、移行の更新
+> * 実装のテスト
+> * Azure にデプロイ
+
+Entity Framework Code First を使用する ASP.NET web アプリケーションの開発の基本機能を越えて移動するときの注意すべきに役立つトピックの詳細については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [高度な Entity Framework シナリオ](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

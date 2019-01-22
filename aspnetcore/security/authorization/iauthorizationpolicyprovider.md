@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core アプリでカスタム IAuthorizationPolicyProvider を使用して、承認ポリシーを動的に生成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/02/2018
+ms.date: 01/21/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: ef3e81da6fb9e2e332b553607be35fcd79e9362d
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: ca57a9fd8e3c11f15fe14bbe4538bc748c4c84b6
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249374"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444156"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>ASP.NET Core で IAuthorizationPolicyProvider を使用してカスタム承認ポリシー プロバイダー 
 
@@ -25,8 +25,7 @@ ms.locfileid: "54249374"
 * (別の部屋番号または例では、年齢層) 用のさまざまなポリシーを使用して、これは無意味で各個々 の承認ポリシーを追加する、`AuthorizationOptions.AddPolicy`呼び出します。
 * (データベース) のような外部データ ソース内の情報に基づいて実行時ポリシーを作成するか、別のメカニズムによって承認要件を動的に決定します。
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/AuthSamples/)から、 [AspNetCore GitHub リポジトリ](https://github.com/aspnet/AspNetCore)します。 Aspnet/AuthSamples リポジトリの ZIP ファイルをダウンロードします。
-解凍、 *AuthSamples master.zip*ファイル。 移動し、*サンプル/CustomPolicyProvider*プロジェクト フォルダーです。
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider)から、 [AspNetCore GitHub リポジトリ](https://github.com/aspnet/AspNetCore)します。 Aspnet/AspNetCore リポジトリの ZIP ファイルをダウンロードします。 ファイルを解凍します。 移動し、 *src、セキュリティ、サンプル/CustomPolicyProvider*プロジェクト フォルダーです。
 
 ## <a name="customize-policy-retrieval"></a>ポリシーの取得をカスタマイズします。
 
@@ -154,4 +153,4 @@ public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
 services.AddSingleton<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
-完全なカスタム`IAuthorizationPolicyProvider`サンプルは、 [aspnet/AuthSamples GitHub リポジトリ](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider)します。
+完全なカスタム`IAuthorizationPolicyProvider`サンプルは、 [aspnet/AuthSamples GitHub リポジトリ](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider)します。

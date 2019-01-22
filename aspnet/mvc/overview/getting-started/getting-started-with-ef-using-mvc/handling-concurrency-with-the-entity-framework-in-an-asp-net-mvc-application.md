@@ -1,38 +1,43 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: ASP.NET MVC 5 アプリケーション (10/12) では、Entity Framework 6 で同時実行の処理 |Microsoft Docs
+title: 'チュートリアル: ASP.NET MVC 5 アプリでの EF による同時実行を処理します。'
+description: このチュートリアルでは、オプティミスティック同時実行制御を使用して、複数のユーザーが同時に同じエンティティを更新するときの競合を処理する方法を示します。
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: riande
-ms.date: 12/08/2014
+ms.date: 01/21/2019
+ms.topic: tutorial
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 22fd6bc92aa0d516e1bfeb5aa6a67d7246d977ac
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b77b8d6f952472f4d3030f54665f970b8ace2caf
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913256"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444182"
 ---
-<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>ASP.NET MVC 5 アプリケーション (10/12) では、Entity Framework 6 で同時実行の処理
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>チュートリアル: ASP.NET MVC 5 アプリでの EF による同時実行を処理します。
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+前のチュートリアルでは、データを更新する方法について説明しました。 このチュートリアルでは、オプティミスティック同時実行制御を使用して、複数のユーザーが同時に同じエンティティを更新するときの競合を処理する方法を示します。 使用する web ページを変更する、`Department`エンティティ同時実行エラーを処理するようにします。 次の図は Edit ページと Delete ページのものです。コンカレンシーで競合が発生すると、メッセージが表示されます。
 
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
 
-前のチュートリアルでは、データを更新する方法について説明しました。 このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
+このチュートリアルでは、次の作業を行いました。
 
-使用する web ページを変更します、`Department`エンティティ同時実行エラーを処理するようにします。 次の図は、同時実行の競合が発生した場合に表示される一部のメッセージを含む、インデックスと Delete ページを示しています。
+> [!div class="checklist"]
+> * 同時実行の競合について説明します
+> * オプティミスティック同時実行制御を追加します。
+> * 部門のコント ローラーを変更します。
+> * テスト同時実行の処理
+> * [削除] ページを更新する
 
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+## <a name="prerequisites"></a>必須コンポーネント
 
-![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+* [非同期とストアド プロシージャ](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
-## <a name="concurrency-conflicts"></a>同時実行の競合
+## <a name="concurrency-conflicts"></a>コンカレンシーの競合
 
 あるユーザーがあるエンティティのデータを編集目的で表示したとき、別のユーザーが同じエンティティのデータを最初のユーザーの変更がデータベースに書き込まれる前に更新すると、コンカレンシーの競合が発生します。 このような競合の検出を有効にしないと、最後にデータベースを更新したユーザーが他のユーザーの変更を上書きすることになります。 多くのアプリケーションでは、このリスクが許容されています。ユーザーや更新がわずかであれば、あるいは変更が一部上書きされても大きな問題なければ、コンカレンシーのプログラミングにかかるコストが利点よりも重視されることがあります。 その場合、コンカレンシーの競合を処理するようにアプリケーションを構成する必要はありません。
 
@@ -46,11 +51,7 @@ ms.locfileid: "48913256"
 
 ペシミスティック同時実行制御の代わりに、*オプティミスティック同時実行制御*します。 オプティミスティック コンカレンシーでは、コンカレンシーの競合の発生を許し、発生したら適切に対処します。 たとえば、John が部門の編集 ページで変更を実行、**予算**$350,000.00 から $0.00 に English 部署の量。
 
-![Changing_English_dept_budget_to_100000](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
 John が前に**保存**、Jane が、同じページの追加と変更を実行、 **Start Date**フィールドを 2007 年 9 月 1 日から 8/8/2013 にします。
-
-![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 John が**保存**最初と認識し Jane、インデックス ページに、ブラウザーが返されるときに、変更をクリックした**保存**します。 この後の動作は、コンカレンシーの競合の処理方法によって決定します。 次のようなオプションがあります。
 
@@ -75,7 +76,7 @@ John が**保存**最初と認識し Jane、インデックス ページに、�
 
 このチュートリアルの残りの部分では追加します、 [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)プロパティを追跡、`Department`エンティティが、コント ローラーとビューを作成して、すべてが正常に動作することを確認します。
 
-## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>オプティミスティック同時実行制御プロパティ Department エンティティを追加します。
+## <a name="add-optimistic-concurrency"></a>オプティミスティック同時実行制御を追加します。
 
 *Models\Department.cs*、という名前の追跡プロパティを追加`RowVersion`:
 
@@ -91,7 +92,7 @@ Fluent API を使用する場合は、使用、 [IsConcurrencyToken](https://msd
 
 [!code-console[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cmd)]
 
-## <a name="modify-the-department-controller"></a>部門のコント ローラーを変更します。
+## <a name="modify-department-controller"></a>部門のコント ローラーを変更します。
 
 *Controllers\DepartmentController.cs*、追加、`using`ステートメント。
 
@@ -135,37 +136,23 @@ Fluent API を使用する場合は、使用、 [IsConcurrencyToken](https://msd
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=18)]
 
-## <a name="testing-optimistic-concurrency-handling"></a>オプティミスティック同時実行処理のテスト
+## <a name="test-concurrency-handling"></a>テスト同時実行の処理
 
-サイトを実行し、をクリックして**部門**:
-
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+サイトを実行し、をクリックして**部門**します。
 
 右クリックして、**編集**ハイパーリンクをクリックし、English 部署**新しいタブで開く**順にクリックして、**編集**English 部署のハイパーリンクです。 2 つのタブには、同じ情報が表示されます。
 
-![Department_Edit_page_before_changes](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
-
 最初のブラウザー タブでフィールドを変更し、**[保存]** をクリックします。
-
-![Department_Edit_page_1_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
 値が変更された Index ページがブラウザーに表示されます。
 
-![Departments_Index_page_after_first_budget_edit](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
-2 番目のブラウザー タブでフィールドを変更し、クリックして**保存**します。
-
-![Department_Edit_page_2_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
-
-クリックして**保存**2 番目のブラウザー タブで。エラー メッセージが表示されます。
+2 番目のブラウザー タブでフィールドを変更し、クリックして**保存**します。 エラー メッセージが表示されます。
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
 **[保存]** をもう一度クリックします。 2 番目のブラウザー タブで入力した値は、最初のブラウザーで変更されたデータの元の値と共に保存されます。 Index ページが表示されると、保存した値を確認できます。
 
-![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
-
-## <a name="updating-the-delete-page"></a>Delete ページの更新
+## <a name="update-the-delete-page"></a>Delete ページを更新する
 
 Delete ページの場合、Entity Framework は、同様の方法で部署を編集している他のユーザーが起こしたコンカレンシーの競合を検出します。 ときに、 `HttpGet` `Delete`メソッドが確定ビューが表示されます、ビュー、元に含まれる`RowVersion`非表示フィールドの値。 値が使用できる、そのこと、 `HttpPost` `Delete`ユーザーが、削除するときに呼び出されるメソッド。 Entity Framework で SQL を作成するときに`DELETE`コマンドが含まれています、`WHERE`句と元`RowVersion`値。 行が 0 で、コマンドの結果に (つまり、削除の確認ページが表示された後、行が変更された) が影響を受ける場合は、同時実行例外がスローされます、および`HttpGet Delete`エラー フラグを設定するメソッドが呼び出された`true`再表示するには、エラー メッセージの確認 ページ。 別のエラー メッセージが表示される場合は、行が別のユーザーによって削除されたため、0 行が影響を受けたこともできます。
 
@@ -209,17 +196,11 @@ Delete ページの場合、Entity Framework は、同様の方法で部署を�
 
 Departments Index ページを実行します。 右クリックして、**削除**ハイパーリンクをクリックし、English 部署**新しいタブで開く**最初のタブをクリックして、**編集**English 部署のハイパーリンクです。
 
-最初のウィンドウで、値のいずれかを変更し、をクリックして**保存**:
-
-![Department_Edit_page_after_change_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
+最初のウィンドウで、値のいずれかを変更し、をクリックして**保存**します。
 
 インデックス ページが変更を確認します。
 
-![Departments_Index_page_after_budget_edit_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
-
 2 番目のタブで **[削除]** をクリックします。
-
-![Department_Delete_confirmation_page_before_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 コンカレンシー エラー メッセージが表示されます。Department 値がデータベースの現在の内容で更新されています。
 
@@ -227,12 +208,27 @@ Departments Index ページを実行します。 右クリックして、**削�
 
 **[削除]** をもう一度クリックすると、Index ページにリダイレクトされます。Index ページには、部署が削除されていることが表示されます。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-コンカレンシーの競合処理の入門編はこれで終わりです。 同時実行のさまざまなシナリオを処理する他の方法については、次を参照してください。[オプティミスティック同時実行パターン](https://msdn.microsoft.com/data/jj592904)と[プロパティの値を操作](https://msdn.microsoft.com/data/jj592677)msdn です。 次のチュートリアル用の table-per-hierarchy 継承を実装する方法を示しています、`Instructor`と`Student`エンティティ。
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載されて、 [ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [次へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+同時実行のさまざまなシナリオを処理する他の方法については、次を参照してください。[オプティミスティック同時実行パターン](https://msdn.microsoft.com/data/jj592904)と[プロパティの値を操作](https://msdn.microsoft.com/data/jj592677)msdn です。 次のチュートリアル用の table-per-hierarchy 継承を実装する方法を示しています、`Instructor`と`Student`エンティティ。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 同時実行の競合について学習しました
+> * 追加したオプティミスティック同時実行制御
+> * 変更後の Department コント ローラー
+> * テスト同時実行処理
+> * Delete ページの更新
+
+データ モデルで継承を実装する方法については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [データ モデルで継承を実装します。](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

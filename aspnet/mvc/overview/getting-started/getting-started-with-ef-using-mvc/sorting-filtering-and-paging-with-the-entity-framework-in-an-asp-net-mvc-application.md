@@ -1,35 +1,42 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でページング |Microsoft Docs
+title: 'チュートリアル: 並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でのページングの追加 |Microsoft Docs'
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
+description: このチュートリアルで並べ替え、フィルター処理、およびページング機能を追加する、**学生**インデックス ページです。 単純なグループ化 ページを作成します。
 ms.author: riande
-ms.date: 10/08/2018
+ms.date: 01/14/2019
 ms.assetid: d5723e46-41fe-4d09-850a-e03b9e285bfa
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9fabb5a90af715d4e96ff79b43bfff5a4600ac08
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.topic: tutorial
+ms.openlocfilehash: 1f18a15d39d58ffb4ac48cfccee6519d33294e85
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912775"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444196"
 ---
-# <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でのページング
+# <a name="tutorial-add-sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>チュートリアル: 並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でのページングを追加します。
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+[前のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)の基本的な CRUD 操作の web ページのセットを実装する`Student`エンティティ。 このチュートリアルで並べ替え、フィルター処理、およびページング機能を追加する、**学生**インデックス ページです。 単純なグループ化 ページを作成します。
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
-前のチュートリアルでの基本的な CRUD 操作の web ページのセットを実装した`Student`エンティティ。 このチュートリアルでは、並べ替え、フィルター処理、およびページング機能を追加します、**学生**インデックス ページです。 単純なグループ化を実行するページも作成します。
-
-次の図は、作業が終了したときにページがどのように表示されるかを示しています。 列見出しとは、ユーザーがクリックしてその列で並べ替えを行うことができるリンクです。 列見出しを繰り返しクリックすると、昇順と降順の並べ替え順序が切り替えられます。
+次の図は、ページがどのように完了するとします。 列見出しとは、ユーザーがクリックしてその列で並べ替えを行うことができるリンクです。 列見出しを繰り返しクリックすると、昇順と降順の並べ替え順序が切り替えられます。
 
 ![Students_Index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Students インデックス ページに列の並べ替えリンクを追加します。
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 列の並べ替えリンクを追加します。
+> * 検索ボックスを追加します。
+> * ページングを追加します。
+> * About ページを作成します。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [基本 CRUD 機能を実装する](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+
+## <a name="add-column-sort-links"></a>列の並べ替えリンクを追加します。
 
 Student インデックス ページに並べ替えを追加、変更します、`Index`のメソッド、`Student`コント ローラーのコードを追加し、`Student`ビューにインデックスします。
 
@@ -70,13 +77,9 @@ Student インデックス ページに並べ替えを追加、変更します�
 
 2. ページを実行し、をクリックして、**姓**と**加入契約日**その並べ替えを確認する列見出しに動作します。
 
-   ![Students_Index_page_with_sort_hyperlinks](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-
    クリックした後、**姓**見出しで、学生は最後の名前の降順に表示されます。
 
-   ![Web ブラウザーで student インデックス ビュー](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
-## <a name="add-a-search-box-to-the-students-index-page"></a>Students インデックス ページに検索ボックスを追加します。
+## <a name="add-a-search-box"></a>検索ボックスを追加します。
 
 Students インデックス ページにフィルターを追加するにが、ビューにテキスト ボックスと送信ボタンを追加しで対応する変更を行い、`Index`メソッド。 テキスト ボックスを使用して、姓と名の最後のフィールドで検索する文字列を入力できます。
 
@@ -103,15 +106,11 @@ Students インデックス ページにフィルターを追加するにが、�
 
 2. ページを実行し、検索文字列を入力し をクリックして**検索**フィルターが動作していることを確認します。
 
-   ![Students_Index_page_with_search_box](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-
    URL に「、」検索文字列、これをこのページにブックマークを設定した場合はありません一覧を取得するフィルター選択されたブックマークを使用する場合は意味が含まれていないことを確認します。 これは適用されますも、列の並べ替えリンク リスト全体を並べ替えられます。 変更を**検索**フィルター条件のチュートリアルの後半でクエリ文字列を使用するボタン。
 
-## <a name="add-paging-to-the-students-index-page"></a>Students インデックス ページにページングを追加します。
+## <a name="add-paging"></a>ページングを追加します。
 
-Students インデックス ページには、ページングを追加するをインストールして起動します、 **PagedList.Mvc** NuGet パッケージ。 その後で追加の変更、`Index`メソッドへのページングのリンクを追加し、`Index`ビュー。 **PagedList.Mvc**優れた多くのページングと ASP.NET MVC でのパッケージの並べ替えの 1 つとここでその使用のためのものとしてその他のオプションの上の推奨事項ではなく、例としてのみです。 次の図は、ページングのリンクを示します。
-
-![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+Students インデックス ページには、ページングを追加するをインストールして起動します、 **PagedList.Mvc** NuGet パッケージ。 その後で追加の変更、`Index`メソッドへのページングのリンクを追加し、`Index`ビュー。 **PagedList.Mvc**優れた多くのページングと ASP.NET MVC でのパッケージの並べ替えの 1 つとここでその使用のためのものとしてその他のオプションの上の推奨事項ではなく、例としてのみです。
 
 ### <a name="install-the-pagedlistmvc-nuget-package"></a>PagedList.MVC NuGet パッケージをインストールします。
 
@@ -124,8 +123,6 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
    ```text
    Install-Package PagedList.Mvc
    ```
-
-   ![PagedList.Mvc をインストールします。](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 3. プロジェクトをビルドします。
 
@@ -197,13 +194,9 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 2. ページを実行します。
 
-   ![ページングを含む students インデックス ページ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
-
    異なる並べ替え順でページングのリンクをクリックし、ページングが機能することを確認します。 その後で、検索文字列を入力して、ページングをもう一度試し、並べ替えとフィルター処理を使用してもページングが正しく機能することを確認します。
 
-   ![フィルター テキストの検索含む students インデックス ページ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
-## <a name="create-an-about-page-that-shows-student-statistics"></a>受講者の統計情報を表示する [About] ページを作成する
+## <a name="create-an-about-page"></a>About ページを作成します。
 
 Contoso University web サイトのページについて、登録日付ごとに登録した受講者の数を表示します。 これには、グループ化とグループに関する簡単な計算が必要です。 これを実行するためには、次の手順を実行します。
 
@@ -249,14 +242,24 @@ Contoso University web サイトのページについて、登録日付ごとに
 
    ![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-このチュートリアルでは、データ モデルを作成して、基本的な CRUD、並べ替え、フィルター、ページング、および機能をグループ化を実装する方法を説明しました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-> [次へ](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 列の並べ替えリンクを追加します。
+> * 検索ボックスを追加します。
+> * ページングを追加します。
+> * About ページを作成します。
+
+接続の回復性とコマンド傍受を使用する方法については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [接続の回復性とコマンド傍受](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)

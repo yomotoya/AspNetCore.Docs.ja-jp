@@ -8,12 +8,12 @@ ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac47caa46d93c6157926f1c9b5112555fae4f8f5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a8e64a99549584f150d64d909ac97210257b1147
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832164"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444130"
 ---
 <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC ビュー概要 (c#)
 ====================
@@ -28,7 +28,7 @@ ms.locfileid: "41832164"
 
 ASP.NET または Active Server Pages、ASP.NET MVC は含まれません、ページに直接対応するものです。 ASP.NET MVC アプリケーションでページがあるないブラウザーのアドレス バーに入力した URL のパスに対応するディスク上。 ASP.NET MVC アプリケーションのページに最も近いものは何かと呼ばれる、*ビュー*します。
 
-ASP.NET MVC はコント ローラー アクションへのアプリケーション、受信ブラウザー要求がマップされます。 コント ローラー アクションには、ビューを返す可能性があります。 ただし、コント ローラーのアクションは、他の種類を別のコント ローラー アクションへのリダイレクトなどのアクションを実行する場合があります。
+ASP.NET MVC アプリケーションでは、受信ブラウザー要求はコント ローラー アクションにマップされます。 コント ローラー アクションには、ビューを返す可能性があります。 ただし、コント ローラーのアクションは、他の種類を別のコント ローラー アクションへのリダイレクトなどのアクションを実行する場合があります。
 
 1 を一覧表示するには、シンプルなコント ローラー、HomeController という名前が含まれます。 HomeController は Index() Details() という 2 つのコント ローラー アクションを公開します。
 
@@ -75,7 +75,7 @@ View( Fred );
 
 たとえば、リスト 2 でのビューには、現在の日付と時刻が表示されます。
 
-**リスト 2 - \Views\Home\Index.aspx**
+**Listing 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample2.aspx)]
 
@@ -87,11 +87,11 @@ View( Fred );
 
 Response.Write() を呼び出すことが多いためので、Microsoft でショートカット Response.Write() メソッドを呼び出すため。 リスト 3 のビューで使用する区切り記号&lt;% =、%&gt; Response.Write() を呼び出すためのショートカットとして。
 
-**3 - Views\Home\Index2.aspx を一覧表示します。**
+**Listing 3 - Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample3.aspx)]
 
-任意の .NET 言語を使用して、ビューでの動的なコンテンツを生成することができます。 通常、読んだ後を使用して、Visual Basic .NET または c# のいずれか、コント ローラーとビューを記述します。
+任意の .NET 言語を使用して、ビューでの動的なコンテンツを生成することができます。 通常、いずれかの Visual Basic .NET を使用またはC#コント ローラーとビューを記述します。
 
 ## <a name="using-html-helpers-to-generate-view-content"></a>HTML ヘルパーを使用して、コンテンツの表示を生成するには
 
@@ -106,7 +106,7 @@ Response.Write() を呼び出すことが多いためので、Microsoft でシ�
 
 [![[新しいプロジェクト] ダイアログ ボックス](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
-**図 01**: 標準的なログイン フォーム ([フルサイズの画像を表示する をクリックします](asp-net-mvc-views-overview-cs/_static/image2.png))。
+**図 01**:標準ログイン フォーム ([フルサイズの画像を表示する をクリックします](asp-net-mvc-views-overview-cs/_static/image2.png))。
 
 
 ビューの Html プロパティでは、すべての HTML ヘルパー メソッドが呼び出されます。 たとえば、テキスト ボックスを表示するには Html.TextBox() メソッドを呼び出してなります。
@@ -133,13 +133,13 @@ HTML ヘルパー メソッドを使用することは省略可能です。 生�
 
 リスト 7 でのビューでは、データの表示から、メッセージを取得し、ブラウザーにメッセージをレンダリングします。
 
-**リスト 7.--\Views\Product\Index.aspx**
+**Listing 7 -- \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample7.aspx)]
 
 Html.Encode() HTML ヘルパーの方法の利点をメッセージを表示するときに、表示にかかることに注意してください。 Html.Encode() の HTML ヘルパーなどの特殊文字をエンコード&lt;と&gt;に安全に web ページに表示される文字。 ユーザーが web サイトに送信されるコンテンツをレンダリングするときに、JavaScript インジェクション攻撃を防ぐためにコンテンツをエンコードする必要があります。
 
-(T ない作成したので、メッセージ自分たちの「productcontroller」で、実際にメッセージをエンコードする必要があります。 ビュー内のデータをビューから取得したコンテンツを表示するときに常に Html.Encode() メソッドを呼び出すことを推奨します。)
+(ため、自分たちは、「productcontroller」で、実際には不要メッセージをエンコードするメッセージを作成しました。 ビュー内のデータをビューから取得したコンテンツを表示するときに常に Html.Encode() メソッドを呼び出すことを推奨します。)
 
 リスト 7 では、単純な文字列メッセージをコント ローラーからビューに渡すデータの表示の利点をしました。 データの表示を使用して、他の種類のビュー コント ローラーからのデータベース レコードのコレクションなどのデータを渡すことができますも。 たとえば、データベースのコレクションを渡す場合、ビューでは、製品のデータベース テーブルの内容を表示したい場合表示データ記録します。
 

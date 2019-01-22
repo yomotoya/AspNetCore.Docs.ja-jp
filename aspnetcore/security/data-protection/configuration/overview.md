@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3be220df4b14ed8dbbd1fab70f46578e9408aa26
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 0aef2680f48b7923579f90943846f22734f61b50
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444273"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-設定キー リング記憶域の場所 (たとえば、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage))。 呼び出すために、場所を設定する必要があります`ProtectKeysWithAzureKeyVault`実装、 [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)キー リング記憶域の場所を含む、データの自動保護設定を無効にします。 前の例では、Azure Blob Storage を使用して、キー リングを保持します。 詳細については、次を参照してください。[キー記憶域プロバイダー: Azure と Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)します。 ローカルにキー リングを保存することもできます。 [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system)します。
+設定キー リング記憶域の場所 (たとえば、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage))。 呼び出すために、場所を設定する必要があります`ProtectKeysWithAzureKeyVault`実装、 [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)キー リング記憶域の場所を含む、データの自動保護設定を無効にします。 前の例では、Azure Blob Storage を使用して、キー リングを保持します。 詳細については、次を参照してください。[キー記憶域プロバイダー。Azure と Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)します。 ローカルにキー リングを保存することもできます。 [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system)します。
 
 `keyIdentifier`はキーの暗号化に使用されるキー コンテナーのキー識別子です (たとえば、 `https://contosokeyvault.vault.azure.net/keys/dataprotection/`)。
 
@@ -135,7 +135,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="setapplicationname"></a>SetApplicationName
 
-既定では、データ保護システムは、同じ物理キーのリポジトリを共有している場合でも、別のアプリを分離します。 これは、アプリが互いの保護されたペイロードを理解することを防ぎます。
+既定では、データ保護システムは、同じ物理キーのリポジトリを共有している場合でも、コンテンツ ルート パスに基づいて、別のアプリを分離します。 これは、アプリが互いの保護されたペイロードを理解することを防ぎます。
 
 アプリ間でのペイロードの保護された共有します。
 

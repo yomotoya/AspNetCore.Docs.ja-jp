@@ -1,36 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Code First Migrations と ASP.NET MVC アプリケーションで Entity Framework での展開 |Microsoft Docs
+title: 'チュートリアル: ASP.NET MVC アプリで EF 移行を利用し、Azure にデプロイ'
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
+description: このチュートリアルでは、Code First migrations を有効にし、アプリケーションを Azure でクラウドにデプロイします。
 ms.author: riande
-ms.date: 10/08/2018
+ms.date: 01/16/2019
+ms.topic: tutorial
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5c926c61cec5c7de43e2c3f0e377023b8ee799d0
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 131540113f5ac8ce9e15c8ab92b8dc7ee11de115
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913022"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444221"
 ---
-<a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>コードの最初の移行と、ASP.NET MVC アプリケーションで Entity Framework でのデプロイ
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>チュートリアル: ASP.NET MVC アプリで EF 移行を利用し、Azure にデプロイ
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
-これまでに、アプリケーションを実行したローカル IIS Express で開発用コンピューターにします。 で実際のアプリケーションをインターネット経由で使用するには、他のユーザーに使用できるようにするには、web ホスティング プロバイダーにデプロイがあります。 このチュートリアルでは、Azure でクラウドに、Contoso University アプリケーションをデプロイします。
-
-このチュートリアルには、次のセクションにが含まれています。
+これまでに、Contoso University のサンプル web アプリケーションがされてローカルで実行して IIS Express で、開発用コンピューター。 で実際のアプリケーションをインターネット経由で使用するには、他のユーザーに使用できるようにするには、web ホスティング プロバイダーにデプロイがあります。 このチュートリアルでは、Code First migrations を有効にし、アプリケーションを Azure でクラウドにデプロイします。
 
 - Code First Migrations を有効にします。 移行機能を使用すると、データ モデルを変更し、変更を削除して、データベースを再作成しなくても、データベース スキーマを更新することで運用環境にデプロイできます。
 - Azure にデプロイします。 この手順は省略可能です。残りのチュートリアルを続行するには、プロジェクトをデプロイすることなしです。
 
 ソース管理と展開については、継続的インテグレーション プロセスを使用するが、このチュートリアルではこれらのトピックについては説明しないことをお勧めします。 詳細については、次を参照してください。、[ソース管理](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)と[継続的インテグレーション](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)の章[Azure と実際のクラウド アプリの構築](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)します。
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * Code First migrations を有効にします。
+> * (省略可能) Azure でアプリをデプロイします。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+- [接続復元性とコマンド傍受](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-code-first-migrations"></a>Code First migrations を有効にします。
 
@@ -55,15 +58,11 @@ ms.locfileid: "48913022"
     add-migration InitialCreate
     ```
 
-    ![enable-migrations コマンド](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-
     `enable-migrations`コマンドは、作成、*移行*ContosoUniversity プロジェクト、およびそのフォルダーはそのフォルダーに格納、 *Configuration.cs*移行を構成する編集可能なファイル。
 
     (データベース名を変更することを指示する上記の手順が実行されなかった場合、移行は既存のデータベースを見つけるし、自動的に実行、`add-migration`コマンド。 では、データベースを展開する前に、移行コードのテストを実行しないことだけを意味です。 実行すると、以降、`update-database`コマンドは、データベースが既に存在するために何も実行されません)。
 
-    ![Migrations フォルダー](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-
-    初期化子クラスを前述のような`Configuration`クラスが含まれています、`Seed`メソッド。
+    開く、 *ContosoUniversity\Migrations\Configuration.cs*ファイル。 初期化子クラスを前述のような`Configuration`クラスが含まれています、`Seed`メソッド。
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
@@ -121,8 +120,6 @@ ms.locfileid: "48913022"
 
     `update-database`
 
-    ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
     `update-database`コマンドを実行、`Up`データベースし、作成するメソッドの実行、`Seed`メソッドは、データベースを設定します。 同じプロセスは自動的に実行実稼働環境で、アプリケーションの配置後ように、次のセクションが表示されます。
 2. 使用**サーバー エクスプ ローラー**を最初のチュートリアルで行ったように、データベースを検査し、動作を確認することすべて引き続き同じ以前と同様、アプリケーションを実行します。
 
@@ -157,8 +154,6 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 2. 文字列を入力して、**アプリ名**ボックス、アプリケーションの一意の URL として使用します。 完全な URL が入力した内容のここでさらに Azure App Services の既定のドメインで構成されます (. azurewebsites.net)。 場合、**アプリ名**を既に取得して、ウィザードに通知する赤い*アプリ名をご利用いただけません*メッセージ。 場合、**アプリ名**は緑色のチェック マークを表示、使用可能な。
 
-    ![管理ポータルでデータベースのリンクを作成します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/create-web-app-sql-resource.png)
-
 3. **サブスクリプション**ボックスで、選択する Azure サブスクリプション、 **App Service**を配置します。
 
 4. **リソース グループ**テキスト ボックスに、リソース グループを選択するか、新しく作成します。 この設定では、web サイトが実行されるデータ センターを指定します。 リソース グループの詳細については、次を参照してください。[リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)します。
@@ -166,8 +161,6 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 5. 新規作成**App Service プラン**をクリックして、 *App Service のセクション*、**新規作成**、入力と**App Service プラン**(と同じ名前を指定できますApp Service の場合)、**場所**、および**価格レベル**(無料のオプションがある)。
 
 6. をクリックして**SQL Database**を選び、**新しいデータベースを作成**または既存のデータベースを選択します。
-
-    ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/new-sql-database.png)
 
 7. **名前**ボックスに、データベースの名前を入力します。
 8. をクリックして、**ターゲット サーバー**ボックスを選び**サーバーの新規作成**です。 または、以前にサーバーを作成する場合は、使用可能なサーバーの一覧からそのサーバーを選択できます。
@@ -187,8 +180,6 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 1. Visual Studio でのプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択と**発行**コンテキスト メニュー。
 
-    ![ソリューション エクスプ ローラーでのメニュー項目を発行します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
-
 2. **発行先を選択**ページで、選択**App Service**し**既存の**を選び、**発行**。
 
     ![発行先 ページを選択します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/publish-select-existing-azure-app-service.png)
@@ -197,11 +188,7 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 4. **App Service** ] ページで、[、**サブスクリプション**に App Service を追加します。 **ビュー**、**リソース グループ**します。 App Service を追加したリソース グループを展開し、アプリ サービスを選択します。 選択**OK**アプリを発行します。
 
-    ![App Service を選択します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/app-service-page.png)
-
 5. **出力**ウィンドウが実行されたどのようなデプロイ操作を示しています。 され、展開が正常に完了を報告します。
-
-    ![展開の成功を示す出力ウィンドウ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/publish-output.png)
 
 6. デプロイが成功、既定のブラウザーは自動的にデプロイされた web サイトの URL を開きます。
 
@@ -211,13 +198,13 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 この時点で、 *SchoolContext*選択したので、Azure SQL database でデータベースが作成されている**実行 Code First Migrations (アプリの起動時に実行)** します。 *Web.config*デプロイされた web サイトのファイルが変更されているように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子は初めて、コードの読み取りまたは (これが発生したデータベースでのデータの書き込みを実行します。選択した場合、**学生** タブ)。
 
-![Web.config ファイルの抜粋](https://asp.net/media/4367421/mig.png)
+![Web.config file excerpt](https://asp.net/media/4367421/mig.png)
 
 展開プロセスは、新しい接続文字列を作成することも *(SchoolContext\_DatabasePublish*)、データベース スキーマを更新して、データベースをシード処理を使用する Code First Migrations に対する。
 
 ![Web.config ファイル内の接続文字列](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 
-デプロイされたバージョンので、自分のコンピューター上の Web.config ファイルを検索する*ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*します。デプロイされているアクセスできる*Web.config* FTP を使用してファイル自体。 手順については、次を参照してください。 [Visual Studio を使用して ASP.NET Web 展開: コードの更新を展開する](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update)します。 始まる手順"、FTP ツールを使用するには、するには、次の 3 つが必要です: FTP の URL、ユーザー名、およびパスワード。"。
+デプロイされたバージョンので、自分のコンピューター上の Web.config ファイルを検索する*ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*します。デプロイされているアクセスできる*Web.config* FTP を使用してファイル自体。 手順については、次を参照してください。 [Visual Studio を使用して ASP.NET Web 展開。コードの更新を展開する](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update)します。 始まる手順"、FTP ツールを使用するには、するには、次の 3 つが必要です: FTP の URL、ユーザー名、およびパスワード。"。
 
 > [!NOTE]
 > Web アプリの URL を見つけた他のユーザー データを変更できるように、セキュリティを実装しません。 Web サイトをセキュリティで保護する方法の詳細については、次を参照してください。[メンバーシップ、OAuth、および SQL database で安全な ASP.NET MVC アプリを Azure にデプロイ](/aspnet/core/security/authorization/secure-data)します。 他のユーザーが Azure 管理ポータルを使用してサービスを停止して、サイトの使用禁止または**サーバー エクスプ ローラー** Visual Studio でします。
@@ -234,16 +221,24 @@ Azure SQL database にデータベースをデプロイします。 SQL database
 
 展開セクションで説明しました、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子が使用されています。 最初のコードなどの他の初期化子を提供[CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (既定)、 [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) (これは、以前に使用した) と[DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx)します。 `DropCreateAlways`初期化子は、単体テストの条件の設定に役立ちます。 独自の初期化子を記述することもでき、明示的に、アプリケーションから読み取るか、データベースに書き込むまで待機するたくない場合、初期化子を呼び出すことができます。
 
-初期化子の詳細については、次を参照してください[Entity Framework Code First でデータベース初期化子を理解する](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)と書籍の第 6 章[Programming Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman が。Rowan Miller です。
+初期化子の詳細については、次を参照してください。 [Entity Framework Code First でデータベース初期化子を理解する](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)と書籍の第 6 章[Entity Framework のプログラミング。コード ファースト](http://shop.oreilly.com/product/0636920022220.do)を Julie Lerman が Rowan Miller が。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-このチュートリアルでは、移行を有効にして、アプリケーションをデプロイする方法について説明しました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](xref:whitepapers/aspnet-data-access-content-map)します。
 
-> [!div class="step-by-step"]
-> [前へ](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-> [次へ](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * Code First migrations を有効になっています。
+> * (省略可能) Azure でアプリをデプロイ
+
+ASP.NET MVC アプリケーションのより複雑なデータ モデルを作成する方法については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [複雑なデータ モデルを作成します。](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

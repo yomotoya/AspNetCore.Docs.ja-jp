@@ -1,30 +1,24 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: ASP.NET MVC アプリケーションで Entity Framework で関連データの更新 |Microsoft Docs
+title: 'チュートリアル: ASP.NET MVC アプリで EF で関連データを更新します。'
+description: このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは外部キー フィールドまたはナビゲーション プロパティを更新することで行うことができます。
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: riande
-ms.date: 05/01/2015
+ms.date: 01/17/2019
+ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 647793a65dec8feaf37de561ad77b4585bb869a8
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3f95470fd1832d7d25a331a1b6a9dfede7356f38
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912216"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444312"
 ---
-<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework で関連データの更新
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリで EF で関連データを更新します。
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
-
-前のチュートリアルには、関連データが表示されます。このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは外部キー フィールドまたはナビゲーション プロパティを更新することで行うことができます。 多対多のリレーションシップで Entity Framework は結合テーブルを直接公開を追加し、該当するナビゲーション プロパティからエンティティを削除するようにします。
+前のチュートリアルでは、関連するデータが表示されます。 このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは外部キー フィールドまたはナビゲーション プロパティを更新することで行うことができます。 多対多のリレーションシップで Entity Framework は結合テーブルを直接公開を追加し、該当するナビゲーション プロパティからエンティティを削除するようにします。
 
 以下の図は、使用するページの一部を示しています。
 
@@ -34,7 +28,20 @@ ms.locfileid: "48912216"
 
 ![コースで講師の編集](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Courses の Create ページと Edit ページをカスタマイズする
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * Courses ページをカスタマイズします。
+> * Instructors ページに office を追加します。
+> * Instructors ページにコースを追加します。
+> * DeleteConfirmed を更新します。
+> * オフィスの場所とコースを Create ページに追加する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [関連データの読み取り](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="customize-courses-pages"></a>Courses ページをカスタマイズします。
 
 新しいコース エンティティが作成されると、既存の部門とのリレーションシップが必要になります。 これを容易にするため、スキャフォールディング コードには、コントローラーのメソッドと、部門を選択するためのドロップダウン リストを含む Create ビューと Edit ビューが含まれます。 ドロップダウン リストのセット、`Course.DepartmentID`外部キー プロパティは、Entity Framework は、読み込むために必要なすべて、`Department`ナビゲーション プロパティを適切な`Department`エンティティ。 このスキャフォールディング コードを使用しますが、エラー処理を追加し、ドロップダウン リストを並べ替えるために少し変更します。
 
@@ -82,19 +89,20 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 実行、**作成**ページ (コースのインデックス ページを表示し、をクリックして**新規作成**) 新しいコースのデータを入力します。
 
-![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+| [値] | 設定 |
+| ----- | ------- |
+| 数値 | 入力*1000*します。 |
+| タイトル | 入力*代数*します。 |
+| 謝辞 | 入力*4*します。 |
+|Department | 選択**数学**します。 |
 
 **[作成]** をクリックします。 コースの Index ページには、一覧に追加された新しいコースが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
 
-![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
 実行、**編集**ページ (コースのインデックス ページを表示し、クリックして**編集**コースで)。
-
-![Course_edit_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 ページ上のデータを変更し、**[Save]\(保存\)** をクリックします。 コースの Index ページには、更新されたコース データが表示されます。
 
-## <a name="adding-an-edit-page-for-instructors"></a>Instructors の Edit ページを追加します。
+## <a name="add-office-to-instructors-page"></a>Instructors ページに office を追加します。
 
 インストラクター レコードを編集するときに、インストラクターのオフィスの割り当ての更新が必要な場合があります。 `Instructor`エンティティと 0 または 1 に 1 つリレーションシップを持つ、`OfficeAssignment`エンティティは、次の状況を処理する必要があります。
 
@@ -116,7 +124,7 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-参照を`RetryLimitExceededException`が必要です、`using`ステートメントであることを追加するには、右クリック`RetryLimitExceededException`、順にクリックします**解決** - **System.Data.Entity.Infrastructureを使用して**.
+参照を`RetryLimitExceededException`が必要です、`using`ステートメント。 これを追加するポイント`RetryLimitExceededException`します。 問題の説明が表示されます。 選択**考えられる修正内容を表示する** をクリックし、 **System.Data.Entity.Infrastructure; を使用して**します。
 
 ![再試行の例外を解決するには](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
@@ -138,13 +146,9 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 ページの実行 (選択、 **Instructors**  タブをクリックして**編集**インストラクターで)。 **[Office Location]\(オフィスの場所\)** を変更し、**[Save]\(保存\)** をクリックします。
 
-![Changing_the_office_location](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
+## <a name="add-courses-to-instructors-page"></a>Instructors ページにコースを追加します。
 
-## <a name="adding-course-assignments-to-the-instructor-edit-page"></a>[編集] ページの講師にコースの割り当てを追加します。
-
-インストラクターは、任意の数のコースを担当する場合があります。 次のスクリーン ショットに示すように、チェック ボックスのグループを使用して、コースの割り当てを変更する機能を追加して、Instructor/Edit ページを拡張します。
-
-![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
+インストラクターは、任意の数のコースを担当する場合があります。 チェック ボックスのグループを使用して、コースの割り当てを変更する機能を追加して、Instructor/edit ページを拡張します。
 
 間のリレーションシップ、`Course`と`Instructor`エンティティは多対多。 つまり、結合テーブル内にある外部キー プロパティに直接アクセスする必要はありません。 代わりに、追加し、エンティティを削除して、`Instructor.Courses`ナビゲーション プロパティ。
 
@@ -206,18 +210,13 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 実行、 **Instructor インデックス**ページに各インストラクターに割り当てられているコースをご覧ください。
 
-![Instructor_index_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
-
 クリックして**編集**の講師が Edit ページを参照してください。
-
-![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
 
 一部のコース割り当てを変更し、クリックして**保存**します。 行った変更が Index ページに反映されます。
 
- 注: インストラクター コース データを編集するのには、ここアプローチは、コースの数に制限がある場合にも動作します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。
+ メモ:ここで採用インストラクター コース データを編集するのには、コースの数に制限がある場合にも動作します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。
 
-
-## <a name="update-the-deleteconfirmed-method"></a>Update DeleteConfirmed メソッド
+## <a name="update-deleteconfirmed"></a>DeleteConfirmed を更新します。
 
 *InstructorController.cs*、削除、`DeleteConfirmed`代わりに、次のコード メソッドおよび挿入します。
 
@@ -258,21 +257,31 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 ページの作成を実行し、インストラクターを追加します。
 
-![インストラクターがコースを作成します。](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
-
 <a id="transactions"></a>
+
 ## <a name="handling-transactions"></a>トランザクションの処理
 
 説明したように、[基本 CRUD 機能チュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)、既定では、Entity Framework に暗黙的にはトランザクションを実装します。 必要があります詳細に制御が - たとえば、--トランザクションでは Entity Framework の外部で実行する操作を追加する場合のシナリオを参照してください[トランザクション操作](https://msdn.microsoft.com/data/dn456843)msdn です。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-この概要に関連するデータの操作が完了しました。 これまでにこれらのチュートリアルで、同期 I/O を実行するコードで作業したことです。 非同期のコードを実装することで、web サーバーのリソースをより効率的に使用するアプリケーションを行いは、次のチュートリアルで何があります。
+[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+## <a name="additional-resources"></a>その他の技術情報
 
 その他の Entity Framework リソースへのリンクが記載[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
 
-> [!div class="step-by-step"]
-> [前へ](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [次へ](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-step"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * カスタマイズされた courses ページ
+> * Instructors ページに office を追加しました
+> * Instructors ページに追加されたコース
+> * 更新された DeleteConfirmed
+> * 追加されたオフィスの場所とコースを作成 ページ
+
+非同期のプログラミング モデルを実装する方法については、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [非同期プログラミング モデル](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
