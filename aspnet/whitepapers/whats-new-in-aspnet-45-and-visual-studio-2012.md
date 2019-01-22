@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
-title: ASP.NET 4.5 と Visual Studio 2012 における新 |Microsoft Docs
+title: ASP.NET 4.5 と Visual Studio 2012 における新機能 |Microsoft Docs
 author: rick-anderson
 description: このドキュメントでは、新機能と ASP.NET 4.5 で追加される予定の機能強化について説明します。 Web 開発の強化についても説明しています.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41826283"
 ---
-<a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 と Visual Studio 2012 における新します。
+<a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 と Visual Studio 2012 における新機能
 ====================
 > このドキュメントでは、新機能と ASP.NET 4.5 で追加される予定の機能強化について説明します。 Visual Studio 2012 での web 開発の強化についても説明します。 このドキュメントでは、2012 年 2 月 29 日発行されました。
 
