@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 494f34fb55ed924ad3affcad53486b54396325fe
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341681"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444325"
 ---
 # [ASP.NET Core ドキュメント](/aspnet/#pivot=core)
 
@@ -25,6 +25,8 @@ ms.locfileid: "54341681"
 ## Web API アプリ
 ### [Web API の作成](xref:tutorials/first-web-api)
 ### [MongoDB での Web API](xref:tutorials/first-mongo-app)
+### [モバイル用のバックエンド](xref:mobile/native-mobile-backend)
+
 ## Web アプリ
 ### [Razor ページ](xref:tutorials/razor-pages/index)
 ### [MVC](xref:tutorials/first-mvc-app/index)
@@ -32,7 +34,6 @@ ms.locfileid: "54341681"
 ## リアルタイムの Web アプリ
 ### [JavaScript による SignalR](xref:tutorials/signalr)
 ### [TypeScript による SignalR](xref:tutorials/signalr-typescript-webpack)
-## [ネイティブ モバイル アプリのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
 
 ## データ アクセス
 ### [EF Core と Razor Pages](xref:data/ef-rp/index)
@@ -50,16 +51,13 @@ ms.locfileid: "54341681"
 ## [オプション](xref:fundamentals/configuration/options)
 ## [ログ](xref:fundamentals/logging/index)
 ## [エラーの処理](xref:fundamentals/error-handling)
-## ミドルウェア
-### [概要](xref:fundamentals/middleware/index)
-### [ファクトリ ベースのミドルウェア](xref:fundamentals/middleware/extensibility)
-### [サードパーティ コンテナーによるファクトリベースのミドルウェア](xref:fundamentals/middleware/extensibility-third-party-container)
+## [ミドルウェア](xref:fundamentals/middleware/index)
 ## ホスト
 ### [概要](xref:fundamentals/host/index)
 ### [Web ホスト](xref:fundamentals/host/web-host)
 ### [汎用ホスト](xref:fundamentals/host/generic-host)
 ## [サーバー](xref:fundamentals/servers/index)
-## [HTTP 要求の開始](xref:fundamentals/http-requests)
+## [HTTP 要求を行う](xref:fundamentals/http-requests)
 
 # Web アプリ
 ## Razor ページ
@@ -286,6 +284,7 @@ ms.locfileid: "54341681"
 ### [Docker イメージの構築](/dotnet/articles/core/docker/building-net-docker-images)
 ### [Visual Studio Tools](xref:host-and-deploy/docker/visual-studio-tools-for-docker)
 ### [Docker イメージへの公開](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+### [Docker イメージのサンプル](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md)
 ## [プロキシとロード バランサーの構成](xref:host-and-deploy/proxy-load-balancer)
 ## [Web ファームでのホスト](xref:host-and-deploy/web-farm)
 ## [Visual Studio のプロファイルの発行](xref:host-and-deploy/visual-studio-publish-profiles)
@@ -373,7 +372,7 @@ ms.locfileid: "54341681"
 #### [短期データ保護プロバイダー](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### 互換性
 #### [概要](xref:security/data-protection/compatibility/index)
-#### [ASP.NET での <machineKey> の置換](xref:security/data-protection/compatibility/replacing-machinekey)
+#### [ASP.NET の machineKey の置換](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [開発時のシークレットの保護](xref:security/app-secrets)
 ## [HTTPS の適用](xref:security/enforcing-ssl)
 ## [EU の一般データ保護規制 (GDPR) のサポート](xref:security/gdpr)
@@ -396,12 +395,14 @@ ms.locfileid: "54341681"
 ## [診断ツール](xref:performance/diagnostic-tools)
 ## [ロード テストおよびストレス テスト](xref:test/loadtests)
 
-# その他のトピック
-## [グローバライズとローカライズ](xref:fundamentals/localization)
-## [Orchard Core を使用した Portable Object のローカライズ](xref:fundamentals/portable-object-localization)
+# グローバリゼーションとローカリゼーション
+## [概要](xref:fundamentals/localization)
+## [Portable Object のローカライズ](xref:fundamentals/portable-object-localization)
+
+# 詳細設定
 ## [URL リライト](xref:fundamentals/url-rewriting)
 ## [ファイル プロバイダー](xref:fundamentals/file-providers)
-## [要求機能](xref:fundamentals/request-features)
+## [要求機能インターフェイス](xref:fundamentals/request-features)
 ## [HttpContext へのアクセス](xref:fundamentals/httpcontext)
 ## [トークンの変更](xref:fundamentals/change-tokens)
 ## [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin)
@@ -411,6 +412,8 @@ ms.locfileid: "54341681"
 ## [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)
 ## [LoggerMessage によるログ記録](xref:fundamentals/logging/loggermessage)
 ## [ファイル ウォッチャーの使用](xref:tutorials/dotnet-watch)
+### [ファクトリ ベースのミドルウェア](xref:fundamentals/middleware/extensibility)
+### [サードパーティ コンテナーによるファクトリベースのミドルウェア](xref:fundamentals/middleware/extensibility-third-party-container)
 
 # 移行
 ## [2.2 から 3.0](xref:migration/22-to-30)
