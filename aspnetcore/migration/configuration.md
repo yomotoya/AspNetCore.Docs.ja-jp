@@ -22,7 +22,7 @@ ms.locfileid: "50205913"
 
 ## <a name="setup-configuration"></a>セットアップの構成
 
-ASP.NET Core を使用しなく、 *Global.asax*と*web.config*ファイルを以前のバージョンの ASP.NET を使用します。 以前のバージョンの ASP.NET では、アプリケーションの起動ロジックが格納された、`Application_StartUp`メソッド内で*Global.asax*します。 ASP.NET mvc では、以降、 *Startup.cs* ; プロジェクトのルートにファイルが含まれているし、アプリケーションの起動時に呼び出されました。 ASP.NET Core はすべてのスタートアップ ロジックを配置することでこの方法を完全に採用が、 *Startup.cs*ファイル。
+ASP.NET Core を使用しなく、 *Global.asax*と*web.config*ファイルを以前のバージョンの ASP.NET を使用します。 以前のバージョンの ASP.NET では、アプリケーションの起動ロジックが格納された、`Application_StartUp`メソッド内で*Global.asax*します。 ASP.NET MVC では、以降、 *Startup.cs* ; プロジェクトのルートにファイルが含まれているし、アプリケーションの起動時に呼び出されました。 ASP.NET Core はすべてのスタートアップ ロジックを配置することでこの方法を完全に採用が、 *Startup.cs*ファイル。
 
 *Web.config*ファイルは ASP.NET Core で置き換えられてもします。 説明されているアプリケーションのスタートアップ プロシージャの一部として、構成自体を構成ようになりましたことができます*Startup.cs*します。 構成は、XML ファイルにも引き続き使用できますが、通常 ASP.NET Core プロジェクトが配置の構成値で JSON 形式のファイルなど*appsettings.json*します。 ASP.NET Core の構成システムは、環境変数は、指定できますも簡単にアクセスできます、[よりセキュリティで保護された信頼性の高い場所](xref:security/app-secrets)環境固有の値。 これは、接続文字列とソース管理にチェックインしないでください API キーのような機密情報に特に当てはまります。 参照してください[構成](xref:fundamentals/configuration/index)を ASP.NET Core での構成の詳細を参照してください。
 
