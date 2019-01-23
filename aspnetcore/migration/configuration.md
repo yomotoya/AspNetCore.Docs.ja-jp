@@ -16,7 +16,7 @@ ms.locfileid: "50205913"
 
 作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)
 
-前の記事で始めた[ASP.NET Core mvc、ASP.NET MVC プロジェクトを移行](xref:migration/mvc)します。 この記事では、構成を移行します。
+前の記事では[ASP.NET MVCプロジェクトからASP.NET Core MVCへの移行](xref:migration/mvc)を開始しました。 この記事では、構成を移行します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
