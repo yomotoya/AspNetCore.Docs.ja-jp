@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 494f34fb55ed924ad3affcad53486b54396325fe
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444325"
----
 # [ASP.NET Core ドキュメント](/aspnet/#pivot=core)
 
 # 概要
