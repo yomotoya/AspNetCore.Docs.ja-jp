@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
-title: HTML5 と jQuery UI Datepicker ポップアップ カレンダーを使用して、ASP.NET mvc - パート 4 |Microsoft Docs
+title: HTML5 と jQuery UI Datepicker ポップアップ カレンダーを使用して、ASP.NET MVC - パート 4 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、エディターのテンプレート、表示のテンプレートと、ASP.NET MV の jQuery UI datepicker ポップアップ カレンダーを操作する方法の基本を説明しています.
 ms.author: riande
