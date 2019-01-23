@@ -43,7 +43,7 @@ ms.locfileid: "48578184"
 - [ASP.NET MVC の理解をフィルター処理し、属性](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [ASP.NET MVC 5 アプリケーションのライフ サイクル](lifecycle-of-an-aspnet-mvc-5-application.md)(PDF)
 - [ASP.NET ではしないこと。その代わりにすること。](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
-- [SocialGoal - ASP.NET mvc 5、Web アプリの参照を解放する EF 6 Code First、AutoMapper、Autofac、TDD、DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
+- [SocialGoal - ASP.NET MVC 5、Web アプリの参照を解放する EF 6 Code First、AutoMapper、Autofac、TDD、DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
 - [Azure での実際のクラウド アプリの構築](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction.md)
 - [詳細な ASP.NET MVC パイプライン](http://www.dotnet-tricks.com/Tutorial/mvc/LYHK270114-Detailed-ASP.NET-MVC-Pipeline.html)
 
