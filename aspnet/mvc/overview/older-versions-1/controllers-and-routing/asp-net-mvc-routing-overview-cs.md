@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
-title: ASP.NET MVC ルーティング概要 (c#) |Microsoft Docs
+title: ASP.NET MVC ルーティング概要 (C#) |Microsoft Docs
 author: StephenWalther
 description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラー アクションへのブラウザーの要求をマップする方法を示します。
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41826957"
 ---
-<a name="aspnet-mvc-routing-overview-c"></a>ASP.NET MVC ルーティング概要 (c#)
+<a name="aspnet-mvc-routing-overview-c"></a>ASP.NET MVC ルーティング概要 (C#)
 ====================
 によって[Stephen Walther](https://github.com/StephenWalther)
 
