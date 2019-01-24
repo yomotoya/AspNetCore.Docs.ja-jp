@@ -78,7 +78,7 @@ URL/Home には、MVC フレームワークがコント ローラー アクシ�
 
 [!code-csharp[Main](asp-net-mvc-routing-overview-cs/samples/sample3.cs)]
 
-Index() メソッドは、リスト 3 では、すべてのパラメーターは受け入れられません。 URL/Home をこの Index() メソッドが呼び出されるとなります。 また、URL/Home、インデックス、3 は、(Id は無視されます) このメソッドを呼び出します。
+Index() メソッドは、リスト 3 では、すべてのパラメーターは受け入れられません。 URL/Home をこの Index() メソッドが呼び出されるとなります。 また、URL /Home/Index/3 は、(Id は無視されます) このメソッドを呼び出します。
 
 URL/Home には、リスト 4 HomeController クラスの Index() メソッドもと一致します。
 
