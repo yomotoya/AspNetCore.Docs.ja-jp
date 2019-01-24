@@ -28,7 +28,7 @@ ms.locfileid: "48578184"
 
 - [ASP.NET MVC 5 の概要](introduction/getting-started.md)
 - [ASP.NET MVC の概要](https://pluralsight.com/training/Player?author=scott-allen&amp;name=mvc4-building-m1-intro&amp;mode=live&amp;clip=0&amp;course=mvc4-building)(Pluralsight によるビデオ)
-- [Asp.Net MVC で理解モデル ビュー コント ローラー](http://www.dotnet-tricks.com/Tutorial/mvc/DIYG060113-Understanding-Model-View-Controller-in-Asp.Net-MVC.html) (短いブログ入門)。
+- [ASP.NET MVC で理解モデル ビュー コント ローラー](http://www.dotnet-tricks.com/Tutorial/mvc/DIYG060113-Understanding-Model-View-Controller-in-Asp.Net-MVC.html) (短いブログ入門)。
 - [ASP.NET MVC 概要](../older-versions-1/overview/asp-net-mvc-overview.md)
 - [無料の 6 時間のオンライン コースの開発 ASP.NET MVC 4 Web アプリケーション ジャンプ スタート](https://weblogs.asp.net/jgalloway/archive/2013/10/09/free-6-hour-online-course-developing-asp-net-mvc-4-web-applications-jump-start.aspx)
 - [MVC アーキテクチャと懸念事項の分離の learning MVC - パート 1: 概要](http://www.codeproject.com/Articles/620195/Learning-MVC-Part-1-Introduction-to-MVC-Architectu)
