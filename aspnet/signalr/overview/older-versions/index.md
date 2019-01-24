@@ -1,29 +1,29 @@
 ---
 uid: signalr/overview/older-versions/index
 title: 以前のバージョンの SignalR |Microsoft Docs
-author: rick-anderson
+author: bradygaster
 description: 以前のバージョンの SignalR に関連するドキュメントです。
-ms.author: riande
+ms.author: bradyg
 ms.date: 09/19/2014
 ms.assetid: 607f4617-380f-41fa-bf46-147e82bb8124
 msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: b0cb625166f9d9c669891be1efc2b119ff1f92b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 160c3b2f0d255314bdf9fef3eda22cb578de476e
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "48254997"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837054"
 ---
 <a name="signalr-older-versions"></a>SignalR の以前のバージョン
 ====================
 > 以前のバージョンの SignalR に関連するドキュメントです。
 
 
-- [チュートリアル: SignalR 1.x の概要](tutorial-getting-started-with-signalr.md)
-- [チュートリアル: SignalR 1.x と MVC 4 の概要](tutorial-getting-started-with-signalr-and-mvc-4.md)
+- [チュートリアル: SignalR の概要 1.x](tutorial-getting-started-with-signalr.md)
+- [チュートリアル: SignalR の概要 1.x と MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 - [SignalR 1.x による高頻度リアルタイム メッセージング](tutorial-high-frequency-realtime-with-signalr.md)
-- [チュートリアル: ASP.NET SignalR 1.x によるサーバー ブロードキャスト](tutorial-server-broadcast-with-aspnet-signalr.md)
+- [チュートリアル: ASP.NET SignalR によるサーバー ブロードキャスト 1.x](tutorial-server-broadcast-with-aspnet-signalr.md)
 - [ハブ API ガイド - サーバー](signalr-1x-hubs-api-guide-server.md)
 - [SignalR 1.x ハブ API ガイド - JavaScript クライアント](signalr-1x-hubs-api-guide-javascript-client.md)
 - [ハブ API ガイド - .NET クライアント](signalr-1x-hubs-api-guide-net-client.md)

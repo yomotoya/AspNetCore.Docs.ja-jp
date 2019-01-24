@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core SignalR でのセキュリティに関する考慮事項
-author: tdykstra
+author: bradygaster
 description: ASP.NET Core SignalR での認証と承認を使用する方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
-ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
+ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276146"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836065"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core SignalR でのセキュリティに関する考慮事項
 
@@ -22,7 +22,7 @@ ms.locfileid: "51276146"
 
 ## <a name="cross-origin-resource-sharing"></a>クロス オリジン リソース共有
 
-[クロス オリジン リソース共有 (CORS)](https://www.w3.org/TR/cors/)ブラウザーでクロス オリジンの SignalR 接続を許可するために使用できます。 JavaScript コードは、SignalR アプリから別のドメインでホストされている場合[CORS ミドルウェア](xref:security/cors)SignalR アプリへの接続に JavaScript を許可する有効にする必要があります。 クロス オリジン要求を信頼するドメインまたはコントロールからのみを許可します。 例えば:
+[クロス オリジン リソース共有 (CORS)](https://www.w3.org/TR/cors/)ブラウザーでクロス オリジンの SignalR 接続を許可するために使用できます。 JavaScript コードは、SignalR アプリから別のドメインでホストされている場合[CORS ミドルウェア](xref:security/cors)SignalR アプリへの接続に JavaScript を許可する有効にする必要があります。 クロス オリジン要求を信頼するドメインまたはコントロールからのみを許可します。 例:
 
 * サイトがホストされています。 `http://www.example.com`
 * SignalR アプリがホストされています。 `http://signalr.example.com`
@@ -46,31 +46,31 @@ CORS の構成の詳細については、次を参照してください。[を�
 
 ::: moniker range=">= aspnetcore-2.2"
 
-CORS で提供される保護は、Websocket に適用されません。 Websocket を配信元の制限、読み取り[Websocket 原点制限](xref:fundamentals/websockets#websocket-origin-restriction)します。
+CORS で提供される保護は、WebSocket には適用されません。 Websocket を配信元の制限、読み取り[Websocket 原点制限](xref:fundamentals/websockets#websocket-origin-restriction)します。
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-CORS で提供される保護は、Websocket に適用されません。 ブラウザー操作を実行**いない**:
+CORS で提供される保護は、WebSocket には適用されません。 ブラウザーでは以下を実行**しません**。
 
-* CORS の事前要求を実行します。
-* 指定された制限を尊重`Access-Control`WebSocket 要求を行うときにヘッダー。
+* CORS の事前要求を実行する。
+* WebSocket 要求を行うときに `Access-Control` ヘッダーに指定された制限を考慮する。
 
-ただし、ブラウザーを送信しないでください、 `Origin` WebSocket 要求を発行するときにヘッダー。 Websocket の予期される配信元からのみが許可されていることを確認するこれらのヘッダーを検証するアプリケーションを構成する必要があります。
+ただし、WebSocket 要求を発行するときにはブラウザーから `Origin` ヘッダーが送信されます。 予期した配信元からの WebSocket のみが許可されるように、アプリケーションでこれらのヘッダーが検証されるように構成する必要があります。
 
 配置のカスタム ミドルウェアを使用してヘッダーの検証を実現できる ASP.NET Core 2.1 以降では、**する前に`UseSignalR`、認証ミドルウェアと**で`Configure`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
-> `Origin`ヘッダーは、クライアントと同様、制御、`Referer`ヘッダーを送んだことができます。 これらのヘッダーにする必要があります**いない**認証メカニズムとして使用します。
+> `Origin` ヘッダーは、クライアントによって制御され、`Referer` のように偽装することができます。 これらのヘッダーにする必要があります**いない**認証メカニズムとして使用します。
 
 ::: moniker-end
 
 ## <a name="access-token-logging"></a>アクセス トークンのログ記録
 
-Websocket または Server-Sent イベントを使用する場合、クライアントのブラウザーは、クエリ文字列でアクセス トークンを送信します。 標準を使用してとして一般に安全ではクエリ文字列を使用してアクセス トークンを受信`Authorization`ヘッダー。 クライアントとサーバー間のセキュリティで保護されたエンド ツー エンド接続を確実に常に HTTPS を使用する必要があります。 クエリ文字列を含む、各要求の URL を多くの web サーバーにログインします。 Url をログには、アクセス トークンがログに記録可能性があります。 ASP.NET Core では、既定で、クエリ文字列が含まれる各要求の URL を記録します。 例えば:
+Websocket または Server-Sent イベントを使用する場合、クライアントのブラウザーは、クエリ文字列でアクセス トークンを送信します。 標準を使用してとして一般に安全ではクエリ文字列を使用してアクセス トークンを受信`Authorization`ヘッダー。 クライアントとサーバー間のセキュリティで保護されたエンド ツー エンド接続を確実に常に HTTPS を使用する必要があります。 クエリ文字列を含む、各要求の URL を多くの web サーバーにログインします。 Url をログには、アクセス トークンがログに記録可能性があります。 ASP.NET Core では、既定で、クエリ文字列が含まれる各要求の URL を記録します。 例:
 
 ```
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]

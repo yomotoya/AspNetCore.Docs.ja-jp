@@ -8,18 +8,18 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: c970d929c4e6b581bedd2947982926ac448facfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6df0c9d2f38ad1d39abd62787c600ef80da8e8e0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836226"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836222"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET Web 展開 - 推奨リソース
 ====================
 > このトピックではドキュメントへのリンクを展開する方法についてのリソース (発行) ASP.NET web アプリケーションを Visual Studio 2010、Visual Web Developer 2010、およびそれ以降のバージョンを使用して IIS をします。
 > 
-> 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com)スレッド、または他リンクに役立つ、[電子メールの送信](mailto:aspnetue@microsoft.com?subject=Deployment Content Map)リンクを使用します。
+> 優れたブログ記事「わかっている場合[stackoverflow](http://stackoverflow.com)スレッド、または他リンクに役立つ、[電子メールの送信](mailto:aspnetue@microsoft.com?subject=Deployment%20Content%20Map)リンクを使用します。
 > 
 > > [!NOTE] 
 > > 
@@ -75,7 +75,7 @@ ms.locfileid: "41836226"
 
 - [Windows Azure の Web サイトをデプロイする方法](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy)します。 オプションについて説明し、Windows Azure Web サイトに web プロジェクトをデプロイするためのリソースへのリンクを提供します。 Visual Studio からの展開についてのセクションが含まれています。
 - [Visual Studio を使用して ASP.NET Web 配置](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md)します。 12 部構成のチュートリアル シリーズでは、SQL Server データベースを web アプリケーションをデプロイする方法を示します。 データベースの配置には、dbDacFx プロバイダーと Entity Framework Code First Migrations の両方が使用されます。 に関する情報も含まれます[Web.config ファイルの変換](../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md)、[個々 のファイルを展開する](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md#specificfiles)、[コマンドライン配置](../web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment.md)、および[する方法Visual Studio web カスタマイズ .pubxml ファイルを編集してパイプラインを発行](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md)します。 Web フォーム、MVC、Web API など、すべての ASP.NET web プロジェクトに適用)。
-- [方法: デプロイを Web プロジェクトを使用してワンクリックで Visual Studio で発行](https://msdn.microsoft.com/library/dd465337.aspx)(Visual Studio Web 発行ウィザードの情報を参照)。
+- [方法: Web プロジェクトを使用して 1 回のクリックの発行 Visual Studio でのデプロイ](https://msdn.microsoft.com/library/dd465337.aspx)(Visual Studio Web 発行ウィザードの情報を参照)。
 - [SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションを展開する](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md)します。 これは、以前のバージョンの**Visual Studio を使用して ASP.NET Web 配置**このセクションの上部に表示します。 SQL Server Compact データベースをデプロイする方法と SQL Server Compact から SQL Server の製品版に移行する方法については主に便利なここでは。
 - [.NET 多層アプリケーションを使用してストレージ テーブル、キュー、および Blob](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (Microsoft Azure サイト)。 チュートリアル シリーズの 5 つのパートでは、MVC プロジェクトを作成し、Windows Azure のクラウド サービスにデプロイする方法を示します。
 
@@ -100,7 +100,7 @@ ms.locfileid: "41836226"
 - [継続的インテグレーションと継続的デリバリー (Windows Azure で現実世界のクラウド アプリの構築) します。](../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) 継続的インテグレーションと継続的デリバリーを導入する電子書籍の章。
 - [Windows Azure の Web サイトをデプロイする方法](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy)します。 Windows Azure Web サイトに web プロジェクトをデプロイするためのリソースには、オプションおよびリンクをについて説明します。 ソース管理からのデプロイの自動化に関するセクションが含まれています。
 - [エンタープライズのシナリオで Web アプリケーションを展開する](../web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)します。 40 の部分で構成のチュートリアル シリーズでは、Visual Studio 2010 および Team Foundation Server 2010 を使用して CI プロセスの展開を自動化する方法を示します。
-- [『 Inside the Microsoft Build Engine: Using MSBuild and Team Foundation ビルド、Sayed Hashimi、William Bartholomew](http://msbuildbook.com)します。 これは、書籍では、web リソースではなく、ですが、MSBuild を継続的な統合を構成する方法を学習するため、重要なガイドでは。
+- [Microsoft Build Engine: 内Using MSBuild and Team Foundation ビルド、Sayed Hashimi、William Bartholomew](http://msbuildbook.com)します。 これは、書籍では、web リソースではなく、ですが、MSBuild を継続的な統合を構成する方法を学習するため、重要なガイドでは。
 - [MSBuild の拡張機能パック](https://github.com/mikefourie/MSBuildExtensionPack)します。 展開タスクが含まれています。
 - [Team Foundation ビルドのカスタマイズ ガイド](https://aka.ms/vsarsolutions)します。 Team Foundation Server の設定に関する ALM Rangers によってこのドキュメントでは、web 配置について説明して、チュートリアルとビデオが含まれています。
 - [CI サーバーからの変換を SlowCheetah XML](http://sedodream.com/2011/12/12/SlowCheetahXMLTransformsFromACIServer.aspx) (Sayed Hashimi's ブログ)。 Visual Studio アドインの app.config ファイルとその他の XML ファイルに変換するための SlowCheetah を使用する方法について説明します。
@@ -119,7 +119,7 @@ ms.locfileid: "41836226"
 - [Web.config 変換を無効にする方法は?](https://msdn.microsoft.com/library/ee942158.aspx#disable_web_config_transformation) (MSDN)。
 - [Web.config 変換の代わりに Web 配置パラメーターを使用する必要がありますと](https://msdn.microsoft.com/library/ee942158.aspx#web_deploy_parameters) (MSDN)。
 - [Codeplex.com のリリース (XML ドキュメントの変換) XDT](https://blogs.msdn.com/b/webdev/archive/2013/04/23/xdt-xml-document-transform-released-on-codeplex-com.aspx) (.NET Web 開発とツールのブログ)。 Web.config ファイル変換エンジンのソース コードの公開を発表し、それを使用するいくつかのツールを一覧表示します。
-- [Windows Azure の Web サイト: アプリケーションの文字列と接続文字列の動作](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(Microsoft Azure のブログ)。 代わりに Web.config 変換の移行先環境が Windows Azure Web サイトを変換する場合`appSettings`または`connectionStrings`します。
+- [Windows Azure Web サイト:アプリケーション文字列と接続文字列の動作](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(Microsoft Azure のブログ)。 代わりに Web.config 変換の移行先環境が Windows Azure Web サイトを変換する場合`appSettings`または`connectionStrings`します。
 
 
 <a id="webdeployparms"></a>
@@ -128,11 +128,11 @@ ms.locfileid: "41836226"
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Web 配置パラメーターを使用して、デプロイ時に、コピー先の web アプリケーションの設定を変更するには
 
 - [方法: Web 配置パッケージで使用して Web 配置パラメーター](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN)。
-- [MSDeploy: 発行アプリ設定を更新する方法は、発行プロファイルに基づく](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx)(Sayed Hashimi's ブログ)。 示しています Visual Studio に Web 配置パラメーターを統合する方法は、プロファイルを発行します。
+- [MSDeploy:アプリ発行の設定を更新する方法は、発行プロファイルに基づく](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx)(Sayed Hashimi's ブログ)。 示しています Visual Studio に Web 配置パラメーターを統合する方法は、プロファイルを発行します。
 - [Web デプロイのパラメーター化](https://www.iis.net/learn/publish/using-web-deploy/web-deploy-parameterization)(IIS.NET web サイト)。
 - [アクションのパラメーター化の展開を web](http://vishaljoshi.blogspot.com/2010/07/web-deploy-parameterization-in-action.html) (Vishal Joshi のブログ)。
 - [Web デプロイのパラメーター化とします。Web.config 変換](http://vishaljoshi.blogspot.com/2010/06/parameterization-vs-webconfig.html)(Vishal Joshi のブログ)。
-- [Windows Azure の Web サイト: アプリケーションの文字列と接続文字列の動作](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(Microsoft Azure のブログ)。 移行先環境が Windows Azure Web サイトと、パラメーター化する場合の代わりに Web 配置パラメーター`appSettings`または`connectionStrings`します。
+- [Windows Azure Web サイト:アプリケーション文字列と接続文字列の動作](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)(Microsoft Azure のブログ)。 移行先環境が Windows Azure Web サイトと、パラメーター化する場合の代わりに Web 配置パラメーター`appSettings`または`connectionStrings`します。
 
 
 <a id="appoffline"></a>
@@ -140,7 +140,7 @@ ms.locfileid: "41836226"
 
 ## <a name="making-sure-an-application-is-off-line-during-deployment"></a>デプロイ時にオフラインはことを確認して、アプリケーションを作成します。
 
-- [Visual Studio を使用して ASP.NET Web 展開: コードの更新を展開する](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md)します。 セクションを参照して**デプロイ時にアプリケーションをオフラインです。**
+- [Visual Studio を使用して ASP.NET Web の展開:コードの更新を展開する](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md)します。 セクションを参照して**デプロイ時にアプリケーションをオフラインです。**
 - [オフラインにすること、アプリケーションの発行する前に](https://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing)(IIS.net サイト)。 アプリの処理を自動化する Web Deploy 3.0 に組み込まれている機能について説明します\_offline.htm ファイル。 カスタム アプリでこの機能は機能しません\_offline.htm ファイル。
 - [発行時に、web アプリをオフラインを実行する](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx)(Sayed Hashimi's ブログ)。 カスタム アプリを使用してプロセスを自動化する方法\_offline.htm ファイル。
 - [Web アプリをオフラインと usechecksum の更新の発行](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx)(Microsoft の Web 開発のブログ)。 アプリの使用を自動化するためのもう 1 つのオプション\_offline.htm ファイル。
@@ -211,7 +211,7 @@ ms.locfileid: "41836226"
 
 ## <a name="automating-common-deployment-tasks-that-are-not-automated-out-of-the-box"></a>すぐが自動化されていない展開の一般的なタスクを自動化します。
 
-- [Visual Studio を使用して ASP.NET Web 展開: Extra Files のデプロイ](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md)します。
+- [Visual Studio を使用して ASP.NET Web の展開:余分なファイルを展開する](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md)します。
 - [Web の発行フォルダーのアクセス許可を設定](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx)(Sayed Hashimi's ブログ)。
 - [Web プロジェクトのパッケージのレジストリ設定を含めるようにターゲット ファイルを拡張する方法](https://blogs.msdn.com/webdevtools/archive/2010/02/09/how-to-extend-target-file-to-include-registry-settings-for-web-project-package.aspx)(Web 開発ツールのブログ)。
 - [拡張 XML (Web.config) 変換](http://sedodream.com/2010/09/09/ExtendingXMLWebconfigConfigTransformation.aspx)(Sayed Hashimi's ブログ)。 カスタム XDT 変換を作成する方法を示します。
@@ -244,7 +244,7 @@ ms.locfileid: "41836226"
 ## <a name="troubleshooting-deployment-problems"></a>展開に関する問題のトラブルシューティング
 
 - [Visual Studio での Windows Azure Web サイトのトラブルシューティング](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio)(Microsoft Azure サイト)。
-- [Visual Studio を使用して ASP.NET Web 展開: トラブルシューティング](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md)します。
+- [Visual Studio を使用して ASP.NET Web の展開:トラブルシューティング](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md)します。
 - [Web を使用した一般的な問題のトラブルシューティングのデプロイ](https://www.iis.net/learn/publish/troubleshooting-web-deploy/troubleshooting-common-problems-with-web-deploy)します。
 - [エラー コードのデプロイを web](https://www.iis.net/learn/publish/troubleshooting-web-deploy/web-deploy-error-codes) (IIS.net サイト)。
 - [Web 配置の FAQ for Visual Studio および ASP.NET](https://msdn.microsoft.com/library/ee942158.aspx) (MSDN)。

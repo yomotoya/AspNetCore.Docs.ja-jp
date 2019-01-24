@@ -1,56 +1,51 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
-title: MVC 5 Web アプリケーション (12 は 12) 用の Entity Framework 6 のシナリオの詳細 |Microsoft Docs
+title: 'チュートリアル: MVC 5 Web アプリの高度な EF のシナリオについて説明します'
+description: このチュートリアルでは、Entity Framework Code First を使用する ASP.NET web アプリケーションの開発の基本機能を越えて移動するときの注意すべきに役立ついくつかのトピックについて紹介します。
 author: tdykstra
-description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: riande
-ms.date: 12/08/2014
+ms.date: 01/22/2019
+ms.topic: tutorial
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 0aa440e700c9bfb02aa5d55ebf481850a730febe
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ff480f7e8c2801fcb6a64c37d95e7e15467acde6
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912684"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837495"
 ---
-<a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>MVC 5 Web アプリケーション (12 は 12) の高度な Entity Framework 6 のシナリオ
-====================
-によって[Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-learn-about-advanced-ef-scenarios-for-an-mvc-5-web-app"></a>チュートリアル: MVC 5 Web アプリの高度な EF のシナリオについて説明します
 
-[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
-
-前のチュートリアルでは、table-per-hierarchy 継承を実装しました。 このチュートリアルでは、Entity Framework Code First を使用する ASP.NET web アプリケーションの開発の基本機能を越えて移動するときの注意すべきに役立ついくつかのトピックについて紹介します。 詳細な手順については、コードと、次のトピックの Visual Studio を使用することを行います。
-
-- [生 SQL クエリを実行します。](#rawsql)
-- [追跡なしのクエリを実行します。](#notracking)
-- [データベースに送信する SQL の確認](#sql)
-
-チュートリアルには、いくつかのトピックの詳細については、リソースへのリンクの後に簡単な紹介が導入されています。
-
-- [リポジトリと unit of work パターン](#repo)
-- [プロキシ クラス](#proxies)
-- [変更の自動検出](#changedetection)
-- [自動検証](#validation)
-- [Visual Studio 用の EF ツール](#tools)
-- [Entity Framework のソース コード](#source)
-
-このチュートリアルでは、次のセクションも含まれます。
-
-- [まとめ](#summary)
-- [受信確認](#acknowledgments)
-- [VB に関する注意事項](#vb)
-- [一般的なエラーと解決方法またはそれらの回避策](#errors)
+前のチュートリアルでは、table-per-hierarchy 継承を実装しました。 このチュートリアルでは、Entity Framework Code First を使用する ASP.NET web アプリケーションの開発の基本機能を越えて移動するときの注意すべきに役立ついくつかのトピックについて紹介します。 最初のいくつかのセクションは、コードについて説明した手順を持ち、詳細については、リソースへのリンクの後に簡単な紹介をいくつかのトピックを紹介する Visual Studio を使用して、次のセクションのタスクを完了します。
 
 これらのトピックのほとんどは、既に作成したページを操作します。 生 SQL を使用して一括更新プログラムを実行するには、データベース内のすべてのコースの単位数を更新する新しいページを作成します。
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image1.png)
 
-<a id="rawsql"></a>
-## <a name="performing-raw-sql-queries"></a>生 SQL クエリを実行します。
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 生 SQL クエリを実行します。
+> * 追跡なしのクエリを実行します。
+> * SQL を調べるクエリ データベースに送信されます
+
+についても説明します。
+
+> [!div class="checklist"]
+> * 抽象化レイヤーを作成します。
+> * プロキシ クラス
+> * 変更の自動検出
+> * 自動検証
+> * Entity Framework Power Tools
+> * Entity Framework のソース コード
+
+## <a name="prerequisite"></a>必須コンポーネント
+
+* [継承の実装](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="perform-raw-sql-queries"></a>生 SQL クエリを実行します。
 
 Entity Framework Code First API をデータベースに直接 SQL コマンドを渡すことができるようにするメソッドが含まれています。 次のオプションがあります。
 
@@ -70,9 +65,7 @@ Web アプリケーションで SQL コマンドを実行する場合は常に�
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample1.cs?highlight=8-14)]
 
-新しいコードが正しく動作することを確認するには、**[Departments]\(部門\)** タブを選択し、いずれかの部門の **[Details]\(詳細\)** を選択します。
-
-![部門の詳細](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image2.png)
+新しいコードが正しく動作することを確認するには、**[Departments]\(部門\)** タブを選択し、いずれかの部門の **[Details]\(詳細\)** を選択します。 期待どおりにすべてのデータ表示を確認します。
 
 ### <a name="calling-a-query-that-returns-other-types-of-objects"></a>クエリを呼び出すには、その他の種類のオブジェクトが返されます。
 
@@ -86,29 +79,21 @@ LINQ を使用するのではなく、SQL で直接このデータを取得す�
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample3.cs?highlight=3-18)]
 
-[About] ページを実行します。 以前に行ったのと同じデータが表示されます。
-
-![About_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image3.png)
+[About] ページを実行します。 先ほどと同じデータを表示することを確認します。
 
 ### <a name="calling-an-update-query"></a>更新クエリを呼び出す
 
-Contoso University の管理者は、すべてのコースの単位数を変更するなど、データベースで一括変更を実行することができるようにするとします。 大学に多くのコースがある場合は、それらすべてをエンティティとして取得し、それらを個別に変更するのは非効率的です。 このセクションでは、ユーザーは、すべてのコースの単位数を変更する係数を指定できる web ページを実装し、SQL を実行することによって、変更を行います`UPDATE`ステートメント。 Web ページは次の図のようになります。
-
-![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image4.png)
+Contoso University の管理者は、すべてのコースの単位数を変更するなど、データベースで一括変更を実行することができるようにするとします。 大学に多くのコースがある場合は、それらすべてをエンティティとして取得し、それらを個別に変更するのは非効率的です。 このセクションでは、ユーザーは、すべてのコースの単位数を変更する係数を指定できる web ページを実装し、SQL を実行することによって、変更を行います`UPDATE`ステートメント。 
 
 *CourseContoller.cs*、追加`UpdateCourseCredits`メソッド`HttpGet`と`HttpPost`:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample4.cs)]
 
-コント ローラーを処理すると、`HttpGet`要求、何も返されないで、`ViewBag.RowsAffected`変数、およびビューが表示されます、空のテキスト ボックスと送信ボタンの場合は、前の図に示すようにします。
+コント ローラーを処理すると、`HttpGet`要求、何も返されないで、`ViewBag.RowsAffected`変数、および、ビューは空のテキスト ボックスと送信ボタンが表示されます。
 
-ときに、 **Update**ボタンがクリックされた、`HttpPost`メソッドが呼び出されると、および`multiplier`テキスト ボックスに入力した値を持ちます。 コードのコースを更新し、ビューに影響を受けた行の数を返します SQL を実行し、`ViewBag.RowsAffected`変数。 ビューは、その値を取得します変数がテキスト ボックスの代わりに更新された行の数を表示され次の図に示すように、ボタンを送信します。
+ときに、 **Update**ボタンがクリックされた、`HttpPost`メソッドが呼び出されると、および`multiplier`テキスト ボックスに入力した値を持ちます。 コードのコースを更新し、ビューに影響を受けた行の数を返します SQL を実行し、`ViewBag.RowsAffected`変数。 ビューは、その変数に値を取得、ときに、テキスト ボックスではなく更新された行の数を表示し、送信ボタン。
 
-![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image5.png)
-
-*CourseController.cs*のいずれかを右クリックし、`UpdateCourseCredits`メソッド、およびクリック**ビューの追加**します。
-
-![Add_View_dialog_box_for_Update_Course_Credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image6.png)
+*CourseController.cs*のいずれかを右クリックし、`UpdateCourseCredits`メソッド、およびクリック**ビューの追加**します。 **ビューの追加**ダイアログが表示されます。 既定値と選択のままに**追加**します。
 
 *Views\Course\UpdateCourseCredits.cshtml*、テンプレート コードを次のコードに置き換えます。
 
@@ -116,19 +101,14 @@ Contoso University の管理者は、すべてのコースの単位数を変更�
 
 **[Courses]\(コース\)** タブを選択してから、ブラウザーのアドレス バーで URL の末尾に "/UpdateCourseCredits" を追加して (例: `http://localhost:50205/Course/UpdateCourseCredits`)、`UpdateCourseCredits` メソッドを実行します。 テキスト ボックスに数値を入力します。
 
-![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
+![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image1.png)
 
-**[更新]** をクリックします。 影響を受けた行の数が表示されます。
-
-![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
+**[更新]** をクリックします。 影響を受ける行の数を表示します。
 
 **[リストに戻る]** をクリックして、単位数が変更されたコースの一覧を表示します。
 
-![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
-
 生 SQL クエリの詳細については、次を参照してください。[生 SQL クエリ](https://msdn.microsoft.com/data/jj592907)msdn です。
 
-<a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>追跡なしのクエリ
 
 データベース コンテキストは、テーブルの行を取得してそれらを表すエンティティ オブジェクトを作成するとき、既定では、メモリ内のエンティティがデータベース内のデータと同期されているかどうかを追跡します。 メモリ内のデータはキャッシュとして機能し、エンティティを更新するときに使われます。 Web アプリケーションでは、一般にコンテキスト インスタンスの存続期間は短く (要求ごとに新しいインスタンスが作成されて破棄されます)、通常、エンティティを読み取るコンテキストはエンティティが再び使われる前に破棄されるので、多くの場合、このようなキャッシュは必要ありません。
@@ -140,8 +120,7 @@ Contoso University の管理者は、すべてのコースの単位数を変更�
 
 使用する方法を示す例については、 [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx)メソッドを参照してください[このチュートリアルの以前のバージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)します。 チュートリアルのこのバージョンは、必要がないために、編集の方法でモデル バインダーに作成されたエンティティでの Modified フラグを設定しない`AsNoTracking`します。
 
-<a id="sql"></a>
-## <a name="examining-sql-sent-to-the-database"></a>データベースに送信する SQL の確認
+## <a name="examine-sql-sent-to-database"></a>データベースに送信される SQL を確認します。
 
 データベースに送信される実際の SQL クエリを確認できると役立つ場合があります。 前のチュートリアルでは、インターセプターのコードで方法を説明しましたこれでインターセプターのコードを記述せずに行う方法をいくつかを確認します。 これを試すには、単純なクエリを見てをこのような一括読み込み、フィルター処理、および並べ替えオプションを追加するときにどう見ています。
 
@@ -175,9 +154,7 @@ A`SelectList`ドロップダウン リストのすべての部門を含むコレ
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample9.cshtml)]
 
-まだブレークポイント設定、コースのインデックス ページを実行します。 最初に、コードが、ブレークポイントをヒット回を続け、ブラウザーでページが表示されます。 ドロップダウン リストから、部門を選択し、クリックして**フィルター**:
-
-![Course_Index_page_with_department_selected](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image11.png)
+まだブレークポイント設定、コースのインデックス ページを実行します。 最初に、コードが、ブレークポイントをヒット回を続け、ブラウザーでページが表示されます。 ドロップダウン リストから、部門を選択し、クリックして**フィルター**します。
 
 この時間、最初のブレークポイントは、ドロップダウン リストの部門のクエリになります。 スキップして、表示、`query`変数次に、コード、ブレークポイントに到達内容を表示するには、`Course`クエリのようになりますようになりました。 次のようなものが表示されます。
 
@@ -187,9 +164,7 @@ A`SelectList`ドロップダウン リストのすべての部門を含むコレ
 
 削除、`var sql = courses.ToString()`行。
 
-<a id="repo"></a>
-
-## <a name="repository-and-unit-of-work-patterns"></a>Repository パターンと Unit of Work パターン
+## <a name="create-an-abstraction-layer"></a>抽象化レイヤーを作成します。
 
 多くの開発者は、Entity Framework で動作するコードをラップするラッパーとして、Repository パターンと Unit of Work パターンを実装するためのコードを記述します。 これらのパターンは、アプリケーションのデータ アクセス層とビジネス ロジック層の間に抽象化レイヤーを作成するためのものです。 これらのパターンを実装すると、データ ストアの変更からアプリケーションを隔離でき、自動化された単体テストやテスト駆動開発 (TDD) を円滑化できます。 ただし、これらのパターンを実装する追加コードの記述は常にいくつかの理由、EF を使用するアプリケーションに最適な選択肢。
 
@@ -204,6 +179,7 @@ A`SelectList`ドロップダウン リストのすべての部門を含むコレ
 - [独自のテスト代替によるテスト](https://msdn.microsoft.com/data/dn314431)
 
 <a id="proxies"></a>
+
 ## <a name="proxy-classes"></a>プロキシ クラス
 
 Entity Framework では、(たとえば、クエリを実行するときに) エンティティ インスタンスを作成するときは、動的に生成されたエンティティのプロキシとして機能する派生型のインスタンスとしてそのを多くの場合、作成します。 たとえば、次の 2 つのデバッガー イメージを参照してください。 最初のイメージで、`student`変数は、予想される`Student`エンティティをインスタンス化した直後に入力します。 2 番目のイメージを student エンティティをデータベースから読み取る EF を使用した後、プロキシ クラスを参照します。
@@ -222,7 +198,6 @@ Entity Framework では、(たとえば、クエリを実行するときに) エ
 
 詳細については、次を参照してください。 [Proxies の操作](https://msdn.microsoft.com/data/JJ592886.aspx)msdn です。
 
-<a id="changedetection"></a>
 ## <a name="automatic-change-detection"></a>変更の自動検出
 
 Entity Framework では、エンティティの現在の値と元の値を比較して、エンティティがどのように変更されたか (およびそれによって、どの更新プログラムをデータベースに送信する必要があるか) を判断します。 元の値は、エンティティが照会されるかアタッチされるときに格納されます。 変更の自動検出を行うメソッドには、次のようなものがあります。
@@ -239,50 +214,29 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 
 多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、一時的に変更の自動検出を使用して無効にすることで大幅なパフォーマンス向上を取得可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティ。 詳細については、次を参照してください。[変更を自動的に検出](https://msdn.microsoft.com/data/jj556205)msdn です。
 
-<a id="validation"></a>
 ## <a name="automatic-validation"></a>自動検証
 
 呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、変更されたすべてのエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したら、既に検証したデータは、この作業は必要ありませんし保存するプロセスを行うことができます、変更は一時的に検証を無効にすることで時間が。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx)プロパティ。 詳細については、次を参照してください。[検証](https://msdn.microsoft.com/data/gg193959)msdn です。
 
-<a id="tools"></a>
 ## <a name="entity-framework-power-tools"></a>Entity Framework Power Tools
 
-[Entity Framework Power Tools](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d)データ モデルのダイアグラムの作成に使用された Visual Studio アドインは、このチュートリアルで示します。 ツールでは、Code First とデータベースを使用できるように、既存のデータベース内のテーブルに基づくエンティティ クラスを生成するなどの他の関数も実行できます。 ツールをインストールすると、コンテキスト メニューに追加のオプションが表示されます。 たとえば、右クリックすると、コンテキスト クラスを**ソリューション エクスプ ローラー**図を生成するオプションを取得します。 Code First を使用する場合、図では、データ モデルを変更することはできませんを理解しやすいように内点を移動することができます。
-
-![EF コンテキスト メニュー](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image14.png)
+[Entity Framework Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition)データ モデルのダイアグラムの作成に使用された Visual Studio アドインは、このチュートリアルで示します。 ツールでは、Code First とデータベースを使用できるように、既存のデータベース内のテーブルに基づくエンティティ クラスを生成するなどの他の関数も実行できます。 ツールをインストールすると、コンテキスト メニューに追加のオプションが表示されます。 たとえば、右クリックすると、コンテキスト クラスを**ソリューション エクスプ ローラー**、表示と**Entity Framework**オプション。 これにより、図を生成します。 Code First を使用する場合、図では、データ モデルを変更することはできませんを理解しやすいように内点を移動することができます。
 
 ![EF のダイアグラム](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image15.png)
 
-<a id="source"></a>
 ## <a name="entity-framework-source-code"></a>Entity Framework のソース コード
 
 Entity Framework 6 のソース コードは[GitHub](https://github.com/aspnet/EntityFramework6)します。 バグを探し、EF のソース コードを独自の機能強化を投稿することができます。
 
 ソース コードはオープンですが、Entity Framework は、Microsoft 製品がサポートされます。 Microsoft Entity Framework チームは、各リリースの品質を保証するため、受け入れる投稿を管理し、すべてのコード変更をテストしています。
 
-<a id="summary"></a>
-## <a name="summary"></a>まとめ
-
-これは、この一連の ASP.NET MVC アプリケーションで Entity Framework の使用に関するチュートリアルを完了します。 Entity Framework を使用してデータを操作する方法の詳細については、次を参照してください。、 [msdn ドキュメント ページを EF](https://msdn.microsoft.com/data/ee712907)と[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
-
-これを構築した後、web アプリケーションをデプロイする方法の詳細については、次を参照してください。 [ASP.NET Web 展開 - 推奨リソース](../../../../whitepapers/aspnet-web-deployment-content-map.md)、MSDN ライブラリ。
-
-については、認証および承認など、MVC に関連するその他のトピックを参照してください、 [ASP.NET MVC - 推奨リソース](../recommended-resources-for-mvc.md)します。
-
-<a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>謝辞
 
 - Tom Dykstra は、このチュートリアルの元のバージョンを記述した、EF 5 更新プログラムを共同執筆し、EF 6 の更新プログラムを記述します。 Tom は、Microsoft Web プラットフォームとツール コンテンツ チームのシニア プログラミング ライターです。
 - [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) EF 5 と MVC 4 のチュートリアルを更新する作業の大半を EF 6 の更新プログラムを共同で作成します。 Rick は、Azure と MVC に注目して Microsoft のシニア プログラミング ライターです。
 - [Rowan Miller](http://www.romiller.com)と Entity Framework チームの他のメンバーがコード レビューを支援し、EF 5 と 6 の EF のチュートリアルを更新していた私たちの中に発生した移行に関する多くの問題のデバッグに協力します。
 
-<a id="vb"></a>
-## <a name="vb"></a>VB
-
-EF 4.1 のチュートリアルが作成される最初のダウンロードが完了したプロジェクトの c# および VB の両方のバージョンが用意されていますが。 時間の制限とその他の優先順位により行っていないをこのバージョンのです。 これらのチュートリアルを使用した VB プロジェクトをビルドして可能な項目を他のユーザーと共有、ご連絡ください。
-
-<a id="errors"></a>
-## <a name="common-errors-and-solutions-or-workarounds-for-them"></a>一般的なエラーと解決方法またはそれらの回避策
+## <a name="troubleshoot-common-errors"></a>一般的なエラーをトラブルシューティングします。
 
 ### <a name="cannot-createshadow-copy"></a>コピーを作成/シャドウことはできません。
 
@@ -328,11 +282,43 @@ Visual Studio を終了します。 プロジェクトを再度開いてもう�
 
 エラー メッセージ:
 
-> SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー: SQL ネットワーク インターフェイス、エラー: 26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)。
+> SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー:SQL ネットワーク インターフェイス、エラー:26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)
 
 ソリューション
 
 接続文字列を確認します。 データベースを手動で削除した場合は、構築文字列でデータベースの名前を変更します。
 
-> [!div class="step-by-step"]
-> [前へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="get-the-code"></a>コードを取得する
+
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>その他の技術情報
+
+ Entity Framework を使用してデータを操作する方法の詳細については、次を参照してください。、 [msdn ドキュメント ページを EF](https://msdn.microsoft.com/data/ee712907)と[ASP.NET データ アクセス - 推奨リソース](../../../../whitepapers/aspnet-data-access-content-map.md)します。
+
+これを構築した後、web アプリケーションをデプロイする方法の詳細については、次を参照してください。 [ASP.NET Web 展開 - 推奨リソース](../../../../whitepapers/aspnet-web-deployment-content-map.md)、MSDN ライブラリ。
+
+については、認証および承認など、MVC に関連するその他のトピックを参照してください、 [ASP.NET MVC - 推奨リソース](../recommended-resources-for-mvc.md)します。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 生 SQL クエリの実行
+> * 追跡なしのクエリの実行
+> * データベースに送信する SQL クエリの検査
+
+詳細についても学習しました。
+
+> [!div class="checklist"]
+> * 抽象化レイヤーを作成します。
+> * プロキシ クラス
+> * 変更の自動検出
+> * 自動検証
+> * Entity Framework Power Tools
+> * Entity Framework のソース コード
+
+これは、この一連の ASP.NET MVC アプリケーションで Entity Framework の使用に関するチュートリアルを完了します。 EF Database First について学習する場合は、DB の最初のチュートリアル シリーズを参照してください。
+> [!div class="nextstepaction"]
+> [Entity Framework データベース ファースト](../database-first-development/setting-up-database.md)

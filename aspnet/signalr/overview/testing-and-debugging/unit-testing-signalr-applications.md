@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 title: SignalR アプリケーションの単体テスト |Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: この記事では、SignalR 2.0 の単体テスト機能を使用する方法について説明します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: d8f3afdc2749173d1e260096ee6bd4bf1ae4c7cb
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: cb4eb25aeedfe31ac2606de9fe7d280eb95ce2e6
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287516"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836039"
 ---
 <a name="unit-testing-signalr-applications"></a>単体テストの SignalR アプリケーション
 ====================

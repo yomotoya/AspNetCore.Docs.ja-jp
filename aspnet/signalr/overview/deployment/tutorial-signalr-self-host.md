@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
-title: チュートリアル:SignalR セルフホスト |Microsoft Docs
-author: pfletcher
+title: 'チュートリアル: SignalR セルフホスト |Microsoft Docs'
+author: bradygaster
 description: このチュートリアルでは、SignalR 2 の自己ホスト型サーバーを作成する方法と、JavaScript クライアントで接続する方法を説明します。 ソフトウェアのバージョンが V のチュートリアルで使用しています.
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 6a6359d59a4b715e13fe2bbcef57da6d6d6294b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287404"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835753"
 ---
-<a name="tutorial-signalr-self-host"></a>チュートリアル:SignalR セルフホスト
+<a name="tutorial-signalr-self-host"></a>チュートリアル: SignalR セルフホスト
 ====================
 提供者: [Patrick Fletcher](https://github.com/pfletcher)
 
@@ -93,7 +93,7 @@ IIS でホストしていない理由は次のとおりです。
 
     上記のコードには、3 つのクラスが含まれています。
 
-    - **プログラム**など、 **Main**メソッドの実行のプライマリ パスを定義します。 このメソッドでは、型の web アプリケーションで**スタートアップ**が開始されて、指定した URL (`http://localhost:8080`)。 エンドポイントのセキュリティが必要な場合は、SSL を実装できます。 参照してください[方法。SSL 証明書でポートを構成](https://msdn.microsoft.com/library/ms733791.aspx)詳細についてはします。
+    - **プログラム**など、 **Main**メソッドの実行のプライマリ パスを定義します。 このメソッドでは、型の web アプリケーションで**スタートアップ**が開始されて、指定した URL (`http://localhost:8080`)。 エンドポイントのセキュリティが必要な場合は、SSL を実装できます。 「[方法:SSL 証明書でポートを構成](https://msdn.microsoft.com/library/ms733791.aspx)詳細についてはします。
     - **スタートアップ**、SignalR のサーバーの構成を含むクラス (このチュートリアルでは、のみの構成への呼び出しは、 `UseCors`) への呼び出し`MapSignalR`ハブのすべてのオブジェクトのルート プロジェクトを作成します。
     - **MyHub**アプリケーションをクライアントに提供する SignalR ハブ クラス。 このクラスは 1 つのメソッド、**送信**、接続されている他のすべてのクライアントにメッセージをブロードキャストするクライアントが呼び出すことです。
 6. アプリケーションをコンパイルして実行します。 サーバーを実行しているアドレスは、コンソール ウィンドウに表示されます。

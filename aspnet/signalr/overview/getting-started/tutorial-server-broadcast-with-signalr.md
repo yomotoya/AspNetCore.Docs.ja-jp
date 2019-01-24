@@ -3,18 +3,18 @@ uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'チュートリアル: SignalR 2 によるサーバー ブロードキャスト |Microsoft Docs'
 author: tdykstra
 description: このチュートリアルでは、ASP.NET SignalR 2 を使用してサーバー ブロードキャストの機能を提供する web アプリケーションを作成する方法を示します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/02/2019
 ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a6014e604613492db91b2dc6f846c3c73d938d99
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099300"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837430"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>チュートリアル: SignalR 2 によるブロードキャスト サーバー
 
@@ -26,7 +26,7 @@ ms.locfileid: "54099300"
 
 ![Web を作成します。](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-このチュートリアルでしました。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * プロジェクトの作成
@@ -321,7 +321,7 @@ SignalR では、トラブルシューティングで支援するために、ク
 
     [!code-javascript[Main](tutorial-server-broadcast-with-signalr/samples/sample19.js?highlight=2)]
 
-1. キーを押して**F5**プロジェクトを実行します。
+1. **F5** キーを押してプロジェクトを実行します。
 
 1. ブラウザーの開発者ツール ウィンドウを開きし、ログを表示するコンソールを選択します。 新しい接続の転送方法をネゴシエートする SignalR のログを表示するページを更新する必要があります。
 
@@ -487,7 +487,7 @@ JQuery コードがスクロールします。
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでしました。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * プロジェクトの作成

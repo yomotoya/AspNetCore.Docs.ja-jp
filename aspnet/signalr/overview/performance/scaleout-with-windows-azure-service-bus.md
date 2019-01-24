@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/scaleout-with-windows-azure-service-bus
 title: Azure Service Bus による SignalR スケール アウト |Microsoft Docs
-author: MikeWasson
+author: bradygaster
 description: ソフトウェアのバージョンは、このトピックの「Visual Studio 2013 .NET 4.5 SignalR バージョン 2 以前のバージョンのこのトピックでは、このトピック SignalR の 1.x バージョンのを使用しています.
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 5cdb9b5eb6d3f5ebd5c96e4b0d89926c18bddadd
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 9f6188ff5f716c20d759f73975d6a8ad522834d8
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287612"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836819"
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>Azure Service Bus による SignalR スケール アウト
 ====================
@@ -71,7 +71,7 @@ Service Bus のバック プレーンでは、トピックを使用して、メ�
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio プロジェクトを作成します。
 
-Visual Studio を起動します。 **ファイル** メニューのをクリックして**新しいプロジェクト**します。
+Visual Studio を起動します。 **ファイル** メニューから**新しいプロジェクト**をクリックします。
 
 **新しいプロジェクト** ダイアログ ボックスで、展開**Visual c#** します。 **インストールされたテンプレート**を選択します**クラウド**選び**Windows Azure クラウド サービス**します。 既定値を .NET Framework 4.5 を保持します。 ChatService アプリケーションの名前を指定し、をクリックして**OK**します。
 

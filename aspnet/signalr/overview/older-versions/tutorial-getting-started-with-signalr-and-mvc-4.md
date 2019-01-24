@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
-title: チュートリアル:SignalR の概要 1.x と MVC 4 |Microsoft Docs
-author: pfletcher
+title: 'チュートリアル: SignalR の概要 1.x と MVC 4 |Microsoft Docs'
+author: bradygaster
 description: ASP.NET SignalR、ASP.NET MVC 4 を使用して、リアルタイムのチャット アプリケーションを構築します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: a67d05288252c17d84b1d7df5f7bcddde3c887f5
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: dd55ca22004b7e3899f6a8789494c842b984787f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287724"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837794"
 ---
-<a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>チュートリアル:SignalR の概要 1.x と MVC 4
+<a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>チュートリアル: SignalR の概要 1.x と MVC 4
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tim Teebken](https://github.com/timlt)
 
@@ -126,7 +126,7 @@ ms.locfileid: "53287724"
 
 SignalR チャット アプリケーションを 2 つの基本的な SignalR 開発タスクを示します。 サーバーで、主要な調整オブジェクトとしてハブを作成し、メッセージを送受信する SignalR jQuery ライブラリを使用します。
 
-### <a name="signalr-hubs"></a>SignalR ハブ
+### <a name="signalr-hubs"></a>SignalR Hubs
 
 コード サンプルでは、 **ChatHub**クラスから派生、 **Microsoft.AspNet.SignalR.Hub**クラス。 派生する、**ハブ**クラスは、SignalR アプリケーションを構築する便利な方法です。 ハブ クラスにパブリック メソッドを作成し、web ページに jQuery スクリプトから呼び出すことによってこれらのメソッドにアクセスできます。
 

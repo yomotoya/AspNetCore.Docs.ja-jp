@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/troubleshooting
 title: SignalR トラブルシューティング (SignalR 1.x) |Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: この記事では、SignalR アプリケーションの開発に関する一般的な問題について説明します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: d485829fb60b32b063405f37ae9c6c278bf7255b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287694"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836273"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>SignalR トラブルシューティング (SignalR 1.x)
 ====================
@@ -186,7 +186,7 @@ Windows 7 などのクライアント オペレーティング システムで�
 
 このエラーは、認証を使用して、接続が停止する前に、クライアントがログアウトした場合に発生する可能性があります。 ソリューションでは、クライアントをログアウトする前に SignalR 接続を停止します。
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"エラーをキャッチできません。SignalR: jQuery が見つかりませんでした。 SignalR.js ファイルの前に jQuery が参照されていることを確認してください"のエラー
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"エラーをキャッチできません。SignalR: jQuery not found. SignalR.js ファイルの前に jQuery が参照されていることを確認してください"のエラー
 
 SignalR JavaScript クライアントでは、jQuery を実行する必要があります。 JQuery への参照が使用されるパスが有効であるおよび SignalR への参照を前に jQuery への参照が正しいことを確認します。
 

@@ -1,20 +1,20 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 title: 'チュートリアル: SignalR 2 使用頻度の高いリアルタイム アプリの作成 |Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: このチュートリアルでは、ASP.NET SignalR を使用して、頻度の高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: 85503db0b41be6f87136627667d6dd71f0d4f609
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 44aaa2b0c059de310e963f642fa56c2f00a7e443
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098591"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836728"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>チュートリアル: SignalR 2 使用頻度の高いリアルタイム アプリを作成します。
 
@@ -24,7 +24,7 @@ ms.locfileid: "54098591"
 
 このチュートリアルで導入された概念には、リアルタイムのゲームでのアプリケーションおよびその他のシミュレーション アプリケーションがあります。
 
-このチュートリアルでしました。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * プロジェクトを設定します。
@@ -224,6 +224,10 @@ Javascript を使用して、`setInterval`固定の率でサーバーに新し�
 
 このコードは、元の場所を新しい図形を移動します。 サーバーは、アニメーションの間隔の過程で、図形の位置を示します。 この場合、100 ミリ秒です。 アプリでは、新しいアニメーションが開始される前に、図形の実行の前のアニメーションをクリアします。
 
+## <a name="get-the-code"></a>コードを取得する
+
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
+
 ## <a name="additional-resources"></a>その他の技術情報
 
 学習した通信パラダイムはこのようなオンライン ゲームとその他のシミュレーションを開発するために便利です[SignalR を使って作成された ShootR ゲーム](https://shootr.azurewebsites.net/)します。
@@ -238,7 +242,7 @@ Javascript を使用して、`setInterval`固定の率でサーバーに新し�
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでしました。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * プロジェクトを設定します。

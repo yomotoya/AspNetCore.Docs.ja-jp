@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-server
 title: ASP.NET SignalR ハブ API ガイド - サーバー (c#) |Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: このドキュメントでは、SignalR 2 のバージョンを示すコード サンプルでの ASP.NET SignalR ハブの API のサーバー側のプログラミングを紹介しています.
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: a28663c8d5c679f85e863e7d0b4523a6f4dd4a1f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288106"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837456"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR ハブ API ガイド - サーバー (c#)
 ====================
@@ -104,7 +104,7 @@ SignalR 2 のサーバー コンポーネントは .NET 4.5 でのみ利用で�
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
-ASP.NET MVC アプリケーションに SignalR の機能を追加する場合は、SignalR のルートが、他のルートの前に追加されたことを確認します。 詳細については、次を参照してください。[チュートリアル。SignalR 2 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)します。
+ASP.NET MVC アプリケーションに SignalR の機能を追加する場合は、SignalR のルートが、他のルートの前に追加されたことを確認します。 詳しくは、「[チュートリアル: SignalR 2 と MVC 5 の概要](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)します。
 
 <a id="signalrurl"></a>
 

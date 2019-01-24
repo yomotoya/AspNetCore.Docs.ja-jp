@@ -4,17 +4,17 @@ title: 'チュートリアル: ASP.NET MVC アプリのより複雑なデータ 
 author: tdykstra
 description: このチュートリアルでは、複数のエンティティとリレーションシップを追加し、書式設定、検証、およびデータベース マッピングの規則を指定することで、データ モデルをカスタマイズします。
 ms.author: riande
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 50cbc184983b3e37c34332dad52bc0d70ade18c2
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 5d05d456315c019c545a91b527bb05510126c06b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396299"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836627"
 ---
 # <a name="tutorial-create-a-more-complex-data-model-for-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリのより複雑なデータ モデルを作成します。
 
@@ -397,6 +397,10 @@ PMC から入力、`add-migration`コマンド (しないで、`update-database`
 右クリックし、`CourseInstructor`テーブルを選択**テーブル データの表示**がの結果としてデータがあることを確認する、`Instructor`に追加したエンティティ、`Course.Instructors`ナビゲーション プロパティ。
 
 ![Table_data_in_CourseInstructor_table](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image17.png)
+
+## <a name="get-the-code"></a>コードを取得する
+
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>その他の技術情報
 

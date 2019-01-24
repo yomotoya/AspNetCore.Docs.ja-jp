@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
-title: チュートリアル:SignalR の概要 1.x |Microsoft Docs
-author: pfletcher
+title: 'チュートリアル: SignalR の概要 1.x |Microsoft Docs'
+author: bradygaster
 description: ASP.NET SignalR を使用すると、HTML ページで、リアルタイムのチャット アプリケーションを作成します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: b4b632a84e40aa0b73dfc7a30da0cf28249cc5b4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287369"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836634"
 ---
-<a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル:SignalR の概要 1.x
+<a name="tutorial-getting-started-with-signalr-1x"></a>チュートリアル: SignalR の概要 1.x
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tim Teebken](https://github.com/timlt)
 
@@ -123,7 +123,7 @@ SignalR を追加するこのセクションでは、空の ASP.NET web アプ�
 
 SignalR チャット アプリケーションを 2 つの基本的な SignalR 開発タスクを示します。 サーバーで、主要な調整オブジェクトとしてハブを作成し、メッセージを送受信する SignalR jQuery ライブラリを使用します。
 
-### <a name="signalr-hubs"></a>SignalR ハブ
+### <a name="signalr-hubs"></a>SignalR Hubs
 
 コード サンプルでは、 **ChatHub**クラスから派生、 **Microsoft.AspNet.SignalR.Hub**クラス。 派生する、**ハブ**クラスは、SignalR アプリケーションを構築する便利な方法です。 ハブ クラスにパブリック メソッドを作成し、web ページに jQuery スクリプトから呼び出すことによってこれらのメソッドにアクセスできます。
 

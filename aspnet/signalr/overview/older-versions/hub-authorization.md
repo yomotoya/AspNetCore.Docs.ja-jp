@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
 title: SignalR ハブの認証と承認 (SignalR 1.x) |Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: このトピックでは、どのユーザーまたはロールがハブ メソッドにアクセスできる制限する方法について説明します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/17/2013
 ms.assetid: 3d2dfc0e-eac2-4076-a468-325d3d01cc7b
 msc.legacyurl: /signalr/overview/older-versions/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 1bd61b8faff22db3337e9d9c1ed2532d3e64440d
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 7f4a76109111f19dc4381ad01e642afdabade336
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287469"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836900"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>SignalR ハブの認証と承認 (SignalR 1.x)
 ====================

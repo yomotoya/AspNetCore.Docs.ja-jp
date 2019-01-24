@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 title: 理解と SignalR で接続の有効期間イベントの処理 |Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: この記事では、ハブ API によって公開されるイベントを使用する方法について説明します。
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/15/2019
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 5aaec6795f714ba0877ec3b22eff45eb281b44aa
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 53151d369a14ef9a6fa034043d40ae30098a5067
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396169"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836169"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>理解と SignalR で接続の有効期間イベントの処理
 ====================

@@ -1,26 +1,26 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 title: 'チュートリアル: SignalR 2 と MVC 5 のリアルタイムのチャット |Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR は、MVC 5 アプリケーションを追加します。
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: eb4b7e1403f4070d65702b756bf98c5294c7fb17
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 1b02aecc68a93dbd6373ca5304530e76c9d0b6b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098605"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837002"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>チュートリアル: SignalR 2 と MVC 5 のリアルタイムのチャット
 
 このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加し、チャットを送信し、メッセージを表示するビューを作成します。
 
-このチュートリアルでしました。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * プロジェクトを設定します。
@@ -176,6 +176,10 @@ SignalR のチャット アプリケーションでは、2 つの基本的な Si
 
 コードが接続を開始しのクリック イベントを処理する関数に渡します、**送信**チャット ページ ボタン。
 
+## <a name="get-the-code"></a>コードを取得する
+
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
+
 ## <a name="additional-resources"></a>その他の技術情報
 
 詳細については、SignalR は、次のリソースを参照してください。
@@ -188,7 +192,7 @@ SignalR のチャット アプリケーションでは、2 つの基本的な Si
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでしました。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * プロジェクトを設定します。

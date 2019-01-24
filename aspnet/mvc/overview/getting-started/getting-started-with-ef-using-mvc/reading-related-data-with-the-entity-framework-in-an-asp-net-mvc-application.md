@@ -4,17 +4,17 @@ title: 'チュートリアル: ASP.NET MVC アプリでの EF で関連データ
 description: このチュートリアルでを読み取るし、関連データを表示、つまり、Entity Framework がナビゲーション プロパティに読み込まれるデータ。
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 5f45820cd7abd60e69c19368cee50e91e31a75a0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396208"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836832"
 ---
 # <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリでの EF で関連データを読み取り
 
@@ -243,6 +243,10 @@ Instructors ページには、3 つのテーブルが表示されます。 そ�
 使用すること、`Collection`コレクション プロパティを読み込みますが、使用する 1 つのエンティティを保持するプロパティの場合、`Reference`メソッド。
 
 Instructor インデックス ページを今すぐ実行してわかりますなし ページで、表示される内容の違い、データを取得する方法を変更しているにもかかわらずです。
+
+## <a name="get-the-code"></a>コードを取得する
+
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
