@@ -22,7 +22,7 @@ ms.locfileid: "41829873"
 ## <a name="katana-samples"></a>Katana サンプル
 
 **ASP.NET ルーティング サンプル** | [ソース コード](https://github.com/aspnet/samples/tree/master/samples/aspnet/Katana/AspNetRoutes)  
-一部のアプリケーションでは、非 OWIN コンポーネントと共に、Asp.Net ルート テーブル内の OWIN コンポーネントをフックするでしょう。 このサンプルでは、MapOwinPath と Microsoft.Owin.Host.SystemWeb によって提供される MapOwinRoute RouteCollection 拡張メソッドを使用する方法を示します。
+一部のアプリケーションでは、非 OWIN コンポーネントと共に、ASP.NET ルート テーブル内の OWIN コンポーネントをフックするでしょう。 このサンプルでは、MapOwinPath と Microsoft.Owin.Host.SystemWeb によって提供される MapOwinRoute RouteCollection 拡張メソッドを使用する方法を示します。
 
 **サンプル パイプラインを分岐** | [ソース コード](https://github.com/aspnet/samples/tree/master/samples/aspnet/Katana/BranchingPipelines)  
 OWIN 要求処理パイプラインが線形にする必要はありません、それらをさまざまな方法で要求を処理する分岐できます。 このサンプルでは、要求のパスやヘッダーなどの他の要求データに基づいて分岐のパイプラインを構築する方法を示します。 これらのコンポーネント、Microsoft.Owin.Mapping nuget パッケージで利用できます。
