@@ -61,7 +61,7 @@ ms.locfileid: "48578184"
     - [Visual Studio と Azure SDK の Dan Fernandez、Paul Yuknewicz (MSFT) での Azure の開発者向け新機能については](https://channel9.msdn.com/Events/Build/2014/2-585)
     - [Microsoft Azure Storage – 新機能、新しいベスト プラクティスとパターン Jai Haridas、Serdar Ozler](https://channel9.msdn.com/Events/Build/2014/3-628)
     - [ヒントし、テクニックを Visual Studio 2013 で](https://channel9.msdn.com/Events/Build/2014/2-582)Cathy Sullivan によって
-    - [新しい Sdk は、すべての場所を使用した自動化ツール、および Azure のサービスの](https://channel9.msdn.com/Events/Build/2014/3-621)Brady Gaster、Joe Levy によって
+    - [Azureの新しいSDK、ツール、およびサービスでどこでも自動化](https://channel9.msdn.com/Events/Build/2014/3-621)Brady Gaster、Joe Levy によって
     - [Azure の Web サイトの Chris compy です、Nir Mashkowski では新機能](https://channel9.msdn.com/Events/Build/2014/3-625)
     - [建物ビッグ: Azure のお客様から学んだ教訓](https://channel9.msdn.com/Events/Build/2014/3-633)Chris Clayton、Mark Simms   
         [ASP.NET と AngularJS シングル ページ アプリケーションを構築](https://channel9.msdn.com/Events/Build/2014/3-644)David Catuhe、Jon Galloway によって
