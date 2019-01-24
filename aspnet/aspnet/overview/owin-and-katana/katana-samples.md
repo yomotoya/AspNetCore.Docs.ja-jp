@@ -37,7 +37,7 @@ OWIN サーバーによっては、独自のプロセス内で実行できます
 OWIN は、HTTP サーバーのさまざまなサーバー間でアプリケーションの移植性をできるようにする抽象化された API です。 このサンプルは、いくつかを使用して Hello World アプリケーションを作成する方法を示します。**単純なラッパー** ASP.NET などの web サーバーで、生の OWIN 抽象化と実行を囲む。
 
 **Hello World の生の OWIN サンプル** | [ソース コード](https://github.com/aspnet/samples/tree/master/samples/aspnet/Katana/HelloWorldRawOwin)  
-このサンプルを使用して Hello World アプリケーションを記述する方法、**生**OWIN 抽象化し、Asp.Net などの web サーバーで実行します。
+このサンプルを使用して Hello World アプリケーションを記述する方法、**生**OWIN 抽象化し、ASP.NET などの web サーバーで実行します。
 
 **SignalR サンプル** | [ソース コード](https://github.com/aspnet/samples/tree/master/samples/aspnet/Katana/SignalR)  
 OWIN を使用して SignalR を自己ホストする方法を示します/Katana します。 SignalR の自己ホストの詳細については、次を参照してください。[チュートリアル: SignalR セルフホスト](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)します。
