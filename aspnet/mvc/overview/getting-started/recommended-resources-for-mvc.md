@@ -324,7 +324,7 @@ ms.locfileid: "48578184"
 - [SpecsFor.Mvc – テストに重きを ASP.NET MVC でのテストの統合。](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (ビデオ)
 - [ASP.NET MVC - 初心者向けのチュートリアルで単体テストが容易なアプリケーションを作成します。](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [チュートリアル: ASP.NET MVC で TDD を使用して](https://msdn.microsoft.com/library/gg416511(v=vs.98).aspx)(MVC 3)
-- [SocialGoal - ASP.NET mvc 5、Web アプリの参照を解放する EF 6 Code First、AutoMapper、Autofac、TDD、DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
+- [SocialGoal - ASP.NET MVC 5、Web アプリの参照を解放する EF 6 Code First、AutoMapper、Autofac、TDD、DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
 
 <a id="best"></a>
 
