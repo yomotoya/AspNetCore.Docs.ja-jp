@@ -50,7 +50,7 @@ Web ブラウザーのアドレス バーには、次の URL を入力するこ�
 
 - controller = Home
 
-- アクション インデックスを =
+- action = Index
 
 - id = 3
 
