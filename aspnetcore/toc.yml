@@ -1,0 +1,814 @@
+items:
+- name: ASP.NET Core ドキュメント
+  href: /aspnet/#pivot=core
+- name: 概要
+  items:
+  - uid: index
+    name: ASP.NET Core について
+  - uid: fundamentals/choose-between-aspnet-and-aspnetcore
+    name: ASP.NET Core と ASP.NET の比較
+  - name: .NET Core と .NET Framework の比較
+    href: /dotnet/standard/choosing-core-framework-server
+- uid: getting-started
+  name: 作業開始
+- name: 新機能
+  items:
+  - uid: aspnetcore-2.2
+    name: 2.2 の新機能
+  - uid: aspnetcore-2.1
+    name: 2.1 の新機能
+  - uid: aspnetcore-2.0
+    name: 2.0 の新機能
+  - uid: aspnetcore-1.1
+    name: 1.1 の新機能
+- name: チュートリアル
+  items:
+  - name: Web API アプリ
+    items:
+    - uid: tutorials/first-web-api
+      name: Web API の作成
+    - uid: tutorials/first-mongo-app
+      name: MongoDB での Web API
+    - uid: mobile/native-mobile-backend
+      name: モバイル用のバックエンド
+  - name: Web アプリ
+    items:
+    - uid: tutorials/razor-pages/index
+      name: Razor ページ
+    - uid: tutorials/first-mvc-app/index
+      name: MVC
+  - name: リアルタイムの Web アプリ
+    items:
+    - uid: tutorials/signalr
+      name: JavaScript による SignalR
+    - uid: tutorials/signalr-typescript-webpack
+      name: TypeScript による SignalR
+  - name: データ アクセス
+    items:
+    - uid: data/ef-rp/index
+      name: EF Core と Razor Pages
+    - name: EF Core と MVC、既存のデータベース
+      href: /ef/core/get-started/aspnetcore/existing-db
+    - name: EF Core と MVC、新しいデータベース
+      href: /ef/core/get-started/aspnetcore/new-db
+    - uid: data/ef-mvc/index
+      name: EF Core と MVC、長いチュートリアル
+- name: Fundamentals
+  items:
+  - uid: fundamentals/index
+    name: 概要
+  - uid: fundamentals/startup
+    name: アプリの起動
+  - uid: fundamentals/dependency-injection
+    name: 依存性の注入 (サービス)
+  - uid: fundamentals/routing
+    name: ルーティング
+  - uid: fundamentals/environments
+    name: 環境 (開発、ステージング、運用)
+  - uid: fundamentals/configuration/index
+    name: 構成
+  - uid: fundamentals/configuration/options
+    name: オプション
+  - uid: fundamentals/logging/index
+    name: ログの記録
+  - uid: fundamentals/error-handling
+    name: エラーの処理
+  - uid: fundamentals/middleware/index
+    name: ミドルウェア
+  - name: ホスト
+    items:
+    - uid: fundamentals/host/index
+      name: 概要
+    - uid: fundamentals/host/web-host
+      name: Web ホスト
+    - uid: fundamentals/host/generic-host
+      name: 汎用ホスト
+  - uid: fundamentals/servers/index
+    name: サーバー
+  - uid: fundamentals/http-requests
+    name: HTTP 要求を行う
+- name: Web アプリ
+  items:
+  - name: Razor ページ
+    items:
+    - uid: razor-pages/index
+      name: 概要
+    - uid: tutorials/razor-pages/index
+      name: チュートリアル
+      items:
+      - uid: tutorials/razor-pages/razor-pages-start
+        name: 作業開始
+      - uid: tutorials/razor-pages/model
+        name: モデルを追加する
+      - uid: tutorials/razor-pages/page
+        name: スキャフォールディング
+      - uid: tutorials/razor-pages/sql
+        name: DB の操作
+      - uid: tutorials/razor-pages/da1
+        name: ページの更新
+      - uid: tutorials/razor-pages/search
+        name: 検索の追加
+      - uid: tutorials/razor-pages/new-field
+        name: 新しいフィールドの追加
+      - uid: tutorials/razor-pages/validation
+        name: 検証の追加
+    - uid: razor-pages/filter
+      name: フィルター
+    - uid: razor-pages/ui-class
+      name: Razor クラス ライブラリ
+    - uid: razor-pages/razor-pages-conventions
+      name: ルートとアプリの規則
+    - uid: razor-pages/upload-files
+      name: ファイルのアップロード
+    - uid: razor-pages/sdk
+      name: Razor SDK
+  - name: MVC
+    items:
+    - uid: mvc/overview
+      name: 概要
+    - uid: tutorials/first-mvc-app/index
+      name: チュートリアル
+      items:
+      - uid: tutorials/first-mvc-app/start-mvc
+        name: 作業開始
+      - uid: tutorials/first-mvc-app/adding-controller
+        name: コントローラーの追加
+      - uid: tutorials/first-mvc-app/adding-view
+        name: ビューを追加する
+      - uid: tutorials/first-mvc-app/adding-model
+        name: モデルを追加する
+      - uid: tutorials/first-mvc-app/working-with-sql
+        name: DB の操作
+      - uid: tutorials/first-mvc-app/controller-methods-views
+        name: コントローラー アクションとビュー
+      - uid: tutorials/first-mvc-app/search
+        name: 検索の追加
+      - uid: tutorials/first-mvc-app/new-field
+        name: 新しいフィールドの追加
+      - uid: tutorials/first-mvc-app/validation
+        name: 検証の追加
+      - uid: tutorials/first-mvc-app/details
+        name: Details メソッドと Delete メソッドの確認
+    - uid: mvc/views/overview
+      name: Views
+    - uid: mvc/views/partial
+      name: 部分ビュー
+    - uid: mvc/controllers/actions
+      name: Controllers
+    - uid: mvc/controllers/routing
+      name: ルーティング
+    - uid: mvc/models/file-uploads
+      name: ファイルのアップロード
+    - uid: mvc/controllers/dependency-injection
+      name: 依存関係の注入 - コントローラー
+    - uid: mvc/views/dependency-injection
+      name: 依存関係の注入 - ビュー
+    - uid: mvc/controllers/testing
+      name: 単体テスト
+  - uid: fundamentals/app-state
+    name: セッションとアプリの状態
+  - name: タグ ヘルパー
+    items:
+    - uid: mvc/views/tag-helpers/intro
+      name: 概要
+    - uid: mvc/views/tag-helpers/authoring
+      name: タグ ヘルパーの作成
+    - uid: mvc/views/working-with-forms
+      name: フォームでのタグ ヘルパーの使用
+    - uid: mvc/views/tag-helpers/th-components
+      name: タグ ヘルパー コンポーネント
+    - name: 組み込みタグ ヘルパー
+      items:
+      - uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
+        name: アンカー
+      - uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
+        name: キャッシュ
+      - uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
+        name: 分散キャッシュ
+      - uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
+        name: 環境
+      - name: フォーム
+        href: mvc/views/working-with-forms.md#the-form-tag-helper
+      - uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
+        name: イメージ
+      - name: 入力
+        href: mvc/views/working-with-forms.md#the-input-tag-helper
+      - name: group1
+        href: mvc/views/working-with-forms.md#the-label-tag-helper
+      - uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
+        name: Partial
+      - name: 選択
+        href: mvc/views/working-with-forms.md#the-select-tag-helper
+      - name: テキスト領域
+        href: mvc/views/working-with-forms.md#the-textarea-tag-helper
+      - name: 検証メッセージ
+        href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
+      - name: 検証の概要
+        href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
+  - uid: mvc/views/layout
+    name: レイアウト
+  - uid: fundamentals/static-files
+    name: 静的ファイル
+  - uid: mvc/models/model-binding
+    name: モデル バインド
+  - uid: mvc/models/validation
+    name: モデルの検証
+  - uid: mvc/views/razor
+    name: Razor の構文
+  - name: 詳細設定
+    items:
+    - uid: mvc/views/view-components
+      name: ビュー コンポーネント
+    - uid: mvc/views/view-compilation
+      name: ビューのコンパイル
+    - uid: mvc/controllers/application-model
+      name: アプリ モデル
+    - uid: mvc/controllers/filters
+      name: フィルター
+    - uid: mvc/controllers/areas
+      name: Areas
+    - uid: mvc/extensibility/app-parts
+      name: アプリのパーツ
+    - uid: mvc/advanced/custom-model-binding
+      name: カスタム モデル バインド
+    - uid: mvc/compatibility-version
+      name: 互換バージョン
+- name: Web API アプリ
+  items:
+  - uid: web-api/index
+    name: 概要
+  - name: チュートリアル
+    items:
+    - uid: tutorials/first-web-api
+      name: Web API の作成
+    - uid: tutorials/first-mongo-app
+      name: MongoDB での Web API
+  - name: Swagger/OpenAPI
+    items:
+    - uid: tutorials/web-api-help-pages-using-swagger
+      name: 概要
+    - uid: tutorials/get-started-with-swashbuckle
+      name: Swashbuckle の概要
+    - uid: tutorials/get-started-with-nswag
+      name: NSwag の概要
+  - uid: web-api/action-return-types
+    name: アクションの戻り値の型
+  - uid: web-api/advanced/formatting
+    name: 応答データの書式設定
+  - uid: web-api/advanced/custom-formatters
+    name: カスタム フォーマッタ
+  - uid: web-api/advanced/analyzers
+    name: アナライザー
+  - uid: web-api/advanced/conventions
+    name: 規約
+- name: リアルタイムのアプリ
+  items:
+  - uid: signalr/introduction
+    name: SignalR の概要
+  - uid: signalr/supported-platforms
+    name: サポートされているプラットフォーム
+  - name: チュートリアル
+    items:
+    - uid: tutorials/signalr
+      name: JavaScript による SignalR
+    - uid: tutorials/signalr-typescript-webpack
+      name: TypeScript による SignalR
+  - name: サンプル
+    href: https://github.com/aspnet/SignalR-samples
+  - name: サーバーの概念
+    items:
+    - uid: signalr/hubs
+      name: ハブ
+    - uid: signalr/hubcontext
+      name: ハブの外部から送信する
+    - uid: signalr/groups
+      name: ユーザーおよびグループ
+    - uid: signalr/publish-to-azure-web-app
+      name: Azure に発行する
+    - uid: signalr/api-design
+      name: API の設計に関する考慮事項
+  - name: クライアント
+    items:
+    - uid: signalr/dotnet-client
+      name: .NET クライアント
+    - name: .NET API リファレンス
+      href: /dotnet/api/microsoft.aspnetcore.signalr.client
+    - uid: signalr/java-client
+      name: Java クライアント
+    - name: Java API リファレンス
+      href: /java/api/com.microsoft.signalr?view=aspnet-signalr-java
+    - uid: signalr/javascript-client
+      name: JavaScript クライアント
+    - name: JavaScript API リファレンス
+      href: /javascript/api/?view=signalr-js-latest
+  - name: ホスティングおよびスケーリング
+    items:
+    - uid: signalr/scale
+      name: 概要
+    - name: Azure SignalR Service
+      href: /azure/azure-signalr/signalr-overview
+    - uid: signalr/redis-backplane
+      name: Redis バックプレーン
+  - uid: signalr/configuration
+    name: 構成
+  - uid: signalr/authn-and-authz
+    name: 認証と承認
+  - uid: signalr/security
+    name: セキュリティの考慮事項
+  - uid: signalr/messagepackhubprotocol
+    name: MessagePack ハブ プロトコル
+  - uid: signalr/streaming
+    name: ストリーム
+  - uid: signalr/version-differences
+    name: SignalR と SignalR Core の比較
+  - uid: fundamentals/websockets
+    name: SignalR を使用しない WebSocket
+- name: テスト、デバッグ、およびトラブルシューティング
+  items:
+  - name: 単体テスト
+    href: /dotnet/core/testing/unit-testing-with-dotnet-test
+  - uid: test/razor-pages-tests
+    name: Razor Pages の単体テスト
+  - uid: mvc/controllers/testing
+    name: テスト コントローラー
+  - name: リモート デバッグ
+    href: /visualstudio/debugger/remote-debugging-azure
+  - name: スナップショットのデバッグ
+    href: /azure/application-insights/app-insights-snapshot-debugger
+  - name: Visual Studio のスナップショットのデバッグ
+    href: /visualstudio/debugger/debug-live-azure-applications
+  - uid: test/integration-tests
+    name: 統合テスト
+  - uid: test/loadtests
+    name: ロード テストおよびストレス テスト
+  - uid: test/troubleshoot
+    name: トラブルシューティング
+  - uid: fundamentals/logging/index
+    name: ログの記録
+- name: データ アクセス
+  items:
+  - name: チュートリアル
+    items:
+    - name: EF Core と Razor Pages
+      items:
+      - uid: data/ef-rp/index
+        name: 概要
+      - uid: data/ef-rp/intro
+        name: 作業開始
+      - uid: data/ef-rp/crud
+        name: 作成、読み取り、更新、および削除
+      - uid: data/ef-rp/sort-filter-page
+        name: 並べ替え、フィルター、ページ、およびグループ化
+      - uid: data/ef-rp/migrations
+        name: 移行
+      - uid: data/ef-rp/complex-data-model
+        name: 複合データ モデルの作成
+      - uid: data/ef-rp/read-related-data
+        name: 関連データの読み取り
+      - uid: data/ef-rp/update-related-data
+        name: 関連データの更新
+      - uid: data/ef-rp/concurrency
+        name: コンカレンシーの競合の処理
+    - name: EF Core と MVC、新しいデータベース
+      href: /ef/core/get-started/aspnetcore/new-db
+    - name: EF Core と MVC、既存のデータベース
+      href: /ef/core/get-started/aspnetcore/existing-db
+    - name: EF Core と MVC、長いチュートリアル
+      items:
+      - uid: data/ef-mvc/index
+        name: 概要
+      - uid: data/ef-mvc/intro
+        name: 作業開始
+      - uid: data/ef-mvc/crud
+        name: 作成、読み取り、更新、および削除
+      - uid: data/ef-mvc/sort-filter-page
+        name: 並べ替え、フィルター、ページ、およびグループ化
+      - uid: data/ef-mvc/migrations
+        name: 移行
+      - uid: data/ef-mvc/complex-data-model
+        name: 複合データ モデルの作成
+      - uid: data/ef-mvc/read-related-data
+        name: 関連データの読み取り
+      - uid: data/ef-mvc/update-related-data
+        name: 関連データの更新
+      - uid: data/ef-mvc/concurrency
+        name: コンカレンシーの競合の処理
+      - uid: data/ef-mvc/inheritance
+        name: 継承
+      - uid: data/ef-mvc/advanced
+        name: 高度なトピック
+  - uid: data/entity-framework-6
+    name: ASP.NET Core による EF6
+  - name: Visual Studio による Azure Storage
+    items:
+    - name: 接続済みサービス
+      href: /azure/vs-azure-tools-connected-services-storage
+    - name: BLOB ストレージ
+      href: /azure/vs-storage-aspnet5-getting-started-blobs/
+    - name: Queue ストレージ
+      href: /azure/vs-storage-aspnet5-getting-started-queues/
+    - name: Table ストレージ
+      href: /azure/vs-storage-aspnet5-getting-started-tables/
+- name: クライアント側の開発
+  items:
+  - uid: client-side/index
+    name: 概要
+  - uid: client-side/using-gulp
+    name: Gulp
+  - uid: client-side/using-grunt
+    name: Grunt
+  - name: LibMan
+    items:
+    - uid: client-side/libman/index
+      name: 概要
+    - uid: client-side/libman/libman-cli
+      name: CLI
+    - uid: client-side/libman/libman-vs
+      name: Visual Studio
+  - uid: client-side/bower
+    name: Bower
+  - uid: client-side/less-sass-fa
+    name: LESS、Sass、および Font Awesome
+  - uid: client-side/bundling-and-minification
+    name: バンドルと縮小
+  - uid: client-side/using-browserlink
+    name: ブラウザー リンク
+  - name: 単一ページのアプリ
+    items:
+    - uid: spa/index
+      name: 概要
+    - uid: spa/angular
+      name: Angular
+    - uid: spa/react
+      name: React
+    - uid: spa/react-with-redux
+      name: Redux による反応
+    - uid: client-side/spa-services
+      name: JavaScriptServices
+- name: ホスティングと配置
+  items:
+  - uid: host-and-deploy/index
+    name: 概要
+  - name: Azure App Service でのホスト
+    items:
+    - uid: host-and-deploy/azure-apps/index
+      name: 概要
+    - uid: tutorials/publish-to-azure-webapp-using-vs
+      name: Visual Studio での公開
+    - name: CLI ツールでの公開
+      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
+    - uid: host-and-deploy/azure-apps/azure-continuous-deployment
+      name: Visual Studio および Git での公開
+    - name: Azure Pipelines による継続的配置
+      href: /azure/devops/pipelines/get-started-yaml
+    - uid: host-and-deploy/aspnet-core-module
+      name: ASP.NET Core モジュール
+    - uid: host-and-deploy/azure-apps/troubleshoot
+      name: トラブルシューティング
+    - uid: host-and-deploy/azure-iis-errors-reference
+      name: エラー リファレンス
+  - name: DevOps
+    items:
+    - uid: azure/devops/index
+      name: 概要
+    - uid: azure/devops/tools-and-downloads
+      name: ツールとダウンロード
+    - uid: azure/devops/deploy-to-app-service
+      name: App Service に配置する
+    - uid: azure/devops/cicd
+      name: 継続的インテグレーションと継続的配置
+    - uid: azure/devops/monitor
+      name: 監視とトラブルシューティング
+    - uid: azure/devops/next-steps
+      name: 次の手順
+  - name: IIS による Windows 上のホスト
+    items:
+    - uid: host-and-deploy/iis/index
+      name: 概要
+    - uid: host-and-deploy/aspnet-core-module
+      name: ASP.NET Core モジュール
+    - uid: host-and-deploy/iis/development-time-iis-support
+      name: Visual Studio での IIS サポート
+    - uid: host-and-deploy/iis/modules
+      name: IIS モジュール
+    - uid: host-and-deploy/iis/troubleshoot
+      name: トラブルシューティング
+    - uid: host-and-deploy/azure-iis-errors-reference
+      name: エラー リファレンス
+  - uid: fundamentals/servers/kestrel
+    name: Kestrel
+  - uid: fundamentals/servers/httpsys
+    name: HTTP.sys
+  - uid: host-and-deploy/windows-service
+    name: Windows サービスでのホスト
+  - uid: host-and-deploy/linux-nginx
+    name: Nginx による Linux でのホスト
+  - uid: host-and-deploy/linux-apache
+    name: Apache による Linux でのホスト
+  - name: Docker でのホスト
+    items:
+    - uid: host-and-deploy/docker/index
+      name: 概要
+    - name: Docker イメージの構築
+      href: /dotnet/core/docker/building-net-docker-images
+    - uid: host-and-deploy/docker/visual-studio-tools-for-docker
+      name: Visual Studio ツール
+    - name: Docker イメージへの公開
+      href: /azure/vs-azure-tools-docker-hosting-web-apps-in-docker
+    - name: Docker イメージのサンプル
+      href: https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md
+  - uid: host-and-deploy/proxy-load-balancer
+    name: プロキシとロード バランサーの構成
+  - uid: host-and-deploy/web-farm
+    name: Web ファームでのホスト
+  - uid: host-and-deploy/visual-studio-publish-profiles
+    name: Visual Studio のプロファイルの発行
+  - uid: host-and-deploy/directory-structure
+    name: ディレクトリの構造
+  - uid: host-and-deploy/health-checks
+    name: 正常性チェック
+- name: セキュリティと ID
+  items:
+  - uid: security/index
+    name: 概要
+  - name: 認証
+    items:
+    - uid: security/authentication/identity
+      name: Identity の概要
+    - uid: security/authentication/scaffold-identity
+      name: Identity のスキャフォールディング
+    - uid: security/authentication/add-user-data
+      name: ID へのカスタム ユーザー データの追加
+    - uid: security/authentication/customize_identity_model
+      name: ID のカスタマイズ
+    - uid: security/authentication/community
+      name: コミュニティ OSS 認証オプション
+    - uid: security/authentication/identity-configuration
+      name: Identity の構成
+    - uid: security/authentication/windowsauth
+      name: Windows 認証の構成
+    - uid: security/authentication/identity-custom-storage-providers
+      name: Identity 用のカスタム ストレージ プロバイダー
+    - name: Google、Facebook ...
+      items:
+      - uid: security/authentication/social/index
+        name: 概要
+      - uid: security/authentication/google-logins
+        name: Google での認証
+      - uid: security/authentication/facebook-logins
+        name: Facebook での認証
+      - uid: security/authentication/microsoft-logins
+        name: Microsoft での認証
+      - uid: security/authentication/twitter-logins
+        name: Twitter での認証
+      - uid: security/authentication/otherlogins
+        name: その他のプロバイダー
+      - uid: security/authentication/social/additional-claims
+        name: その他の要求
+    - uid: security/authentication/ws-federation
+      name: WS-Federation 認証
+    - uid: security/authentication/accconfirm
+      name: アカウントの確認とパスワードの回復
+    - uid: security/authentication/identity-enable-qrcodes
+      name: Identity での QR コードの生成の有効化
+    - uid: security/authentication/2fa
+      name: SMS での 2 要素認証
+    - uid: security/authentication/cookie
+      name: Identity なしでの Cookie 認証の使用
+    - name: Azure Active Directory
+      items:
+      - uid: security/authentication/azure-active-directory/index
+        name: 概要
+      - name: Web アプリへの Azure AD の統合
+        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/
+      - uid: security/authentication/azure-ad-b2c
+        name: Web アプリへの Azure AD B2C の統合
+      - uid: security/authentication/azure-ad-b2c-webapi
+        name: Web API への Azure AD B2C の統合
+      - name: WPF からの Web API の呼び出し
+        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/
+      - name: Azure AD を使用した Web アプリでの Web API の呼び出し
+        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/
+    - name: IdentityServer4 での ASP.NET Core アプリのセキュリティ保護
+      href: https://identityserver4.readthedocs.io/
+    - name: Azure App Service 認証 (Easy Auth) での ASP.NET Core アプリのセキュリティ保護
+      href: /azure/app-service/app-service-authentication-overview
+    - uid: security/authentication/individual
+      name: 個人のユーザー アカウント
+  - name: 承認
+    items:
+    - uid: security/authorization/introduction
+      name: 概要
+    - uid: security/authorization/secure-data
+      name: 権限付き Web アプリの作成
+    - uid: security/authorization/razor-pages-authorization
+      name: Razor Pages の承認規則
+    - uid: security/authorization/simple
+      name: 単純な承認
+    - uid: security/authorization/roles
+      name: ロール ベースの承認
+    - uid: security/authorization/claims
+      name: クレーム ベースの承認
+    - uid: security/authorization/policies
+      name: ポリシー ベースの承認
+    - uid: security/authorization/iauthorizationpolicyprovider
+      name: 承認ポリシー プロバイダー
+    - uid: security/authorization/dependencyinjection
+      name: 要件ハンドラーでの依存性の注入
+    - uid: security/authorization/resourcebased
+      name: リソース ベースの承認
+    - uid: security/authorization/views
+      name: ビュー ベースの承認
+    - uid: security/authorization/limitingidentitybyscheme
+      name: スキームによる ID の制限
+  - name: データの保護
+    items:
+    - uid: security/data-protection/introduction
+      name: 概要
+    - uid: security/data-protection/using-data-protection
+      name: データ保護 API
+    - name: コンシューマー API
+      items:
+      - uid: security/data-protection/consumer-apis/overview
+        name: 概要
+      - uid: security/data-protection/consumer-apis/purpose-strings
+        name: 目的文字列
+      - uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
+        name: 目的の階層とマルチテナント
+      - uid: security/data-protection/consumer-apis/password-hashing
+        name: パスワードのハッシュ
+      - uid: security/data-protection/consumer-apis/limited-lifetime-payloads
+        name: 保護されたペイロードの有効期間の制限
+      - uid: security/data-protection/consumer-apis/dangerous-unprotect
+        name: キーが取り消されたペイロードの保護の解除
+    - name: 構成
+      items:
+      - uid: security/data-protection/configuration/index
+        name: 概要
+      - uid: security/data-protection/configuration/overview
+        name: データ保護の構成
+      - uid: security/data-protection/configuration/default-settings
+        name: 既定の設定
+      - uid: security/data-protection/configuration/machine-wide-policy
+        name: コンピューター全体のポリシー
+      - uid: security/data-protection/configuration/non-di-scenarios
+        name: DI に対応しないシナリオ
+    - name: 拡張 API
+      items:
+      - uid: security/data-protection/extensibility/index
+        name: 概要
+      - uid: security/data-protection/extensibility/core-crypto
+        name: Core の暗号の拡張性
+      - uid: security/data-protection/extensibility/key-management
+        name: キー管理の拡張性
+      - uid: security/data-protection/extensibility/misc-apis
+        name: その他の API
+    - name: 実装
+      items:
+      - uid: security/data-protection/implementation/index
+        name: 概要
+      - uid: security/data-protection/implementation/authenticated-encryption-details
+        name: 認証された暗号化の詳細
+      - uid: security/data-protection/implementation/subkeyderivation
+        name: サブキーの派生と認証された暗号化
+      - uid: security/data-protection/implementation/context-headers
+        name: コンテキスト ヘッダー
+      - uid: security/data-protection/implementation/key-management
+        name: キーの管理
+      - uid: security/data-protection/implementation/key-storage-providers
+        name: キー ストレージ プロバイダー
+      - uid: security/data-protection/implementation/key-encryption-at-rest
+        name: 保存時のキーの暗号化
+      - uid: security/data-protection/implementation/key-immutability
+        name: キーの不変性と設定
+      - uid: security/data-protection/implementation/key-storage-format
+        name: キー ストレージの形式
+      - uid: security/data-protection/implementation/key-storage-ephemeral
+        name: 短期データ保護プロバイダー
+    - name: 互換性
+      items:
+      - uid: security/data-protection/compatibility/index
+        name: 概要
+      - uid: security/data-protection/compatibility/replacing-machinekey
+        name: ASP.NET の machineKey の置換
+  - uid: security/app-secrets
+    name: 開発時のシークレットの保護
+  - uid: security/enforcing-ssl
+    name: HTTPS の適用
+  - uid: security/gdpr
+    name: EU の一般データ保護規制 (GDPR) のサポート
+  - uid: security/key-vault-configuration
+    name: Azure Key Vault 構成プロバイダー
+  - uid: security/anti-request-forgery
+    name: リクエスト フォージェリの対策
+  - uid: security/preventing-open-redirects
+    name: オープン リダイレクト攻撃の防止
+  - uid: security/cross-site-scripting
+    name: クロスサイト スクリプティングの防止
+  - uid: security/cors
+    name: クロスオリジン要求 (CORS) の有効化
+  - uid: security/cookie-sharing
+    name: アプリ間での Cookie の共有
+  - uid: security/ip-safelist
+    name: IP セーフリスト
+- name: パフォーマンス
+  items:
+  - uid: performance/performance-best-practices
+    name: 概要
+  - name: 応答キャッシュ
+    items:
+    - uid: performance/caching/response
+      name: 概要
+    - uid: performance/caching/memory
+      name: メモリ内キャッシュ
+    - uid: performance/caching/distributed
+      name: 分散キャッシュ
+    - uid: performance/caching/middleware
+      name: 応答キャッシュ ミドルウェア
+  - uid: performance/response-compression
+    name: 応答圧縮
+  - uid: performance/diagnostic-tools
+    name: 診断ツール
+  - uid: test/loadtests
+    name: ロード テストおよびストレス テスト
+- name: グローバリゼーションとローカリゼーション
+  items:
+  - uid: fundamentals/localization
+    name: 概要
+  - uid: fundamentals/portable-object-localization
+    name: Portable Object のローカライズ
+- name: 詳細設定
+  items:
+  - uid: fundamentals/url-rewriting
+    name: URL リライト
+  - uid: fundamentals/file-providers
+    name: ファイル プロバイダー
+  - uid: fundamentals/request-features
+    name: 要求機能インターフェイス
+  - uid: fundamentals/httpcontext
+    name: HttpContext へのアクセス
+  - uid: fundamentals/change-tokens
+    name: トークンの変更
+  - uid: fundamentals/owin
+    name: Open Web Interface for .NET (OWIN)
+  - uid: fundamentals/host/hosted-services
+    name: ホストされるサービスを使用するバックグラウンド タスク
+  - uid: fundamentals/configuration/platform-specific-configuration
+    name: ホスティング スタートアップ アセンブリ
+  - uid: fundamentals/metapackage-app
+    name: Microsoft.AspNetCore.App メタパッケージ
+  - uid: fundamentals/metapackage
+    name: Microsoft.AspNetCore.All メタパッケージ
+  - uid: fundamentals/logging/loggermessage
+    name: LoggerMessage によるログ記録
+  - uid: tutorials/dotnet-watch
+    name: ファイル ウォッチャーの使用
+    items:
+    - uid: fundamentals/middleware/extensibility
+      name: ファクトリ ベースのミドルウェア
+    - uid: fundamentals/middleware/extensibility-third-party-container
+      name: サードパーティ コンテナーによるファクトリベースのミドルウェア
+- name: 移行
+  items:
+  - uid: migration/22-to-30
+    name: 2.2 から 3.0
+  - uid: migration/21-to-22
+    name: 2.1 から 2.2
+  - uid: migration/20_21
+    name: 2.0 から 2.1
+  - name: 1.x から 2.0
+    items:
+    - uid: migration/1x-to-2x/index
+      name: 概要
+    - uid: migration/1x-to-2x/identity-2x
+      name: 認証と ID
+  - name: ASP.NET から ASP.NET Core へ
+    items:
+    - uid: migration/proper-to-2x/index
+      name: 概要
+    - uid: migration/mvc
+      name: MVC
+    - uid: migration/webapi
+      name: Web API
+    - uid: migration/configuration
+      name: 構成
+    - uid: migration/identity
+      name: 認証と ID
+    - uid: migration/claimsprincipal-current
+      name: ClaimsPrincipal.Current
+    - uid: migration/proper-to-2x/membership-to-core-identity
+      name: メンバーシップから ID へ
+    - uid: migration/http-modules
+      name: HTTP モジュールからミドルウェアへ
+  - uid: migration/logging-nonaspnetcore
+    name: ログ記録 (ASP.NET Core 以外)
+- name: API リファレンス
+  href: /dotnet/api/?view=aspnetcore-2.1
+- name: 投稿
+  href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
+ms.openlocfilehash: 4f8ccb592b7f95794cad01edd1e0f514bd9943c1
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54892995"
