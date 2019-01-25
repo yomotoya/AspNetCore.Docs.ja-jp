@@ -22,7 +22,7 @@ ms.locfileid: "41827367"
 - [ソフトウェアの要件](#software-requirements)
 - [ドキュメント](#documentation)
 - [サポート](#support)
-- [ASP.NET mvc、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。](#upgrading)
+- [ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。](#upgrading)
 - [ASP.NET MVC 3 Tools Update (2011 年 4 月 12 日)](#tu-changes)
 
     - ["コント ローラーの追加 ダイアログ ボックスは、ビューとデータ アクセス コードを使用してコント ローラーをスキャフォールディングできますようになりました](#tu-AddControllerDialog)
@@ -150,7 +150,7 @@ ASP.NET MVC のドキュメントは、次の URL で MSDN Web サイトで入�
 [https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
-## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET mvc、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。
+## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>ASP.NET MVC、ASP.NET MVC 2 プロジェクトをアップグレードする 3 つのツールの更新します。
 
 ASP.NET MVC 3 は、ASP.NET MVC 2 と並行 ASP.NET MVC 3、ASP.NET MVC 2 アプリケーションをアップグレードするタイミングを選択できる柔軟性を提供する、同じコンピューターにインストールできます。
 
