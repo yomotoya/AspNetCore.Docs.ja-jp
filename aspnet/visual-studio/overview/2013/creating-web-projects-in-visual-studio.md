@@ -153,7 +153,7 @@ Web フォームの詳細については、次を参照してください。 [AS
 
 ASP.NET MVC は次のようなどのパターン ベースの開発手法を容易に設計された[テスト駆動開発](http://en.wikipedia.org/wiki/Test-driven_development)、[懸念事項の分離](http://en.wikipedia.org/wiki/Separation_of_concerns)、[の制御の反転](http://en.wikipedia.org/wiki/Inversion_of_control)、[依存関係の注入](http://en.wikipedia.org/wiki/Dependency_injection)します。 フレームワークは、そのプレゼンテーション層から web アプリケーションのビジネス ロジック層を分離することをお勧めします。 モデル (M)、ビュー (V)、およびコント ローラー (C) にアプリケーションを分割して ASP.NET MVC やすく大規模なアプリケーションの複雑さを管理します。
 
-ASP.NET mvc、HTML および Web フォームでよりも HTTP をより直接操作することにします。 たとえば、Web フォームでは、HTTP 要求の間で状態を維持できます自動的が MVC でコードを明示的にする必要があります。 MVC モデルの利点は、正確に、アプリケーションの実行内容と、web 環境での動作を完全に制御できます。 欠点より多くのコードを記述する必要があります。
+ASP.NET MVC、HTML および Web フォームでよりも HTTP をより直接操作することにします。 たとえば、Web フォームでは、HTTP 要求の間で状態を維持できます自動的が MVC でコードを明示的にする必要があります。 MVC モデルの利点は、正確に、アプリケーションの実行内容と、web 環境での動作を完全に制御できます。 欠点より多くのコードを記述する必要があります。
 
 MVC は、電源の開発者のニーズにアプリケーション フレームワークをカスタマイズする機能を提供する、拡張できるように設計されています。 さらに、ASP.NET MVC のソース コードは、OSI license で入手できます。
 
