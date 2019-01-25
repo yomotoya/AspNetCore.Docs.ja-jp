@@ -47,7 +47,7 @@ Web API が記述することで例外を処理する方法をカスタマイズ
 例外フィルターの実装、 **System.Web.Http.Filters.IExceptionFilter**インターフェイス。 例外フィルターを記述する最も簡単な方法がから派生するには、 **System.Web.Http.Filters.ExceptionFilterAttribute**クラスし、オーバーライド、 **OnException**メソッド。
 
 > [!NOTE]
-> ASP.NET Web API での例外フィルターは、ASP.NET mvc と似ています。 ただし、個別に、別の名前空間と関数で宣言されています。 具体的には、 **HandleErrorAttribute** MVC で使用されるクラスでは、Web API コント ローラーによってスローされた例外は処理されません。
+> ASP.NET Web API での例外フィルターは、ASP.NET MVC と似ています。 ただし、個別に、別の名前空間と関数で宣言されています。 具体的には、 **HandleErrorAttribute** MVC で使用されるクラスでは、Web API コント ローラーによってスローされた例外は処理されません。
 
 
 ここでは、変換を行うフィルター **NotImplementedException**例外に HTTP 状態コード、501 Not Implemented:
