@@ -244,7 +244,7 @@ ASP の中にします。2 つの主なケースなことができない場合�
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>モバイルお住まいの地域をモバイル閲覧者にリダイレクトします。
 
-多くのさまざまな機能拡張ポイントがある ASP.NET mvc で可能なリダイレクト ロジックを挿入する方法はたくさんありますので。 1 つの便利なオプションは、属性を作成するフィルターを [RedirectMobileDevicesToMobileArea]、次の条件が満たされた場合、リダイレクトを実行するには。
+多くのさまざまな機能拡張ポイントがある ASP.NET MVC で可能なリダイレクト ロジックを挿入する方法はたくさんありますので。 1 つの便利なオプションは、属性を作成するフィルターを [RedirectMobileDevicesToMobileArea]、次の条件が満たされた場合、リダイレクトを実行するには。
 
 1. ユーザーのセッションでは最初の要求 (つまり、Session.IsNewSession が true)
 2. モバイル ブラウザーから要求を受信 (つまり、Request.Browser.IsMobileDevice が true)
