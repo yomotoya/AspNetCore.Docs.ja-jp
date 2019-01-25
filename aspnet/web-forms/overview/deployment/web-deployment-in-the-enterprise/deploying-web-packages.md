@@ -188,7 +188,7 @@ Web 配置ハンドラーを使用した展開先の web サーバーを構成�
 [!code-console[Main](deploying-web-packages/samples/sample12.cmd)]
 
 
-これは、管理者以外のユーザーが iis サーバー レベルのアクセスを持っていないためです。そのユーザーは、特定の IIS web サイトへのアクセスのみが。 Web 発行パイプライン (WPP) でのバグが原因の書き込み時に実行することはできません、 *. deploy.cmd*ファイルのクエリ文字列を含むエンドポイント アドレスを使用します。 このシナリオで直接 MSDeploy.exe を使用して、web パッケージを展開する必要があります。
+これは、管理者以外のユーザーが IIS サーバー レベルのアクセスを持っていないためです。そのユーザーは、特定の IIS web サイトへのアクセスのみが。 Web 発行パイプライン (WPP) でのバグが原因の書き込み時に実行することはできません、 *. deploy.cmd*ファイルのクエリ文字列を含むエンドポイント アドレスを使用します。 このシナリオで直接 MSDeploy.exe を使用して、web パッケージを展開する必要があります。
 
 > [!NOTE]
 > Web デプロイのリモート エージェントのサービスと Web 配置ハンドラーの詳細については、次を参照してください。 [Web 配置を右側のアプローチを選択](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)します。 これらのエンドポイントにデプロイする環境に固有のプロジェクト ファイルを構成する方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)します。
