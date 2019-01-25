@@ -38,7 +38,7 @@ ms.locfileid: "41837171"
     - [コント ローラーを任意のプロジェクト フォルダーに追加します。](#_Toc303253820)
     - [バンドルと縮小](#_Toc303253821)
     - [Facebook と OAuth および OpenID を使用して他のサイトからのログインを有効にします。](#_Toc303253822)
-- [ASP.NET mvc 4、ASP.NET MVC 3 プロジェクトをアップグレードします。](#_Toc303253806)
+- [ASP.NET MVC 4、ASP.NET MVC 3 プロジェクトをアップグレードします。](#_Toc303253806)
 - [ASP.NET MVC 4 のリリース候補からの変更](#_Toc303253817)
 - [既知の問題と重大な変更](#_Toc303253815)
 
@@ -185,7 +185,7 @@ ASP.NET MVC 4 には、Windows Azure sdk 1.6 以降のリリースがサポー�
 ASP.NET MVC 4 のインターネットのプロジェクト テンプレートの既定のテンプレートには、DotNetOpenAuth ライブラリを使用して OAuth と OpenID のログインのサポートが含まれています。 OAuth または OpenID プロバイダーの構成方法の詳細については、次を参照してください。 [WebForms、MVC、web ページの Oauth/openid サポート](https://blogs.msdn.com/b/webdev/archive/2012/08/15/oauth-openid-support-for-webforms-mvc-and-webpages.aspx)と[OAuth と OpenID の機能のドキュメントでは、ASP.NET Web Pages](../web-pages/overview/releases/top-features-in-web-pages-2.md#oauthsetup)します。
 
 <a id="_Toc303253806"></a>
-## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>ASP.NET mvc 4、ASP.NET MVC 3 プロジェクトをアップグレードします。
+## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>ASP.NET  4、ASP.NET MVC 3 プロジェクトをアップグレードします。
 
 ASP.NET MVC 4 は、ASP.NET MVC 4、ASP.NET MVC 3 アプリケーション アップグレードするときに選択できる柔軟性を提供する同じコンピューター上の ASP.NET MVC 3 サイドでインストールできます。
 
