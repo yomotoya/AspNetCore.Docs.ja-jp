@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
-title: ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#) |Microsoft Docs
+title: ASP.NET MVC を使用して、さまざまなバージョンの IIS (C#) |Microsoft Docs
 author: microsoft
 description: このチュートリアルでは、異なるバージョンのインターネット インフォメーション サービスで ASP.NET MVC、および URL ルーティングを使用する方法について説明します。 さまざまな方法をについて説明します.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41828116"
 ---
-<a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#)
+<a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC を使用して、さまざまなバージョンの IIS (C#)
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
