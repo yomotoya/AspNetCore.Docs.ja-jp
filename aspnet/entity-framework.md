@@ -9,26 +9,26 @@ ms.date: 03/12/2010
 ms.technology: aspnet
 msc.legacyurl: /entity-framework
 msc.type: content
-ms.openlocfilehash: 4fe0689f19f284fb29c8222d36116055a7d818b3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4f18afb9df3d486845d33735d045ee26f59b3f97
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827380"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889796"
 ---
 <a name="entity-framework"></a>Entity Framework
 ====================
 Entity Framework (EF) は、.NET 開発者は、ドメイン固有オブジェクトを使用してリレーショナル データを操作できるようにするオブジェクト リレーショナル マッパーです。 開発者が通常記述しなければならないデータアクセス コードの多くが不要になります。
 
 
-- [手:](https://msdn.com/data/ee712906)これをプロジェクトに追加して、この強力な O/RM の利用を開始
-- [概要:](https://msdn.com/data/ee712907)ビデオ、ガイドにアクセスし、データを最大限に活用するのに役立つチュートリアルでは、します。
-- [ヘルプを表示:](https://msdn.com/data/hh913619)専門家からヘルプを取得し、Stack Overflow で、データのコミュニティに貢献する方法を確認します。
-- [影響を与えます。](https://github.com/aspnet/EntityFramework6) GitHub サイトにアクセスして、Entity Framework、オープン開発モデルのことをさらにどのように役立つことを確認します。
+- [これを取得します。](https://msdn.com/data/ee712906)これをプロジェクトに追加して、この強力な O/RM の利用を開始
+- [概要します。](https://msdn.com/data/ee712907)ビデオと、データを最大限に活用するのに役立つチュートリアル、ガイドを参照してください。
+- [ヘルプを取得します。](https://msdn.com/data/hh913619)専門家からヘルプを取得し、Stack Overflow で、データのコミュニティに貢献する方法を確認します。
+- [影響を与えます。](https://github.com/aspnet/EntityFramework6)GitHub サイトにアクセスして、Entity Framework、オープン開発モデルのことをさらにどのように役立つを紹介します。
 
 
 ASP.NET で Entity Framework を使用します。
 
 - [Web フォームのチュートリアル](web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
 - [MVC のチュートリアル](mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-- [サンプル アプリケーション](https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+- [サンプル アプリケーション](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
