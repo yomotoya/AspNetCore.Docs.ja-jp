@@ -4,17 +4,17 @@ title: 'チュートリアル: ASP.NET mvc と Entity Framework CRUD 機能を�
 description: 確認しカスタマイズの作成、読み取り、更新、MVC のスキャフォールディングがコント ローラーとビューで自動的に作成されます (CRUD) のコードを削除します。
 author: tdykstra
 ms.author: riande
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
+ms.openlocfilehash: 42971b4e15c4aaf85d0ea50bf63934ba4a78ed91
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341725"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836235"
 ---
 # <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>チュートリアル: ASP.NET mvc と Entity Framework CRUD 機能を実装します。
 
@@ -245,6 +245,10 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 ## <a name="handle-transactions"></a>トランザクションを処理します。
 
 既定では、Entity Framework はトランザクションを暗黙的に実装します。 複数の行またはテーブルに変更を加えるし、呼び出しのシナリオで`SaveChanges`、Entity Framework は自動的に、すべての変更は成功か、またはすべてが失敗することを確認します。 一部の変更が完了した後でエラーが発生した場合、それらの変更は自動的にロールバックされます。 制御が必要なシナリオの&mdash;トランザクションでは Entity Framework の外部で実行する操作を追加する場合など&mdash;を参照してください[トランザクション操作](/ef/ef6/saving/transactions)します。
+
+## <a name="get-the-code"></a>コードを取得する
+
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
