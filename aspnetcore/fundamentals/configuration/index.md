@@ -4,14 +4,14 @@ author: guardrex
 description: 構成 API を使用して、ASP.NET Core アプリを構成する方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 01/25/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: 2465570e469020ae2855508bd1bfc8528e188ebb
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216899"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073167"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -56,12 +56,6 @@ ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によ�
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
-このトピックで提供される例は、次のものに依存しています。
-
-* <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> によるアプリの基本パスの設定。 [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージを参照することで、アプリが `SetBasePath` を使用できるようになります。
-* <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> による構成ファイルのセクションの解決。 [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージを参照することで、アプリが `GetSection` を使用できるようになります。
-* <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> および [Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) による構成の .NET クラスへのバインド。 [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージを参照することで、アプリが `Bind` と `Get<T>` を使用できるようになります。 `Get<T>` は、ASP.NET Core 1.1 以降で使用できます。
-
 ::: moniker range=">= aspnetcore-2.1"
 
 これらの 3 つのパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれます。
@@ -77,6 +71,22 @@ ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によ�
 ## <a name="host-vs-app-configuration"></a>ホストとアプリの構成
 
 アプリを構成して起動する前に、"*ホスト*" を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 アプリとホストは、両方ともこのトピックで説明する構成プロバイダーを使用して構成します。 ホストの構成のキーと値のペアは、アプリのグローバル構成の一部となります。 ホストをビルドするときの構成プロバイダーの使用方法、およびホストの構成に対する構成ソースの影響について詳しくは、「<xref:fundamentals/host/index>」をご覧ください。
+
+## <a name="default-configuration"></a>既定の構成
+
+ASP.NET Core の [dotnet new](/dotnet/core/tools/dotnet-new) テンプレートに基づく Web アプリは、ホストの構築時に <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出します。 `CreateDefaultBuilder` はアプリの既定の構成を提供します。
+
+* ホストの構成は、次から提供されます。
+  * [環境変数構成プロバイダー](#environment-variables-configuration-provider)を使用する、プレフィックス `ASPNETCORE_` (`ASPNETCORE_ENVIRONMENT` など) が付いた環境変数。
+  * [コマンドライン構成プロバイダー](#command-line-configuration-provider)を使用するコマンドライン引数。
+* アプリの構成は、次の順序で提供されます。
+  * [ファイル構成プロバイダー](#file-configuration-provider)を使用する *appsettings.json*。
+  * [ファイル構成プロバイダー](#file-configuration-provider)を使用する *appsettings.{Environment}.json*。
+  * エントリ アセンブリを使用して `Development` 環境でアプリが実行される場合に使用される[シークレット マネージャー](xref:security/app-secrets)。
+  * [環境変数構成プロバイダー](#environment-variables-configuration-provider)を使用する環境変数。
+  * [コマンドライン構成プロバイダー](#command-line-configuration-provider)を使用するコマンドライン引数。
+
+これらの構成プロバイダーについては、このトピックの後半で説明します。 ホストと `CreateDefaultBuilder` の詳細については、<xref:fundamentals/host/web-host#set-up-a-host> を参照してください。
 
 ## <a name="security"></a>セキュリティ
 
@@ -116,7 +126,7 @@ ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によ�
 * section1:key0
 * section1:key1
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> メソッドと <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> メソッドを使用して、構成データ内のセクションとセクションの子を分離することができます。 これらのメソッドについては、後ほど「[GetSection、GetChildren、Exists](#getsection-getchildren-and-exists)」で説明します。
+<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> メソッドと <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> メソッドを使用して、構成データ内のセクションとセクションの子を分離することができます。 これらのメソッドについては、後ほど「[GetSection、GetChildren、Exists](#getsection-getchildren-and-exists)」で説明します。 `GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。
 
 ## <a name="conventions"></a>規約
 
@@ -238,7 +248,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-前の例では、<xref:Microsoft.Extensions.Hosting.IHostingEnvironment> によって環境名 (`env.EnvironmentName`) とアプリのアセンブリ名 (`env.ApplicationName`) が提供されます。 詳細については、「<xref:fundamentals/environments>」を参照してください。
+前の例では、<xref:Microsoft.Extensions.Hosting.IHostingEnvironment> によって環境名 (`env.EnvironmentName`) とアプリのアセンブリ名 (`env.ApplicationName`) が提供されます。 詳細については、「<xref:fundamentals/environments>」を参照してください。 基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+.
 
 ::: moniker-end
 
@@ -246,7 +257,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="configureappconfiguration"></a>ConfigureAppConfiguration
 
-Web ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出し、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> によって自動的に追加されるものに加え、アプリの構成プロバイダーを指定します。
+ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出し、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> によって自動的に追加されるものに加え、アプリの構成プロバイダーを指定します。
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
@@ -763,6 +774,8 @@ public class Program
 }
 ```
 
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
 ::: moniker-end
@@ -793,6 +806,8 @@ public class Program
 }
 ```
 
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
 ::: moniker-end
@@ -814,6 +829,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
 
 INI 構成ファイルの汎用的な例:
 
@@ -894,6 +911,8 @@ public class Program
 }
 ```
 
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
 ::: moniker-end
@@ -926,6 +945,8 @@ public class Program
 }
 ```
 
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
 ::: moniker-end
@@ -947,6 +968,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
 
 **例**
 
@@ -1009,6 +1032,8 @@ public class Program
 }
 ```
 
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
 ::: moniker-end
@@ -1039,6 +1064,8 @@ public class Program
 }
 ```
 
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
+
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
 ::: moniker-end
@@ -1060,6 +1087,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
 
 XML 構成ファイルでは、繰り返しのセクション用に個別の要素名を使用できます。
 
@@ -1160,6 +1189,8 @@ public class Program
             .UseStartup<Startup>();
 }
 ```
+
+基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。 `SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。
 
 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。
 
@@ -1326,13 +1357,15 @@ var intValue = config.GetValue<int>("NumberKey", 99);
 
 ### <a name="getsection"></a>GetSection
 
-[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) では、指定したサブセクションのキーを持つ構成のサブセクションが抽出されます。
+[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) では、指定したサブセクションのキーを持つ構成のサブセクションが抽出されます。 `GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。
 
 `section1` のキーと値のペアのみを含む <xref:Microsoft.Extensions.Configuration.IConfigurationSection> を返すには、`GetSection` を呼び出してセクション名を指定します。
 
 ```csharp
 var configSection = _config.GetSection("section1");
 ```
+
+`configSection` には値はなく、キーとパスのみが含まれます。
 
 同様に、`section2:subsection0` のキーの値を取得するには、`GetSection` を呼び出してセクションのパスを指定します。
 
@@ -1341,6 +1374,8 @@ var configSection = _config.GetSection("section2:subsection0");
 ```
 
 `GetSection` が `null` を返すことはありません。 一致するセクションが見つからない場合は、空の `IConfigurationSection` が返されます。
+
+`GetSection` で一致するセクションが返されると、<xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> は設定されません。 <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> と <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> はセクションが存在する場合に返されます。
 
 ### <a name="getchildren"></a>GetChildren
 
@@ -1373,7 +1408,7 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 "*オプション パターン*" を使用して、関連する設定のグループを表すクラスに構成をバインドすることができます。 詳細については、「<xref:fundamentals/configuration/options>」を参照してください。
 
-構成値は文字列として返されますが、<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> を呼び出すことで [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) オブジェクトを構築できます。
+構成値は文字列として返されますが、<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> を呼び出すことで [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) オブジェクトを構築できます。 `Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。
 
 サンプル アプリには `Starship` モデル (*Models/Starship.cs*) が含まれます。
 
@@ -1428,9 +1463,11 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 ::: moniker-end
 
+`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。
+
 ## <a name="bind-to-an-object-graph"></a>オブジェクト グラフにバインドする
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> では、POCO オブジェクト グラフ全体をバインドすることができます。
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> では、POCO オブジェクト グラフ全体をバインドすることができます。 `Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。
 
 サンプルには、オブジェクト グラフに `Metadata` クラスと `Actors` クラスが含まれる `TvShow` モデルが含まれます (*Models/TvShow.cs*)。
 
@@ -1500,11 +1537,13 @@ viewModel.TvShow = tvShow;
 
 ::: moniker-end
 
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。 `Get<T>` は、ASP.NET Core 1.1 以降で使用できます。 `GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。
+
 ## <a name="bind-an-array-to-a-class"></a>配列をクラスにバインドする
 
 *サンプル アプリは、このセクションで説明する概念を示しています。*
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> は、構成キーで配列インデックスを使用して、オブジェクトに対する配列のバインドをサポートしています。 数値のキー セグメント (`:0:`、`:1:`、&hellip; `:{n}:`) を公開する配列形式は、すべて POCO クラスの配列にバインドできます。
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> は、構成キーで配列インデックスを使用して、オブジェクトに対する配列のバインドをサポートしています。 数値のキー セグメント (`:0:`、`:1:`、&hellip; `:{n}:`) を公開する配列形式は、すべて POCO クラスの配列にバインドできます。 `Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。
 
 > [!NOTE]
 > バインドは慣例に従って指定されます。 カスタム構成プロバイダーが配列のバインドを実装する必要はありません。
@@ -1557,6 +1596,8 @@ viewModel.TvShow = tvShow;
 var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
+
+`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。
 
 ::: moniker range=">= aspnetcore-1.1"
 
