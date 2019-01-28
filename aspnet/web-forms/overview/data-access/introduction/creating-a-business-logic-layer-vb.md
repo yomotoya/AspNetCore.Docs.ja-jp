@@ -187,7 +187,7 @@ BLL クラスには、アプリケーションのビジネス ルールに準拠
 
 ## <a name="responding-to-validation-errors-in-the-presentation-tier"></a>プレゼンテーション層の検証エラーへの応答
 
-プレゼンテーション層から、BLL を呼び出すときに例外が発生したまたは ASP.NET バブリングそれらを処理しようとするかどうかを判断できます (これが発生、`HttpApplication`の`Error`イベント)。 BLL をプログラムで使用する場合は、例外を処理するには、使用、[お試しください.キャッチ](https://msdn.microsoft.com/library/fk6t46tz%28VS.80%29.aspx)ブロックは、次の例を示します。
+プレゼンテーション層から、BLL を呼び出すときに例外が発生したまたは ASP.NET バブリングそれらを処理しようとするかどうかを判断できます (これが発生、`HttpApplication`の`Error`イベント)。 BLL をプログラムで使用する場合は、例外を処理するには、使用、[Try ... Catch](https://msdn.microsoft.com/library/fk6t46tz%28VS.80%29.aspx)ブロックは、次の例を示します。
 
 
 [!code-vb[Main](creating-a-business-logic-layer-vb/samples/sample7.vb)]
