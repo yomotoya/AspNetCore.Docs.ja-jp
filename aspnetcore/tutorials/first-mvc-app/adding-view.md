@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core MVC アプリにビューを追加する
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: f241a19c8821019f327fb160f01fe01eca53c5d0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249452"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836906"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのビューの追加
 
@@ -104,7 +104,7 @@ ms.locfileid: "54249452"
 
 **注**:`Movies` コントローラーは実装されていません。 この時点で、`Movie App`リンクは機能しません。
 
-ご自分の変更を保存し、**プライバシー** リンクを選択します。 ブラウザー タブのタイトルが、**Privacy - Mvc Movie** ではなく、**Privacy - Movie App** になっていることに注目してください: 
+ご自分の変更を保存し、**プライバシー** リンクを選択します。 ブラウザー タブのタイトルが、**Privacy Policy - Mvc Movie** ではなく、**Privacy Policy - Movie App** になっていることに注目してください。
 
 ![[プライバシー] タブ](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 

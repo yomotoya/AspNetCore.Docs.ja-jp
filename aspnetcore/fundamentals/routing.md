@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 96d098115f2f9b150f796e08cf14e60611f59e17
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341759"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54890017"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -655,16 +655,36 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 
 | 正規表現   | String    | 一致したもの | コメント               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | hello     | [はい]   | サブ文字列の一致     |
-| `[a-z]{2}`   | 123abc456 | [はい]   | サブ文字列の一致     |
-| `[a-z]{2}`   | mz        | [はい]   | 一致する表現    |
-| `[a-z]{2}`   | MZ        | [はい]   | 大文字と小文字の使い方が違う    |
+| `[a-z]{2}`   | hello     | はい   | サブ文字列の一致     |
+| `[a-z]{2}`   | 123abc456 | はい   | サブ文字列の一致     |
+| `[a-z]{2}`   | mz        | はい   | 一致する表現    |
+| `[a-z]{2}`   | MZ        | はい   | 大文字と小文字の使い方が違う    |
 | `^[a-z]{2}$` | hello     | ×    | 上の `^` と `$` を参照 |
 | `^[a-z]{2}$` | 123abc456 | ×    | 上の `^` と `$` を参照 |
 
 正規表現構文の詳細については、[.NET Framework 正規表現](/dotnet/standard/base-types/regular-expression-language-quick-reference)に関するページを参照してください。
 
 既知の入力可能値の集まりにパラメーターを制限するには、正規表現を使用します。 たとえば、`{action:regex(^(list|get|create)$)}` の場合、`action` ルート値は `list`、`get`、`create` とのみ照合されます。 制約ディクショナリに渡された場合、文字列 `^(list|get|create)$` で同じものになります。 (テンプレート内でインラインではなく) 制約ディクショナリに渡された制約が既知の制約に一致しない場合も、正規表現として扱われます。
+
+## <a name="custom-route-constraints"></a>カスタム ルート制約
+
+組み込みのルート制約だけでなく、<xref:Microsoft.AspNetCore.Routing.IRouteConstraint> インターフェイスを実装してカスタム ルート制約を作成することができます。 `IRouteConstraint` インターフェイスには、1 つのメソッド `Match` が含まれています。これは、制約が満たされている場合は `true` を、それ以外の場合は `false` を返します。
+
+カスタムの `IRouteConstraint` を使うには、アプリのサービス コンテナー内にあるアプリの `RouteOptions.ConstraintMap` に、ルート制約の種類を登録する必要があります。 <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> は、ルート制約キーを、その制約を検証する `IRouteConstraint` の実装にマッピングするディクショナリです。 アプリの `RouteOptions.ConstraintMap` は、`Startup.ConfigureServices` で、`services.AddRouting` 呼び出しの一部として、または `services.Configure<RouteOptions>` を使って `RouteOptions` を直接構成することで、更新できます。 次に例を示します。
+
+```csharp
+services.AddRouting(options =>
+{
+    options.ConstraintMap.Add("customName", typeof(MyCustomConstraint));
+});
+```
+
+これで、制約の種類を登録するときに指定した名前を使って、通常の方法でルートに制約を適用できます。 次に例を示します。
+
+```csharp
+[HttpGet("{id:customName}")]
+public ActionResult<string> Get(string id)
+```
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -737,3 +757,9 @@ routes.MapRoute("blog_route", "blog/{*slug}",
 ```
 
 リンク生成では、`controller` と `action` について一致する値が指定されるときにのみ、このルートのリンクが生成されます。
+
+## <a name="complex-segments"></a>複雑なセグメント
+
+複雑なセグメント (例: `[Route("/x{token}y")]`) は、リテラルを右から左に最短一致の方法で照合することによって処理されます。 複雑なセグメントの一致方法に関する詳しい説明については、[こちらのコード](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293)をご覧ください。 この[コード サンプル](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293)は ASP.NET Core では使われていませんが、複雑なセグメントに関する優れた説明が提供されています。
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+-->

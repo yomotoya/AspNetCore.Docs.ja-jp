@@ -3,14 +3,14 @@ title: ASP.NET Core で複数の環境を使用する
 author: rick-anderson
 description: ASP.NET Core アプリで複数の環境にわたりアプリの動作を制御する方法について説明します。
 ms.author: riande
-ms.date: 07/03/2018
+ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 39e1b48481832a6d76de605b37410fe2e16dcd88
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341668"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836741"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -237,6 +237,20 @@ Windows でグローバルな値を設定するには、次の方法のいずれ
 **web.config**
 
 `ASPNETCORE_ENVIRONMENT` 環境変数を *web.config* で設定するには、<xref:host-and-deploy/aspnet-core-module#setting-environment-variables>の「*環境変数の設定*」のセクションを参照してください。 `ASPNETCORE_ENVIRONMENT` 環境変数が *web.config* で設定されている場合、その値は、システム レベルの設定をオーバーライドします。
+
+::: moniker range=">= aspnetcore-2.2"
+
+**プロジェクト ファイルまたは発行プロファイル**
+
+**Windows IIS の配置:** 発行プロファイル (*.pubxml*) またはプロジェクト ファイルに `<EnvironmentName>` プロパティを追加します。 この方法では、プロジェクトが発行されるときに *web.config* に環境が設定されます。
+
+```xml
+<PropertyGroup>
+  <EnvironmentName>Development</EnvironmentName>
+</PropertyGroup>
+```
+
+::: moniker-end
 
 **IIS アプリケーション プール**
 

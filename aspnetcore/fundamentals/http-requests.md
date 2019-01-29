@@ -5,20 +5,20 @@ description: IHttpClientFactory インターフェイスを使用して、ASP.NE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/07/2018
+ms.date: 01/25/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 693e9d64f47704400cbfa9e46b866f39278d82f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 4fc4e602b809563ea78b6a3af5e5eb5c0ebeddea
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207642"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065036"
 ---
 # <a name="initiate-http-requests"></a>HTTP 要求の開始
 
 寄稿者: [Glenn Condron](https://github.com/glennc)、[Ryan Nowak](https://github.com/rynowak)、[Steve Gordon](https://github.com/stevejgordon)
 
-[IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) を登録し、アプリ内で [HttpClient](/dotnet/api/system.net.http.httpclient) インスタンスを構成して作成するために使用できます。 次のような利点があります。
+アプリ内で <xref:System.Net.Http.HttpClient> インスタンスを構成して作成するために、<xref:System.Net.Http.IHttpClientFactory> を登録して使用できます。 次のような利点があります。
 
 * 論理 `HttpClient` インスタンスの名前付けと構成を一元化します。 たとえば、*github* クライアントを登録して、GitHub にアクセスするように構成できます。 既定のクライアントは、他の目的に登録できます。
 * `HttpClient` でのハンドラーのデリゲートにより送信ミドルウェアの概念を体系化し、Polly ベースのミドルウェアでそれを利用するための拡張機能を提供します。
@@ -48,11 +48,11 @@ ms.locfileid: "50207642"
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
-登録が済むと、コードは、[依存関係の挿入](xref:fundamentals/dependency-injection) (DI) を使用してサービスを挿入できる任意の場所で、`IHttpClientFactory` を受け取ることができます。 `IHttpClientFactory` を使用して、`HttpClient` インスタンスを作成できます。
+登録が済むと、コードは、[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) を使用してサービスを挿入できる任意の場所で、`IHttpClientFactory` を受け取ることができます。 `IHttpClientFactory` を使用して、`HttpClient` インスタンスを作成できます。
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
-このように `IHttpClientFactory` を使用するのは、既存のアプリをリファクタリングする優れた方法です。 `HttpClient` の使用方法に影響はありません。 現在 `HttpClient` インスタンスが作成されている場所で、それを [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient) の呼び出しに置き換えます。
+このように `IHttpClientFactory` を使用するのは、既存のアプリをリファクタリングする優れた方法です。 `HttpClient` の使用方法に影響はありません。 現在 `HttpClient` インスタンスが作成されている場所で、それを <xref:System.Net.Http.IHttpClientFactory.CreateClient*> の呼び出しに置き換えます。
 
 ### <a name="named-clients"></a>名前付きクライアント
 
@@ -80,7 +80,7 @@ ms.locfileid: "50207642"
 
 上記のコードでは、構成が型指定されたクライアントに移動されています。 `HttpClient` オブジェクトは、パブリック プロパティとして公開されます。 `HttpClient` 機能を公開する API 固有のメソッドを定義することができます。 `GetAspNetDocsIssues` メソッドは、GitHub リポジトリで最新の未解決の問題をクエリして解析するために必要なコードをカプセル化します。
 
-型指定されたクライアントを登録するには、ジェネリック `AddHttpClient` 拡張メソッドを `Startup.ConfigureServices` 内で使用して、型指定されたクライアントのクラスを指定します。
+型指定されたクライアントを登録するには、ジェネリック <xref:Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions.AddHttpClient*> 拡張メソッドを `Startup.ConfigureServices` 内で使用して、型指定されたクライアントのクラスを指定します。
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
@@ -157,21 +157,41 @@ public class ValuesController : ControllerBase
 
 `HttpClient` は既に、送信 HTTP 要求用にリンクできるハンドラーのデリゲートの概念を備えています。 `IHttpClientFactory` を使用すると、各名前付きクライアントに適用するハンドラーを簡単に定義できます。 複数のハンドラーを登録してチェーン化し、送信要求ミドルウェア パイプラインを構築できます。 各ハンドラーは、送信要求の前と後に処理を実行できます。 このパターンは、ASP.NET Core での受信ミドルウェア パイプラインに似ています。 このパターンは、キャッシュ、エラー処理、シリアル化、ログ記録など、HTTP 要求に関する横断的関心事を管理するためのメカニズムを提供します。
 
-ハンドラーを作成するには、`DelegatingHandler` の派生クラスを定義します。 パイプライン内の次のハンドラーに要求を渡す前にコードを実行するように、`SendAsync` メソッドをオーバーライドします。
+ハンドラーを作成するには、<xref:System.Net.Http.DelegatingHandler> の派生クラスを定義します。 パイプライン内の次のハンドラーに要求を渡す前にコードを実行するように、`SendAsync` メソッドをオーバーライドします。
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
 上記のコードでは、基本的なハンドラーが定義されています。 このコードは、`X-API-KEY` ヘッダーが要求に含まれていたかどうかを確認します。 ヘッダーがない場合、HTTP 呼び出しを行わずに適切な応答を返すことができます。
 
-登録の間に、1 つ以上のハンドラーを `HttpClient` の構成に追加することができます。 このタスクは、[IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder) の拡張メソッドを使用して実行されます。
+登録の間に、1 つ以上のハンドラーを `HttpClient` の構成に追加することができます。 このタスクは、<xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder> の拡張メソッドを使用して実行されます。
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
-上記のコードでは、`ValidateHeaderHandler` が DI で登録されます。 ハンドラーは、DI で一時的として登録される**必要があります**。 登録が済むと、ハンドラーの型を渡して [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler) を呼び出すことができます。
+::: moniker range=">= aspnetcore-2.2"
+
+上記のコードでは、`ValidateHeaderHandler` が DI で登録されます。 `IHttpClientFactory` では、ハンドラーごとに個別の DI スコープが作成されます。 ハンドラーは、任意のスコープのサービスに自由に依存することができます。 ハンドラーが依存するサービスは、ハンドラーが破棄されるときに破棄されます。
+
+登録が済むと、<xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*> を呼び出してハンドラーの型を渡すことができます。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+上記のコードでは、`ValidateHeaderHandler` が DI で登録されます。 ハンドラーは、スコープではなく、一時的なサービスとして DI で登録する**必要があります**。 ハンドラーがスコープ サービスとして登録されていて、ハンドラーが依存するサービスが破棄可能だった場合、ハンドラーがスコープ外に移動する前にハンドラーのサービスが破棄される可能性があります。この場合、ハンドラーは失敗します。
+
+登録が済むと、<xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*> を呼び出してハンドラーの型を渡すことができます。
+
+::: moniker-end
 
 実行する順序で、複数のハンドラーを登録することができます。 最後の `HttpClientHandler` が要求を実行するまで、各ハンドラーは次のハンドラーをラップします。
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet6)]
+
+次の方法のいずれかを使って、要求ごとの状態をメッセージ ハンドラーと共有します。
+
+* `HttpRequestMessage.Properties` を使ってデータをハンドラーに渡します。
+* `IHttpContextAccessor` を使って現在の要求にアクセスします。
+* データを渡すカスタムの `AsyncLocal` ストレージ オブジェクトを作成します。
 
 ## <a name="use-polly-based-handlers"></a>Polly ベースのハンドラーを使用する
 
@@ -221,15 +241,17 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 ## <a name="httpclient-and-lifetime-management"></a>HttpClient と有効期間の管理
 
-`IHttpClientFactory` で `CreateClient` を呼び出すたびに、`HttpClient` の新しいインスタンスが返されます。 名前の付いたクライアントごとに [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) があります。 `IHttpClientFactory` は、リソースの消費量を減らすため、ファクトリによって作成された `HttpMessageHandler` のインスタンスをプールします。 新しい `HttpClient` インスタンスを作成するときに、プールの `HttpMessageHandler` インスタンスの有効期間が切れていない場合はそれを再利用する場合があります。
+`IHttpClientFactory` で `CreateClient` を呼び出すたびに、`HttpClient` の新しいインスタンスが返されます。 名前付きクライアントごとに <xref:System.Net.Http.HttpMessageHandler> が存在します。 ファクトリによって `HttpMessageHandler` インスタンスの有効期間が管理されます。
+
+`IHttpClientFactory` は、リソースの消費量を減らすため、ファクトリによって作成された `HttpMessageHandler` のインスタンスをプールします。 新しい `HttpClient` インスタンスを作成するときに、プールの `HttpMessageHandler` インスタンスの有効期間が切れていない場合はそれを再利用する場合があります。
 
 通常、各ハンドラーでは基になる HTTP 接続が独自に管理されるため、ハンドラーはプールすることが望まれます。 必要以上のハンドラーを作成すると、接続に遅延が発生する可能性があります。 また、一部のハンドラーは接続を無期限に開いており、DNS の変更にハンドラーが対応できないことがあります。
 
-ハンドラーの既定の有効期間は 2 分です。 名前付きクライアントごとに、既定値をオーバーライドすることができます。 オーバーライドするには、クライアント作成時に返された `IHttpClientBuilder` で [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) を呼び出します。
+ハンドラーの既定の有効期間は 2 分です。 名前付きクライアントごとに、既定値をオーバーライドすることができます。 オーバーライドするには、クライアント作成時に返された `IHttpClientBuilder` で <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.SetHandlerLifetime*> を呼び出します。
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
 
-クライアントを破棄する必要はありません。 破棄すると送信要求がキャンセルされ、[Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose) 呼び出し後には指定された `HttpClient` インスタンスを使用できなくなります。 `IHttpClientFactory` は、`HttpClient` インスタンスによって使用されたリソースの追跡と破棄を行います。 通常、`HttpClient` インスタンスは、破棄を必要としない .NET オブジェクトとして扱うことができます。
+クライアントを破棄する必要はありません。 破棄すると送信要求がキャンセルされ、<xref:System.IDisposable.Dispose*> の呼び出し後には指定された `HttpClient` インスタンスを使用できなくなります。 `IHttpClientFactory` は、`HttpClient` インスタンスによって使用されたリソースの追跡と破棄を行います。 通常、`HttpClient` インスタンスは、破棄を必要としない .NET オブジェクトとして扱うことができます。
 
 `IHttpClientFactory` の登場以前は、1 つの `HttpClient` インスタンスを長い期間使い続けるパターンが一般的に使用されていました。 `IHttpClientFactory` に移行した後は、このパターンは不要になります。
 
@@ -249,6 +271,6 @@ Polly ポリシーを入れ子にして拡張機能を提供するのが一般�
 
 クライアントによって使用される内部 `HttpMessageHandler` の構成を制御することが必要な場合があります。
 
-名前付きクライアントまたは型指定されたクライアントを追加すると、`IHttpClientBuilder` が返されます。 デリゲートを定義するために [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) 拡張メソッドを使用できます。 デリゲートは、そのクライアントによって使用されるプライマリ `HttpMessageHandler` の作成と構成に使用されます。
+名前付きクライアントまたは型指定されたクライアントを追加すると、`IHttpClientBuilder` が返されます。 <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> 拡張メソッドを使用して、デリゲートを定義することができます。 デリゲートは、そのクライアントによって使用されるプライマリ `HttpMessageHandler` の作成と構成に使用されます。
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]

@@ -34,7 +34,7 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
-すべての画像に[代替 (alt) テキスト](https://wikipedia.org/wiki/Alt_attribute)が必要です。 代替テキストの指定に関するアドバイスについては、「[WebAIM: Alternative Text](https://webaim.org/techniques/alttext/)」(WebAIM: 代替テキスト) などのオンライン リソースを参照してください。
+すべての画像に[代替 (alt) テキスト](https://wikipedia.org/wiki/Alt_attribute)が必要です。 代替テキストの指定に関するアドバイスについては、「[WebAIM: Alternative Text (WebAIM: 代替テキスト)](https://webaim.org/techniques/alttext/)」などのオンライン リソースを参照してください。
 
 マークダウン ファイル名と画像ファイル名には、小文字を使用します。
 
@@ -124,22 +124,20 @@ DocFX には次のものが必要です。
 
 ### <a name="mono-instructions"></a>Mono での手順
 
-* Homebrew `brew install mono` を使用して Mono をインストールします。
+* Homebrew を使用して Mono をインストールします。
+
+  ```
+  brew install mono
+  ```
 * [最新バージョンの DocFX](https://github.com/dotnet/docfx/releases) をダウンロードします。
-* `\bin\docfx` に展開します。
-* **docfx** の別名を作成します。
+* アーカイブを *$HOME/bin/docfx* に抽出します。
+* bash シェルで **docfx** の別名を 2 つ作成します。 最初の別名は、ドキュメントを構築するために使います。 2 番目の別名は、ドキュメントを構築して提供するために使います。
 
   ```
-  function docfx {
-    mono $HOME/bin/docfx/docfx.exe
-  }
-    
-  function docfx-serve {
-    mono $HOME/bin/docfx/docfx.exe serve _site
-  }
+  alias docfx='mono $HOME/bin/docfx/docfx.exe'
+  alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-
-* *Docs\aspnet* または *Docs\aspnetcore* ディレクトリで `docfx` を実行して、サイトを構築します。 `docfx-serve` を実行して、`http://localhost:8080` でサイトを表示します。
+* リポジトリのルートから `docfx` を実行して、サイトを構築します。 `docfx-serve` を実行して、`http://localhost:8080` でサイトを表示します。
 
 ## <a name="voice-and-tone"></a>スタイルとトーン
 

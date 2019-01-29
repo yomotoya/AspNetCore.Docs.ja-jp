@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 350243fb94b4798293a5a61b580c3b3b4d8c6d4a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090884"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444299"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
@@ -122,7 +122,7 @@ Students インデックス ページにフィルターを追加するには
 * `searchString` パラメーターを `OnGetAsync` メソッドに追加します。 次のセクションで追加されるテキスト ボックスから検索する文字列値を受け取ります。
 * LINQ ステートメントに `Where` 句を追加します。 `Where` 句は、名または姓に検索文字列が含まれている学生のみを選択します。 検索する値がある場合にのみ LINQ ステートメントを実行します。
 
-注: 前のコードは、`IQueryable` オブジェクトに対して `Where` メソッドを呼び出し、フィルターがサーバーで処理されます。 一部のシナリオでは、アプリが `Where` メソッドをメモリ内コレクションの拡張メソッドとして呼び出す場合があります。 たとえば、`_context.Students` が EF Core `DbSet` から `IEnumerable` コレクションを返すリポジトリ メソッドに変更されるとします 結果は、通常同じになりますが、場合によっては異なる場合があります。
+メモ:前のコードは、`IQueryable` オブジェクトに対して `Where` メソッドを呼び出し、フィルターがサーバーで処理されます。 一部のシナリオでは、アプリが `Where` メソッドをメモリ内コレクションの拡張メソッドとして呼び出す場合があります。 たとえば、`_context.Students` が EF Core `DbSet` から `IEnumerable` コレクションを返すリポジトリ メソッドに変更されるとします 結果は、通常同じになりますが、場合によっては異なる場合があります。
 
 たとえば、.NET Framework の `Contains` の実装では、既定では大文字小文字を区別する比較を実行します。 SQL Server で、`Contains` の大文字小文字の区別は、SQL Server インスタンスの照合順序の設定によって決まります。 SQL Server は、既定では大文字小文字を区別しません。 `ToUpper` を呼び出して、テストを明示的に大文字小文字を区別しないようにすることができます。
 
@@ -258,6 +258,8 @@ http://localhost:5000/Students?SearchString=an
 [!code-csharp[](intro/samples/cu21/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>About ページ モデルを更新する
+
+ASP.NET Core 2.2 の Web テンプレートには、About ページが含まれていません。 ASP.NET Core 2.2 を使っている場合は、About Razor ページを作成します。
 
 次のコードを使用して、*Pages/About.cshtml.cs* を更新します。
 

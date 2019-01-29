@@ -4,23 +4,20 @@ author: ardalis
 description: フィルターのしくみと ASP.NET Core MVC でそれを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 1/15/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: d4fe49a9225b9980a956ef9c773ad631beb557ae
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: fe3082481b51c968fd361dbcc9553c4e35a36f2a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207461"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444351"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Tom Dykstra](https://github.com/tdykstra/)、[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプラインの特定のステージの前または後にコードを実行できます。
-
-> [!IMPORTANT]
-> このトピックは Razor ページには適用**されません**。 ASP.NET Core 2.1 以降では、Razor ページの [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) と [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) に対応しています。 詳細については、[Razor ページのフィルター メソッド](xref:razor-pages/filter)に関するページを参照してください。
 
  組み込みのフィルターでは次のようなタスクが処理されます。
 
@@ -32,7 +29,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 [GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)。
 
-## <a name="how-do-filters-work"></a>フィルターのしくみ
+## <a name="how-filters-work"></a>フィルターのしくみ
 
 *MVC のアクション呼び出しパイプライン*内で実行されるフィルターは、*フィルター パイプライン*と呼ばれることがあります。  フィルター パイプラインは、MVC が実行するアクションを選択した後に実行されます。
 
@@ -46,7 +43,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 * [リソース フィルター](#resource-filters)は、承認後、最初に要求を処理します。  このフィルターは、残りのフィルター パイプラインの完了前と完了後にコードを実行できます。 キャッシュを実装するか、そうでない場合はパフォーマンス上の理由からフィルター パイプラインをショートサーキットする場合に便利です。 モデル バインドに変化が及ぶように、モデル バインドの前に実行されます。
 
-* [アクション フィルター](#action-filters)は、個々のアクション メソッドが呼び出される直前と直後にコードを実行できます。 アクションに渡される引数とアクションから返される結果を操作するために使用できます。
+* [アクション フィルター](#action-filters)は、個々のアクション メソッドが呼び出される直前と直後にコードを実行できます。 アクションに渡される引数とアクションから返される結果を操作するために使用できます。 アクション フィルターは Razor Pages ではサポートされていません。
 
 * [例外フィルター](#exception-filters)は、応答本文に何かが書き込まれる前に発生する未処理の例外にグローバル ポリシーを適用するために使用されます。
 
@@ -68,14 +65,13 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
-1 つのクラスで複数のフィルター ステージに対してインターフェイスを実装することができます。 たとえば、[ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) クラスは、`IActionFilter` と `IResultFilter` と、それらの非同期バージョンを実装します。
+1 つのクラスで複数のフィルター ステージに対してインターフェイスを実装することができます。 たとえば、<xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> クラスは、`IActionFilter`、`IResultFilter`、およびそれらの非同期バージョンを実装します。
 
 > [!NOTE]
-> フィルター インターフェイスの同期と非同期バージョンの両方ではなく、**いずれか**を実装します。 フレームワークは、最初にフィルターが非同期インターフェイスを実装しているかどうかをチェックして、している場合はそれを呼び出します。 していない場合は、同期インターフェイスのメソッドを呼び出します。 1 つのクラスに両方のインターフェイスを実装すると、非同期のメソッドのみが呼び出されます。 [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) などの抽象クラスを使用する場合は、同期メソッドのみをオーバーライドするか、フィルターの種類ごとに非同期メソッドをオーバーライドします。
+> フィルター インターフェイスの同期と非同期バージョンの両方ではなく、**いずれか**を実装します。 フレームワークは、最初にフィルターが非同期インターフェイスを実装しているかどうかをチェックして、している場合はそれを呼び出します。 していない場合は、同期インターフェイスのメソッドを呼び出します。 1 つのクラスに両方のインターフェイスを実装すると、非同期のメソッドのみが呼び出されます。 <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> などの抽象クラスを使用する場合は、同期メソッドのみをオーバーライドするか、フィルターの種類ごとに非同期メソッドをオーバーライドします。
 
 ### <a name="ifilterfactory"></a>IFilterFactory
-
-[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) は [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata) を実装します。 そのため、`IFilterFactory` インスタンスはフィルター パイプライン内の任意の場所で `IFilterMetadata` インスタンスとして使用できます。 フレームワークは、フィルターを呼び出す準備をする際に、それを `IFilterFactory` にキャストしようとします。 そのキャストが成功した場合、呼び出される `IFilterMetadata` インスタンスを作成するために [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) メソッドが呼び出されます。 これにより、アプリの起動時に正確なフィルター パイプラインを明示的に設定する必要がないため、柔軟なデザインが可能になります。
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) は <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata> を実装します。 そのため、`IFilterFactory` インスタンスはフィルター パイプライン内の任意の場所で `IFilterMetadata` インスタンスとして使用できます。 フレームワークは、フィルターを呼び出す準備をする際に、それを `IFilterFactory` にキャストしようとします。 そのキャストが成功した場合、呼び出される `IFilterMetadata` インスタンスを作成するために [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) メソッドが呼び出されます。 これにより、アプリの起動時に正確なフィルター パイプラインを明示的に設定する必要がないため、柔軟なデザインが可能になります。
 
 フィルターを作成するための別の方法として、独自の属性の実装で `IFilterFactory` を実装できます。
 
@@ -280,6 +276,9 @@ System.InvalidOperationException: No service for type
 
 ## <a name="action-filters"></a>アクション フィルター
 
+> [!IMPORTANT]
+> アクション フィルターは Razor Pages に適用**されません**。 Razor Pages では <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> と <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter> がサポートされています。 詳細については、[Razor ページのフィルター メソッド](xref:razor-pages/filter)に関するページを参照してください。
+
 *アクション フィルター*:
 
 * `IActionFilter` または `IAsyncActionFilter` のインターフェイスを実装します。
@@ -289,13 +288,13 @@ System.InvalidOperationException: No service for type
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
-[ActionExecutingContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) が次のプロパティを提供します。
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext> では次のプロパティが提供されます。
 
 * `ActionArguments`: アクションへの入力を操作できます。
 * `Controller`: コントローラー インスタンスを操作できます。 
 * `Result`: これを設定することで、アクション メソッドと後続のアクション フィルターの実行をショートサーキットします。 例外をスローすることで、アクション メソッドと後続のアクション フィルターの実行も防止できますが、成功の結果ではなく、エラーとして扱われます。
 
-[ActionExecutedContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) は、`Controller` と `Result` に加え、次のプロパティを提供します。
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> は、`Controller` と `Result` に加え、次のプロパティを提供します。
 
 * `Canceled`: 別のフィルターによってアクションの実行がショートサーキットされた場合は、true になります。
 * `Exception`: アクションまたは後続のアクション フィルターが例外をスローした場合は、null 以外になります。 このプロパティを null に設定すると、例外を効果的に '処理' でき、`Result` がアクション メソッドから通常に返されたかのように実行されます。
@@ -391,4 +390,5 @@ ASP.NET Core 1.1 では、フィルター パイプラインでミドルウェ�
 
 ## <a name="next-actions"></a>次の操作
 
-フィルターを試すには、[ここ](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)からサンプルをダウンロードして、テストおよび変更を行います。
+* [Razor Pages のフィルター メソッド](xref:razor-pages/filter)に関するページをご覧ください
+* フィルターを試すには、[Github のサンプルをダウンロードして、テストおよび変更を行います](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)。

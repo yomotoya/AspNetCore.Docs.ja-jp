@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 23bbb3063d696f588abecb1fe05ea3381ab2346d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: a510e4f49e158203dd7c5e1e0bd28472541f7925
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341694"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836338"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -48,7 +48,7 @@ Cookie を発行し、プライバシーの問題を扱うときは、[欧州連
 
 ## <a name="session-state"></a>セッション状態
 
-セッション状態は、ユーザーが Web アプリを参照している期間中ユーザー データを格納するための ASP.NET Core のシナリオです。 セッション状態では、アプリで管理されているストアを使用して、クライアントからの要求間でデータを保持します。 セッション データはキャッシュによってバックアップされ、一時的なデータと見なされます。セッション データがなくても、サイトは機能し続けられる必要があります。
+セッション状態は、ユーザーが Web アプリを参照している期間中ユーザー データを格納するための ASP.NET Core のシナリオです。 セッション状態では、アプリで管理されているストアを使用して、クライアントからの要求間でデータを保持します。 セッション データはキャッシュによってバックアップされ、一時的なデータと見なされます。セッション データがなくても、サイトは機能し続けられる必要があります。 重要なアプリケーションのデータはユーザー データベースに格納し、パフォーマンスの最適化としてのみセッションでキャッシュする必要があります。
 
 > [!NOTE]
 > [SignalR Hub](xref:signalr/hubs) は HTTP コンテキストとは独立して実行する可能性があるため、[SignalR](xref:signalr/index) アプリではセッションはサポートされていません。 このようなことは、たとえば、長いポーリング要求が HTTP コンテキストの有効期間を超えてハブによって開かれている場合に発生する可能性があります。

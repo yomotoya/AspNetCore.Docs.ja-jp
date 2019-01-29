@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core MVC で Web API をビルドする
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 01/24/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 03936ee74836c7b214cb3dc4023a6e3c252f2a26
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 65af70be2cec68d30dd712b80312ebcd40ea0624
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207448"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065049"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>チュートリアル: ASP.NET Core MVC で Web API を作成する
 
@@ -168,11 +168,7 @@ Ctrl キーを押しながら F5 キーを押して、アプリを実行しま�
 
 * *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに「*TodoContext*」という名前を付け、**[追加]** をクリックします。
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* *Models* フォルダーに `TodoContext` クラスを追加します。
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * *Models* フォルダーに `TodoContext` クラスを追加します。
 
@@ -207,13 +203,9 @@ ASP.NET Core で、サービス (DB コンテキストなど) を[依存関係�
 
   ![[新しい項目の追加] ダイアログ。検索ボックスに「controller」と入力されています。Web API コントローラーが選択されています。](first-web-api/_static/new_controller.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * *Controllers* フォルダーで、「`TodoController`」という名前のクラスを作成します。
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-* *Controllers* フォルダーに `TodoController` クラスを追加します。
 
 ---
 
@@ -265,13 +257,11 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
 * `[controller]` をコントローラーの名前 (慣例では "Controller" サフィックスを除くコントローラー クラス名) に置き換えます。 このサンプルでは、コントローラー クラス名は **Todo**Controller なので、コントローラー名は "todo" です。 ASP.NET Core の[ルーティング](xref:mvc/controllers/routing)では、大文字と小文字が区別されません。
-* `[HttpGet]` 属性にルート テンプレート (たとえば、`[HttpGet("/products")]`) がある場合は、それをパスに追加します。 このサンプルではテンプレートを使用しません。 詳細については、「[Http[Verb] 属性を使用する属性ルーティング](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes)」を参照してください。
+* `[HttpGet]` 属性にルート テンプレート (例: `[HttpGet("products")]`) がある場合は、それをパスに追加します。 このサンプルではテンプレートを使用しません。 詳細については、「[Http[Verb] 属性を使用する属性ルーティング](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes)」を参照してください。
 
 次の `GetTodoItem` メソッドで、`"{id}"` は To Do アイテムの一意識別子に使用するプレースホルダーの変数です。 `GetTodoItem` が呼び出されると、その `id` パラメーター内のメソッドに URL の `"{id}"` の値が指定されます。
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
-
-`Name = "GetTodo"` パラメーターは、名前付きのルートを作成します。 アプリがルート名を使用して HTTP リンクを作成する方法については、後で説明します。
 
 ## <a name="return-values"></a>戻り値
 
@@ -313,9 +303,9 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
 
 `CreatedAtAction` メソッド:
 
-* 201 応答を返します。 HTTP 201 は、サーバーに新しいリソースを作成する HTTP POST メソッドに対する標準の応答です。
-* 応答に場所ヘッダーを追加します。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 詳細については、「[10.2.2 201 Created](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」を参照してください。
-* "GetTodo" という名前のルートを使用して、URL を作成します。 "GetTodo" という名前のルートは `GetTodoItem` で定義します。
+* 成功すると、HTTP 201 状態コードが返されます。 HTTP 201 は、サーバーに新しいリソースを作成する HTTP POST メソッドに対する標準の応答です。
+* `Location` ヘッダーを応答に追加します。 `Location` ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 詳細については、「[10.2.2 201 Created](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」を参照してください。
+* `GetTodoItem` アクションを参照して `Location` ヘッダーの URI を作成します。 C# の `nameof` キーワードを使って、`CreatedAtAction` 呼び出しでアクション名をハードコーディングすることを回避しています。
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 

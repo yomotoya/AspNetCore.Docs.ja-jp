@@ -5,12 +5,12 @@ description: ASP.NET Core でのビュー コンポーネントの使用方法�
 ms.author: riande
 ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 156db610d99eaf8a8042a4c7c85267d521a20fd4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861330"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836702"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -20,7 +20,7 @@ ms.locfileid: "52861330"
 
 ## <a name="view-components"></a>ビュー コンポーネント
 
-ビュー コンポーネントは部分ビューと似ていますが、はるかに強力なものです。 ビュー コンポーネントでは、モデル バインドを使用せず、呼び出すときに指定されたデータのみに依存します。 この記事は ASP.NET Core MVC を使用して作成されましたが、ビュー コンポーネントは Razor ページでも利用できます。
+ビュー コンポーネントは部分ビューと似ていますが、はるかに強力なものです。 ビュー コンポーネントでは、モデル バインドを使用せず、呼び出すときに指定されたデータのみに依存します。 この記事はコントローラーとビューを使用して作成されましたが、ビュー コンポーネントは Razor Pages でも利用できます。
 
 ビュー コンポーネントの特徴は次のとおりです。
 

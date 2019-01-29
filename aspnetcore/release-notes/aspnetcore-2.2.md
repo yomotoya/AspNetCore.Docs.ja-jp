@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: b8279588e674e3ada486f61bac2c216f1359e86d
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637730"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444390"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2.2 の新機能
 
@@ -57,7 +57,7 @@ ASP.NET Core 2.2 では HTTP/2 のサポートが追加されました。
 
 HTTP/2 は HTTP プロトコルのメジャー リビジョンです。 HTTP/2 の注目すべき機能として、ヘッダーの圧縮や、単一の接続での完全に多重化されたストリームのサポートなどがあります。 HTTP/2 は HTTP のセマンティクス (HTTP ヘッダー、メソッドなど) を維持していますが、このデータがフレーム化され、ネットワーク経由で送信される方法については、HTTP/1.x からの破壊的変更があります。
 
-フレーム化に関するこの変更の結果、サーバーとクライアントは、使用されているプロトコル バージョンのネゴシエートが必要になりました。 アプリケーション層プロトコル ネゴシエーション (ALPN) は、TLS の拡張機能です。これにより、サーバーとクライアントは、TLS ハンドシェイクの一環として、使用されているプロトコル バージョンをネゴシエートすることができます。 プロトコルに関してサーバーとクライアント間に事前の情報を持たせることはできますが、すべての主要なブラウザーは、HTTP/2 接続を確立する唯一の方法として ALPN をサポートしています。
+フレーム化に関するこの変更の結果、サーバーとクライアントは、使用されているプロトコル バージョンのネゴシエートが必要になりました。 アプリケーション層プロトコル ネゴシエーション (ALPN) は、TLS の拡張機能です。これにより、サーバーとクライアントは、その TLS のハンドシェイクの一部として使用されているプロトコルのバージョンをネゴシエートすることができます。 プロトコルに関してサーバーとクライアント間に事前の情報を持たせることはできますが、すべての主要なブラウザーは、HTTP/2 接続を確立する唯一の方法として ALPN をサポートしています。
 
 詳細については、「[HTTP/2 のサポート](xref:fundamentals/servers/index?view=aspnetcore-2.2#http2-support)」を参照してください。
 

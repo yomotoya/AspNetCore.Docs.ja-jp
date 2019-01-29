@@ -5,14 +5,14 @@ description: ASP.NET Core で Websocket の使用を開始する方法を説明�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/17/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 6c32269181ea3311c4aea99c08a1c043e7833b05
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 76acb9c96ed5e8bbbaf39eeb6cb23307bb44fb8d
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341453"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836859"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core での Websocket のサポート
 
@@ -144,6 +144,12 @@ WebSocket 要求はどの URL からも受け取る場合がありますが、�
 このループを開始する前に、WebSocket 接続を受け入れた場合、ミドルウェア パイプラインは終了します。 ソケットを閉じると、パイプラインはアンワインドされます。 つまり、WebSocket を受け入れると、要求はパイプラインでの先への移動を中止します。 ループを終了し、ソケットを閉じた場合、要求はパイプラインのバックアップを続けます。
 
 ::: moniker range=">= aspnetcore-2.2"
+
+### <a name="handle-client-disconnects"></a>クライアントの切断の処理
+
+接続の損失によってクライアントが切断されても、サーバーに自動的に通知されるわけではありません。 サーバーが切断メッセージを受信するのは、クライアントがそれを送信した場合のみです。インターネット接続が失われた場合、これを実行することはできません。 これが発生した場合に何らかのアクションを実行したい場合は、特定の時間枠内でクライアントからの受信を待つタイムアウトを設定します。
+
+クライアントが常にメッセージを送信するとは限らず、その接続がアイドル状態になっただけでタイムアウトしたくない場合は、X 秒ごとに ping メッセージを送信するタイマーをクライアントに使用させます。 サーバー上では、前のものから 2\*X 秒以内にメッセージが到着しなかった場合に、接続を終了してクライアントが切断されたことをレポートします。 予想される 2 倍の期間を待機することで、ping メッセージを遅らせる可能性のあるネットワークの遅延のために余分な時間を残します。
 
 ### <a name="websocket-origin-restriction"></a>WebSocket の配信元の制限
 

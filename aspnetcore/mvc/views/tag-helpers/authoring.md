@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: c21decd39b7855cf2eefb2bb482e5e91b9487863
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121623"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889939"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
@@ -96,7 +96,7 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
-* タグ ヘルパーのパスカル ケースのクラス名とプロパティ名は、それぞれ[小文字のケバブ ケース](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)に変換されます。 そのため、`MailTo` 属性を使用するには、相当する `<email mail-to="value"/>` を使用します。
+* タグ ヘルパーのパスカルケースのクラス名とプロパティ名は、それぞれ[ケバブ ケース](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)に変換されます。 そのため、`MailTo` 属性を使用するには、相当する `<email mail-to="value"/>` を使用します。
 
 * 最後の行は、最低限機能するタグ ヘルパーの完成したコンテンツを設定します。
 
@@ -189,7 +189,7 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * 前述したように、タグ ヘルパーは、パスカルケースの C# クラス名とタグ ヘルパーのプロパティを[小文字のケバブ ケース](http://wiki.c2.com/?KebabCase)に変換します。 そのため、`WebsiteInformationTagHelper` を Razor で使用するには、`<website-information />` を記述します。
+   * 前述したように、タグ ヘルパーは、パスカルケースの C# クラス名とタグ ヘルパーのプロパティを[ケバブ ケース](http://wiki.c2.com/?KebabCase)に変換します。 そのため、`WebsiteInformationTagHelper` を Razor で使用するには、`<website-information />` を記述します。
 
    * `[HtmlTargetElement]` 属性を使用してターゲット要素を明示的に識別しないため、`website-information` の既定がターゲットになります。 次の属性を適用した場合 (ケバブ ケースではありませんが、クラス名が一致します):
 
@@ -197,7 +197,7 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
    [HtmlTargetElement("WebsiteInformation")]
    ```
 
-   小文字のケバブ ケース タグ `<website-information />` は一致しません。 `[HtmlTargetElement]` 属性を使用する場合は、次に示すようにケバブ ケースを使用します。
+   ケバブ ケース タグ `<website-information />` は一致しません。 `[HtmlTargetElement]` 属性を使用する場合は、次に示すようにケバブ ケースを使用します。
 
    ```csharp
    [HtmlTargetElement("Website-Information")]

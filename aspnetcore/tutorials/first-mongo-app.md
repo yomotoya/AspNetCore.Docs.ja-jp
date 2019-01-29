@@ -4,14 +4,14 @@ author: prkhandelwal
 description: このチュートリアルは、MongoDB NoSQL データベースを使用して ASP.NET Core Web API を構築する方法を説明します。
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 11/29/2018
+ms.date: 01/23/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: bd9a36c5eb06542c820e71e937b8da10f735a0f8
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 6375ae618816671bd9c64f038603747c64cdce56
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577839"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835597"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>ASP.NET Core と MongoDB で Web API を作成する
 
@@ -54,11 +54,11 @@ ms.locfileid: "53577839"
 
 ## <a name="configure-mongodb"></a>MongoDB を構成する
 
-Windows を使用する場合、既定では MongoDB は *C:\Program Files\MongoDB* にインストールされます。 *C:\Program Files\MongoDB\Server\<version_number>\bin* を `Path` 環境変数に追加します。 この変更により、開発用コンピューターのどこからでも MongoDB にアクセスできるようになります。
+Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\MongoDB* にインストールされます。 *C:\\Program Files\\MongoDB\\Server\\\<バージョン番号>\\bin* を `Path` 環境変数に追加します。 この変更により、開発用コンピューターのどこからでも MongoDB にアクセスできるようになります。
 
 次の手順では mongo シェルを使用して、データベースを作成し、コレクションを作成し、ドキュメントを保存します。 mongo のシェル コマンドについて詳しくは、「[Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell)」(mongo シェルの使用) をご覧ください。
 
-1. データを格納するために開発用コンピューター上のディレクトリを選択します。 たとえば、Windows では *C:\BooksData* です。 存在しない場合はディレクトリを作成します。 mongo シェルでは新しいディレクトリは作成されません。
+1. データを格納するために開発用コンピューター上のディレクトリを選択します。 たとえば、Windows では *C:\\BooksData* です。 存在しない場合はディレクトリを作成します。 mongo シェルでは新しいディレクトリは作成されません。
 1. コマンド シェルを開きます。 次のコマンドを実行して、既定のポート 27017 で MongoDB に接続します。 忘れずに、前の手順で選択したディレクトリで `<data_directory_path>` を置き換えます。
 
     ```console
@@ -188,7 +188,13 @@ Windows を使用する場合、既定では MongoDB は *C:\Program Files\Mongo
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
-共通言語ランタイム (CLR) オブジェクトを MongoDB コレクションにマッピングするには、上記のクラスに `Id` プロパティが必要です。 クラスのその他のプロパティは、`[BsonElement]` 属性で修飾されています。 属性の値は、MongoDB コレクションでのプロパティ名を表します。
+上記のクラスでは、`Id` プロパティは:
+
+* 共通言語ランタイム (CLR) オブジェクトを MongoDB コレクションにマッピングするために必須です。
+* ドキュメントの主キーとしてこのプロパティを指定するために、`[BsonId]` で注釈を付けられています。
+* `ObjectId` ではなく `string` 型としてパラメーターを渡すことができるようにするために、`[BsonRepresentation(BsonType.ObjectId)]` で注釈を付けられています。 Mongo によって `string` から `ObjectId` への変換が処理されます。
+
+クラスのその他のプロパティは、`[BsonElement]` 属性で注釈を付けられています。 属性の値は、MongoDB コレクションでのプロパティ名を表します。
 
 ## <a name="add-a-crud-operations-class"></a>CRUD 操作のクラスを追加する
 

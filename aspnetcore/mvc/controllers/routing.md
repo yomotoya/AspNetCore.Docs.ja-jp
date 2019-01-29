@@ -3,20 +3,20 @@ title: ASP.NET Core でのコントローラー アクションへのルーテ�
 author: rick-anderson
 description: ASP.NET Core MVC でルーティング ミドルウェアを使って、受信した要求の URL を照合し、アクションにマップする方法について説明します。
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477645"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065010"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core でのコントローラー アクションへのルーティング
 
 作成者: [Ryan Nowak](https://github.com/rynowak)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core MVC は、ルーティング [ミドルウェア](xref:fundamentals/middleware/index)を使って、受信した要求の URL を照合し、アクションにマップします。 ルートは、スタートアップ コードまたは属性で定義されています。 ルートでは、URL パスとアクションの照合方法が記述されています。 また、ルートは、応答で送信される (リンク用) の URL の生成にも使われます。 
+ASP.NET Core MVC は、ルーティング [ミドルウェア](xref:fundamentals/middleware/index)を使って、受信した要求の URL を照合し、アクションにマップします。 ルートは、スタートアップ コードまたは属性で定義されています。 ルートでは、URL パスとアクションの照合方法が記述されています。 また、ルートは、応答で送信される (リンク用) の URL の生成にも使われます。
 
 アクションは、規則的にルーティングされるか、または属性でルーティングされます。 コントローラーまたはアクションにルートを配置すると、そのルートは属性ルーティングされるようになります。 詳しくは、「[混合ルーティング](#routing-mixed-ref-label)」をご覧ください。
 
@@ -165,7 +165,7 @@ app.UseMvc(routes =>
 
 ### <a name="disambiguating-actions"></a>アクションの明確化
 
-2 つのアクションがルーティングで一致する場合、MVC はあいまいさを解消して "最善の" 候補を選ぶか、または例外をスローする必要があります。 例:
+2 つのアクションがルーティングで一致する場合、MVC はあいまいさを解消して "最善の" 候補を選ぶか、または例外をスローする必要があります。 次に例を示します。
 
 ```csharp
 public class ProductsController : Controller
@@ -190,7 +190,6 @@ public class ProductsController : Controller
 ### <a name="route-names"></a>ルート名
 
 次の例の文字列 `"blog"` と `"default"` は、ルート名です。
-
 
 ```csharp
 app.UseMvc(routes =>
@@ -339,7 +338,7 @@ public class ProductsApiController : Controller
 
 次の例では、URL パス `/products` は `ProductsApi.ListProducts` と一致でき、URL パス `/products/5` は `ProductsApi.GetProduct(int)` と一致できます。 どちらのアクションも、`HttpGetAttribute` で修飾されているため、HTTP `GET` だけと一致します。
 
-`/` で始まるアクションに適用されるルート テンプレートは、コントローラーに適用されるルート テンプレートと結合されません。 次の例は、"*既定ルート*" と同様の URL パスのセットと一致します。
+`/` または `~/` で始まるアクションに適用されるルート テンプレートは、コントローラーに適用されるルート テンプレートと結合されません。 次の例は、"*既定ルート*" と同様の URL パスのセットと一致します。
 
 ```csharp
 [Route("Home")]
@@ -377,7 +376,7 @@ public class HomeController : Controller
 > [!TIP]
 > `Order` には依存しないでください。 URL 空間で正しくルーティングするために明示的な順序値が必要な場合、クライアントの混乱を招く可能性があります。 一般に、属性ルーティングは URL 照合で正しいルートを選びます。 URL の生成に使われる既定の順序がうまくいかない場合は、通常、オーバーライドとしてルート名を使う方が、`Order` プロパティを適用するより簡単です。
 
-Razor Pages ルーティングと MVC コントローラー ルーティングは、実装を共有します。 Razor Pages でのルート順序に関する情報は、[Razor Pages のルートとアプリの規則:ルート順序](xref:razor-pages/razor-pages-conventions#route-order)に関する記事を参照してください。
+Razor Pages ルーティングと MVC コントローラー ルーティングは、実装を共有します。 Razor Pages でのルート順序に関する情報は、[Razor Pages のルートとアプリの規則: ルート順序](xref:razor-pages/razor-pages-conventions#route-order)に関する記事を参照してください。
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 
@@ -549,7 +548,7 @@ public class MyApiControllerAttribute : Attribute, IRouteTemplateProvider
 
 <a name="routing-mixed-ref-label"></a>
 
-## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>混合ルーティング: 属性ルーティングと規則ルーティング
+## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>混合ルーティング:属性ルーティングと規則ルーティング
 
 MVC アプリケーションでは、規則ルーティングと属性ルーティングを併用できます。 一般に、ブラウザーに HTML ページを提供するコントローラーには規則ルートを使い、REST API を提供するコントローラーには属性ルーティングを使います。
 

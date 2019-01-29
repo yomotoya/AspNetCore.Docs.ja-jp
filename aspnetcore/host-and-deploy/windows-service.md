@@ -5,14 +5,14 @@ description: Windows サービスで ASP.NET Core アプリケーションをホ
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 01/22/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: bdb29c318c66ac884b9225ba8c2a0dfc1f364255
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637704"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837482"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -44,7 +44,9 @@ ASP.NET Core アプリは、IIS を 使用せずに、[Windows サービス](/do
 
 #### <a name="framework-dependent-deployment-fdd"></a>フレームワーク依存型展開 (FDD)
 
-Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を、ターゲット フレームワークを含む `<PropertyGroup>` に追加します。 `false` に設定した `<SelfContained>` プロパティを追加します。 `true` に設定した `<IsTransformWebConfigDisabled>` プロパティを追加して、*web.config* ファイルの作成を無効にします。
+Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を、ターゲット フレームワークを含む `<PropertyGroup>` に追加します。 次の例では、RID が `win7-x64` に設定されています。 `false` に設定した `<SelfContained>` プロパティを追加します。 これらのプロパティによって、Windows 用の実行可能ファイル (*.exe*) を生成するよう SDK に指示します。
+
+*web.config* ファイル (通常 ASP.NET Core アプリを発行する際に生成されます) は、Windows サービス アプリに対しては必要ありません。 *web.config* ファイルの作成を無効にするには、`true` に設定した `<IsTransformWebConfigDisabled>` プロパティを追加します。
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -60,6 +62,8 @@ Windows [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を、ター�
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
+
+`true` に設定した `<UseAppHost>` プロパティを追加します。 このプロパティによって、サービスに FDD のアクティブ化パス (実行可能ファイル、*.exe*) を指定します。
 
 ```xml
 <PropertyGroup>

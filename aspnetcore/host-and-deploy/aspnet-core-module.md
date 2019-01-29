@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリをホストするための ASP.NET Core モジュールを構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 192e4bf8e970083cc05babcd7fb3cf52985e35bf
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396325"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837781"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 
@@ -286,7 +286,20 @@ IIS サブアプリケーション構成について詳しくは、「<xref:host
 
 ### <a name="setting-environment-variables"></a>環境変数の設定
 
-`processPath` 属性で、プロセスに対する環境変数を指定できます。 `environmentVariables` コレクション要素の `environmentVariable` 子要素で、環境変数を指定します。 このセクションで設定された環境変数は、システム環境変数より優先されます。
+::: moniker range=">= aspnetcore-3.0"
+
+`processPath` 属性で、プロセスに対する環境変数を指定できます。 `<environmentVariables>` コレクション要素の `<environmentVariable>` 子要素で、環境変数を指定します。 このセクションで設定された環境変数は、システム環境変数より優先されます。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+`processPath` 属性で、プロセスに対する環境変数を指定できます。 `<environmentVariables>` コレクション要素の `<environmentVariable>` 子要素で、環境変数を指定します。
+
+> [!WARNING]
+> このセクションで設定した環境変数は、同じ名前を使って設定したシステム環境変数と競合します。 *web.config* ファイルと Windows のシステム レベルの両方で 1 つの環境変数が設定されている場合、*web.config* ファイルからの値がシステム環境変数の値に追加されるため (例: `ASPNETCORE_ENVIRONMENT: Development;Development`)、アプリが起動できなくなります。
+
+::: moniker-end
 
 次の例では、2 つの環境変数を設定しています。 `ASPNETCORE_ENVIRONMENT` は、`Development` に対するアプリの環境を構成します。 開発者は、アプリの例外をデバッグするときに[開発者例外ページ](xref:fundamentals/error-handling)を強制的に読み込むため、*web.config* ファイルでこの値を一時的に設定できます。 `CONFIG_DIR` はユーザー定義の環境変数の例です。開発者はここに、アプリの構成ファイルを読み込むためのパスを形成するために起動時に値を読み取るコードを記述してあります。
 
@@ -320,6 +333,19 @@ IIS サブアプリケーション構成について詳しくは、「<xref:host
   </environmentVariables>
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+> [!NOTE]
+> *web.config* 内で環境を直接設定する代わりに、発行プロファイル (*.pubxml*) またはプロジェクト ファイルに `<EnvironmentName>` プロパティを含めることができます。 この方法では、プロジェクトが発行されるときに *web.config* に環境が設定されます。
+>
+> ```xml
+> <PropertyGroup>
+>   <EnvironmentName>Development</EnvironmentName>
+> </PropertyGroup>
+> ```
 
 ::: moniker-end
 
