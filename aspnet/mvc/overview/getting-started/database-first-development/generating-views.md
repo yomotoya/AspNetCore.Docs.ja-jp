@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'チュートリアル: ASP.NET MVC アプリで EF Database First のビューを生成します。'
-description: この記事では、ASP.NET スキャフォールディングを使用して、コント ローラーとビューを生成するについて説明します。
+description: このチュートリアルでは、ASP.NET のスキャフォールディングを使用して、コント ローラーとビューを生成する重点を置いています。
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: e1f6646cdf10d293268b92f44b018709e70c0f86
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 7a56c0f9197a99427bcde6103ebc69d245e8ce63
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889783"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236420"
 ---
 # <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリで EF Database First のビューを生成します。
 
 MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。
 
-この記事では、ASP.NET スキャフォールディングを使用して、コント ローラーとビューを生成するについて説明します。
+このチュートリアルでは、ASP.NET のスキャフォールディングを使用して、コント ローラーとビューを生成する重点を置いています。
 
 このチュートリアルでは、次の作業を行いました。
 
@@ -101,6 +101,6 @@ ActionLink 方法の場合は、最初のパラメーターは、リンクに表
 > * 表示されている学生ビュー
 > * 表示されている登録ビュー
 
-データベースを変更する方法については、次の記事に進んでください。
+データベースを変更する方法については、次のチュートリアルに進んでください。
 > [!div class="nextstepaction"]
 > [データベースを変更します。](changing-the-database.md)

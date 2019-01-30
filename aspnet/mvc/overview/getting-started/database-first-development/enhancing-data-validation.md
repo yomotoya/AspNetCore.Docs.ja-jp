@@ -1,28 +1,36 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: 'EF Database First と ASP.NET MVC: データ検証の拡張 |Microsoft Docs'
+title: 'チュートリアル: ASP.NET MVC アプリで EF Database First のデータ検証を強化します。'
+description: このチュートリアルでは、検証の要件を指定し、書式設定を表示するには、データ モデルへのデータ注釈の追加について説明します。
 author: Rick-Anderson
-description: MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの化しています.
 ms.author: riande
-ms.date: 12/29/2014
+ms.date: 01/28/2019
+ms.topic: tutorial
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: df2cd99619f097c9f392e8fe7352c1ce3a69c8df
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 85299d70c6cba52c1d40a42edfd429c96318134a
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021665"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236485"
 ---
-<a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF Database First と ASP.NET MVC: データ検証の拡張
-====================
-によって[Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリで EF Database First のデータ検証を強化します。
 
-> MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。
-> 
-> シリーズのこの部分は、検証の要件を指定し、書式設定を表示するには、データ モデルへのデータ注釈の追加について説明します。 [コメント] セクションのユーザーからのフィードバックに基づいて、改良されました。
+MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。
 
+このチュートリアルでは、検証の要件を指定し、書式設定を表示するには、データ モデルへのデータ注釈の追加について説明します。 [コメント] セクションのユーザーからのフィードバックに基づいて、改良されました。
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * データ注釈を追加します。
+> * メタデータ クラスを追加します。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ビューをカスタマイズします。](customizing-a-view.md)
 
 ## <a name="add-data-annotations"></a>データ注釈を追加します。
 
@@ -30,25 +38,21 @@ ms.locfileid: "51021665"
 
 このチュートリアルでは、FirstName、LastName、および MiddleName プロパティに指定された値の長さを制限するデータの注釈を追加します。 データベースにこれらの値は 50 文字までに制限されていますただし、web アプリケーションでその文字の制限は現在適用されません。 ユーザーがこれらの値のいずれかの 50 を超える文字と、値をデータベースに保存しようとしています。 ページがクラッシュします。 グレードは、0 から 4 までの値に制限します。
 
-開く、 **Student.cs**ファイル、**モデル**フォルダー。 クラスには、次の強調表示されたコードを追加します。
+選択**モデル** > **ContosoModel.edmx** > **ContosoModel.tt**を開くと、 *Student.cs*ファイル。 クラスには、次の強調表示されたコードを追加します。
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample1.cs?highlight=5,15,17,20)]
 
-Enrollment.cs では、次の強調表示されたコードを追加します。
+開いている*Enrollment.cs*し、次の強調表示されたコードを追加します。
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample2.cs?highlight=5,10)]
 
 ソリューションをビルドします。
 
-編集または作成の学生のページを参照します。 50 を超える文字を入力しようとすると、エラー メッセージが表示されます。
+をクリックして**受講者の一覧**選択**編集**します。 50 を超える文字を入力しようとすると、エラー メッセージが表示されます。
 
 ![エラー メッセージを表示します。](enhancing-data-validation/_static/image1.png)
 
-登録を編集するためページを参照し、4 上のレベルを提供しようとしてください。
-
-![グレード範囲エラー](enhancing-data-validation/_static/image2.png)
-
-プロパティとクラスに適用できるデータ検証注釈の一覧については、次を参照してください。 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)します。
+ホーム ページに戻ります。 をクリックして**登録の一覧**選択**編集**します。 4 上のレベルを提供しようとしてください。 このエラーが表示されます。*フィールド グレードは、0 ~ 4 にする必要があります。*
 
 ## <a name="add-metadata-classes"></a>メタデータ クラスを追加します。
 
@@ -56,11 +60,9 @@ Enrollment.cs では、次の強調表示されたコードを追加します。
 
 この問題を回避するには、属性を格納するメタデータ クラスを追加することができます。 メタデータ クラスのモデル クラスを関連付けると、それらの属性は、モデルに適用されます。 この方法ですべてのメタデータ クラスに適用されている属性を失うことがなく、モデル クラスを再生成することができます。
 
-**モデル**フォルダー、という名前のクラスを追加**Metadata.cs**します。
+**モデル**フォルダー、という名前のクラスを追加*Metadata.cs*します。
 
-![メタデータ クラスを追加します。](enhancing-data-validation/_static/image3.png)
-
-Metadata.cs でコードを次のコードに置き換えます。
+コードに置き換えます*Metadata.cs*を次のコード。
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample3.cs)]
 
@@ -68,7 +70,7 @@ Metadata.cs でコードを次のコードに置き換えます。
 
 ここで、メタデータ クラスでモデル クラスを関連付ける必要があります。
 
-**モデル**フォルダー、という名前のクラスを追加**PartialClasses.cs**します。
+**モデル**フォルダー、という名前のクラスを追加*PartialClasses.cs*します。
 
 ファイルの内容を次のコードに置き換えます。
 
@@ -76,14 +78,24 @@ Metadata.cs でコードを次のコードに置き換えます。
 
 各クラスがマークされている通知を`partial`クラス、および各一致する名前空間と名前が自動的に生成するクラスとして。 メタデータ属性を部分クラスに適用すると、データの検証属性が自動的に生成されたクラスに適用されることを確認します。 これらの属性は、メタデータ属性は再生成されません部分クラスに適用されるため、モデル クラスを再生成するときに失われたできません。
 
-自動的に生成されたクラスを再生成するには、ContosoModel.edmx ファイルを開きます。 デザイン画面を選択します右クリックして、もう一度**データベースからモデルを更新**します。 データベースを変更していない場合でもこのプロセスは、クラスを再生成します。 **更新**] タブで [**テーブル**と**完了**します。
+自動的に生成されたクラスを再生成するには、開く、 *ContosoModel.edmx*ファイル。 デザイン画面を選択します右クリックして、もう一度**データベースからモデルを更新**します。 データベースを変更していない場合でもこのプロセスは、クラスを再生成します。 **更新**] タブで [**テーブル**と**完了**します。
 
-![テーブルを更新します。](enhancing-data-validation/_static/image4.png)
+保存、 *ContosoModel.edmx*ファイル変更を適用します。
 
-変更を適用する ContosoModel.edmx ファイルを保存します。
+開く、 *Student.cs*ファイルまたは*Enrollment.cs*ファイル、および以前に適用するデータの検証属性は、不要になったファイルに注意してください。 ただし、アプリケーションを実行し、データを入力すると、検証規則が適用されることに注意してください。
 
-Student.cs ファイルまたは Enrollment.cs ファイルを開き、以前に適用するデータの検証属性が、ファイル、不要になったことに注意してください。 ただし、アプリケーションを実行し、データを入力すると、検証規則が適用されることに注意してください。
+## <a name="additional-resources"></a>その他の技術情報
 
-> [!div class="step-by-step"]
-> [前へ](customizing-a-view.md)
-> [次へ](publish-to-azure.md)
+プロパティとクラスに適用できるデータ検証注釈の一覧については、次を参照してください。 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)します。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 追加されたデータ注釈
+> * 追加のメタデータ クラス
+
+Web アプリとデータベースを Azure に発行する方法については、次のチュートリアルに進んでください。
+> [!div class="nextstepaction"]
+> [Azure に発行する](publish-to-azure.md)

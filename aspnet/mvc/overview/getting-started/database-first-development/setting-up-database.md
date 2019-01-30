@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
 title: 'チュートリアル: EF Database First の MVC 5 の使用の概要します。'
-description: この記事では方法から始める、既存データベースし、ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。
+description: このチュートリアルで開始する方法、既存データベースにあり、ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 8b094b7c334eaad510c46b55a99ec727b9c381c2
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889926"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236381"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>チュートリアル: EF Database First の MVC 5 の使用の概要します。
 
 MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。 シリーズの最後の部分では、Azure をサイトとデータベースをデプロイします。
 
-この記事では方法から始める、既存データベースし、ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。 Entity Framework 6 と MVC 5 web アプリケーションの構築に使用します。 ASP.NET のスキャフォールディング機能では、表示、更新、作成およびデータを削除するためのコードを自動的に生成することができます。 Visual Studio 内で発行ツールを使用することができます簡単に、サイトとデータベース Azure にデプロイします。
+このチュートリアルで開始する方法、既存データベースにあり、ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。 Entity Framework 6 と MVC 5 web アプリケーションの構築に使用します。 ASP.NET のスキャフォールディング機能では、表示、更新、作成およびデータを削除するためのコードを自動的に生成することができます。 Visual Studio 内で発行ツールを使用することができます簡単に、サイトとデータベース Azure にデプロイします。
 
 シリーズのこの部分は、データベースを作成し、データを設定することについて説明します。
 
@@ -37,7 +37,7 @@ MVC、Entity Framework、および ASP.NET のスキャフォールディング�
 
 ## <a name="introduction"></a>はじめに
 
-この記事では、データベースがあり、そのデータベースのフィールドに基づく web アプリケーションのコードを生成するような状況を説明します。 このアプローチには、Database First の開発が呼び出されます。 既存のデータベースがあるまだない場合は、データ クラスを定義し、クラスのプロパティからデータベースを生成するには Code First の開発と呼ばれるアプローチを代わりに使用できます。
+このチュートリアルは、データベースがあり、そのデータベースのフィールドに基づく web アプリケーションのコードを生成するような状況を説明します。 このアプローチには、Database First の開発が呼び出されます。 既存のデータベースがあるまだない場合は、データ クラスを定義し、クラスのプロパティからデータベースを生成するには Code First の開発と呼ばれるアプローチを代わりに使用できます。
 
 ## <a name="set-up-the-database"></a>データベースを設定します。
 
@@ -102,6 +102,6 @@ Entity Framework を使用する方法の選択に関するガイダンスにつ
 > [!div class="checklist"]
 > * データベースを設定します。
 
-Web アプリケーションとデータ モデルを作成する方法については、次の記事に進んでください。
+Web アプリケーションとデータ モデルを作成する方法については、次のチュートリアルに進んでください。
 > [!div class="nextstepaction"]
 > [Web アプリケーションとデータ モデルを作成します。](creating-the-web-application.md)

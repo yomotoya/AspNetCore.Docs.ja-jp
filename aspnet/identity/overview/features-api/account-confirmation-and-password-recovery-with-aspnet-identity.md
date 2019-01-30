@@ -4,25 +4,22 @@ title: アカウントの確認とパスワードの回復では、ASP.NET Ident
 author: HaoK
 description: このチュートリアルを完了する必要がありますを実行する前に、ログイン、電子メールの確認とパスワードのリセットをセキュリティで保護された ASP.NET MVC 5 web アプリを作成します。 このチュートリアルには.
 ms.author: riande
-ms.date: 03/26/2015
+ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 84f35cfc0f0e0f1c268e0e9c18fd47aa68deb7d1
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 47dc2c1044a5964624ba2f8af4f174a2fd99d3e8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577835"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236407"
 ---
-<a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>アカウントの確認とパスワードの回復では、ASP.NET Identity (c#)
-====================
-によって[Hao 力](https://github.com/HaoK)、 [Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Suhas Joshi](https://github.com/suhasj)
+# <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>ASP.NET Identity での確認とパスワードの回復をアカウント (C#)
 
-> このチュートリアルを実行する前に行う必要がありますまず[ログイン、電子メールの確認とパスワードのリセットをセキュリティで保護された ASP.NET MVC 5 web アプリを作成する](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)します。 このチュートリアルでは、詳細が含まれていて、ローカル アカウントの確認の電子メールを設定し、ASP.NET Identity で忘れたパスワードをリセットできるようにする方法が表示されます。 この記事の執筆者は、Rick Anderson ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT))、Pranav Rastogi ([@rustd](https://twitter.com/rustd))、Hao 力、および Suhas Joshi します。 NuGet のサンプルは、主に Hao 力によって記述されています。
+> このチュートリアルを実行する前に行う必要がありますまず[ログイン、電子メールの確認とパスワードのリセットをセキュリティで保護された ASP.NET MVC 5 web アプリを作成する](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)します。 このチュートリアルでは、詳細が含まれていて、ローカル アカウントの確認の電子メールを設定し、ASP.NET Identity で忘れたパスワードをリセットできるようにする方法が表示されます。
 
-
-ローカル ユーザー アカウントが、ユーザー、アカウントのパスワードを作成する必要があり、そのパスワードが、web アプリで (安全に) 格納されています。 ASP.NET Identity では、ソーシャル アカウントは、アプリのパスワードを作成するユーザーを必要としないこともできます。 [ソーシャル アカウント](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)(Google、Twitter、Facebook、Microsoft) などのサード パーティを使用してユーザーを認証します。 このトピックでは、次の項目について説明します。
+ローカル ユーザー アカウントが、ユーザー、アカウントのパスワードを作成する必要があり、そのパスワードが、web アプリで (安全に) 格納されています。 ASP.NET Identity では、ソーシャル アカウントは、アプリのパスワードを作成するユーザーを必要としないこともできます。 [ソーシャル アカウント](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)(Google、Twitter、Facebook、または Microsoft) などのサード パーティを使用してユーザーを認証します。 このトピックでは、次の項目について説明します。
 
 - [ASP.NET MVC アプリの作成](#createMvc)と ASP.NET Identity 機能を検証します。
 - [ビルド Id サンプル](#build)
@@ -32,7 +29,7 @@ ms.locfileid: "48577835"
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image1.png)
 
-メール アドレスの検証トークンを含む確認の電子メールを送信する登録 ボタンをクリックします。
+登録 ボタンを選択するには、メール アドレスの検証トークンを含む確認メールが送信されます。
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image2.png)
 
@@ -40,7 +37,7 @@ ms.locfileid: "48577835"
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image3.png)
 
-リンクをクリックすると、アカウントを確認します。
+リンクを選択すると、アカウントを確認します。
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image4.png)
 
@@ -55,33 +52,30 @@ ms.locfileid: "48577835"
 ユーザーは、自分のパスワードをリセットできるようにリンクを含む電子メールがすぐされます。  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image6.png)  
-リンクをクリックしては、リセット ページに移動されます。  
+リンクを選択するは、リセット ページに移動されます。  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image7.png)  
   
-クリックすると、**リセット**ボタンは、パスワードがリセットされたことを確認します。  
+選択すると、**リセット**ボタンは、パスワードがリセットされたことを確認します。  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image8.png)
 
 <a id="createMvc"></a>
 
-## <a name="create-an-aspnet-web-app"></a>ASP.NET Web アプリを作成します。
+## <a name="create-an-aspnet-web-app"></a>ASP.NET Web アプリを作成する
 
-インストールと実行によって開始[Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058)または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)します。 Visual Studio のインストール[2013 Update 2](https://go.microsoft.com/fwlink/?LinkId=390521)またはそれ以降。
-
-> [!NOTE]
-> 警告: Visual Studio をインストールする必要があります[2013 Update 2](https://go.microsoft.com/fwlink/?LinkId=390521)このチュートリアルを完了します。
+インストールと実行によって開始[Visual Studio 2017](https://visualstudio.microsoft.com/)します。
 
 
-1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームには ASP.NET Identity もサポートしていますので、web フォーム アプリで同じ手順を実行できます。
-2. 既定の認証としてのままに**個々 のユーザー アカウント**します。
-3. アプリを実行し、をクリックして、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
-4. サーバー エクスプ ローラーに移動します。**データ Connections\DefaultConnection\Tables\AspNetUsers**を右クリックし、選択**テーブル定義を開く**します。
+1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームは ASP.NET Identity をもサポートするため、web フォーム アプリで同じ手順を実行できます。
+2. 認証の変更**個々 のユーザー アカウント**します。
+3. アプリを実行し、選択、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
+4. サーバー エクスプ ローラーに移動します。**データ Connections\DefaultConnection\Tables\AspNetUsers**を右クリックし**テーブル定義を開く**します。
 
     次の図は、`AspNetUsers`スキーマ。
 
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image9.png)
-5. 右クリックして、 **AspNetUsers**テーブルを選択**テーブル データの表示**します。  
+5. 右クリックし、 **AspNetUsers**テーブルを選択**テーブル データの表示**します。  
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
@@ -97,7 +91,7 @@ Cookie ミドルウェアは、各要求の cookie を確認します。 `Securi
 
 コードでは、コメント、`UseCookieAuthentication`メソッドは、cookie 認証をサポートしています。 `SecurityStamp`フィールドと関連付けられているコードは、強固なセキュリティをアプリは、のパスワードを変更するときにログインする必要がログインに使用したブラウザーから。 `SecurityStampValidator.OnValidateIdentity`メソッドは、パスワードを変更または外部ログインを使用するときに使用される、ユーザーがログインすると、セキュリティ トークンを検証するアプリを使用できます。 これは、古いパスワードで生成されたトークン (cookie) が無効にすることを確認する必要です。 サンプル プロジェクトで変更した場合のユーザーに対して新しいトークンでは、ユーザーのパスワードが生成された、前のすべてのトークンが無効にし、`SecurityStamp`フィールドが更新されます。
 
-Id システムを許可するアプリを構成するため、ユーザーのセキュリティ プロファイルが変更されたとき (たとえば、ログインが関連付けられたユーザーが自分のパスワードまたは変更を変更する場合 (などで、Facebook、Google、Microsoft アカウントなど)、すべてから、ユーザーがログインブラウザーのインスタンス。 次の画像など、[シングル サインアウトのサンプル](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SingleSignOutSample/readme.txt)アプリ、ユーザーが 1 つのボタンをクリックして (この場合、IE、Firefox、Chrome は) 内のすべてのブラウザー インスタンスからサインアウトします。 または、サンプルでは、特定のブラウザー インスタンスからログアウトのみできます。
+Id システムを許可するアプリを構成するため、ユーザーのセキュリティ プロファイルが変更されたとき (たとえば、ログインが関連付けられたユーザーが自分のパスワードまたは変更を変更する場合 (などで、Facebook、Google、Microsoft アカウントなど)、すべてから、ユーザーがログインブラウザーのインスタンス。 次の画像など、[シングル サインアウトのサンプル](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SingleSignOutSample/readme.txt)アプリ、ユーザーが 1 つのボタンを選択して (この場合、IE、Firefox、Chrome は) 内のすべてのブラウザー インスタンスからサインアウトします。 または、サンプルでは、特定のブラウザー インスタンスからログアウトのみできます。
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image11.png)
 
@@ -138,25 +132,25 @@ OWIN`AuthenticationManager.SignIn`メソッドで、`ClaimsIdentity`とし、ユ
 
 ## <a name="email-confirmation"></a>確認の電子メール
 
-他のユーザーを偽装していないことを確認する新しいユーザーに登録メールを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@example.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 として誤って Bob が登録されていると仮定`"bib@example.com"`気付いていなかったとパスワードの回復を使用して、アプリは、正しいメール アドレスがある見つからないため、彼はできません。 確認の電子メールがボットから制限の保護のみを提供し、決定スパムから保護を提供しません、登録に使用できる多くの作業用電子メールの別名が。次の例では、ユーザーは自分のアカウントのことを確認するまで、自分のパスワードを変更することできません (それらによりに登録した電子メール アカウントで受信した確認リンクをクリックします)。この作業の流れは、例を確認し、これに自分のプロファイルを変更したときに、ユーザーに電子メールを送信、管理者によって作成された新しいアカウントのパスワードをリセット リンクを送信する他のシナリオに適用できます。 新しいユーザーが電子メール、SMS テキスト メッセージまたは別のメカニズムによって確認されて前に、web サイトにデータを投稿するを防ぐために一般的にします。 <a id="build"></a>
+他のユーザーを偽装していないことを確認する新しいユーザーに登録メールを確認することをお勧め (つまりに登録していない他のユーザーの電子メールで)。 ようにしたい、ディスカッション フォーラムが`"bob@example.com"`としての登録から`"joe@contoso.com"`します。 電子メールの確認を求めず`"joe@contoso.com"`アプリから不要な電子メールを取得する可能性があります。 として誤って Bob が登録されていると仮定`"bib@example.com"`気付いていなかったとパスワードの回復を使用して、アプリは、正しいメール アドレスがある見つからないため、彼はできません。 確認の電子メールがボットから制限の保護のみを提供し、決定スパムから保護を提供しません、登録に使用できる多くの作業用電子メールの別名が。次の例では、ユーザーは (それらによりに登録した電子メール アカウントで受信した確認リンクを選択します。) 自分のアカウントが確認されているまで、自分のパスワードを変更することができません。この作業の流れは、例を確認し、これに自分のプロファイルを変更したときに、ユーザーに電子メールを送信、管理者によって作成された新しいアカウントのパスワードをリセット リンクを送信する他のシナリオに適用できます。 新しいユーザーが電子メール、SMS テキスト メッセージまたは別のメカニズムによって確認されて前に、web サイトにデータを投稿するを防ぐために一般的にします。 <a id="build"></a>
 
-## <a name="building-a-more-complete-sample"></a>完全なサンプルのビルド
+## <a name="build-a-more-complete-sample"></a>完全なサンプルをビルドします。
 
 このセクションでは、皆様より完全なサンプルをダウンロードする NuGet を使用します。
 
 1. 新規作成***空***ASP.NET Web プロジェクト。
-2. パッケージ マネージャー コンソールで、次を入力します。 次のコマンド。 
+2. パッケージ マネージャー コンソールで、次のコマンドを入力します。 
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
    このチュートリアルで使用します[SendGrid](http://sendgrid.com/)電子メールを送信します。 `Identity.Samples`パッケージで使用されるコードをインストールします。
 3. 設定、 [SSL を使用するプロジェクト](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)します。
-4. クリックすると、アプリを実行してローカル アカウントの作成、テスト、**登録**リンク、および登録フォームを投稿します。
-5. 確認の電子メールをシミュレートするデモ電子メール リンクをクリックします。
+4. ローカル アカウントの作成をアプリを実行してテストを選択すると、**登録**リンク、および登録フォームを投稿します。
+5. 確認の電子メールをシミュレートするデモ電子メール リンクを選択します。
 6. サンプルからデモ電子メール リンク確認コードを削除 (、 `ViewBag.Link` account コント ローラー コード。 参照してください、`DisplayEmail`と`ForgotPasswordConfirmation`アクション メソッドと razor ビュー)。
 
-> [!NOTE]
-> 警告: このサンプルでは、セキュリティ設定のいずれかを変更すると、運用アプリが行われた変更を明示的に呼び出すのセキュリティ監査を受ける必要があります。
+> [!WARNING]
+> このサンプルでは、セキュリティ設定を変更する場合は、運用アプリを加えられた変更を明示的に呼び出すのセキュリティ監査を受ける必要があります。
 
 
 ## <a name="examine-the-code-in-appstartidentityconfigcs"></a>アプリでコードを調べる\_Start\IdentityConfig.cs
@@ -176,7 +170,7 @@ OWIN`AuthenticationManager.SignIn`メソッドで、`ClaimsIdentity`とし、ユ
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample6.cs)]
 
-上記のコードでは、モデル データを使用して電子メールとパスワードの入力を使用して、新しいユーザー アカウントを作成します。 電子メール エイリアスが、データ ストア内にある場合は、アカウントの作成が失敗して、フォームが再び表示されます。 `GenerateEmailConfirmationTokenAsync`メソッドは、セキュリティで保護された確認トークンを作成し、ASP.NET Identity データ ストアに格納されます。 [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx)メソッドは、リンクを含む、作成、`UserId`および確認トークン。 このリンクは、ユーザーに電子メールで送信し、ユーザーが自分のアカウントを確認する電子メール アプリのリンクをクリックできます。
+上記のコードでは、モデル データを使用して電子メールとパスワードの入力を使用して、新しいユーザー アカウントを作成します。 電子メール エイリアスが、データ ストア内にある場合は、アカウントの作成が失敗して、フォームが再び表示されます。 `GenerateEmailConfirmationTokenAsync`メソッドは、セキュリティで保護された確認トークンを作成し、ASP.NET Identity データ ストアに格納されます。 [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx)メソッドは、リンクを含む、作成、`UserId`および確認トークン。 このリンクは、ユーザーに電子メールで送信し、ユーザーが自分のアカウントを確認する、電子メール アプリのリンクを選択できます。
 
 <a id="email"></a>
 
@@ -198,9 +192,9 @@ OWIN`AuthenticationManager.SignIn`メソッドで、`ClaimsIdentity`とし、ユ
 > セキュリティ - ソース コード内の機密データは store ことはありません。 アカウントと資格情報は、appSetting で格納されます。 Azure では安全に保管するこれらの値で、 **[構成](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portal でのタブ。 参照してください[ASP.NET と Azure へパスワードやその他の機密データを展開するためのベスト プラクティス](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)します。
 
 
-SendGrid の資格情報を入力して、アプリを実行するには、電子メール エイリアスを登録は、電子メールの確認リンクをクリックできます。 これを行う方法について、 [Outlook.com](http://outlook.com)電子メール アカウント、John Atten を参照してください[Outlook.Com SMTP ホスト用の c# の SMTP 構成](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx)彼と[ASP.NET Identity 2.0: アカウントの検証の設定2 要素認証と](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx)投稿します。
+アプリを実行するには、電子メール エイリアス登録リンクを選択して確認の電子メール、SendGrid の資格情報を入力します。 これを行う方法について、 [Outlook.com](http://outlook.com)電子メール アカウントは、John Atten の[ C# Outlook.Com SMTP ホスト用の SMTP 構成](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx)彼と[ASP.NET Identity 2.0。アカウントの検証を設定し、2 要素認証](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx)投稿します。
 
-ユーザーがクリックされると、**登録**のメール アドレスの検証トークンを含む確認の電子メールが送信されるボタンをクリックします。
+ユーザーが選択されると、**登録**のメール アドレスの検証トークンを含む確認の電子メールが送信されるボタンをクリックします。
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image12.png)
 
@@ -216,7 +210,7 @@ SendGrid の資格情報を入力して、アプリを実行するには、電�
 
 ユーザーの電子メール アドレスが確認されていない場合、メソッドはサイレント モードで失敗します。 エラーは、無効な電子メール アドレスにポストされた、悪意のあるユーザーは、攻撃するのに有効なユーザー Id (電子メールのエイリアス) を検索するのに情報を使用できます。
 
-次のコードは、`ConfirmEmail`メソッドは、ユーザーが送信された電子メールの確認リンクをクリックしたときに呼び出される、account コント ローラー。
+次のコードは、`ConfirmEmail`ユーザーに電子メールを送信するために確認リンクを選択するときに呼び出される、account コント ローラー メソッド。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample10.cs)]
 
@@ -230,13 +224,13 @@ SendGrid の資格情報を入力して、アプリを実行するには、電�
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample12.cs)]
 
- アプリのセキュリティを強化するには、ASP.NET Identity では 2 要素認証 (2 fa) をサポートしています。 参照してください[ASP.NET Identity 2.0: アカウントの検証と 2 要素認証を設定する](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx)John Atten でします。 ログイン パスワードの試行の失敗では、アカウントのロックアウトを設定できますが、そのアプローチにより、ログインを受けやすい[DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack)ロックアウトします。 2 fa でのみアカウントのロックアウトを使用することをお勧めします。  
+ アプリのセキュリティを強化するには、ASP.NET Identity では 2 要素認証 (2 fa) をサポートしています。 参照してください[ASP.NET Identity 2.0。アカウントの検証と 2 要素認証を設定する](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx)John Atten でします。 ログイン パスワードの試行の失敗では、アカウントのロックアウトを設定できますが、そのアプローチにより、ログインを受けやすい[DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack)ロックアウトします。 2 fa でのみアカウントのロックアウトを使用することをお勧めします。  
 <a id="addRes"></a>
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
 - [ASP.NET Identity のカスタム ストレージ プロバイダーの概要](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Facebook、Twitter、LinkedIn、Google の OAuth2 サインオンした MVC 5 アプリケーション](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)プロファイル情報をユーザー テーブルに追加する方法についても説明します。
-- [ASP.NET MVC と Id 2.0: 基本を理解する](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx)John Atten でします。
+- [ASP.NET MVC と Id 2.0:基本を理解する](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx)John Atten でします。
 - [ASP.NET Identity 入門](../getting-started/introduction-to-aspnet-identity.md)
 - [ASP.NET Identity 2.0.0 の RTM の発表](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)Pranav Rastogi が。

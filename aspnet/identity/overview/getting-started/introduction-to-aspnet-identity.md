@@ -4,27 +4,24 @@ title: ASP.NET Identity の概要 |Microsoft Docs
 author: jongalloway
 description: ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 のバックしているので 2005年では、方法は web アプリケーションの場合に多くの変更されているし、.
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/22/2019
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1938de2b57c8fafa7ea8a656c0a42d2d3f1a6c81
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 4a545e52d2d9ea04a10c37c116fd326c60de9f8f
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577874"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236446"
 ---
 <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity の概要
 ====================
-によって[Jon Galloway](https://github.com/jongalloway)、 [Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))、 [Tom Dykstra](https://github.com/tdykstra)
 
 > ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 のバックしているので 2005年では、web アプリケーションは、通常は認証と承認に処理の方法で多くの変更されているし。 ASP.NET Identity では、メンバーシップ システムべきは、web、電話、またはタブレット向けのモダン アプリケーションを作成するときに改めて注目です。
-> 
-> この記事の執筆者は、Pranav Rastogi ([@rustd](https://twitter.com/rustd))、Jon Galloway ([@jongalloway](https://twitter.com/jongalloway))、Tom Dykstra と Rick Anderson ([ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )。
 
 
-## <a name="background-membership-in-aspnet"></a>ASP.NET メンバーシップの背景知識:
+## <a name="background-membership-in-aspnet"></a>背景: ASP.NET のメンバーシップ
 
 ### <a name="aspnet-membership"></a>ASP.NET メンバーシップ
 
@@ -48,13 +45,13 @@ ms.locfileid: "48577874"
 
 [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) 、Azure SQL Database と SQL Server Compact の操作も Microsoft でのメンバーシップ情報を保持できるようにして開発されました。 ユニバーサル プロバイダーは、Entity Framework Code First、EF でサポートされている任意のストアにデータを保持するユニバーサル プロバイダーを使用できることを意味するでビルドされていました。 ユニバーサルのプロバイダーを使用したデータベースのスキーマはも非常に多くをクリーンアップされました。
 
-ユニバーサル プロバイダーは、まだ SqlMembership プロバイダーと同じ制限を実行するために、ASP.NET メンバーシップ インフラストラクチャに基づいて構築されます。 つまり、リレーショナル データベース用に設計された、およびプロファイルとユーザーの情報をカスタマイズすることは困難です。 これらのプロバイダーは、ログインとログアウト機能もフォーム認証を使用します。
+ユニバーサル プロバイダーは、まだ SqlMembership プロバイダーと同じ制限を実行するために、ASP.NET メンバーシップ インフラストラクチャに基づいて構築されます。 つまり、リレーショナル データベース用に設計された、およびプロファイルとユーザーの情報をカスタマイズすることは困難です。 これらのプロバイダーは、サインインとサインアウト機能もフォーム認証を使用します。
 
 ## <a name="aspnet-identity"></a>ASP.NET Identity
 
 メンバーシップと ASP.NET でのストーリーは進化しました、長年にわたって ASP.NET チームがお客様からのフィードバックから多くについて説明しました。
 
-ユーザー名と、独自のアプリケーションに登録されている、パスワードを入力してユーザーがログインであるという前提が有効ではなくなりました。 Web は、その他のソーシャルになっています。 ユーザーは、Facebook、Twitter、およびその他のソーシャル web サイトなどのソーシャル チャンネルにリアルタイムで相互作用します。 開発者は、ユーザーが web サイトで豊富なエクスペリエンスができるように、ソーシャル id でログインできるようにします。 最新のメンバーシップ システムには、リダイレクトに基づくログインなど、Facebook、Twitter、およびその他のユーザーの認証プロバイダーが有効にする必要があります。
+ユーザー名と、独自のアプリケーションに登録されている、パスワードを入力して、ユーザーがサインインしていることを想定は有効ではなくなりました。 Web は、その他のソーシャルになっています。 ユーザーは、Facebook、Twitter、およびその他のソーシャル web サイトなどのソーシャル チャンネルにリアルタイムで相互作用します。 開発者は、ユーザーが web サイトで豊富なエクスペリエンスができるように、ソーシャル id でサインインできるようにします。 最新のメンバーシップ システムには、リダイレクトに基づくログインなど、Facebook、Twitter、およびその他のユーザーの認証プロバイダーが有効にする必要があります。
 
 Web 開発の進化と web 開発のパターンをくれました。 ユニット アプリケーション開発者向けの大きな懸念テスト アプリケーション コードのようになりました。 2008 では、ASP.NET は、単体テストが容易な ASP.NET アプリケーションをビルドする開発者のために、モデル-ビュー-コント ローラー (MVC) パターンに基づいて新しいフレームワークを追加します。 単位たい開発者にとっては、することができるメンバーシップ システムにする必要も、アプリケーション ロジックをテストします。
 
@@ -85,21 +82,19 @@ Web アプリケーションの開発でこれらの変更では、考慮する�
 - **ソーシャル ログイン プロバイダー**
 
     - 簡単にアプリケーションには、ソーシャル ログインなどの Microsoft アカウント、Facebook、Twitter、Google、および他のユーザーを追加し、アプリケーションでユーザーに固有のデータを格納できます。
-- **Azure Active Directory**
 
-    - Azure Active Directory を使用してログの機能を追加し、アプリケーションでユーザーに固有のデータを格納することもできます。 詳細については、次を参照してください[組織アカウント](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauth)で Visual Studio 2013 で ASP.NET Web プロジェクトの作成。
 - **OWIN の統合**
 
     - ASP.NET 認証は、任意の OWIN ベースのホストで使用できる、OWIN ミドルウェアに基づいています。 ASP.NET Identity には、System.Web のすべての依存関係がありません。 OWIN フレームワークを完全に準拠し、OWIN ホストされているアプリケーションで使用できます。
     - ASP.NET Identity は、ログ/ログ出し、web サイト内のユーザーのための OWIN 認証を使用します。 つまり、クッキーを生成する FormsAuthentication を使用する代わりに、アプリケーションが使用する OWIN CookieAuthentication そのためには。
 - **NuGet パッケージ**
 
-    - ASP.NET Identity は、Visual Studio 2013 に付属する ASP.NET MVC、Web フォームおよび Web API テンプレートにインストールされている NuGet パッケージとして再配分されます。 この NuGet パッケージは、NuGet ギャラリーからダウンロードできます。
+    - ASP.NET Identity は、Visual Studio 2017 に付属する ASP.NET MVC、Web フォームおよび Web API テンプレートにインストールされている NuGet パッケージとして再配分されます。 この NuGet パッケージは、NuGet ギャラリーからダウンロードできます。
     - NuGet として ASP.NET Identity を解放するパッケージを簡単で新機能とバグ修正、反復処理をアジャイルの方法で開発者に提供するための ASP.NET チーム。
 
-## <a name="getting-started-with-aspnet-identity"></a>ASP.NET Identity の概要
+## <a name="get-started-with-aspnet-identity"></a>ASP.NET Identity を概要します。
 
-ASP.NET Identity は、ASP.NET MVC、Web フォーム、Web API、SPA の Visual Studio 2013 のプロジェクト テンプレートに使用されます。 このチュートリアルでログインを登録する機能を追加するプロジェクト テンプレートが ASP.NET Identity を使用する方法について説明がされ、ユーザーをログアウトします。
+ASP.NET Identity は、ASP.NET MVC、Web フォーム、Web API、SPA の Visual Studio 2017 のプロジェクト テンプレートに使用されます。 このチュートリアルでは、プロジェクト テンプレートが ASP.NET Identity を使用して、登録、サインイン、およびユーザーのサインアウトの機能を追加する方法について説明します。
 
 ASP.NET Identity は、次の手順を使用して実装されます。 この記事の目的は、ASP.NET Identity; の高レベルな概要を表示するには次の手順に従ってまたは詳細を読み取るだけできます。 新しい API を使用して、ユーザー、ロールおよびプロファイル情報を追加するなど、ASP.NET Identity を使用してアプリを作成する方法の詳細な手順については、この記事の最後に次の手順を参照してください。
 
@@ -113,29 +108,25 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
     - [`Microsoft.AspNet.Identity.Core`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Core/)  
    このパッケージには、ASP.NET Identity に core インターフェイスがあります。 このパッケージは、データベースなどの Azure Table Storage、NoSQL など別の永続化のターゲットが格納 ASP.NET Identity の実装を記述する使用できます。
     - [`Microsoft.AspNet.Identity.OWIN`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Owin/)  
-   このパッケージには、ASP.NET アプリケーションで ASP.NET Identity で OWIN 認証で接続するために使用する機能が含まれています。 これは、機能で cookie を生成する OWIN クッキー認証ミドルウェアを呼び出すとアプリケーション ログを追加するときに使用されます。
+   このパッケージには、ASP.NET アプリケーションで ASP.NET Identity で OWIN 認証で接続するために使用する機能が含まれています。 これは、機能で cookie を生成する OWIN クッキー認証ミドルウェアに呼び出し、アプリケーションにサインインを追加するときに使用されます。
 3. ユーザーを作成します。  
    アプリケーションを起動し、をクリックして、**登録**ユーザーを作成するリンク。 次の図は、ユーザー名とパスワードを収集する登録ページを示します。  
   
     ![](introduction-to-aspnet-identity/_static/image2.png)  
   
-   ユーザーがクリックすると、**登録**ボタン、`Register`アカウント コント ローラーのアクションは、以下の強調表示されている、ASP.NET Identity API を呼び出すことによって、ユーザーを作成します。
+   ユーザーが選択すると、**登録**ボタン、`Register`アカウント コント ローラーのアクションは、以下の強調表示されている、ASP.NET Identity API を呼び出すことによって、ユーザーを作成します。
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample1.cs?highlight=8-9)]
-4. ログイン。  
-   ユーザーが正常に作成すると、彼女が記録によって、`SignInAsync`メソッド。  
+4. サインイン。  
+   によって署名彼女は、ユーザーが正常に作成された場合、`SignInAsync`メソッド。  
 
-    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample2.cs?highlight=12)]
+    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample6.cs?highlight=12)]
 
-    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
-   上での強調表示されたコード、`SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)します。 ASP.NET Identity と OWIN クッキー認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなど、ユーザーのすべての要求についての情報があります。 この段階でユーザーの複数のクレームを追加することもできます。  
-  
-   次の強調表示されたコード、 `SignInAsync` OWIN と呼び出し元から AuthenticationManager を使用して、メソッドが、ユーザーでサインイン`SignIn`ClaimsIdentity を渡すとします。  
-
-    [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample4.cs?highlight=8-11)]
+   `SignInManager.SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)します。 ASP.NET Identity と OWIN クッキー認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなど、ユーザーのすべての要求についての情報があります。   
+ 
 5. ログオフします。  
-   クリックすると、**ログオフ**リンクは、account コント ローラー ログオフ アクションを呼び出します。 
+   選択、**ログオフ**ログオフ操作を呼び出して、account コント ローラーへのリンク。 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
@@ -143,7 +134,7 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
 
 ## <a name="components-of-aspnet-identity"></a>ASP.NET Identity のコンポーネント
 
-次の図は、ASP.NET Identity のシステムのコンポーネントを示しています。 ([] をクリック[この](introduction-to-aspnet-identity/_static/image3.png)または拡大するダイアグラムで)。 緑色のパッケージは、ASP.NET の Id システムを構成します。 その他のすべてのパッケージは、ASP.NET アプリケーションで ASP.NET の Id システムを使用するために必要な依存関係です。
+次の図は、ASP.NET Identity のシステムのコンポーネントを示します (に対する select[この](introduction-to-aspnet-identity/_static/image3.png)または拡大するダイアグラムで)。 緑色のパッケージは、ASP.NET の Id システムを構成します。 その他のすべてのパッケージは、ASP.NET アプリケーションで ASP.NET の Id システムを使用するために必要な依存関係です。
 
 [![](introduction-to-aspnet-identity/_static/image5.png)](introduction-to-aspnet-identity/_static/image4.png)
 
@@ -164,9 +155,5 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
  このチュートリアルでは、ASP.NET Identity API を使用して、プロファイル情報をユーザー データベース、および Google と Facebook を認証する方法を追加します。
 - [Auth と SQL DB を使って、ASP.NET MVC アプリを作成し、Azure App Service にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)  
  このチュートリアルでは、Id API を使用して、ユーザーとロールを追加する方法を示します。
-- [個々 のユーザー アカウント](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#indauth)Visual Studio 2013 で ASP.NET Web プロジェクトを作成します。
-- [組織アカウント](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauth)Visual Studio 2013 で ASP.NET Web プロジェクトを作成します。
-- [テンプレートの VS 2013 で ASP.NET Identity でのプロファイル情報のカスタマイズ](https://blogs.msdn.com/b/webdev/archive/2013/10/16/customizing-profile-information-in-asp-net-identity-in-vs-2013-templates.aspx)
-- [VS 2013 のプロジェクト テンプレートで使用するソーシャル プロバイダーの詳細情報を取得します。](https://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx)
 - [https://github.com/rustd/AspnetIdentitySample](https://github.com/rustd/AspnetIdentitySample)  
  基本的なロールとユーザーのサポートを追加する方法、およびロールとユーザー管理を行う方法を示すサンプル アプリケーション。

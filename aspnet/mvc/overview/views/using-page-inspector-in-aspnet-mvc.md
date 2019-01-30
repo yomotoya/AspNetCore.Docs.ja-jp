@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c465b0bac9af90a892d6e62a327ba36977d08d4a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827003"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236537"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
 ====================
@@ -27,7 +27,7 @@ Tim Ammann、
 > 
 > このチュートリアルでは、次のセクションがあります。
 > 
-> - [前提条件](#_1_prerequisites)
+> - [必須コンポーネント](#_1_prerequisites)
 > - [Web アプリケーションを作成します。](#_2_creating_a)
 > - [ビューを参照する Page Inspector を使用します。](#_3_using_page)
 > - [検査モードを有効にします。](#_4_inspection_mode)
@@ -81,7 +81,7 @@ Visual Studio 2012 で、プロジェクトで任意のビューを右できま�
 
 ![Page Inspector 内での Index.cshtml を表示します。](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-既定では、Page Inspector は、Visual Studio 環境の左側にあるウィンドウとしてドッキングします。 場合は、他の場所にドッキングします。 または、ウィンドウをドッキング解除できます。 参照してください[方法: の整列し、固定 Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx)します。
+既定では、Page Inspector は、Visual Studio 環境の左側にあるウィンドウとしてドッキングします。 場合は、他の場所にドッキングします。 または、ウィンドウをドッキング解除できます。 「[方法:ウィンドウを整列およびドッキングする](https://msdn.microsoft.com/library/z4y0hsax.aspx)」を参照してください。
 
 Page Inspector ウィンドウの上部のペインでは、ブラウザーのウィンドウで、現在のページを示しています。 下部のウィンドウと共に使用して、ページのさまざまな側面を検査できますいくつかのタブの HTML マークアップでページを示します。 下のペインと似ています、 [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)Internet Explorer でします。
 
