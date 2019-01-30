@@ -2,7 +2,7 @@
 uid: web-forms/index
 title: ASP.NET Web フォーム |Microsoft Docs
 author: rick-anderson
-description: Visual Web Developer Express をダウンロードして、web アプリのビジュアル デ ザインで ASP.NET Web フォームでわかりやすくコントロールの使用の環境をすばやく構築する方法について説明します.
+description: Visual Web Developer Express をダウンロードして、web アプリのビジュアル デ ザインで ASP.NET Web フォームでわかりやすくコントロールの使用の環境をすばやく構築する方法について説明します。
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: 7e4ce5d2-ab22-44f0-9825-c12eed7b8fcb
