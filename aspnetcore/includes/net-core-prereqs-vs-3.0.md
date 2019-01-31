@@ -1,2 +1,2 @@
-* **ASP.NET および Web 開発**ワークロードを含む [Visual Studio 2017](* [Visual Studio 2017 version 15.9 or later](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) with the **ASP.NET and web development** workload) バージョン 15.9 以降
-* [.NET core SDK 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* [Visual Studio 2019 Preview](https://visualstudio.microsoft.com/vs/preview/)で、 **ASP.NET および web 開発**ワークロード
+* [.NET core SDK 3.0 プレビュー](https://dotnet.microsoft.com/download/dotnet-core/3.0)

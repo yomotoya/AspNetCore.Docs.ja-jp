@@ -4,16 +4,16 @@ title: ASP.NET Web API 2 でクロスオリジン要求の有効化 |Microsoft D
 author: MikeWasson
 description: ASP.NET Web API でクロス オリジン リソース共有 (CORS) をサポートする方法を示しています。
 ms.author: riande
-ms.date: 10/10/2018
+ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 118b779c89edb874f7f928315d1094738be5f097
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 97a0027194b019b09e220493dcb593e682027fe3
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348521"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428448"
 ---
 <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのクロス オリジン要求を有効にします。
 ====================
@@ -67,7 +67,7 @@ ms.locfileid: "49348521"
 
    [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
 
-4. ローカル アプリケーションを実行したり、Azure にデプロイできます。 (このチュートリアルではスクリーン ショットは、アプリにデプロイされます Azure App Service Web Apps。)Web API が動作していることを確認するに移動します。`http://hostname/api/test/`ここで、*ホスト名*はアプリケーションをデプロイしたドメインです。 応答テキスト、&quot;取得: テスト メッセージ&quot;します。
+4. ローカル アプリケーションを実行したり、Azure にデプロイできます。 (このチュートリアルではスクリーン ショットは、アプリにデプロイされます Azure App Service Web Apps。)Web API が動作していることを確認するに移動します。`http://hostname/api/test/`ここで、*ホスト名*はアプリケーションをデプロイしたドメインです。 応答テキスト、&quot;を取得します。テスト メッセージ&quot;します。
 
    ![Web ブラウザーが表示されたテスト メッセージ](enabling-cross-origin-requests-in-web-api/_static/image4.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "49348521"
 ![ブラウザーで '試して' エラー](enabling-cross-origin-requests-in-web-api/_static/image7.png)
 
 > [!NOTE]
-> などのツールで HTTP トラフィックを見る場合[Fiddler](http://www.telerik.com/fiddler)ブラウザーは、GET 要求を送信し、要求が成功するしますが、AJAX 呼び出しには、エラーが返されますことを確認します。 同一オリジン ポリシーが、ブラウザーからできないことを理解することが重要*送信*要求。 代わりに、アプリケーションが表示されるを防止、*応答*します。
+> などのツールで HTTP トラフィックを見る場合[Fiddler](https://www.telerik.com/fiddler)ブラウザーは、GET 要求を送信し、要求が成功するしますが、AJAX 呼び出しには、エラーが返されますことを確認します。 同一オリジン ポリシーが、ブラウザーからできないことを理解することが重要*送信*要求。 代わりに、アプリケーションが表示されるを防止、*応答*します。
 
 ![Fiddler web デバッガーが web 要求を表示](enabling-cross-origin-requests-in-web-api/_static/image8.png)
 
@@ -156,14 +156,30 @@ CORS の仕様には、クロス オリジン要求を有効にするいくつ�
 
 事前要求は HTTP OPTIONS メソッドを使用します。 2 つの特殊なヘッダーが含まれています。
 
-- アクセス制御の要求メソッド: 実際の要求に使用される HTTP メソッド。
-- アクセス制御の要求ヘッダー: 要求ヘッダーの一覧を*アプリケーション*実際の要求に設定します。 (ここでも、これは含まれません、ブラウザーを設定するヘッダー。)
+- アクセス制御の要求メソッド:実際の要求に使用される HTTP メソッド。
+- アクセス制御の要求ヘッダー。要求ヘッダーの一覧を*アプリケーション*実際の要求に設定します。 (ここでも、これは含まれません、ブラウザーを設定するヘッダー。)
 
 サーバーが要求を許可すると仮定すると、例応答を次に示します。
 
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample9.cmd?highlight=6-7)]
 
 応答には、許可されているメソッドを一覧表示するアクセスの制御-許可する-メソッド ヘッダーと、必要に応じて、アクセスの制御-許可する-ヘッダー ヘッダー、許可されたヘッダーの一覧を表示するが含まれます。 プレフライト要求が成功すると、ブラウザーは、前述のように、実際の要求を送信します。
+
+プレフライト OPTIONS 要求でエンドポイントをテストによく使用されるツール (たとえば、 [Fiddler](https://www.telerik.com/fiddler)と[Postman](https://www.getpostman.com/)) 既定では、必要なオプションのヘッダーを送信しません。 いることを確認、`Access-Control-Request-Method`と`Access-Control-Request-Headers`ヘッダーが要求と共に送信されると、オプションのヘッダーが IIS を使用してアプリにアクセスします。
+
+ASP.NET アプリを受信し、オプションの要求を処理できるように IIS を構成するには、アプリの次の構成を追加*web.config*ファイル、`<system.webServer><handlers>`セクション。
+
+```xml
+<system.webServer>
+  <handlers>
+    <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+    <remove name="OPTIONSVerbHandler" />
+    <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+  </handlers>
+</system.webServer>
+```
+
+削除`OPTIONSVerbHandler`IIS が OPTIONS 要求を処理するを防ぎます。 置換`ExtensionlessUrlHandler-Integrated-4.0`の既定のモジュールの登録は拡張子のない Url に GET、HEAD、POST、およびデバッグの要求のみを許可するため、アプリに到達するオプションの要求を許可します。
 
 ## <a name="scope-rules-for-enablecors"></a>EnableCors のスコープ規則
 
