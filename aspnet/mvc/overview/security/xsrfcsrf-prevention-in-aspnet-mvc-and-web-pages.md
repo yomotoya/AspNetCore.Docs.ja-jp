@@ -74,9 +74,9 @@ XSRF 要求検証*セッション トークン*は HTTP cookie として格納�
 
 ANTI-XSRF トークンのペイロードが暗号化され、署名済み、ツールを使用して、トークンを確認する場合は、ユーザー名を表示できないようにします。 暗号化サービスがによって提供される web アプリケーションで ASP.NET 4.0 が対象とするときに、 [MachineKey.Encode](https://msdn.microsoft.com/library/system.web.security.machinekey.encode.aspx)ルーチン。 Web アプリケーションで ASP.NET 4.5 を対象とするまたはで提供される、暗号化サービスと、 [MachineKey.Protect](https://msdn.microsoft.com/library/system.web.security.machinekey.protect(v=vs.110))ルーチンより優れたパフォーマンス、拡張性、およびセキュリティを提供します。 詳細については、次のブログの投稿を参照してください。
 
-- [ASP.NET 4.5 での暗号化の機能強化、pt です。1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
-- [ASP.NET 4.5 での暗号化の機能強化、pt です。2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
-- [ASP.NET 4.5 での暗号化の機能強化、pt です。3](https://blogs.msdn.com/b/webdev/archive/2012/10/24/cryptographic-improvements-in-asp-net-4-5-pt-3.aspx)
+- [Cryptographic Improvements in ASP.NET 4.5, pt. 1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
+- [Cryptographic Improvements in ASP.NET 4.5, pt. 2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
+- [Cryptographic Improvements in ASP.NET 4.5, pt. 3](https://blogs.msdn.com/b/webdev/archive/2012/10/24/cryptographic-improvements-in-asp-net-4-5-pt-3.aspx)
 
 ## <a name="generating-the-tokens"></a>トークンを生成します。
 
