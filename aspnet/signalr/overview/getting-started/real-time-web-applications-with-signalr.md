@@ -369,7 +369,7 @@ SignalR のバック プレーンの動作は、こちらの詳細について�
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample13.ps1)]
 2. プロジェクトに対してこの時間が、前の手順を繰り返します**GeekQuiz2**します。
-3. SQL Server バック プレーンを構成するには、開く、 **Startup.cs**のファイル、 **GeekQuiz**プロジェクトし、次のコードを追加、**構成**メソッド。 置換**&lt;YOUR DATABASE&gt;** を SQL Server バック プレーンを作成するときに使用したデータベース名。 この手順を繰り返します、 **GeekQuiz2**プロジェクト。
+3. SQL Server バック プレーンを構成するには、開く、 **Startup.cs**のファイル、 **GeekQuiz**プロジェクトし、次のコードを追加、**構成**メソッド。 置換 **&lt;YOUR DATABASE&gt;** を SQL Server バック プレーンを作成するときに使用したデータベース名。 この手順を繰り返します、 **GeekQuiz2**プロジェクト。
 
     (コード スニペット - *RealTimeSignalR - Ex2 - StartupConfiguration*)
 
