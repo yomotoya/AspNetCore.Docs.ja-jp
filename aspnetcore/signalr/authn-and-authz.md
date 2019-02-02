@@ -3,16 +3,16 @@ title: ASP.NET Core SignalR で認証と承認
 author: bradygaster
 description: ASP.NET Core SignalR での認証と承認を使用する方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
-ms.author: anurse
+ms.author: bradyg
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 01/31/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: c807b65e0047fe6cedff08aef9f758653fab6a0d
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 5d4574775606b4354ec099b6b32e05294d9f0e45
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54835818"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667311"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>ASP.NET Core SignalR で認証と承認
 
@@ -68,22 +68,14 @@ Cookie はブラウザーに固有であるため、その他のクライアン�
 
 実装する新しいクラスを追加`IUserIdProvider`し、識別子として使用するユーザーから、要求の 1 つを取得します。 たとえば、"Name"要求を使用する (これは、フォーム内の Windows ユーザー名`[Domain]\[Username]`)、次のクラスを作成します。
 
-```csharp
-public class NameUserIdProvider : IUserIdProvider
-{
-    public string GetUserId(HubConnectionContext connection)
-    {
-        return connection.User?.FindFirst(ClaimTypes.Name)?.Value;
-    }
-}
-```
+[!code-csharp[Name based provider](authn-and-authz/sample/nameuseridprovider.cs?name=NameUserIdProvider)]
 
 なく`ClaimTypes.Name`、任意の値を使用することができます、 `User` (など、Windows SID 識別子など)。
 
 > [!NOTE]
 > 選択した値は、システム内のすべてのユーザーの間で一意でなければなりません。 それ以外の場合、1 人のユーザー宛てのメッセージは、別のユーザーに陥る可能性があります。
 
-このコンポーネントの登録、`Startup.ConfigureServices`メソッド**後**への呼び出し `.AddSignalR`
+このコンポーネントの登録、`Startup.ConfigureServices`メソッド。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -107,6 +99,27 @@ var connection = new HubConnectionBuilder()
 ```
 
 Windows 認証は、Microsoft Internet Explorer または Microsoft Edge を使用する場合にのみ、ブラウザー クライアントでサポートされます。
+
+### <a name="use-claims-to-customize-identity-handling"></a>使用してクレーム id の処理をカスタマイズするには
+
+ユーザーを認証するアプリでは、ユーザー クレームから SignalR ユーザー Id を派生できます。 SignalR がユーザー Id を作成する方法を指定するには、実装`IUserIdProvider`および実装を登録します。
+
+サンプル コードでは、ユーザーの電子メール アドレスを識別するプロパティとして選択する要求を使用する方法を示します。 
+
+> [!NOTE]
+> 選択した値は、システム内のすべてのユーザーの間で一意でなければなりません。 それ以外の場合、1 人のユーザー宛てのメッセージは、別のユーザーに陥る可能性があります。
+
+[!code-csharp[Email provider](authn-and-authz/sample/EmailBasedUserIdProvider.cs?name=EmailBasedUserIdProvider)]
+
+アカウントの登録の種類で要求を追加します`ClaimsTypes.Email`ASP.NET identity のデータベースにします。
+
+[!code-csharp[Adding the email to the ASP.NET identity claims](authn-and-authz/sample/pages/account/Register.cshtml.cs?name=AddEmailClaim)]
+
+このコンポーネントの登録、`Startup.ConfigureServices`します。
+
+```csharp
+services.AddSingleton<IUserIdProvider, EmailBasedUserIdProvider>();
+```
 
 ## <a name="authorize-users-to-access-hubs-and-hub-methods"></a>アクセスのハブおよびハブ メソッドのユーザーを認証します。
 

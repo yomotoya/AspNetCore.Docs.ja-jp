@@ -4,20 +4,18 @@ title: OWIN OAuth 2.0 承認サーバー |Microsoft Docs
 author: hongyes
 description: このチュートリアルでは、OAuth の OWIN ミドルウェアを使用して OAuth 2.0 承認サーバーを実装する方法について説明します。 これは、高度なチュートリアルをそののみ outlin です.
 ms.author: riande
-ms.date: 03/20/2014
+ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b8451d2d9e346bd5e2f51ba45e48030a5221b549
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912268"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667649"
 ---
-<a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 承認サーバー
-====================
-によって[Hongye Sun](https://github.com/hongyes)、 [Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
+# <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 承認サーバー
 
 > このチュートリアルでは、OAuth の OWIN ミドルウェアを使用して OAuth 2.0 承認サーバーを実装する方法について説明します。 これは、のみ OWIN OAuth 2.0 承認サーバーを作成する手順が説明されている、高度なチュートリアルです。 これは、ステップ バイ ステップ チュートリアルではありません。 [サンプル コードをダウンロード](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip)します。
 >
@@ -29,9 +27,9 @@ ms.locfileid: "48912268"
 >
 > | **このチュートリアルで示すように** | **でも使用できます。** |
 > | --- | --- |
-> | Windows 8.1 | Windows 8、Windows 7 |
-> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Visual Studio 2013 Express for Desktop](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express)します。 Visual Studio 2012 と最新の更新プログラムが動作する必要がありますが、このチュートリアルは、テストされていないといくつかのメニューとダイアログ ボックスが異なる。 |
-> | .NET 4.5 |  |
+> | Windows 8.1 | Windows 10、Windows 8、Windows 7 |
+> | [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+> | .NET 4.7.2 |  |
 >
 > ## <a name="questions-and-comments"></a>意見やご質問
 >
@@ -53,7 +51,7 @@ ms.locfileid: "48912268"
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>必須コンポーネント
 
-- [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions)または無料[Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express)に記載されている、**ソフトウェア バージョン**ページの上部にあります。
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)に記載されている**ソフトウェア バージョン**ページの上部にあります。
 - OWIN の知識。 参照してください[Katana プロジェクトの概要](https://msdn.microsoft.com/magazine/dn451439.aspx)と[OWIN と Katana の新](index.md)します。
 - 知識[OAuth](http://tools.ietf.org/html/rfc6749)用語では、含む[ロール](http://tools.ietf.org/html/rfc6749#section-1.1)、[プロトコル フロー](http://tools.ietf.org/html/rfc6749#section-1.2)と[承認付与](http://tools.ietf.org/html/rfc6749#section-1.3)します。 [OAuth 2.0 の概要](http://tools.ietf.org/html/rfc6749#section-1)の紹介を提供します。
 
@@ -79,19 +77,19 @@ ms.locfileid: "48912268"
 
 `UseOAuthAuthorizationServer`拡張メソッドは、承認サーバーをセットアップします。 セットアップのオプションがあります。
 
-- `AuthorizeEndpointPath`: クライアント アプリケーションがユーザーを取得するために、ユーザー エージェントをリダイレクト場所の要求パスは、コードまたはトークン発行に同意します。 たとえば、先頭のスラッシュで始める必要があります"`/Authorize`"。
-- `TokenEndpointPath`要求パスのクライアント アプリケーションは、アクセス トークンを取得する直接通信します。 "/Token"のように、先頭にスラッシュが始まる必要があります。 クライアントが発行されている場合、[クライアント\_シークレット](http://tools.ietf.org/html/rfc6749#appendix-A.2)、このエンドポイントに指定する必要があります。
-- `ApplicationCanDisplayErrors`: に設定します。 `true` web アプリケーションがクライアントの検証エラーのカスタム エラー ページを生成する必要がある場合`/Authorize`エンドポイント。 たとえばバックアップ、クライアント アプリケーションに、ブラウザーがリダイレクトしない場合にのみ必要です、ときに、`client_id`または`redirect_uri`が正しくありません。 `/Authorize`エンドポイントが"oauth を表示することが予想されます。エラー"、"oauth します。ErrorDescription"、および"oauth します。ErrorUri"プロパティは、OWIN 環境に追加されます。
+- `AuthorizeEndpointPath`:クライアント アプリケーションがユーザーを取得するために、ユーザー エージェントをリダイレクト場所の要求パスは、コードまたはトークン発行に同意します。 たとえば、先頭のスラッシュで始める必要があります"`/Authorize`"。
+- `TokenEndpointPath`:アクセス トークンを取得する要求パスのクライアント アプリケーションが直接通信します。 "/Token"のように、先頭にスラッシュが始まる必要があります。 クライアントが発行されている場合、[クライアント\_シークレット](http://tools.ietf.org/html/rfc6749#appendix-A.2)、このエンドポイントに指定する必要があります。
+- `ApplicationCanDisplayErrors`:設定`true`web アプリケーションがクライアントの検証エラーのカスタム エラー ページを生成する必要がある場合`/Authorize`エンドポイント。 たとえばバックアップ、クライアント アプリケーションに、ブラウザーがリダイレクトしない場合にのみ必要です、ときに、`client_id`または`redirect_uri`が正しくありません。 `/Authorize`エンドポイントが"oauth を表示することが予想されます。エラー"、"oauth します。ErrorDescription"、および"oauth します。ErrorUri"プロパティは、OWIN 環境に追加されます。
 
     > [!NOTE]
     > 指定しない場合、true の場合、承認サーバーは既定のエラー ページとエラーの詳細が返すされます。
-- `AllowInsecureHttp`: 承認し、HTTP URI アドレスに到着して、受信を許可するトークンが要求を許可する True を`redirect_uri`要求パラメーターが HTTP URI アドレスを承認します。
+- `AllowInsecureHttp`:認証して、トークン要求、HTTP URI アドレスに到着して、着信を許可する場合は true`redirect_uri`要求パラメーターが HTTP URI アドレスを承認します。
 
     > [!WARNING]
     > セキュリティ - これは開発専用の。
-- `Provider`: 認証サーバー ミドルウェアによって発生したイベントを処理するアプリケーションによって提供されるオブジェクト。 アプリケーションが完全には、インターフェイスを実装することがありますまたはのインスタンスを作成することがあります`OAuthAuthorizationServerProvider`OAuth フローがこのサーバーをサポートするために必要なデリゲートを割り当てます。
-- `AuthorizationCodeProvider`: クライアント アプリケーションに返される単一使用承認コードを生成します。 OAuth サーバーは、アプリケーションをセキュリティで保護**する必要があります**のインスタンスを指定`AuthorizationCodeProvider`によってトークンが生成される、`OnCreate/OnCreateAsync`イベントが 1 つだけの呼び出しの有効と見なさ`OnReceive/OnReceiveAsync`します。
-- `RefreshTokenProvider`: 必要なときに、新しいアクセス トークンを生成するために使用できる更新トークンを生成します。 かどうかは指定されていない、承認サーバーは返されませんから更新トークン、`/Token`エンドポイント。
+- `Provider`:承認サーバーのミドルウェアが発生させたイベントを処理するアプリケーションが提供するオブジェクト。 アプリケーションが完全には、インターフェイスを実装することがありますまたはのインスタンスを作成することがあります`OAuthAuthorizationServerProvider`OAuth フローがこのサーバーをサポートするために必要なデリゲートを割り当てます。
+- `AuthorizationCodeProvider`:クライアント アプリケーションに返される単一使用承認コードを生成します。 OAuth サーバーは、アプリケーションをセキュリティで保護**する必要があります**のインスタンスを指定`AuthorizationCodeProvider`によってトークンが生成される、`OnCreate/OnCreateAsync`イベントが 1 つだけの呼び出しの有効と見なさ`OnReceive/OnReceiveAsync`します。
+- `RefreshTokenProvider`:必要なときに、新しいアクセス トークンを生成するために使用できる更新トークンを生成します。 かどうかは指定されていない、承認サーバーは返されませんから更新トークン、`/Token`エンドポイント。
 
 ## <a name="account-management"></a>アカウントの管理
 

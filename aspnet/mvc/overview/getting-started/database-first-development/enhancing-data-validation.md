@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 85299d70c6cba52c1d40a42edfd429c96318134a
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 897cd7c6a40445e2a4abede50d81e101372d3233
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236485"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667623"
 ---
 # <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリで EF Database First のデータ検証を強化します。
 
@@ -84,6 +84,14 @@ MVC、Entity Framework、および ASP.NET のスキャフォールディング�
 
 開く、 *Student.cs*ファイルまたは*Enrollment.cs*ファイル、および以前に適用するデータの検証属性は、不要になったファイルに注意してください。 ただし、アプリケーションを実行し、データを入力すると、検証規則が適用されることに注意してください。
 
+## <a name="conclusion"></a>まとめ
+
+このシリーズでは、ユーザーを編集、更新、作成、およびデータを削除できるように既存のデータベースからコードを生成する方法の簡単な例が用意されています。 ASP.NET MVC 5、Entity Framework および ASP.NET スキャフォールディングは、プロジェクトの作成に使用されます。 
+
+Code First の開発の基本的な例を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)します。 
+
+高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションの Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。 Database First のデータ処理に使用する DbContext API は Code First のデータを操作するために使用する API と同じことに注意してください。 Database First を使用する場合でも、コードの最初のチュートリアルからなど、同時実行の競合を処理、読み取りと、関連するデータの更新などのより複雑なシナリオを処理する方法を学習できます。 唯一の違いは、データベース、コンテキストのクラスおよびエンティティ クラスを作成する方法には。
+
 ## <a name="additional-resources"></a>その他の技術情報
 
 プロパティとクラスに適用できるデータ検証注釈の一覧については、次を参照してください。 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)します。
@@ -96,6 +104,6 @@ MVC、Entity Framework、および ASP.NET のスキャフォールディング�
 > * 追加されたデータ注釈
 > * 追加のメタデータ クラス
 
-Web アプリとデータベースを Azure に発行する方法については、次のチュートリアルに進んでください。
+Web アプリと SQL database を Azure App Service にデプロイする方法については、このチュートリアルを参照してください。
 > [!div class="nextstepaction"]
-> [Azure に発行する](publish-to-azure.md)
+> [Azure App Service への .NET アプリをデプロイします。](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)

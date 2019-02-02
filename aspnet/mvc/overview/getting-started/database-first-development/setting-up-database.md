@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236381"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667740"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>チュートリアル: EF Database First の MVC 5 の使用の概要します。
 
-MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。 シリーズの最後の部分では、Azure をサイトとデータベースをデプロイします。
+MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。 説明するシリーズの最後の部分で検証の要件を指定し、書式設定を表示するには、データ モデルにデータ注釈を追加する方法。 完了すると、.NET アプリと SQL database を Azure App Service にデプロイする方法については、Azure の記事に進めることができます。
 
 このチュートリアルで開始する方法、既存データベースにあり、ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。 Entity Framework 6 と MVC 5 web アプリケーションの構築に使用します。 ASP.NET のスキャフォールディング機能では、表示、更新、作成およびデータを削除するためのコードを自動的に生成することができます。 Visual Studio 内で発行ツールを使用することができます簡単に、サイトとデータベース Azure にデプロイします。
 
@@ -51,7 +51,7 @@ Visual Studio を起動し、作成、 **SQL Server データベース プロジ
 
 ![データベース プロジェクトを作成します。](setting-up-database/_static/image1.png)
 
-空のデータベース プロジェクトがあるようになりました。 プロジェクトのターゲット プラットフォームとして Azure SQL Database を設定する必要があります、このチュートリアルで後で Azure には、このデータベースはデプロイされます。 ターゲット プラットフォームの設定も、データベースは実際には配置しませんデータベースの設計が、ターゲット プラットフォームと互換性があるデータベース プロジェクトを確認するということです。 ターゲット プラットフォームを設定するには、開く、**プロパティ**を選択してプロジェクト**Microsoft Azure SQL Database**のターゲット プラットフォーム。
+空のデータベース プロジェクトがあるようになりました。 Azure にこのデータベースをデプロイできることを確認するには、プロジェクトのターゲット プラットフォームとして Azure SQL Database を設定します。 ターゲット プラットフォームの設定も、データベースは実際には配置しませんデータベースの設計が、ターゲット プラットフォームと互換性があるデータベース プロジェクトを確認するということです。 ターゲット プラットフォームを設定するには、開く、**プロパティ**を選択してプロジェクト**Microsoft Azure SQL Database**のターゲット プラットフォーム。
 
 テーブルを定義する SQL スクリプトを追加することで、このチュートリアルに必要なテーブルを作成することができます。 プロジェクトを右クリックし、新しい項目を追加します。 選択**テーブルとビュー** > **テーブル**名前を付けます*学生*します。
 

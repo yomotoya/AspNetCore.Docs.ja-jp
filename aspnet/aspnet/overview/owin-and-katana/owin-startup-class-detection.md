@@ -4,34 +4,33 @@ title: OWIN スタートアップ クラス検出 |Microsoft Docs
 author: Praburaj
 description: このチュートリアルでは、OWIN スタートアップ クラスが読み込まれるを構成する方法を示します。 OWIN の詳細については、「プロジェクト Katana 概要を参照してください。 このチュートリアルがしています.
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/28/2019
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 4e753187f1caae646402712c2abc28856ae71a79
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0b34cca8b48383dbb028106651758dff889ed614
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910708"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667298"
 ---
 <a name="owin-startup-class-detection"></a>OWIN スタートアップ クラス検出
 ====================
-によって[Praburaj Thiagarajan](https://github.com/Praburaj)、 [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > このチュートリアルでは、OWIN スタートアップ クラスが読み込まれるを構成する方法を示します。 OWIN の詳細については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)します。 このチュートリアルの執筆者は、Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )、Praburaj Thiagarajan と Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) )。
 >
 > ## <a name="prerequisites"></a>必須コンポーネント
 >
-> [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
 
 ## <a name="owin-startup-class-detection"></a>OWIN スタートアップ クラス検出
 
  すべての OWIN アプリケーションには、アプリケーション パイプラインのコンポーネントを指定するスタートアップ クラスがあります。 (OwinHost、IIS、および IIS Express) を選択したホスティング モデルに応じて、startup クラスを接続するには、ランタイムでさまざまな方法は。 このチュートリアルで示すように、startup クラスは、すべてのホスト アプリケーションで使用できます。 ホスティング ランタイムを使用して、これらのいずれかのアプローチでは、startup クラスを接続します。
 
-1. **名前付け規則**: Katana という名前のクラスを探します`Startup`アセンブリ名またはグローバル名前空間に一致する名前空間。
-2. **OwinStartup 属性**: これは、startup クラスを指定するほとんどの開発者が採用するアプローチです。 次の属性に startup クラスを設定、`TestStartup`クラス、`StartupDemo`名前空間。
+1. **名前付け規則**:Katana という名前のクラスを探します`Startup`アセンブリ名またはグローバル名前空間に一致する名前空間。
+2. **OwinStartup 属性**:これは、startup クラスを指定するほとんどの開発者が採用するアプローチです。 次の属性に startup クラスを設定、`TestStartup`クラス、`StartupDemo`名前空間。
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
@@ -60,7 +59,7 @@ ms.locfileid: "48910708"
 1. 空の Asp.Net web アプリケーションを作成し、名前**StartupDemo**します。 -インストール`Microsoft.Owin.Host.SystemWeb`NuGet パッケージ マネージャーを使用します。 **ツール**メニューの  **NuGet パッケージ マネージャー**、し**パッケージ マネージャー コンソール**します。 次のコマンドを入力します。
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-2. OWIN startup クラスを追加します。 Visual Studio 2013 でプロジェクトを右クリックし、選択**クラスの追加**. -、**新しい項目の追加** ダイアログ ボックスに、入力*OWIN*検索フィールドに、および、Startup.cs に名前変更クリックして**追加**します。
+2. OWIN startup クラスを追加します。 Visual Studio 2017 でプロジェクトを右クリックし、選択**クラスの追加**. -、**新しい項目の追加** ダイアログ ボックスに、入力*OWIN*検索フィールドに、および、Startup.cs に名前変更選び**追加**します。
 
      ![](owin-startup-class-detection/_static/image1.png)
 
@@ -80,7 +79,7 @@ ms.locfileid: "48910708"
      > [!NOTE]
      > 上記のコードで私たちがコメント アウト、`OwinStartup`という名前のクラスを実行中の規則で属性としている証明書利用者`Startup`.-キーを押して***F5***アプリケーションを実行します。 更新を何回かクリックします。
 
-    ![](owin-startup-class-detection/_static/image4.png) 注: このチュートリアルでは、イメージに表示される数値は一致しません数。 ミリ秒文字列は、ページを更新するときに、新しい応答を表示する使用されます。
+    ![](owin-startup-class-detection/_static/image4.png) 注:このチュートリアルでは、イメージ内の数字では、この数が一致しません。 ミリ秒文字列は、ページを更新するときに、新しい応答を表示する使用されます。
   トレース情報を表示、**出力**ウィンドウ。
 
     ![](owin-startup-class-detection/_static/image5.png)
@@ -158,6 +157,7 @@ ms.locfileid: "48910708"
 
    運用環境の startup クラスが読み込まれます。
     ![](owin-startup-class-detection/_static/image9.png)
+
    アプリケーションは複数のスタートアップ クラスを備え、この例では、実行時までロードするスタートアップ クラスを遅延が。
 8. 次のランタイム スタートアップ オプションをテストします。
 

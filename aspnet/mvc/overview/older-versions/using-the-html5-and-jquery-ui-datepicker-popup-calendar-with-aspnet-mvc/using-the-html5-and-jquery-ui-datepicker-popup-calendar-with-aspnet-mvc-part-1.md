@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: a4cd6e9adfcd85503b9843232903a243bc07c959
-ms.sourcegitcommit: 392a36ed269b88899d6bb652aa7f4dfb72e43e7f
+ms.openlocfilehash: 3e700d2db4f86fe6734e2f08b01c9f8a8a69b6c3
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50220662"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667792"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - 第 1 部での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -24,19 +24,19 @@ ms.locfileid: "50220662"
 
 このチュートリアルがエディターのテンプレート、画面テンプレート、および jQuery を使用する方法の基礎を講義[UI datepicker ポップアップ カレンダー](http://plugins.jquery.com/project/datepicker) ASP.NET MVC Web アプリケーションにします。 このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1 を使用することができます (&quot;Visual Web Developer&quot;)、これは、Microsoft Visual Studio の無料バージョンまたはが既にある場合は、Visual Studio 2010 SP1 を使用することができます。
 
-始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックしてそれらのすべてをインストールすることができます: [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して必要なソフトウェアを個別にインストールできます。
+始める前に、以下の前提条件がインストールされていることを確認します。 次のリンクをクリックして、それらのすべてをインストールできます。[Web プラットフォーム インストーラー](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)します。 または、次のリンクを使用して必要なソフトウェアを個別にインストールできます。
 
 - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
 
-Visual Web Developer ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストール: [Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
+Visual Web Developer ではなく Visual Studio 2010 を使用する場合は、次のリンクをクリックして、前提条件をインストールします。[Visual Studio 2010 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)します。
 
 このチュートリアルで完了して、 [MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアルまたは ASP.NET MVC の開発に慣れていること。 このチュートリアルから完成したプロジェクトでは、 [MVC 3 の概要](../getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)チュートリアル。
 
 このチュートリアルでは、c# でコードを示します。 ただし、[スターター プロジェクト](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)な完成したプロジェクトも Visual Basic で用意されています。
 
-C# および Visual Basic のソース コードを Visual Studio プロジェクトはこのトピックと共に使用できます:[ダウンロード](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)します。
+Visual Studio プロジェクトとC#と Visual Basic ソース コードはこのトピックと共に使用できます。[ダウンロード](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800)します。
 
 ### <a name="what-youll-build"></a>構築します
 
@@ -54,7 +54,11 @@ C# および Visual Basic のソース コードを Visual Studio プロジェ�
 
 ### <a name="getting-started"></a>作業の開始
 
-スタート プロジェクトからムービーの一覧をアプリケーションがまだしていない場合、次のリンクを使用してダウンロード:[ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。 Windows エクスプ ローラーで右クリック、 *MvcMovie.zip*ファイルおよび選択**プロパティ**します。 **MvcMovie.zip プロパティ**ダイアログ ボックスで、**ブロック解除**します。 (セキュリティの警告を使用しようとするときに発生するブロックを解除できないように、 *.zip* web からダウンロードしたファイルです)。
+Starter プロジェクトからムービーの一覧をアプリケーションがまだしていない場合はダウンロードします。 
+
+* [ダウンロード](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098)します。
+* Windows エクスプ ローラーで右クリックし、 *MvcMovie.zip*ファイルおよび選択**プロパティ**します。 
+* **MvcMovie.zip プロパティ**ダイアログ ボックスで、**ブロック解除**します。 (セキュリティの警告を使用しようとするときに発生するブロックを解除できないように、 *.zip* web からダウンロードしたファイルです)。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image2.png)
 

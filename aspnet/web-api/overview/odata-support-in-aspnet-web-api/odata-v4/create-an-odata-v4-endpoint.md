@@ -4,20 +4,18 @@ title: ASP.NET Web API 2.2 を使用して OData v4 エンドポイントの作�
 author: MikeWasson
 description: Open Data Protocol (OData) は、web 用のデータ アクセス プロトコルです。 OData は、照会および CRUD 操作を介してデータ セットを操作する一貫した方法を提供します。
 ms.author: riande
-ms.date: 06/24/2014
+ms.date: 01/23/2019
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 48c1a78c96cb0ebfa0b053dfef84e76433112650
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: c6a4aa4eb563fd77d5afd9248175d5f5b7984d19
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795419"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667571"
 ---
-<a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 エンドポイントを作成します。
-====================
-作成者[Mike Wasson](https://github.com/MikeWasson)
+# <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>ASP.NET Web API を使用して OData v4 エンドポイントを作成します。 
 
 > Open Data Protocol (OData) は、web 用のデータ アクセス プロトコルです。 OData クエリおよび CRUD 操作を介してデータ セットを操作する一貫した方法を提供します (作成、読み取り、更新、および削除) します。
 >
@@ -27,11 +25,11 @@ ms.locfileid: "48795419"
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 >
-> - Web API 2.2
+> - Web API 5.2
 > - OData v4
-> - Visual Studio 2013 (Visual Studio 2017 ダウンロード[ここ](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
+> - Visual Studio 2017 (Visual Studio 2017 ダウンロード[ここ](https://visualstudio.microsoft.com/downloads/))
 > - Entity Framework 6
-> - .NET 4.5
+> - .NET 4.7.2
 >
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
 >
@@ -41,13 +39,17 @@ ms.locfileid: "48795419"
 
 Visual Studio で、**ファイル**メニューから **新規** &gt; **プロジェクト** を選択します。
 
-**インストール済み** &gt; **テンプレート** &gt; **Visual c#** &gt; **Web** を展開し **ASP.NET Web アプリケーション**テンプレートを選択します。 プロジェクトに &quot;ProductService&quot; と名前をつけます。
+展開**インストール済み** &gt; **Visual C#**  &gt; **Web**を選択し、 **ASP.NET Web アプリケーション (.NET Framework)** テンプレート。 プロジェクトに &quot;ProductService&quot; と名前をつけます。
 
-[![](create-an-odata-v4-endpoint/_static/image2.png)](create-an-odata-v4-endpoint/_static/image1.png)
+[![](create-an-odata-v4-endpoint/_static/image7.png)](create-an-odata-v4-endpoint/_static/image7.png)
 
-**新しいプロジェクト**ダイアログ ボックスで、**空**テンプレートを選択します。 &quot;フォルダーを追加し、コア参照.&quot; の下にある **Web API** をクリックします。 **[OK]** をクリックします。
+**[OK]** を選択します。
 
-[![](create-an-odata-v4-endpoint/_static/image4.png)](create-an-odata-v4-endpoint/_static/image3.png)
+
+
+[![](create-an-odata-v4-endpoint/_static/image8.png)](create-an-odata-v4-endpoint/_static/image8.png)
+
+選択、**空**テンプレート。 **フォルダーを追加し、コアの参照:**、 **Web API**します。 **[OK]** を選択します。
 
 ## <a name="install-the-odata-packages"></a>OData のパッケージをインストールします。
 
@@ -57,7 +59,7 @@ Visual Studio で、**ファイル**メニューから **新規** &gt; **プロ�
 
 このコマンドは、最新の OData の NuGet パッケージをインストールします。
 
-## <a name="add-a-model-class"></a>モデル クラスを追加します。
+## <a name="add-a-model-class"></a>モデル クラスの追加
 
 A*モデル*は、アプリケーションでのデータ エンティティを表すオブジェクトです。
 
@@ -75,7 +77,7 @@ A*モデル*は、アプリケーションでのデータ エンティティを�
 
 `Id`プロパティがエンティティ キー。 クライアントは、キーによってエンティティを照会できます。 たとえば、id が 5 の製品を取得する URI は`/Products(5)`します。 `Id`プロパティは、バック エンド データベースで主キーにもなります。
 
-## <a name="enable-entity-framework"></a>Entity Framework を有効にします。
+## <a name="enable-entity-framework"></a>Enable Entity Framework
 
 このチュートリアルで使用します Entity Framework (EF) Code First バック エンド データベースを作成します。
 
@@ -138,7 +140,7 @@ A*コント ローラー*は HTTP 要求を処理するクラスです。 各エ
 
 これは、コント ローラーの開始点です。 次に、すべての CRUD 操作のメソッドを追加します。
 
-## <a name="querying-the-entity-set"></a>エンティティ セットのクエリを実行します。
+## <a name="query-the-entity-set"></a>エンティティ セットをクエリします。
 
 次のメソッドを追加`ProductsController`します。
 
@@ -148,13 +150,13 @@ A*コント ローラー*は HTTP 要求を処理するクラスです。 各エ
 
 **[EnableQuery]** 属性は、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更するクライアントを使用できます。 詳細については、次を参照してください。 [OData クエリ オプションをサポートしている](../supporting-odata-query-options.md)します。
 
-## <a name="adding-an-entity-to-the-entity-set"></a>エンティティ セットへのエンティティの追加
+## <a name="add-an-entity-to-the-entity-set"></a>エンティティ、エンティティ セットを追加します。
 
 データベースに新しい製品を追加するクライアントを有効にするには、次のメソッドを追加`ProductsController`します。
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample10.cs)]
 
-## <a name="updating-an-entity"></a>エンティティの更新
+## <a name="update-an-entity"></a>エンティティを更新します。
 
 OData は、PATCH、PUT は、エンティティを更新するための 2 つの異なるセマンティクスをサポートします。
 
@@ -169,7 +171,7 @@ PUT の欠点は、クライアントが変更されない値を含むエンテ�
 
 コント ローラーを使用して、修正プログラムの場合、**デルタ&lt;T&gt;** 変更を追跡する型。
 
-## <a name="deleting-an-entity"></a>エンティティの削除
+## <a name="delete-an-entity"></a>エンティティを削除します。
 
 データベースから製品を削除するクライアントを有効にするには、次のメソッドを追加`ProductsController`します。
 

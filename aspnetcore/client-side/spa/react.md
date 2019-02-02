@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/react
-ms.openlocfilehash: c83b119e81d7d0abfd727cb8c72abb09763d9448
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011430"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667688"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core で React プロジェクト テンプレートを使用する
 
@@ -76,7 +76,7 @@ Visual Studio または .NET Core CLI からアプリを実行します。
 
 ## <a name="install-npm-packages"></a>npm パッケージをインストールする
 
-サードパーティ製の npm パッケージをインストールするには、*ClientApp* サブディレクトリでコマンド プロンプトを使用します。 例えば:
+サードパーティ製の npm パッケージをインストールするには、*ClientApp* サブディレクトリでコマンド プロンプトを使用します。 例:
 
 ```console
 cd ClientApp
@@ -97,14 +97,22 @@ ASP.NET Core アプリが開発モードで起動された場合、プロジェ�
 
 この既定の設定には欠点があります。 C# コードを変更し、ASP.NET Core アプリを再起動する必要がある場合、CRA サーバーが毎回再起動します。 再起動には数秒かかります。 C# コードを何度も編集するが、CRA サーバーが再起動するまで待ちたくない場合は、ASP.NET Core プロセスから独立した CRA サーバーを外部で実行します。 次の手順に従います。
 
-1. コマンド プロンプトで、*ClientApp* サブディレクトリに切り替え、CRA 開発サーバーを起動します。
+1. 追加、 *.env*ファイルを*ClientApp*次の設定を持つサブディレクトリ。
+
+    ```
+    BROWSER=none
+    ```
+    
+    これにより、web ブラウザーを開く外部から CRA サーバーを開始するときにします。
+
+2. コマンド プロンプトで、*ClientApp* サブディレクトリに切り替え、CRA 開発サーバーを起動します。
 
     ```console
     cd ClientApp
     npm start
     ```
 
-2. 独自のインスタンスを起動する代わりに外部の CRA サーバー インスタンスを使用するように ASP.NET Core アプリケーションを変更します。 *Startup* クラスで、`spa.UseReactDevelopmentServer` の呼び出しを以下に置き換えます。
+3. 独自のインスタンスを起動する代わりに外部の CRA サーバー インスタンスを使用するように ASP.NET Core アプリケーションを変更します。 *Startup* クラスで、`spa.UseReactDevelopmentServer` の呼び出しを以下に置き換えます。
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");

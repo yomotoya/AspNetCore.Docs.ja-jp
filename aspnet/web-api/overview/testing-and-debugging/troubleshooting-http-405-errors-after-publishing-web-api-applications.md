@@ -1,36 +1,34 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション |Microsoft Docs
+title: Web API アプリケーションを発行した後、405 エラー HTTP のトラブルシューティング |Microsoft Docs
 author: rmcmurray
 description: このチュートリアルでは、実稼働 web サーバーに Web API アプリケーションを発行した後、HTTP 405 エラーをトラブルシューティングする方法について説明します。
 ms.author: riande
-ms.date: 05/01/2014
+ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 735b8ceeafa63e0546529ef17f103070dc760794
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce5b617cc1032d190cc2450aa554b462ea6f6156
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823730"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667415"
 ---
-<a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション
-====================
-によって[Robert McMurray](https://github.com/rmcmurray)
+# <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Web API アプリケーションを公開した後は HTTP 405 エラーのトラブルシューティング
 
 > このチュートリアルでは、実稼働 web サーバーに Web API アプリケーションを発行した後、HTTP 405 エラーをトラブルシューティングする方法について説明します。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
+> ## <a name="software-used-in-this-tutorial"></a>このチュートリアルで使用されるソフトウェア
 > 
 > 
 > - [インターネット インフォメーション サービス (IIS)](https://www.iis.net/) (バージョン 7 以降)
-> - [Web API](../../index.md) (バージョン 1 または 2)
+> - [Web API](../../index.md) 
 
 
-通常、web API アプリケーションにいくつかの一般的な HTTP 動詞が使用: GET、POST、PUT、DELETE、および場合によっては修正プログラムを適用します。 開発者が、実行可能性がありますまたは Visual Studio で開発サーバーで正しく機能する Web API コント ローラーが返すが状態になります、実稼働サーバー上の別の IIS モジュールによってこれらの動詞が実装されている場合に、HTTP 405 実稼働サーバーに配置されるとエラーが発生します。 幸いにもこの問題は、簡単に解決しますが、解像度の発行に値する問題が発生している理由の説明。
+Web API アプリケーションは、通常、いくつかの一般的な HTTP 動詞を使用します。GET、POST、PUT、DELETE、および場合によっては修正プログラムを適用します。 開発者が、実行可能性がありますまたは Visual Studio で開発サーバーで正しく機能する Web API コント ローラーが返すが状態になります、実稼働サーバー上の別の IIS モジュールによってこれらの動詞が実装されている場合に、HTTP 405 実稼働サーバーに配置されるとエラーが発生します。 幸いにもこの問題は、簡単に解決しますが、解像度の発行に値する問題が発生している理由の説明。
 
-## <a name="what-causes-http-405-errors"></a>どのような原因が HTTP 405 エラー
+## <a name="what-causes-http-405-errors"></a>HTTP 405 エラーを原因します。
 
 HTTP 405 エラーをトラブルシューティングする方法を学習するための第一歩 HTTP 405 エラーが実際に意味を理解することです。 HTTP はドキュメントの管理の主な[RFC 2616](http://www.ietf.org/rfc/rfc2616.txt)、として HTTP 405 状態コードを定義する***Method Not Allowed***、状況としては、この状態コードの詳細を説明し、&quot;メソッド指定された要求の URI で識別されるリソースの要求行が許可されていません。&quot;つまり、HTTP 動詞は、HTTP クライアントが要求された特定の URL には使用できません。
 
@@ -56,7 +54,7 @@ HTTP 405 エラーをトラブルシューティングする方法を学習す�
 
 ただし、サーバーで、使用する HTTP メソッドが構成されている、指定した URI を無効になっている場合は、サーバーが、HTTP 405 で応答が***Method Not Allowed***エラー。
 
-## <a name="example-http-405-error"></a>例 HTTP 405 エラー
+## <a name="example-http-405-error"></a>HTTP 405 エラーの例
 
 次の例の HTTP 要求と応答で HTTP クライアントが、web サーバー上の Web API アプリケーションに値を入力しようとして、PUT メソッドではない状態が許可されている HTTP エラーを返しますの状況を示しています。
 
@@ -75,7 +73,7 @@ HTTP 応答:
 
 この例では、HTTP クライアントは、web サーバー上の Web API アプリケーションの URL に有効な JSON 要求を送信が、サーバーを PUT メソッドが、URL の許可されないことを示す HTTP 405 エラー メッセージを返しました。 これに対し、要求 URI で Web API アプリケーションのルートが一致しなかった場合、サーバーが返す HTTP 404***見つかりません***エラー。
 
-## <a name="resolving-http-405-errors"></a>解決 HTTP 405 エラー
+## <a name="resolve-http-405-errors"></a>HTTP 405 エラーを解決します。
 
 特定の HTTP 動詞を許可しない場合がありますが、IIS でこのエラーの主要な原因である 1 つの主なシナリオがある理由が考えられます同じ動詞/メソッドを複数のハンドラーが定義されていると、ハンドラーの 1 つが予期されるハンドラーをブロックしている。要求を処理します。 詳細についてを使用して IIS が要求を処理するパス、動詞、リソースなどの最初の一致する組み合わせを使用は、applicationHost.config および web.config ファイルで受注ハンドラー エントリに基づいて最後に最初のハンドラーを処理します。
 
@@ -93,7 +91,7 @@ HTTP 応答:
 
 [!code-xml[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample5.xml)]
 
-このシナリオは、多くの場合、アプリケーションが開発環境から実稼働環境に発行され、ハンドラーとモジュールの一覧は、開発および運用環境の間で異なるため、これが発生した後に発生します。 たとえば、Web API アプリケーションの開発に Visual Studio 2012 または 2013 を使用する場合 IIS Express 8 はテスト用の既定の web サーバー。 この開発 web サーバーはサーバー製品に付属する完全な IIS 機能のスケール ダウン バージョンであり、この開発 web サーバーには、開発シナ リオで追加されたいくつかの変更が含まれています。 たとえば、実際に使用できない可能性がありますが、完全なバージョンの IIS を実行している実稼働 web サーバー上 WebDAV モジュールはインストール多くの場合。 (IIS Express)、IIS の開発バージョンには、WebDAV モジュールがインストールされますが、WebDAV モジュールのエントリは意図的にコメント アウト、具体的には、IIS Express の構成を変更しない限り、IIS Express で WebDAV モジュールがロードされませんのでIIS Express のインストールに WebDAV 機能を追加する設定。 その結果、開発用コンピューターで、web アプリケーションが正しく動作可能性がありますが、実稼働 web サーバーに Web API アプリケーションを発行するときに、HTTP 405 エラーが発生する可能性があります。
+このシナリオは、多くの場合、アプリケーションが開発環境から実稼働環境に発行され、ハンドラーとモジュールの一覧は、開発および運用環境の間で異なるため、これが発生した後に発生します。 例では、Visual Studio 2012 を使用している場合、または Web API アプリケーションを開発するには、後には、テスト用の既定の web サーバー IIS Express は。 この開発 web サーバーはサーバー製品に付属する完全な IIS 機能のスケール ダウン バージョンであり、この開発 web サーバーには、開発シナ リオで追加されたいくつかの変更が含まれています。 たとえば、実際に使用できない可能性がありますが、完全なバージョンの IIS を実行している実稼働 web サーバー上 WebDAV モジュールはインストール多くの場合。 (IIS Express)、IIS の開発バージョンには、WebDAV モジュールがインストールされますが、WebDAV モジュールのエントリは意図的にコメント アウト、具体的には、IIS Express の構成を変更しない限り、IIS Express で WebDAV モジュールがロードされませんのでIIS Express のインストールに WebDAV 機能を追加する設定。 その結果、開発用コンピューターで、web アプリケーションが正しく動作可能性がありますが、実稼働 web サーバーに Web API アプリケーションを発行するときに、HTTP 405 エラーが発生する可能性があります。
 
 ## <a name="summary"></a>まとめ
 
