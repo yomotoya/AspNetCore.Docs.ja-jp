@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: フォーム認証 (c#) の概要 |Microsoft Docs
+title: フォーム認証 (C#) の概要 |Microsoft Docs
 author: rick-anderson
 description: カスタム ルートを作成します。
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41834318"
 ---
-<a name="an-overview-of-forms-authentication-c"></a>フォーム認証 (c#) の概要
+<a name="an-overview-of-forms-authentication-c"></a>フォーム認証 (C#) の概要
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
