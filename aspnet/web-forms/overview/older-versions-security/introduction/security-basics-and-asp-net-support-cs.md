@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
-title: セキュリティの基礎と ASP.NET のサポート (c#) |Microsoft Docs
+title: セキュリティの基礎と ASP.NET のサポート (C#) |Microsoft Docs
 author: rick-anderson
 description: これは、概要へのアクセスを承認する、web フォーム、訪問者を認証するための手法を紹介するチュートリアル シリーズの最初のチュートリアルです。
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41826249"
 ---
-<a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (c#)
+<a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (C#)
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
