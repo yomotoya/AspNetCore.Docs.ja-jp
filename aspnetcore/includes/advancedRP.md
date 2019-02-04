@@ -1,0 +1,1 @@
+<span data-ttu-id="e6256-101">経験豊富な開発者を対象としたより高度な概要については、[Razor Pages の概要](xref:razor-pages/index)に関する記事を参照してください。</span><span class="sxs-lookup"><span data-stu-id="e6256-101">For a more advanced introduction aimed at experienced developers, see [Introduction to Razor Pages](xref:razor-pages/index).</span></span>

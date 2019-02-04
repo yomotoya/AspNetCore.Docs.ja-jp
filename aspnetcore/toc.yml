@@ -92,10 +92,11 @@ items:
   - name: Razor ページ
     items:
     - uid: razor-pages/index
-      name: 概要
-    - uid: tutorials/razor-pages/index
-      name: チュートリアル
+      name: はじめに
+    - name: チュートリアル
       items:
+      - uid: tutorials/razor-pages/index
+        name: 概要
       - uid: tutorials/razor-pages/razor-pages-start
         name: 作業開始
       - uid: tutorials/razor-pages/model
@@ -165,6 +166,8 @@ items:
       name: 依存関係の注入 - ビュー
     - uid: mvc/controllers/testing
       name: 単体テスト
+  - uid: razor-components/index
+    name: Razor Components
   - uid: fundamentals/app-state
     name: セッションとアプリの状態
   - name: タグ ヘルパー
@@ -433,6 +436,38 @@ items:
     name: バンドルと縮小
   - uid: client-side/using-browserlink
     name: ブラウザー リンク
+  - name: Razor Components
+    items:
+    - uid: razor-components/index
+      name: 概要
+    - uid: razor-components/faq
+      name: FAQ
+    - uid: razor-components/get-started
+      name: 作業開始
+    - uid: tutorials/first-blazor-app
+      name: 最初のアプリをビルドする
+    - uid: razor-components/components
+      name: コンポーネント
+    - uid: razor-components/class-libraries
+      name: コンポーネント ライブラリ
+    - uid: razor-components/layouts
+      name: レイアウト
+    - uid: razor-components/dependency-injection
+      name: 依存関係の挿入
+    - uid: razor-components/routing
+      name: ルーティング
+    - uid: razor-components/javascript-interop
+      name: JavaScript 相互運用
+    - uid: razor-components/debug
+      name: デバッグ
+    - uid: razor-components/hosting-models
+      name: ホスティング モデル
+    - name: ホストと配置
+      items:
+      - uid: host-and-deploy/razor-components/index
+        name: 概要
+      - uid: host-and-deploy/razor-components/configure-linker
+        name: リンカーを構成する
   - name: 単一ページのアプリ
     items:
     - uid: spa/index
@@ -531,6 +566,12 @@ items:
     name: ディレクトリの構造
   - uid: host-and-deploy/health-checks
     name: 正常性チェック
+  - name: Razor Components
+    items:
+    - uid: host-and-deploy/razor-components/index
+      name: 概要
+    - uid: host-and-deploy/razor-components/configure-linker
+      name: リンカーを構成する
 - name: セキュリティと ID
   items:
   - uid: security/index
@@ -812,9 +853,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.1
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: a6169489db7d7365e254c8f1213de348a4429c49
-ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
+ms.openlocfilehash: 75c0220d1dac2fa2a51efd075e05cfd1e5070c8c
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55293519"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667805"
