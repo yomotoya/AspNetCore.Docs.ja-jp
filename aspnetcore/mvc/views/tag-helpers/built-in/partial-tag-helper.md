@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: bcaeb3ba286feb55c0755c5baee4b7608710e647
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: d56df549d845b1f83ec4a5ec97ce6b44438f725a
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207785"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428435"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core の部分タグ ヘルパー
 
@@ -53,7 +53,7 @@ ms.locfileid: "50207785"
 
 ## <a name="for"></a>for
 
-`for` 属性によって、現在のモデルに対して評価する [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) が割り当てられます。 `ModelExpression` によって `@Model.` 構文が推論されます。 たとえば、`for="Product"` の代わりに `for="@Model.Product"` を使用できます。 この既定の推論動作は、`@` シンボルを使用してインライン式を定義することでオーバーライドされます。 `for` 属性は [model](#model) 属性と共に使用できません。
+`for` 属性によって、現在のモデルに対して評価する [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) が割り当てられます。 `ModelExpression` によって `@Model.` 構文が推論されます。 たとえば、`for="Product"` の代わりに `for="@Model.Product"` を使用できます。 この既定の推論動作は、`@` シンボルを使用してインライン式を定義することでオーバーライドされます。
 
 次のマークアップでは、*_ProductPartial.cshtml* が読み込まれます。
 
