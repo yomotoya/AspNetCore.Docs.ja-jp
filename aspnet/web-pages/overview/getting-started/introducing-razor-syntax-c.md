@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
-title: Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要 |Microsoft Docs
+title: Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要 |Microsoft Docs
 author: Rick-Anderson
 description: この章では、するプログラミングの概要 ASP.NET Web ページ Razor 構文を使用します。 動的な web の pa を実行するためのマイクロソフトのテクノロジを ASP.NET には.
 ms.author: riande
@@ -15,11 +15,11 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/05/2018
 ms.locfileid: "51021782"
 ---
-<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要
+<a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (C#) を使用して ASP.NET Web プログラミングの概要
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、プログラミングの概要 ASP.NET Web ページ Razor 構文を使用します。 ASP.NET は、web サーバー上で動的な web ページを実行するためのマイクロソフトのテクノロジです。 この記事を使用して c# のプログラミング言語での焦点を当てます。
+> この記事では、プログラミングの概要 ASP.NET Web ページ Razor 構文を使用します。 ASP.NET は、web サーバー上で動的な web ページを実行するためのマイクロソフトのテクノロジです。 この記事を使用して C# のプログラミング言語での焦点を当てます。
 > 
 > **学習内容**:
 > 
@@ -42,7 +42,7 @@ ms.locfileid: "51021782"
 このセクションでは、Razor 構文を使用して ASP.NET サーバー コードの記述を開始する際に知っておく必要ないくつかのヒントを示します。
 
 > [!NOTE]
-> Razor 構文は c# プログラミング言語に基づいており、ASP.NET Web Pages を最もよく使用されている言語です。 ただし、Razor 構文は、Visual Basic 言語と Visual Basic で実行することもできます。 表示されるものをもサポートします。 詳細については、「付録」を参照してください。 [Visual Basic 言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)します。
+> Razor 構文は C# プログラミング言語に基づいており、ASP.NET Web Pages を最もよく使用されている言語です。 ただし、Razor 構文は、Visual Basic 言語と Visual Basic で実行することもできます。 表示されるものをもサポートします。 詳細については、「付録」を参照してください。 [Visual Basic 言語と構文](https://go.microsoft.com/fwlink/?LinkId=202908)します。
 
 
 記事の後半でこれらのプログラミング手法のほとんどについての詳細が表示されます。
