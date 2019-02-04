@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
-title: フォーム認証構成と高度なトピック (c#) |Microsoft Docs
+title: フォーム認証構成と高度なトピック (C#) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルはさまざまなフォーム認証の設定を確認し、フォーム要素を使用して変更する方法を参照してください。 これが、詳細なが必要.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41823819"
 ---
-<a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証構成と高度なトピック (c#)
+<a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証構成と高度なトピック (C#)
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
