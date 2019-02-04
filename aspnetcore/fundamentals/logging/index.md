@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0908cc6eeaaba4006a0029ef86d3e47dcf3f9a28
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 81620f0c844f3dbb1a2da0e9f1c319f87d9790b6
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341746"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667701"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -863,7 +863,7 @@ Application Insights SDK では、ASP.NET Core のログ インフラストラ�
 
 * [Application Insights の概要](/azure/application-insights/app-insights-overview)
 * [ASP.NET Core 用 Application Insights](/azure/application-insights/app-insights-asp-net-core)
-* [Microsoft/ApplicationInsights-aspnetcore Wiki:ログ記録](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging)
+* [Application Insights のログ アダプター](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md)。
 
 ::: moniker-end
 
