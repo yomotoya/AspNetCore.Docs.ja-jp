@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Id を使用します。 パスワ�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 03f89114b516a37ee1d06934f2e549b4d56ff099
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 1a4e7fb3ac6a767ca17127dd58a9b9e65ed9a00b
+ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098770"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55739684"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core Identity の概要
 
@@ -47,7 +47,7 @@ Id は、ユーザー名、パスワード、およびプロファイル デー�
 
 * **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。
 * **[ASP.NET Core Web アプリケーション]** を選択します。 プロジェクトに名前を**WebApp1**にプロジェクトのダウンロードとして同じ名前空間。 **[OK]** をクリックします。
-* ASP.NET Core を選択します。 **Web アプリケーション**ASP.NET Core 2.1 では、を選択し、**認証の変更**します。
+* ASP.NET Core を選択します。 **Web アプリケーション**を選択し、**認証の変更**します。
 * 選択**個々 のユーザー アカウント** をクリック**OK**します。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -58,30 +58,32 @@ dotnet new webapp --auth Individual -o WebApp1
 
 ---
 
-生成されたプロジェクトは、 [ASP.NET Core Identity](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)します。
+生成されたプロジェクトは、 [ASP.NET Core Identity](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)します。 Id の Razor クラス ライブラリでエンドポイントを公開する、`Identity`領域。 例:
+
+* /ユーザー/アカウント/ログイン
+* /ユーザー/アカウント/ログアウト
+* /ユーザー/アカウント/管理
 
 ### <a name="test-register-and-login"></a>テスト登録とログイン
 
 アプリを実行し、ユーザーを登録します。 参照するナビゲーションのトグル ボタンを選択する必要があります、画面サイズに応じて、**登録**と**ログイン**リンク。
-
-![ナビゲーション バーのトグル ボタン](identity/_static/navToggle.png)
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
 <a name="pw"></a>
 ### <a name="configure-identity-services"></a>Id サービスを構成します。
 
-サービスを追加`ConfigureServices`します。 一般的なパターンは、すべての `Add{Service}` メソッドを呼び出した後、すべての `services.Configure{Service}` メソッドを呼び出すことです。 次のコードに生成されたテンプレートが含まれていない`CookiePolicyOptions`:
+サービスを追加`ConfigureServices`します。 一般的なパターンは、すべての `Add{Service}` メソッドを呼び出した後、すべての `services.Configure{Service}` メソッドを呼び出すことです。
 
 ::: moniker range=">= aspnetcore-2.1"
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Startup.cs?name=snippet_configureservices)]
+[!code-csharp[](identity/sample/WebApp1/Startup.cs?name=snippet_configureservices)]
 
 上記のコードでは、オプションの既定値で Identity を構成します。 サービスを使用してアプリで利用できる[依存関係の注入](xref:fundamentals/dependency-injection)します。
 
    Id を呼び出すことによって有効に[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)します。 `UseAuthentication` 認証を追加します。[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Startup.cs?name=snippet_configure&highlight=18)]
+   [!code-csharp[](identity/sample/WebApp1/Startup.cs?name=snippet_configure&highlight=18)]
 
 ::: moniker-end
 
@@ -124,6 +126,7 @@ dotnet new webapp --auth Individual -o WebApp1
 名前のプロジェクトを作成する場合**WebApp1**、次のコマンドを実行します。 それ以外の場合、正しい名前空間を使用して、 `ApplicationDbContext`:
 
 ```cli
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
@@ -137,7 +140,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
    ユーザーがクリックすると、**登録**、リンク、`RegisterModel.OnPostAsync`アクションが呼び出されます。 によって、ユーザーが作成された[CreateAsync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_)上、`_userManager`オブジェクト。 `_userManager` によって提供される依存関係の挿入)。
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Register.cshtml.cs?name=snippet&highlight=7,22)]
+   [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=7,22)]
 
 ::: moniker-end
 
@@ -164,7 +167,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ログイン ページのフォームが送信されたときに、`OnPostAsync`アクションが呼び出されます。 `PasswordSignInAsync` 呼び出される、 `_signInManager` (依存関係の挿入によって提供される) オブジェクト。
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Login.cshtml.cs?name=snippet&highlight=10-11)]
+   [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
    基本`Controller`クラスでは、`User`コント ローラー メソッドからアクセスできるプロパティです。 たとえば、列挙することができます`User.Claims`承認決定を行うとします。 詳細については、「 <xref:security/authorization/introduction> 」を参照してください。
 
@@ -188,13 +191,13 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 **ログアウト**リンクを呼び出す、`LogoutModel.OnPost`アクション。 
 
-[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Logout.cshtml.cs)]
+[!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Logout.cshtml.cs)]
 
 [SignOutAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.signoutasync#Microsoft_AspNetCore_Identity_SignInManager_1_SignOutAsync) cookie に格納されているユーザーの要求をクリアします。 呼び出した後にリダイレクトしない`SignOutAsync`ユーザーまたは**いない**サインアウトします。
 
 投稿がで指定された、 *Pages/Shared/_LoginPartial.cshtml*:
 
-[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/_LoginPartial.cshtml?highlight=10)]
+[!code-csharp[](identity/sample/WebApp1/Pages/Shared/_LoginPartial.cshtml?highlight=16)]
 
 ::: moniker-end
 
@@ -210,11 +213,11 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ## <a name="test-identity"></a>テスト Id
 
-既定の web プロジェクト テンプレートは、ホーム ページへの匿名アクセスを許可します。 Id をテストするには追加[ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) About ページにします。
+既定の web プロジェクト テンプレートは、ホーム ページへの匿名アクセスを許可します。 Id をテストするには追加[ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute)プライバシー ページにします。
 
-[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/About.cshtml.cs)]
+[!code-csharp[](identity/sample/WebApp1/Pages/Privacy.cshtml.cs?highlight=6)]
 
-サインイン場合、サインアウトします。アプリを実行し、選択、**について**リンク。 ログイン ページにリダイレクトされます。
+サインイン場合、サインアウトします。アプリを実行し、選択、**プライバシー**リンク。 ログイン ページにリダイレクトされます。
 
 ::: moniker range=">= aspnetcore-2.1"
 
