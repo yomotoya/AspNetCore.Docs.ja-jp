@@ -114,30 +114,34 @@ DocFX には次のものが必要です。
 
 * [DocFX リリース](https://github.com/dotnet/docfx/releases)から *docfx.zip* をダウンロードして解凍します。
 * DocFX を PATH に追加します。
-* コマンド ライン ウィンドウで、*docfx.json* ファイル (ASP.NET コンテンツの場合は *aspnet*、ASP.NET Core コンテンツの場合は *aspnetcore*) を含む適切なフォルダーに移動し、次のコマンドを実行します。
+* コマンド シェルで、*docfx.json* ファイル (ASP.NET コンテンツの場合は *aspnet*、ASP.NET Core コンテンツの場合は *aspnetcore*) を含むフォルダーに移動し、次のコマンドを実行します。
 
-  ```
+  ```console
   docfx --serve
   ```
-    
-* ブラウザーで、`http://localhost:8080` に移動します。
+* ブラウザーで、`http://localhost:8080/group1-dest/` に移動します。
 
 ### <a name="mono-instructions"></a>Mono での手順
 
 * Homebrew を使用して Mono をインストールします。
 
-  ```
+  ```console
   brew install mono
   ```
 * [最新バージョンの DocFX](https://github.com/dotnet/docfx/releases) をダウンロードします。
 * アーカイブを *$HOME/bin/docfx* に抽出します。
 * bash シェルで **docfx** の別名を 2 つ作成します。 最初の別名は、ドキュメントを構築するために使います。 2 番目の別名は、ドキュメントを構築して提供するために使います。
 
-  ```
+  ```console
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-* リポジトリのルートから `docfx` を実行して、サイトを構築します。 `docfx-serve` を実行して、`http://localhost:8080` でサイトを表示します。
+* コマンド シェルで、*docfx.json* ファイル (ASP.NET コンテンツの場合は *aspnet*、ASP.NET Core コンテンツの場合は *aspnetcore*) を含むフォルダーに移動し、ドキュメントをその別名経由で構築して提供するために、次のコマンドを実行します。
+
+  ```console
+  docfx-serve
+  ```
+* ブラウザーで、`http://localhost:8080/group1-dest/` に移動します。
 
 ## <a name="voice-and-tone"></a>スタイルとトーン
 

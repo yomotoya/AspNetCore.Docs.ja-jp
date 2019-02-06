@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 99b1073fe025ee8693d9fe833402d245f78a603d
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862370"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293508"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
@@ -140,9 +140,9 @@ public DateTime ReleaseDate { get; set; }
 
 ### <a name="publish-to-azure"></a>Azure に発行する
 
-Azure へのデプロイについては、「[チュートリアル: SQL Database を使用して Azure に ASP.NET アプリを作成する](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)」を参照してください。 これらの指示は ASP.NET Core アプリではなく、ASP.NET アプリに関するものですが、手順は同じです。
+Azure へのデプロイの詳細については、「[チュートリアル: SQL Database を使用して Azure に ASP.NET アプリを作成する](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)」を参照してください。 これらの指示は ASP.NET Core アプリではなく、ASP.NET アプリに関するものですが、手順は同じです。
 
-このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 貴重なご意見をお寄せいただき心より感謝いたします。 このチュートリアルの後は、[Razor ページと EF Core の概要](xref:data/ef-rp/intro)に関するページにお進みいただくことが推奨されます。
+このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 このチュートリアルの後は、[Razor ページと EF Core の概要](xref:data/ef-rp/intro)に関するページにお進みいただくことが推奨されます。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
@@ -152,4 +152,4 @@ Azure へのデプロイについては、「[チュートリアル: SQL Databas
 * <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
-> [前へ: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
+> [前へ:新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
