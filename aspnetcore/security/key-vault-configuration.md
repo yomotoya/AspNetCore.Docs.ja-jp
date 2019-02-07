@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/28/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 8e40c8308a692731e71fb8ebebfc64e606874290
-ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
+ms.openlocfilehash: d255321f6083747ce9b452e1efd4da5bc015bf64
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55737656"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854433"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault 構成プロバイダー
 
@@ -31,7 +31,7 @@ ms.locfileid: "55737656"
 
 Azure Key Vault 構成プロバイダーを使用するへのパッケージ参照を追加、 [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/)パッケージ。
 
-Azure 管理対象サービス Id のシナリオを採用するへのパッケージ参照を追加、 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)パッケージ。
+採用する、[の Azure リソースの id を管理](/azure/active-directory/managed-identities-azure-resources/overview)シナリオでは、パッケージ参照を追加、 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)パッケージ。
 
 > [!NOTE]
 > 最新の安定版リリースの書き込み時に`Microsoft.Azure.Services.AppAuthentication`、バージョン`1.0.3`、サポートを提供します[の id を管理システムによって割り当てられた](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka)します。 サポート*の id を管理ユーザーによって割り当てられた*で使用できるは、`1.0.2-preview`パッケージ。 このトピックでは、システムで管理される id の使用を示します、提供されているサンプル アプリは、バージョンを使用して`1.0.3`の`Microsoft.Azure.Services.AppAuthentication`パッケージ。
@@ -40,8 +40,8 @@ Azure 管理対象サービス Id のシナリオを採用するへのパッケ�
 
 サンプル アプリの実行によって 2 つのモードのいずれかで、`#define`の上部にあるステートメント、 *Program.cs*ファイル。
 
-* `Basic` &ndash; Key vault に格納されているシークレットにアクセスするには、Azure Key Vault アプリケーション ID とパスワード (クライアント シークレット) の使用を示します。 展開、`Basic`バージョンの ASP.NET Core アプリのサービスを提供できる任意のホストにサンプル。
-* `Managed` &ndash; Azure の使用方法を示します[管理対象サービス Id (MSI)](/azure/active-directory/managed-identities-azure-resources/overview)アプリのコードまたは構成に格納されている資格情報のない Azure AD 認証を使用した Azure Key Vault にアプリを認証します。 MSI 認証を使用する場合、Azure AD アプリケーション ID とパスワード (クライアント シークレット) は必要ありません。 `Managed`バージョンのサンプルを Azure にデプロイする必要があります。
+* `Basic` &ndash; Key vault に格納されているシークレットにアクセスするには、Azure Key Vault アプリケーション ID とパスワード (クライアント シークレット) の使用を示します。 展開、`Basic`バージョンの ASP.NET Core アプリのサービスを提供できる任意のホストにサンプル。 ガイダンスに従って、[アプリケーション ID を使用して Azure でホストされているアプリのクライアント シークレット](#use-application-id-and-client-secret-for-non-azure-hosted-apps)セクション。
+* `Managed` &ndash; 使用する方法を示します[の Azure リソースの id を管理](/azure/active-directory/managed-identities-azure-resources/overview)アプリのコードまたは構成に格納されている資格情報のない Azure AD 認証を使用した Azure Key Vault にアプリを認証します。 管理対象 id 認証を使用する場合、Azure AD アプリケーション ID とパスワード (クライアント シークレット) は必要ありません。 `Managed`バージョンのサンプルを Azure にデプロイする必要があります。 ガイダンスに従って、 [Azure リソースの管理対象 id を使用して](#use-managed-identities-for-azure-resources)セクション。
 
 プリプロセッサ ディレクティブを使用してサンプル アプリを構成する方法の詳細 (`#define`) を参照してください<xref:index#preprocessor-directives-in-sample-code>します。
 
@@ -111,12 +111,12 @@ dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret"></a>アプリケーション ID とクライアント シークレットを使用して、
+## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>アプリケーション ID とクライアント シークレットを使用して、Azure でホストされているアプリ
 
-Azure AD は、構成、アプリケーション ID とパスワード (クライアント シークレット) を使用して、アプリが Azure の外部でホストされている場合、key vault に認証するには、Azure Key Vault とアプリ。
+Azure AD は、構成、Azure Key Vault と key vault に認証するアプリケーション ID とパスワード (クライアント シークレット) を使用するアプリ **、アプリが Azure の外部でホストされている**します。
 
 > [!NOTE]
-> 使用が推奨アプリケーション ID とパスワード (クライアント シークレット) を使用しては Azure でホストされているアプリ、サポート、[管理対象サービス Id (MSI) プロバイダー](#use-the-managed-service-identity-msi-provider) Azure でのアプリをホストする場合。 MSI は、これが、一般に安全なアプローチと見なされるため、アプリや、その構成で資格情報を格納する必要がありません。
+> 使用が推奨アプリケーション ID とパスワード (クライアント シークレット) を使用しては Azure でホストされているアプリでサポートされています、[の Azure リソースの id を管理](#use-managed-identities-for-azure-resources)Azure でのアプリをホストする場合。 管理対象 id では、これが、一般に安全なアプローチと見なされるため、アプリや、その構成で資格情報を格納する必要があります。
 
 サンプル アプリを使用して、アプリケーション ID とパスワード (クライアント シークレット) と、`#define`の上部にあるステートメント、 *Program.cs*に設定されているファイル`Basic`します。
 
@@ -155,11 +155,11 @@ Azure AD は、構成、アプリケーション ID とパスワード (クラ�
 
 アプリを実行すると、web ページには、読み込まれた、シークレットの値が表示されます。 開発環境でシークレット値を読み込むと、`_dev`サフィックス。 運用環境で、値を読み込むと、`_prod`サフィックス。
 
-## <a name="use-the-managed-service-identity-msi-provider"></a>管理対象サービス Id (MSI) プロバイダーを使用します。
+## <a name="use-managed-identities-for-azure-resources"></a>Azure リソースの管理対象 id を使用してください。
 
-Azure にデプロイされたアプリは、利用の管理対象サービス Id (MSI)、資格情報なし (アプリケーション ID とパスワード/クライアント シークレット)、アプリに格納されている Azure AD 認証を使用して Azure Key Vault に対する認証をアプリに許可されるができます。
+**Azure にデプロイされたアプリ**活用できる[の Azure リソースの id を管理](/azure/active-directory/managed-identities-azure-resources/overview)、資格情報なしの Azure AD 認証を使用して Azure Key Vault での認証にアプリを許可する (アプリケーション ID とPassword/Client シークレット)、アプリに格納されています。
 
-MSI を使用するサンプル アプリと、`#define`の上部にあるステートメント、 *Program.cs*に設定されているファイル`Managed`します。
+サンプル アプリは Azure リソースの管理対象 id を使用時に、`#define`の上部にあるステートメント、 *Program.cs*に設定されているファイル`Managed`します。
 
 アプリの資格情報コンテナー名を入力します。 *appsettings.json*ファイル。 アプリケーション ID とパスワード (クライアント シークレット) に設定すると、サンプル アプリが必要としない、`Managed`バージョンについては、これらの構成エントリは無視できます。 アプリが Azure にデプロイし、Azure に格納されている場合のみ、コンテナー名を使用して Azure Key Vault にアクセスするアプリで認証される、 *appsettings.json*ファイル。
 
@@ -177,7 +177,7 @@ az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secre
 
 サンプル アプリ:
 
-* インスタンスを作成、`AzureServiceTokenProvider`接続文字列を使用せずクラス。 接続文字列が指定されない場合、プロバイダーは、MSI からアクセス トークンを取得しようとします。
+* インスタンスを作成、`AzureServiceTokenProvider`接続文字列を使用せずクラス。 接続文字列が指定されない場合、プロバイダーは、Azure リソースの管理対象 id からアクセス トークンを取得しようとします。
 * 新しい`KeyVaultClient`で作成されたが、`AzureServiceTokenProvider`インスタンス トークンのコールバック。
 * `KeyVaultClient`の既定の実装のインスタンスを使用`IKeyVaultSecretManager`をすべてのシークレット値を読み込むし、二重ダッシュに置き換えられます (`--`) にコロン (`:`) キー名。
 

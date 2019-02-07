@@ -5,12 +5,12 @@ description: ASP.NET Core Identity なしでの cookie 認証を使用しての�
 ms.author: riande
 ms.date: 10/11/2017
 uid: security/authentication/cookie
-ms.openlocfilehash: f55b36cf3fc3b60e9d592348625f58ebaba90da7
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570114"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854381"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしでの cookie 認証を使用します。
 
@@ -53,7 +53,6 @@ ASP.NET Core Identity を使用する、次を参照してください。、 [Id
 | [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath?view=aspnetcore-2.0) | 302 検出 (URL リダイレクト) を指定するパスを提供してトリガーされたときに`HttpContext.ForbidAsync`します。 既定値は `/Account/AccessDenied` です。 |
 | [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer?view=aspnetcore-2.0) | 使用する発行者、[発行者](/dotnet/api/system.security.claims.claim.issuer)cookie 認証サービスによって作成されたすべての要求のプロパティ。 |
 | [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain?view=aspnetcore-2.0) | ドメイン名は、cookie が処理される場所です。 既定では、要求のホスト名です。 ブラウザーはのみ、一致するホスト名に、要求で cookie を送信します。 このドメインの任意のホストに使用できる cookie を調整することがあります。 たとえば、クッキーのドメインに設定`.contoso.com`で使用できるように`contoso.com`、 `www.contoso.com`、および`staging.www.contoso.com`します。 |
-| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration?view=aspnetcore-2.0) | 取得または cookie の有効期間を設定します。 現在、このオプションは機能しませんは ASP.NET Core 2.1 以降では無効になります。 使用して、`ExpireTimeSpan`クッキーの有効期限を設定するオプション。 詳細については、次を参照してください。 [CookieAuthenticationOptions.Cookie.Expiration の動作が明確](https://github.com/aspnet/Security/issues/1293)します。 |
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly?view=aspnetcore-2.0) | クッキーをサーバーにのみアクセスできる必要があるかどうかを示すフラグです。 この値を変更する`false`クッキーにアクセスするクライアント側スクリプトを許可し、アプリが必要 cookie の盗難に、アプリを開くことがあります、[クロス サイト スクリプティング (XSS)](xref:security/cross-site-scripting)脆弱性。 既定値は `true` です。 |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name?view=aspnetcore-2.0) | クッキーの名前を設定します。 |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path?view=aspnetcore-2.0) | 同じホスト名で実行されているアプリを分離するために使用します。 実行中のアプリがあれば`/app1`cookie をそのアプリに制限を設定して、`CookiePath`プロパティを`/app1`します。 これにより、クッキーが要求に使用可能なだけ`/app1`とその下にあるすべてのアプリ。 |
