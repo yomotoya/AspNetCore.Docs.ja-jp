@@ -3373,7 +3373,7 @@ items:
         href: single-page-application/overview/templates/emberjs-template.md
       - name: Hot Towel テンプレート
         href: single-page-application/overview/templates/hottowel-template.md
-- name: Web フック
+- name: Webhook
   href: webhooks/index.md
   items:
   - name: ソース コードと NuGet
