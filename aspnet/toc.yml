@@ -2916,7 +2916,7 @@ items:
         href: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md
       - name: Azure Worker ロールで Web API 2 をホストする
         href: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role.md
-    - name: 高度なトピック
+    - name: 詳細トピック
       href: web-api/overview/advanced/index.md
       items:
       - name: Web API 2 の構成
@@ -3373,7 +3373,7 @@ items:
         href: single-page-application/overview/templates/emberjs-template.md
       - name: Hot Towel テンプレート
         href: single-page-application/overview/templates/hottowel-template.md
-- name: Webhook
+- name: Web フック
   href: webhooks/index.md
   items:
   - name: ソース コードと NuGet
@@ -3400,7 +3400,7 @@ items:
   href: visual-studio/overview/2017/index.md
   items:
   - name: ソリューションのビルド パフォーマンスを最適化する
-    href: uid:visual-studio/overview/2017/optimize-build-perf
+    href: visual-studio/overview/2017/optimize-build-perf.md
 - name: Visual Studio 2013
   href: visual-studio/overview/2013/index.md
   items:
@@ -3465,7 +3465,7 @@ items:
     href: visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md
 - name: Entity Framework
   href: entity-framework.md
-- name: Identity
+- name: 同一。
   href: identity/index.md
   items:
   - name: 概要
@@ -3810,9 +3810,9 @@ items:
     href: whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md
 - name: API リファレンス
   href: api-ref.md
-ms.openlocfilehash: 32bc0de99f07ad72d4b09dd29ac3f316609b0c69
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 62f2efd95bb9712d56740a685659106eda21ace0
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667831"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103190"
