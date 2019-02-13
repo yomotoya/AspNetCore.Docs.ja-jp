@@ -3,14 +3,14 @@ title: ASP.NET Core Identity を構成します。
 author: AdrienTorris
 description: ASP.NET Core Identity の既定値を理解し、カスタム値を使用する Id プロパティを構成する方法について説明します。
 ms.author: riande
-ms.date: 08/14/2018
+ms.date: 02/11/2019
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 02441cd28c2a99eda7b50ed54f4437d4b52ca5d9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3213f669cbfccdcda7cc7c0142b8101e696678e6
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911946"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159514"
 ---
 # <a name="configure-aspnet-core-identity"></a>ASP.NET Core Identity を構成します。
 
@@ -175,3 +175,23 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 ::: moniker-end
 
 詳細については、次を参照してください。 [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions)します。
+
+## <a name="password-hasher-options"></a>パスワード Hasher オプション
+
+<xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions> 取得し、パスワードをハッシュ化するためのオプションを設定します。
+
+| オプション | 説明 |
+| ------ | ----------- |
+| <xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.CompatibilityMode> | 新しいパスワードをハッシュするときに使用される互換モード。 既定値は <xref:Microsoft.AspNetCore.Identity.PasswordHasherCompatibilityMode.IdentityV3> です。 呼ばれる、ハッシュされたパスワードの最初のバイトを*形式マーカー*パスワードのハッシュに使用されるハッシュ アルゴリズムのバージョンを指定します。 ハッシュ、パスワードを検証するときに、<xref:Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword*>メソッドは、最初のバイトに基づいて、適切なアルゴリズムを選択します。 クライアントは、パスワードのハッシュに使用されたアルゴリズムのバージョンのうちに関係なく認証できません。 互換モードを設定すると影響のハッシュ*新しいパスワード*します。 |
+| <xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.IterationCount> | PBKDF2 を使用してパスワードをハッシュするときに使用するイテレーションの数。 この値が使用されている場合にのみ、<xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.CompatibilityMode>に設定されている<xref:Microsoft.AspNetCore.Identity.PasswordHasherCompatibilityMode.IdentityV3>します。 値は正の整数で、既定値でなければなりません`10000`します。 |
+
+次の例では、<xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.IterationCount>に設定されている`12000`で`Startup.ConfigureServices`:
+
+```csharp
+// using Microsoft.AspNetCore.Identity;
+
+services.Configure<PasswordHasherOptions>(option =>
+{
+    option.IterationCount = 12000;
+});
+```
