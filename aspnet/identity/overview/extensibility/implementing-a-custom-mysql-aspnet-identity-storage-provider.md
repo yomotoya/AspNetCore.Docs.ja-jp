@@ -113,7 +113,7 @@ MySQL の記憶域プロバイダーを作成する手順に進むには、前�
 ### <a name="create-a-new-mvc-application-project-from-template"></a>テンプレートから新しい MVC アプリケーション プロジェクトを作成します。
 
 1. 右クリックして、 **AspNet.Identity.MySQL**ソリューションと**追加**、**新しいプロジェクト**
-2. **新しいプロジェクトの追加**ダイアログの  **Visual c#** し、左側の**Web**選び**ASP.NET Web アプリケーション**します。 プロジェクトに名前を**IdentityMySQLDemo**; [ok] をクリックします。  
+2. **新しいプロジェクトの追加**ダイアログの  **Visual C#** し、左側の**Web**選び**ASP.NET Web アプリケーション**します。 プロジェクトに名前を**IdentityMySQLDemo**; [ok] をクリックします。  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.jpg)
 3. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、既定のオプションで MVC テンプレートを選択します (を含む**個々 のユーザー アカウント**認証方法として) をクリック**OK**.![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)
