@@ -3,14 +3,14 @@ title: アカウントの確認と ASP.NET Core でのパスワードの回復
 author: rick-anderson
 description: 電子メールの確認とパスワードのリセットと ASP.NET Core アプリを構築する方法について説明します。
 ms.author: riande
-ms.date: 7/11/2018
+ms.date: 2/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "54444143"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56159409"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -76,7 +76,7 @@ dotnet build
 
 ## <a name="test-new-user-registration"></a>新規ユーザー登録をテストします。
 
-アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 登録を送信した後は、アプリにログインします。 チュートリアルの後半では、新しいユーザーが自分の電子メールが検証されるまでにログインできないため、コードが更新されます。
+アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。 この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 登録を送信した後は、アプリにログインします。 チュートリアルの後半では、自分の電子メールが検証されるまでに新しいユーザーがサインインできないように、コードが更新されます。
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
@@ -166,7 +166,7 @@ dotnet add package SendGrid
 
 次のコードを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
-* 追加`EmailSender`シングルトン サービスとして。
+* 追加`EmailSender`一時的なサービスとして。
 * 登録、`AuthMessageSenderOptions`構成インスタンス。
 
 [!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
@@ -195,8 +195,8 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 * アカウント確認用のリンクは、電子メールを確認します。 参照してください[デバッグ電子メール](#debug)電子メールが届かない場合。
 * 電子メールを確認するリンクをクリックします。
-* 電子メール アドレスとパスワードでログインします。
-* ログオフします。
+* 電子メール アドレスとパスワードでサインインします。
+* サインアウトします。
 
 ### <a name="view-the-manage-page"></a>ビューの管理 ページ
 
@@ -213,7 +213,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 * ログインしている場合は、選択**ログアウト**します。
 * 選択、**ログイン**リンクし、選択、**パスワードを忘れた場合でしょうか。** リンク。
 * アカウントを登録するために使用する電子メール アドレスを入力します。
-* パスワードをリセットするリンクを含む電子メールが送信されます。 電子メールを確認し、パスワードをリセットするリンクをクリックします。 パスワードが正常にリセットされると後、はの電子メール アドレスと新しいパスワードを使用してログインすることができます。
+* パスワードをリセットするリンクを含む電子メールが送信されます。 電子メールを確認し、パスワードをリセットするリンクをクリックします。 パスワードが正常にリセットされると後、はの電子メール アドレスと新しいパスワードでサインインすることができます。
 
 <a name="debug"></a>
 
@@ -246,7 +246,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ![Facebook を一覧表示する、外部ログイン ビューを管理します。](accconfirm/_static/fb.png)
 
-2 つのアカウントが統合されました。 いずれかのアカウントでログオンすることは。 ユーザーがソーシャル ログインの認証サービスがダウンしているか、自分のソーシャル アカウントにアクセスを紛失した可能性が高い場合に、ローカル アカウントを追加することができます。
+2 つのアカウントが統合されました。 いずれかのアカウントでサインインすることは。 ユーザーがソーシャル ログインの認証サービスがダウンしているか、自分のソーシャル アカウントにアクセスを紛失した可能性が高い場合に、ローカル アカウントを追加することができます。
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>サイトがユーザー アカウントの確認を有効にします。
 
