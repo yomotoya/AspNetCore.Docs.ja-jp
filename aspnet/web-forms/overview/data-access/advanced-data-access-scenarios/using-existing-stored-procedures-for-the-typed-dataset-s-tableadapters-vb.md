@@ -195,7 +195,7 @@ ObjectDataSource ウィザードを完了するとは、Visual Studio は各製�
 
 [!code-sql[Main](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb/samples/sample4.sql)]
 
-テンプレートを定義することで開始、`TRY...CATCH`コンス トラクターを初めて使用する SQL Server 2005 をブロックします。 使用するような`Try...Catch`Visual basic での SQL ブロック`TRY...CATCH`ブロック内のステートメントの実行、`TRY`ブロックします。 制御が移りますすぐに任意のステートメントでは、エラーが発生した場合、`CATCH`ブロックします。
+テンプレートを定義することで開始、`TRY...CATCH`コンス トラクターを初めて使用する SQL Server 2005 をブロックします。 使用するような`Try...Catch`Visual Basic での SQL ブロック`TRY...CATCH`ブロック内のステートメントの実行、`TRY`ブロックします。 制御が移りますすぐに任意のステートメントでは、エラーが発生した場合、`CATCH`ブロックします。
 
 その構成は、トランザクションでは、SQL ステートメントを実行するエラーがない場合、`COMMIT TRANSACTION`ステートメントが、変更をコミットし、トランザクションを完了します。 、エラーが発生、ステートメントのいずれかの場合は、、`ROLLBACK TRANSACTION`で、`CATCH`ブロックがトランザクションの開始前の状態にデータベースを返します。 ストアド プロシージャもを使用して、エラーを発生させる、 [RAISERROR コマンド](https://msdn.microsoft.com/library/ms178592.aspx)、原因となる、`SqlException`が、アプリケーションで発生します。
 
