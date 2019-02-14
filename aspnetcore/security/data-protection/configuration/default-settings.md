@@ -5,18 +5,18 @@ description: データ保護キーの管理と ASP.NET Core での有効期間�
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095100"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159212"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>データ保護キーの管理と ASP.NET Core での有効期間
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="key-management"></a>キー管理
+## <a name="key-management"></a>キーの管理
 
 アプリは、その運用環境を検出して、独自のキーの構成の処理を試行します。
 
@@ -26,6 +26,13 @@ ms.locfileid: "39095100"
    * ステージングや運用などの別のデプロイ スロットでは、キー リングが共有されません。 テスト B をたとえばステージング、実稼働のスワップまたは A を使用して、デプロイ スロット間をスワップする場合は/任意のアプリ データ保護を使用してキー リングを使用して、前のスロット内で格納されたデータを復号化することはできません。 これにより、ユーザーのデータ保護を使用して、その cookie を保護する標準の ASP.NET Core の cookie 認証を使用するアプリからログに記録します。 スロットに依存しないキー リングを希望する場合は、Azure Blob Storage、Azure Key Vault では、SQL ストアなど、外部キー リング プロバイダーを使用して、または Redis cache。
 
 1. キーに保存されるユーザー プロファイルを使用できる場合、 *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys*フォルダー。 オペレーティング システムが Windows の場合は、キーは DPAPI を使用して暗号化します。
+
+   アプリ プールの[setProfileEnvironment 属性](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)も有効にする必要があります。 `setProfileEnvironment` の既定値は `true` です。 一部のシナリオ (たとえば、Windows OS) で`setProfileEnvironment`に設定されている`false`します。 ユーザー プロファイル ディレクトリに保存されていないキーが必要です。
+
+   1. 移動し、 *%windir%/system32/inetsrv/config*フォルダー。
+   1. 開く、 *applicationHost.config*ファイル。
+   1. `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` 要素を探します。
+   1. 確認します、`setProfileEnvironment`属性が含まれていない、既定値、値を`true`明示的に属性の値を設定または`true`します。
 
 1. 場合は、アプリが IIS でホストされる、キーでは、ワーカー プロセス アカウントのみに対して特別なレジストリ キー HKLM レジストリに保存されます。 キーは DPAPI を使用して保存時に暗号化されます。
 
