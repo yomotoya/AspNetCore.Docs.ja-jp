@@ -3373,7 +3373,7 @@ items:
         href: single-page-application/overview/templates/emberjs-template.md
       - name: Hot Towel テンプレート
         href: single-page-application/overview/templates/hottowel-template.md
-- name: Web フック
+- name: Webhook
   href: webhooks/index.md
   items:
   - name: ソース コードと NuGet
@@ -3465,7 +3465,7 @@ items:
     href: visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md
 - name: Entity Framework
   href: entity-framework.md
-- name: 同一。
+- name: Identity
   href: identity/index.md
   items:
   - name: 概要
