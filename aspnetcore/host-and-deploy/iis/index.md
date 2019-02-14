@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 9392da14e589736b24790676c1c07c9964882737
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: 9f7fc5571f8d1a6e5e2d84779082abb02d2fb292
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428461"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159396"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -313,7 +313,7 @@ Windows ホスティング バンドルのインストーラーでインスト�
 
 1. ホスト システムで、アプリの公開フォルダーとファイルを格納するフォルダーを作成します。 アプリの展開レイアウトについては、「[ディレクトリ構造](xref:host-and-deploy/directory-structure)」のトピックを参照してください。
 
-1. **IIS マネージャー**の **[接続]** パネルでサーバーのノードを開きます。 **[サイト]** フォルダーを右クリックします。 コンテキスト メニューで **[Web サイトの追加]** を選択します。
+1. IIS マネージャーの **[接続]** パネルで、サーバーのノードを開きます。 **[サイト]** フォルダーを右クリックします。 コンテキスト メニューで **[Web サイトの追加]** を選択します。
 
 1. **[サイト名]** を指定し、**[物理パス]** にはアプリの配置フォルダーを設定します。 **[バインド]** の構成を指定して **[OK]** を選択し、Web サイトを作成します。
 
@@ -334,7 +334,7 @@ Windows ホスティング バンドルのインストーラーでインスト�
 
 1. *ASP.NET Core 2.2 以降*:[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)を使用する 64 ビット (x64) の[自己完結型展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合、32 ビット (x86) プロセス用のアプリケーション プールを無効にします。
 
-   IIS マネージャーの**アプリケーション プール**の **[操作]** サイド バーで、**[アプリケーション プールの既定値の設定]** または **[詳細設定]** を選択します。 **[32 ビット アプリケーションの有効化]** を探し、値を `False` に設定します。 この設定は[アウトプロセス ホスティング](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model)で展開されたアプリには影響しません。
+   IIS マネージャー > **[アプリケーション プール]** の **[操作]** サイドバーで、**[アプリケーション プールの既定値の設定]** または **[詳細設定]** を選択します。 **[32 ビット アプリケーションの有効化]** を探し、値を `False` に設定します。 この設定は[アウトプロセス ホスティング](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model)で展開されたアプリには影響しません。
 
 1. プロセス モデル ID に適切なアクセス許可があることを確認します。
 
@@ -410,7 +410,14 @@ IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用
 
 * **ユーザー プロファイルを読み込むための IIS アプリケーション プールを構成する**
 
-  この設定は、アプリ プールの **[詳細設定]** の **[プロセス モデル]** セクションにあります。 [ユーザー プロファイルの読み込み] を `True` に設定します。 これによりキーはユーザー プロファイル ディレクトリに格納され、DPAPI を使用して、アプリ プールで使うユーザー アカウントに固有のキーによって保護されます。
+  この設定は、アプリ プールの **[詳細設定]** の **[プロセス モデル]** セクションにあります。 **[ユーザー プロファイルの読み込み]** を `True` に設定します。 `True` に設定すると、キーはユーザー プロファイル ディレクトリに格納され、ユーザー アカウントに固有のキーと共にデータ保護 API を使って保護されます。 キーは *%LOCALAPPDATA%/ASP.NET/DataProtection-Keys* フォルダーに保存されます。
+
+  アプリ プールの [setProfileEnvironment 属性](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)も有効にする必要があります。 `setProfileEnvironment` の既定値は `true`です。 一部のシナリオ (たとえば、Windows OS) では、`setProfileEnvironment` は `false` に設定されます。 キーが期待どおりにユーザー プロファイル ディレクトリに格納されていない場合:
+
+  1. *%windir%/system32/inetsrv/config* フォルダーに移動します。
+  1. *applicationHost.config* ファイルを開きます。
+  1. `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` 要素を探します。
+  1. `setProfileEnvironment` 属性 (その規定値は `true` です) が存在しないことを確認するか、属性の値を明示的に `true` に設定します。
 
 * **ファイル システムをキー リング ストアとして使用する**
 
