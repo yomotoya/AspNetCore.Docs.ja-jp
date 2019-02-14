@@ -4,26 +4,36 @@ title: 検索 |Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 31fd35ac63f3eb31d824e1710833ad83a0852ac9
-ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712264"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248382"
 ---
 <a name="search"></a>検索
 ====================
-によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Search メソッドとの検索ビューを追加します。
 
 このセクションでは、検索機能を追加します、`Index`できるようにするアクション メソッドがムービーをジャンルで名前を検索します。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+このセクションのスクリーン ショットを一致させるのには、(f5 キーを押して) アプリケーションを実行し、データベースに次の動画を追加する必要があります。
+
+| タイトル | リリース日 | Genre | 価格 |
+| ----- | ------------ | ----- | ----- |
+| Ghostbusters | 6/8/1984 | コメディ | 6.99 |
+| Ghostbusters II | 6/16/1989 | コメディ | 6.99 |
+| Apes の地球 | 3/27/1986 | アクション | 5.99 |
+
 
 ## <a name="updating-the-index-form"></a>インデックスのフォームを更新しています
 
@@ -68,7 +78,7 @@ ms.locfileid: "55712264"
 
 ![](adding-search/_static/image2.png)
 
-ただし、ユーザーがムービーを検索するたびに URL の変更を求めることはできません。 これを追加しますに役立つ UI でムービーをフィルターしています。 シグネチャを変更した場合、`Index`ルート バインド ID パラメーターを渡す方法をテストする方法を変更することができるように、`Index`という名前の文字列パラメーターを受け取ります`searchString`:
+ただし、ユーザーがムービーを検索するたびに URL の変更を求めることはできません。 そのため、ここでは UI を追加して、ムービーをフィルターできるようにします。 シグネチャを変更した場合、`Index`ルート バインド ID パラメーターを渡す方法をテストする方法を変更することができるように、`Index`という名前の文字列パラメーターを受け取ります`searchString`:
 
 [!code-csharp[Main](adding-search/samples/sample7.cs)]
 
@@ -110,7 +120,8 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 追加した場合、`HttpPost`のバージョン、`Index`メソッド、今すぐ削除しています。
 
-次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 `Index` メソッドを次のコードで置き換えます。
+次に、ユーザーがムービー ジャンルによる検索できるようにするための機能を追加します。 
+  `Index` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](adding-search/samples/sample11.cs)]
 
@@ -120,7 +131,7 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-コードを使用して、`AddRange`メソッドがジェネリックの`List`個々 のすべてのジャンルを一覧に追加するコレクション。 (なし、`Distinct`修飾子は、重複するジャンルが追加されます: たとえば、コメディ サンプルでは 2 回追加されます)。 コードでジャンルのリストを格納し、`ViewBag.MovieGenre`オブジェクト。 カテゴリ データ (このようなムービー ジャンルの) として格納する、 [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx)オブジェクト、 `ViewBag`、MVC アプリケーションの一般的なアプローチには、ドロップダウン ボックスでカテゴリ データにアクセスします。
+コードを使用して、`AddRange`メソッドがジェネリックの`List`個々 のすべてのジャンルを一覧に追加するコレクション。 (なし、`Distinct`修飾子は、重複するジャンルが追加されます: たとえば、コメディ サンプルでは 2 回追加されます)。 コードでジャンルのリストを格納し、`ViewBag.MovieGenre`オブジェクト。 カテゴリ データ (このようなムービー ジャンル) として格納する、 [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx)オブジェクト、 `ViewBag`、MVC アプリケーションの一般的なアプローチには、ドロップダウン ボックスでカテゴリ データにアクセスします。
 
 次のコードを確認する方法を示しています、`movieGenre`パラメーター。 空ではない、コードをさらには、指定されたジャンルを選択したムービーを制限するムービーのクエリを制約します。
 

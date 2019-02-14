@@ -5,7 +5,7 @@ ASP.NET Core の利点は次のとおりです。
 * [Razor Pages](xref:razor-pages/index)により、ページ コーディングに重点を置いたシナリオがより簡略化され、その生産性が高められます。
 * Windows、macOS、Linux 上で開発および実行できること。
 * オープン ソースで[コミュニティ重視](https://live.asp.net/)。
-* [最新のクライアント側フレームワーク](xref:client-side/index)と開発ワークフローの統合。
+* [最新のクライアント側フレームワーク](xref:razor-components/index)と開発ワークフローの統合。
 * クラウド対応で環境ベースの[構成システム](xref:fundamentals/configuration/index)。
 * 組み込まれている[依存性の注入](xref:fundamentals/dependency-injection)。
 * 軽量で[高パフォーマンス](https://github.com/aspnet/benchmarks)のモジュール化された HTTP 要求パイプライン。

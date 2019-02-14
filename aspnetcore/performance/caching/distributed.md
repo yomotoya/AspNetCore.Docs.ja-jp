@@ -4,14 +4,14 @@ author: guardrex
 description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるために、ASP.NET Core の分散キャッシュを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/19/2018
+ms.date: 02/13/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: d80cde372535aa04604ce0cd5a731a1448515093
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: a157eb075874d2118e3e34b51410b539a1ec37df
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253009"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248589"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>ASP.NET Core でのキャッシュを分散
 
@@ -76,7 +76,7 @@ SQL Server を使用する分散キャッシュ、パッケージ参照を追加
 
 ### <a name="distributed-memory-cache"></a>分散メモリ キャッシュ
 
-メモリの分散キャッシュ (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) framework 提供の実装は、`IDistributedCache`メモリ内の項目を格納します。 分散メモリ キャッシュでは、実際の分散キャッシュはありません。 アプリが実行されているサーバーで、アプリのインスタンスによってキャッシュされた項目が格納されます。
+メモリの分散キャッシュ (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) framework 提供の実装は、<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>メモリ内の項目を格納します。 分散メモリ キャッシュでは、実際の分散キャッシュはありません。 アプリが実行されているサーバーで、アプリのインスタンスによってキャッシュされた項目が格納されます。
 
 メモリの分散キャッシュでは、便利な実装です。
 
@@ -149,13 +149,13 @@ Redis をローカル コンピューターにインストールするには
 
 ## <a name="use-the-distributed-cache"></a>分散キャッシュを使用します。
 
-使用する、<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>インターフェイスのインスタンスを要求`IDistributedCache`、アプリで任意のコンス トラクターから。 によって、インスタンスが提供される[依存関係の注入 (DI)](xref:fundamentals/dependency-injection)します。
+使用する、<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>インターフェイスのインスタンスを要求<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>、アプリで任意のコンス トラクターから。 によって、インスタンスが提供される[依存関係の注入 (DI)](xref:fundamentals/dependency-injection)します。
 
-アプリの起動時、`IDistributedCache`には挿入`Startup.Configure`します。 使用して、現在の時刻にキャッシュされている<xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime>(詳細については、次を参照してください。 [Web ホスト: IApplicationLifetime インターフェイス](xref:fundamentals/host/web-host#iapplicationlifetime-interface))。
+アプリの起動時、<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>には挿入`Startup.Configure`します。 使用して、現在の時刻にキャッシュされている<xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime>(詳細については、次を参照してください。 [Web ホスト。IApplicationLifetime インターフェイス](xref:fundamentals/host/web-host#iapplicationlifetime-interface))。
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
 
-サンプル アプリは挿入`IDistributedCache`に、`IndexModel`インデックス ページで使用するためです。
+サンプル アプリは挿入<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>に、`IndexModel`インデックス ページで使用するためです。
 
 インデックス ページが読み込まれるたびにキャッシュされる時間のキャッシュがチェック`OnGetAsync`します。 キャッシュされる時間が期限切れで、時間が表示されます。 前回のキャッシュ時間 (このページが読み込まれた最後の時刻) にアクセスした 20 秒が経過している場合、ページが表示されます*キャッシュされた期限切れ*します。
 
@@ -164,13 +164,13 @@ Redis をローカル コンピューターにインストールするには
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
 
 > [!NOTE]
-> シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込み実装のため)。
+> シングルトンまたはスコープ ベースの有効期間を使用する必要はありません<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>インスタンス (少なくとも組み込み実装のため)。
 >
-> 作成することも、 `IDistributedCache` 、DI を使用する代わりに 1 つにする必要がありますが、インスタンスを作成するコードでは、コードは厄介なをテストする任意の場所のインスタンスに違反して、 [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)します。
+> 作成することも、 <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> 、DI を使用する代わりに 1 つにする必要がありますが、インスタンスを作成するコードでは、コードは厄介なをテストする任意の場所のインスタンスに違反して、 [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)します。
 
 ## <a name="recommendations"></a>推奨事項
 
-実装を決定する際に`IDistributedCache`アプリに最適な次を検討してください。
+実装を決定する際に<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>アプリに最適な次を検討してください。
 
 * 既存のインフラストラクチャ
 * パフォーマンスの要件

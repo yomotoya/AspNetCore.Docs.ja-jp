@@ -2,26 +2,19 @@
 title: ASP.NET Core で Angular プロジェクト テンプレートを使用する
 author: SteveSandersonMS
 description: Angular と Angular CLI 用の ASP.NET Core シングル ページ アプリケーション (SPA) プロジェクト テンプレートの使用を開始する方法を説明します。
-monikerRange: '>= aspnetcore-2.0'
-ms.author: scaddie
+monikerRange: '>= aspnetcore-2.1'
+ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 8283fe9e96acb57942040dd4c90fabd204a19663
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326044"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248122"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core で Angular プロジェクト テンプレートを使用する
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> このドキュメントは、ASP.NET Core 2.0 に含まれている Angular プロジェクト テンプレートについて説明するものではありません。 手動で更新できる新しい Angular テンプレートについて説明するものです。 このテンプレートは、ASP.NET Core 2.1 に既定で含まれています。
-
-::: moniker-end
 
 更新された Angular プロジェクト テンプレートは、Angular と Angular CLI を使用してリッチなクライアント側ユーザー インターフェイス (UI) を実装する ASP.NET Core アプリのための便利な開始点を提供します。
 
@@ -29,17 +22,7 @@ ms.locfileid: "49326044"
 
 ## <a name="create-a-new-app"></a>新しいアプリを作成する
 
-::: moniker range="= aspnetcore-2.0"
-
-ASP.NET Core 2.0 を使用している場合は、[更新された Angular プロジェクト テンプレートをインストールしている](xref:spa/index#installation)ことを確認します。
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 ASP.NET Core 2.1 がインストールされている場合は、Angular プロジェクト テンプレートをインストールする必要はありません。
-
-::: moniker-end
 
 コマンド プロンプトで `dotnet new angular` コマンドを使用して、空のディレクトリの中に新しいプロジェクトを作成します。 たとえば、次のコマンドは、*my-new-app* ディレクトリにアプリを作成し、そのディレクトリに切り替えます。
 
@@ -70,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 ブラウザーでこの URL に移動します。
 
-アプリは、Angular CLI サーバーのインスタンスをバックグラウンドで開始します。 次のようなメッセージがログに記録されます。*NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/*。 このメッセージは無視してください。それは、結合された ASP.NET Core と Angular CLI アプリの URLでは**ありません**。
+アプリは、Angular CLI サーバーのインスタンスをバックグラウンドで開始します。 次のようなメッセージがログに記録されます。*NG ライブ開発サーバーが localhost でリッスンしている:&lt;otherport&gt;でブラウザーを開いて http://localhost:&lt; otherport&gt;/* します。 このメッセージは無視してください。それは、結合された ASP.NET Core と Angular CLI アプリの URLでは**ありません**。
 
 ---
 
@@ -96,7 +79,7 @@ cd ClientApp
 
 ## <a name="install-npm-packages"></a>npm パッケージをインストールする
 
-サードパーティ製の npm パッケージをインストールするには、*ClientApp* サブディレクトリでコマンド プロンプトを使用します。 例えば:
+サードパーティ製の npm パッケージをインストールするには、*ClientApp* サブディレクトリでコマンド プロンプトを使用します。 例:
 
 ```console
 cd ClientApp

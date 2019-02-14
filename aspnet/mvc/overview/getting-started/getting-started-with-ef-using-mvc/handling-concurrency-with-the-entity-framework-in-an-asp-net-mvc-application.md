@@ -4,18 +4,21 @@ title: 'チュートリアル: ASP.NET MVC 5 アプリでの EF による同時�
 description: このチュートリアルでは、オプティミスティック同時実行制御を使用して、複数のユーザーが同時に同じエンティティを更新するときの競合を処理する方法を示します。
 author: tdykstra
 ms.author: riande
-ms.date: 01/21/2019
 ms.topic: tutorial
+ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2b41b51de5fd6d87b9905ba2bb3ddf7cedb47e69
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889835"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248304"
 ---
+<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>ASP.NET MVC 5 アプリケーション (10/12) では、Entity Framework 6 で同時実行の処理
+====================
+
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>チュートリアル: ASP.NET MVC 5 アプリでの EF による同時実行を処理します。
 
 前のチュートリアルでは、データを更新する方法について説明しました。 このチュートリアルでは、オプティミスティック同時実行制御を使用して、複数のユーザーが同時に同じエンティティを更新するときの競合を処理する方法を示します。 使用する web ページを変更する、`Department`エンティティ同時実行エラーを処理するようにします。 次の図は Edit ページと Delete ページのものです。コンカレンシーで競合が発生すると、メッセージが表示されます。
@@ -26,12 +29,14 @@ ms.locfileid: "54889835"
 
 このチュートリアルでは、次の作業を行いました。
 
+
 > [!div class="checklist"]
 > * 同時実行の競合について説明します
 > * オプティミスティック同時実行制御を追加します。
 > * 部門のコント ローラーを変更します。
 > * テスト同時実行の処理
 > * [削除] ページを更新する
+
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

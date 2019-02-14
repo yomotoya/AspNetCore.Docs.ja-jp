@@ -3,14 +3,14 @@ title: ASP.NET MVC から ASP.NET Core MVC への移行します。
 author: ardalis
 description: ASP.NET Core mvc、ASP.NET MVC プロジェクトの移行を開始する方法について説明します。
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 02/13/2019
 uid: migration/mvc
-ms.openlocfilehash: 7c9d927bbd06f96f130d53e946a2963b5804960b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 2ca51a145243444722ad8081fd8cdbb65d72b53a
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505740"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248044"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行します。
 
@@ -27,9 +27,9 @@ ms.locfileid: "51505740"
 
 ![Visual Studio の新しいプロジェクト ダイアログ ボックス](mvc/_static/new-project.png)
 
-![新しい Web アプリケーション ダイアログ: ASP.NET テンプレート パネルで選択した MVC プロジェクト テンプレート](mvc/_static/new-project-select-mvc-template.png)
+![新しい Web アプリケーション ダイアログ:ASP.NET テンプレート パネルで選択した MVC プロジェクト テンプレート](mvc/_static/new-project-select-mvc-template.png)
 
-*省略可能:* からソリューションの名前を変更*WebApp1*に*Mvc5*します。 Visual Studio は、新しいソリューション名を表示します (*Mvc5*)、ことが容易に、次のプロジェクトからこのプロジェクトに指示します。
+*省略可能。* ソリューションからの名前を変更*WebApp1*に*Mvc5*します。 Visual Studio は、新しいソリューション名を表示します (*Mvc5*)、ことが容易に、次のプロジェクトからこのプロジェクトに指示します。
 
 ## <a name="create-the-aspnet-core-project"></a>ASP.NET Core プロジェクトを作成します。
 
@@ -37,9 +37,9 @@ ms.locfileid: "51505740"
 
 ![[新しいプロジェクト] ダイアログ](mvc/_static/new_core.png)
 
-![新しい ASP.NET Web アプリケーション ダイアログ: ASP.NET Core テンプレート パネルで選択した空のプロジェクト テンプレート](mvc/_static/new-project-select-empty-aspnet5-template.png)
+![新しい ASP.NET Web アプリケーション ダイアログ:ASP.NET Core テンプレート パネルで選択した空のプロジェクト テンプレート](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *省略可能:* 新しい ASP.NET Core アプリを使用して、作成、 *Web アプリケーション*プロジェクト テンプレート。 プロジェクトに名前を*WebApp1*の認証オプションを選択します**個々 のユーザー アカウント**します。 このアプリの名前を変更*FullAspNetCore*します。 変換には、このプロジェクトを保存する時間を作成します。 最終的な結果を参照してください。 または、変換のプロジェクトにコードをコピーするテンプレートによって生成されたコードを確認することができます。 テンプレートによって生成されたプロジェクトと比較する変換ステップを行き詰まった場合にも便利です。
+* *省略可能。* 新しい ASP.NET Core アプリを作成、 *Web アプリケーション*プロジェクト テンプレート。 プロジェクトに名前を*WebApp1*の認証オプションを選択します**個々 のユーザー アカウント**します。 このアプリの名前を変更*FullAspNetCore*します。 変換には、このプロジェクトを保存する時間を作成します。 最終的な結果を参照してください。 または、変換のプロジェクトにコードをコピーするテンプレートによって生成されたコードを確認することができます。 テンプレートによって生成されたプロジェクトと比較する変換ステップを行き詰まった場合にも便利です。
 
 ## <a name="configure-the-site-to-use-mvc"></a>MVC を使用するサイトを構成します。
 
@@ -149,7 +149,7 @@ ASP.NET MVC、古いプロジェクトは[ブートス トラップ](https://get
 
 * 作成、 *Views/shared*フォルダー。
 
-* *省略可能:* コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー*に ASP.NET Core プロジェクトのフォルダー *ビュー*フォルダー。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイルは、すべてのビュー ファイルの名前空間を提供しに移行する[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)します。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルは ASP.NET Core の新機能です。
+* *省略可能。* コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー*に ASP.NET Core プロジェクトのフォルダー*ビュー*フォルダー。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイルは、すべてのビュー ファイルの名前空間を提供しに移行する[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)します。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルは ASP.NET Core の新機能です。
 
 * コピー、 *_Layout.cshtml*ファイルから以前の ASP.NET MVC プロジェクトの*Views/shared*に ASP.NET Core プロジェクトのフォルダー *Views/shared*フォルダー。
 
@@ -188,7 +188,7 @@ JQuery と JavaScript のブートス トラップの包含の置換マークア
 
 ブラウザーでサイトを表示します。 それを場所に必要なスタイルを使用して正しく読み込むようになりましたする必要があります。
 
-* *省略可能:* 新しいレイアウト ファイルを使用してお試したい場合があります。 このプロジェクトからレイアウト ファイルをコピーすることができます、 *FullAspNetCore*プロジェクト。 新しいレイアウト ファイルを使用して[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)あり、その他の改善。
+* *省略可能。* 新しいレイアウト ファイルを使用してお試しくださいする可能性があります。 このプロジェクトからレイアウト ファイルをコピーすることができます、 *FullAspNetCore*プロジェクト。 新しいレイアウト ファイルを使用して[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)あり、その他の改善。
 
 ## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
@@ -204,5 +204,5 @@ ASP.NET Core は、web アプリで未処理の例外を HTTP 500 エラー応�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [クライアント側の開発](xref:client-side/index)
-* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)
+* <xref:razor-components/index>
+* <xref:mvc/views/tag-helpers/intro>

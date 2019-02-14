@@ -4,17 +4,17 @@ title: 'チュートリアル: EF Database First の MVC 5 の使用の概要し
 description: このチュートリアルで開始する方法、既存データベースにあり、ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/28/2019
+ms.date: 01/15/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667740"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248226"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>チュートリアル: EF Database First の MVC 5 の使用の概要します。
 
@@ -33,17 +33,16 @@ MVC、Entity Framework、および ASP.NET のスキャフォールディング�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="introduction"></a>はじめに
-
-このチュートリアルは、データベースがあり、そのデータベースのフィールドに基づく web アプリケーションのコードを生成するような状況を説明します。 このアプローチには、Database First の開発が呼び出されます。 既存のデータベースがあるまだない場合は、データ クラスを定義し、クラスのプロパティからデータベースを生成するには Code First の開発と呼ばれるアプローチを代わりに使用できます。
 
 ## <a name="set-up-the-database"></a>データベースを設定します。
 
 場合、既存のデータベース環境を模倣するためには最初に自動的に入力データ、データベースが作成され、データベースに接続する web アプリケーションを作成し。
 
-このチュートリアルは、LocalDB を使用して開発されました。 LocalDB は、代わりに既存のデータベース サーバーを使用することができますが、によって、バージョンの Visual Studio とデータベースの種類では、すべて Visual Studio でデータ ツールの可能性がありますがサポートされません。 ツールが、データベースの利用できない場合は、データベースの管理スイートに含まれるデータベース固有の手順の一部を実行する必要があります。
+
+このチュートリアルは、Visual Studio 2017 で LocalDB を使用して開発されました。 LocalDB は、代わりに既存のデータベース サーバーを使用することができますが、によって、バージョンの Visual Studio とデータベースの種類では、すべて Visual Studio でデータ ツールの可能性がありますがサポートされません。 ツールが、データベースの利用できない場合は、データベースの管理スイートに含まれるデータベース固有の手順の一部を実行する必要があります。
+
 
 Visual Studio のバージョンのデータベース ツールの問題があれば、データベース ツールの最新バージョンをインストールしておくことを確認します。 更新またはデータベース ツールをインストールする方法については、次を参照してください。 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027)します。
 

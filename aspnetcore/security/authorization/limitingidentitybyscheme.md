@@ -5,12 +5,12 @@ description: この記事では、複数の認証方法を使用する場合は�
 ms.author: riande
 ms.date: 10/22/2018
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: fbe9f32e01a214f41b5a6e9f43e8fdee5fc612df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 778bb61f472ab2e76f85da5999d3c79238188f19
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089397"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248200"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET Core での特定のスキームで承認します。
 
@@ -18,7 +18,7 @@ ms.locfileid: "50089397"
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-認証サービスが認証時に構成されている場合は、認証方式がという名前です。 例えば:
+認証サービスが認証時に構成されている場合は、認証方式がという名前です。 例:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-認証方式は、認証ミドルウェアが認証時に構成されている場合に名前です。 例えば:
+認証方式は、認証ミドルウェアが認証時に構成されている場合に名前です。 例:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -77,7 +77,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 ## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Authorize 属性を持つスキームを選択します。
 
-承認、時点では、アプリは、使用するハンドラーを示します。 使用する認証スキームのコンマ区切りの一覧を渡すことによって、アプリは承認ハンドラーを選択して`[Authorize]`します。 `[Authorize]`属性は、認証方式、または、既定値が構成されているかどうかに関係なく使用するスキームを指定します。 例えば:
+承認、時点では、アプリは、使用するハンドラーを示します。 使用する認証スキームのコンマ区切りの一覧を渡すことによって、アプリは承認ハンドラーを選択して`[Authorize]`します。 `[Authorize]`属性は、認証方式、または、既定値が構成されているかどうかに関係なく使用するスキームを指定します。 例:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -182,7 +182,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!NOTE]
 > 既定の認証スキームは 1 つだけの JWT ベアラー認証に登録されて`JwtBearerDefaults.AuthenticationScheme`します。 追加の認証は、一意の認証スキームを登録することができます。
 
-次の手順では、両方の認証方式を受け入れるように既定の承認ポリシーを更新します。 例えば:
+次の手順では、両方の認証方式を受け入れるように既定の承認ポリシーを更新します。 例:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -201,6 +201,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-既定の承認ポリシーがオーバーライドされると、単純なを使用することは`[Authorize]`コント ローラー内の属性。 コント ローラーは、最初または 2 番目の発行者によって発行された JWT に、要求を受け入れます。
+使用することは、既定の承認ポリシーがオーバーライドされると、`[Authorize]`コント ローラー内の属性。 コント ローラーは、最初または 2 番目の発行者によって発行された JWT に、要求を受け入れます。
 
 ::: moniker-end

@@ -4,18 +4,22 @@ title: 'チュートリアル: ASP.NET MVC アプリで EF で関連データを
 description: このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは外部キー フィールドまたはナビゲーション プロパティを更新することで行うことができます。
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/19/2019
 ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: daefbcea39dc341c6fc72eb344b05eb2dbf0c3ba
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 1ef4242ff3bd1dd86f4d58bd04ba08e8b90fdaa4
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889848"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248278"
 ---
+<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework で関連データの更新
+====================
+
+
 # <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>チュートリアル: ASP.NET MVC アプリで EF で関連データを更新します。
 
 前のチュートリアルでは、関連するデータが表示されます。 このチュートリアルでは、関連するデータを更新します。 ほとんどのリレーションシップは、これは外部キー フィールドまたはナビゲーション プロパティを更新することで行うことができます。 多対多のリレーションシップで Entity Framework は結合テーブルを直接公開を追加し、該当するナビゲーション プロパティからエンティティを削除するようにします。
@@ -124,9 +128,12 @@ Course ビューは、department フィールドのドロップダウン リス�
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-参照を`RetryLimitExceededException`が必要です、`using`ステートメント。 これを追加するポイント`RetryLimitExceededException`します。 問題の説明が表示されます。 選択**考えられる修正内容を表示する** をクリックし、 **System.Data.Entity.Infrastructure; を使用して**します。
+参照を`RetryLimitExceededException`が必要です、`using`ステートメントの追加-マウス カーソルを置く;`RetryLimitExceededException`します。 次のようなメッセージが表示されます。![ 例外メッセージを再試行してください。](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 
-![再試行の例外を解決するには](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
+
+選択**potentital 修正内容を表示**、し**System.Data.Entity.Infrastructure を使用します。**
+
+![再試行の例外を解決するには](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 このコードは次のことを行います。
 
