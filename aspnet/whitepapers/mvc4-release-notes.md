@@ -272,7 +272,7 @@ ASP.NET MVC 4 の Release Candidate のリリース ノートはここにあり�
 
     **必要な更新プログラム**
 
-  1. ルートの Web.config ファイルでは、新しい追加*&lt;appSettings&gt;* キーを持つエントリ*webPages:Version*値*1.0.0.0*します。 
+  1. ルートの Web.config ファイルでは、新しい追加 *&lt;appSettings&gt;* キーを持つエントリ*webPages:Version*値*1.0.0.0*します。 
 
       [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
   2. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 名前をもう一度右クリックし、編集*ProjectName*.csproj します。

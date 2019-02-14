@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: dbfb63bb7406ee8e20ae25b366162702ac87942c
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 3e266bc435ff7e4a15655276c581ac171f0de47c
+ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236459"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55712277"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
@@ -51,7 +51,8 @@ ms.locfileid: "55236459"
 
    * タグ ヘルパーは、ルート クラス名の要素 (クラス名部分から *TagHelper* 部分を引いたもの) をターゲットとする名前付け規則です。 この例では、**EmailTagHelper** のルート名は *email* となるため、`<email>` タグがターゲットとなります。 この命名規則は、ほとんどのタグ ヘルパーで機能します。オーバーライドの方法については、後述します。
 
-   * `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper` クラスはタグ ヘルパーを記述するためのメソッドとプロパティを提供します。
+   * 
+  `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper` クラスはタグ ヘルパーを記述するためのメソッドとプロパティを提供します。
 
    * オーバーライドされた `Process` メソッドは、実行時のタグ ヘルパーの動作を制御します。 `TagHelper` クラスには、同じパラメーターを使用する非同期バージョン (`ProcessAsync`) も用意されています。
 
@@ -227,7 +228,7 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
    > [!NOTE]
    > 終了タグを持つ次のマークアップを使用して、タグ ヘルパー内の `TagMode.StartTagAndEndTag` を持つ行を削除できます。
    >
-   > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=13-18)]
+   > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=20-21)]
 
 ## <a name="condition-tag-helper"></a>条件タグ ヘルパー
 

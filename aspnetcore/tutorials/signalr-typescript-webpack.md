@@ -4,14 +4,14 @@ author: ssougnez
 description: このチュートリアルでは、クライアントが TypeScript で記述された ASP.NET Core SignalR Web アプリをバンドルおよびビルドするために Webpack を構成します。
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 02/11/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 8292ab2e0ad1f5c67ac7f15c280b49700f6717ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: aaf9aa59928ed6b17bc0586d97dbdefc9e30362c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836325"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102953"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript と Webpack で ASP.NET Core SignalR を使用する
 
@@ -80,13 +80,13 @@ dotnet new web -o SignalRWebPack
 1. 必要な npm パッケージをインストールします。 プロジェクト ルートで、次のコマンドを実行します。
 
     ```console
-    npm install -D -E clean-webpack-plugin@0.1.19 css-loader@0.28.11 html-webpack-plugin@3.2.0 mini-css-extract-plugin@0.4.0 ts-loader@4.4.1 typescript@2.9.2 webpack@4.12.0 webpack-cli@3.0.6
+    npm install -D -E clean-webpack-plugin@1.0.1 css-loader@2.1.0 html-webpack-plugin@4.0.0-beta.5 mini-css-extract-plugin@0.5.0 ts-loader@5.3.3 typescript@3.3.3 webpack@4.29.3 webpack-cli@3.2.3
     ```
 
     注目するべきコマンドの詳細:
 
     * バージョン番号は、各パッケージ名の `@` 記号の後に続きます。 npm によって、これらの特定のパッケージ バージョンがインストールされます。
-    * `-E` オプションは、[セマンティック バージョニング](https://semver.org/)範囲演算子を *package.json* に書き込む npm の既定の動作を無効にします。 たとえば、`"webpack": "4.12.0"` が `"webpack": "^4.12.0"` の代わりに使用されています。 このオプションにより、新しいパッケージ バージョンへの予期しないアップグレードが防止されます。
+    * `-E` オプションは、[セマンティック バージョニング](https://semver.org/)範囲演算子を *package.json* に書き込む npm の既定の動作を無効にします。 たとえば、`"webpack": "4.29.3"` が `"webpack": "^4.29.3"` の代わりに使用されています。 このオプションにより、新しいパッケージ バージョンへの予期しないアップグレードが防止されます。
 
     詳細については、[npm-install](https://docs.npmjs.com/cli/install) の公式ドキュメントを参照してください。
 
