@@ -276,7 +276,7 @@ JQuery 1.9/Knockout 2.2.1 更新プログラム、既定の MVC SPA プロジェ
 
 ファイル todo.model.js  
  todolist(data) の関数を追加次。  
- **self.isSelected ko.observable(false); を =**
+ **self.isSelected = ko.observable(false);**
 
 todoList.prototype.addTodo を関数を次に黒くテキストを追加します。  
  **self.isSelected(true);**  
