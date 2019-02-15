@@ -10,8 +10,8 @@ items:
   - name: .NET Core と .NET Framework の比較
     href: /dotnet/standard/choosing-core-framework-server
 - uid: getting-started
-  name: はじめに
-- name: 新着情報
+  name: 作業開始
+- name: 新機能
   items:
   - uid: aspnetcore-2.2
     name: 2.2 の新機能
@@ -70,7 +70,7 @@ items:
   - uid: fundamentals/configuration/options
     name: オプション
   - uid: fundamentals/logging/index
-    name: ログ
+    name: ログの記録
   - uid: fundamentals/error-handling
     name: エラーの処理
   - uid: fundamentals/middleware/index
@@ -98,7 +98,7 @@ items:
       - uid: tutorials/razor-pages/index
         name: 概要
       - uid: tutorials/razor-pages/razor-pages-start
-        name: はじめに
+        name: 作業開始
       - uid: tutorials/razor-pages/model
         name: モデルを追加する
       - uid: tutorials/razor-pages/page
@@ -131,7 +131,7 @@ items:
       name: チュートリアル
       items:
       - uid: tutorials/first-mvc-app/start-mvc
-        name: はじめに
+        name: 作業開始
       - uid: tutorials/first-mvc-app/adding-controller
         name: コントローラーの追加
       - uid: tutorials/first-mvc-app/adding-view
@@ -151,7 +151,7 @@ items:
       - uid: tutorials/first-mvc-app/details
         name: Details メソッドと Delete メソッドの確認
     - uid: mvc/views/overview
-      name: ビュー
+      name: Views
     - uid: mvc/views/partial
       name: 部分ビュー
     - uid: mvc/controllers/actions
@@ -193,10 +193,10 @@ items:
       - name: フォーム
         href: mvc/views/working-with-forms.md#the-form-tag-helper
       - uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-        name: 画像
+        name: イメージ
       - name: 入力
         href: mvc/views/working-with-forms.md#the-input-tag-helper
-      - name: ラベル
+      - name: group1
         href: mvc/views/working-with-forms.md#the-label-tag-helper
       - uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
         name: Partial
@@ -218,7 +218,7 @@ items:
     name: モデルの検証
   - uid: mvc/views/razor
     name: Razor の構文
-  - name: 詳細
+  - name: 詳細設定
     items:
     - uid: mvc/views/view-components
       name: ビュー コンポーネント
@@ -323,7 +323,7 @@ items:
   - uid: signalr/messagepackhubprotocol
     name: MessagePack ハブ プロトコル
   - uid: signalr/streaming
-    name: ストリーミング
+    name: ストリーム
   - uid: signalr/version-differences
     name: SignalR と SignalR Core の比較
   - uid: fundamentals/websockets
@@ -349,7 +349,7 @@ items:
   - uid: test/troubleshoot
     name: トラブルシューティング
   - uid: fundamentals/logging/index
-    name: ログ
+    name: ログの記録
 - name: データ アクセス
   items:
   - name: チュートリアル
@@ -359,7 +359,7 @@ items:
       - uid: data/ef-rp/index
         name: 概要
       - uid: data/ef-rp/intro
-        name: はじめに
+        name: 作業開始
       - uid: data/ef-rp/crud
         name: 作成、読み取り、更新、および削除
       - uid: data/ef-rp/sort-filter-page
@@ -383,7 +383,7 @@ items:
       - uid: data/ef-mvc/index
         name: 概要
       - uid: data/ef-mvc/intro
-        name: はじめに
+        name: 作業開始
       - uid: data/ef-mvc/crud
         name: 作成、読み取り、更新、および削除
       - uid: data/ef-mvc/sort-filter-page
@@ -421,7 +421,7 @@ items:
     - uid: razor-components/index
       name: 概要
     - uid: razor-components/get-started
-      name: はじめに
+      name: 作業開始
     - uid: tutorials/first-razor-components-app
       name: 最初のアプリをビルドする
     - uid: razor-components/components
@@ -453,7 +453,7 @@ items:
       - uid: spa/blazor/index
         name: 概要
       - uid: spa/blazor/get-started
-        name: はじめに
+        name: 作業開始
       - uid: tutorials/first-razor-components-app
         name: 最初のアプリをビルドする
       - uid: razor-components/components
@@ -558,6 +558,8 @@ items:
       name: トラブルシューティング
     - uid: host-and-deploy/azure-iis-errors-reference
       name: エラー リファレンス
+    - uid: host-and-deploy/iis/transform-webconfig
+      name: web.config を変換する
   - uid: fundamentals/servers/kestrel
     name: Kestrel
   - uid: fundamentals/servers/httpsys
@@ -810,7 +812,7 @@ items:
     name: 概要
   - uid: fundamentals/portable-object-localization
     name: Portable Object のローカライズ
-- name: 詳細
+- name: 詳細設定
   items:
   - uid: fundamentals/url-rewriting
     name: URL リライト
@@ -878,9 +880,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 7c9baf2a9e3a800ff9abfcb757ffde039d49a9a4
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: d2015955147460621d64ea6035f5f8118a02469b
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159543"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248395"
