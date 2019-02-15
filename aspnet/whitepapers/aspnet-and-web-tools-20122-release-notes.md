@@ -283,6 +283,6 @@ todoList.prototype.addTodo を関数を次に黒くテキストを追加しま�
  self.newTodoTitle(&quot;&quot;);
 
 Index.cshtml をファイルに追加し、次の黒くテキスト。  
- &lt;データ バインド フォーム =&quot;送信: addTodo&quot;&gt;  
+ <form data-bind="submit: addTodo"> 
  &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
  &lt;/form&gt;
