@@ -2,7 +2,7 @@
 uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
 title: Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要 |Microsoft Docs
 author: Rick-Anderson
-description: この付録概要 ASP.NET Web ページを使用したプログラミングの Visual basic で Razor 構文を使用します。
+description: この付録概要 ASP.NET Web ページを使用したプログラミングの Visual Basic で Razor 構文を使用します。
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
@@ -214,7 +214,7 @@ Visual Basic 言語は大文字小文字が区別されません。 プログラ
 
 ### <a name="breaking-long-statements-into-multiple-lines"></a>長いステートメントを複数の行に分割
 
-アンダー スコア文字を使用して、複数の行に長いコード ステートメントを中断できます`_`(Visual basic と呼ばれる、*連結文字*) 各行のコードの後にします。 次の行にステートメントを中断するには、行の末尾にスペースと連結文字を追加します。 次の行にステートメントを続行します。 読みやすさを向上させるために必要な数の行にステートメントをラップすることができます。 次のステートメントでは、同じです。
+アンダー スコア文字を使用して、複数の行に長いコード ステートメントを中断できます`_`(Visual Basic と呼ばれる、*連結文字*) 各行のコードの後にします。 次の行にステートメントを中断するには、行の末尾にスペースと連結文字を追加します。 次の行にステートメントを続行します。 読みやすさを向上させるために必要な数の行にステートメントをラップすることができます。 次のステートメントでは、同じです。
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample16.vbhtml)]
 
@@ -236,7 +236,7 @@ Visual Basic 言語は大文字小文字が区別されません。 プログラ
 
 ## <a name="variables"></a>変数
 
-変数は、データの格納に使用する名前付きオブジェクトです。 名前を付ける変数、何かが、名前がアルファベットの文字で始める必要があり、空白文字または予約文字を含めることはできません。 Visual basic で、前に説明したように、変数名の文字の大文字と小文字は関係ありません。
+変数は、データの格納に使用する名前付きオブジェクトです。 名前を付ける変数、何かが、名前がアルファベットの文字で始める必要があり、空白文字または予約文字を含めることはできません。 Visual Basic で、前に説明したように、変数名の文字の大文字と小文字は関係ありません。
 
 ### <a name="variables-and-data-types"></a>変数とデータ型
 
