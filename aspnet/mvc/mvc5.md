@@ -8,18 +8,18 @@ ms.date: 10/11/2018
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: c958d39c7eff0d581de6b05890b8e6df8bdb5207
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 14fcf863a4ef5f6c9180cdf9e7b632ccdb1ebcb0
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348261"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410470"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
 ## <a name="whats-new-in-aspnet-mvc-5"></a>ASP.NET MVC 5 の新機能新機能
 
-### <a name="one-aspnet"></a>1 つの ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web MVC プロジェクト テンプレートは、1 つの ASP.NET のエクスペリエンスとシームレスに統合します。 MVC プロジェクトをカスタマイズし、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成します。 ASP.NET MVC 5 の入門のチュートリアルをご覧[ASP.NET MVC 5 の概要](overview/getting-started/introduction/getting-started.md)します。
 
@@ -43,7 +43,7 @@ ASP.NET Identity を使用して認証と id 管理には、MVC プロジェク�
 
 ### <a name="attribute-routing"></a>属性ルーティング
 
-ASP.NET MVC になりました[属性ルーティング](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)、Tim McCall の作成者によって投稿物に協力してくれた[ http://attributerouting.net](http://attributerouting.net)します。 属性ルーティングでは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
+ASP.NET MVC になりました[属性ルーティング](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)、Tim McCall の作成者によって投稿物に協力してくれた[AttributeRouting](https://github.com/mccalltd/AttributeRouting)します。 属性ルーティングでは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
 
 ## <a name="new-web-project-experience"></a>新しい Web プロジェクト エクスペリエンス
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: 937c73c26cd3935c5069d4735e754d1a567f41f4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: be4812487c92a16c44e3983b234bc9e31be65190
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248109"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410390"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
 
@@ -120,7 +120,7 @@ ms.locfileid: "56248109"
 
 たとえば、MVC のインスタンスを渡します[AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext)で、`Resource`プロパティ。 このプロパティにアクセスできます`HttpContext`、 `RouteData`、MVC および Razor ページによって提供される他すべてのものとします。
 
-使用、`Resource`プロパティは、特定のフレームワークです。 情報を使用して、`Resource`プロパティは、特定のフレームワークに独自の承認ポリシーを制限します。 キャストする必要があります、`Resource`プロパティを使用して、`as`キーワード、コードがクラッシュしないことを確認するキャストは成功が確定しますと、`InvalidCastException`他のフレームワークで実行した場合。
+使用、`Resource`プロパティは、特定のフレームワークです。 情報を使用して、`Resource`プロパティは、特定のフレームワークに独自の承認ポリシーを制限します。 キャストする必要があります、`Resource`プロパティを使用して、`is`キーワード、コードがクラッシュしないことを確認して、キャストが成功したことを確認およびで、`InvalidCastException`他のフレームワークで実行した場合。
 
 ```csharp
 // Requires the following import:

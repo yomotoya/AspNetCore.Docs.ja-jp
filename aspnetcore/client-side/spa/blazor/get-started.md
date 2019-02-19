@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: 8c984bab8a13b4fc2d87fd1a7e0b285dfa25ba09
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 26336f73f6c8976ed5de819cebc3c5c50274ab03
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159607"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410009"
 ---
 # <a name="get-started-with-blazor"></a>Blazor を概要します。
 
-によって[Daniel Roth](https://github.com/danroth27)と[Luke Latham](https://github.com/guardrex)
+作成者: [Daniel Roth](https://github.com/danroth27)、[Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
@@ -32,7 +32,7 @@ Visual Studio で、最初の Blazor プロジェクトを作成するには
 1. コマンド シェルで次のコマンドを実行して Blazor テンプレートを .NET Core CLI で使用できるようにするには。
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.8.0-preview-19104-04
    ```
 
 1. 選択**ファイル** > **新しいプロジェクト** > **Web** > **ASP.NET Core Web アプリケーション**します。
@@ -97,7 +97,7 @@ Congratulations! You just ran your first Blazor app!
 1. コマンド シェルで次のコマンドを実行して Blazor テンプレートを追加します。
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.8.0-preview-19104-04
    ```
 
 1. コマンド シェルで、最初の Blazor プロジェクトを作成します。
@@ -122,7 +122,7 @@ Congratulations! You just ran your first Blazor app!
 * カウンター
 * データをフェッチします。
 
-[カウンター] ページで、次のように選択します。、 **Click me**ページ更新せず、カウンターをインクリメントするボタンをクリックします。 通常、web ページにカウンターをインクリメントする場合は、JavaScript を記述する必要がありますが、Blazor は、使用してより優れたアプローチC#します。
+Counter ページ上で **[クリックしてください]** ボタンを選択し、ページを更新することなくカウンターをインクリメントします。 通常、web ページにカウンターをインクリメントする場合は、JavaScript を記述する必要がありますが、Blazor は、使用してより優れたアプローチC#します。
 
 *Pages/Counter.cshtml*:
 
@@ -150,13 +150,13 @@ HTML のような構文を使用して別のコンポーネントにコンポー
 カウンターのコンポーネントにパラメーターを追加する更新コンポーネントの`@functions`ブロック。
 
 * プロパティを追加`IncrementAmount`で修飾された、`[Parameter]`属性。
-* 変更、`IncrementCount`メソッドを使用して、`IncrementAmount`の値を増やすとき`currentCount`します。
+* `currentCount` の値を増やすときに `IncrementAmount` を使うように `IncrementCount` メソッドを変更します。
 
 *Pages/Counter.cshtml*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.cshtml?highlight=4,8)]
 
-指定、`IncrementAmount`ホーム コンポーネントのパラメーター`<Counter>`要素の属性を使用します。
+属性を使って、Home コンポーネントの `<Counter>` 要素に `IncrementAmount` パラメーターを指定します。
 
 *Pages/Index.cshtml*:
 
