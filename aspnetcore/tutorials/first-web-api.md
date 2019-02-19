@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core MVC で Web API をビルドする
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/24/2019
+ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 65af70be2cec68d30dd712b80312ebcd40ea0624
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: 5d72cb214a3d5565452b3b95f364818a71be44b7
+ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065049"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55737643"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>チュートリアル: ASP.NET Core MVC で Web API を作成する
 
@@ -351,6 +351,8 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
 `PutTodoItem` は `PostTodoItem` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、変更だけでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、[HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute) を使用します。
 
 ### <a name="test-the-puttodoitem-method"></a>PutTodoItem メソッドのテスト
+
+このサンプルでは、アプリを起動するたびに開始することが必要なメモリ内データベースが使われています。 PUT 呼び出しを実行する前に、データベース内にアイテムが存在している必要があります。 GET を呼び出して、PUT 呼び出しを実行する前にデータベース内にアイテムが存在していることを確認します。
 
 ID = 1 の To Do アイテムを更新し、その名前を "feed fish" に設定します。
 
