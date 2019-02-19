@@ -5,14 +5,14 @@ description: Windows サービスで ASP.NET Core アプリケーションをホ
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/13/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 081a631c9c3e74c01e15f4b0b272d650c162bd20
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837482"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248252"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -112,7 +112,7 @@ Windows イベント ログのログ記録を有効にするには、[Microsoft.
 
   条件が満たされない場合 (アプリがサービスとして実行している場合):
 
-  * <xref:System.IO.Directory.SetCurrentDirectory*> を呼び出し、アプリの発行場所のパスを使用します。 パスを取得するために <xref:System.IO.Directory.GetCurrentDirectory*> を呼び出さないでください。`GetCurrentDirectory` が呼び出されると、Windows サービス アプリは *C:\\WINDOWS\\system32* フォルダーを戻すためです。 詳しくは、「[現在のディレクトリとコンテンツのルート](#current-directory-and-content-root)」セクションをご覧ください。
+  * <xref:System.IO.Directory.SetCurrentDirectory*> を呼び出し、アプリの発行場所のパスを使用します。 パスを取得するために <xref:System.IO.Directory.GetCurrentDirectory*> を呼び出さないでください。<xref:System.IO.Directory.GetCurrentDirectory*> が呼び出されると、Windows サービス アプリは *C:\\WINDOWS\\system32* フォルダーを戻すためです。 詳しくは、「[現在のディレクトリとコンテンツのルート](#current-directory-and-content-root)」セクションをご覧ください。
   * <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> を呼び出して、アプリをサービスとして実行します。
 
   [コマンドライン構成プロバイダー](xref:fundamentals/configuration/index#command-line-configuration-provider)では、コマンドライン引数に名前と値の組が必要であるため、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> が引数を受け取る前に `--console` スイッチは引数から削除されます。
@@ -147,11 +147,13 @@ dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 
 ### <a name="create-a-user-account"></a>ユーザー アカウントを作成する
 
-`net user` コマンドを使用して、サービス用のユーザー アカウントを作成します。
+管理コマンド シェルから `net user` コマンドを使って、サービスのユーザー アカウントを作成します。
 
 ```console
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
+
+既定のパスワードの有効期限は 6 週間です。
 
 サンプル アプリでは、名前 `ServiceUser` とパスワードを持つユーザー アカウントを作成します。 次のコマンド内の `{PASSWORD}` を、[強力なパスワード](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements)に置き換えます。
 
@@ -167,9 +169,13 @@ net localgroup {GROUP} {USER ACCOUNT} /add
 
 詳細については、「[Service User Accounts](/windows/desktop/services/service-user-accounts)」(サービス ユーザー アカウント) をご覧ください。
 
+Active Directory を使う場合、ユーザーを管理するための別の方法は、マネージド サービス アカウントを使うことです。 詳細については、「[Group Managed Service Accounts Overview (グループ マネージド サービス アカウントの概要)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)」をご覧ください。
+
 ### <a name="set-permissions"></a>アクセス許可を設定する
 
-[icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
+#### <a name="access-to-the-app-folder"></a>アプリのフォルダーにアクセスする
+
+管理コマンド シェルから [icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
 
 ```console
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
@@ -195,11 +201,23 @@ icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 
 詳細については、「[icacls](/windows-server/administration/windows-commands/icacls)」をご覧ください。
 
+#### <a name="log-on-as-a-service"></a>サービスとしてログオン
+
+ユーザー アカウントに[サービスとしてログオン](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service)権限を付与するには:
+
+1. [ローカル セキュリティ設定] コンソール、[ローカル グループ ポリシー エディター] コンソールのいずれかで、**[ユーザー権利の割り当て]** ポリシーを探します。 手順については、以下をご覧ください。[セキュリティ ポリシー設定を構成します](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings)。
+1. `Log on as a service` ポリシーを探します。 ポリシーをダブルクリックして開きます。
+1. **[ユーザーまたはグループの追加]** を選択します。
+1. **[詳細]** を選択し、**[検索開始]** を選択します。
+1. 前の「[ユーザー アカウントを作成する](#create-a-user-account)」セクションで作成したユーザー アカウントを選択します。 **[OK]** を選択して選択を確定します。
+1. オブジェクト名が正しいことを確認した後、**[OK]** を選択します。
+1. **[適用]** を選択します。 **[OK]** を選択してポリシー ウィンドウを閉じます。
+
 ## <a name="manage-the-service"></a>サービスを管理する
 
 ### <a name="create-the-service"></a>サービスを作成する
 
-[sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) と、各パラメーターおよび値の引用符文字の間には、スペースが必要です。**
+コマンド ライン ツール [sc.exe](https://technet.microsoft.com/library/bb490995) を使って、管理コマンド シェルからサービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) と、各パラメーターおよび値の引用符文字の間には、スペースが必要です。**
 
 ```console
 sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
@@ -207,7 +225,7 @@ sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" passwo
 
 * `{SERVICE NAME}` &ndash; [サービス コントロール マネージャー](/windows/desktop/services/service-control-manager)でサービスに割り当てる名前。
 * `{PATH}` &ndash; サービス実行可能ファイルへのパス。
-* `{DOMAIN}` &ndash; ドメイン参加済みマシンのドメイン。 マシンがドメインに参加していない場合は、ローカル マシン名。
+* `{DOMAIN}` &ndash; ドメイン参加済みマシンのドメイン。 マシンがドメインに参加していない場合は、ローカル コンピューターの名前を使います。
 * `{USER ACCOUNT}` &ndash; サービスが実行されるユーザー アカウント。
 * `{PASSWORD}` &ndash; ユーザー アカウントのパスワード。
 

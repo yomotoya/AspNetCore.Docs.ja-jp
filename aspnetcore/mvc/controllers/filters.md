@@ -4,14 +4,14 @@ author: ardalis
 description: フィルターのしくみと ASP.NET Core MVC でそれを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/15/2019
+ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: fe3082481b51c968fd361dbcc9553c4e35a36f2a
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444351"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159315"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -71,6 +71,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 > フィルター インターフェイスの同期と非同期バージョンの両方ではなく、**いずれか**を実装します。 フレームワークは、最初にフィルターが非同期インターフェイスを実装しているかどうかをチェックして、している場合はそれを呼び出します。 していない場合は、同期インターフェイスのメソッドを呼び出します。 1 つのクラスに両方のインターフェイスを実装すると、非同期のメソッドのみが呼び出されます。 <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> などの抽象クラスを使用する場合は、同期メソッドのみをオーバーライドするか、フィルターの種類ごとに非同期メソッドをオーバーライドします。
 
 ### <a name="ifilterfactory"></a>IFilterFactory
+
 [IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) は <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata> を実装します。 そのため、`IFilterFactory` インスタンスはフィルター パイプライン内の任意の場所で `IFilterMetadata` インスタンスとして使用できます。 フレームワークは、フィルターを呼び出す準備をする際に、それを `IFilterFactory` にキャストしようとします。 そのキャストが成功した場合、呼び出される `IFilterMetadata` インスタンスを作成するために [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) メソッドが呼び出されます。 これにより、アプリの起動時に正確なフィルター パイプラインを明示的に設定する必要がないため、柔軟なデザインが可能になります。
 
 フィルターを作成するための別の方法として、独自の属性の実装で `IFilterFactory` を実装できます。
@@ -348,8 +349,12 @@ System.InvalidOperationException: No service for type
 
 ## <a name="result-filters"></a>結果フィルター
 
-* `IResultFilter` または `IAsyncResultFilter` のインターフェイスを実装します。
+* インターフェイスを実装します:
+  * `IResultFilter` または `IAsyncResultFilter`。
+  * `IAlwaysRunResultFilter` または `IAsyncAlwaysRunResultFilter`
 * この実行はアクション結果の実行を取り囲みます。 
+
+### <a name="iresultfilter-and-iasyncresultfilter"></a>IResultFilter および IAsyncResultFilter
 
 HTTP ヘッダーを追加する結果フィルターの例を次に示します。
 
@@ -371,6 +376,35 @@ HTTP ヘッダーを追加する結果フィルターの例を次に示します
 `IAsyncResultFilter` の場合、`ResultExecutionDelegate` での `await next` への呼び出しは、後続のすべての結果フィルターとアクションの結果を実行します。 ショートサーキットするには、`ResultExecutingContext.Cancel` を true に設定します。`ResultExectionDelegate` は呼び出さないでください。
 
 フレームワークは、サブクラス化できる抽象 `ResultFilterAttribute` を提供します。 前に示した [AddHeaderAttribute](#add-header-attribute) クラスは、結果フィルター属性の一例です。
+
+### <a name="ialwaysrunresultfilter-and-iasyncalwaysrunresultfilter"></a>IAlwaysRunResultFilter および IAsyncAlwaysRunResultFilter
+
+<xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> および <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> インターフェイスでは、アクションの結果に対して実行される <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> の実装が宣言されます。 <xref:Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter> または <xref:Microsoft.AspNetCore.Mvc.Filters.IAuthorizationFilter> が適用されて応答が省略されない限り、アクションの結果に対してそのフィルターが適用されます。
+
+つまり、これらの "常に実行" フィルターは、例外または承認フィルターによってそれが省略される場合を除き、常に実行されます。 `IExceptionFilter` と `IAuthorizationFilter` 以外のフィルターによってそれらが省略されることはありません。
+
+たとえば、次のフィルターは常に実行され、コンテンツ ネゴシエーションが失敗した場合に "*422 処理不可エンティティ*" 状態コードを使ってアクションの結果 (<xref:Microsoft.AspNetCore.Mvc.ObjectResult>) を設定します。
+
+```csharp
+public class UnprocessableResultFilter : Attribute, IAlwaysRunResultFilter
+{
+    public void OnResultExecuting(ResultExecutingContext context)
+    {
+        if (context.Result is StatusCodeResult statusCodeResult &&
+            statusCodeResult.StatusCode == 415)
+        {
+            context.Result = new ObjectResult("Can't process this!")
+            {
+                StatusCode = 422,
+            };
+        }
+    }
+
+    public void OnResultExecuted(ResultExecutedContext context)
+    {
+    }
+}
+```
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>フィルター パイプラインでのミドルウェアの使用
 

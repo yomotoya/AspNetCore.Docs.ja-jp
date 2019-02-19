@@ -5,14 +5,14 @@ description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys 
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/03/2019
+ms.date: 02/13/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 46538d256ae2c5f3b7e6c725fa8f29092759f69f
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 859e3daeba125ab1a9392c1bdbf2733de2f79a34
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098855"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248343"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -86,7 +86,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
 1. [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 以降) を使用する場合は、プロジェクト ファイルのパッケージ参照は必要ありません。 `Microsoft.AspNetCore.App` メタパッケージを使用しない場合は、[Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/) にパッケージ参照を追加します。
 
-2. Web ホストを構築するときに [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) 拡張メソッドを呼び出し、必要な [HTTP.sys オプション](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions)を指定します。
+2. Web ホストを構築するときに <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> 拡張メソッドを呼び出し、必要な <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions> を指定します。
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -96,24 +96,25 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
    | プロパティ | 説明 | 既定値 |
    | -------- | ----------- | :-----: |
-   | [AllowSynchronousIO](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.allowsynchronousio) | `HttpContext.Request.Body` および `HttpContext.Response.Body` に対して、入力/出力の同期を許可するかどうかを制御します。 | `true` |
-   | [Authentication.AllowAnonymous](/dotnet/api/microsoft.aspnetcore.server.httpsys.authenticationmanager.allowanonymous) | 匿名要求を許可します。 | `true` |
-   | [Authentication.Schemes](/dotnet/api/microsoft.aspnetcore.server.httpsys.authenticationmanager.schemes) | 許可される認証方式を指定します。 リスナーを破棄する前ならいつでも変更できます。 値は [AuthenticationSchemes 列挙型](/dotnet/api/microsoft.aspnetcore.server.httpsys.authenticationschemes) (`Basic`、`Kerberos`、`Negotiate`、`None`、および `NTLM`) によって指定します。 | `None` |
-   | [EnableResponseCaching](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.enableresponsecaching) | 対象となるヘッダーを持つ応答に対して、[カーネル モード](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode)のキャッシュを試行します。 `Set-Cookie`、`Vary`、または `Pragma` ヘッダーを含む応答は対象外です。 応答は、`public` である `Cache-Control` ヘッダーと `shared-max-age` または `max-age` の値のいずれかを含むか、または `Expires` ヘッダーを含む必要があります。 | `true` |
-   | [MaxAccepts](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxaccepts) | 同時受け入れの最大数です。 | 5 &times; [Environment.<br>ProcessorCount](/dotnet/api/system.environment.processorcount) |
-   | [MaxConnections](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxconnections) | 受け入れるコンカレント接続の最大数です。 無限にするには、`-1` を使用します。 コンピューター全体のレジストリ設定を使用するには、`null` を使用します。 | `null`<br>(無制限) |
-   | [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxrequestbodysize) | 「<a href="#maxrequestbodysize">MaxRequestBodySize</a>」セクションを参照してください。 | 30000000 バイト<br>(~28.6 MB) |
-   | [RequestQueueLimit](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.requestqueuelimit) | キューに置くことができる要求の最大数。 | 1000 |
-   | [ThrowWriteExceptions](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.throwwriteexceptions) | 応答本文の書き込みがクライアントの接続の切断によって失敗した場合、例外をスローするか、または正常に完了するかどうかを指定します。 | `false`<br>(正常に完了する) |
-   | [Timeouts](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.timeouts) | HTTP.sys [TimeoutManager](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager) 構成を公開します。レジストリでも構成することができます。 各設定に関する既定値などの詳細については、API のリンクを参照してください。<ul><li>[TimeoutManager.DrainEntityBody](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.drainentitybody) &ndash; HTTP サーバー API が Keep-Alive 接続でエンティティ本体をドレインするまでに許容される時間です。</li><li>[TimeoutManager.EntityBody](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.entitybody) &ndash; 要求のエンティティ本体が到着するまでに許容される時間です。</li><li>[TimeoutManager.HeaderWait](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.headerwait) &ndash; HTTP サーバー API が要求ヘッダーを解析するまでに許容される時間です。</li><li>[TimeoutManager.IdleConnection](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.idleconnection) &ndash; 接続で許容されるアイドル時間です。</li><li>[TimeoutManager.MinSendBytesPerSecond](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.minsendbytespersecond) &ndash; 応答の最小の送信率です。</li><li>[TimeoutManager.RequestQueue](/dotnet/api/microsoft.aspnetcore.server.httpsys.timeoutmanager.requestqueue) &ndash; 要求が、アプリにピック アップされるまでに要求キューの中に留まっていられる時間です。</li></ul> |  |
-   | [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes) | HTTP.sys に登録する [UrlPrefixCollection](/dotnet/api/microsoft.aspnetcore.server.httpsys.urlprefixcollection) を指定します。 最も便利なのは [UrlPrefixCollection.Add](/dotnet/api/microsoft.aspnetcore.server.httpsys.urlprefixcollection.add) です。これを使用して、コレクションにプレフィックスを追加できます。 これらは、リスナーを破棄する前ならいつでも変更できます。 |  |
+   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | `HttpContext.Request.Body` および `HttpContext.Response.Body` に対して、入力/出力の同期を許可するかどうかを制御します。 | `true` |
+   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | 匿名要求を許可します。 | `true` |
+   | [Authentication.Schemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | 許可される認証方式を指定します。 リスナーを破棄する前ならいつでも変更できます。 値は [AuthenticationSchemes 列挙型](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes) (`Basic`、`Kerberos`、`Negotiate`、`None`、および `NTLM`) によって指定します。 | `None` |
+   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | 対象となるヘッダーを持つ応答に対して、[カーネル モード](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode)のキャッシュを試行します。 `Set-Cookie`、`Vary`、または `Pragma` ヘッダーを含む応答は対象外です。 応答は、`public` である `Cache-Control` ヘッダーと `shared-max-age` または `max-age` の値のいずれかを含むか、または `Expires` ヘッダーを含む必要があります。 | `true` |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | 同時受け入れの最大数です。 | 5 &times; [Environment.<br>ProcessorCount](xref:System.Environment.ProcessorCount) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | 受け入れるコンカレント接続の最大数です。 無限にするには、`-1` を使用します。 コンピューター全体のレジストリ設定を使用するには、`null` を使用します。 | `null`<br>(無制限) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | 「<a href="#maxrequestbodysize">MaxRequestBodySize</a>」セクションを参照してください。 | 30000000 バイト<br>(~28.6 MB) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | キューに置くことができる要求の最大数。 | 1000 |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | 応答本文の書き込みがクライアントの接続の切断によって失敗した場合、例外をスローするか、または正常に完了するかどうかを指定します。 | `false`<br>(正常に完了する) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | HTTP.sys <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> 構成を公開します。これはレジストリでも構成できます。 各設定に関する既定値などの詳細については、API のリンクを参照してください。<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; HTTP サーバー API が Keep-Alive 接続でエンティティ本体をドレインするまでに許容される時間です。</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; 要求のエンティティ本体が到着するまでに許容される時間です。</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; HTTP サーバー API が要求ヘッダーを解析するまでに許容される時間です。</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; 接続で許容されるアイドル時間です。</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; 応答の最小の送信率です。</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; 要求が、アプリにピック アップされるまでに要求キューの中に留まっていられる時間です。</li></ul> |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | HTTP.sys に登録する <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> を指定します。 最も便利なのは [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*) です。これを使用して、コレクションにプレフィックスを追加できます。 これらは、リスナーを破棄する前ならいつでも変更できます。 |  |
 
    <a name="maxrequestbodysize"></a>
+
    **MaxRequestBodySize**
 
    要求本文の最大許容サイズ (バイト単位) です。 `null` に設定する場合、要求本文の最大サイズは制限されません。 この制限は、アップグレード済みの接続 (常に無制限) には影響しません。
 
-   1 つの `IActionResult` に対する ASP.NET Core MVC アプリの制限をオーバーライドする方法としては、次のように、アクション メソッドに対して [RequestSizeLimitAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) 属性を使用することをお勧めします。
+   1 つの `IActionResult` に対する ASP.NET Core MVC アプリの制限をオーバーライドする方法として、アクション メソッドに対して <xref:Microsoft.AspNetCore.Mvc.RequestSizeLimitAttribute> 属性を使用することをお勧めします。
 
    ```csharp
    [RequestSizeLimit(100000000)]
@@ -122,7 +123,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
    アプリが要求の読み取りを開始した後に、アプリが要求に対する制限を構成しようとすると、例外がスローされます。 `IsReadOnly` プロパティを使用して、`MaxRequestBodySize` プロパティが読み取り専用状態にあるかどうか、つまり制限を構成するには遅すぎるかどうかを示すことができます。
 
-   アプリで要求ごとに [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxrequestbodysize) をオーバーライドする必要がある場合は、次のように、[IHttpMaxRequestBodySizeFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpmaxrequestbodysizefeature) を使用します。
+   要求ごとにアプリで <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> をオーバーライドする必要がある場合は、<xref:Microsoft.AspNetCore.Http.Features.IHttpMaxRequestBodySizeFeature> を使います。
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
@@ -153,12 +154,12 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
    既定では、ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、次のオプションがあります。
 
-   * [UseUrls](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useurls)
+   * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
    * `urls` コマンド ライン引数
    * `ASPNETCORE_URLS` 環境変数
-   * [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes)
+   * <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes>
 
-   次のコード例は、[UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes) でサーバーのローカル IP アドレス `10.0.0.4` とポート 443 を使用する方法を示しています。
+   次のコード例は、サーバーのローカル IP アドレス `10.0.0.4` を使ってポート 443 上で <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> を使う方法を示しています。
 
    [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=11)]
 

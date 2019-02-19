@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリをホストするための ASP.NET Core モジュールを構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 9270d7b462bbac1ae0ad896c0937ea6dd909b2cd
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837781"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159556"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 
@@ -51,7 +51,11 @@ ASP.NET Core モジュールはネイティブな IIS モジュールであり�
 
 インプロセスでホストする場合は、次の特性が適用されます。
 
-* [Kestrel](xref:fundamentals/servers/kestrel) サーバーの代わりに、IIS HTTP サーバー (`IISHttpServer`) が使用されます。
+* [Kestrel](xref:fundamentals/servers/kestrel) サーバーの代わりに、IIS HTTP サーバー (`IISHttpServer`) が使用されます。 インプロセスの場合、[CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) により <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> が呼び出され、次が実行されます。
+
+  * `IISHttpServer` を登録します。
+  * ASP.NET Core モジュールの背後で実行するときにサーバーがリッスンする、ポートとベース パスを構成します。
+  * スタートアップ エラーをキャプチャするホストを構成します。
 
 * [requestTimeout 属性](#attributes-of-the-aspnetcore-element) は、インプロセス ホスティングには適用されません。
 
@@ -67,7 +71,8 @@ ASP.NET Core モジュールはネイティブな IIS モジュールであり�
 
 * <xref:System.IO.Directory.GetCurrentDirectory*> は、アプリのディレクトリではなく、IIS によって開始するプロセスのワーカー ディレクトリを返します (たとえば、*w3wp.exe* に対して *C:\Windows\System32\inetsrv*)。
 
-  アプリの現在のディレクトリを設定するサンプル コードについては、「[CurrentDirectoryHelpers クラス](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs)」を参照してください。 `SetCurrentDirectory` メソッドを呼び出します。 <xref:System.IO.Directory.GetCurrentDirectory*> の後続の呼び出しによって、アプリのディレクトリが指定されます。
+  アプリの現在のディレクトリを設定するサンプル コードについては、「[CurrentDirectoryHelpers クラス](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs)」を参照してください。 
+  `SetCurrentDirectory` メソッドを呼び出します。 <xref:System.IO.Directory.GetCurrentDirectory*> の後続の呼び出しによって、アプリのディレクトリが指定されます。
 
 ### <a name="out-of-process-hosting-model"></a>アウト プロセス ホスティング モデル
 
@@ -83,6 +88,11 @@ ASP.NET Core モジュールはネイティブな IIS モジュールであり�
 ```
 
 IIS HTTP サーバー (`IISHttpServer`) の代わりに、[Kestrel](xref:fundamentals/servers/kestrel) サーバーが使用されます。
+
+アウトプロセスの場合、[CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) により <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> が呼び出され、次が実行されます。
+
+* ASP.NET Core モジュールの背後で実行するときにサーバーがリッスンする、ポートとベース パスを構成します。
+* スタートアップ エラーをキャプチャするホストを構成します。
 
 ### <a name="hosting-model-changes"></a>ホスティング モデルの変更
 
@@ -497,6 +507,32 @@ ASP.NET Core モジュールのインストーラーは、**SYSTEM** アカウ�
 1. インストーラーを実行します。
 1. 更新された *applicationHost.config* ファイルを共有にエクスポートします。
 1. IIS 共有構成を再び有効にします。
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization"></a>Application Initialization
+
+[IIS Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) は、アプリ プールが開始するときまたはリサイクルされるときに、アプリに HTTP 要求を送信する IIS 機能です。 要求によってアプリの起動がトリガーされます。 Application Initialization は、ASP.NET Core モジュール バージョン 2 を備えた[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)、[アウトプロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)の両方で使えます。
+
+Application Initialization を有効にするには:
+
+1. IIS Application Initialization 役割の機能が有効になっていることを確認します。
+   * Windows 7 以降の場合:**[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。 **[インターネット インフォメーション サービス]** > **[World Wide Web サービス]** > **[アプリケーション開発機能]** を開きます。 **[Application Initialization]** のチェック ボックスをオンにします。
+   * Windows Server 2008 R2 以降の場合は、**[役割と機能の追加ウィザード]** を開きます。 **[役割サービスの選択]** パネルに移動したら、**[アプリケーション開発]** ノードを開いて、**[Application Initialization]** チェック ボックスをオンにします。
+1. IIS マネージャーで、**[接続]** パネルの **[アプリケーション プール]** を選択します。
+1. 一覧からそのアプリのアプリ プールを選択します。
+1. **[アクション]** パネルの **[アプリケーション プールの編集]** で **[詳細設定]** を選択します。
+1. **[開始モード]** を **[常時実行]** に設定します。
+1. **[接続]** パネルの **[サイト]** ノードを開きます。
+1. アプリを選択します。
+1. **[アクション]** パネルの **[Web サイトの管理]** の下で **[詳細設定]** を選択します。
+1. **[有効化されたプリロード]** を **True** に設定します。
+
+詳細については、「[IIS 8.0 Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)」をご覧ください。
+
+[アウトプロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)を使うアプリでは、外部サービスを使い、アプリに定期的に ping を送信して、それを実行させ続ける必要があります。
+
+::: moniker-end
 
 ## <a name="module-version-and-hosting-bundle-installer-logs"></a>モジュールのバージョンとホスティング バンドル インストーラーのログ
 

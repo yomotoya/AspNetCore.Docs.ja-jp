@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC と EF Core - データ モデル - 5/10
-author: rick-anderson
+title: 'チュートリアル: 複合データ モデルを作成する - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、マッピングの規則を指定してデータ モデルをカスタマイズします。
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091042"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103125"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC と EF Core - データ モデル - 5/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>チュートリアル: 複合データ モデルを作成する - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、3 つのエンティティで構成された単純なデータ モデルを使用して作業を行いました。 このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、データベース マッピングの規則を指定してデータ モデルをカスタマイズします。
 
@@ -29,7 +22,27 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 ![エンティティ図](complex-data-model/_static/diagram.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>属性を使用してデータ モデルをカスタマイズする
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * データ モデルをカスタマイズする
+> * Student エンティティに変更を加える
+> * Instructor エンティティを作成する
+> * OfficeAssignment エンティティを作成する
+> * Course エンティティを変更する
+> * Department エンティティを作成する
+> * Enrollment エンティティを変更する
+> * データベース コンテキストを更新する
+> * テスト データを使ってデータベースをシードする
+> * 移行を追加する
+> * 接続文字列を変更する
+> * データベースを更新する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [MVC Web アプリの ASP.NET Core に対する EF Core の移行機能の使用](migrations.md)
+
+## <a name="customize-the-data-model"></a>データ モデルをカスタマイズする
 
 このセクションでは、書式設定、検証、データベース マッピング規則を指定する属性を使用して、データ モデルをカスタマイズする方法を示します。 その後、次のいくつかのセクションで、作成済みのクラスに属性を追加し、モデルの残りのエンティティ型に対して新しいクラスを作成して、完全な School データ モデルを作成します。
 
@@ -97,9 +110,7 @@ dotnet ef database update
 
 移行ファイル名の前に付けられる timestamp は、移行を並べ替えるために Entity Framework によって使用されます。 update-database コマンドを実行する前に複数の移行を作成できます。その後、すべての移行は作成順に適用されます。
 
-アプリを実行し、**[Students]** タブを選択して、**[新規作成]** をクリックし、50 文字を超えるいずれかの名前を入力します。 **[作成]** をクリックすると、クライアント側の検証でエラー メッセージが表示されます。
-
-![文字列長エラーが表示されている Students インデックス ページ](complex-data-model/_static/string-length-errors.png)
+アプリを実行し、**[Students]** タブを選択して、**[新規作成]** をクリックし、50 文字を超えるいずれかの名前を入力してみます。 アプリケーションにより、この操作が防止されます。 
 
 ### <a name="the-column-attribute"></a>Column 属性
 
@@ -132,7 +143,7 @@ dotnet ef database update
 > [!Note]
 > 次のセクションですべてのエンティティ クラスの作成を完了する前にコンパイルしようとすると、コンパイラ エラーが発生する可能性があります。
 
-## <a name="final-changes-to-the-student-entity"></a>Student エンティティの最終変更
+## <a name="changes-to-student-entity"></a>Student エンティティに対する変更
 
 ![Student エンティティ](complex-data-model/_static/student-entity.png)
 
@@ -160,7 +171,7 @@ public string LastName { get; set; }
 
 `FullName` は集計プロパティであり、2 つの別のプロパティを連結して作成される値を返します。 したがって、get アクセサーのみが存在し、データベースで `FullName` 列は生成されません。
 
-## <a name="create-the-instructor-entity"></a>Instructor エンティティを作成する
+## <a name="create-instructor-entity"></a>Instructor エンティティを作成する
 
 ![Instructor エンティティ](complex-data-model/_static/instructor-entity.png)
 
@@ -196,7 +207,7 @@ Contoso University のビジネス ルールには、講師は 1 つのオフィ
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-the-officeassignment-entity"></a>OfficeAssignment エンティティを作成する
+## <a name="create-officeassignment-entity"></a>OfficeAssignment エンティティを作成する
 
 ![OfficeAssignment エンティティ](complex-data-model/_static/officeassignment-entity.png)
 
@@ -223,7 +234,7 @@ Instructor エンティティには null 許容の `OfficeAssignment` ナビゲ�
 
 Instructor ナビゲーション プロパティに `[Required]` 属性を配置して、関連する講師が存在するように指定できますが、`InstructorID` 外部キー (このテーブルに対するキーでもある) は null 非許容であるため、そうする必要はありません。
 
-## <a name="modify-the-course-entity"></a>Course エンティティを変更する
+## <a name="modify-course-entity"></a>Course エンティティを変更する
 
 ![Course エンティティ](complex-data-model/_static/course-entity.png)
 
@@ -272,7 +283,7 @@ public ICollection<Enrollment> Enrollments { get; set; }
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-the-department-entity"></a>Department エンティティを作成する
+## <a name="create-department-entity"></a>Department エンティティを作成する
 
 ![Department エンティティ](complex-data-model/_static/department-entity.png)
 
@@ -318,7 +329,7 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-the-enrollment-entity"></a>Enrollment エンティティを変更する
+## <a name="modify-enrollment-entity"></a>Enrollment エンティティを変更する
 
 ![Enrollment エンティティ](complex-data-model/_static/enrollment-entity.png)
 
@@ -384,7 +395,7 @@ Enrollment テーブルに成績情報が含まれていなかった場合、含
 
 このコードでは新しいエンティティが追加され、CourseAssignment エンティティの複合主キーが構成されます。
 
-## <a name="fluent-api-alternative-to-attributes"></a>属性の代わりに fluent API を使用する
+## <a name="about-a-fluent-api-alternative"></a>代替手段 fluent API について
 
 `DbContext` クラスの `OnModelCreating` メソッドのキーでは、*fluent API* を使用して EF の動作を構成します。 API は "fluent" と呼ばれます。これは、[EF Core のドキュメント](/ef/core/modeling/#methods-of-configuration)の例に示されているように、多くの場合、一連のメソッド呼び出しを単一のステートメントにまとめて使用されるためです。
 
@@ -411,7 +422,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 一対多リレーションシップの線 (1 対 \*) 以外にも、ここには Instructor および OfficeAssignment エンティティ間の一対ゼロまたは一対一リレーションシップの線 (1 対 0..1) と、Instructor および Department エンティティ間のゼロ対多また一対多リレーションシップの線 (0..1 対 *) があります。
 
-## <a name="seed-the-database-with-test-data"></a>テスト データでデータベースをシードする
+## <a name="seed-database-with-test-data"></a>テスト データを使ってデータベースをシードする
 
 *Data/DbInitializer.cs* ファイルのコードを以下のコードに置き換えて、作成した新しいエンティティのシード データを提供します。
 
@@ -456,7 +467,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 変更を保存し、プロジェクトをビルドします。
 
-## <a name="change-the-connection-string-and-update-the-database"></a>接続文字列を変更してデータベースを更新する
+## <a name="change-the-connection-string"></a>接続文字列を変更する
 
 これで、新しいエンティティのシード データを空のデータベースに追加する `DbInitializer` クラスの新しいコードが準備できました。 EF で新しい空のデータベースを作成するには、*appsettings.json* の接続文字列のデータベース名を ContosoUniversity3 に変更するか、使用しているコンピューターではまだ使用していない別の名前に変更します。
 
@@ -474,6 +485,8 @@ Done. To undo this action, use 'ef migrations remove'
 > ```console
 > dotnet ef database drop
 > ```
+
+## <a name="update-the-database"></a>データベースを更新する
 
 データベース名を変更またはデータベースを削除した後、コマンド ウィンドウで `database update` コマンドを実行して、移行を実行します。
 
@@ -493,12 +506,28 @@ dotnet ef database update
 
 ![SSOX の CourseAssignment データ](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-これで、より複雑なデータ モデルと対応するデータベースの準備ができました。 次のチュートリアルでは、関連データへのアクセス方法について説明します。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>次の手順
 
-> [!div class="step-by-step"]
-> [前へ](migrations.md)
-> [次へ](read-related-data.md)
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * データ モデルをカスタマイズした
+> * Student エンティティに変更を加えた
+> * Instructor エンティティを作成した
+> * OfficeAssignment エンティティを作成した
+> * Course エンティティを変更した
+> * Department エンティティを作成した
+> * Enrollment エンティティを変更した
+> * データベース コンテキストを更新した
+> * テスト データを使ってデータベースをシードした
+> * 移行を追加した
+> * 接続文字列を変更した
+> * データベースを更新した
+
+関連データにアクセスする方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [関連データにアクセスする](read-related-data.md)

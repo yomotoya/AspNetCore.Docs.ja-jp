@@ -1,26 +1,19 @@
 ---
-title: ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10
+title: 'チュートリアル: 並べ替え、フィルター処理、ページングを追加する - ASP.NET MVC と EF Core'
+description: このチュートリアルでは、Students インデックス ページに並べ替え、フィルター、およびページング機能を追加します。 単純なグループ化を実行するページも作成します。
 author: rick-anderson
-description: このチュートリアルでは、ASP.NET Core および Entity Framework Core を使用して並べ替え、フィルター、ページング機能をページに追加します。
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38193950"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103060"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)を参照してください。
+# <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>チュートリアル: 並べ替え、フィルター処理、ページングを追加する - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、Student エンティティの基本的な CRUD 操作用の Web ページのセットを実装しました。 このチュートリアルでは、Students インデックス ページに並べ替え、フィルター、およびページング機能を追加します。 単純なグループ化を実行するページも作成します。
 
@@ -28,7 +21,21 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 ![Students インデックス ページ](sort-filter-page/_static/paging.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Students インデックス ページに列の並べ替えリンクを追加する
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 列の並べ替えリンクを追加する
+> * [検索] ボックスを追加する
+> * Students/Index にページングを追加する
+> * Index メソッドにページングを追加する
+> * ページング リンクを追加する
+> * About ページを作成する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ASP.NET Core MVC Web アプリで EF Core を使って CRUD 機能を実装する](crud.md)
+
+## <a name="add-column-sort-links"></a>列の並べ替えリンクを追加する
 
 Students ンデックス ページに並べ替えを追加するには、`Index`Students コントローラーのメソッドを変更し、Students インデックス ビューにコードを追加します。
 
@@ -71,7 +78,7 @@ Students ンデックス ページに並べ替えを追加するには、`Index`
 
 ![名前順の Students インデックス ページ](sort-filter-page/_static/name-order.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Students インデックス ページに [Search] ボックスを追加する
+## <a name="add-a-search-box"></a>[検索] ボックスを追加する
 
 Students インデックス ページにフィルターを追加するには、テキスト ボックスと送信ボタンをビューに追加し、`Index` メソッドで対応する変更を行います。 テキスト ボックスを使用して、姓と名のフィールドに検索する文字列を入力できます。
 
@@ -86,7 +93,7 @@ Students インデックス ページにフィルターを追加するには、�
 > [!NOTE]
 > ここで、`IQueryable` オブジェクトに対して `Where` メソッドを呼び出し、フィルターがサーバーで処理されます。 一部のシナリオでは、`Where` メソッドをメモリ内コレクションの拡張メソッドとして呼び出す場合があります  (たとえば、EF `DbSet` の代わりに `IEnumerable` コレクションを返すリポジトリ メソッドを参照するように参照を `_context.Students` に変更する場合)。結果は、通常同じになりますが、場合によっては異なる場合があります。
 >
->たとえば、.NET Framework の `Contains` メソッドの実装は、既定では大文字小文字を区別する比較を実行しますが、SQL Server では、これは SQL Server インスタンスの照合順序の設定によって決まります。 その設定は、既定では大文字小文字を区別しません。 `ToUpper` メソッドを呼び出して明示的に大文字小文字を区別しないテストを作成することもできます: *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*。 これにより、`IQueryable` オブジェクトの代わりに `IEnumerable` コレクションを返すリポジトリを使用するように後でコードを変更した場合でも確実に同じ結果になるようにすることができます  (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。ただし、このソリューションではパフォーマンスが低下します。 `ToUpper` コードは、TSQL SELECT ステートメントの WHERE 句に関数を格納します。 これにより、オプティマイザーはインデックスを使用できなくなります。 ほとんどの場合、SQL は大文字小文字を区別しないようにインストールされているため、大文字小文字を区別するデータストアに移行するまで `ToUpper` コードを避けることをお勧めします。
+>たとえば、.NET Framework の `Contains` メソッドの実装は、既定では大文字小文字を区別する比較を実行しますが、SQL Server では、これは SQL Server インスタンスの照合順序の設定によって決まります。 その設定は、既定では大文字小文字を区別しません。 `ToUpper` を呼び出して、テストで明示的に大文字小文字を区別しないようにすることができます。*Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*。 これにより、`IQueryable` オブジェクトの代わりに `IEnumerable` コレクションを返すリポジトリを使用するように後でコードを変更した場合でも確実に同じ結果になるようにすることができます  (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。ただし、このソリューションではパフォーマンスが低下します。 `ToUpper` コードは、TSQL SELECT ステートメントの WHERE 句に関数を格納します。 これにより、オプティマイザーはインデックスを使用できなくなります。 ほとんどの場合、SQL は大文字小文字を区別しないようにインストールされているため、大文字小文字を区別するデータストアに移行するまで `ToUpper` コードを避けることをお勧めします。
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Students インデックス ビューに [Search] ボックスを追加する
 
@@ -110,7 +117,7 @@ http://localhost:5813/Students?SearchString=an
 
 この段階で、列見出しのソートのリンクをクリックすると、**[Search]** ボックスに入力したフィルター値が失われます。 次のセクションでこれを修正します。
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Students インデックス ページにページング機能を追加する
+## <a name="add-paging-to-students-index"></a>Students/Index にページングを追加する
 
 Students インデックス ページにページングを追加するには、常にテーブルをすべての行を取得する代わりに、`Skip` および `Take` ステートメントを使用してサーバー上でデータをフィルター処理する `PaginatedList` クラスを作成します。 その後で、`Index` メソッドに変更を加え、ページング ボタンを `Index` ビューに追加します。 ページング ボタンを次の図に示します。
 
@@ -124,7 +131,7 @@ Students インデックス ページにページングを追加するには、�
 
 コンストラクターは非同期コードを実行できないので、コンストラクターの代わりに `CreateAsync` メソッドを使用して `PaginatedList<T>`オブジェクトを作成します。
 
-## <a name="add-paging-functionality-to-the-index-method"></a>Index メソッドにページング機能を追加する
+## <a name="add-paging-to-index-method"></a>Index メソッドにページングを追加する
 
 *StudentsController.cs* で、`Index` メソッドを次のコードで置き換えます。
 
@@ -167,7 +174,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 `PaginatedList.CreateAsync` メソッドは、ページ番号を受け取ります。 2 つの疑問符は、null 合体演算子を表します。 null 合体演算子は null 許容型の既定値を定義します。式 `(page ?? 1)` は、値がある場合は `page` の値を返し、`page` が null の場合は 1 を返すことを意味します。
 
-## <a name="add-paging-links-to-the-student-index-view"></a>Student インデックス ビューにページングのリンクを追加する
+## <a name="add-paging-links"></a>ページング リンクを追加する
 
 *Views/Students/Index.cshtml* で、既存のコードを次のコードに置き換えます。 変更が強調表示されています。
 
@@ -199,7 +206,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 異なる並べ替え順でページングのリンクをクリックし、ページングが機能することを確認します。 その後で、検索文字列を入力して、ページングをもう一度試し、並べ替えとフィルター処理を使用してもページングが正しく機能することを確認します。
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>受講者の統計情報を表示する [About] ページを作成する
+## <a name="create-an-about-page"></a>About ページを作成する
 
 Contoso 大学の Web サイトの **[About]** ページに、登録日付ごとに登録した受講者の数が表示されます。 これには、グループ化とグループに関する簡単な計算が必要です。 これを実行するためには、次の手順を実行します。
 
@@ -227,7 +234,8 @@ Contoso 大学の Web サイトの **[About]** ページに、登録日付ごと
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
-`About` メソッドを次のコードで置き換えます。
+
+  `About` メソッドを次のコードで置き換えます。
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
@@ -241,16 +249,24 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-アプリを実行して [About] ページに移動します。 登録の日付ごとの受講者の数が、テーブルに表示されます。
+アプリを実行して [About] ページに移動します。 登録の日付ごとの学生の数が、テーブルに表示されます。
 
-![About ページ](sort-filter-page/_static/about.png)
+## <a name="get-the-code"></a>コードを取得する
 
-## <a name="summary"></a>まとめ
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-このチュートリアルでは、並べ替え、フィルター処理、ページング、およびグループ化を実行する方法を説明しました。 次のチュートリアルでは、移行を使用して、データ モデルの変更を処理する方法を学習します。
+## <a name="next-steps"></a>次の手順
 
-::: moniker-end
+このチュートリアルでは、次の作業を行いました。
 
-> [!div class="step-by-step"]
-> [前へ](crud.md)
-> [次へ](migrations.md)
+> [!div class="checklist"]
+> * 列の並べ替えリンクを追加した
+> * [検索] ボックスを追加した
+> * Students/Index にページングを追加した
+> * Index メソッドにページングを追加した
+> * ページング リンクを追加した
+> * About ページを作成した
+
+移行を使ってデータ モデルの変更を処理する方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [データ モデルの変更を処理する](migrations.md)

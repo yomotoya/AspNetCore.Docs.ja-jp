@@ -1,31 +1,41 @@
 ---
-title: ASP.NET Core MVC と EF Core - 上級 - 10/10
-author: rick-anderson
+title: 'チュートリアル: 高度なシナリオについて学習する - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Core Web アプリを開発する際に、活用できるいくつかのトピックを紹介します。
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "50090785"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103099"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC と EF Core - 上級 - 10/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>チュートリアル: 高度なシナリオについて学習する - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、Table-Per-Hierarchy 継承を実装しました。 このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Core Web アプリケーションを開発する際に、注意すべきいくつかのトピックを紹介します。
 
-## <a name="raw-sql-queries"></a>生 SQL クエリ
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 生 SQL クエリを実行する
+> * エンティティを返すクエリを呼び出す
+> * その他の型を返すクエリを呼び出す
+> * 更新クエリを呼び出す
+> * SQL クエリを調べる
+> * 抽象化レイヤーを作成する
+> * 変更の自動検出について学習する
+> * EF Core のソース コードと開発計画について学習する
+> * 動的な LINQ を使ってコードを簡略化する方法を学習する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ASP.NET Core MVC Web アプリで EF Core を使って継承を実装する](inheritance.md)
+
+## <a name="perform-raw-sql-queries"></a>生 SQL クエリを実行する
 
 Entity Framework を使用する利点の 1 つは、データを格納する特定のメソッドにコードを過度に接近させなくてもよい点です。 SQL クエリとコマンドが生成されるため、自分でこれらを記述する必要がなくなります。 ただし、例外的なシナリオがあります。手動で作成した特定の SQL クエリを実行する必要がある場合です。 このようなシナリオでは、Entity Framework Code First API には、SQL コマンドをデータベースに直接渡せるメソッドが含まれています。 EF Core 1.0 には次のオプションがあります。
 
@@ -37,7 +47,7 @@ Entity Framework を使用する利点の 1 つは、データを格納する特
 
 Web アプリケーションで SQL コマンドを実行する場合は常に、SQL インジェクション攻撃から自身のサイトを保護する対策を講じる必要があります。 これを行う 1 つの方法として、パラメーター化されたクエリを使用して、Web ページによって送信された文字列が SQL コマンドとして解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するときに、パラメーター化されたクエリを使用します。
 
-## <a name="call-a-query-that-returns-entities"></a>エンティティを返すクエリを呼び出す
+## <a name="call-a-query-to-return-entities"></a>エンティティを返すクエリを呼び出す
 
 `DbSet<TEntity>` クラスは、`TEntity` 型のエンティティを返すクエリの実行に使用できるメソッドを提供します。 このしくみを確認するため、Department (部門) コントローラーの `Details` メソッド内のコードを変更します。
 
@@ -49,7 +59,7 @@ Web アプリケーションで SQL コマンドを実行する場合は常に�
 
 ![部門の詳細](advanced/_static/department-details.png)
 
-## <a name="call-a-query-that-returns-other-types"></a>その他の型を返すクエリを呼び出す
+## <a name="call-a-query-to-return-other-types"></a>その他の型を返すクエリを呼び出す
 
 以前に、登録日ごとの学生数を示す About ページ用に、学生の統計グリッドを作成しました。 Students エンティティ セット (`_context.Students`) からデータを取得し、LINQ を使用して結果を `EnrollmentDateGroup` ビュー モデル オブジェクトに投影しました。 LINQ を使用するのではなく、SQL そのものを記述するとします。 これを行うには、エンティティ オブジェクト以外のものを返す SQL クエリを実行する必要があります。 EF Core 1.0 では、これを行う方法の 1 つとして、ADO.NET コードを記述し、EF からデータベース接続を取得します。
 
@@ -83,7 +93,7 @@ Contoso University の管理者が、すべてのコースの単位数を変更�
 
 **ソリューション エクスプローラー**で、*Views/Courses* フォルダーを右クリックし、**[追加] > [新しい項目]** の順にクリックします。
 
-**[新しい項目の追加]** ダイアログで、左側のウィンドウの **[インストール済み]** の下の **[ASP.NET]** をクリックして、**[MVC ビュー ページ]** をクリックして、新しいビューに *UpdateCourseCredits.cshtml* という名前を付けます。
+**[新しい項目の追加]** ダイアログで、左側のウィンドウの **[インストール済み]** の下の **[ASP.NET Core]** をクリックし、**[Razor ビュー]** をクリックして、新しいビューに *UpdateCourseCredits.cshtml* という名前を付けます。
 
 *Views/Courses/UpdateCourseCredits.cshtml* で、テンプレート コードを次のコードに置き換えます。
 
@@ -103,7 +113,7 @@ Contoso University の管理者が、すべてのコースの単位数を変更�
 
 SQL クエリの詳細については、「[Raw SQL Queries](/ef/core/querying/raw-sql)」 (生 SQL クエリ) を参照してください。
 
-## <a name="examine-sql-sent-to-the-database"></a>データベースに送信される SQL を調べる
+## <a name="examine-sql-queries"></a>SQL クエリを調べる
 
 データベースに送信される実際の SQL クエリを確認できると役立つ場合があります。 ASP.NET Core の組み込みのログ記録機能は、クエリと更新の SQL を含むログを書き込むため、EF Core によって自動的に使用されます。 このセクションでは、SQL ログの例をいくつか紹介します。
 
@@ -139,7 +149,7 @@ ORDER BY [t].[ID]
 
 **[出力]** ウィンドウでログ出力を取得するには、デバッグ モードを使用してブレークポイントで停止する必要はありません。 これは単に、出力を見たいポイントでログを停止する便利な方法です。 これを行わないと、ログ記録は続行され、関心がある部分までスクロールで戻る必要があります。
 
-## <a name="repository-and-unit-of-work-patterns"></a>Repository パターンと Unit of Work パターン
+## <a name="create-an-abstraction-layer"></a>抽象化レイヤーを作成する
 
 多くの開発者は、Entity Framework で動作するコードをラップするラッパーとして、Repository パターンと Unit of Work パターンを実装するためのコードを記述します。 これらのパターンは、アプリケーションのデータ アクセス層とビジネス ロジック層の間に抽象化レイヤーを作成するためのものです。 これらのパターンを実装すると、データ ストアの変更からアプリケーションを隔離でき、自動化された単体テストやテスト駆動開発 (TDD) を円滑化できます。 ただし、次の複数の理由により、追加のコードを記述してこれらのパターンを実装することが、EF を使用するアプリケーションにとって最善の選択肢ではない場合もあります。
 
@@ -169,7 +179,7 @@ Entity Framework では、エンティティの現在の値と元の値を比較
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
 ```
 
-## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core のソース コードと開発計画
+## <a name="ef-core-source-code-and-development-plans"></a>EF Core のソース コードと開発計画
 
 Entity Framework Core のソースは、[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore) にあります。 EF Core リポジトリには、夜間ビルド、問題追跡、機能仕様、設計ミーティング メモ、および[将来の開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)が含まれています。 バグを見つけて報告したり、投稿することができます。
 
@@ -180,27 +190,19 @@ Entity Framework Core のソースは、[https://github.com/aspnet/EntityFramewo
 既存のデータベースからエンティティ クラスを含むデータ モデルをリバース エンジニアリングするには、[scaffold-dbcontext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) コマンドを使用します。 [入門用チュートリアル](/ef/core/get-started/aspnetcore/existing-db)を参照してください。
 
 <a id="dynamic-linq"></a>
-## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>動的な LINQ を使用して並べ替え選択コードを簡略化する
+
+## <a name="use-dynamic-linq-to-simplify-code"></a>動的な LINQ を使ってコードを簡略化する
 
 [このシリーズの 3 番目のチュートリアル](sort-filter-page.md)では、`switch`ステートメントで列名をハード コーディングすることで、LINQ コードを記述する方法を示しています。 選択する列が 2 つの場合は正常に機能しますが、多数の列がある場合は、コードが冗長になる可能性があります。 この問題を解決するため、`EF.Property` メソッドを使用して、プロパティの名前を文字列として指定できます。 この方法を試すには、`StudentsController` の `Index` メソッドを次のコードで置き換えます。
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
-## <a name="next-steps"></a>次の手順
-
-これで、ASP.NET Core MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。
-
-EF Core の詳細については、「[Entity Framework Core 概要](/ef/core)」を参照してください。 書籍「[Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action)」もご利用いただけます。
-
-Web アプリの展開方法については、「<xref:host-and-deploy/index>」を参照してください。
-
-認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「<xref:index>」を参照してください。
-
 ## <a name="acknowledgments"></a>謝辞
 
-チュートリアルを執筆してくださった、Tom Dykstra と Rick Anderson (twitter @RickAndMSFT)。 コードの確認をサポートし、チュートリアル用のコードの記述中に発生した問題のデバッグを支援してくれた、Rowan Miller、Diego Vega、およびその他の Entity Framework チームのメンバー。
+チュートリアルを執筆してくださった、Tom Dykstra と Rick Anderson (twitter @RickAndMSFT)。 コードの確認をサポートし、チュートリアル用のコードの記述中に発生した問題のデバッグを支援してくれた、Rowan Miller、Diego Vega、およびその他の Entity Framework チームのメンバー。 ASP.NET Core 2.2 用にチュートリアルの更新作業を行ってくれた、John Parente と Paul Goldman。
 
-## <a name="common-errors"></a>一般的なエラー
+<a id="common-errors"></a>
+## <a name="troubleshoot-common-errors"></a>一般的なエラーのトラブルシューティング
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll が別のプロセスによって使用されている
 
@@ -246,7 +248,33 @@ dotnet ef database drop
 
 接続文字列を確認します。 データベース ファイルを手動で削除した場合は、構築文字列でデータベースの名前を変更して、新しいデータベースで最初からやり直します。
 
-::: moniker-end
+## <a name="get-the-code"></a>コードを取得する
 
-> [!div class="step-by-step"]
-> [前へ](inheritance.md)
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+
+## <a name="additional-resources"></a>その他の技術情報
+
+EF Core の詳細については、「[Entity Framework Core 概要](/ef/core)」を参照してください。 書籍「[Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action)」もご利用いただけます。
+
+Web アプリの展開方法については、「<xref:host-and-deploy/index>」を参照してください。
+
+認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「<xref:index>」を参照してください。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 生 SQL クエリを実行した
+> * エンティティを返すクエリを呼び出した
+> * その他の型を返すクエリを呼び出した
+> * 更新クエリを呼び出した
+> * SQL クエリを調べた
+> * 抽象化レイヤーを作成した
+> * 変更の自動検出について学習した
+> * EF Core のソース コードと開発計画について学習した
+> * 動的な LINQ を使ってコードを簡略化する方法を学習した
+
+これで、ASP.NET Core MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。 ASP.NET Core と共に EF 6 を使う方法について学習する場合は、次の記事をご覧ください。
+> [!div class="nextstepaction"]
+> [ASP.NET Core による EF6](../entity-framework-6.md)

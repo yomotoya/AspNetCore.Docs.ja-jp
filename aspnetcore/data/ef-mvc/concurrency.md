@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC と EF Core - Concurrency - 第 8 回 (全 10 回)
-author: rick-anderson
+title: 'チュートリアル: コンカレンシーの処理 - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090902"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103021"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC と EF Core - Concurrency - 第 8 回 (全 10 回)
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>チュートリアル: コンカレンシーの処理 - ASP.NET MVC と EF Core
 
 先のチュートリアルでは、データを更新する方法について学習しました。 このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 
@@ -30,6 +23,23 @@ Department エンティティを使用する Web ページを作成し、コン�
 ![Department Edit ページ](concurrency/_static/edit-error.png)
 
 ![Department Delete ページ](concurrency/_static/delete-error.png)
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * コンカレンシーの競合について学習する
+> * トラッキング プロパティを追加する
+> * Departments のコントローラーとビューを作成する
+> * Index ビューを更新する
+> * Edit メソッドを更新する
+> * Edit ビューを更新する
+> * コンカレンシーの競合をテストする
+> * [削除] ページを更新する
+> * Details ビューと Create ビューの更新
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ASP.NET Core MVC Web アプリで EF Core を使って関連データを更新する](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>コンカレンシーの競合
 
@@ -87,7 +97,7 @@ Entity Framework がスローする `DbConcurrencyException` 例外を処理す�
 
 このチュートリアルの残りの部分では、Department エンティティに `rowversion` トラッキング プロパティを追加し、コントローラーとビューを作成し、すべてが適切に動作することをテストで確認します。
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Department エンティティにトラッキング プロパティを追加する
+## <a name="add-a-tracking-property"></a>トラッキング プロパティを追加する
 
 *Models/Department.cs* で、RowVersion という名前のトラッキング プロパティを追加します。
 
@@ -114,7 +124,7 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Departments のコントローラーとビューを作成する
+## <a name="create-departments-controller-and-views"></a>Departments のコントローラーとビューを作成する
 
 先に Students、Courses、Instructors に行ったように、Departments のコントローラーとビューをスキャフォールディングします。
 
@@ -124,7 +134,7 @@ dotnet ef database update
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Departments/Index ビューを更新する
+## <a name="update-index-view"></a>Index ビューを更新する
 
 スキャフォールディング エンジンによりインデックス ビューに RowVersion 列が作成されましたが、このフィールドは表示すべきではありません。
 
@@ -134,7 +144,7 @@ dotnet ef database update
 
 これで見出しが "Departments" に変更され、RowVersion 列が削除され、管理者の名ではなく姓名が表示されます。
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Departments コントローラーの Edit メソッドの更新
+## <a name="update-edit-methods"></a>Edit メソッドを更新する
 
 HttpGet `Edit` メソッドと `Details` メソッドの両方に `AsNoTracking` を追加します。 HttpGet `Edit` メソッドに Administrator の一括読み込みを追加します。
 
@@ -172,7 +182,7 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 `ModelState` の `RowVersion` 値が古いため、`ModelState.Remove` ステートメントが必要になります。 このビューでは、フィールドの `ModelState` 値がモデル プロパティ値より優先されます。
 
-## <a name="update-the-department-edit-view"></a>Department/Edit ビューの更新
+## <a name="update-edit-view"></a>Edit ビューを更新する
 
 *Views/Departments/Edit.cshtml* で、次の変更を行います。
 
@@ -182,7 +192,7 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 [!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Edit ページでコンカレンシーの競合をテストする
+## <a name="test-concurrency-conflicts"></a>コンカレンシーの競合をテストする
 
 アプリを実行し、Departments Index ページに移動します。 English 部署の **[編集]** ハイパーリンクを右クリックし、**[新しいタブで開く]** を選択し、English 部署の **[編集]** ハイパーリンクをクリックします。 2 つのブラウザー タブに同じ情報が表示されます。
 
@@ -276,12 +286,29 @@ RowVersion 列を削除し、管理者の姓名を表示するように *Views/D
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-コンカレンシーの競合処理の入門編はこれで終わりです。 EF Core のコンカレンシー処理の詳細については、[コンカレンシーの競合](/ef/core/saving/concurrency)に関するページを参照してください。 次のチュートリアルでは、Instructor エンティティと Student エンティティの Table-Per-Hierarchy 継承の実装方法について表示します。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>その他の技術情報
 
-> [!div class="step-by-step"]
-> [前へ](update-related-data.md)
-> [次へ](inheritance.md)
+ EF Core のコンカレンシー処理の詳細については、[コンカレンシーの競合](/ef/core/saving/concurrency)に関するページを参照してください。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * コンカレンシーの競合について学習した
+> * トラッキング プロパティを追加した
+> * Departments のコントローラーとビューを作成した
+> * Index ビューを更新した
+> * Edit メソッドを更新した
+> * Edit ビューを更新した
+> * コンカレンシーの競合をテストした
+> * Delete ページを更新した
+> * Details および Create ビューを更新した
+
+Instructor および Student エンティティの Table-Per-Hierarchy 継承を実装する方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [Table-Per-Hierarchy 継承を実装する](inheritance.md)

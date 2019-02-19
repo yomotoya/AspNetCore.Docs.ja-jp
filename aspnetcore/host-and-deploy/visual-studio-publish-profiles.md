@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/22/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 03acaa73fc2ebdc62522a1e081ca6ed72515483f
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: e1e8f99be18d6f395a146bda805f71c46cd0346d
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836490"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248356"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>ASP.NET Core アプリを配置するための Visual Studio 発行プロファイル
 
@@ -347,6 +347,8 @@ dotnet msbuild "AzureWebApp.csproj"
 </PropertyGroup>
 ```
 
+*web.config* の変換が必要な場合 (たとえば、構成、プロファイル、または環境に基づいて環境変数を設定する場合) は、<xref:host-and-deploy/iis/transform-webconfig> を参照してください。
+
 ## <a name="exclude-files"></a>ファイルを除外する
 
 ASP.NET Core Web アプリを発行すると、ビルド成果物と *wwwroot* フォルダーの内容が含まれます。 `msbuild` は [glob パターン](https://gruntjs.com/configuring-tasks#globbing-patterns)をサポートしています。 たとえば、次の `<Content>` 要素は、*wwwroot/content* フォルダーとそのすべてのサブフォルダーのすべてのテキスト (*.txt*) ファイルを除外します。
@@ -521,3 +523,4 @@ Azure App Service での Web アプリのデプロイに含まれるファイル
 * [Web 配置](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) は、IIS サーバーへの Web アプリと Web サイトの配置を簡略化します。
 * [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues):配置でのファイルの問題と要求機能。
 * [Visual Studio から Azure VM に ASP.NET Web アプリを発行する](/azure/virtual-machines/windows/publish-web-app-from-visual-studio)
+* <xref:host-and-deploy/iis/transform-webconfig>

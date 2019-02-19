@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7c8255097dfc72480794930ebe4d6cb568edbd7c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: ca7ee54b8e6b6ae5091b0cb133e448ad9c04da8f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396195"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248520"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデルの検証
 
@@ -151,9 +151,9 @@ Web API コントローラーで `[ApiController]` 属性を使用して `ModelS
 
 ユーザーが `Genre` フィールドを変更してフォームを送信すると、`ClassicMovieAttribute` の `IsValid` メソッドは映画が Classic かどうかを検証します。 他の組み込み属性と同じように、`ClassicMovieAttribute` を `ReleaseDate` などのプロパティに適用し、検証が確実に行われるようにします (前のコード例を参照)。 この例は `Movie` 型でのみ機能するので、次の段落で示すように、`IValidatableObject` を使うのがさらによい方法です。
 
-または、`IValidatableObject` インターフェイスに `Validate` メソッドを実装することで、これと同じコードをモデルに配置することもできます。 カスタム検証属性は個別のプロパティを検証する場合に使えるのに対し、`IValidatableObject` の実装は、ここで示すようにクラス レベルの検証を実装するために使うことができます。
+または、`IValidatableObject` インターフェイスに `Validate` メソッドを実装することで、これと同じコードをモデルに配置することもできます。 カスタム検証属性は個別のプロパティを検証するために使えます。一方、`IValidatableObject` の実装はクラス レベルの検証を実装するために使えます。
 
-[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet_Validate)]
+[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
 ## <a name="client-side-validation"></a>クライアント側の検証
 

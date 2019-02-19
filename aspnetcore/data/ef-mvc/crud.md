@@ -1,42 +1,38 @@
 ---
-title: ASP.NET Core MVC と EF Core - CRUD - 2/10
+title: 'チュートリアル: CRUD 機能を実装する - ASP.NET MVC と EF Core'
+description: このチュートリアルでは、MVC スキャフォールディングがコントローラーとビュー用に自動的に作成する CRUD (作成、読み取り、更新、削除) コードを確認およびカスタマイズします。
 author: rick-anderson
-description: ''
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090824"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102982"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC と EF Core - CRUD - 2/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>チュートリアル: CRUD 機能を実装する - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、Entity Framework と SQL Server LocalDB を使ってデータを保存して表示する MVC アプリケーションを作成しました。 このチュートリアルでは、MVC スキャフォールディングがコントローラーとビュー用に自動的に作成する CRUD (作成、読み取り、更新、削除) コードを確認およびカスタマイズします。
 
 > [!NOTE]
 > コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 この一連のチュートリアルが複雑にならないようにし、Entity Framework 自体の使い方に集中できるように、チュートリアルではリポジトリは使われていません。 EF でのリポジトリについては、[このシリーズの最後のチュートリアル](advanced.md)をご覧ください。
 
-このチュートリアルでは、次の Web ページを使います。
+このチュートリアルでは、次の作業を行いました。
 
-![Student/Details ページ](crud/_static/student-details.png)
+> [!div class="checklist"]
+> * Details ページをカスタマイズする
+> * Create ページを更新する
+> * [編集] ページを更新する
+> * [削除] ページを更新する
+> * データベース接続を閉じる
 
-![Student/Create ページ](crud/_static/student-create.png)
+## <a name="prerequisites"></a>必須コンポーネント
 
-![Student/Edit ページ](crud/_static/student-edit.png)
-
-![Student/Delete ページ](crud/_static/student-delete.png)
+* [ASP.NET Core MVC Web アプリでの EF Core の概要](intro.md)
 
 ## <a name="customize-the-details-page"></a>Details ページをカスタマイズする
 
@@ -172,7 +168,7 @@ Web ページに `Secret` フィールドを作らなくても、ハッカーは
 
 *StudentController.cs* に含まれる HttpGet の `Edit` メソッド (`HttpPost` 属性がないもの) は、`SingleOrDefaultAsync` メソッドを使って、選ばれた Student エンティティを取得します (`Details` メソッドと同様)。 このメソッドを変更する必要はありません。
 
-### <a name="recommended-httppost-edit-code-read-and-update"></a>推奨される HttpPost Edit のコード: 読み取りと更新
+### <a name="recommended-httppost-edit-code-read-and-update"></a>推奨される HttpPost Edit のコード:読み取りと更新
 
 HttpPost の Edit アクション メソッドを、次のコードに置き換えます。
 
@@ -186,7 +182,7 @@ HttpPost の Edit アクション メソッドを、次のコードに置き換�
 
 これらの変更の結果として、HttpPost の `Edit` メソッドのシグネチャは、HttpGet の `Edit` メソッドと同じになります。したがって、`EditPost` メソッドの名前を変更してあります。
 
-### <a name="alternative-httppost-edit-code-create-and-attach"></a>代わりの HttpPost Edit コード: 作成とアタッチ
+### <a name="alternative-httppost-edit-code-create-and-attach"></a>代わりの HttpPost Edit コード:作成とアタッチ
 
 HttpPost の Edit の推奨されるコードでは、変更された列のみが更新され、モデル バインドに含めたくないプロパティのデータは維持されます。 ただし、読み取り優先アプローチではデータベースの余分な読み取りが必要であり、コンカレンシーの競合を処理するためのコードが複雑になる可能性があります。 代わりの方法としては、モデル バインダーによって作成されたエンティティを EF コンテキストにアタッチし、変更済みとしてマークします  (次のコードはオプションのアプローチを示すためだけに掲載してあるので、このコードでプロジェクトを更新しないでください)。
 
@@ -270,13 +266,13 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 **[Delete]** をクリックします。 削除された学生を含まない [Index] ページが表示されます  (アクションでのエラー処理コードの例は、コンカレンシーチュートリアルをご覧ください。)
 
-## <a name="closing-database-connections"></a>データベース接続を閉じる
+## <a name="close-database-connections"></a>データベース接続を閉じる
 
 データベース接続が保持しているリソースを解放するには、使い終わったコンテキスト インスタンスをできるだけ早く破棄する必要があります。 ASP.NET Core に組み込まれている[依存関係の挿入](../../fundamentals/dependency-injection.md)が、そのタスクを自動的に行います。
 
 *Startup.cs* で、[AddDbContext 拡張メソッド](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)を呼び出して、ASP.NET Core DI コンテナー内の `DbContext` クラスをプロビジョニングします。 このメソッドは、サービスの有効期間を既定で `Scoped` に設定します。 `Scoped` はコンテキスト オブジェクトの有効期間が Web 要求の有効期間と一致することを意味し、Web 要求の最後に `Dispose` メソッドが自動的に呼び出されます。
 
-## <a name="handling-transactions"></a>トランザクションの処理
+## <a name="handle-transactions"></a>トランザクションを処理する
 
 既定では、Entity Framework はトランザクションを暗黙的に実装します。 複数の行またはテーブルを変更してから `SaveChanges` を呼び出すシナリオでは、Entity Framework によって自動的に、すべての変更が成功するか、またはすべての変更が失敗することが保証されます。 一部の変更が完了した後でエラーが発生した場合、それらの変更は自動的にロールバックされます。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
 
@@ -294,12 +290,21 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 詳細については、「[Tracking vs.No-Tracking Queries](/ef/core/querying/tracking)」(追跡ありクエリと追跡なしクエリ) をご覧ください。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-Student エンティティに対して簡単な CRUD 操作を実行するページの完全なセットができあがりました。 次のチュートリアルでは、並べ替え、フィルター処理、ページングを追加することにより、**[Index]** ページの機能を拡張します。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>次の手順
 
-> [!div class="step-by-step"]
-> [前へ](intro.md)
-> [次へ](sort-filter-page.md)
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * Details ページをカスタマイズした
+> * Create ページを更新した
+> * Edit ページを更新した
+> * Delete ページを更新した
+> * データベース接続を閉じた
+
+並べ替え、フィルター処理、ページングを追加して **Index** ページの機能を拡張する方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [並べ替え、フィルター処理、ページング](sort-filter-page.md)

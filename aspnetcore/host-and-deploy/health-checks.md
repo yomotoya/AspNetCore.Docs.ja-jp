@@ -5,14 +5,14 @@ description: アプリやデータベースなど、ASP.NET Core インフラス
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/12/2018
+ms.date: 02/13/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: e186a3cb484035199a8f355540c3e985db87ad98
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329147"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248576"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core の正常性チェック
 
@@ -52,9 +52,9 @@ ASP.NET Core からは、アプリ インフラストラクチャ コンポー�
 
 多くのアプリでは、アプリが要求を処理できること (*活動性*) を報告する基本的な正常性チェック構成で十分にアプリの状態を検出できます。
 
-基本の構成では、正常性チェック サービスを登録し、正常性チェック ミドルウェアを呼び出します。このミドルウェアが特定の URL エンドポイントにおける正常性を返します。 既定では、特定の依存関係またはサブシステムをテストする正常性チェックは登録されていません。 正常性エンドポイント URL で応答できる場合、そのアプリは正常であると見なされます。 既定の応答ライターによって、プレーンテキストの応答として状態 (`HealthStatus`) がクライアントに書き込まれます。このとき、状態として `HealthStatus.Healthy`、`HealthStatus.Degraded`、または `HealthStatus.Unhealthy` が示されます。
+基本の構成では、正常性チェック サービスを登録し、正常性チェック ミドルウェアを呼び出します。このミドルウェアが特定の URL エンドポイントにおける正常性を返します。 既定では、特定の依存関係またはサブシステムをテストする正常性チェックは登録されていません。 正常性エンドポイント URL で応答できる場合、そのアプリは正常であると見なされます。 既定の応答ライターによって、プレーンテキストの応答として状態 (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) がクライアントに書き込まれます。このとき、状態として [HealthStatus.Healthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus)、[HealthStatus.Degraded](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus)、または [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) が示されます。
 
-正常性チェック サービスを `Startup.ConfigureServices` の `AddHealthChecks` に登録します。 `Startup.Configure` の要求処理パイプラインに正常性チェック ミドルウェアと `UseHealthChecks` を追加します。
+正常性チェック サービスを `Startup.ConfigureServices` の <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> に登録します。 `Startup.Configure` の要求処理パイプラインに正常性チェック ミドルウェアと <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> を追加します。
 
 サンプル アプリでは、正常性チェック エンドポイントは `/health` で作成されます (*BasicStartup.cs*)。
 
@@ -76,7 +76,7 @@ HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
 
 ## <a name="create-health-checks"></a>正常性チェックを作成する
 
-正常性チェックは `IHealthCheck` インターフェイスを実装することで作成されます。 `IHealthCheck.CheckHealthAsync` メソッドによって、`Healthy`、`Degraded`、`Unhealthy` のいずれかの正常性を示す `Task<HealthCheckResult>` が返されます。 この結果が構成可能な状態コードと共にプレーンテキストの応答として書き込まれます (構成の説明は「[正常性チェック オプション](#health-check-options)」セクションにあります)。 `HealthCheckResult` からは、任意のキーと値のペアを返すこともできます。
+正常性チェックは <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> インターフェイスを実装することで作成されます。 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync*> メソッドによって、`Healthy`、`Degraded`、`Unhealthy` のいずれかの正常性を示す `Task<` <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> `>` が返されます。 この結果が構成可能な状態コードと共にプレーンテキストの応答として書き込まれます (構成の説明は「[正常性チェック オプション](#health-check-options)」セクションにあります)。 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> からは、任意のキーと値のペアを返すこともできます。
 
 ### <a name="example-health-check"></a>正常性チェックの例
 
@@ -113,7 +113,7 @@ public class ExampleHealthCheck : IHealthCheck
 
 ### <a name="register-health-check-services"></a>正常性チェック サービスを登録する
 
-`AddCheck` によって `ExampleHealthCheck` 型が正常性チェック サービスに追加されます。
+<xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> によって `ExampleHealthCheck` 型が正常性チェック サービスに追加されます。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -123,7 +123,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-次の例にある `AddCheck` オーバーロードでは、正常性チェックでエラーが報告されると、レポートにエラー状態 (`HealthStatus`) が設定されます。 エラー状態が `null` (既定) に設定された場合、`HealthStatus.Unhealthy` が報告されます。 このオーバーロードはライブラリ作成者にとって便利です。この設定に正常性チェック実装が従う場合、正常性チェック エラーが発生したとき、ライブラリによって指示されるエラー状態がアプリによって適用されます。
+次の例にある <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> オーバーロードでは、正常性チェックでエラーが報告されると、レポートにエラー状態 (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) が設定されます。 エラー状態が `null` (既定) に設定された場合、[HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) が報告されます。 このオーバーロードはライブラリ作成者にとって便利です。この設定に正常性チェック実装が従う場合、正常性チェック エラーが発生したとき、ライブラリによって指示されるエラー状態がアプリによって適用されます。
 
 *タグ*を使用し、正常性チェックをフィルター処理できます (詳細は「[正常性チェックをフィルター処理する](#filter-health-checks)」セクションにあります)。
 
@@ -135,7 +135,7 @@ services.AddHealthChecks()
         tags: new[] { "example" });
 ```
 
-`AddCheck` では、lambda 関数も実行できます。 次の例では、正常性チェック名に「`Example`」が指定されいます。このチェックでは状態として常に正常が返されます。
+<xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> では、lambda 関数も実行できます。 次の例では、正常性チェック名に「`Example`」が指定されいます。このチェックでは状態として常に正常が返されます。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -148,7 +148,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="use-health-checks-middleware"></a>正常性チェック ミドルウェアを使用する
 
-`Startup.Configure` で、エンドポイント URL または相対パスを利用し、処理パイプラインで `UseHealthChecks` を呼び出します。
+`Startup.Configure` で、エンドポイント URL または相対パスを利用し、処理パイプラインで <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> を呼び出します。
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -157,7 +157,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-正常性チェックに特定のポートで待機させる場合、`UseHealthChecks` のオーバーロードを使用してポートを設定します ([詳細は「ポート別のフィルター処理」セクションにあります](#filter-by-port))。
+正常性チェックに特定のポートで待機させる場合、<xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> のオーバーロードを使用してポートを設定します ([詳細は「ポート別のフィルター処理」セクションにあります](#filter-by-port))。
 
 ```csharp
 app.UseHealthChecks("/health", port: 8000);
@@ -167,7 +167,7 @@ app.UseHealthChecks("/health", port: 8000);
 
 ## <a name="health-check-options"></a>正常性チェック オプション
 
-`HealthCheckOptions` では、正常性チェックの動作をカスタマイズできます。
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions> では、正常性チェックの動作をカスタマイズできます。
 
 * [正常性チェックをフィルター処理する](#filter-health-checks)
 * [HTTP 状態コードをカスタマイズする](#customize-the-http-status-code)
@@ -176,7 +176,7 @@ app.UseHealthChecks("/health", port: 8000);
 
 ### <a name="filter-health-checks"></a>正常性チェックをフィルター処理する
 
-既定では、正常性チェック ミドルウェアでは、登録されている正常性チェックがすべて実行されます。 正常性チェックのサブセットを実行するには、`Predicate` オプションにブール値を返す関数を指定します。 次の例では、関数の条件文にあるそのタグ (`bar_tag`) により `Bar` 正常性チェックが除外されます。`true` は、正常性チェックの `Tag` プロパティが `foo_tag` か `baz_tag` に一致した場合にのみ返されます。
+既定では、正常性チェック ミドルウェアでは、登録されている正常性チェックがすべて実行されます。 正常性チェックのサブセットを実行するには、<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate> オプションにブール値を返す関数を指定します。 次の例では、関数の条件文にあるそのタグ (`bar_tag`) により `Bar` 正常性チェックが除外されます。`true` は、正常性チェックの <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration.Tags> プロパティが `foo_tag` か `baz_tag` に一致した場合にのみ返されます。
 
 ```csharp
 using System.Threading.Tasks;
@@ -207,7 +207,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="customize-the-http-status-code"></a>HTTP 状態コードをカスタマイズする
 
-`ResultStatusCodes` を使用し、HTTP 状態コードに対する正常性状態のマッピングをカスタマイズします。 次の `StatusCode` 代入はミドルウェアによって使用される既定値です。 要件に合わせて状態コード値を変更します。
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes> を使用し、HTTP 状態コードに対する正常性状態のマッピングをカスタマイズします。 次の <xref:Microsoft.AspNetCore.Http.StatusCodes> 代入はミドルウェアによって使用される既定値です。 要件に合わせて状態コード値を変更します。
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -231,7 +231,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="suppress-cache-headers"></a>キャッシュ ヘッダーを非表示にする
 
-`AllowCachingResponses` によって、応答キャッシュを禁止する目的で、正常性チェック ミドルウェアによって HTTP ヘッダーがプローブ応答に追加されるかどうかが制御されます。 値が `false` (既定) の場合、応答キャッシュを禁止する目的で、ミドルウェアによってヘッダー `Cache-Control`、`Expires`、`Pragma` が設定またはオーバーライドされます。 値が `true` の場合、応答のキャッシュ ヘッダーがミドルウェアによって変更されることはありません。
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses> によって、応答キャッシュを禁止する目的で、正常性チェック ミドルウェアによって HTTP ヘッダーがプローブ応答に追加されるかどうかが制御されます。 値が `false` (既定) の場合、応答キャッシュを禁止する目的で、ミドルウェアによってヘッダー `Cache-Control`、`Expires`、`Pragma` が設定またはオーバーライドされます。 値が `true` の場合、応答のキャッシュ ヘッダーがミドルウェアによって変更されることはありません。
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -249,7 +249,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="customize-output"></a>出力をカスタマイズする
 
-`ResponseWriter` オプションによって、応答の書き込みに使用される委任が取得または設定されます。 既定の委任では、文字列値 `HealthReport.Status` を含む、最小のプレーンテキスト応答が書き込まれます。
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> オプションによって、応答の書き込みに使用される委任が取得または設定されます。 既定の委任では、文字列値 [HealthReport.Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status) を含む、最小のプレーンテキスト応答が書き込まれます。
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -297,7 +297,7 @@ BeatPulse ライブラリを使用するには、[AspNetCore.HealthChecks.SqlSer
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-正常性チェック サービスを `Startup.ConfigureServices` の `AddHealthChecks` に登録します。 サンプル アプリによって、データベースの接続文字列 (*DbHealthStartup.cs*) で BeatPulse の `AddSqlServer` メソッドが呼び出されます。
+正常性チェック サービスを `Startup.ConfigureServices` の <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> に登録します。 サンプル アプリによって、データベースの接続文字列 (*DbHealthStartup.cs*) で BeatPulse の `AddSqlServer` メソッドが呼び出されます。
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
@@ -399,11 +399,11 @@ Unhealthy
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/Services/StartupHostedService.cs?name=snippet1&highlight=18-20)]
 
-ホステッド サービスと共に `Startup.ConfigureServices` で正常性チェックが `AddCheck` に登録されます。 ホステッド サービスでは正常性チェックにプロパティを設定する必要があるため、正常性チェックはサービス コンテナーにも登録されます (*LivenessProbeStartup.cs*)。
+ホステッド サービスと共に `Startup.ConfigureServices` で正常性チェックが <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> に登録されます。 ホステッド サービスでは正常性チェックにプロパティを設定する必要があるため、正常性チェックはサービス コンテナーにも登録されます (*LivenessProbeStartup.cs*)。
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices)]
 
-`Startup.Configure` のアプリ処理パイプラインで正常性チェック ミドルウェアを呼び出します。 サンプル アプリで、対応性チェックのための正常性チェック エンドポイントが `/health/ready` で作成され、活動性チェックのための正常性チェック エンドポイントが `/health/live` で作成されます。 対応性チェックでは、`ready` タグが与えられているものに正常性チェックが絞り込まれます。 活動性チェックでは、`HealthCheckOptions.Predicate` で `false` を返すことで `StartupHostedServiceHealthCheck` が除外されます (詳細については、「[正常性チェックをフィルター処理する](#filter-health-checks)」を参照してください)。
+`Startup.Configure` のアプリ処理パイプラインで正常性チェック ミドルウェアを呼び出します。 サンプル アプリで、対応性チェックのための正常性チェック エンドポイントが `/health/ready` で作成され、活動性チェックのための正常性チェック エンドポイントが `/health/live` で作成されます。 対応性チェックでは、`ready` タグが与えられているものに正常性チェックが絞り込まれます。 活動性チェックでは、[HealthCheckOptions.Predicate](xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate) で `false` を返すことで `StartupHostedServiceHealthCheck` が除外されます (詳細については、「[正常性チェックをフィルター処理する](#filter-health-checks)」を参照してください)。
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_Configure)]
 
@@ -413,7 +413,9 @@ Unhealthy
 dotnet run --scenario liveness
 ```
 
-ブラウザーで、15 秒が経過するまで `/health/ready` に数回アクセスします。 正常性チェックにより最初の 15 秒に対して `Unhealthy` が報告されます。 15 秒後、エンドポイントから `Healthy` が報告されます。これは、ホステッド サービスによる長時間実行タスクが完了したことを反映しています。
+ブラウザーで、15 秒が経過するまで `/health/ready` に数回アクセスします。 正常性チェックにより最初の 15 秒に対して "*異常*" が報告されます。 15 秒後、エンドポイントから "*正常*" が報告されます。これは、ホステッド サービスによる長時間実行タスクが完了したことを反映しています。
+
+この例では、2 秒間の遅延で最初の対応性チェックを実行する正常性チェック パブリッシャー (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> の実装) も作成されます。 詳細については、「[正常性チェック パブリッシャー](#health-check-publisher)」セクションをご覧ください。
 
 ### <a name="kubernetes-example"></a>Kubernetes の例
 
@@ -442,11 +444,11 @@ spec:
 
 このサンプル アプリでは、カスタム応答ライターを含む、メモリ正常性チェックを確認できます。
 
-与えられたしきい値を超えるメモリがアプリで使用された場合、`MemoryHealthCheck` からは劣化状態が報告されます (このサンプル アプリでは 1 GB)。 `HealthCheckResult` にはアプリのガベージ コレクター (GC) 情報が含まれています (*MemoryHealthCheck.cs*)。
+与えられたしきい値を超えるメモリがアプリで使用された場合、`MemoryHealthCheck` からは劣化状態が報告されます (このサンプル アプリでは 1 GB)。 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> にはアプリのガベージ コレクター (GC) 情報が含まれています (*MemoryHealthCheck.cs*)。
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/MemoryHealthCheck.cs?name=snippet1)]
 
-正常性チェック サービスを `Startup.ConfigureServices` の `AddHealthChecks` に登録します。 `AddCheck` に渡して正常性チェックを有効にする代わりに、`MemoryHealthCheck` がサービスとして登録されます。 `IHealthCheck` が登録されたサービスはすべて、正常性チェック サービスとミドルウェアで利用できます。 正常性チェック サービスはシングルトン サービスとして登録することをお勧めします。
+正常性チェック サービスを `Startup.ConfigureServices` の <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> に登録します。 <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> に渡して正常性チェックを有効にする代わりに、`MemoryHealthCheck` がサービスとして登録されます。 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> が登録されたサービスはすべて、正常性チェック サービスとミドルウェアで利用できます。 正常性チェック サービスはシングルトン サービスとして登録することをお勧めします。
 
 *CustomWriterStartup.cs*:
 
@@ -473,7 +475,7 @@ dotnet run --scenario writer
 
 ## <a name="filter-by-port"></a>ポート別のフィルター処理
 
-ポートを指定して `UseHealthChecks` を呼び出すと、正常性チェック要求は指定されたポートに制限されます。 これは通常、サービスを監視するためのポートを公開する目的で、コンテナー環境で使用されます。
+ポートを指定して <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> を呼び出すと、正常性チェック要求は指定されたポートに制限されます。 これは通常、サービスを監視するためのポートを公開する目的で、コンテナー環境で使用されます。
 
 サンプル アプリによって、[環境変数構成プロバイダー](xref:fundamentals/configuration/index#environment-variables-configuration-provider)を使用してポートが設定されます。 ポートは *launchSettings.json* ファイルに設定され、環境変数を介して構成プロバイダーに渡されます。 管理ポートで要求を待つようにサーバーを設定する必要もあります。
 
@@ -501,12 +503,12 @@ dotnet run --scenario writer
 }
 ```
 
-正常性チェック サービスを `Startup.ConfigureServices` の `AddHealthChecks` に登録します。 `UseHealthChecks` の呼び出しによって管理ポートが指定されます (*ManagementPortStartup.cs*)。
+正常性チェック サービスを `Startup.ConfigureServices` の <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> に登録します。 <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> の呼び出しによって管理ポートが指定されます (*ManagementPortStartup.cs*)。
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ManagementPortStartup.cs?name=snippet1&highlight=12,18)]
 
 > [!NOTE]
-> URL と管理ポートをコードに明示的に設定することで、サンプル アプリで *launchSettings.json* ファイルを作成することを回避できます。 `WebHostBuilder` が作成される *Program.cs* で、`UseUrls` の呼び出しを追加し、アプリの通常の応答エンドポイントと管理ポート エンドポイントを指定します。 `UseHealthChecks` が呼び出される *ManagementPortStartup.cs* で、管理ポートを明示的に指定します。
+> URL と管理ポートをコードに明示的に設定することで、サンプル アプリで *launchSettings.json* ファイルを作成することを回避できます。 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> が作成される *Program.cs* で、<xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*> の呼び出しを追加し、アプリの通常の応答エンドポイントと管理ポート エンドポイントを指定します。 <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> が呼び出される *ManagementPortStartup.cs* で、管理ポートを明示的に指定します。
 >
 > *Program.cs*:
 >
@@ -541,7 +543,7 @@ dotnet run --scenario port
 
 正常性チェックをライブラリとして配布するには:
 
-1. スタンドアロン クラスとして `IHealthCheck` インターフェイスを実装する正常性チェックを記述します。 このクラスは、設定データにアクセスする目的で[依存関係挿入 (DI)](xref:fundamentals/dependency-injection)、型のアクティブ化、[名前付きオプション](xref:fundamentals/configuration/options)に依存できます。
+1. スタンドアロン クラスとして <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> インターフェイスを実装する正常性チェックを記述します。 このクラスは、設定データにアクセスする目的で[依存関係挿入 (DI)](xref:fundamentals/dependency-injection)、型のアクティブ化、[名前付きオプション](xref:fundamentals/configuration/options)に依存できます。
 
    ```csharp
    using System;
@@ -601,7 +603,7 @@ dotnet run --scenario port
    * 正常性チェック名 (`name`)。 `null` の場合、`example_health_check` が使用されます。
    * 正常性チェックの文字列データ ポイント (`data1`)。
    * 正常性チェックの整数データ ポイント (`data2`)。 `null` の場合、`1` が使用されます。
-   * エラー状態 (`HealthStatus`)。 既定値は、`null` です。 `null` の場合、エラー状態に対して `HealthStatus.Unhealthy` が報告されます。
+   * エラー状態 (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>)。 既定値は、`null` です。 `null` の場合、エラー状態に対して [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) が報告されます。
    * タグ (`IEnumerable<string>`)。
 
    ```csharp
@@ -631,13 +633,52 @@ dotnet run --scenario port
 
 ## <a name="health-check-publisher"></a>正常性チェック パブリッシャー
 
-サービス コンテナーに `IHealthCheckPublisher` が追加されると、正常性チェック システムにより定期的に正常性チェックが実行され、結果と共に `PublishAsync` が呼び出されます。 これは、正常性を判断する目的で監視システムを定期的に呼び出すことを各プロセスに求めるプッシュベースの監視システム シナリオで便利です。
+サービス コンテナーに <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> が追加されると、正常性チェック システムにより定期的に正常性チェックが実行され、結果と共に `PublishAsync` が呼び出されます。 これは、正常性を判断する目的で監視システムを定期的に呼び出すことを各プロセスに求めるプッシュベースの監視システム シナリオで便利です。
 
-`IHealthCheckPublisher` インターフェイスには単一メソッドが与えられます。
+<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> インターフェイスには単一メソッドが与えられます。
 
 ```csharp
 Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ```
+
+<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions> を使うと次を設定できます。
+
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay> &ndash; アプリが起動した後、<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> インスタンスを実行する前に適用される初期遅延です。 遅延はスタートアップ時に一度だけ適用され、以降の繰り返しには適用されません。 既定値は 5 秒です。
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> &ndash; <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> を実行する期間です。 既定値は 30 秒です。
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> &ndash; <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> が `null` (既定値) の場合、正常性チェック パブリッシャー サービスにより登録済みのすべての正常性チェックが実行されます。 正常性チェックのサブセットを実行するには、チェックのセットをフィルター処理する関数を指定します。 述語は期間ごとに評価されます。
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Timeout> &ndash; すべての <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> インスタンスに対する正常性チェックの実行のタイムアウトです。 タイムアウトなしで実行するには <xref:System.Threading.Timeout.InfiniteTimeSpan> を使います。 既定値は 30 秒です。
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!WARNING]
+> ASP.NET Core 2.2 のリリースでは、<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> を設定しても <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> の実装により無視されます。<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay> の値が設定されます。 この問題は、ASP.NET Core 3.0 で修正される予定です。 詳細については、「[HealthCheckPublisherOptions.Period sets the value of .Delay (HealthCheckPublisherOptions.Period により .Delay の値が設定される)](https://github.com/aspnet/Extensions/issues/1041)」をご覧ください。
+
+::: moniker-end
+
+サンプル アプリでは、`ReadinessPublisher` が <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> の実装です。 正常性チェックの状態は `Entries` に記録され、チェックごとにログに記録されます。
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ReadinessPublisher.cs?name=snippet_ReadinessPublisher&highlight=20,22-23)]
+
+サンプル アプリの `LivenessProbeStartup` の例では、対応性チェック `StartupHostedService` にはスタートアップの遅延が 2 秒間あり、30 秒ごとにチェックが実行されます。 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> の実装をアクティブ化するために、サンプルでは `ReadinessPublisher` をシングルトン サービスとして[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) コンテナーに登録しています。
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices&highlight=12-17,28)]
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!NOTE]
+> 1 つ以上の他のホステッド サービスが既にアプリに追加されている場合、次の回避策により <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> インスタンスをサービス コンテナーに追加することができます。 この回避策は、ASP.NET Core 3.0 のリリースと共に必要なくなります。 詳細については、「 https://github.com/aspnet/Extensions/issues/639」を参照してください。
+>
+> ```csharp
+> private const string HealthCheckServiceAssembly = 
+>     "Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherHostedService";
+>
+> services.TryAddEnumerable(
+>     ServiceDescriptor.Singleton(typeof(IHostedService), 
+>         typeof(HealthCheckPublisherOptions).Assembly
+>             .GetType(HealthCheckServiceAssembly)));
+> ```
+
+::: moniker-end
 
 > [!NOTE]
 > [BeatPulse](https://github.com/Xabaril/BeatPulse) には、[Application Insights](/azure/application-insights/app-insights-overview) など、いくつかのシステムのパブリッシャーが含まれます。

@@ -4,14 +4,14 @@ author: isaac2004
 description: ASP.NET Core 2.1 の新機能について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 02/13/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: e16bb874f317b922f3900b540596f6ff38debb2f
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206836"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248174"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2.1 の新機能
 
@@ -70,7 +70,7 @@ ASP.NET Core 2.1 では、[ASP.NET Core Identity](xref:security/authentication/i
 
 運用環境では、HTTPS を明示的に構成する必要があります。 2.1 では、Kestrel に HTTPS を構成するための既定の構成スキーマが追加されています。 以下を使用するようにアプリを構成できます。
 
-* URL を含む複数のエンドポイント。 詳細については、[Kestrel Web サーバーの実装: エンドポイントの構成](xref:fundamentals/servers/kestrel#endpoint-configuration)のセクションを参照してください。
+* URL を含む複数のエンドポイント。 詳細については、[Kestrel Web サーバーの実装:エンドポイントの構成](xref:fundamentals/servers/kestrel#endpoint-configuration)に関するセクションを参照してください。
 * ディスク上のファイルまたは証明書ストアから HTTPS に使用する証明書。
 
 ## <a name="gdpr"></a>GDPR
@@ -131,7 +131,7 @@ ASP.NET Core 2.1 には、アプリでの `HttpClient` のインスタンスの�
 
 ## <a name="kestrel-transport-configuration"></a>Kestrel トランスポート構成
 
-ASP.NET Core 2.1 のリリースにより、Kestrel の既定のトランスポートは、Libuv に基づかなくなり、代わりにマネージド ソケットに基づくようになりました。 詳細については、[Kestrel Web サーバーの実装: トランスポート構成](xref:fundamentals/servers/kestrel#transport-configuration)のセクションを参照してください。
+ASP.NET Core 2.1 のリリースにより、Kestrel の既定のトランスポートは、Libuv に基づかなくなり、代わりにマネージド ソケットに基づくようになりました。 詳細については、[Kestrel Web サーバーの実装:トランスポート構成](xref:fundamentals/servers/kestrel#transport-configuration)に関する記事をご覧ください。
 
 ## <a name="generic-host-builder"></a>汎用ホスト ビルダー
 
@@ -144,7 +144,12 @@ ASP.NET Core 2.1 のリリースにより、Kestrel の既定のトランスポ�
 Angular、React、および Redux と組み合わせた React 用の単一ページ アプリケーション テンプレートが、標準のプロジェクト構造を使用して、各フレームワーク用のシステムをビルドするように更新されました。
 
 Angular テンプレートは Angular CLI に基づいており、React テンプレートは create-react-app に基づいています。
-詳細については、「[ASP.NET Core での単一ページ アプリケーション テンプレートの使用](xref:spa/index)」を参照してください。
+
+詳細については次を参照してください:
+
+* <xref:spa/angular>
+* <xref:spa/react>
+* <xref:spa/react-with-redux>
 
 ## <a name="razor-pages-search-for-razor-assets"></a>Razor アセットの Razor Pages 検索
 

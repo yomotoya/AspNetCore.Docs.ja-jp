@@ -1,33 +1,40 @@
 ---
-title: ASP.NET Core MVC と EF Core - 継承 - 9/10
-author: rick-anderson
+title: 'チュートリアル: 継承を実装する - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、ASP.NET Core アプリケーションで Entity Framework Core を使用して、データ モデル内の継承を実装する方法を説明します。
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090759"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103008"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC と EF Core - 継承 - 9/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)を参照してください。
+# <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>チュートリアル: 継承を実装する - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、コンカレンシー制御の例外を処理しました。 このチュートリアルでは、データ モデルで継承を実装する方法を示します。
 
 オブジェクト指向プログラミングでは、継承を使用してコードの再利用を容易にします。 このチュートリアルでは、`Instructor` と `Student` クラスを `Person` 基底クラスから派生するように変更します。この基底クラスはインストラクターと受講者の両方に共通な `LastName` などのプロパティを含んでいます。 どの Web ページも追加または変更しませんが、コードの一部を変更し、それらの変更はデータベースに自動的に反映されます。
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>継承をデータベース テーブルにマップするためのオプション
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 継承をデータベースにマップする
+> * Person クラスの作成
+> * Instructor と Student を更新する
+> * モデルに Person を追加する
+> * 移行を作成および更新する
+> * 実装をテストする
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ASP.NET Core MVC Web アプリで EF Core を使ってコンカレンシーを処理する](concurrency.md)
+
+## <a name="map-inheritance-to-database"></a>継承をデータベースにマップする
 
 School データ モデル内の `Instructor` および `Student` クラスにはいくつかの同じプロパティがあります。
 
@@ -64,7 +71,7 @@ TPC および TPH 継承パターンは、一般的に TPT 継承パターンよ
 
 [!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Person クラスから Student クラスと Instructor クラスを派生させる
+## <a name="update-instructor-and-student"></a>Instructor と Student を更新する
 
 *Instructor.cs* で、Person クラスから Instructor を派生させ、キーと名前のフィールドを削除します。 コードは次の例のように表示されます。
 
@@ -74,7 +81,7 @@ TPC および TPH 継承パターンは、一般的に TPT 継承パターンよ
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
-## <a name="add-the-person-entity-type-to-the-data-model"></a>Person エンティティ型をデータ モデルに追加します。
+## <a name="add-person-to-the-model"></a>モデルに Person を追加する
 
 Person エンティティ型を *SchoolContext.cs* に追加します。 新しい行が強調表示されます。
 
@@ -82,7 +89,7 @@ Person エンティティ型を *SchoolContext.cs* に追加します。 新し�
 
 Table-per-Hierarchy 継承を構成するために Entity Framework に必要なのことはこれですべてです。 ご覧のように、データベースが更新されたときに、Student テーブルと Instructor テーブルの代わりに、Person テーブルがあります。
 
-## <a name="create-and-customize-migration-code"></a>移行コードの作成とカスタマイズ
+## <a name="create-and-update-migrations"></a>移行を作成および更新する
 
 変更を保存し、プロジェクトをビルドします。 次に、プロジェクト フォルダーでコマンド ウィンドウを開き、次のコマンドを入力します。
 
@@ -129,7 +136,7 @@ dotnet ef database update
 > [!NOTE]
 > データが存在するデータベースでスキーマの変更を行うと、他のエラーが発生する場合があります。 解決できない移行エラーが発生した場合は、接続文字列のデータベース名を変更するか、データベースを削除できます。 新しいデータベースには移行するデータが存在しないため、update-database コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除するには、SSOX を使用するか `database drop` CLI コマンドを実行します。
 
-## <a name="test-with-inheritance-implemented"></a>継承を実装したテスト
+## <a name="test-the-implementation"></a>実装をテストする
 
 アプリを実行して、さまざまなページを試してください。 すべてが前と同じように動作します。
 
@@ -141,12 +148,26 @@ Person テーブルを右クリックし、**[テーブル データの表示]**
 
 ![SSOX の Person テーブル - テーブル データ](inheritance/_static/ssox-person-data.png)
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-`Person`、`Student`、および `Instructor` クラスの Table-per-Hierarchy 継承を実装しました。 Entity Framework Core での継承の詳細については、「[継承](/ef/core/modeling/inheritance)」を参照してください。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>その他の技術情報
 
-> [!div class="step-by-step"]
-> [前へ](concurrency.md)
-> [次へ](advanced.md)
+Entity Framework Core での継承の詳細については、「[継承](/ef/core/modeling/inheritance)」を参照してください。
+
+## <a name="next-steps"></a>次の手順
+
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 継承をデータベースにマップした
+> * Person クラスを作成した
+> * Instructor と Student を更新した
+> * モデルに Person を追加した
+> * 移行を作成および更新した
+> * 実装をテストした
+
+比較的高度な Entity Framework のさまざまなシナリオを処理する方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [高度なトピック](advanced.md)

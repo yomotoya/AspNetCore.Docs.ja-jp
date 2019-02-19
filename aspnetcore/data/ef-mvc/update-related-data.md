@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
-author: rick-anderson
+title: 'チュートリアル: 関連データを更新する - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090734"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103034"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>チュートリアル: 関連データを更新する - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、関連データを表示しました。このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。
 
@@ -31,7 +24,20 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 ![Instructor/Edit ページ](update-related-data/_static/instructor-edit-courses.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Courses の Create ページと Edit ページをカスタマイズする
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * Courses ページをカスタマイズする
+> * Instructors/Edit ページを追加する
+> * Edit ページにコースを追加する
+> * Delete ページを更新する
+> * オフィスの場所とコースを Create ページに追加する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ASP.NET Core MVC Web アプリの EF Core を使って関連データを読み取る](read-related-data.md)
+
+## <a name="customize-courses-pages"></a>Courses ページをカスタマイズする
 
 新しいコース エンティティが作成されると、既存の部門とのリレーションシップが必要になります。 これを容易にするため、スキャフォールディング コードには、コントローラーのメソッドと、部門を選択するためのドロップダウン リストを含む Create ビューと Edit ビューが含まれます。 ドロップダウン リストは、`Course.DepartmentID` 外部キー プロパティを設定します。これは、`Department` ナビゲーション プロパティを適切な Department エンティティとともに読み込むためにすべての Entity Framework で必要です。 このスキャフォールディング コードを使用しますが、エラー処理を追加し、ドロップダウン リストを並べ替えるために少し変更します。
 
@@ -103,7 +109,7 @@ Courses/Index ページのコースで **[Edit]** をクリックします。
 
 ページ上のデータを変更し、**[Save]\(保存\)** をクリックします。 Courses/Index ページには、更新されたコース データが表示されます。
 
-## <a name="add-an-edit-page-for-instructors"></a>Instructors の Edit ページを追加する
+## <a name="add-instructors-edit-page"></a>Instructors/Edit ページを追加する
 
 インストラクター レコードを編集するときに、インストラクターのオフィスの割り当ての更新が必要な場合があります。 Instructor エンティティには、OfficeAssignment エンティティとの一対ゼロまたは一対一のリレーションシップがあります。これは、コードで次の状況を処理する必要があることを意味します。
 
@@ -163,7 +169,7 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
 
 ![Instructor/Edit ページ](update-related-data/_static/instructor-edit-office.png)
 
-## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Instructors/Edit ページにコースの割り当てを追加する
+## <a name="add-courses-to-edit-page"></a>Edit ページにコースを追加する
 
 インストラクターは、任意の数のコースを担当する場合があります。 次のスクリーン ショットに示すように、チェック ボックスのグループを使用して、コースの割り当てを変更する機能を追加して、Instructor/Edit ページを拡張します。
 
@@ -236,7 +242,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 > [!NOTE]
 > インストラクター コース データを編集するためにここで採用されている方法は、コースの数が限られている場合にはうまく機能します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。
 
-## <a name="update-the-delete-page"></a>Delete ページを更新する
+## <a name="update-delete-page"></a>Delete ページを更新する
 
 *InstructorsController.cs* で、`DeleteConfirmed` メソッドを削除し、その場所に次のコードを挿入します。
 
@@ -248,7 +254,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 * 削除されるインストラクターが任意の部門の管理者として割り当てられている場合、インストラクターの割り当てをその部門から削除します。
 
-## <a name="add-office-location-and-courses-to-the-create-page"></a>オフィスの場所とコースを Create ページに追加する
+## <a name="add-office-location-and-courses-to-create-page"></a>オフィスの場所とコースを Create ページに追加する
 
 *InstructorsController.cs* で、HttpPost と HttpGet の `Create` メソッドを削除してから、その場所に次のコードを追加します。
 
@@ -293,12 +299,21 @@ public ICollection<CourseAssignment> CourseAssignments
 
 [CRUD チュートリアル](crud.md)で説明したように、Entity Framework はトランザクションを暗黙的に実装します。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-これで、関連データの概要が完了しました。 次のチュートリアルでは、コンカレンシーの競合を処理する方法を説明します。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>次の手順
 
-> [!div class="step-by-step"]
-> [前へ](read-related-data.md)
-> [次へ](concurrency.md)
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * Courses ページをカスタマイズした
+> * Instructors/Edit ページを追加した
+> * Edit ページにコースを追加した
+> * Delete ページを更新した
+> * オフィスの場所とコースを Create ページに追加した
+
+コンカレンシーの競合を処理する方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [コンカレンシーの競合の処理](concurrency.md)

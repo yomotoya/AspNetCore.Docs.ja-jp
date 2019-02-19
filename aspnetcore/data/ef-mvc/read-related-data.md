@@ -1,26 +1,19 @@
 ---
-title: ASP.NET Core MVC と EF Core - 関連データの読み取り - 6/10
-author: rick-anderson
+title: 'チュートリアル: 関連データを読み取る - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、関連データ (Entity Framework がナビゲーション プロパティに読み込むデータ) の読み取りと表示を行います。
+author: rick-anderson
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063287"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103047"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの読み取り - 6/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>チュートリアル: 関連データを読み取る - ASP.NET MVC と EF Core
 
 前のチュートリアルでは、School データ モデルを作成しました。 このチュートリアルでは、関連データ (Entity Framework がナビゲーション プロパティに読み込むデータ) の読み取りと表示を行います。
 
@@ -30,7 +23,19 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 ![Instructors/Index ページ](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>関連データの一括読み込み、明示的読み込み、遅延読み込み
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 関連データを読み込む方法を学習する
+> * Courses ページを作成する
+> * Instructors ページを作成する
+> * 明示的読み込みについて学習する
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [ASP.NET Core MVC Web アプリの EF Core を使ってより複雑なデータ モデルを作成する](complex-data-model.md)
+
+## <a name="learn-how-to-load-related-data"></a>関連データを読み込む方法を学習する
 
 オブジェクト リレーショナル マッピング (ORM) ソフトウェア (Entity Framework など) では、次のように関連データをエンティティのナビゲーション プロパティに読み込むことができる方法がいくつかあります。
 
@@ -42,7 +47,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
   ![分離したクエリの例](read-related-data/_static/separate-queries.png)
 
-* 明示的読み込み。 エンティティが最初に読み込まれるときに、関連データは取得されません。 必要な場合に、関連データを取得するコードを記述します。 分離したクエリによる一括読み込みのように、明示的読み込みでは、複数のクエリがデータベースに送信されます。 明示的読み込みを使用すると、コードで読み込まれるナビゲーション プロパティを指定する点が異なります。 Entity Framework Core 1.1 では、`Load` メソッドを使用して、明示的読み込みを実行できます。 例:
+* 明示的読み込み。 エンティティが最初に読み込まれるときに、関連データは取得されません。 必要な場合に、関連データを取得するコードを記述します。 分離したクエリによる一括読み込みのように、明示的読み込みでは、複数のクエリがデータベースに送信されます。 明示的読み込みを使用すると、コードで読み込まれるナビゲーション プロパティを指定する点が異なります。 Entity Framework Core 1.1 では、`Load` メソッドを使用して、明示的読み込みを実行できます。 次に例を示します。
 
   ![明示的読み込みの例](read-related-data/_static/explicit-loading.png)
 
@@ -54,7 +59,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 その一方で、一部のシナリオでは、分離したクエリがより効率的です。 1 つのクエリ内のすべての関連データの一括読み込みでは、SQL Server で効率的に処理できない、複雑な結合が生成される場合があります。 または、処理しているエンティティのセットのサブセットのためだけにエンティティのナビゲーション プロパティにアクセスする必要がある場合、事前のすべてを取得する一括読み込みでは、必要以上にデータを取得するため、分離したクエリの方が適切に実行される可能性があります。 パフォーマンスが重要な場合、最適な選択を行うために、両方の方法でパフォーマンスをテストすることをお勧めします。
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>部門名を表示する Courses ページを作成する
+## <a name="create-a-courses-page"></a>Courses ページを作成する
 
 Course エンティティには、コースが割り当てられている部門の Dpartment エンティティを含む、ナビゲーション プロパティが含まれます。 コースのリストに割り当てられた部門の名前を表示するには、`Course.Department` ナビゲーション プロパティにある Department エンティティから Name プロパティを取得する必要があります。
 
@@ -88,7 +93,7 @@ Course エンティティには、コースが割り当てられている部門�
 
 ![Courses/Index ページ](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>コースと登録を示す Instructors ページを作成する
+## <a name="create-an-instructors-page"></a>Instructors ページを作成する
 
 このセクションでは、Instructors ページを表示するために、Instructor エンティティのコントローラーとビューを作成します。
 
@@ -226,7 +231,7 @@ Index メソッドを次のコードに置き換えて、関連データの一�
 
 ![インストラクターとコースが選択された Instructors/Index ページ](read-related-data/_static/instructors-index.png)
 
-## <a name="explicit-loading"></a>明示的読み込み
+## <a name="about-explicit-loading"></a>明示的読み込みについて
 
 *InstructorsController.cs* でインストラクターのリストを取得したときに、`CourseAssignments` ナビゲーション プロパティに一括読み込みを指定しました。
 
@@ -238,12 +243,20 @@ Index メソッドを次のコードに置き換えて、関連データの一�
 
 アプリを実行して、Instructors/Index ページに移動すると、データを取得する方法を変更しているにもかかわらず、ページ上で表示される内容に変わりがないことがわかります。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-1 つのクエリおよび複数のクエリを使って一括読み込みを使用し、関連データをナビゲーション プロパティに読み込みました。 次のチュートリアルでは、関連データの更新方法を学習します。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>次の手順
 
->[!div class="step-by-step"]
->[前へ](complex-data-model.md)
->[次へ](update-related-data.md)
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 関連データを読み込む方法を学習した
+> * Courses ページを作成した
+> * Instructors ページを作成した
+> * 明示的読み込みについて学習した
+
+関連データを更新する方法について学習するには、次の記事に進んでください。
+> [!div class="nextstepaction"]
+> [関連データの更新](update-related-data.md)

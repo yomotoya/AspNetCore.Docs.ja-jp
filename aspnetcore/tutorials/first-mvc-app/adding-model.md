@@ -3,14 +3,14 @@ title: ASP.NET Core MVC アプリへのモデルの追加
 author: rick-anderson
 description: 単純な ASP.NET Core アプリケーションにモデルを追加します。
 ms.author: riande
-ms.date: 12/8/2017
+ms.date: 02/12/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 062a248ffdf8e30ed01a72e0a555c1c9a1ab1b6d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: da30c1c97cbf40a89d163b2116c8d5f9ad422b25
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341613"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159241"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのモデルの追加
 
@@ -141,56 +141,57 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 
 ## <a name="initial-migration"></a>最初の移行
 
-<!-- VS -------------------------->
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-このセクションでは、パッケージ マネージャー コンソール (PMC) を使用して、次の作業を行います。
+このセクションでは、次のタスクを完了しました。
 
 * 初期移行を追加します。
 * 初期移行でデータベースを更新します。
 
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]**、**[パッケージ マネージャー コンソール]** の順に選択します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-  ![PMC メニュー](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
+1. **[ツール]** メニューで、**[NuGet パッケージ マネージャー]** > **[パッケージ マネージャー コンソール]** (PMC) の順に選択します。
 
-PMC で、次のコマンドを入力します。
+   ![PMC メニュー](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
-```PMC
-Add-Migration Initial
-Update-Database
-```
+1. PMC で、次のコマンドを入力します。
 
-`Add-Migration` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。
-<!-- Code -------------------------->
+   ```console
+   Add-Migration Initial
+   Update-Database
+   ```
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+   `Add-Migration` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。
+
+   データベース スキーマは、`MvcMovieContext` クラスで指定されたモデルに基づきます (*Data/MvcMovieContext.cs* ファイル内)。 `Initial` 引数は、移行の名前です。 任意の名前を使用できますが、慣例により、移行を説明する名前が使用されます。 詳細については、「<xref:data/ef-mvc/migrations>」を参照してください。
+
+   `Update-Database` コマンドは、データベースを作成する、*Migrations/{time-stamp}_InitialCreate.cs* ファイルの `Up` メソッドを実行します。
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
+
 `ef migrations add InitialCreate` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。
 
+データベース スキーマは、`MvcMovieContext` クラスで指定されたモデルに基づきます (*Data/MvcMovieContext.cs* ファイル内)。 `InitialCreate` 引数は、移行の名前です。 任意の名前を使用できますが、慣例により、移行を説明する名前が選択されます。
+
 ---  
-<!-- End of VS tabs -->
 
-上記のコマンドで次の警告が生成されます。"エンティティ型 'Movie' の decimal 列 'Price' に型が指定されていません。 これにより、値が既定の有効桁数と小数点以下桁数に収まらない場合、自動的に切り捨てられます。 'HasColumnType()' を使用してすべての値に適合する SQL server 列の型を明示的に指定します。"
+上記のコマンドで次の警告が生成されます。
 
-この警告は無視して構いません。後のチュートリアルで修正されます。
+```text
+No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+```
 
-このスキーマは、`DbContext` で指定されたモデルに基づきます (*Models/MvcMovieContext.cs* ファイル内)。 `InitialCreate` 引数は移行の命名に使用されます。 任意の名前を使用できますが、規則により、移行を説明する名前が選択されます。
-
-`ef database update` コマンドは、*Migrations/\<time-stamp>_InitialCreate.cs* ファイルの `Up` メソッドを実行します。 `Up` メソッドにより、データベースが作成されます。
-
-<!-- VS -------------------------->
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+この警告は無視してかまいません。 これは、後のチュートリアルで修正されます。
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>依存関係挿入に登録されるコンテキストを調べる
 
-ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injection)が組み込まれています。 サービス (EF Core DB コンテキストなど) は、アプリケーションの起動時に依存関係挿入に登録されます。 これらのサービスを必要とするコンポーネント (Razor ページなど) には、コンストラクターのパラメーターを介してこれらのサービスが指定されます。 DB コンテキスト インスタンスを取得するコンストラクター コードは、チュートリアルの後半で示します。
+ASP.NET Core には、[依存関係挿入 (DI)](xref:fundamentals/dependency-injection) が組み込まれています。 サービス (EF Core DB コンテキストなど) は、アプリケーションの起動時に DI に登録されます。 これらのサービスを必要とするコンポーネント (Razor ページなど) には、コンストラクターのパラメーターを介してこれらのサービスが指定されます。 DB コンテキスト インスタンスを取得するコンストラクター コードは、チュートリアルの後半で示します。
 
-スキャフォールディング ツールが自動的に DB コンテキストを作成し、依存関係挿入コンテナーと共に登録します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-`Startup.ConfigureServices` メソッドを調べます。 強調表示された行は、スキャフォールダーによって追加されました。
+スキャフォールディング ツールが自動的に DB コンテキストを作成し、それを DI コンテナーに登録します。
+
+次の `Startup.ConfigureServices` メソッドを調べます。 強調表示された行は、スキャフォールダーによって追加されました。
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
@@ -198,22 +199,15 @@ ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injectio
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
 
-上記のコードによって、エンティティ セットの [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) プロパティが作成されます。 Entity Framework の用語では、エンティティ セットは通常はデータベース テーブルに対応します。 エンティティはテーブル内の行に対応します。
+上記のコードによって、エンティティ セットの [DbSet\<Movie>](/dotnet/api/microsoft.entityframeworkcore.dbset-1) プロパティが作成されます。 Entity Framework の用語では、エンティティ セットは通常はデータベース テーブルに対応します。 エンティティはテーブル内の行に対応します。
 
 [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) オブジェクトでメソッドが呼び出され、接続文字列の名前がコンテキストに渡されます。 ローカル開発の場合、[ASP.NET Core 構成システム](xref:fundamentals/configuration/index)が *appsettings.json* ファイルから接続文字列を読み取ります。
-<!-- Code -------------------------->
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
-ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injection)が組み込まれています。 サービス (EF Core DB コンテキストなど) は、アプリケーションの起動時に依存関係挿入に登録されます。 これらのサービスを必要とするコンポーネント (Razor ページなど) には、コンストラクターのパラメーターを介してこれらのサービスが指定されます。 DB コンテキスト インスタンスを取得するコンストラクター コードは、チュートリアルの後半で示します。
-
-DB コンテキストを作成し、それを依存関係挿入コンテナーに登録しました。
+DB コンテキストを作成し、それを DI コンテナーに登録しました。
 
 ---
-
-このスキーマは、`MvcMovieContext` で指定されたモデルに基づきます (*Data/MvcMovieContext.cs* ファイル内)。 `Initial` 引数は移行の命名に使用されます。 任意の名前を使用できますが、規則により、移行を説明する名前が使用されます。 詳細については、「[Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations)」 (移行の概要) を参照してください。
-
-`Update-Database` コマンドは、データベースを作成する、*Migrations/{time-stamp}_InitialCreate.cs* ファイルの `Up` メソッドを実行します。
 
 <a name="test"></a>
 

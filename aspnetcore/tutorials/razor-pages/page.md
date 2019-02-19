@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: c902e9e258b4f436e2f19e2940246b80549238b8
-ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
+ms.openlocfilehash: f97930c9e09dbf46acc9e91aff9469db8970fa77
+ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073115"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55712290"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core でスキャフォールディングされた Razor ページ
 
@@ -52,7 +52,8 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 `DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。 ラムダ式は評価されるのではなく検査されます。 これは、`model`、`model.Movie`、または `model.Movie[0]` が `null` または空である場合、アクセス違反がないことを意味します。 ラムダ式が (`@Html.DisplayFor(modelItem => item.Title)` などを使用して) 評価される場合は、モデルのプロパティ値が評価されます。
 
 <a name="md"></a>
-### <a name="the-model-directive"></a>@model ディレクティブ
+### <a name="the-model-directive"></a>
+  @model ディレクティブ
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
@@ -175,4 +176,4 @@ Visual Studio for Mac に、タグ ヘルパーで使用される独特な太字
 
 > [!div class="step-by-step"]
 > [前へ:モデルの追加](xref:tutorials/razor-pages/model)
-> [次:データ ベース](xref:tutorials/razor-pages/sql)
+> [次:データベース](xref:tutorials/razor-pages/sql)

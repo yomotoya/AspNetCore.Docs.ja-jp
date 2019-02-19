@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core のルーティングでどのように要求 URI をエンドポイント セレクターにマッピングし、受信要求をエンドポイントに配布するかについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890017"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248434"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -38,7 +38,7 @@ services.AddMvc()
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 ```
 
-`EnableEndpointRouting` オプションでは、ルーティングで内部的にエンドポイント ベースのロジックを使用するか、ASP.NET Core 2.1 以前の <xref:Microsoft.AspNetCore.Routing.IRouter> ベースのロジックを使用する必要があるかどうかを決定します。 互換性バージョンが 2.2 以降に設定されている場合、既定値は `true` となります。 以前のルーティング ロジックを使用する場合は、値を `false` に設定します。
+<xref:Microsoft.AspNetCore.Mvc.MvcOptions.EnableEndpointRouting> オプションでは、ルーティングで内部的にエンドポイント ベースのロジックを使用するか、ASP.NET Core 2.1 以前の <xref:Microsoft.AspNetCore.Routing.IRouter> ベースのロジックを使用する必要があるかどうかを決定します。 互換性バージョンが 2.2 以降に設定されている場合、既定値は `true` となります。 以前のルーティング ロジックを使用する場合は、値を `false` に設定します。
 
 ```csharp
 // Use the routing logic of ASP.NET Core 2.1 or earlier:
@@ -97,7 +97,7 @@ URL 生成サポートを使用すると、アプリを相互にリンクする 
 
 * ルート テンプレート構文は、トークン化されたルート パラメーターでルートを定義するために使用されます。
 * 規則スタイルおよび属性スタイルのエンドポイント構成が許可されます。
-* `IRouteConstraint` は、URL パラメーターに特定のエンドポイント制約で有効な値が含まれているかどうかを確認するために使用されます。
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> は、URL パラメーターに特定のエンドポイント制約で有効な値が含まれているかどうかを確認するために使用されます。
 * MVC/Razor Pages などのアプリ モデルでは、ルーティング シナリオの予測可能な実装を持つ、すべてのエンドポイントを登録します。
 * ルーティングの実装では、必要に応じて、ミドルウェア パイプラインでのルーティングに関する決定を行います。
 * ルーティング ミドルウェアの後に表示されるミドルウェアでは、特定の要求 URI に関するルーティング ミドルウェアのエンドポイント決定の結果を検査できます。
@@ -105,8 +105,8 @@ URL 生成サポートを使用すると、アプリを相互にリンクする 
 * アプリではルーティングを使用し、エンドポイント情報に基づいて URL (リダイレクトやリンクなど) を生成できます。そのため、URL をハードコーディングする必要がなく、保守管理が容易になります。
 * URL の生成は、任意の拡張機能をサポートする、アドレスに基づきます。
 
-  * リンク ジェネレーター API (`LinkGenerator`) は、URI を生成するために[依存関係挿入 (DI)](xref:fundamentals/dependency-injection) を使用して任意の場所で解決できます。
-  * リンク ジェネレーター API を DI で使用できない場合、`IUrlHelper` で URL を構築するためのメソッドが提供されます。
+  * リンク ジェネレーター API (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>) は、URI を生成するために[依存関係挿入 (DI)](xref:fundamentals/dependency-injection) を使用して任意の場所で解決できます。
+  * リンク ジェネレーター API を DI で使用できない場合、<xref:Microsoft.AspNetCore.Mvc.IUrlHelper> で URL を構築するためのメソッドが提供されます。
 
 > [!NOTE]
 > ASP.NET Core 2.2 のエンドポイント ルーティングのリリースでは、エンドポイント リンクは、MVC/Razor Pages アクションおよびページに制限されます。 エンドポイント リンク機能の拡張は、今後のリリースで予定されています。
@@ -126,10 +126,10 @@ URL 生成サポートを使用すると、アプリを相互にリンクする 
 
 * ルート テンプレート構文は、トークン化されたルート パラメーターでルートを定義するために使用されます。
 * 規則スタイルおよび属性スタイルのエンドポイント構成が許可されます。
-* `IRouteConstraint` は、URL パラメーターに特定のエンドポイント制約で有効な値が含まれているかどうかを確認するために使用されます。
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> は、URL パラメーターに特定のエンドポイント制約で有効な値が含まれているかどうかを確認するために使用されます。
 * MVC/Razor Pages などのアプリ モデルでは、ルーティング シナリオの予測可能な実装を持つ、すべてのルートを登録します。
 * 応答ではルーティングを使用し、ルート情報に基づいて URL (リダイレクトやリンクなど) を生成できます。そのため、URL をハードコーディングする必要がなく、保守管理が容易になります。
-* URL の生成は、任意の拡張機能をサポートする、ルートに基づきます。 `IUrlHelper` では、URL を構築するためのメソッドが提供されます。
+* URL の生成は、任意の拡張機能をサポートする、ルートに基づきます。 <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> では、URL を構築するためのメソッドが提供されます。
 
 ::: moniker-end
 
@@ -143,7 +143,7 @@ URL 一致というプロセスでは、ルーティングによって、受信�
 
 エンドポイント ルーティングのルーティング システムでは、配布に関するすべての決定が行われます。 ミドルウェアでは選択されたエンドポイントに基づいてポリシーが適用されるため、セキュリティ ポリシーの適用や配布に影響する可能性のある決定は、ルーティング システム内で行うことが重要です。
 
-エンドポイントのデリゲートが実行されると、それまでに実行された要求処理に基づいて、`RouteContext.RouteData` のプロパティが適切な値に設定されます。
+エンドポイントのデリゲートが実行されると、それまでに実行された要求処理に基づいて、[RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) のプロパティが適切な値に設定されます。
 
 ::: moniker-end
 
@@ -151,19 +151,19 @@ URL 一致というプロセスでは、ルーティングによって、受信�
 
 URL 一致というプロセスでは、ルーティングによって、受信要求が*ハンドラー*に配布されます。 このプロセスは URL パスのデータに基づきますが、要求内のあらゆるデータを考慮することもできます。 アプリの規模を大きくしたり、より複雑にしたりするとき、要求を個別のハンドラーに配布する機能が鍵となります。
 
-受信要求は `RouterMiddleware` に入ります。これが各ルートで順に <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> メソッドを呼び出します。 <xref:Microsoft.AspNetCore.Routing.IRouter> インスタンスでは、[RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) を非 null の <xref:Microsoft.AspNetCore.Http.RequestDelegate> に設定することで、要求を*処理する*かどうかを選択します。 要求に適したハンドラーがルートに見つかると、ルート処理が停止します。ハンドラーが呼び出され、要求を処理します。 要求を処理するためのルート ハンドラーが見つからない場合、ミドルウェアによって、要求が要求パイプラインの次のミドルウェアに渡されます。
+受信要求は <xref:Microsoft.AspNetCore.Builder.RouterMiddleware> に入ります。これが各ルートで順に <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> メソッドを呼び出します。 <xref:Microsoft.AspNetCore.Routing.IRouter> インスタンスでは、[RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) を非 null の <xref:Microsoft.AspNetCore.Http.RequestDelegate> に設定することで、要求を*処理する*かどうかを選択します。 要求に適したハンドラーがルートに見つかると、ルート処理が停止します。ハンドラーが呼び出され、要求を処理します。 要求を処理するためのルート ハンドラーが見つからない場合、ミドルウェアによって、要求が要求パイプラインの次のミドルウェアに渡されます。
 
-`RouteAsync` に最初に入力されるのが、現在の要求に関連付けられている [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) です。 `RouteContext.Handler` と [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) はルートが一致した後に設定される出力です。
+<xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> に最初に入力されるのが、現在の要求に関連付けられている [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) です。 [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler) と [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) は、ルートが一致した後に設定される出力です。
 
-また、`RouteAsync` を呼び出す一致が見つかると、それまでに実行された要求処理に基づいて、`RouteContext.RouteData` のプロパティが適切な値に設定されます。
+また、<xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> を呼び出す一致が見つかると、それまでに実行された要求処理に基づいて、[RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) のプロパティが適切な値に設定されます。
 
 ::: moniker-end
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) は、ルートから生成された*ルート値*のディクショナリです。 この値は通常、URL のトークン化で決定されます。この値を利用してユーザー入力を受け取ったり、アプリ内で決定をさらに配布したりできます。
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) は、一致したルートに関連する追加データのプロパティ バッグです。 一致したルートに基づいてアプリで決定を行えるように、`DataTokens` が提供されます。これは状態データと各ルートの関連付けをサポートするためのものです。 この値は開発者が定義するものです。ルーティングの動作に影響を与えることは**ありません**。 また、`RouteData.DataTokens` に格納された値はどのような型でも構いません。一方、`RouteData.Values` は文字列間で変換できる必要があります。
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) は、一致したルートに関連する追加データのプロパティ バッグです。 一致したルートに基づいてアプリで決定を行えるように、<xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*> が提供されます。これは状態データと各ルートの関連付けをサポートするためのものです。 この値は開発者が定義するものです。ルーティングの動作に影響を与えることは**ありません**。 また、[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) に一時退避される値はどのような型でも構いません。一方、[RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values) の場合は、文字列間で変換できる必要があります。
 
-[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) は、過去に要求に一致したルートの一覧です。 ルートはルートの中に入れ子にすることができます。 `Routers` プロパティは、結果的に一致をもたらしたルートの論理ツリーを通るパスを表します。 一般的に、`Routers` の最初の項目はルート コレクションであり、これは URL 生成に使用するものです。 `Routers` の最後の項目は、一致したルート ハンドラーです。
+[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) は、過去に要求に一致したルートの一覧です。 ルートはルートの中に入れ子にすることができます。 <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> プロパティは、結果的に一致をもたらしたルートの論理ツリーを通るパスを表します。 一般的に、<xref:Microsoft.AspNetCore.Routing.RouteData.Routers> の最初の項目はルート コレクションであり、これは URL 生成に使用するものです。 <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> の最後の項目は、一致したルート ハンドラーです。
 
 ### <a name="url-generation"></a>URL 生成
 
@@ -171,45 +171,45 @@ URL 一致というプロセスでは、ルーティングによって、受信�
 
 URL 生成は、ルーティングにおいて、一連のルート値に基づいて URL パスを作成するプロセスです。 これにより、エンドポイントとそれにアクセスする URL を論理的に分離できます。
 
-エンドポイント ルーティングには、リンク ジェネレーター API (`LinkGenerator`) が含まれています。 `LinkGenerator` は、DI から取得できるシングルトン サービスです。 API は、実行中の要求のコンテキスト外で使用することができます。 MVC の `IUrlHelper` と、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)、HTML ヘルパー、[アクション結果](xref:mvc/controllers/actions)など、`IUrlHelper` に依存するシナリオではリンク ジェネレーターを使用して、リンク生成機能を提供します。
+エンドポイント ルーティングには、リンク ジェネレーター API (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>) が含まれています。 <xref:Microsoft.AspNetCore.Routing.LinkGenerator> は、DI から取得できるシングルトン サービスです。 API は、実行中の要求のコンテキスト外で使用することができます。 MVC の <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> と、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)、HTML ヘルパー、[アクション結果](xref:mvc/controllers/actions)など、<xref:Microsoft.AspNetCore.Mvc.IUrlHelper> に依存するシナリオではリンク ジェネレーターを使用して、リンク生成機能を提供します。
 
 リンク ジェネレーターは、*アドレス* と*アドレス スキーム* の概念に基づいています。 アドレス スキームは、リンク生成で考慮すべきエンドポイントを決定する方法です。 たとえば、MVC/Razor Pages からの、多くのユーザーに馴染みのあるルート名やルート値シナリオは、アドレス スキームとして実装されます。
 
 リンク ジェネレーターでは、次の拡張メソッドを使用して、MVC/Razor Pages アクションおよびページにリンクできます。
 
-* `GetPathByAction`
-* `GetUriByAction`
-* `GetPathByPage`
-* `GetUriByPage`
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetPathByAction*>
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetUriByAction*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetPathByPage*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetUriByPage*>
 
 これらのメソッドのオーバーロードでは、`HttpContext` を含む引数が受け入れられます。 これらのメソッドは `Url.Action` および `Url.Page` と機能的には同等ですが、柔軟性とオプションがさらに提供されます。
 
 `GetPath*` メソッドは、絶対パスを含む URI を生成するという点で `Url.Action` および `Url.Page` に最も似ています。 `GetUri*` メソッドでは常に、スキームとホストを含む絶対 URI が生成されます。 `HttpContext` を受け入れるメソッドでは、実行中の要求のコンテキストで URI が生成されます。 実行中の要求からのアンビエント ルート値、URL ベース パス、スキーム、およびホストは、オーバーライドされない限り使用されます。
 
-`LinkGenerator` はアドレスと共に呼び出されます。 URI の生成は、次の 2 つの手順で行われます。
+<xref:Microsoft.AspNetCore.Routing.LinkGenerator> はアドレスと共に呼び出されます。 URI の生成は、次の 2 つの手順で行われます。
 
 1. アドレスは、そのアドレスと一致するエンドポイントのリストにバインドされます。
 1. 各エンドポイントの `RoutePattern` は、指定された値と一致するルート パターンが見つかるまで評価されます。 結果の出力は、リンク ジェネレーターに指定された他の URI 部分と結合され、返されます。
 
-`LinkGenerator` によって提供されるメソッドでは、すべての種類のアドレスの標準的なリンク生成機能がサポートされます。 リンク ジェネレーターを使用する最も便利な方法は、特定のアドレスの種類の操作を実行する拡張メソッドを使用することです。
+<xref:Microsoft.AspNetCore.Routing.LinkGenerator> によって提供されるメソッドでは、すべての種類のアドレスの標準的なリンク生成機能がサポートされます。 リンク ジェネレーターを使用する最も便利な方法は、特定のアドレスの種類の操作を実行する拡張メソッドを使用することです。
 
 | 拡張メソッド   | 説明                                                         |
 | ------------------ | ------------------------------------------------------------------- |
-| `GetPathByAddress` | 指定された値に基づき、絶対パスを含む URI を生成します。 |
-| `GetUriByAddress`  | 指定された値に基づき、絶対 URI を生成します。             |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | 指定された値に基づき、絶対パスを含む URI を生成します。 |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | 指定された値に基づき、絶対 URI を生成します。             |
 
 > [!WARNING]
-> `LinkGenerator` メソッド呼び出しによる次の影響に注意してください。
+> <xref:Microsoft.AspNetCore.Routing.LinkGenerator> メソッド呼び出しによる次の影響に注意してください。
 >
 > * 受信要求の `Host` ヘッダーが確認されないアプリ構成では、`GetUri*` 拡張メソッドは注意して使用してください。 受信要求の `Host` ヘッダーが確認されていない場合、信頼されていない要求入力を、ビュー/ページの URI でクライアントに送り返すことができます。 すべての運用アプリで、`Host` ヘッダーを既知の有効な値と照らし合わせて確認するようにサーバーを構成することをお勧めします。
 >
-> * ミドルウェアで `Map` または `MapWhen` と組み合わせて、`LinkGenerator` を使用する場合は注意してください。 `Map*` では、実行中の要求の基本パスが変更され、リンク生成の出力に影響します。 すべての `LinkGenerator` API で基本パスを指定することができます。 リンク生成への `Map*` の影響を元に戻すための空の基本パスを必ず指定してください。
+> * ミドルウェアで `Map` または `MapWhen` と組み合わせて、<xref:Microsoft.AspNetCore.Routing.LinkGenerator> を使用する場合は注意してください。 `Map*` では、実行中の要求の基本パスが変更され、リンク生成の出力に影響します。 すべての <xref:Microsoft.AspNetCore.Routing.LinkGenerator> API で基本パスを指定することができます。 リンク生成への `Map*` の影響を元に戻すための空の基本パスを必ず指定してください。
 
 ## <a name="differences-from-earlier-versions-of-routing"></a>以前のバージョンのルーティングとの相違点
 
 ASP.NET Core 2.2 以降でのエンドポイント ルーティングと、ASP.NET Core での以前のバージョンのルーティングには、次のようないくつかの違いがあります。
 
-* エンドポイント ルーティング システムでは、`Route` からの継承を含む、`IRouter` ベースの拡張機能がサポートされません。
+* エンドポイント ルーティング システムでは、<xref:Microsoft.AspNetCore.Routing.Route> からの継承を含む、<xref:Microsoft.AspNetCore.Routing.IRouter> ベースの拡張機能がサポートされません。
 
 * エンドポイント ルーティングでは [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) がサポートされません。 互換性 shim を引き続き使用するには、2.1 の[互換性バージョン](xref:mvc/compatibility-version) (`.SetCompatibilityVersion(CompatibilityVersion.Version_2_1)`) を使用します。
 
@@ -230,7 +230,7 @@ ASP.NET Core 2.2 以降でのエンドポイント ルーティングと、ASP.N
   var link = Url.Action("ReadPost", "blog", new { id = 17, });
   ```
 
-  `IRouter` ベースのルーティングでは、このコードで `/blog/ReadPost/17` の URI が生成され、指定されたルート値の大文字と小文字の指定が優先されます。 ASP.NET Core 2.2 以降のエンドポイント ルーティングでは、`/Blog/ReadPost/17` ("Blog" の先頭は大文字) が生成されます。 エンドポイント ルーティングでは `IOutboundParameterTransformer` インターフェイスが提供されます。それを使用して、この動作をグローバルにカスタマイズしたり、URL のマッピングで異なる規則を適用したりすることができます。
+  <xref:Microsoft.AspNetCore.Routing.IRouter> ベースのルーティングでは、このコードで `/blog/ReadPost/17` の URI が生成され、指定されたルート値の大文字と小文字の指定が優先されます。 ASP.NET Core 2.2 以降のエンドポイント ルーティングでは、`/Blog/ReadPost/17` ("Blog" の先頭は大文字) が生成されます。 エンドポイント ルーティングでは `IOutboundParameterTransformer` インターフェイスが提供されます。それを使用して、この動作をグローバルにカスタマイズしたり、URL のマッピングで異なる規則を適用したりすることができます。
 
   詳細については、「[パラメーター トランスフォーマー参照](#parameter-transformer-reference)」セクションを参照してください。
 
@@ -289,7 +289,7 @@ ASP.NET Core 2.2 以降でのエンドポイント ルーティングと、ASP.N
 
 ### <a name="middleware-example"></a>ミドルウェアの例
 
-次の例では、ミドルウェアで `LinkGenerator` API を使用して、商品をリストするアクション メソッドへのリンクを作成します。 リンク ジェネレーターは、クラスに挿入し、`GenerateLink` を呼び出すことで、アプリのどのクラスでも使用できます。
+次の例では、ミドルウェアで <xref:Microsoft.AspNetCore.Routing.LinkGenerator> API を使用して、商品をリストするアクション メソッドへのリンクを作成します。 リンク ジェネレーターは、クラスに挿入し、`GenerateLink` を呼び出すことで、アプリのどのクラスでも使用できます。
 
 ```csharp
 using Microsoft.AspNetCore.Routing;
@@ -320,20 +320,20 @@ public class ProductsLinkMiddleware
 
 URL 生成は、ルーティングにおいて、一連のルート値に基づいて URL パスを作成するプロセスです。 これにより、ルート ハンドラーとそれにアクセスする URL を論理的に分離できます。
 
-URL 生成は同様の繰り返しプロセスに従いますが、最初にユーザーまたはフレームワーク コードでルート コレクションの <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> メソッドを呼び出します。 非 null の <xref:Microsoft.AspNetCore.Routing.VirtualPathData> が返されるまで、各*ルート* で順番に `GetVirtualPath` メソッドが呼び出されます。
+URL 生成は同様の繰り返しプロセスに従いますが、最初にユーザーまたはフレームワーク コードでルート コレクションの <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> メソッドを呼び出します。 非 null の <xref:Microsoft.AspNetCore.Routing.VirtualPathData> が返されるまで、各*ルート* で順番に <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> メソッドが呼び出されます。
 
-`GetVirtualPath` の第一入力:
+<xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> の第一入力:
 
-* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext*)
-* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
-* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
+* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext)
+* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values)
+* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues)
 
-ルートでは `Values` と `AmbientValues` によって指定されるルート値を主に使用し、URL を生成できるかどうかと、どの値を含めるかを判断します。 `AmbientValues` は、現在の要求を照合することで生成された一連のルート値です。 対照的に、`Values` は、現在の操作に適した URL の生成方法を指定するルート値です。 ルートで現在のコンテキストに関連付けられているサービスまたは追加データを取得する必要がある場合、`HttpContext` が指定されます。
+ルートでは <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> と <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> によって指定されるルート値を主に使用し、URL を生成できるかどうかと、どの値を含めるかを判断します。 <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> は、現在の要求を照合することで生成された一連のルート値です。 対照的に、<xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> は、現在の操作に適した URL の生成方法を指定するルート値です。 ルートで現在のコンテキストに関連付けられているサービスまたは追加データを取得する必要がある場合、<xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext> が指定されます。
 
 > [!TIP]
 > [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) は [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*) のオーバーライド セットであると考えてください。 URL 生成では、同じルートまたはルート値を利用することでリンクの URL 生成を生成するために、現在の要求からのルート値の再利用が試行されます。
 
-`GetVirtualPath` の出力は `VirtualPathData` です。 `VirtualPathData` は `RouteData` の並列です。 `VirtualPathData` には出力 URL として `VirtualPath` が含まれ、ルートで設定する追加プロパティがいくつか含まれます。
+<xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> の出力は <xref:Microsoft.AspNetCore.Routing.VirtualPathData> です。 <xref:Microsoft.AspNetCore.Routing.VirtualPathData> は <xref:Microsoft.AspNetCore.Routing.RouteData> の並列です。 <xref:Microsoft.AspNetCore.Routing.VirtualPathData> には出力 URL として <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> が含まれ、ルートで設定する追加プロパティがいくつか含まれます。
 
 [VirtualPathData.VirtualPath](xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath*) プロパティには、ルートによって生成された*仮想パス*が含まれます。 必要に応じて、パスをさらに処理する必要がある場合があります。 生成された URL を HTML で表示するには、アプリの基礎パスを先頭に追加する必要があります。
 
@@ -347,25 +347,25 @@ URL 生成は同様の繰り返しプロセスに従いますが、最初にユ�
 
 ::: moniker range="< aspnetcore-2.2"
 
-ルーティングにより、<xref:Microsoft.AspNetCore.Routing.IRouter> の標準実装として <xref:Microsoft.AspNetCore.Routing.Route> クラスが与えられます。 `Route` では*ルート テンプレート* 構文を利用して、<xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> の呼び出し時に URL パスに対して照合するパターンを定義します。 `Route` は同じルート テンプレートを利用し、`GetVirtualPath` の呼び出し時に URL を生成します。
+ルーティングにより、<xref:Microsoft.AspNetCore.Routing.IRouter> の標準実装として <xref:Microsoft.AspNetCore.Routing.Route> クラスが与えられます。 <xref:Microsoft.AspNetCore.Routing.Route> では*ルート テンプレート* 構文を利用して、<xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> の呼び出し時に URL パスに対して照合するパターンを定義します。 <xref:Microsoft.AspNetCore.Routing.Route> は同じルート テンプレートを利用し、<xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> の呼び出し時に URL を生成します。
 
 ::: moniker-end
 
-ほとんどのアプリは、<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> を呼び出すか、<xref:Microsoft.AspNetCore.Routing.IRouteBuilder> で定義されている同様の拡張メソッドの 1 つを呼び出してルートを作成します。 いずれの `IRouteBuilder` 拡張メソッドでも、<xref:Microsoft.AspNetCore.Routing.Route> のインスタンスが作成され、それがルート コレクションに追加されます。
+ほとんどのアプリは、<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> を呼び出すか、<xref:Microsoft.AspNetCore.Routing.IRouteBuilder> で定義されている同様の拡張メソッドの 1 つを呼び出してルートを作成します。 いずれの <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> 拡張メソッドでも、<xref:Microsoft.AspNetCore.Routing.Route> のインスタンスが作成され、それがルート コレクションに追加されます。
 
 ::: moniker range=">= aspnetcore-2.2"
 
-`MapRoute` では、ルート ハンドラー パラメーターは受け入れられません。 `MapRoute` は、<xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*> によって処理されるルートを追加するだけです。 MVC でのルーティングの詳細については、「<xref:mvc/controllers/routing>」を参照してください。
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> では、ルート ハンドラー パラメーターは受け入れられません。 <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> は、<xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*> によって処理されるルートを追加するだけです。 MVC でのルーティングの詳細については、「<xref:mvc/controllers/routing>」を参照してください。
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-`MapRoute` では、ルート ハンドラー パラメーターは受け入れられません。 `MapRoute` は、<xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*> によって処理されるルートを追加するだけです。 既定のハンドラーは `IRouter` であり、そのハンドラーで要求が処理されない可能性があります。 たとえば、ASP.NET Core MVC は通常、利用できるコントローラーやアクションに一致する要求のみを処理する既定のハンドラーとして構成されます。 MVC でのルーティングの詳細については、「<xref:mvc/controllers/routing>」を参照してください。
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> では、ルート ハンドラー パラメーターは受け入れられません。 <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> は、<xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*> によって処理されるルートを追加するだけです。 既定のハンドラーは `IRouter` であり、そのハンドラーで要求が処理されない可能性があります。 たとえば、ASP.NET Core MVC は通常、利用できるコントローラーやアクションに一致する要求のみを処理する既定のハンドラーとして構成されます。 MVC でのルーティングの詳細については、「<xref:mvc/controllers/routing>」を参照してください。
 
 ::: moniker-end
 
-次のコード例は、一般的な ASP.NET Core MVC ルート定義によって使用される `MapRoute` 呼び出しの例です。
+次のコード例は、一般的な ASP.NET Core MVC ルート定義によって使用される <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> 呼び出しの例です。
 
 ```csharp
 routes.MapRoute(
@@ -391,9 +391,9 @@ routes.MapRoute(
 
 このテンプレートは `/Products/Details/Apples` ではなく、`/Products/Details/17` のような URL パスを照合します。 ルート制約は <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> を実装し、ルート値を調べて正しいことを確認します。 この例では、ルート値 `id` は整数に変換できなければなりません。 フレームワークによって提供されるルート制約については、「[ルート制約参照](#route-constraint-reference)」を参照してください。
 
-`MapRoute` の追加オーバーロードは、`constraints`、`dataTokens`、`defaults` の値を受け取ります。 このようなパラメーターは一般的に、匿名型のオブジェクトを渡し、匿名型のプロパティ名がルート パラメーター名と一致するというような使われ方をします。
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> の追加オーバーロードは、`constraints`、`dataTokens`、`defaults` の値を受け取ります。 このようなパラメーターは一般的に、匿名型のオブジェクトを渡し、匿名型のプロパティ名がルート パラメーター名と一致するというような使われ方をします。
 
-次の `MapRoute` 例では、同等のルートを作成します。
+次の <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> 例では、同等のルートを作成します。
 
 ```csharp
 routes.MapRoute(
@@ -454,10 +454,10 @@ routes.MapRoute(
 
 ### <a name="route-class-url-generation"></a>ルート クラス URL の生成
 
-`Route` クラスは、一連のルート値をそのルート テンプレートと組み合わせる方法でも URL を生成できます。 論理的には、URL パスの照合とは逆のプロセスになります。
+<xref:Microsoft.AspNetCore.Routing.Route> クラスは、一連のルート値をそのルート テンプレートと組み合わせる方法でも URL を生成できます。 論理的には、URL パスの照合とは逆のプロセスになります。
 
 > [!TIP]
-> URL 生成を理解する方法として、どのような URL を生成したいのかを考えてください。そして、ルート テンプレートがその URL にどのように照合されるのかを考えてください。 どのような値が生成されるでしょうか。 `Route` クラスにおける URL 生成のしくみと大体同じになります。
+> URL 生成を理解する方法として、どのような URL を生成したいのかを考えてください。そして、ルート テンプレートがその URL にどのように照合されるのかを考えてください。 どのような値が生成されるでしょうか。 <xref:Microsoft.AspNetCore.Routing.Route> クラスにおける URL 生成のしくみと大体同じになります。
 
 次の例では、一般的な ASP.NET Core MVC の既定のルートを使用します。
 
@@ -514,22 +514,22 @@ URL 生成の詳細については、「[URL 生成参照](#url-generation-refer
 
 このフレームワークでは、ルートを作成するために拡張メソッド セット (<xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions>) が提供されます。
 
-* `MapDelete`
-* `MapGet`
-* `MapMiddlewareDelete`
-* `MapMiddlewareGet`
-* `MapMiddlewarePost`
-* `MapMiddlewarePut`
-* `MapMiddlewareRoute`
-* `MapMiddlewareVerb`
-* `MapPost`
-* `MapPut`
-* `MapRoute`
-* `MapVerb`
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareVerb*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapVerb*>
 
 ::: moniker range="< aspnetcore-2.2"
 
-`MapGet` など、リストされているメソッドの一部では、`RequestDelegate` が必要です。 `RequestDelegate` は、ルートが一致したとき、*ルート ハンドラー*として使用されます。 この仲間の他のメソッドでは、ルート ハンドラーとして使用されるミドルウェア パイプラインを構成できます。 `Map*` メソッドで、`MapRoute` などのハンドラーを受け入れない場合、<xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*> が使用されます。
+<xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*> など、リストされているメソッドの一部では、<xref:Microsoft.AspNetCore.Http.RequestDelegate> が必要です。 <xref:Microsoft.AspNetCore.Http.RequestDelegate> は、ルートが一致したとき、*ルート ハンドラー*として使用されます。 この仲間の他のメソッドでは、ルート ハンドラーとして使用されるミドルウェア パイプラインを構成できます。 `Map*` メソッドで、<xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*> などのハンドラーを受け入れない場合、<xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*> が使用されます。
 
 ::: moniker-end
 
@@ -588,7 +588,7 @@ URL 生成の詳細については、「[URL 生成参照](#url-generation-refer
 一般的に、テンプレートの利用が最も簡単なルーティングの手法となります。 ルート テンプレート以外では、制約と既定値も指定できます。
 
 > [!TIP]
-> [ログ](xref:fundamentals/logging/index)を有効にすると、`Route` など、組み込みのルーティング実装で要求を照合するしくみを確認できます。
+> [ログ](xref:fundamentals/logging/index)を有効にすると、<xref:Microsoft.AspNetCore.Routing.Route> など、組み込みのルーティング実装で要求を照合するしくみを確認できます。
 
 ## <a name="reserved-routing-names"></a>ルーティングの予約名
 
@@ -659,8 +659,8 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 | `[a-z]{2}`   | 123abc456 | はい   | サブ文字列の一致     |
 | `[a-z]{2}`   | mz        | はい   | 一致する表現    |
 | `[a-z]{2}`   | MZ        | はい   | 大文字と小文字の使い方が違う    |
-| `^[a-z]{2}$` | hello     | ×    | 上の `^` と `$` を参照 |
-| `^[a-z]{2}$` | 123abc456 | ×    | 上の `^` と `$` を参照 |
+| `^[a-z]{2}$` | hello     | いいえ    | 上の `^` と `$` を参照 |
+| `^[a-z]{2}$` | 123abc456 | いいえ    | 上の `^` と `$` を参照 |
 
 正規表現構文の詳細については、[.NET Framework 正規表現](/dotnet/standard/base-types/regular-expression-language-quick-reference)に関するページを参照してください。
 
@@ -668,9 +668,9 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 
 ## <a name="custom-route-constraints"></a>カスタム ルート制約
 
-組み込みのルート制約だけでなく、<xref:Microsoft.AspNetCore.Routing.IRouteConstraint> インターフェイスを実装してカスタム ルート制約を作成することができます。 `IRouteConstraint` インターフェイスには、1 つのメソッド `Match` が含まれています。これは、制約が満たされている場合は `true` を、それ以外の場合は `false` を返します。
+組み込みのルート制約だけでなく、<xref:Microsoft.AspNetCore.Routing.IRouteConstraint> インターフェイスを実装してカスタム ルート制約を作成することができます。 <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> インターフェイスには、1 つのメソッド `Match` が含まれています。これは、制約が満たされている場合は `true` を、それ以外の場合は `false` を返します。
 
-カスタムの `IRouteConstraint` を使うには、アプリのサービス コンテナー内にあるアプリの `RouteOptions.ConstraintMap` に、ルート制約の種類を登録する必要があります。 <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> は、ルート制約キーを、その制約を検証する `IRouteConstraint` の実装にマッピングするディクショナリです。 アプリの `RouteOptions.ConstraintMap` は、`Startup.ConfigureServices` で、`services.AddRouting` 呼び出しの一部として、または `services.Configure<RouteOptions>` を使って `RouteOptions` を直接構成することで、更新できます。 次に例を示します。
+カスタムの <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> を使うには、アプリのサービス コンテナー内にあるアプリの <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> に、ルート制約の種類を登録する必要があります。 <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> は、ルート制約キーを、その制約を検証する <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> の実装にマッピングするディクショナリです。 アプリの <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> は、`Startup.ConfigureServices` で、[services.AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) 呼び出しの一部として、または `services.Configure<RouteOptions>` を使って <xref:Microsoft.AspNetCore.Routing.RouteOptions> を直接構成することで、更新できます。 次に例を示します。
 
 ```csharp
 services.AddRouting(options =>
@@ -692,7 +692,7 @@ public ActionResult<string> Get(string id)
 
 パラメーター トランスフォーマー:
 
-* `Route` のリンクの生成時に実行されます。
+* <xref:Microsoft.AspNetCore.Routing.Route> のリンクの生成時に実行されます。
 * `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`を実装します。
 * <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> を使用して構成されます。
 * パラメーターのルート値を取得し、それを新しい文字列値に変換します。
@@ -734,9 +734,9 @@ ASP.NET Core では、生成されたルートと共にパラメーター トラ
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-上のサンプルの終わりで生成された `VirtualPath` は `/package/create/123` です。 ディクショナリにより、"Track Package Route" テンプレート `package/{operation}/{id}` のルート値 `operation` と `id` が提供されます。 詳細については、「[ルーティング ミドルウェアの使用](#use-routing-middleware)」セクションのサンプル コードまたは[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples)を参照してください。
+上のサンプルの終わりで生成された <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> は `/package/create/123` です。 ディクショナリにより、"Track Package Route" テンプレート `package/{operation}/{id}` のルート値 `operation` と `id` が提供されます。 詳細については、「[ルーティング ミドルウェアの使用](#use-routing-middleware)」セクションのサンプル コードまたは[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples)を参照してください。
 
-`VirtualPathContext` コンストラクターの 2 番目のパラメーターは*アンビエント値*の集合です。 アンビエント値は、開発者が要求コンテキスト内で指定する必要がある値の数が制限されるため、使用すると便利です。 現在の要求の現在のルート値は、リンク生成の場合、アンビエント値として見なされます。 ASP.NET Core MVC アプリの `HomeController` の `About` アクションでは、コントローラー ルート値を指定し、`Index` アクションにリンクする必要はありません。`Home` のアンビエント値が使用されます。
+<xref:Microsoft.AspNetCore.Routing.VirtualPathContext> コンストラクターの 2 番目のパラメーターは*アンビエント値*の集合です。 アンビエント値は、開発者が要求コンテキスト内で指定する必要がある値の数が制限されるため、使用すると便利です。 現在の要求の現在のルート値は、リンク生成の場合、アンビエント値として見なされます。 ASP.NET Core MVC アプリの `HomeController` の `About` アクションでは、コントローラー ルート値を指定し、`Index` アクションにリンクする必要はありません。`Home` のアンビエント値が使用されます。
 
 パラメーターに一致しないアンビエント値は無視されます。 アンビエント値は、明示的に指定された値でアンビエント値がオーバーライドされる場合にも無視されます。 URL では左から右に照合されます。
 

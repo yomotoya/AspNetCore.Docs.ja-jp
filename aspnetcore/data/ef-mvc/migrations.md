@@ -1,41 +1,50 @@
 ---
-title: ASP.NET Core MVC と EF Core - 移行 - 4/10
-author: rick-anderson
+title: 'チュートリアル: 移行機能の使用 - ASP.NET MVC と EF Core'
 description: このチュートリアルでは、ASP.NET Core MVC アプリケーションでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 21ef3a675579d8a6671343d84cbe4f4b62979679
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac924e7d6bee2f02ab11281a5c27f2c94a7183b3
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090811"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102995"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC と EF Core - 移行 - 4/10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
+# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>チュートリアル: 移行機能の使用 - ASP.NET MVC と EF Core
 
 このチュートリアルでは、データ モデルの変更を管理するための EF Core の移行機能の使用を開始します。 チュートリアルの後半では、データ モデルを変更するときに移行を追加します。
 
-## <a name="introduction-to-migrations"></a>移行の概要
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 移行について学習する
+> * NuGet 移行パッケージについて学習する
+> * 接続文字列を変更する
+> * 初期移行を作成する
+> * Up および Down メソッドを確認する
+> * データ モデルのスナップショットについて学習する
+> * 移行を適用する
+
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [EF Core を使った並べ替え、フィルター処理、ページングを ASP.NET Core MVC に追加する](sort-filter-page.md)
+
+## <a name="about-migrations"></a>移行について
 
 新しいアプリケーションを開発して、データ モデルが頻繁に変更される場合、モデルが変更されるたびに、モデルはデータベースと同期されなくなります。 データベースが存在しない場合にデータベースを作成するように Entity Framework を構成して、これらのチュートリアルを開始しました。 そのため、データ モデルを変更する (エンティティ クラスを追加、削除、または変更するか、DbContext クラスを変更する) たびに、データベースを削除することができ、EF でモデルに一致する新しいデータベースを作成し、テスト データを使ってシードを設定します。
 
 このメソッドは、実稼働環境にアプリケーションを展開するまで、データベースとデータ モデルの同期の維持がうまく機能します。 実稼働環境でアプリケーションを実行している場合、通常、保持する必要があるデータが保存され、新しい列の追加などの変更を加えるたびにすべてが失われないようにする必要があります。 EF Core の移行機能は、新しいデータベースを作成する代わりに、EF でデータベース スキーマを更新できるようにすることで、この問題を解決します。
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>移行用の Entity Framework Core NuGet パッケージ
+## <a name="about-nuget-migration-packages"></a>NuGet 移行パッケージについて
 
 移行を使用するには、**パッケージ マネージャー コンソール** (PMC) またはコマンド ライン インターフェイス (CLI) を使用できます。  このチュートリアルでは、CLI コマンドを使用する方法を示します。 PMC については、[このチュートリアルの最後](#pmc)に説明します。
 
-コマンド ライン インターフェイス (CLI) の EF ツールが [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) で提供されています。 このパッケージをインストールするには、以下のように、*.csproj* ファイルの `DotNetCliToolReference` コレクションにパッケージを追加します。 **注:** *.csproj* ファイルを編集して、このパッケージをインストールする必要があります。`install-package` コマンドやパッケージ マネージャー GUI を使用することはできません。 *.csproj* ファイルを編集するには、**[ソリューション エクスプローラー]** でプロジェクト名を右クリックし、**[ContosoUniversity.csproj の編集]** を選択します。
+コマンド ライン インターフェイス (CLI) の EF ツールが [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) で提供されています。 このパッケージをインストールするには、以下のように、*.csproj* ファイルの `DotNetCliToolReference` コレクションにパッケージを追加します。 **注:***.csproj* ファイルを編集して、このパッケージをインストールする必要があります。`install-package` コマンドやパッケージ マネージャーの GUI を使用することはできません。 *.csproj* ファイルを編集するには、**[ソリューション エクスプローラー]** でプロジェクト名を右クリックし、**[ContosoUniversity.csproj の編集]** を選択します。
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
 
@@ -60,7 +69,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 変更を保存し、プロジェクトをビルドします。 次に、コマンド ウィンドウを開き、プロジェクト フォルダーに移動します。 この操作を行う簡単な方法を次に示します。
 
-* **[ソリューション エクスプローラー]** で、プロジェクトを右クリックし、コンテキスト メニューの **[エクスプローラーで開く]** を選びます。
+* **[ソリューション エクスプローラー]** で、プロジェクトを右クリックし、コンテキスト メニューの **[エクスプローラーでフォルダーを開く]** を選びます。
 
   ![[エクスプローラーで開く] メニュー項目](migrations/_static/open-in-file-explorer.png)
 
@@ -89,7 +98,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 "*別のプロセスによって使用されているため、ContosoUniversity.dll ファイルにアクセスできません。*" というエラー メッセージが表示された場合は、Windows のシステム トレイの IIS Express アイコンを見つけて右クリックし、**[ContosoUniversity]、[サイトの停止]** の順にクリックします。
 
-## <a name="examine-the-up-and-down-methods"></a>Up および Down メソッドを確認する
+## <a name="examine-up-and-down-methods"></a>Up および Down メソッドを確認する
 
 `migrations add` コマンドを実行したときに、EF では最初からデータベースを作成するコードが生成されています。 このコードは、*\<タイムスタンプ>_InitialCreate.cs* という名前のファイルにある *[Migrations]* フォルダー内にあります。 `InitialCreate` クラスの `Up` メソッドでは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成し、`Down` メソッドでは、次の例に示すようにそれらを削除します。
 
@@ -109,7 +118,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 スナップショット ファイルの使用方法の詳細については、[チーム環境での EF Core 移行](/ef/core/managing-schemas/migrations/teams)に関するページを参照してください。
 
-## <a name="apply-the-migration-to-the-database"></a>移行をデータベースに適用する
+## <a name="apply-the-migration"></a>移行を適用する
 
 コマンド ウィンドウで、次のコマンドを入力してデータベースとデータベース内のテーブルを作成します。
 
@@ -151,24 +160,36 @@ Done.
 ![Students インデックス ページ](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
-## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>コマンド ライン インターフェイス (CLI) とパッケージ マネージャー コンソール (PMC) の比較
+
+## <a name="compare-cli-and-pmc"></a>CLI と PMC を比較する
 
 移行を管理するための EF ツールは、.NET Core CLI コマンドから、または Visual Studio **パッケージ マネージャー コンソール** (PMC) ウィンドウの PowerShell コマンドレットから利用できます。 このチュートリアルでは、CLI の使用方法を示しますが、好みに応じて PMC を使用できます。
 
 PMC コマンドの EF コマンドは、[Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) パッケージ内にあります。 このパッケージは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれているので、アプリに `Microsoft.AspNetCore.App` のパッケージ参照がある場合、パッケージ参照を追加する必要はありません。
 
-**重要:** このパッケージは、*.csproj* ファイルを編集することで、CLI 用にインストールするパッケージと同じものではありません。 `Tools.DotNet` で終わる CLI パッケージ名とは異なり、このパッケージの名前は `Tools` で終わります。
+**重要:** これは、*.csproj* ファイルを編集して CLI 用にインストールするものと同じパッケージではありません。 `Tools.DotNet` で終わる CLI パッケージ名とは異なり、このパッケージの名前は `Tools` で終わります。
 
 CLI コマンドの詳細については、「[.NET Core CLI](/ef/core/miscellaneous/cli/dotnet)」を参照してください。
 
 PMC コマンドの詳細については、「[パッケージ マネージャー コンソール (Visual Studio)](/ef/core/miscellaneous/cli/powershell)」を参照してください。
 
-## <a name="summary"></a>まとめ
+## <a name="get-the-code"></a>コードを取得する
 
-このチュートリアルでは、最初の移行を作成して適用する方法が示されました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。 その途中で、追加の移行を作成して適用することになります。
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-step"></a>次のステップ
 
-> [!div class="step-by-step"]
-> [前へ](sort-filter-page.md)
-> [次へ](complex-data-model.md)
+このチュートリアルでは、次の作業を行いました。
+
+> [!div class="checklist"]
+> * 移行について学習した
+> * NuGet 移行パッケージについて学習した
+> * 接続文字列を変更した
+> * 初期移行を作成した
+> * Up および Down メソッドを確認した
+> * データ モデルのスナップショットについて学習した
+> * 移行を適用した
+
+データ モデルの展開に関するより高度なトピックを確認するには、次の記事に進んでください。 その途中で、追加の移行を作成して適用することになります。
+> [!div class="nextstepaction"]
+> [追加の移行を作成して適用する](complex-data-model.md)
