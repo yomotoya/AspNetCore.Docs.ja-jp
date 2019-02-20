@@ -7,12 +7,6 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: spa/blazor/index
-ms.openlocfilehash: 0d22365701a4fc1857582c13459280e50d59c858
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159599"
 ---
 # <a name="introduction-to-blazor"></a>Blazor の概要
 
@@ -27,7 +21,7 @@ Blazor は、.NET を使って対話型のクライアント側 Web アプリを
 * **C# 言語**:JavaScript ではなく C# でコードを記述します。
 * **.NET エコシステム**:.NET ライブラリの既存のエコシステムを活用します。
 * **フルスタック開発**:サーバーとクライアント側のロジックを共有します。
-* **スピードとスケーラビリティ**:NET はパフォーマンス、信頼性、セキュリティを重視して構築されました。
+* **スピードとスケーラビリティ**: NET はパフォーマンス、信頼性、セキュリティを重視して構築されました。
 * **業界をリードするツール**: Windows、Linux、macOS 上の Visual Studio を使って生産性を維持します。
 * **安定性と一貫性**:多機能で使いやすい安定した言語、フレームワーク、およびツールの共通セットに基づいて構築します。
 
