@@ -72,7 +72,7 @@ ms.locfileid: "54837794"
 
          ![ライブラリの参照](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
       5. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |新しいフォルダー**、という名前の新しいフォルダーを追加および**Hubs**します。
-      6. 右クリックし、 **Hubs**フォルダー、をクリックして**追加 |クラス**、新しい c# という名前のクラスを作成および**ChatHub.cs**します。 このクラスは、すべてのクライアントにメッセージを送信する SignalR サーバー ハブとして使用されます。
+      6. 右クリックし、 **Hubs**フォルダー、をクリックして**追加 |クラス**、新しい C# という名前のクラスを作成および**ChatHub.cs**します。 このクラスは、すべてのクライアントにメッセージを送信する SignalR サーバー ハブとして使用されます。
 
 > [!NOTE]
 > Visual Studio 2012 を使用して、インストールされている場合、 [ASP.NET and Web Tools 2012.2 update](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation)、ハブ クラスを作成する新しい SignalR 項目テンプレートを使用することができます。 右クリックし、 **Hubs**フォルダー、をクリックして**追加 |新しい項目の**、 **SignalR ハブ クラス (v1)**、クラスの名前と**ChatHub.cs**します。
@@ -149,7 +149,7 @@ SignalR チャット アプリケーションを 2 つの基本的な SignalR �
 [!code-javascript[Main](tutorial-getting-started-with-signalr-and-mvc-4/samples/sample6.js)]
 
 > [!NOTE]
-> JQuery でサーバー クラスとそのメンバーへの参照がキャメル ケースです。 コード サンプルを参照して、c# **ChatHub**クラスとしての jquery **chatHub**します。 参照する場合、`ChatHub`クラス jquery では通常 pascal 形式で、c# の場合と大文字小文字の区別 ChatHub.cs クラス ファイルを編集します。 追加、`using`を参照するステートメント、`Microsoft.AspNet.SignalR.Hubs`名前空間。 追加し、`HubName`属性を`ChatHub`クラス、たとえば`[HubName("ChatHub")]`します。 参照を jQuery を最後に、更新、`ChatHub`クラス。
+> JQuery でサーバー クラスとそのメンバーへの参照がキャメル ケースです。 コード サンプルを参照して、C# **ChatHub**クラスとしての jquery **chatHub**します。 参照する場合、`ChatHub`クラス jquery では通常 pascal 形式で、C# の場合と大文字小文字の区別 ChatHub.cs クラス ファイルを編集します。 追加、`using`を参照するステートメント、`Microsoft.AspNet.SignalR.Hubs`名前空間。 追加し、`HubName`属性を`ChatHub`クラス、たとえば`[HubName("ChatHub")]`します。 参照を jQuery を最後に、更新、`ChatHub`クラス。
 
 
 次のコードでは、スクリプトでコールバック関数を作成する方法を示します。 サーバー上のハブ クラスは、各クライアントにコンテンツの更新をプッシュするには、この関数を呼び出します。 省略可能な呼び出し、 `htmlEncode`  ページで、スクリプト インジェクションを防止する手段として表示する前に関数を HTML に方法が表示されますが、メッセージの内容をエンコードします。
