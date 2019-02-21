@@ -5,12 +5,12 @@ description: ASP.NET Core でコントローラー メソッド、ビュー、Da
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249413"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410522"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>ASP.NET Core のコントローラーのメソッドとビュー
 
@@ -100,7 +100,7 @@ ASP.NET Core は、`https://localhost:5001/Movies/Edit/4` を、`Movies` コン�
 
 [フォーム タグ ヘルパー](xref:mvc/views/working-with-forms)で生成される非表示のフォージェリ対策トークンは、Movies コントローラーの `Edit` メソッドで `[ValidateAntiForgeryToken]` によって生成されるフォージェリ対策トークンと一致している必要があります。 詳しくは、[リクエスト フォージェリの対策に関する記事](xref:security/anti-request-forgery)をご覧ください。
 
-`HttpGet Edit` メソッドは、ムービーの `ID` パラメーターを受け取り、Entity Framework の `SingleOrDefaultAsync` メソッドを使ってムービーを検索して、選択されたムービーを編集ビューに返します。 ムービーが見つからない場合は、`NotFound` (HTTP 404) が返されます。
+`HttpGet Edit` メソッドは、ムービーの `ID` パラメーターを受け取り、Entity Framework の `FindAsync` メソッドを使ってムービーを検索して、選択されたムービーを編集ビューに返します。 ムービーが見つからない場合は、`NotFound` (HTTP 404) が返されます。
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
