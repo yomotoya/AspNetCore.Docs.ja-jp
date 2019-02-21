@@ -47,7 +47,7 @@ ms.locfileid: "51021782"
 
 記事の後半でこれらのプログラミング手法のほとんどについての詳細が表示されます。
 
-### <a name="1-you-add-code-to-a-page-using-the--character"></a>1.コードを追加するページを使用して、@ 文字
+### <a name="1-you-add-code-to-a-page-using-the--character"></a>1.@文字を使用してページにコードを追加する
 
 `@`文字は、インライン式、1 つのステートメント ブロック、および複数ステートメントのブロックを開始します。
 
