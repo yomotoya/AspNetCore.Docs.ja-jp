@@ -15,7 +15,7 @@ ms.locfileid: "43312142"
 ---
 # <a name="optimize-build-performance-for-solution"></a>ソリューションのビルドのパフォーマンスを最適化します。
 
-Visual Studio 2017 15.8以降にはメニュー項目が追加されています。:**ビルド** > **ASP.NET コンパイル** > **ソリューションのビルド パフォーマンスの最適化**します。
+Visual Studio 2017 15.8以降には次のメニュー項目が追加されています: **ビルド** > **ASP.NET コンパイル** > **ソリューションのビルド パフォーマンスの最適化**。
 
 ![新しいメニュー項目のスクリーン ショット](optimize-build-perf/_static/optimize-build-performance-for-solution.png)
 
