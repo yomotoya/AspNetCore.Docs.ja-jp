@@ -5,14 +5,14 @@ description: ASP.NET Core で応答キャッシュ ミドルウェアを構成�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/16/2019
+ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410324"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647916"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答キャッシュ ミドルウェアで ASP.NET Core
 
@@ -138,7 +138,7 @@ if (responseCachingFeature != null)
 
 * 要求は、200 (OK) 状態コードでサーバーの応答になる必要があります。
 * 要求メソッドは、GET または HEAD である必要があります。
-* ターミナルのミドルウェアは、応答キャッシュ ミドルウェアの前に応答を処理する必要があります。
+* `Startup.Configure`、応答キャッシュ ミドルウェアは、圧縮が必要なミドルウェアの前に配置する必要があります。 詳細については、「 <xref:fundamentals/middleware/index> 」を参照してください。
 * `Authorization`ヘッダーが存在しない場合があります。
 * `Cache-Control` ヘッダー パラメーターが有効である必要があり、応答をマークする必要があります`public`としてマークされていないと`private`します。
 * `Pragma: no-cache`ヘッダーが存在しない場合がある場合、`Cache-Control`ヘッダーが存在しない、として、`Cache-Control`ヘッダーの上書き、`Pragma`ヘッダーが存在する場合。
