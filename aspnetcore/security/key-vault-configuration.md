@@ -5,14 +5,14 @@ description: Azure Key Vault 構成プロバイダーを使用して、実行時
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/22/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 2188929d6f380327465e8ce0fd8ad659188416d3
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103112"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743986"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault 構成プロバイダー
 
@@ -116,7 +116,7 @@ dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
 Azure AD は、構成、Azure Key Vault と key vault に認証するアプリケーション ID とパスワード (クライアント シークレット) を使用するアプリ **、アプリが Azure の外部でホストされている**します。
 
 > [!NOTE]
-> 使用が推奨アプリケーション ID とパスワード (クライアント シークレット) を使用しては Azure でホストされているアプリでサポートされています、[の Azure リソースの id を管理](#use-managed-identities-for-azure-resources)Azure でのアプリをホストする場合。 管理対象 id では、これが、一般に安全なアプローチと見なされるため、アプリや、その構成で資格情報を格納する必要があります。
+> 使用が推奨アプリケーション ID とパスワード (クライアント シークレット) を使用しては Azure でホストされているアプリでサポートされています、[の Azure リソースの id を管理](#use-managed-identities-for-azure-resources)Azure でのアプリをホストする場合。 管理対象 id では、これが、一般に安全なアプローチと見なされるため、アプリや、その構成で資格情報を格納する必要がありません。
 
 サンプル アプリを使用して、アプリケーション ID とパスワード (クライアント シークレット) と、`#define`の上部にあるステートメント、 *Program.cs*に設定されているファイル`Basic`します。
 

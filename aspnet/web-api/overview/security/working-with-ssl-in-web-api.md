@@ -4,16 +4,16 @@ title: Web API の SSL の使用 |Microsoft Docs
 author: MikeWasson
 description: SSL クライアント証明書の使用など、ASP.NET Web API を使用した SSL を使用する方法を示します。
 ms.author: riande
-ms.date: 12/12/2012
+ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b11b35f58a1f033423f5e6ea5f5373df0d1fcb5f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827276"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744106"
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API の SSL の使用
 ====================
@@ -58,8 +58,8 @@ SSL は、公開キー インフラストラクチャ証明書を使用して認
 2. ダブルクリックして、 **SSL 設定**中央のペインで機能します。
 3. **クライアント証明書**、これらのオプションのいずれかを選択します。 
 
-    - **受け入れる**: IIS は、クライアントからの証明書を受け取りますが、1 つは必要ありません。
-    - **必要な**: クライアント証明書が必要です。 (このオプションを有効にするには、必要がありますも選択する"SSL")
+    - **受け入れる**:IIS は、クライアントからの証明書を受け取りますが、1 つは必要ありません。
+    - **必要な**:クライアント証明書が必要です。 (このオプションを有効にするには、必要がありますも選択する"SSL")
 
 ApplicationHost.config ファイルでこれらのオプションを設定することもできます。
 
@@ -69,7 +69,7 @@ ApplicationHost.config ファイルでこれらのオプションを設定する
 
 ### <a name="creating-a-client-certificate-for-testing"></a>テスト用クライアント証明書の作成
 
-テスト目的で、使用することができます[MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)クライアント証明書を作成します。 まず、テスト ルート証明機関を作成します。
+テスト目的で、使用することができます[MakeCert.exe](/windows/desktop/SecCrypto/makecert)クライアント証明書を作成します。 まず、テスト ルート証明機関を作成します。
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 

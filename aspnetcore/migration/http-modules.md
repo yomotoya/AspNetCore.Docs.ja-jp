@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 9dd28b86966912cce87166feb37e65adf3dd6dcb
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902672"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743856"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core のミドルウェアへの HTTP ハンドラーとモジュールを移行します。
 
@@ -46,7 +46,7 @@ ASP.NET Core のミドルウェアを次に進む前にまず局所的 HTTP モ�
 
 **モジュールが受信要求を処理する順序は、によって決まります。**
 
-   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントである: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)など。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
+   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントであります。[BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)など。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
 
    2. 同一のイベントで構成されている順序*Web.config*します。
 
@@ -96,7 +96,7 @@ ASP.NET Core のミドルウェアを次に進む前にまず局所的 HTTP モ�
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-上記のミドルウェアのテンプレート セクションから引用したもの[ミドルウェアを記述](xref:fundamentals/middleware/index#write-middleware)します。
+上記のミドルウェアのテンプレート セクションから引用したもの[ミドルウェアを記述](xref:fundamentals/middleware/write)します。
 
 *MyMiddlewareExtensions*ヘルパー クラスでミドルウェアを構成しやすい、`Startup`クラス。 `UseMyMiddleware`メソッドは、要求パイプラインにミドルウェア クラスを追加します。 ミドルウェアによって必要なサービスは、ミドルウェアのコンス トラクターで挿入を取得します。
 
