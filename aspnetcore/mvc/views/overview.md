@@ -5,12 +5,12 @@ description: ビューがアプリのデータ表示と、ASP.NET Core MVC で�
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 6c5b4d7b89ac07a85b5aad626e37855de98064eb
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219369"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410439"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
@@ -34,7 +34,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 ## <a name="benefits-of-using-views"></a>ビューを使用するメリット
 
-ビューは、ユーザー インターフェイス マークアップをアプリの他の部分から分離して、MVC アプリ内で [Separation of Concerns (SoC) 設計](http://deviq.com/separation-of-concerns/)を確立するのに役立ちます。 SoC 設計に従うことで、アプリをモジュール化することができます。これにより次のような複数のメリットがもたらされます。
+ビューは、ユーザー インターフェイス マークアップをアプリの他の部分から分離して、MVC アプリ内で[懸念事項の分離](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)を確立するのに役立ちます。 SoC 設計に従うことで、アプリをモジュール化することができます。これにより次のような複数のメリットがもたらされます。
 
 * より効率的に整理されるため、アプリの維持が容易になります。 ビューは通常、アプリの機能によってグループ化されます。 これにより、機能を使用する際に、関連するビューが見つけやすくなります。
 * アプリの部分は弱く結合されています。 ビジネス ロジックとデータ アクセス コンポーネントと切り離して、アプリのビューをビルドおよび更新できます。 アプリの他の部分を更新しなくても、アプリのビューを変更できます。

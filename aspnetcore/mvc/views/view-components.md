@@ -5,12 +5,12 @@ description: ASP.NET Core でのビュー コンポーネントの使用方法�
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: d0e528fcf9e20afee98e74fbc09c67b81e123e95
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: d979c9480f7bffff993f0ea526bdc231b940baa2
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428396"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410483"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -240,7 +240,7 @@ PVC ビューがレンダリングされない場合は、4 以上の優先順�
 
 ![[Shared] コンポーネント ビューを含む [ToDo] 出力](view-components/_static/shared.png)
 
-### <a name="avoiding-magic-strings"></a>マジック文字列の回避
+### <a name="avoiding-hard-coded-strings"></a>ハードコーディングされた文字列の回避
 
 コンパイル時間の安全性を確保する必要がある場合は、ハードコーディングされたビュー コンポーネント名をクラス名に置き換えることができます。 "ViewComponent" サフィックスのないビュー コンポーネントを作成します。
 

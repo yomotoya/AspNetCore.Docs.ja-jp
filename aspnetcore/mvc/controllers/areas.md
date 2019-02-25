@@ -5,12 +5,12 @@ description: 区分は ASP.NET MVC の機能であり、関連する機能を別
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312219"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410613"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core の区分
 
@@ -38,40 +38,24 @@ ms.locfileid: "43312219"
 
 * 区分では同じ名前の複数のコントローラーがサポートされます (*区分* が異なる場合のみ)。
 
-区分の作成および使用方法を示す例を見てましょう。 たとえば、ストア アプリに製品とサービスという、コントローラーとビューの 2 つの異なるグループがあるとします。 MVC 区分を使用する場合の一般的なフォルダー構造は次のようになります。
+区分の作成および使用方法を示す例を見てましょう。 たとえば、ストア アプリにコントローラーとビューの 2 つの異なるグループがあるとします:製品とサービスです。 MVC 区分を使用する場合の一般的なフォルダー構造は次のようになります。
 
 * Project name
-
   * Areas
-
     * Products
-
       * Controllers
-
         * HomeController.cs
-
         * ManageController.cs
-
       * Views
-
         * Home
-
           * Index.cshtml
-
         * Manage
-
           * Index.cshtml
-
     * Services
-
       * Controllers
-
         * HomeController.cs
-
       * Views
-
         * Home
-
           * Index.cshtml
 
 MVC は区分でのビューのレンダリングを試みる場合、既定では、次の場所で検索を試みます。

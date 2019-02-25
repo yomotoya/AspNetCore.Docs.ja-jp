@@ -5,18 +5,18 @@ description: ASP.NET Core で MVC ビューへの依存関係の挿入をサポ�
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 9b437d27a8d391db4533596674d144628a0c10b1
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: dfadafe9ebb5799b45ef68653f20c5fc1a2506b5
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207063"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410561"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core でのビューへの依存関係の挿入
 
 作成者: [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/dependency-injection)をサポートしています。 この機能は、ビュー要素を作成するためだけに必要なローカライズやデータなど、ビュー固有のサービスに役立ちます。 コントローラーとビューの間で[関心の分離](http://deviq.com/separation-of-concerns/)を保持する必要があります。 ビューに表示されるデータのほとんどは、コントローラーから渡されます。
+ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/dependency-injection)をサポートしています。 この機能は、ビュー要素を作成するためだけに必要なローカライズやデータなど、ビュー固有のサービスに役立ちます。 コントローラーとビューの間で[関心の分離](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)を保持する必要があります。 ビューに表示されるデータのほとんどは、コントローラーから渡されます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
@@ -81,4 +81,4 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 ## <a name="see-also"></a>参照
 
-* Simon Timms のブログ: [ルックアップ データをビューに取り込む](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)
+* Simon Timms のブログ:[ルックアップ データをビューに取り込む](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

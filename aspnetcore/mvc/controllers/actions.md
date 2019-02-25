@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 3f3f565021d484b69401a3e03a2a966c92764a49
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275660"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410438"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC でコントローラーで要求を処理する
 
@@ -33,7 +33,7 @@ ms.locfileid: "36275660"
 
 コントローラー クラスには、`[NonController]` 属性を関連付けないでください。
 
-コントローラーは [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/) に従う必要があります。 この原則を実装するための手法がいくつかあります。 複数のコントローラー アクションに同じサービスが必要な場合、[コンストラクターの挿入](xref:mvc/controllers/dependency-injection#constructor-injection)で依存関係を要求する方法を検討してください。 サービスを必要とするアクション メソッドが 1 つだけの場合、[アクションの挿入](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)で依存関係を要求する方法を検討してください。
+コントローラーは [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) に従う必要があります。 この原則を実装するための手法がいくつかあります。 複数のコントローラー アクションに同じサービスが必要な場合、[コンストラクターの挿入](xref:mvc/controllers/dependency-injection#constructor-injection)で依存関係を要求する方法を検討してください。 サービスを必要とするアクション メソッドが 1 つだけの場合、[アクションの挿入](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)で依存関係を要求する方法を検討してください。
 
 **M**odel-**V**iew-**C**ontroller パターン内では、コントローラーは要求の初回処理とモデルのインスタンス化を担います。 一般的に、ビジネスの決定はモデル内で実行するべきです。
 
@@ -57,7 +57,7 @@ ms.locfileid: "36275660"
 
 `Content-Type` HTTP 応答ヘッダーが含まれません。応答の本文に記述するコンテンツがないためです。
 
-このカテゴリの中に、リダイレクトと HTTP 状態コードという 2 つの種類の結果があります。
+このカテゴリ内には 2 種類の結果があります:リダイレクトと HTTP 状態コードです。
 
 * **HTTP 状態コード**
 
@@ -73,7 +73,7 @@ ms.locfileid: "36275660"
 
 このカテゴリのヘルパー メソッドの多くには `ContentType` プロパティが含まれ、`Content-Type` 応答ヘッダーを設定し、応答本文を記述できます。
 
-このカテゴリには 2 種類の結果があります。[ビュー](xref:mvc/views/overview)と[書式設定された応答](xref:web-api/advanced/formatting)です。
+このカテゴリ内には 2 種類の結果があります:[ビュー](xref:mvc/views/overview)と[書式設定された応答](xref:web-api/advanced/formatting)です。
 
 * **表示**
 
@@ -83,7 +83,7 @@ ms.locfileid: "36275660"
 
     この種類では、JSON または同様のデータ交換形式を返し、特定の手法でオブジェクトを表します。 たとえば、`return Json(customer);` の場合、与えられたオブジェクトを JSON 形式にシリアル化します。
     
-    この種類の一般的なメソッドには他に `File`、`PhysicalFile`、`VirtualFile` などがあります。 たとえば、`return PhysicalFile(customerFilePath, "text/xml");` は、`Content-Type` 応答ヘッダー値の "text/xml" で表される XML ファイルを返します。
+    この種類の一般的なメソッドには他に `File`、`PhysicalFile` などがあります。 たとえば、`return PhysicalFile(customerFilePath, "text/xml");` は [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult) を返します。
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3.クライアントとネゴシエーションしたコンテンツの種類で書式設定された空ではない応答本文を生成するメソッド
 
@@ -93,7 +93,7 @@ ms.locfileid: "36275660"
 
 ### <a name="cross-cutting-concerns"></a>横断的な問題
 
-アプリケーションは通常、ワークフローの一部を共有します。 たとえば、ショッピング カートにアクセスする際、認証を要求するアプリや一部のページでデータをキャッシュするアプリです。 アクション メソッドの前または後でロジックを実行するには、*フィルター*を使用します。 横断的な問題で[フィルター](xref:mvc/controllers/filters)を使用すると、重複がなくなります。[DRY (Don't Repeat Yourself/繰り返しを避ける) 原則](http://deviq.com/don-t-repeat-yourself/)に従うことが可能になります。
+アプリケーションは通常、ワークフローの一部を共有します。 たとえば、ショッピング カートにアクセスする際、認証を要求するアプリや一部のページでデータをキャッシュするアプリです。 アクション メソッドの前または後でロジックを実行するには、*フィルター*を使用します。 横断的な問題に対して[フィルター](xref:mvc/controllers/filters)を使うと、重複を減らすことができます。
 
 `[Authorize]` など、フィルター属性の多くは、求められる詳細度に基づき、コントローラーまたはアクション レベルで適用できます。
 

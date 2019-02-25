@@ -5,12 +5,12 @@ description: モデル バインドにより ASP.NET Core のモデルの型を�
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 33551c9fc22561b992b4a09a4c7187ade136c09c
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635295"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410246"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core でのカスタム モデル バインド
 
@@ -104,7 +104,7 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-この例では、引数の名前が既定の `authorId` ではないため、`ModelBinder` 属性を使用してパラメーターに指定されています。 コント ローラーとアクション メソッドの両方とも、アクション メソッドでのエンティティの検索と比べて簡素化されています。 Entity Framework Core を使用して作成者をフェッチするためのロジックは、モデル バインダーに移動しています。 これは、`Author` モデルにバインドするメソッドがいくつかある場合、大幅な簡素化になる可能性があり、[DRY 原則](http://deviq.com/don-t-repeat-yourself/)への準拠に役立つ場合があります。
+この例では、引数の名前が既定の `authorId` ではないため、`ModelBinder` 属性を使用してパラメーターに指定されています。 コント ローラーとアクション メソッドの両方とも、アクション メソッドでのエンティティの検索と比べて簡素化されています。 Entity Framework Core を使用して作成者をフェッチするためのロジックは、モデル バインダーに移動しています。 これは、`Author` モデルにバインドするメソッドがいくつかある場合、大幅な簡略化になる可能性があります。
 
 `ModelBinder` 属性を (ビューモデルなどの) 個々のモデル プロパティまたはアクション メソッド パラメーターに適用して、その型やアクションのみを対象とする特定のモデル バインダーまたはモデル名を指定することができます。
 
@@ -114,7 +114,7 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
-> 注: 上のコードは `BinderTypeModelBinder` を返します。 `BinderTypeModelBinder` はモデル バインダーのファクトリとして機能し、依存関係の挿入 (DI) を提供します。 `AuthorEntityBinder` は DI に EF Core へのアクセスを求めます。 モデル バインダーが DI からのサービスを必要としている場合は、`BinderTypeModelBinder` を使用してください。
+> メモ:上のコードは `BinderTypeModelBinder` を返します。 `BinderTypeModelBinder` はモデル バインダーのファクトリとして機能し、依存関係の挿入 (DI) を提供します。 `AuthorEntityBinder` は DI に EF Core へのアクセスを求めます。 モデル バインダーが DI からのサービスを必要としている場合は、`BinderTypeModelBinder` を使用してください。
 
 カスタム モデル バインダー プロバイダーを使用する場合、次のようにしてこれを `ConfigureServices` に追加します。
 

@@ -5,12 +5,12 @@ description: 共通レイアウトの使用方法、ディレクティブの共�
 ms.author: riande
 ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391298"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410574"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET Core でのレイアウト
 
@@ -22,7 +22,7 @@ ms.locfileid: "49391298"
 * ディレクティブを共有する。
 * ページまたはビューを表示する前に、共通のコードを実行する。
 
-このドキュメントでは、ASP.NET Core MVC に対するアプローチとして、Razor Pages とビューを含むコントローラーの 2 種類のレイアウトについて説明します。 このトピックでは、違いは最小限です。
+このドキュメントでは、ASP.NET Core MVC に対する 2 つの異なるアプローチに向けたレイアウトについて説明します:Razor Pages と、ビューを含むコントローラーです。 このトピックでは、違いは最小限です。
 
 * Razor Pages は、*Pages* フォルダーにあります。
 * ビューを含むコントローラーでは、*Views* フォルダーをビューに使用します。
@@ -33,15 +33,15 @@ ms.locfileid: "49391298"
 
 ![ページ レイアウトの例](layout/_static/page-layout.png)
 
-スクリプトやスタイルシートなどの共通の HTML 構造体も、アプリ内の多くのページでよく使用されます。 これらの共有要素をすべて *layout* ファイルで定義することで、アプリ内で使用する任意のビューで参照できるようになります。 レイアウトは、[DRY (Don't Repeat Yourself) 原則](http://deviq.com/don-t-repeat-yourself/)に従って、ビュー内の重複するコードを削減します。
+スクリプトやスタイルシートなどの共通の HTML 構造体も、アプリ内の多くのページでよく使用されます。 これらの共有要素をすべて *layout* ファイルで定義することで、アプリ内で使用する任意のビューで参照できるようになります。 レイアウトにより、ビュー内の重複コードが減ります。
 
 規則により、ASP.NET Core アプリの既定のレイアウトには *_Layout.cshtml* という名前が付けられます。 テンプレートで作成された新しい ASP.NET Core プロジェクトのレイアウト ファイル:
 
-* Razor Pages: *Pages/Shared/_Layout.cshtml*
+* Razor Pages:*Pages/Shared/_Layout.cshtml*
 
   ![ソリューション エクスプローラーでの Pages フォルダー](layout/_static/rp-web-project-views.png)
 
-* ビューを含むコントローラー: *Views/Shared/_Layout.cshtml*
+* ビューを含むコントローラー:*Views/Shared/_Layout.cshtml*
 
  ![ソリューション エクスプローラーの Views フォルダー](layout/_static/mvc-web-project-views.png)
 

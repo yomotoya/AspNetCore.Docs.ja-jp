@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: b8279588e674e3ada486f61bac2c216f1359e86d
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 6dcdf71ec5271690718dd1fe750a9a74d498a0f8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444390"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410337"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2.2 の新機能
 
@@ -29,7 +29,7 @@ Open API (Swagger とも呼ばれます) は、REST API を記述するために
 
 ## <a name="problem-details-support"></a>問題の詳細のサポート
 
-ASP.NET Core 2.1 では、HTTP 応答でエラーの詳細を伝達するための RFC 7807 仕様に基づいて `ProblemDetails` が導入されました。 2.2 で、`ProblemDetails` は、属性が `ApiControllerAttribute` のコントローラーのクライアント エラー コードに対する標準の応答です。 クライアント エラー状態コード (4xx) を返している `IActionResult` は、`ProblemDetails` の本文を返すようになりました。 この結果には、要求ログを使用してエラーを関連付けるために使用できる相関関係 ID も含まれています。 クライアント エラーの場合、`ProducesResponseType` の既定では `ProblemDetails` が応答の種類として使用されます。 これは、NSwag または Swashbuckle.AspNetCore を使用して生成される Open API/Swagger 出力にドキュメント化されます。
+ASP.NET Core 2.1 では、HTTP 応答でエラーの詳細を伝達するための [RFC 7807](https://tools.ietf.org/html/rfc7807) 仕様に基づいて、`ProblemDetails` が導入されました。 2.2 で、`ProblemDetails` は、属性が `ApiControllerAttribute` のコントローラーのクライアント エラー コードに対する標準の応答です。 クライアント エラー状態コード (4xx) を返している `IActionResult` は、`ProblemDetails` の本文を返すようになりました。 この結果には、要求ログを使用してエラーを関連付けるために使用できる相関関係 ID も含まれています。 クライアント エラーの場合、`ProducesResponseType` の既定では `ProblemDetails` が応答の種類として使用されます。 これは、NSwag または Swashbuckle.AspNetCore を使用して生成される Open API/Swagger 出力にドキュメント化されます。
 
 ## <a name="endpoint-routing"></a>エンドポイント ルーティング
 

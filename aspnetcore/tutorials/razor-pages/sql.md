@@ -2,16 +2,15 @@
 title: データベースと ASP.NET Core を使用する
 author: rick-anderson
 description: データベースと ASP.NET Core の使用について説明します。
-monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 817102a7b89ef4f078d7d0a0bf03ba7cb2745a5d
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861278"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410298"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>データベースと ASP.NET Core を使用する
 
@@ -133,7 +132,7 @@ if (context.Movie.Any())
 
 運用アプリは `Database.Migrate` を呼び出しません。 これは、`Update-Database` が実行されていないとき、前述のコードに追加され、次の例外を阻止します。
 
-SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.\(SqlException: ログインで要求されている "RazorPagesMovieContext-21" データベースを開くことができませんでした。\) The login failed.\(ログインに失敗しました。\)
+SqlException:Cannot open database "RazorPagesMovieContext-21" requested by the login. (SqlException: ログインで要求されている "RazorPagesMovieContext-21" データベースを開くことができませんでした。) The login failed.\(ログインに失敗しました。\)
 Login failed for user 'user name'.\(ユーザー 'ユーザー名' はログインできませんでした。\)
 
 ### <a name="test-the-app"></a>アプリのテスト
@@ -179,5 +178,5 @@ DB 内のすべてのレコードを削除します (そのため Seed メソッ
 次のチュートリアルでは、データの表示をクリーンアップします。
 
 > [!div class="step-by-step"]
-> [前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)
-> [次: ページの更新](xref:tutorials/razor-pages/da1)
+> [前へ:スキャフォールディングされた Razor Pages](xref:tutorials/razor-pages/page)
+> [次:ページの更新](xref:tutorials/razor-pages/da1)

@@ -4,14 +4,8 @@ author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5d6ba8b7ee6f09a7d00aa0285802cf0aad267a1d
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248421"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -296,13 +290,14 @@ Web SDK ファイルの変換を無効にすると、 *processPath*と*引数*�
 
 ### <a name="install-the-hosting-bundle"></a>ホスティング バンドルをインストールする
 
-1. サーバーでインストーラーを実行します。 管理者のコマンド プロンプトからインストーラーを実行する場合、次のスイッチを使用できます。
+1. サーバーでインストーラーを実行します。 管理者のコマンド シェルからインストーラーを実行する場合、次のパラメーターを使用できます。
 
    * `OPT_NO_ANCM=1` &ndash; ASP.NET Core モジュールのインストールをスキップします。
    * `OPT_NO_RUNTIME=1` &ndash; .NET Core ランタイムのインストールをスキップします。
    * `OPT_NO_SHAREDFX=1` &ndash; ASP.NET Shared Framework (ASP.NET ランタイム) のインストールをスキップします。
-   * `OPT_NO_X86=1` &ndash; x86 ランタイムのインストールをスキップします。 32 ビット アプリをホストしない場合は、このスイッチを使用します。 今後、32 ビット アプリと 64 ビット アプリの両方をホストする可能性がある場合は、このスイッチを使用せずに、両方のランタイムをインストールします。
-1. システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行します。 IIS を再起動すると、インストーラーによって行われたシステム パスへの変更 (環境変数) が取得されます。
+   * `OPT_NO_X86=1` &ndash; x86 ランタイムのインストールをスキップします。 32 ビット アプリをホストしない場合は、このパラメーターを使用します。 今後、32 ビットと 64 ビットのアプリ両方をホストする可能性がある場合は、このパラメーターを使用せずに、両方のランタイムをインストールします。
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; 共有構成 (*applicationHost.config*) が IIS のインストールと同じマシン上にある場合、IIS 共有構成を使うためのチェックを無効にします。 "*ASP.NET Core 2.2 以降の Hosting Bundler インストーラーに対してのみ使用できます。*" 詳細については、「<xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>」を参照してください。
+1. システムを再起動するか、コマンド シェルから **net stop was /y** に続けて **net start w3svc** を実行します。 IIS を再起動すると、インストーラーによって行われたシステム パスへの変更 (環境変数) が取得されます。
 
 Windows ホスティング バンドルのインストーラーでインストールを完了するために、IIS によるリセットが必要であることを検知した場合、インストーラーによって IIS がリセットされます。 インストーラーで IIS のリセットがトリガーされた場合、IIS アプリ プールと Web サイトがすべて再起動されます。
 

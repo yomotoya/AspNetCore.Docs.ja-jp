@@ -5,12 +5,12 @@ description: ASP.NET Core の MVC コントローラーが、ASP.NET Core でそ
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206343"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410272"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET Core でのコントローラーへの依存関係の挿入
 
@@ -24,7 +24,7 @@ ASP.NET Core の MVC コントローラーは、それらのコンストラク�
 
 ## <a name="dependency-injection"></a>依存関係の挿入
 
-依存関係の挿入は、[依存関係逆転の原則](http://deviq.com/dependency-inversion-principle/)に従う手法であり、弱く結合されたモジュールでアプリケーションを構成できるようにします。 ASP.NET Core には[依存関係の挿入](../../fundamentals/dependency-injection.md)の組み込みのサポートがあり、アプリケーションを簡単にテストして維持することができます。
+ASP.NET Core には[依存関係の挿入](../../fundamentals/dependency-injection.md)の組み込みのサポートがあり、アプリケーションを簡単にテストして維持することができます。
 
 ## <a name="constructor-injection"></a>コンストラクターの挿入
 
@@ -63,7 +63,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 ![サーバーの応答メッセージ](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> コントローラーで依存関係 ([http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/)) を明示的に要求することによってコードをテストしやすくする方法については、[コントローラー ロジックのテスト](testing.md)に関するページを参照してください。
+> コントローラーで依存関係を明示的に要求することによってコードをテストしやすくする方法については、[コントローラー ロジックのテスト](testing.md)に関するページを参照してください。
 
 ASP.NET Core の組み込みの依存関係の挿入は、サービスを要求するクラスの 1 つのコンストラクターのみの使用をサポートします。 複数のコンストラクターを使用している場合、次のような例外が表示される可能性があります。
 
@@ -101,4 +101,4 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstr
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-オプションのパターンに従うと、設定や構成を相互に分離し、さらにコントローラーが設定情報を見つける方法または場所を知る必要がないので、コントローラーを[関心の分離](http://deviq.com/separation-of-concerns/)に確実に従わせることができます。 また、コントローラー クラス内での[静的な結合](http://deviq.com/static-cling/)または設定クラスの直接のインスタンス化がないので、コントローラーの単体テスト ([コントローラー ロジックのテスト](testing.md)) も容易になります。
+オプションのパターンに従うと、設定や構成を相互に分離し、さらにコントローラーが設定情報を見つける方法または場所を知る必要がないので、コントローラーを[関心の分離](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)に確実に従わせることができます。 また、コントローラー クラス内で設定クラスを直接インスタンス化することがないため、コントローラーの[単体テスト](testing.md)も容易になります。

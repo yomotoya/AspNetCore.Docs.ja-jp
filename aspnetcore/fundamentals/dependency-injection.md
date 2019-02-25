@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253170"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410509"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core での依存関係の挿入
 
@@ -342,32 +342,32 @@ Entity Framework コンテキストは、スコープの有効期間を使って
 コントローラーの操作:
 
 一時的: d233e165-f417-469b-a866-1cf1935d2518  
-スコープ: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
-シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
-インスタンス: 00000000-0000-0000-0000-000000000000
+スコープ:5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
+シングルトン:01271bc1-9e31-48e7-8f7c-7261b040ded9  
+インスタンス:00000000-0000-0000-0000-000000000000
 
 `OperationService` の操作:
 
 一時的: c6b049eb-1318-4e31-90f1-eb2dd849ff64  
-スコープ: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
-シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
-インスタンス: 00000000-0000-0000-0000-000000000000
+スコープ:5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
+シングルトン:01271bc1-9e31-48e7-8f7c-7261b040ded9  
+インスタンス:00000000-0000-0000-0000-000000000000
 
 **2 番目の要求:**
 
 コントローラーの操作:
 
 一時的: b63bd538-0a37-4ff1-90ba-081c5138dda0  
-スコープ: 31e820c5-4834-4d22-83fc-a60118acb9f4  
-シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
-インスタンス: 00000000-0000-0000-0000-000000000000
+スコープ:31e820c5-4834-4d22-83fc-a60118acb9f4  
+シングルトン:01271bc1-9e31-48e7-8f7c-7261b040ded9  
+インスタンス:00000000-0000-0000-0000-000000000000
 
 `OperationService` の操作:
 
 一時的: c4cbacb8-36a2-436d-81c8-8c1b78808aaf  
-スコープ: 31e820c5-4834-4d22-83fc-a60118acb9f4  
-シングルトン: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
-インスタンス: 00000000-0000-0000-0000-000000000000
+スコープ:31e820c5-4834-4d22-83fc-a60118acb9f4  
+シングルトン:01271bc1-9e31-48e7-8f7c-7261b040ded9  
+インスタンス:00000000-0000-0000-0000-000000000000
 
 要求内および要求間で、どの `OperationId` 値が変化しているかを確認してください。
 
@@ -437,10 +437,9 @@ public static void Main(string[] args)
 ベスト プラクティスは次のとおりです。
 
 * 各依存関係を取得するために依存関係の挿入を使用するようサービスを設計します。
-* ステートフルな静的メソッドの呼び出しを回避します ([静的な結び付き](https://deviq.com/static-cling/)と呼ばれる方法です)。
+* ステートフルな静的メソッドの呼び出しを回避します。
 * サービス内部で依存関係のあるクラスを直接インスタンス化することを回避します。 直接のインスタンス化は、コードの固有の実装につながります。
-
-[オブジェクト指向設計の SOLID 原則](https://deviq.com/solid/)に従うことで、小さく、十分に要素に分割された、テストが簡単なアプリのクラスを実現できる可能性が自然と高くなります。
+* アプリのクラスを、小さく、十分に要素に分割された、テストしやすいものにします。
 
 クラスに含まれる挿入される依存関係が多すぎるように見える場合、これは通常、クラスが担当する役割が多すぎて、[単一責任の原則 (SRP)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#single-responsibility) に違反していることのサインです。 責任の一部を新しいクラスに移動することにより、クラスのリファクタリングを試みます。 Razor Pages のページ モデル クラスと MVC コントローラー クラスは、UI の問題に集中する必要があることに留意します。 ビジネス ルールとデータ アクセスの実装の詳細は、これらの[個別の問題](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)に適したクラスに分離する必要があります。
 
@@ -488,7 +487,7 @@ public void ConfigureServices(IServiceCollection services)
 * 有効期間のカスタム管理
 * 遅延初期化に対する `Func<T>` のサポート
 
-アダプターをサポートするいくつかのコンテナーの一覧については、「[Dependency Injection readme.md file](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection)」 (Dependency Injection readme.md ファイル) を参照してください。
+アダプターをサポートするいくつかのコンテナーの一覧については、「[Dependency Injection readme.md file](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection)」 (Dependency Injection readme.md ファイル) を参照してください。
 
 次のサンプルでは、[Autofac](https://autofac.org/) で組み込みのコンテナーが置き換えられています。
 
@@ -560,8 +559,7 @@ DI は静的/グローバル オブジェクト アクセス パターンの*代
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/extensibility>
 * [依存関係の挿入による ASP.NET Core でのクリーンなコードの作成 (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
-* [コンテナー管理アプリケーションの設計、前段階: コンテナーはどこに属していますか](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
+* [コンテナー管理アプリケーションの設計、前段階:コンテナーはどこに属していますか](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [明示的な依存関係の原則](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
 * [制御の反転コンテナーと依存関係の挿入パターン (Martin Fowler)](https://www.martinfowler.com/articles/injection.html)
-* [new は接着剤である (コードを特定の実装に "接着" する)](https://ardalis.com/new-is-glue)
 * [ASP.NET Core DI 内の複数のインターフェイスにサービスを登録する方法](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)

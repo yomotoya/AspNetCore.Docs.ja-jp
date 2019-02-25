@@ -5,14 +5,14 @@ description: IHostingStartup 実装を使用して、外部アセンブリから
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/22/2018
+ms.date: 02/14/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: cf7114698635ab2d61fa19eb15b6a8c61a751e5b
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: cffad201c84414ee4788877d80d3619a9013ae99
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284722"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410496"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 
@@ -82,7 +82,7 @@ ms.locfileid: "53284722"
 * `IHostingStartup` を実装するホスティング スタートアップ クラス `ServiceKeyInjection`。 `ServiceKeyInjection` では、メモリ内の構成プロバイダー ([AddInMemoryCollection](/dotnet/api/microsoft.extensions.configuration.memoryconfigurationbuilderextensions.addinmemorycollection)) を使用して、サービスの文字列のペアがアプリの構成に追加されます。
 * ホスティング スタートアップの名前空間とクラスを識別する `HostingStartup` 属性。
 
-`ServiceKeyInjection` クラスの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドでは、[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) を使用してアプリに拡張機能が追加されます。 ホスティング スタートアップ アセンブリ内の `IHostingStartup.Configure` は、ユーザー コード内の `Startup.Configure` よりも前にランタイムによって呼び出されます。このため、ホスティング スタートアップ アセンブリによって提供されるすべての構成をユーザー コードで上書きすることができます。
+`ServiceKeyInjection` クラスの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドでは、[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) を使用してアプリに拡張機能が追加されます。
 
 *HostingStartupLibrary/ServiceKeyInjection.cs*:
 
@@ -146,6 +146,46 @@ ms.locfileid: "53284722"
 [!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement1.deps.json?range=2-13&highlight=8)]
 
 ファイルの一部のみが示されています。 例のアセンブリ名は `StartupEnhancement` です。
+
+## <a name="configuration-provided-by-the-hosting-startup"></a>ホスティング スタートアップによって指定される構成
+
+ホスティング スタートアップの構成、アプリの構成のどちらを優先させるかによって、2 つの異なる方法で構成を処理できます。
+
+1. アプリの <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> デリゲートを実行した後で <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> を使って構成を読み込み、アプリに構成を指定します。 この方法を使うと、ホスティング スタートアップの構成の方がアプリの構成よりも優先されます。
+1. アプリの <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> デリゲートを実行する前に <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を使って構成を読み込み、アプリに構成を指定します。 この方法を使うと、アプリの構成値の方がホスティング スタートアップにより指定されるものよりも優先されます。
+
+```csharp
+public class ConfigurationInjection : IHostingStartup
+{
+    public void Configure(IWebHostBuilder builder)
+    {
+        Dictionary<string, string> dict;
+
+        builder.ConfigureAppConfiguration(config =>
+        {
+            dict = new Dictionary<string, string>
+            {
+                {"ConfigurationKey1", 
+                    "From IHostingStartup: Higher priority than the app's configuration."},
+            };
+
+            config.AddInMemoryCollection(dict);
+        });
+
+        dict = new Dictionary<string, string>
+        {
+            {"ConfigurationKey2", 
+                "From IHostingStartup: Lower priority than the app's configuration."},
+        };
+
+        var builtConfig = new ConfigurationBuilder()
+            .AddInMemoryCollection(dict)
+            .Build();
+
+        builder.UseConfiguration(builtConfig);
+    }
+}
+```
 
 ## <a name="specify-the-hosting-startup-assembly"></a>ホスティング スタートアップ アセンブリを指定する
 

@@ -4,14 +4,8 @@ author: rick-anderson
 description: ASP.NET Core のミドルウェアと要求パイプラインについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 02/17/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341590"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core のミドルウェア
 
@@ -24,7 +18,7 @@ ms.locfileid: "54341590"
 
 要求デリゲートは、要求パイプラインの構築に使用されます。 要求デリゲートは、各 HTTP 要求を処理します。
 
-要求デリゲートは、<xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>、<xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>、<xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> の各拡張メソッドを使って構成されます。 個々の要求デリゲートは、匿名メソッドとしてインラインで指定するか (インライン ミドルウェアと呼ばれます)、または再利用可能なクラスで定義することができます。 これらの再利用可能なクラスとインラインの匿名メソッドは、"*ミドルウェア*" です。"*ミドルウェア コンポーネント*" とも呼ばれます。 要求パイプライン内の各ミドルウェア コンポーネントは、パイプラインの次のコンポーネントを呼び出すか、パイプラインをショートさせます。
+要求デリゲートは、<xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>、<xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>、<xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> の各拡張メソッドを使って構成されます。 個々の要求デリゲートは、匿名メソッドとしてインラインで指定するか (インライン ミドルウェアと呼ばれます)、または再利用可能なクラスで定義することができます。 これらの再利用可能なクラスとインラインの匿名メソッドは、"*ミドルウェア*" です。"*ミドルウェア コンポーネント*" とも呼ばれます。 要求パイプライン内の各ミドルウェア コンポーネントは、パイプラインの次のコンポーネントを呼び出すか、パイプラインをショートさせます。 ショートサーキットしたミドルウェアは "*ターミナル ミドルウェア*" と呼ばれます。これによってさらなるミドルウェアによる要求の処理が回避されるためです。
 
 「<xref:migration/http-modules>」では、ASP.NET Core と ASP.NET 4.x の要求パイプラインの違いについての説明と、他のミドルウェア サンプルが提供されています。
 
@@ -34,7 +28,7 @@ ASP.NET Core 要求パイプラインは、順番に呼び出される一連の�
 
 ![要求の到着、3 つのミドルウェアによる処理、アプリからの応答の送信を示す要求処理パターン。 各ミドルウェアは、そのロジックを実行し、next() ステートメントで要求を次のミドルウェアに渡します。 3 番目のミドルウェアが要求を処理した後、要求は前の 2 つのミドルウェアを逆の順序で通過して、それぞれの next() ステートメントの後の追加処理が行われた後、クライアントへの応答としてアプリを終了します。](index/_static/request-delegate-pipeline.png)
 
-各デリゲートは、次のデリゲートの前と後に操作を実行できます。 また、デリゲートは要求を次のデリゲートに渡さないこともできます。これは、*要求パイプラインのショートサーキット*と呼ばれます。 不要な処理を回避するために、ショートさせることが望ましい場合がよくあります。 たとえば、静的ファイル ミドルウェアは、静的ファイルの要求を返して、残りのパイプラインをショートさせることができます。 例外処理デリゲートは、パイプラインの後のステージで発生する例外をキャッチできるように、パイプラインの早い段階で呼び出されます。
+各デリゲートは、次のデリゲートの前と後に操作を実行できます。 例外処理デリゲートは、パイプラインの後のステージで発生する例外をキャッチできるように、パイプラインの早い段階で呼び出される必要があります。
 
 考えられる最も簡単な ASP.NET Core アプリは、1 つの要求デリゲートを設定してすべての要求を処理するものです。 この場合、実際の要求パイプラインは含まれません。 代わりに、すべての HTTP 要求に対応して単一の匿名関数が呼び出されます。
 
@@ -46,6 +40,8 @@ ASP.NET Core 要求パイプラインは、順番に呼び出される一連の�
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?name=snippet1)]
 
+デリゲートが次のデリゲートに要求を渡さない場合、これは "*要求パイプラインのショートサーキット*" と呼ばれます。 不要な処理を回避するために、ショートさせることが望ましい場合がよくあります。 たとえば、[静的ファイル ミドルウェア](xref:fundamentals/static-files)は、静的ファイルの要求を処理して残りのパイプラインをショートサーキットすることにより、"*ターミナル ミドルウェア*" として動作させることができます。 後続の処理を終了させるミドルウェアの前にパイプラインに追加されたミドルウェアでは、その `next.Invoke` ステートメントの後も引き続きコードが処理されます。 ただし、既に送信された応答に対する書き込みの試行については、次の警告を参照してください。
+
 > [!WARNING]
 > 応答がクライアントに送信された後に、`next.Invoke` を呼び出さないでください。 応答が開始した後で <xref:Microsoft.AspNetCore.Http.HttpResponse> を変更すると、例外がスローされます。 たとえば、ヘッダーや状態コードの設定などの変更があると、例外がスローされます。 `next` を呼び出した後で応答本文に書き込むと、次のようになります。
 >
@@ -54,7 +50,7 @@ ASP.NET Core 要求パイプラインは、順番に呼び出される一連の�
 >
 > <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> は、ヘッダーが送信されたかどうかや本文が書き込まれたかどうかを示すために役立つヒントです。
 
-## <a name="order"></a>順番
+## <a name="order"></a>注文
 
 `Startup.Configure` メソッドでミドルウェア コンポーネントを追加する順序は、要求でミドルウェア コンポーネントが呼び出される順序および応答での逆の順序を定義します。 この順序は、セキュリティ、パフォーマンス、および機能にとって重要です。
 
@@ -228,19 +224,19 @@ app.Map("/level1", level1App => {
 
 ## <a name="built-in-middleware"></a>組み込みミドルウェア
 
-ASP.NET Core には、次のミドルウェア コンポーネントが付属しています。 「*順番*」列には、要求パイプライン内のミドルウェアの配置と、ミドルウェアが要求を中断し、他のミドルウェアが要求を処理できなくなる条件に関する注意が記載されています。
+ASP.NET Core には、次のミドルウェア コンポーネントが付属しています。 "*順番*" 列には、要求を処理するパイプライン内のミドルウェアの配置と、ミドルウェアが要求処理を終了する条件に関するメモが記載されています。 ミドルウェアが要求を処理するパイプラインをショートサーキットし、下流のさらなるミドルウェアによる要求の処理を回避する場合、これは "*ターミナル ミドルウェア*" と呼ばれます。 ショートサーキットについて詳しくは、「[IApplicationBuilder を使用したミドルウェア パイプラインの作成](#create-a-middleware-pipeline-with-iapplicationbuilder)」セクションをご覧ください。
 
-| ミドルウェア | 説明 | 順番 |
+| ミドルウェア | 説明 | 注文 |
 | ---------- | ----------- | ----- |
 | [認証](xref:security/authentication/identity) | 認証のサポートを提供します。 | `HttpContext.User` が必要な場所の前。 OAuth コールバックの終端。 |
-| [Cookie のポリシー](xref:security/gdpr) | 個人情報の保存に関してユーザーからの同意を追跡し、`secure` や `SameSite` など、Cookie フィールドの最小要件を適用します。 | Cookie を発行するミドルウェアの前。 次に例を示します。認証、セッション、MVC (TempData) |
+| [Cookie のポリシー](xref:security/gdpr) | 個人情報の保存に関してユーザーからの同意を追跡し、`secure` や `SameSite` など、Cookie フィールドの最小要件を適用します。 | Cookie を発行するミドルウェアの前。 次に例を示します。 認証、セッション、MVC (TempData) |
 | [CORS](xref:security/cors) | クロス オリジン リソース共有を構成します。 | CORS を使うコンポーネントの前。 |
 | [診断](xref:fundamentals/error-handling) | 診断を構成します。 | エラーを生成するコンポーネントの前。 |
 | [転送されるヘッダー](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | プロキシされたヘッダーを現在の要求に転送します。 | 更新されたフィールドを使用するコンポーネントの前。 例: スキーム、ホスト、クライアント IP、メソッド。 |
 | [正常性チェック](xref:host-and-deploy/health-checks) | ASP.NET Core アプリとその依存関係の正常性を、データベースの可用性などで確認します。 | 要求が正常性チェックのエンドポイントと一致した場合の終端。 |
 | [HTTP メソッドのオーバーライド](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | メソッドをオーバーライドする受信 POST 要求を許可します。 | 更新されたメソッドを使うコンポーネントの前。 |
 | [HTTPS リダイレクト](xref:security/enforcing-ssl#require-https) | すべての HTTP 要求を HTTPS (ASP.NET Core 2.1 以降) にリダイレクトします。 | URL を使うコンポーネントの前。 |
-| [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | 特殊な応答ヘッダーを追加するセキュリティ拡張機能のミドルウェア (ASP.NET Core 2.1 以降)。 | 応答が送信される前と要求を変更するコンポーネントの後。 次に例を示します。転送されるヘッダー、URL リライト。 |
+| [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | 特殊な応答ヘッダーを追加するセキュリティ拡張機能のミドルウェア (ASP.NET Core 2.1 以降)。 | 応答が送信される前と要求を変更するコンポーネントの後。 次に例を示します。 転送されるヘッダー、URL リライト。 |
 | [MVC](xref:mvc/overview) | MVC/Razor Pages (ASP.NET Core 2.0 以降) で要求を処理します。 | 要求がルートと一致した場合の終端。 |
 | [OWIN](xref:fundamentals/owin) | OWIN ベースのアプリ、サーバー、およびミドルウェアと相互運用します。 | OWIN ミドルウェアが要求を完全に処理した場合の終端。 |
 | [応答キャッシュ](xref:performance/caching/middleware) | 応答のキャッシュのサポートを提供します。 | キャッシュが必要なコンポーネントの前。 |
@@ -252,63 +248,9 @@ ASP.NET Core には、次のミドルウェア コンポーネントが付属し
 | [URL リライト](xref:fundamentals/url-rewriting) | URL の書き換えと要求のリダイレクトのサポートを提供します。 | URL を使うコンポーネントの前。 |
 | [WebSocket](xref:fundamentals/websockets) | WebSocket プロトコルを有効にします。 | WebSocket 要求を受け入れる必要があるコンポーネントの前。 |
 
-## <a name="write-middleware"></a>ミドルウェアの作成
-
-ミドルウェアは一般に、クラスにカプセル化され、拡張メソッドを使用して公開されます。 クエリ文字列から現在の要求のカルチャを設定する次のようなミドルウェアを考慮します。
-
-[!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
-
-上のサンプル コードを使って、ミドルウェア コンポーネントの作成方法を示します。 ASP.NET Core に組み込まれているローカライズのサポートについては、「<xref:fundamentals/localization>」を参照してください。
-
-カルチャを渡すことによって、ミドルウェアをテストできます (例: `http://localhost:7997/?culture=no`)。
-
-次のコードは、ミドルウェアのデリゲートをクラスに移動します。
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
-
-::: moniker range="< aspnetcore-2.0"
-
-ミドルウェア `Task` メソッドの名前は `Invoke` である必要があります。 ASP.NET Core 2.0 以降では、名前は `Invoke` でも `InvokeAsync` でも構いません。
-
-::: moniker-end
-
-次の拡張メソッドは、<xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> を介してミドルウェアを公開します。
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
-
-次のコードは、`Startup.Configure` からミドルウェアを呼び出します。
-
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
-
-ミドルウェアは、コンストラクターで依存関係を公開することによって、[明示的な依存関係の原則](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)に従う必要があります。 ミドルウェアは、"*アプリケーションの有効期間*" ごとに 1 回構築されます。 要求内でミドルウェアとサービスを共有する必要がある場合は、「[要求ごとの依存関係](#per-request-dependencies)」を参照してください。
-
-ミドルウェア コンポーネントは、コンストラクター パラメーターにより、[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) から依存関係を解決できます。 [UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) は、追加パラメーターを直接受け入れることもできます。
-
-### <a name="per-request-dependencies"></a>要求ごとの依存関係
-
-ミドルウェアは要求ごとではなくアプリの起動時に構築されるため、ミドルウェアのコンストラクターによって使われる "*スコープ*" 有効期間のサービスは、各要求の間に、依存関係によって挿入される他の種類と共有されません。 ミドルウェアとその他の種類の間で "*スコープ*" サービスを共有する必要がある場合は、これらのサービスを `Invoke` メソッドのシグネチャに追加します。 `Invoke` メソッドは、DI によって設定される追加のパラメーターを受け取ることができます。
-
-```csharp
-public class CustomMiddleware
-{
-    private readonly RequestDelegate _next;
-
-    public CustomMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
-
-    // IMyScopedService is injected into Invoke
-    public async Task Invoke(HttpContext httpContext, IMyScopedService svc)
-    {
-        svc.MyProperty = 1000;
-        await _next(httpContext);
-    }
-}
-```
-
 ## <a name="additional-resources"></a>その他の技術情報
 
+* <xref:fundamentals/middleware/write>
 * <xref:migration/http-modules>
 * <xref:fundamentals/startup>
 * <xref:fundamentals/request-features>
