@@ -6,12 +6,6 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/25/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2465570e469020ae2855508bd1bfc8528e188ebb
-ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073167"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -70,7 +64,7 @@ ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によ�
 
 ## <a name="host-vs-app-configuration"></a>ホストとアプリの構成
 
-アプリを構成して起動する前に、"*ホスト*" を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 アプリとホストは、両方ともこのトピックで説明する構成プロバイダーを使用して構成します。 ホストの構成のキーと値のペアは、アプリのグローバル構成の一部となります。 ホストをビルドするときの構成プロバイダーの使用方法、およびホストの構成に対する構成ソースの影響について詳しくは、「<xref:fundamentals/host/index>」をご覧ください。
+アプリを構成して起動する前に、"*ホスト*" を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 アプリとホストは、両方ともこのトピックで説明する構成プロバイダーを使用して構成します。 ホストの構成のキーと値のペアは、アプリのグローバル構成の一部となります。 ホストをビルドするときの構成プロバイダーの使用方法、およびホストの構成に対する構成ソースの影響について詳しくは、[ホスト](xref:fundamentals/index#host)に関する説明を参照してください。
 
 ## <a name="default-configuration"></a>既定の構成
 
@@ -1765,7 +1759,8 @@ JSON 構成プロバイダーは、次のキーと値のペアに構成データ
 
 ::: moniker-end
 
-<xref:Microsoft.Extensions.Configuration.IConfigurationSource> を実装するクラスを作成します。
+
+  <xref:Microsoft.Extensions.Configuration.IConfigurationSource> を実装するクラスを作成します。
 
 *EFConfigurationProvider/EFConfigurationSource.cs*:
 

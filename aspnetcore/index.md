@@ -4,14 +4,8 @@ author: rick-anderson
 description: インターネットに接続された最新のクラウド ベース アプリケーションを構築するための、クロス プラットフォームで高パフォーマンスのオープン ソース フレームワークである ASP.NET Core について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 uid: index
-ms.openlocfilehash: c3f07814bfab19a0f070e0b48b0d2ef6cfc1594e
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248161"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -68,6 +62,34 @@ ASP.NET Core 3.0 以降は、.NET Core でのみ実行されます。 この変�
 * ソースを開く
 
 .NET Framework と .NET Core の間にある API のギャップを埋めるため、鋭意作業中です。 [Windows 互換機能パック](/dotnet/core/porting/windows-compat-pack)により、多くの Windows 限定の API が .NET Core で利用できるようになりました。 このような API は .NET Core 1.x で利用できませんでした。
+
+## <a name="recommended-learning-path"></a>推奨のラーニング パス
+
+ASP.NET Core アプリを開発する場合の概要として、次の順序でチュートリアルと記事を読むことをお勧めします。
+
+1. 開発または管理するアプリの種類別のチュートリアルは次のとおりです。
+
+   |アプリの種類  |シナリオ  |チュートリアル  |
+   |----------|----------|----------|
+   |Web アプリ       | 新規の開発        |[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start) |
+   |Web アプリ       | MVC アプリの管理 |[MVC の概要](xref:tutorials/first-mvc-app/start-mvc)|
+   |Web API       |                            |[Web API の作成](xref:tutorials/first-web-api)\*  |
+   |リアルタイムのアプリ |                            |[SignalR の概要](xref:tutorials/signalr) |
+
+1. 基本のデータ アクセスの実行方法を示すチュートリアルは次のとおりです。
+
+   |シナリオ  |チュートリアル  |
+   |----------|----------|
+   | 新規の開発        |[Entity Framework Core を使用した Razor Pages](xref:data/ef-rp/intro) |
+   | MVC アプリの管理 |[Entity Framework Core を使用した MVC](xref:data/ef-mvc/intro)
+
+1. すべての種類のアプリに該当する ASP.NET Core の機能の概要は、次を参照してください。
+
+   * [ASP.NET Core の基礎の概要](xref:fundamentals/index)
+
+1. 興味のあるその他のトピックは、目次から参照してください。
+
+\* [すべてブラウザーでたどる新しい Web API のチュートリアル](https://docs.microsoft.com/learn/modules/build-web-api-net-core)があります。ローカルに IDE をインストールする必要はありません。  このコードは、[Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) で実行し、テストには [curl](https://curl.haxx.se/) を使用します。
 
 ## <a name="how-to-download-a-sample"></a>サンプルをダウンロードする方法
 
@@ -126,7 +148,7 @@ WebHost.CreateDefaultBuilder(args)
 
 詳細については、次のリソースを参照してください。
 
-* [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
+* <xref:getting-started>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [ASP.NET Core の基礎](xref:fundamentals/index)
 * [週 1 回の ASP.NET Community Standup](https://live.asp.net/) では、チームの進行状況とプランが報告され、 新しいブログやサード パーティ製ソフトウェアが取り上げられています。

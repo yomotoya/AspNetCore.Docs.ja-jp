@@ -58,35 +58,35 @@ items:
   - uid: fundamentals/index
     name: 概要
   - uid: fundamentals/startup
-    name: アプリの起動
+    name: Startup クラス
   - uid: fundamentals/dependency-injection
     name: 依存性の注入 (サービス)
-  - uid: fundamentals/routing
-    name: ルーティング
-  - uid: fundamentals/environments
-    name: 環境 (開発、ステージング、運用)
-  - uid: fundamentals/configuration/index
-    name: 構成
-  - uid: fundamentals/configuration/options
-    name: オプション
-  - uid: fundamentals/logging/index
-    name: ログの記録
-  - uid: fundamentals/error-handling
-    name: エラーの処理
   - uid: fundamentals/middleware/index
     name: ミドルウェア
   - name: ホスト
     items:
-    - uid: fundamentals/host/index
-      name: 概要
     - uid: fundamentals/host/web-host
       name: Web ホスト
     - uid: fundamentals/host/generic-host
       name: 汎用ホスト
   - uid: fundamentals/servers/index
     name: サーバー
+  - uid: fundamentals/configuration/index
+    name: 構成
+  - uid: fundamentals/configuration/options
+    name: オプション
+  - uid: fundamentals/environments
+    name: 環境 (開発、ステージング、運用)
+  - uid: fundamentals/logging/index
+    name: ログの記録
+  - uid: fundamentals/routing
+    name: ルーティング
+  - uid: fundamentals/error-handling
+    name: エラーの処理
   - uid: fundamentals/http-requests
     name: HTTP 要求を行う
+  - uid: fundamentals/static-files
+    name: 静的ファイル
 - name: Web アプリ
   items:
   - name: Razor ページ
@@ -210,8 +210,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
   - uid: mvc/views/layout
     name: レイアウト
-  - uid: fundamentals/static-files
-    name: 静的ファイル
   - uid: mvc/models/model-binding
     name: モデル バインド
   - uid: mvc/models/validation
@@ -814,6 +812,8 @@ items:
     name: Portable Object のローカライズ
 - name: 詳細設定
   items:
+  - uid: fundamentals/middleware/write
+    name: ミドルウェアの作成
   - uid: fundamentals/url-rewriting
     name: URL リライト
   - uid: fundamentals/file-providers
@@ -880,9 +880,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d2015955147460621d64ea6035f5f8118a02469b
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e55cfa30103c2a89007f2bc5e9d133dea7f8c6d5
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248395"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743999"
