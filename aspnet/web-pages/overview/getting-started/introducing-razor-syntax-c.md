@@ -25,7 +25,7 @@ ms.locfileid: "51021782"
 > 
 > - プログラミングの Razor 構文を使用して ASP.NET Web Pages のプログラミングの概要に関するヒント上位 8。
 > - 基本的なプログラミング概念必要があります。
-> - どのような ASP.NET サーバー コードと Razor 構文についてです。
+> - ASP.NETサーバーコードとRazor構文に関する全体像
 >   
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
