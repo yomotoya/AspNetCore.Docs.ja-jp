@@ -18,7 +18,7 @@ ms.locfileid: "54889744"
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core Api とテンプレートの一部を満たすためには、 [EU 一般データ保護規則 (GDPR)](https://www.eugdpr.org/)要件。
+ASP.NET Core には、いくつかの[EU 一般データ保護規則 (GDPR)](https://www.eugdpr.org/)の要件を満たすのに役立つAPIとテンプレートが用意されています。
 
 * プロジェクト テンプレートには、拡張ポイントと、プライバシーと cookie の使用ポリシーに置き換えることができるスタブのマークアップが含まれます。
 * Cookie の同意の機能は使用すると、同意を求める (および追跡) を個人情報を格納するため、ユーザーから使用できます。 ユーザーがデータの収集に同意していないし、アプリが場合[CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded)に設定`true`不要な cookie がブラウザーに送信されません。
@@ -26,7 +26,7 @@ ASP.NET Core Api とテンプレートの一部を満たすためには、 [EU �
 * [TempData とセッション cookie](#tempdata)追跡を無効にした場合に機能しません。
 * [Identity 管理](#pd)ダウンロードして、ユーザー データを削除するリンクを提供します。
 
-[サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)GDPR の拡張点のほとんどをテストすると、Api、ASP.NET Core 2.1 のテンプレートに追加できます。 参照してください、 [ReadMe](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)手順のテスト用のファイル。
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)GDPR の拡張点のほとんどをテストすると、API、ASP.NET Core 2.1 のテンプレートに追加できます。 参照してください、 [ReadMe](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)手順のテスト用のファイル。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
