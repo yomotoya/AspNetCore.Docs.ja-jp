@@ -3,14 +3,14 @@ title: ASP.NET Core Identity なしでの cookie 認証を使用します。
 author: rick-anderson
 description: ASP.NET Core Identity なしでの cookie 認証を使用しての説明
 ms.author: riande
-ms.date: 10/11/2017
+ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
-ms.translationtype: MT
+ms.openlocfilehash: 7e975da3a276ffb6a3de7ee02f7cc5be67cbbebe
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854381"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833619"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしでの cookie 認証を使用します。
 
@@ -39,6 +39,8 @@ ASP.NET Core Identity を使用する、次を参照してください。、 [Id
 `AuthenticationScheme` 渡される`AddAuthentication`アプリの既定の認証スキームを設定します。 `AuthenticationScheme` cookie 認証の複数のインスタンスがあるし、する場合に便利です[特定のスキームで承認](xref:security/authorization/limitingidentitybyscheme)します。 設定、`AuthenticationScheme`に`CookieAuthenticationDefaults.AuthenticationScheme`スキームの「クッキー」の値を指定します。 スキームを識別する任意の文字列値を指定することができます。
 
 アプリの認証スキームは、アプリの cookie 認証スキームと異なります。 Cookie の認証スキームがときに指定されていません<xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>を使用して[CookieAuthenticationDefaults.AuthenticationScheme](xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme) (「クッキー」)。
+
+認証 cookie の<xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential>プロパティに設定されて`true`既定。 認証 cookie は、サイト訪問者がデータの収集に同意していない場合に許可されます。 詳細については、「 <xref:security/gdpr#essential-cookies> 」を参照してください。
 
 `Configure`メソッドを使用して、`UseAuthentication`を設定する、認証ミドルウェアを呼び出すメソッドを`HttpContext.User`プロパティ。 呼び出す、`UseAuthentication`メソッドを呼び出す前に`UseMvcWithDefaultRoute`または`UseMvc`:
 

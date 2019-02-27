@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: b10731261ca0c748548fcba94a229ba055d46eb5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ccd56d0c15639e1ad29094e947f8055702ee2264
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090837"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833671"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Identity 用のカスタム ストレージ プロバイダー
 
@@ -23,7 +23,7 @@ ASP.NET Core Identity は、拡張可能なシステム カスタム ストレ�
 
 ## <a name="introduction"></a>はじめに
 
-既定では、ASP.NET Core Identity システムは、Entity Framework Core を使用して SQL Server データベースにユーザー情報を格納します。 多くのアプリでは、この方法はも機能します。 ただし、別の永続化メカニズムまたはデータ スキーマを使用することもできます。 例えば:
+既定では、ASP.NET Core Identity システムは、Entity Framework Core を使用して SQL Server データベースにユーザー情報を格納します。 多くのアプリでは、この方法はも機能します。 ただし、別の永続化メカニズムまたはデータ スキーマを使用することもできます。 例:
 
 * 使用する[Azure Table Storage](/azure/storage/)または別のデータ ストア。
 * データベースのテーブルでは、さまざまな構造があります。 
@@ -58,7 +58,7 @@ Web アプリと対話する方法、マネージャー ストアとデータ �
 
 [ASP.NET Core Identity](https://github.com/aspnet/identity)データ型は、次のセクションで詳しく説明します。
 
-### <a name="users"></a>ユーザー
+### <a name="users"></a>Users
 
 Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser)型を拡張または独自のカスタム型の例として使用する場合があります。 カスタム id ストレージ ソリューションを実装する特定の型から継承する必要はありません。
 
@@ -106,7 +106,7 @@ Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft
 
 格納し、どのユーザーに割り当てられたロールを取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**ヒント:** のみ、アプリで使用するクラスを実装します。
+**ヒント:** アプリで使用するクラスを実装するだけです。
 
 データ アクセス クラスで、永続化メカニズムのデータの操作を実行するコードを提供します。 たとえば、カスタム プロバイダーでは、内にある必要がありますで新しいユーザーを作成する次のコード、*格納*クラス。
 
@@ -133,7 +133,7 @@ Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft
 * [IUserPasswordStore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
 * [IUserSecurityStampStore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
 * [IUserEmailStore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
-* [IPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iphonenumberstore-1)
+* [IUserPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
 * [IQueryableUserStore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
 * [IUserLoginStore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
@@ -170,7 +170,7 @@ Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft
 * **IQueryableUserStore**  
  [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)インターフェイスは、クエリ可能なユーザー ストアを提供するために実装するメンバーを定義します。
 
-アプリに必要なインターフェイスだけを実装します。 例えば:
+アプリに必要なインターフェイスだけを実装します。 例:
 
 ```csharp
 public class UserStore : IUserStore<IdentityUser>,
@@ -236,7 +236,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="references"></a>参照
+## <a name="references"></a>関連項目
 
 * [ASP.NET 4.x Identity 用のカスタム ストレージ プロバイダー](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
 * [ASP.NET Core Identity](https://github.com/aspnet/identity) &ndash;このリポジトリには、ストア プロバイダーを管理するコミュニティへのリンクが含まれています。
