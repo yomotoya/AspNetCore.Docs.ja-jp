@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: ASP.NET Core プロジェクトでの警告とエラーについて説明し、トラブルシューティングを行います。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 02/26/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 7a3361970bde2b8761c76884fc1905957d075c5c
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: c8b34f51fd329eb9a7c34f7be93bd7f2aa054283
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450776"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899290"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core プロジェクトをトラブルシューティングします。
 
@@ -22,8 +22,8 @@ ms.locfileid: "52450776"
 * <xref:host-and-deploy/azure-apps/troubleshoot>
 * <xref:host-and-deploy/iis/troubleshoot>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [NDC カンファレンス (ロンドン、2018): ASP.NET Core アプリケーションで問題の診断](https://www.youtube.com/watch?v=RYI0DHoIVaA)
-* [ASP.NET ブログ: ASP.NET Core のパフォーマンスの問題のトラブルシューティング](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
+* [NDC カンファレンス (ロンドン、2018):ASP.NET Core アプリケーションで問題を診断します。](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [ASP.NET ブログ:ASP.NET Core のパフォーマンスの問題のトラブルシューティング](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
 ## <a name="net-core-sdk-warnings"></a>.NET core SDK の警告
 
@@ -63,12 +63,12 @@ ms.locfileid: "52450776"
 
 ![警告メッセージを表示する OneASP.NET ダイアログのスクリーン ショット](troubleshoot/_static/NoNetCore.png)
 
-この警告が表示されるときに、環境変数`PATH`コンピューターの任意の .NET Core 用 Sdk を指していません。 この問題を解決するには。
+場合にこの警告が表示されます、環境変数`PATH`コンピューターの任意の .NET Core 用 Sdk を指していません (たとえば、`C:\Program Files\dotnet\`と`C:\Program Files (x86)\dotnet\`)。 この問題を解決するには。
 
-* インストールまたは .NET Core SDK がインストールされていることを確認します。
+* インストールまたは .NET Core SDK がインストールされていることを確認します。 最新のインストーラーを入手[.NET ダウンロード](https://dotnet.microsoft.com/download)します。 
 * いることを確認、`PATH`環境変数が、SDK がインストールされている場所を指します。 インストーラーが通常の設定、`PATH`します。
 
-## <a name="obtain-data-from-an-app"></a>アプリからデータを取得します。
+## <a name="obtain-data-from-an-app"></a>アプリからデータを取得する
 
 アプリが要求に対応できる場合は、ミドルウェアを使用してアプリから、次のデータを取得できます。
 
