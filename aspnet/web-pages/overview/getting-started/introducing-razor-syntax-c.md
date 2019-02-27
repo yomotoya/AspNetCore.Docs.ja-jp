@@ -78,7 +78,7 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 ![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
-### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.セミコロンで各コード ステートメントを終了する、ブロックの内部
+### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.ブロックの中で、各コード文をセミコロンで終わらせる
 
 コード ブロック内では、完全なコードの各ステートメントはセミコロンで終了しなければなりません。 インライン式は、セミコロンで終了しません。
 
