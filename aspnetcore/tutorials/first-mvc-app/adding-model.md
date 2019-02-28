@@ -3,14 +3,14 @@ title: ASP.NET Core MVC アプリへのモデルの追加
 author: rick-anderson
 description: 単純な ASP.NET Core アプリケーションにモデルを追加します。
 ms.author: riande
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: da30c1c97cbf40a89d163b2116c8d5f9ad422b25
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: ccdb7b920517c94b9154fe73b4ef1633f4ad0157
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159241"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833554"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのモデルの追加
 
@@ -173,15 +173,7 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 
 データベース スキーマは、`MvcMovieContext` クラスで指定されたモデルに基づきます (*Data/MvcMovieContext.cs* ファイル内)。 `InitialCreate` 引数は、移行の名前です。 任意の名前を使用できますが、慣例により、移行を説明する名前が選択されます。
 
----  
-
-上記のコマンドで次の警告が生成されます。
-
-```text
-No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
-```
-
-この警告は無視してかまいません。 これは、後のチュートリアルで修正されます。
+---
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>依存関係挿入に登録されるコンテキストを調べる
 

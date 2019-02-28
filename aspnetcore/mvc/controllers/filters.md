@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159315"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833736"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -316,7 +316,7 @@ System.InvalidOperationException: No service for type
 `OnActionExecuted` メソッドは、アクション メソッドの後に実行され、`ActionExecutedContext.Result` プロパティを通じてアクションの結果を確認および操作することができます。 別のフィルターによってアクションの実行がショートサーキットされた場合、`ActionExecutedContext.Canceled` は true に設定されます。 アクションまたは後続のアクション フィルターが例外をスローした場合、`ActionExecutedContext.Exception` は null 以外の値に設定されます。 `ActionExecutedContext.Exception` を null に設定すると:
 
 * 例外が効果的に '処理' されます。
-* `ActionExectedContext.Result` は、アクション メソッドから通常どおり返されたかのように実行されます。
+* `ActionExecutedContext.Result` は、アクション メソッドから通常どおり返されたかのように実行されます。
 
 ## <a name="exception-filters"></a>例外フィルター
 

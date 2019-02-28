@@ -8,14 +8,14 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b964257165f8a50bef5cb5d8cee4fb30a5e91cf0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: acc13776840408756901e20589b9efacc83ff2a9
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836752"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833684"
 ---
-<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>セキュリティで保護された ASP.NET Web フォーム アプリを作成するユーザー登録、電子メール確認、パスワードのリセット (c#)
+<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>ユーザー登録、電子メール確認、パスワード リセットを利用し、安全な ASP.NET Web フォームを作成する (C#)
 ====================
 によって[Erik Reitan](https://github.com/Erikre)
 
@@ -42,7 +42,7 @@ ms.locfileid: "41836752"
 インストールと実行によって開始[Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058)または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)します。 インストール[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)またはそれ以降もします。
 
 > [!NOTE]
-> 警告: をインストールする必要がある[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降に、このチュートリアルを完了します。
+> 警告 :インストールする必要があります[Visual Studio 2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390465)以降に、このチュートリアルを完了します。
 
 
 1. 新しいプロジェクトを作成 (**ファイル** - &gt; **新しいプロジェクト**) を選択し、 **ASP.NET Web アプリケーション**テンプレートと、最新の .NET Frameworkバージョンから、**新しいプロジェクト** ダイアログ ボックス。
@@ -70,6 +70,8 @@ ms.locfileid: "41836752"
 
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>SendGrid をフックします。
+
+SendGrid は、このチュートリアルが記述されたからの API を変更されました。 SendGrid 手順については現在、次を参照してください。 [SendGrid](http://sendgrid.com/)または[アカウントの確認とパスワードの回復を有効にする](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery)します。
 
 このチュートリアルを使用して電子メール通知を追加する方法だけでは[SendGrid](http://sendgrid.com/)、SMTP とその他のメカニズムを使用して電子メールを送信することができます (を参照してください[その他のリソース](#addRes))。
 

@@ -3,14 +3,14 @@ title: ASP.NET Core Identity なしでの cookie 認証を使用します。
 author: rick-anderson
 description: ASP.NET Core Identity なしでの cookie 認証を使用しての説明
 ms.author: riande
-ms.date: 10/11/2017
+ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: 29370a3ff25469b34edc2a71e00601cf6ecc00ca
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854381"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899289"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしでの cookie 認証を使用します。
 
@@ -39,6 +39,8 @@ ASP.NET Core Identity を使用する、次を参照してください。、 [Id
 `AuthenticationScheme` 渡される`AddAuthentication`アプリの既定の認証スキームを設定します。 `AuthenticationScheme` cookie 認証の複数のインスタンスがあるし、する場合に便利です[特定のスキームで承認](xref:security/authorization/limitingidentitybyscheme)します。 設定、`AuthenticationScheme`に`CookieAuthenticationDefaults.AuthenticationScheme`スキームの「クッキー」の値を指定します。 スキームを識別する任意の文字列値を指定することができます。
 
 アプリの認証スキームは、アプリの cookie 認証スキームと異なります。 Cookie の認証スキームがときに指定されていません<xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>を使用して[CookieAuthenticationDefaults.AuthenticationScheme](xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme) (「クッキー」)。
+
+認証 cookie の<xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential>プロパティに設定されて`true`既定。 認証 cookie は、サイト訪問者がデータの収集に同意していない場合に許可されます。 詳細については、「 <xref:security/gdpr#essential-cookies> 」を参照してください。
 
 `Configure`メソッドを使用して、`UseAuthentication`を設定する、認証ミドルウェアを呼び出すメソッドを`HttpContext.User`プロパティ。 呼び出す、`UseAuthentication`メソッドを呼び出す前に`UseMvcWithDefaultRoute`または`UseMvc`:
 
@@ -402,7 +404,7 @@ await HttpContext.Authentication.SignInAsync(
 
 ## <a name="absolute-cookie-expiration"></a>絶対クッキーの有効期限
 
-絶対有効期限を設定する`ExpiresUtc`します。 設定する必要があります`IsPersistent`、それ以外の`ExpiresUtc`は無視され、単一セッション cookie が作成されます。 ときに`ExpiresUtc`が設定されて`SignInAsync`の値よりも優先、`ExpireTimeSpan`オプションの`CookieAuthenticationOptions`場合は、設定します。
+絶対有効期限を設定する`ExpiresUtc`します。 永続的なクッキーを作成する必要がありますも設定する`IsPersistent`; それ以外の場合、cookie はセッション ベースの有効期間で作成され、期限前にいずれかまたはチケットの認証後を保持します。 ときに`ExpiresUtc`が設定されて`SignInAsync`の値よりも優先、`ExpireTimeSpan`オプションの`CookieAuthenticationOptions`場合は、設定します。
 
 次のコード スニペットは、id と対応するクッキーを 20 分間継続を作成します。 これには、以前に構成された、スライド式有効期限の設定が無視されます。
 

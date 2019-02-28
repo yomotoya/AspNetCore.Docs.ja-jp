@@ -5,14 +5,14 @@ description: 統合テストによってデータベース、ファイル シス
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 0f919d7715a26f1efdb37d35b047a7050e46a272
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249517"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833580"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core で統合テスト
 
@@ -109,6 +109,10 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 * [xunit](https://www.nuget.org/packages/xunit/)
 * [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
 * [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
+
+## <a name="sut-environment"></a>SUT 環境
+
+場合 SUT の[環境](xref:fundamentals/environments)開発環境は既定で、設定されていません。
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>既定値 WebApplicationFactory の基本的なテスト
 

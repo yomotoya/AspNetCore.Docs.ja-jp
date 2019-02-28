@@ -5,14 +5,8 @@ description: この記事には、Azure のホストと展開リソースへの�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/26/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 4c7f2348b13207fb6f2ff830bbf67ffa30e5489c
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248239"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
 
@@ -22,10 +16,10 @@ ms.locfileid: "56248239"
 
 Azure の「[Web Apps のドキュメント](/azure/app-service/)」は、Azure アプリのドキュメント、チュートリアル、サンプル、ハウツー ガイド、その他のリソースのホームです。 ASP.NET Core アプリのホスティングに関連する次の 2 つのチュートリアルは特に重要です。
 
-[クイック スタート: Azure に ASP.NET Core Web アプリを作成する](/azure/app-service/app-service-web-get-started-dotnet)  
+[Azure に ASP.NET Core Web アプリを作成する](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio を使用して ASP.NET Core Web アプリを作成し、Windows の Azure App Service に配置します。
 
-[クイック スタート: App Service on Linux での .NET Core Web アプリの作成](/azure/app-service/containers/quickstart-dotnetcore)  
+[App Service on Linux で ASP.NET Core アプリを作成する](/azure/app-service/containers/quickstart-dotnetcore)  
 コマンド ラインを使用して ASP.NET Core Web アプリを作成し、Linux の Azure App Service に配置します。
 
 ASP.NET Core のドキュメントでは、次の記事を参照できます。

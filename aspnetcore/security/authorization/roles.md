@@ -5,25 +5,18 @@ description: Authorize 属性にロールを渡すことによって、ASP.NET C
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: 0467ea82831bffe6882e584930c2fa1212a244c7
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: c38e7144166ce7741eee6e3acb4d1c952ad4f024
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248096"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899165"
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET Core でのロールベースの承認
 
 <a name="security-authorization-role-based"></a>
 
 Id が作成されたときに、1 つまたは複数のロールに属する可能性があります。 たとえば、Tracy は、Scott は、ユーザー ロールにのみ属することがあります、管理者およびユーザー ロールに属して可能性があります。 これらのロールを作成および管理する方法は、承認プロセスのバッキング ストアに依存します。 ロールは、開発者に公開、 [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole)メソッドを[ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal)クラス。
-
-::: moniker range=">= aspnetcore-2.0"
-
-> [!IMPORTANT]
-> このトピックは Razor ページには適用**されません**。 Razor ページをサポートしています[IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)と[IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter)します。 詳細については、[Razor ページのフィルター メソッド](xref:razor-pages/filter)に関するページを参照してください。
-
-::: moniker-end
 
 ## <a name="adding-role-checks"></a>追加の役割の確認
 
@@ -94,6 +87,28 @@ public class ControlPanelController : Controller
     }
 }
 ```
+
+::: moniker range=">= aspnetcore-2.0"
+
+Razor ページの場合、`AuthorizeAttribute`いずれかで適用できます。
+
+* 使用して、[規則](xref:razor-pages/razor-pages-conventions#page-model-action-conventions)、または
+* 適用、`AuthorizeAttribute`を`PageModel`インスタンス。
+
+```csharp
+[Authorize(Policy = "RequireAdministratorRole")]
+public class UpdateModel : PageModel
+{
+    public ActionResult OnPost()
+    {
+    }
+}
+```
+
+> [!IMPORTANT]
+> などの属性をフィルター処理`AuthorizeAttribute`PageModel にのみ適用できる、特定のページ ハンドラー メソッドには適用できません。
+::: moniker-end
+
 
 <a name="security-authorization-role-policy"></a>
 

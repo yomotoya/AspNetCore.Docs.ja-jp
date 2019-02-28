@@ -5,14 +5,14 @@ description: ASP.NET core で IIS Express、IIS、および HTTP.sys を使用�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 01/15/2019
+ms.date: 02/25/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c98bdedcf943a9057c96a8e5d62615e400074899
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341655"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833697"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -192,3 +192,7 @@ ASP.NET Core では、権限借用を実装しません。 アプリは、アプ
 [!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
 `RunImpersonated` 非同期操作をサポートしていないし、複雑なシナリオでは使用しないでください。 全体要求またはミドルウェアのチェーンをラッピングされていないサポートなど、お勧めします。
+
+### <a name="claims-transformations"></a>要求の変換
+
+IIS のインプロセス モードでホストする場合<xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*>されていないユーザーを初期化するために内部的に呼び出されます。 そのため、<xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation>実装のすべての認証は既定でアクティブにした後、要求を変換するために使用します。 詳細については、インプロセスをホストする場合は、クレームの変換をアクティブにするためのコード例を参照してください。<xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>します。
