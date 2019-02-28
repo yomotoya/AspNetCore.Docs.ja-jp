@@ -4,14 +4,14 @@ author: guardrex
 description: Azure Apps Service と IIS で ASP.NET Core アプリをホストするときに発生する一般的なエラーを解決する方法について助言を得ます。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 02/21/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 976f7e3fbeab9e81ba99e2dd7d09a892b854651b
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: d1cdac4d27ee1bc3ebb4329c1bbd3bdacb34a58c
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854462"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743948"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>ASP.NET Core を使用した Azure App Service および IIS の一般的なエラーのリファレンス
 
@@ -162,6 +162,14 @@ IIS Web サイトの**基本設定**と物理アプリのフォルダーを確�
   詳細については、「[.NET Core ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)」をご覧ください。
 
 * **[アプリケーション プール]** > **[プロセス モデル]** > **[ID]** が **ApplicationPoolIdentity** に設定されていることを確認します。または、アプリの展開フォルダーにアクセスするための正しいアクセス許可がカスタム ID に設定されていることを確認します。
+
+* ASP.NET Core ホスティング バンドルをアンインストールし、以前のバージョンのホスティング バンドルをインストールした場合、*applicationHost.config* ファイルには ASP.NET Core モジュールのセクションが含まれません。 *applicationHost.config* で *%windir%/System32/inetsrv/config* を開き、`<configuration><configSections><sectionGroup name="system.webServer">` セクション グループを見つけます。 セクション グループに ASP.NET Core モジュールのセクションがない場合は、セクション要素を追加します。
+
+  ```xml
+  <section name="aspNetCore" overrideModeDefault="Allow" />
+  ```
+  
+  または、ASP.NET Core ホスティング バンドルの最新バージョンをインストールします。 最新バージョンは、ポートされている ASP.NET Core アプリと下位互換性があります。
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>processPath の誤り、PATH 変数の欠如、ホスティング バンドルが未インストール、システムまたは IIS が再起動されていない、VC++ 再頒布可能パッケージが未インストール、dotnet.exe アクセス違反
 
