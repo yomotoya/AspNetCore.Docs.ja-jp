@@ -37,7 +37,7 @@ ms.locfileid: "51021782"
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
 
-## <a name="the-top-8-programming-tips"></a>最上位の 8 つのプログラミングのヒント
+## <a name="the-top-8-programming-tips"></a>8 つのプログラミング Tips
 
 このセクションでは、Razor 構文を使用して ASP.NET サーバー コードの記述を開始する際に知っておく必要ないくつかのヒントを示します。
 
