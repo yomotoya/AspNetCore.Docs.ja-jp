@@ -26,7 +26,7 @@ ASP.NET Core には、いくつかの[EU 一般データ保護規則 (GDPR)](htt
 * [TempData とセッション cookie](#tempdata)追跡を無効にした場合に機能しません。
 * [Identity 管理](#pd)ダウンロードして、ユーザー データを削除するリンクを提供します。
 
-[サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)GDPR の拡張点のほとんどをテストすると、API、ASP.NET Core 2.1 のテンプレートに追加できます。 参照してください、 [ReadMe](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)手順のテスト用のファイル。
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)では、ASP.NET Core 2.1 のテンプレートに追加されたほとんどの GDPR の拡張点と API をテストできます。 詳しくは、手順のテスト用のファイル[ReadMe](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)を参照してください。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
