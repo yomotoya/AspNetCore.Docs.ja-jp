@@ -97,7 +97,7 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5.リテラル文字列値を二重引用符で括る
 
-A*文字列*テキストとして扱われる文字のシーケンスです。 文字列を指定するには、二重引用符で囲みます。
+*文字列*は、テキストとして扱われる文字のつながりです。文字列を指定するには、ダブル クォーテーション記号で囲みます。
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample5.cshtml)]
 
