@@ -19,13 +19,13 @@ ms.locfileid: "51021782"
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> この記事では、Razor 構文を使ったASP.NET Web ページにおけるプログラミングの概要を解説します。 ASP.NETは、Webサーバーで動的な Web ページを運用するためのマイクロソフトの技術です。この記事では、C# プログラミング言語の使用に焦点を当てます。
+> この記事では、Razor 構文を使ったASP.NET Web ページにおけるプログラミングの概要を解説します。 ASP.NETは、Webサーバーで動的な Web ページを運用するためのマイクロソフトの技術です。 この記事では、C# プログラミング言語の使用に焦点を当てます。
 > 
 > **学習内容**:
 > 
-> - プログラミングの Razor 構文を使用して ASP.NET Web Pages のプログラミングの概要に関するヒント上位 8。
+> - Razor構文を使ったASP.NET Webページのプログラミングをはじめるための上位8つのプログラミング Tips
 > - 必要とする基本的なプログラミング概念
-> - どのような ASP.NET サーバー コードと Razor 構文についてです。
+> - ASP.NETサーバーコードとRazor構文に関する全体像
 >   
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
@@ -68,7 +68,7 @@ ms.locfileid: "51021782"
 > 詳細について、HTML でのエンコード[フォームを使用する](https://go.microsoft.com/fwlink/?LinkId=202892)。
 
 
-### <a name="2-you-enclose-code-blocks-in-braces"></a>2.中カッコでコードブロックを囲む
+### <a name="2-you-enclose-code-blocks-in-braces"></a>2.コード ブロックを中かっこで囲むこと
 
 A*コード ブロック*1 つまたは複数のコード ステートメントを含み、中かっこで囲まれました。
 
@@ -78,9 +78,9 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 ![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
-### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.ブロックの中で、各コード文をセミコロンで終わらせる
+### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.セミコロンで各コード ステートメントを終了する、ブロックの内部
 
-コードブロックの中では、それぞれの完結するコード文はセミコロンで終わらせます。インライン式は、セミコロンで終わりません。
+コードブロックの中では、それぞれの完結するコード文はセミコロンで終わらせます。 インライン式は、セミコロンで終わりません。
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample3.html)]
 
