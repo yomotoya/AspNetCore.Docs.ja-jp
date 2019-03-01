@@ -84,7 +84,7 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample3.html)]
 
-### <a name="4-you-use-variables-to-store-values"></a>4.値を格納するのに変数を使用します。
+### <a name="4-you-use-variables-to-store-values"></a>4.値を格納するのに変数を使う
 
 内の値を格納することができます、*変数*文字列、数字、および日付などを含め、します。新しい変数を使用して、作成する、`var`キーワード。 変数の値を挿入するにを使用してページに直接`@`します。
 
