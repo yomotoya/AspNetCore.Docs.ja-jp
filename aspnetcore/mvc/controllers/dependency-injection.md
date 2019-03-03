@@ -3,102 +3,75 @@ title: ASP.NET Core でのコントローラーへの依存関係の挿入
 author: ardalis
 description: ASP.NET Core の MVC コントローラーが、ASP.NET Core でそれらのコンストラクターと依存関係の挿入を使用して、明示的にそれらの依存関係を要求する方法について説明します。
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 02/24/2019
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 898e98f4c5d472ca96c6a8ad07dddd1a4ef54fe9
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410272"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743830"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET Core でのコントローラーへの依存関係の挿入
 
 <a name="dependency-injection-controllers"></a>
 
-作成者: [Steve Smith](https://ardalis.com/)
+作成者: [Shadi Namrouti](https://github.com/shadinamrouti)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Steve Smith](https://github.com/ardalis)
 
-ASP.NET Core の MVC コントローラーは、それらのコンストラクターを使用して明示的にそれらの依存関係を要求する必要があります。 場合によっては、個々のコントローラーのアクションがサービスを必要とし、コントローラー レベルで要求しても意味がないことがあります。 この場合、アクション メソッドのパラメーターとしてサービスを挿入することもできます。
+ASP.NET Core の MVC コントローラーは、コンストラクターを使用して明示的に依存関係を要求します。 ASP.NET Core には、[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) の組み込みのサポートがあります。 DI を利用すれば、アプリのテストと保守管理が簡単になります。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
-## <a name="dependency-injection"></a>依存関係の挿入
-
-ASP.NET Core には[依存関係の挿入](../../fundamentals/dependency-injection.md)の組み込みのサポートがあり、アプリケーションを簡単にテストして維持することができます。
-
 ## <a name="constructor-injection"></a>コンストラクターの挿入
 
-ASP.NET Core のコンストラクターに基づく依存関係の挿入の組み込みサポートは、MVC コントローラーを拡張します。 単にサービスの種類をコンストラクター パラメーターとしてコントローラーに追加することで、ASP.NET Core は組み込みのサービス コンテナーを使用してその種類の解決を試みます。 サービスの定義には、常にではありませんが、一般的にインターフェイスを使用します。 たとえば、アプリケーションに現在の時刻に依存するビジネス ロジックがある場合、時刻を取得するサービスを (ハードコーディングする代わりに) 挿入することができます。これにより設定された時刻を使用する実装でテストに合格させることができます。
+サービスはコンストラクター パラメーターとして追加されます。ランタイムによって、サービス コンテナーからサービスが解決されます。 サービスは通常、インターフェイスを利用して定義されます。 たとえば、現在の時刻を必要とするアプリについて考えてください。 次のインターフェイスは `IDateTime` サービスを公開します。
 
-[!code-csharp[](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Interfaces/IDateTime.cs?name=snippet)]
 
+次のコードは `IDateTime` インターフェイスを実装します。
 
-実行時にシステム クロックを使用するように、このようなインターフェイスを実装するのは簡単です。
+[!code-csharp[](dependency-injection/sample/ControllerDI/Services/SystemDateTime.cs?name=snippet)]
 
-[!code-csharp[](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
+サービスをサービス コンテナーに追加します。
 
+[!code-csharp[](dependency-injection/sample/ControllerDI/Startup1.cs?name=snippet&highlight=3)]
 
-こうすると、コントローラーでサービスを使用できます。 このケースでは、いくつかのロジックを `HomeController` `Index` メソッドに追加し、時刻に基づいてユーザーにあいさつを表示します。
+<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*> の詳細については、[DI のサービス有効期間](xref:fundamentals/dependency-injection#service-lifetimes)に関するページを参照してください。
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
+次のコードでは、一日の時刻に基づいてユーザーにあいさつが表示されます。
 
-アプリケーションを今すぐ実行した場合、エラーが発生する可能性が高くなります。
+[!code-csharp[](dependency-injection/sample/ControllerDI/Controllers/HomeController.cs?name=snippet)]
 
-```
-An unhandled exception occurred while processing the request.
-
-InvalidOperationException: Unable to resolve service for type 'ControllerDI.Interfaces.IDateTime' while attempting to activate 'ControllerDI.Controllers.HomeController'.
-Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
-```
-
-このエラーは、`Startup` クラスの `ConfigureServices` メソッドでサービスを構成していないときに発生します。 `IDateTime` の要求が `SystemDateTime` のインスタンスを使用して解決されるように指定するには、下のリストで強調表示された行を `ConfigureServices` メソッドに追加します。
-
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
-
-> [!NOTE]
-> この特定のサービスは、いくつかの異なる有効期間オプション (`Transient`、`Scoped`、または`Singleton`) のいずれかを使用して実装することもできます。 これらの範囲オプションがサービスの動作にどのように影響するかを理解するには、「[依存関係の挿入](../../fundamentals/dependency-injection.md)」を参照してください。
-
-サービスが構成された後に、アプリケーションを実行して、ホーム ページに移動すると、予想どおりに時刻ベースのメッセージが表示されます。
-
-![サーバーの応答メッセージ](dependency-injection/_static/server-greeting.png)
-
->[!TIP]
-> コントローラーで依存関係を明示的に要求することによってコードをテストしやすくする方法については、[コントローラー ロジックのテスト](testing.md)に関するページを参照してください。
-
-ASP.NET Core の組み込みの依存関係の挿入は、サービスを要求するクラスの 1 つのコンストラクターのみの使用をサポートします。 複数のコンストラクターを使用している場合、次のような例外が表示される可能性があります。
-
-```
-An unhandled exception occurred while processing the request.
-
-InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'ControllerDI.Controllers.HomeController'. There should only be one applicable constructor.
-Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
-```
-
-エラー メッセージが示しているように、1 つのコンストラクターを使用することでこの問題を修正できます。 [既定の依存関係の挿入のコンテナーをサード パーティ製の実装に置き換える](xref:fundamentals/dependency-injection#default-service-container-replacement)こともできます。それらの多くは複数のコンストラクターをサポートします。
+アプリを実行すると、時刻に基づいてメッセージが表示されます。
 
 ## <a name="action-injection-with-fromservices"></a>FromServices によるアクションの挿入
 
-コントローラー内の複数のアクションのサービスが必要ない場合があります。 この場合、アクション メソッドにパラメーターとしてサービスを挿入するのが賢明です。 次に示すように、これは属性 `[FromServices]` でパラメーターをマークすることで行います。
+<xref:Microsoft.AspNetCore.Mvc.FromServicesAttribute> を利用すると、コンストラクター挿入を利用しなくても、アクション メソッドがサービスに直接挿入されます。
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Controllers/HomeController.cs?name=snippet2)]
 
-## <a name="accessing-settings-from-a-controller"></a>コントローラーから設定へのアクセス
+## <a name="access-settings-from-a-controller"></a>コントローラーから設定にアクセスする
 
-コントローラー内からアプリケーションまたは構成の設定へのアクセスが一般的なパターンです。 このアクセスでは、[構成](xref:fundamentals/configuration/index)に関するページで説明されているオプション パターンを使用する必要があります。 一般的に、依存関係の挿入を使用してコントローラーから直接設定を要求しないようにする必要があります。 `IOptions<T>` インスタンスを要求する方法がより適切です。`T` は必要な構成クラスです。
+コントローラー内からアプリまたは構成の設定にアクセスするのが一般的なパターンです。 <xref:fundamentals/configuration/options> で説明されている*オプション パターン*が設定の管理手法として推奨されています。 通常はコントローラーに <xref:Microsoft.Extensions.Configuration.IConfiguration> を直接挿入しないでください。
 
-オプションのパターンを使用するには、次のようなオプションを表すクラスを作成する必要があります。
+オプションを表すクラスを作成します。 次に例を示します。
 
-[!code-csharp[](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Models/SampleWebSettings.cs?name=snippet)]
 
-その後で、オプションのモデルを使用するようにアプリケーションを構成し、構成クラスを `ConfigureServices` でサービス コレクションに追加します。
+サービス コレクションに構成クラスを追加します。
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Startup.cs?highlight=4&name=snippet1)]
 
-> [!NOTE]
-> 上記のリストで、JSON 形式のファイルから設定を読み取るようにアプリケーションを構成しています。 上記のコメントが付けられたコードに示すように、コードで設定全体を構成することもできます。 その他の構成オプションについては、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。
+JSON 形式ファイルから設定を読み込むようにアプリを構成します。
 
-厳密に型指定された構成オブジェクト (このケースでは `SampleWebSettings`) を指定し、それをサービスのコレクションに追加したら、`IOptions<T>` のインスタンス (このケースでは `IOptions<SampleWebSettings>`) を要求することによって、任意のコントローラーまたはアクション メソッドからそれを要求することができます。 次のコードは、コントローラーから設定を要求する方法を示しています。
+[!code-csharp[](dependency-injection/sample/ControllerDI/Program.cs?name=snippet&range=10-15)]
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
+次のコードはサービス コンテナーから `IOptions<SampleWebSettings>` 設定を要求し、それを `Index` メソッドで使用します。
 
-オプションのパターンに従うと、設定や構成を相互に分離し、さらにコントローラーが設定情報を見つける方法または場所を知る必要がないので、コントローラーを[関心の分離](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)に確実に従わせることができます。 また、コントローラー クラス内で設定クラスを直接インスタンス化することがないため、コントローラーの[単体テスト](testing.md)も容易になります。
+[!code-csharp[](dependency-injection/sample/ControllerDI/Controllers/SettingsController.cs?name=snippet)]
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* コントローラーで依存関係を明示的に要求することによってコードをテストしやすくする方法については、「<xref:mvc/controllers/testing>」を参照してください。
+
+* [既定の依存関係挿入コンテナーをサードパーティの実装に置換します](xref:fundamentals/dependency-injection#default-service-container-replacement)。

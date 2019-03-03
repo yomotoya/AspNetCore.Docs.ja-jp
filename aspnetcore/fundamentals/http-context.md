@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/27/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: babc637cdec8590ac14f7924c17e862e5b2f6a81
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: 446882297524af3cbaed3ba7f941935debf5e7f4
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428487"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899199"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>ASP.NET Core で HttpContext にアクセスする
 
@@ -131,3 +131,36 @@ public class UserRepository : IUserRepository
     }
 }
 ```
+
+## <a name="httpcontext-access-from-a-background-thread"></a>バックグラウンド スレッドから HttpContext にアクセスする
+
+`HttpContext` はスレッド セーフではありません。 要求の処理以外で `HttpContext` のプロパティを読み書きすると、結果的に `NullReferenceException` になることがあります。
+
+> [!NOTE]
+> 要求の処理以外で `HttpContext` を使用すると、結果的に `NullReferenceException` になることがしばしばあります。 アプリで `NullReferenceException` が散発的に生成される場合、コードの中で、バックグラウンド処理を開始する部分や要求完了後に処理を続行する部分を見直してください。 コントローラー メソッドを `async void` として定義しているなどの間違いがないか探してください。
+
+`HttpContext` データでバックグラウンド作業を安全に実行するには:
+
+* 要求処理中に必要なデータをコピーします。
+* コピーしたデータをバックグラウンド タスクに渡します。
+
+安全でないコードを避けるために、バックグラウンド作業を行わないメソッドには `HttpContext` を決して渡さないでください。代わりに必要なデータを渡してください。
+
+```csharp
+public class EmailController
+{
+    public ActionResult SendEmail(string email)
+    {
+        var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
+
+        // Starts sending an email, but doesn't wait for it to complete
+        _ = SendEmailCore(correlationId);
+        return View();
+    }
+
+    private async Task SendEmailCore(string correlationId)
+    {
+        // send the email
+    }
+}
+

@@ -3,42 +3,40 @@ title: ASP.NET Core の区分
 author: rick-anderson
 description: 区分は ASP.NET MVC の機能であり、関連する機能を別の名前空間 (ルーティングの場合) およびフォルダー構造 (ビューの場合) としてグループにまとめるために使用する方法を説明します。
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410613"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833528"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core の区分
 
 作成者: [Dhananjay Kumar](https://twitter.com/debug_mode) および [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-区分は ASP.NET MVC の機能であり、関連する機能を別の名前空間 (ルーティングの場合) およびフォルダー構造 (ビューの場合) としてグループにまとめるために使用されます。 ルーティングを行うために、区分を使用して、別のルート パラメーター `area` を `controller` と `action` に追加して階層を作成します。
+区分は ASP.NET の機能であり、関連する機能を別の名前空間 (ルーティングの場合) およびフォルダー構造 (ビューの場合) としてグループにまとめるために使用されます。 ルーティングを行うために、区分を使用して、別のルート パラメーター `area` を `controller` と `action` または Razor Page `page` に追加して階層を作成します。
 
-区分は、大きな ASP.NET Core MVC Web アプリを小さい機能グループに分割するための方法を提供します。 区分は、実質的にはアプリケーション内の MVC 構造体となります。 MVC プロジェクトでは、モデル、コント ローラー、ビューなどの論理コンポーネントが異なるフォルダーに保持され、MVC では名前付け規則を使用して、これらのコンポーネント間のリレーションシップを作成します。 大きなアプリでは、アプリを機能の個別の高レベル区分に分割すると便利な場合があります。 たとえば、チェックアウト、請求、検索などの複数のビジネス ユニットがある e コマース アプリの場合です。これらのユニットにはそれぞれ独自の論理コンポーネント ビュー、コントローラー、およびモデルがあります。 このシナリオでは、区分を使用して、同じプロジェクト内のビジネス コンポーネントを物理的に分割できます。
+区分は、ASP.NET Core Web アプリをより小さな機能グループにパーティション分割する方法であり、分割した各グループにそれぞれの Razor Pages、コントローラー、ビュー、モデルが与えられます。 区分は、実質的にはアプリ内の構造体となります。 ASP.NET Core Web プロジェクトでは、ページ、モデル、コントローラー、ビューなどの論理コンポーネントが別々のフォルダーに保存されます。 ASP.NET Core ランタイムでは、名前付け規則を使用し、これらのコンポーネント間のリレーションシップを作成します。 大きなアプリでは、アプリを機能の個別の高レベル区分に分割すると便利な場合があります。 チェックアウト、請求、検索などの複数のビジネス ユニットがある eコマース アプリの場合です。 これらのユニットにはそれぞれ、ビュー、コントローラー、Razor Pages、モデルを含める独自の論理区分があります。
 
-区分は、独自のコントローラー、ビュー、およびモデルのセットがある、ASP.NET Core MVC プロジェクトのより小さい機能ユニットとして定義できます。
+次のような場合は、プロジェクトで区分を使用することを検討してください。
 
-次のような場合は、MVC プロジェクトで区分を使用することを検討してください。
+* 論理的に大まかに区切れる複数の機能コンポーネントでアプリが構成されている。
+* 各機能区分を個別に使用できるようにアプリを分割したい。
 
-* アプリケーションが、論理的に区切る必要がある複数の高レベル機能コンポーネントで構成されている。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 ダウンロード サンプルからは、区分をテストするための基本的なアプリが与えられます。
 
-* 各機能区分を個別に使用できるように、MVC プロジェクトを分割したい。
+## <a name="areas-for-controllers-with-views"></a>ビューを伴うコントローラーの区分
 
-区分の機能:
+区分、コントローラー、ビューを使用する一般的な ASP.NET Core Web アプリに含まれる内容:
 
-* ASP.NET Core MVC アプリは任意の数の区分を持つことができます。
+* [区分フォルダーの構造](#area-folder-structure)。
+* コントローラーと区分を関連付ける目的で [&lbrack;Area&rbrack;](#attribute) 属性で装飾されたコントローラー: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
+* [スタートアップに追加された区分ルート](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
-* 各区分には独自のコントローラー、モデル、およびビューがあります。
-
-* 区分を使用すると、大きな MVC プロジェクトを、個別に使用できる複数の高レベル コンポーネントにまとめることができます。
-
-* 区分では同じ名前の複数のコントローラーがサポートされます (*区分* が異なる場合のみ)。
-
-区分の作成および使用方法を示す例を見てましょう。 たとえば、ストア アプリにコントローラーとビューの 2 つの異なるグループがあるとします:製品とサービスです。 MVC 区分を使用する場合の一般的なフォルダー構造は次のようになります。
+## <a name="area-folder-structure"></a>区分フォルダーの構造
+あるアプリに *Products* と *Services* という 2 つの論理グループが与えられているとします。 区分を利用すると、フォルダーの構造は次のようになります。
 
 * Project name
   * Areas
@@ -51,6 +49,7 @@ ms.locfileid: "56410613"
           * Index.cshtml
         * Manage
           * Index.cshtml
+          * About.cshtml
     * Services
       * Controllers
         * HomeController.cs
@@ -58,112 +57,80 @@ ms.locfileid: "56410613"
         * Home
           * Index.cshtml
 
-MVC は区分でのビューのレンダリングを試みる場合、既定では、次の場所で検索を試みます。
+区分を使用するとき、前述のレイアウトが一般的ですが、このフォルダー構造を使用するにはビュー ファイルのみが求められます。 ビューの検出では、一致する区分ビュー ファイルを次の順序で検索します。
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
-   /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
-   /Views/Shared/<Action-Name>.cshtml
+/Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
+/Views/Shared/<Action-Name>.cshtml
+/Pages/Shared/<Action-Name>.cshtml
    ```
 
-これらは、`Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions` の `AreaViewLocationFormats` を使用して変更できる、既定の場所です。
+*Controllers* や *Models* など、ビュー以外のフォルダーの場所は問題では**ありません**。 たとえば、*Controllers* や *Models* のフォルダーは不要です。 *Controllers* と *Models* の内容はコードであり、.dll にコンパイルされます。 *Views* の内容は、ビューに対する要求が行われるまでコンパイルされません。
 
-たとえば、以下のコードでは、'Areas' というフォルダー名が、'Categories' に変更されています。
+<!-- TODO review:
+The content of the *Views* isn't compiled until a request to that view has been made.
 
-```csharp
-services.Configure<RazorViewEngineOptions>(options =>
-   {
-       options.AreaViewLocationFormats.Clear();
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/{1}/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/Shared/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-   });
-   ```
+What about precompiled views? 
+ -->
+<a name="attribute"></a>
 
-注目すべき 1 つの点は、ここでは *Views* フォルダーの構造のみが重要と見なされ、*Controllers* や *Models* などの他のフォルダーは重要では**ない**ということです。 たとえば、*Controllers* や *Models* フォルダーはまったく必要ありません。 *Controllers* や *Models* のコンテンツはコードのみであり、.dll にコンパイルされますが、*Views* のコンテンツはそのビューに対する要求が実行されるまでコンパイルされないためです。
+### <a name="associate-the-controller-with-an-area"></a>コントローラーを区分に関連付ける
 
-フォルダー階層を定義したら、各コントローラーが区分に関連付けられていることを MVC に知らせる必要があります。 コントローラー名を `[Area]` 属性で修飾することでこれを行います。
+区分コントローラーは [&lbrack;Area&rbrack;](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) 属性で指名されます。
 
-```csharp
-...
-   namespace MyStore.Areas.Products.Controllers
-   {
-       [Area("Products")]
-       public class HomeController : Controller
-       {
-           // GET: /Products/Home/Index
-           public IActionResult Index()
-           {
-               return View();
-           }
+[!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
-           // GET: /Products/Home/Create
-           public IActionResult Create()
-           {
-               return View();
-           }
-       }
-   }
-   ```
+### <a name="add-area-route"></a>区分ルートを追加する
 
-新しく作成した区分を操作するルート定義を設定します。 従来のルートと属性ルートの使用を含む、ルート定義の作成方法の詳細については、「[コントローラー アクションへのルーティング](routing.md)」記事を参照してください。 この例では、従来のルートを使用します。 そのためには、*Startup.cs* ファイルを開き、以下の `areaRoute` というルート定義を追加して変更します。
+区分ルートでは通常、属性ルーティングではなく、従来のルーティングが使用されます。 規則ルーティングは順序に依存します。 一般に、区分のあるルートは区分を持たないルートより具体的なので、区分のあるルートはルート テーブルの前の方に配置する必要があります。
 
-```csharp
-...
-   app.UseMvc(routes =>
-   {
-     routes.MapRoute(
-         name: "areaRoute",
-         template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+URL スペースがすべての区分で統一されている場合、ルート テンプレートでトークンとして `{area:...}` を使用できます。
 
-     routes.MapRoute(
-         name: "default",
-         template: "{controller=Home}/{action=Index}/{id?}");
-   });
-   ```
+[!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet&highlight=18-21)]
 
-`http://<yourApp>/products` を参照することで、`Products` 区分内の `HomeController` の `Index` アクション メソッドが呼び出されます。
+上記のコードでは、ルートは 1 つの区分に一致しなければならないという制約が `exists` によって適用されます。 `{area:...}` の使用は、ルーティングを区分に追加するメカニズムとして最も単純です。
 
-## <a name="link-generation"></a>リンクの生成
+次のコードでは、<xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> を使用し、名前の付いた区分ルートが 2 つ作成されます。
 
-* 区分ベースのコントローラー内のアクションから、同じコントローラー内の別のアクションへのリンクの生成。
+[!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-  たとえば、現在の要求のパスが `/Products/Home/Create` であるとします。
+ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub 問題](https://github.com/aspnet/AspNetCore/issues/7772)を確認してください。
 
-  HtmlHelper 構文: `@Html.ActionLink("Go to Product's Home Page", "Index")`
+詳細については、[区分のルーティング](xref:mvc/controllers/routing#areas)に関するページを参照してください。
 
-  TagHelper 構文: `<a asp-action="Index">Go to Product's Home Page</a>`
+### <a name="link-generation-with-areas"></a>区分を含むリンクの生成
 
-  'area' と 'controller' の値は現在の要求のコンテキストで既に使用可能であるため、ここでは指定する必要がないことに注意してください。 このような値は `ambient` 値といいます。
+[サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)に含まれる次のコードでは、区分が指定された上でリンクが生成されます。
 
-* 区分ベースのコントローラー内のアクションから、異なるコントローラー内の別のアクションへのリンクの生成
+[!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-  たとえば、現在の要求のパスが `/Products/Home/Create` であるとします。
+上記のコードで生成されたリンクは、アプリ内のあらゆる場所で有効となります。
 
-  HtmlHelper 構文: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
+サンプル ダウンロードには、[部分ビュー](xref:mvc/views/partial)が含まれます。部分ビューには、上記のリンクと区分が指定されていない同じリンクが含まれます。 部分ビューは[レイアウト ファイル]()で参照されます。そのため、生成されたリンクがアプリのすべてのページに表示されます。 区分が指定されずに生成されたリンクは、同じ区分やコントローラーのページから参照されるときにのみ有効です。
 
-  TagHelper 構文: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+区分またはコントローラーが指定されていないとき、ルーティングは*アンビエント*値に依存します。 現在の要求の現在のルート値は、リンク生成の場合、アンビエント値として見なされます。 サンプル アプリでは多くの場合、アンビエント値を使用すると、間違ったリンクが生成されます。
 
-  ここでは 'area' のアンビエント値が使用されていますが、'controller' 値は上記では明示的に指定されていることに注意してください。
+詳細については、「[コントローラー アクションへのルーティング](xref:mvc/controllers/routing)」を参照してください。
 
-* 区分ベースのコントローラー内のアクションから、異なるコントローラーと異なる区分の別のアクションへのリンクの生成。
+### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a>_ViewStart.cshtml ファイルを使用した区分の共有レイアウト
 
-  たとえば、現在の要求のパスが `/Products/Home/Create` であるとします。
+アプリ全体で共通レイアウトを共有するには、アプリケーションのルート フォルダーに *_ViewStart.cshtml* を移動します。
 
-  HtmlHelper 構文: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
+<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
+<a name="arp"></a>
 
-  TagHelper 構文: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
+## Areas for Razor Pages
+-->
+<a name="rename"></a>
 
-  ここではアンビエント値が使用されないことに注意してください。
+### <a name="change-default-area-folder-where-views-are-stored"></a>ビューが保存されている既定の区分フォルダーを変更する
 
-* 区分ベースのコントローラー内のアクションから、異なるコントローラーと、区分には**ない**別のアクションへのリンクの生成。
+次のコードでは、既定の区分フォルダーが `"Areas"` から `"MyAreas"` に変更されます。
 
-  HtmlHelper 構文: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
+[!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-  TagHelper 構文: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
-
-  非区分ベースのコントローラー アクションへのリンクを生成する必要があるため、ここでは 'area' のアンビエント値は空にします。
-
-## <a name="publishing-areas"></a>区分の発行
+<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+### <a name="publishing-areas"></a>区分の発行
 
 `<Project Sdk="Microsoft.NET.Sdk.Web">` が *.csproj* ファイルに含まれている場合、すべての `*.cshtml` および `wwwroot/**` ファイルが発行され、出力されます。

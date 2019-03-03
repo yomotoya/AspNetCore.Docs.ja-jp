@@ -6,16 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 878fbaa1a61946dadf23ba8fefbf22021e547cc2
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637847"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744093"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core の Web ホスト
 
 作成者: [Luke Latham](https://github.com/guardrex)
+
+ASP.NET Core アプリは*ホスト*を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 少なくとも、ホストはサーバーおよび要求処理パイプラインを構成します。 ホストでは、ログ記録、依存関係挿入、構成を設定することもできます。
 
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -23,7 +25,17 @@ ms.locfileid: "53637847"
 
 ::: moniker-end
 
-ASP.NET Core アプリは*ホスト*を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 少なくとも、ホストはサーバーおよび要求処理パイプラインを構成します。 このトピックでは、Web アプリをホストするのに便利な ASP.NET Core の Web ホスト ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)) について説明します。 .NET での汎用ホスト ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)) の対象範囲については、<xref:fundamentals/host/generic-host> を参照してください。
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+この記事では ASP.NET Core Web ホスト (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>) を取り上げます。これは Web アプリをホストするためのものです。 .NET 汎用ホスト ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)) の詳細については、「<xref:fundamentals/host/generic-host>」を参照してください。
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+この記事では ASP.NET Core Web ホスト ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)) を取り上げます。 ASP.NET Core 3.0 では、汎用ホストが Web ホストに取って代わります。 詳細については、「[ホスト](xref:fundamentals/index#host)」を参照してください。
+
+::: moniker-end
 
 ## <a name="set-up-a-host"></a>ホストを設定する
 
@@ -669,7 +681,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-カスタムの[ミドルウェア](xref:fundamentals/middleware/index#write-middleware)を作成する際に、次のように `IHostingEnvironment` を `Invoke` メソッドに挿入することができます。
+カスタムの[ミドルウェア](xref:fundamentals/middleware/write)を作成する際に、次のように `IHostingEnvironment` を `Invoke` メソッドに挿入することができます。
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)

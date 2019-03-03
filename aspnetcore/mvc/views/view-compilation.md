@@ -1,18 +1,18 @@
 ---
-title: ASP.NET Core での Razor ファイルのコンパイルとプリコンパイル
+title: ASP.NET Core での Razor ファイルのコンパイル
 author: rick-anderson
-description: Razor ファイルをプリコンパイルする利点と、ASP.NET Core アプリケーションで Razor ファイルのプリコンパイルを実行する方法について説明します。
+description: ASP.NET Core アプリで Razor ファイルのコンパイルがどのように行われるかについて説明します。
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: c4e8f722fdf3d3f64807cc35ff9f349af7f32abd
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 0b6173a7860f5f1d9d11219fbf3f57f76d703031
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248187"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899269"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core での Razor ファイルのコンパイル
 
@@ -30,28 +30,31 @@ ms.locfileid: "56248187"
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 関連する Razor ページまたは MVC ビューが呼び出されたときに、Razor ファイルが実行時にコンパイルされます。 Razor ファイルは、[Razor SDK](xref:razor-pages/sdk) を使用してビルド時と公開時にコンパイルされます。
 
 ::: moniker-end
 
-## <a name="precompilation-considerations"></a>プリコンパイルに関する考慮事項
+::: moniker range=">= aspnetcore-3.0"
 
-Razor ファイルのプリコンパイルの副作用を次に示します。
+Razor ファイルは、[Razor SDK](xref:razor-pages/sdk) を使用してビルド時と公開時にコンパイルされます。 実行時コンパイルは、アプリケーションを構成することで任意で有効にできることがあります。
 
-* 公開されるバンドルが小さくなります
-* 起動時間が短縮されます
-* Razor ファイルを編集することはできません。公開されるバンドルには関連付けられたコンテンツがありません。
+::: moniker-end
 
-## <a name="deploy-precompiled-files"></a>プリコンパイル済みファイルの展開
+## <a name="razor-compilation"></a>Razor コンパイル
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
+Razor ファイルのビルドおよび発行時のコンパイルは、既定で Razor SDK によって有効になっています。 有効になっていると、実行時コンパイルはビルド時のコンパイルを補完し、編集された Razor ファイルを更新します。
 
-Razor ファイルのビルドおよび発行時のコンパイルは、既定で Razor SDK によって有効になっています。 更新後の Razor ファイルの編集は、ビルド時にサポートされています。 既定では、*.cshtml* ファイルなしのコンパイルされた *Views.dll* のみがアプリケーションと展開されます。
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Razor ファイルのビルドおよび発行時のコンパイルは、既定で Razor SDK によって有効になっています。 更新後の Razor ファイルの編集は、ビルド時にサポートされています。 既定では、コンパイルされた *Views.dll* のみがアプリと共に展開されます。Razor ファイルのコンパイルに必要な *.cshtml* ファイルまたは参照アセンブリはアプリと共に展開されません。
 
 > [!IMPORTANT]
-> このプリコンパイル ツールは、ASP.NET Core 3.0 で削除されます。 [Razor Sdk](xref:razor-pages/sdk) に移行することをお勧めします。
+> プリコンパイル ツールは非推奨とされており、ASP.NET Core 3.0 では削除されます。 [Razor Sdk](xref:razor-pages/sdk) に移行することをお勧めします。
 >
 > Razor SDK は、プロジェクト ファイルにプリコンパイル固有のプロパティが設定されていない場合のみ有効です。 たとえば、*.csproj* ファイルの `MvcRazorCompileOnPublish` プロパティを `true` に設定して、Razor SDK を無効にします。
 
@@ -68,7 +71,7 @@ Razor ファイルのビルドおよび発行時のコンパイルは、既定�
 ASP.NET Core 2.x プロジェクト テンプレートは既定で、暗黙的に `MvcRazorCompileOnPublish` プロパティを `true` に設定します。 そのため、この要素は *.csproj* ファイルから安全に削除できます。
 
 > [!IMPORTANT]
-> このプリコンパイル ツールは、ASP.NET Core 3.0 で削除されます。 [Razor Sdk](xref:razor-pages/sdk) に移行することをお勧めします。
+> プリコンパイル ツールは非推奨とされており、ASP.NET Core 3.0 では削除されます。 [Razor Sdk](xref:razor-pages/sdk) に移行することをお勧めします。
 >
 > ASP.NET Core 2.0 で[自己完結型の展開 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) を実行する場合、Razor ファイルのプリコンパイルを使用できません。
 
@@ -96,24 +99,44 @@ dotnet publish -c Release
 
 ::: moniker-end
 
-## <a name="recompile-razor-files-on-change"></a>変更時に Razor ファイルを再コンパイルする
+## <a name="runtime-compilation"></a>実行時のコンパイル
 
-<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> では、ディスク上で Razor ファイル (Razor ビューと Razor Pages) が変更された場合に、ファイルが再コンパイルおよび更新されるかどうかを判断する値が取得または設定されます。
+::: moniker range="= aspnetcore-2.1"
 
-`true` に設定した場合、[IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) によって、構成済みの <xref:Microsoft.Extensions.FileProviders.IFileProvider> インスタンス内の Razor ファイルに対する変更が監視されます。
+ビルド時のコンパイルは Razor ファイルの実行時コンパイルによって補完されます。 ASP.NET Core MVC は、*.cshtml* ファイルの内容が変更されたとき、Razor ファイルを再コンパイルします。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
+
+ビルド時のコンパイルは Razor ファイルの実行時コンパイルによって補完されます。 <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> では、ディスク上で Razor ファイル (Razor ビューと Razor Pages) が変更された場合に、ファイルが再コンパイルおよび更新されるかどうかを判断する値が取得または設定されます。
 
 次の場合、規定値は `true` です。
 
-* ASP.NET Core 2.1 またはそれ以前のアプリ。
-* 開発環境での ASP.NET Core 2.2 以降のアプリ。
-
-<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> は互換性スイッチに関連付けられていて、アプリの構成済みの互換バージョンに応じて異なる動作を提供することができます。 <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> を設定することによるアプリの構成は、アプリの互換バージョンで指定される値よりも優先されます。
-
-アプリの互換バージョンが <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> またはそれ以前に設定されている場合、明示的に構成しない限り <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> は `true` に設定されます。
-
-アプリの互換バージョンが <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> またはそれ以降に設定されている場合、環境が開発であるか値を明示的に構成しない限り、<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> は `false` に設定されます。
+* アプリの互換性バージョンが <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> 以前に設定されている場合
+* アプリの互換性バージョンが <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> 以降に設定され、アプリが開発環境 <xref:Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment*> にない場合。 言い換えると、<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> が明示的に設定されていない限り、Razor ファイルは非開発環境ではコンパイルされません。
 
 アプリの互換バージョンの設定に関するガイダンスと例については、<xref:mvc/compatibility-version> をご覧ください。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+実行時コンパイルは `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` パッケージを使用して有効になっています。 実行時コンパイルを有効にするには、アプリで 
+
+* [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) NuGet パッケージをインストールする必要があります。
+* アプリケーションの `ConfigureServices` を更新し、`AddMvcRazorRuntimeCompilation` の呼び出しを含めます。
+
+```csharp
+services
+    .AddMvc()
+    .AddMvcRazorRuntimeCompilation()
+```
+
+展開時に実行時コンパイルを動作させるには、アプリでそのプロジェクト ファイルをさらに変更し、`PreserveCompilationReferences` を `true` に設定する必要があります。
+[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>その他の技術情報
 

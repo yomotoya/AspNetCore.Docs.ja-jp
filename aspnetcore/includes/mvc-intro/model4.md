@@ -3,13 +3,14 @@
 | パラメーター               | 説明|
 | ----------------- | ------------ |
 | -m  | モデルの名前。 |
-| -dc  | 使用する `DbContext` クラス。 |
+| -dc  | データ コンテキスト。 |
 | -udl | 既定のレイアウトを使用します。 |
-| -outDir | ビューを作成するための相対出力フォルダー パス。 |
+| --relativeFolderPath | ビューを作成するための相対出力フォルダー パス。 |
+| --useDefaultLayout | ビューには既定のレイアウトを使用してください。 |
 | --referenceScriptLibraries | [編集] および [作成] ページに `_ValidationScriptsPartial` を追加します。 |
 
-次のように、`h` スイッチを使用して、`aspnet-codegenerator razorpage` コマンドに関するヘルプを取得します。
+次のように、`h` スイッチを使用して、`aspnet-codegenerator controller` コマンドに関するヘルプを取得します。
 
 ```console
-dotnet aspnet-codegenerator razorpage -h
+dotnet aspnet-codegenerator controller -h
 ```

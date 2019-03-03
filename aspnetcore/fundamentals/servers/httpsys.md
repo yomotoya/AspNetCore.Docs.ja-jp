@@ -5,14 +5,14 @@ description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys 
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 859e3daeba125ab1a9392c1bdbf2733de2f79a34
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: abb426b1a41226e52d9b9b5c00c41ff816890d36
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248343"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744132"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -135,7 +135,9 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
 ### <a name="configure-windows-server"></a>Windows Server を構成する
 
-1. アプリに対して開くポートを決めたら、Windows ファイアウォールか [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906)を使用して、トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 Azure VM に展開する場合は、[ネットワーク セキュリティ グループ](/azure/virtual-network/security-overview)内でポートを開きます。 次のコマンドとアプリの構成では、ポート 443 を使用します。
+1. アプリに対して開くポートを決めたら、[Windows ファイアウォール](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule)か [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) PowerShell コマンドレットを使用して、トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 次のコマンドとアプリの構成では、ポート 443 を使用します。
+
+1. Azure VM に展開する場合は、[ネットワーク セキュリティ グループ](/azure/virtual-machines/windows/nsg-quickstart-portal)内でポートを開きます。 次のコマンドとアプリの構成では、ポート 443 を使用します。
 
 1. 必要に応じて、X.509 証明書を取得してインストールします。
 
@@ -272,5 +274,5 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 * [HTTP.sys を使用して Windows 認証を有効にする](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [aspnet/HttpSysServer GitHub リポジトリ (ソース コード)](https://github.com/aspnet/HttpSysServer/)
-* <xref:fundamentals/host/index>
+* [ホスト](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>

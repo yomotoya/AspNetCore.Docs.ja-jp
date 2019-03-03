@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 685b496943642b349321a36a7200d6d51ecf4d6e
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396234"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744184"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションのスタートアップ
 
@@ -31,7 +31,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
-アプリの`Startup`ホスト[がビルドされるとき、](xref:fundamentals/host/index) クラスがアプリに指定されます。 `Program` クラスのホスト ビルダーで `Build` が呼び出されるとき、アプリのホストがビルドされます。 `Startup` クラスは通常、ホスト ビルダーで [WebHostBuilderExtensions.UseStartup\<TStartup>](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) メソッドを呼び出すことで指定されます。
+アプリの`Startup`ホスト[がビルドされるとき、](xref:fundamentals/index#host) クラスがアプリに指定されます。 `Program` クラスのホスト ビルダーで `Build` が呼び出されるとき、アプリのホストがビルドされます。 `Startup` クラスは通常、ホスト ビルダーで [WebHostBuilderExtensions.UseStartup\<TStartup>](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) メソッドを呼び出すことで指定されます。
 
 [!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
 
@@ -47,7 +47,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 `IHostingEnvironment` を挿入する代わりに、規約ベースのアプローチがあります。 アプリケーションの環境 (たとえば `StartupDevelopment`) ごとに個別の `Startup` クラスが定義されると、実行時に適切な `Startup` クラスが選択されます。 名前のサフィックスが現在の環境と一致するクラスが優先されます。 アプリケーションが Development 環境で実行され、`Startup` クラスと `StartupDevelopment` クラスの両方が含まれている場合は、`StartupDevelopment` クラスが使用されます。 詳細については、「[Use multiple environments](xref:fundamentals/environments#environment-based-startup-class-and-methods)」(複数の環境の使用) を参照してください。
 
-ホストの詳細については、「<xref:fundamentals/host/index>」を参照してください。 スタートアップ時のエラー処理については、「[Startup exception handling](xref:fundamentals/error-handling#startup-exception-handling)」(スタートアップ例外処理) を参照してください。
+ホストの詳細については、「[ホスト](xref:fundamentals/index#host)」を参照してください。 スタートアップ時のエラー処理については、「[Startup exception handling](xref:fundamentals/error-handling#startup-exception-handling)」(スタートアップ例外処理) を参照してください。
 
 ## <a name="the-configureservices-method"></a>ConfigureServices メソッド
 
@@ -59,7 +59,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 一般的なパターンとしては、すべての `Add{Service}` メソッドを呼び出した後にすべての `services.Configure{Service}` メソッドを呼び出します。 たとえば、[Identity サービスの構成](xref:security/authentication/identity#pw)に関する記事をご覧ください。
 
-ホストでは、`Startup` メソッドが呼び出される前にいくつかのサービスを構成することができます。 詳細については、「<xref:fundamentals/host/index>」を参照してください。
+ホストでは、`Startup` メソッドが呼び出される前にいくつかのサービスを構成することができます。 詳細については、「[ホスト](xref:fundamentals/index#host)」を参照してください。
 
 多くの設定が必要な機能には、<xref:Microsoft.Extensions.DependencyInjection.IServiceCollection> 上の `Add{Service}` 拡張メソッドがあります。 一般的な ASP.NET Core アプリは、Entity Framework、Identity、および MVC のサービスを登録します。
 
@@ -134,7 +134,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* <xref:fundamentals/host/index>
+* [ホスト](xref:fundamentals/index#host)
 * <xref:fundamentals/environments>
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/logging/index>

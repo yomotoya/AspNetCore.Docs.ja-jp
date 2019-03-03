@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core で依存関係の挿入を実装する方法とそれを使う方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 5e1522e0819d989a7029c2928c1c33624c1774c7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410509"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899360"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core での依存関係の挿入
 
@@ -179,7 +179,7 @@ public class MyDependency : IMyDependency
 
 ## <a name="framework-provided-services"></a>フレームワークが提供するサービス
 
-`Startup.ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC のようなプラットフォーム機能など、アプリが使うサービスを定義する必要があります。 最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/host/index)に依存します)。
+`Startup.ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC のようなプラットフォーム機能など、アプリが使うサービスを定義する必要があります。 最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/index#host)に依存します)。
 
 | サービスの種類 | 有効期間 |
 | ------------ | -------- |
@@ -253,7 +253,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="entity-framework-contexts"></a>Entity Framework コンテキスト
 
-Entity Framework コンテキストは、スコープの有効期間を使ってサービス コンテナーに追加する必要があります。 これは、データベース コンテキストを登録する際に、[AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) メソッドへの呼び出しを使用して自動的に処理されます。 データベース コンテキストを使用するサービスは、スコープの有効期間も使用する必要があります。
+Entity Framework コンテキストは通常、[範囲が指定された有効期間](#service-lifetimes)を利用し、サービス コンテナーに追加されます。Web アプリ データベース操作は通常、その範囲が要求に設定されるためです。 データベース コンテキストの登録時、<xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> オーバーロードによって有効期間が指定されなかった場合、既定の有効期間が範囲となります。 有効期間が与えられたサービスの場合、サービスより有効期間が短いデータベース コンテキストを使用できません。
 
 ## <a name="lifetime-and-registration-options"></a>有効期間と登録のオプション
 

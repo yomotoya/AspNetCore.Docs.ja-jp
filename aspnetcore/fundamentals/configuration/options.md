@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリの関連のある設定のグループを表すオプション パターンを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/29/2018
+ms.date: 02/26/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 20365a078327d76693a40fa79a4a594e29e0901c
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 9566ed75375bdfaa9d6d8bf898b9fb2054356017
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099248"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899321"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core のオプション パターン
 
@@ -274,18 +274,22 @@ services.AddOptions<MyOptions>("optionalName")
     .Configure(o => o.Property = "named");
 ```
 
-## <a name="configurelttoptions-tdep1--tdep4gt-method"></a>&lt;TOptions, TDep1, ...TDep4&gt; メソッドを構成する
+## <a name="use-di-services-to-configure-options"></a>DI サービスを使用してオプションを構成する
 
-DI からサービスを使用して、定型的に `IConfigure[Named]Options` を実装することでオプションを構成する方法では、冗長です。 `OptionsBuilder<TOptions>` での `ConfigureOptions` のオーバーロードにより、オプションを構成するために、サービスを 5 つまで使用することができます。
+オプションの構成中、2 とおりの方法で依存関係挿入から他のサービスにアクセスできます。
 
-```csharp
-services.AddOptions<MyOptions>("optionalName")
-    .Configure<Service1, Service2, Service3, Service4, Service5>(
-        (o, s, s2, s3, s4, s5) => 
-            o.Property = DoSomethingWith(s, s2, s3, s4, s5));
-```
+* [OptionsBuilder\<TOptions>](xref:Microsoft.Extensions.Options.OptionsBuilder`1) で [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) に構成デリゲートを渡します。 [OptionsBuilder\<TOptions>](xref:Microsoft.Extensions.Options.OptionsBuilder`1) から [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) のオーバーロードが与えられます。これにより、最大 5 つのサービスを使用し、オプションを構成できます。
 
-このオーバーロードでは、指定された汎用的なサービスの種類を受け入れるコンストラクターを含む、一時的な汎用の <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> が登録されます。 
+  ```csharp
+  services.AddOptions<MyOptions>("optionalName")
+      .Configure<Service1, Service2, Service3, Service4, Service5>(
+          (o, s, s2, s3, s4, s5) => 
+              o.Property = DoSomethingWith(s, s2, s3, s4, s5));
+  ```
+
+* <xref:Microsoft.Extensions.Options.IConfigureOptions`1> または <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> を実装する独自の型を作成し、その型をサービスとして登録します。
+
+サービスの作成は複雑なため、[Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) に構成デリゲートを渡す方法をおすすめします。 独自の型を作成することは、[Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) の使用時にフレームワークがユーザーの代わりに行うことと同じです。 [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) を呼び出すと、一時的な汎用の <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> が登録されます。これには、指定された汎用サービスの型を受け入れるコンストラクターが含まれています。 
 
 ::: moniker range=">= aspnetcore-2.2"
 

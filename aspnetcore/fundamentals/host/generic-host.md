@@ -1,28 +1,51 @@
 ---
 title: .NET での汎用ホスト
 author: guardrex
-description: アプリの起動と有効期間の管理を行う .NET の汎用ホストについて説明します。
+description: アプリの起動と有効期間の管理を行う ASP.NET Core の汎用ホストについて説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: a128b7c19d544d1dd28ab16f7a208ceef680ce81
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618156"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743843"
 ---
 # <a name="net-generic-host"></a>.NET での汎用ホスト
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-.NET Core アプリは*ホスト*を構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。 このトピックでは、HTTP 要求の処理を行わないアプリをホストするのに便利な、ASP.NET Core の汎用ホスト (<xref:Microsoft.Extensions.Hosting.HostBuilder>) について説明します。 Web ホスト (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>) の対象範囲については、<xref:fundamentals/host/web-host> を参照してください。
+::: moniker range="<= aspnetcore-2.2"
 
-汎用ホストの目的は、Web ホスト API から HTTP パイプラインを切り離して、多様なホスト シナリオを有効にすることです。 メッセージング、バックグラウンド タスク、および汎用ホストに基づくその他の HTTP ワークロードに対して、構成、依存関係の挿入 (DI)、ログなどの横断的機能によるメリットがあります。
+ASP.NET Core アプリはホストを構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。
 
-汎用ホストは ASP.NET Core 2.1 の新機能であり、Web ホスティングのシナリオには適していません。 Web ホスティングのシナリオの場合は、[Web ホスト](xref:fundamentals/host/web-host)を使ってください。 汎用ホストは開発中であり、将来のリリースでは Web ホストも汎用ホストに置き換えられて、汎用ホストが HTTP と非 HTTP 両方のシナリオのプライマリ ホスト API として機能するようになります。
+この記事では、HTTP 要求を処理しないアプリに使用される、ASP.NET Core の汎用ホスト (<xref:Microsoft.Extensions.Hosting.HostBuilder>) について説明します。
+
+汎用ホストの目的は、Web ホスト API から HTTP パイプラインを切り離して、多様なホスト シナリオを有効にすることです。 メッセージング、バックグラウンド タスク、汎用ホストに基づくその他の HTTP ワークロードに対して、構成、依存関係の挿入 (DI)、ログなどの横断的機能によるメリットがあります。
+
+汎用ホストは ASP.NET Core 2.1 の新機能であり、Web ホスティングのシナリオには適していません。 Web ホスティングのシナリオの場合は、[Web ホスト](xref:fundamentals/host/web-host)を使ってください。 汎用ホストは将来のリリースで Web ホストに代わるものであり、HTTP と非 HTTP 両方のシナリオのプライマリ ホスト API として機能するようになります。
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+ASP.NET Core アプリはホストを構成して起動します。 ホストはアプリの起動と有効期間の管理を担当します。
+
+この記事では、.NET Core 汎用ホスト (<xref:Microsoft.Extensions.Hosting.HostBuilder>) について取り上げます。
+
+Web ホスト API から HTTP パイプラインを切り離して、多様なホスト シナリオを有効にするという点で、汎用ホストは Web ホストと異なります。 メッセージング、バックグラウンド タスク、その他の HTTP ワークロードで汎用ホストを使用し、構成、依存関係の挿入 (DI)、ログなどの横断的機能によるメリットを受けることができます。
+
+ASP.NET Core 3.0 以降、汎用ホストは HTTP ワークロードと非 HTTP ワークロードの両方で推奨されます。 HTTP サーバー実装が含まれている場合、それは <xref:Microsoft.Extensions.Hosting.IHostedService> の実装として実行されます。 `IHostedService` は、他のワークロードにも使用できるインターフェイスです。
+
+Web ホストは Web アプリの推奨ホストではなくなりますが、下位互換性のために引き続き利用できます。
+
+> [!NOTE]
+> この記事の残りの部分はまだ 3.0 向けに更新されていません。
+
+::: moniker-end
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
@@ -95,7 +118,7 @@ var host = new HostBuilder()
 
 **キー**: applicationName  
 **型**: *文字列*  
-**既定**: アプリのエントリ ポイントを含むアセンブリの名前。  
+**既定値**:アプリのエントリ ポイントを含むアセンブリの名前。  
 **次を使用して設定**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
 **環境変数**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configurehostconfiguration))
 
@@ -105,7 +128,7 @@ var host = new HostBuilder()
 
 **キー**: contentRoot  
 **型**: *文字列*  
-**既定値**: 既定でアプリ アセンブリが存在するフォルダーに設定されます。  
+**既定値**:既定でアプリ アセンブリが存在するフォルダーに設定されます。  
 **次を使用して設定**: `UseContentRoot`  
 **環境変数**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configurehostconfiguration))
 
@@ -119,7 +142,7 @@ var host = new HostBuilder()
 
 **キー**: 環境  
 **型**: *文字列*  
-**既定値**: Production  
+**既定値**:実稼働  
 **次を使用して設定**: `UseEnvironment`  
 **環境変数**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configurehostconfiguration))
 
