@@ -78,15 +78,15 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 ![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
-### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.セミコロンで各コード ステートメントを終了する、ブロックの内部
+### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.ブロックの中で、各コード文をセミコロンで終わらせる
 
 コードブロックの中では、それぞれの完結するコード文はセミコロンで終わらせます。 インライン式は、セミコロンで終わりません。
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample3.html)]
 
-### <a name="4-you-use-variables-to-store-values"></a>4.値を格納するのに変数を使う
+### <a name="4-you-use-variables-to-store-values"></a>4.値を格納するのに変数を使用します。
 
-*変数*を使って値を格納できます。これには文字列、数値、日付などが含まれます。新しい変数は予約語`var`を使って作成します。 変数は`@`を使って直接ページに挿入できます。
+内の値を格納することができます、*変数*文字列、数字、および日付などを含め、します。新しい変数を使用して、作成する、`var`キーワード。 変数の値を挿入するにを使用してページに直接`@`します。
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample4.html)]
 
