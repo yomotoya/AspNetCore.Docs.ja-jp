@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 5d72cb214a3d5565452b3b95f364818a71be44b7
-ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
+ms.openlocfilehash: 686397cd25248ce7b37e505c7129a3b56d4ada1b
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55737643"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833762"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>チュートリアル: ASP.NET Core MVC で Web API を作成する
 
@@ -349,6 +349,8 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
 `PutTodoItem` は `PostTodoItem` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、変更だけでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、[HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute) を使用します。
+
+`PutTodoItem` を呼び出してエラーが表示された場合、`GET` を呼び出し、データベースに項目があることを確認してください。
 
 ### <a name="test-the-puttodoitem-method"></a>PutTodoItem メソッドのテスト
 
