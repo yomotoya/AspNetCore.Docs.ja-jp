@@ -68,7 +68,7 @@ ms.locfileid: "51021782"
 > 詳細について、HTML でのエンコード[フォームを使用する](https://go.microsoft.com/fwlink/?LinkId=202892)。
 
 
-### <a name="2-you-enclose-code-blocks-in-braces"></a>2.コード ブロックを中かっこで囲むこと
+### <a name="2-you-enclose-code-blocks-in-braces"></a>2.中カッコでコードブロックを囲む
 
 A*コード ブロック*1 つまたは複数のコード ステートメントを含み、中かっこで囲まれました。
 
@@ -84,9 +84,9 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample3.html)]
 
-### <a name="4-you-use-variables-to-store-values"></a>4.値を格納するのに変数を使用します。
+### <a name="4-you-use-variables-to-store-values"></a>4.値を格納するのに変数を使う
 
-内の値を格納することができます、*変数*文字列、数字、および日付などを含め、します。新しい変数を使用して、作成する、`var`キーワード。 変数の値を挿入するにを使用してページに直接`@`します。
+*変数*を使って値を格納できます。これには文字列、数値、日付などが含まれます。新しい変数は予約語`var`を使って作成します。 変数は`@`を使って直接ページに挿入できます。
 
 [!code-html[Main](introducing-razor-syntax-c/samples/sample4.html)]
 
