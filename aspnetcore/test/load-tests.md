@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: d989bc841a372bed7ebf2c84c6abe1a57762ad04
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 587df6e216943d3eeec779df4d0554dd0fc2fda0
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207357"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345429"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>ロード テストとストレス テストの ASP.NET Core
 
@@ -25,6 +25,10 @@ ms.locfileid: "54207357"
 * コンピューティング リソースの制約。  
 
 ストレス条件下でをアプリの障害から回復し、適切に想定される動作に戻りますか。 アプリは、ストレス条件下で*いない*通常の状況下で実行します。
+
+Visual Studio 2019 は、ロード テスト機能を備えた Visual Studio として最後のバージョンとなります。 ロード テスト ツールを必要とするお客様には、Apache JMeter、Akamai CloudTest、Blazemeter などの代替のロード テスト ツールの使用をお勧めします。 詳細については、次を参照してください。、 [Visual Studio 2019 Preview リリース ノート](/visualstudio/releases/2019/release-notes-preview#test-tools)します。
+
+ロード テスト サービスを Azure DevOps では、2020年で終了します。 詳細については、次を参照してください。[クラウド ベースのロード テスト サービス終了](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)します。
 
 ## <a name="visual-studio-tools"></a>Visual Studio ツール
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: 学習方法として許可または ASP.NET Core アプリでのクロス オリジン要求を拒否するための標準 CORS します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: bc3a0883043a4d6fa33c1ff76fcb7be457b6b840
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899347"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346373"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -56,7 +56,7 @@ CORS ミドルウェアは、クロス オリジン要求を処理します。 �
 
 上のコードでは以下の操作が行われます。
 
-* "_MyAllowSpecificOrigins"に、ポリシー名を設定します。 ポリシーの名前は任意です。
+* ポリシー名を設定"\_myAllowSpecificOrigins"。 ポリシーの名前は任意です。
 * 呼び出し、<xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*>拡張メソッドは、コアを使用します。
 * 呼び出し<xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*>で、[ラムダ式](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions)します。 ラムダは、<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> オブジェクトをとります。 [構成オプション](#cors-policy-options)など`WithOrigins`はこの記事の後半で説明します。
 
@@ -70,9 +70,26 @@ CORS ミドルウェアは、クロス オリジン要求を処理します。 �
 
 [!code-csharp[](cors/sample/Cors/WebAPI/Startup2.cs?name=snippet2)]
 
-次の強調表示されたコードを使用してすべてのアプリのエンドポイントに CORS ポリシーを適用する[CORS ミドルウェア](#enable-cors-with-cors-middleware):
+次の強調表示されたコードでは、CORS ミドルウェアを使用してすべてのアプリのエンドポイントに CORS ポリシーを適用します。
 
-[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet3&highlight=12)]
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseHsts();
+    }
+
+    app.UseCors(); 
+
+    app.UseHttpsRedirection();
+    app.UseMvc();
+}
+```
 
 参照してください[Razor ページ、コントローラ、およびアクション メソッドで CORS を有効にする](#ecors)アクション/ページ/コント ローラー レベルでの CORS ポリシーを適用します。
 

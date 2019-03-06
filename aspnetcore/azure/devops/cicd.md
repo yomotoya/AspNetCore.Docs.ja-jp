@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121595"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346308"
 ---
 # <a name="continuous-integration-and-deployment"></a>継続的インテグレーションとデプロイ
 
@@ -60,9 +60,9 @@ ms.locfileid: "53121595"
 
     ![ステージング Web アプリの検索語句](media/cicd/portal-search-box.png)
 
-1. クリックして**展開オプション**します。 新しいパネルが表示されます。 クリックして**切断**前の章で追加されたローカル Git ソース管理構成を削除します。 クリックして、削除操作を確定します、**はい**ボタンをクリックします。
+1. クリックして**展開センター**します。 新しいパネルが表示されます。 クリックして**切断**前の章で追加されたローカル Git ソース管理構成を削除します。 クリックして、削除操作を確定します、**はい**ボタンをクリックします。
 1. 移動し、 *mywebapp < unique_number >* App Service。 念のため、App Service をすばやく検索する、ポータルの検索ボックスを使用できます。
-1. クリックして**展開オプション**します。 新しいパネルが表示されます。 クリックして**切断**前の章で追加されたローカル Git ソース管理構成を削除します。 クリックして、削除操作を確定します、**はい**ボタンをクリックします。
+1. クリックして**展開センター**します。 新しいパネルが表示されます。 クリックして**切断**前の章で追加されたローカル Git ソース管理構成を削除します。 クリックして、削除操作を確定します、**はい**ボタンをクリックします。
 
 ## <a name="create-an-azure-devops-organization"></a>Azure DevOps 組織を作成します。
 
@@ -262,7 +262,7 @@ ms.locfileid: "53121595"
 
 ![スクリーン ショットが表示されたリリース パイプラインのタスク](media/cicd/release-definition-tasks.png)
 
-リリース パイプラインは、2 つのタスクで構成されています: *Azure App Service のデプロイ スロットを*と*管理 Azure App Service のスロット スワップ*します。 最初のタスクをクリックすると、次のタスクの構成が表示されます。
+リリース パイプラインでは、2 つのタスクで構成されます。*Azure App Service をデプロイ スロットに*と*Azure App Service - スロットのスワップを管理*します。 最初のタスクをクリックすると、次のタスクの構成が表示されます。
 
 ![スクリーン ショットが表示されたリリース パイプラインの展開タスク](media/cicd/release-definition-task1.png)
 

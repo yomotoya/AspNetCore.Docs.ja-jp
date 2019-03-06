@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core SignalR では、ストリーミングを使用して、
 author: bradygaster
-description: ''
+description: サーバーのハブ メソッドから値のストリームを返すし、.NET、JavaScript クライアントを使用してストリームを使用する方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: ade2d6fb6e799d53ff3aaa69c641d0088acdee95
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: fb7183f7189d62c181f69ffdb170e3da25612919
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837404"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345588"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用して、
 
@@ -24,10 +24,32 @@ ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリ�
 
 ## <a name="set-up-the-hub"></a>ハブを設定します。
 
-ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、`ChannelReader<T>`または`Task<ChannelReader<T>>`します。 クライアントへのデータのストリーミングの基礎を示すサンプルを次に示します。 オブジェクトが書き込まれるたびに、`ChannelReader`そのオブジェクトがすぐに、クライアントに送信します。 最後に、`ChannelReader`ストリームが閉じていることをクライアントに指示するのには完了します。
+::: moniker range=">= aspnetcore-3.0"
+
+ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、 `ChannelReader<T>`、 `IAsyncEnumerable<T>`、 `Task<ChannelReader<T>>`、または`Task<IAsyncEnumerable<T>>`します。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、`ChannelReader<T>`または`Task<ChannelReader<T>>`します。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+ASP.NET Core 3.0 以降を返すことができますハブ メソッドのストリーミング`IAsyncEnumerable<T>`に加えて`ChannelReader<T>`します。 返す最も簡単な方法`IAsyncEnumerable<T>`は次の例に示すように、非同期反復子メソッドのハブ メソッドにすることです。 ハブ非同期反復子メソッドが受け入れることができます、`CancellationToken`ストリームからクライアントをアンサブスク ライブするときにトリガーされるパラメーター。 非同期反復子メソッドが返されないなどのチャネルの一般的な問題を容易に回避、`ChannelReader`早期完了しなくても、メソッドを終了するか、`ChannelWriter`します。
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+[!code-csharp[Streaming hub async iterator method](streaming/sample/Hubs/AsyncEnumerableHub.cs?name=snippet_AsyncIterator)]
+
+::: moniker-end
+
+次の例では、ストリーミング チャネルを使用してクライアントにデータの基本を示します。 オブジェクトが書き込まれるたびに、`ChannelWriter`そのオブジェクトがすぐに、クライアントに送信します。 最後に、`ChannelWriter`ストリームが閉じていることをクライアントに指示するのには完了します。
 
 > [!NOTE]
-> * 書き込み、`ChannelReader`バック グラウンド スレッドと返された場合に、`ChannelReader`できるだけ早くします。 その他のハブ呼び出しまでブロックされます、`ChannelReader`が返されます。
+> * 書き込み、`ChannelWriter`バック グラウンド スレッドと返された場合に、`ChannelReader`できるだけ早くします。 その他のハブ呼び出しまでブロックされます、`ChannelReader`が返されます。
 > * ロジックをラップ、`try ... catch`を完了して、`Channel`メソッドの呼び出しが正常に完了した、catch、および外部ハブを確認する catch します。
 
 ::: moniker range="= aspnetcore-2.1"
@@ -51,8 +73,8 @@ ASP.NET Core 2.2 以降を受け入れることができるハブ メソッド�
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-// Call "Cancel" on this CancellationTokenSource to send a cancellation message to 
-// the server, which will trigger the corresponding token in the Hub method.
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
 var cancellationTokenSource = new CancellationTokenSource();
 var channel = await hubConnection.StreamAsChannelAsync<int>(
     "Counter", 10, 500, cancellationTokenSource.Token);
@@ -113,6 +135,25 @@ JavaScript クライアントは、ハブにストリーミング メソッド�
 ::: moniker range=">= aspnetcore-2.2"
 
 クライアントからストリームを終了するには、呼び出し、`dispose`メソッドを`ISubscription`から返される、`subscribe`メソッド。 このメソッドは、通話、 `CancellationToken` (いずれかが提供される) 場合のハブ メソッドのパラメーターを中止します。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+## <a name="java-client"></a>Java クライアント
+SignalR の Java クライアントを使用して、`stream`ストリーミング メソッドを呼び出すメソッド。 次の 3 つ以上の引数を受け取ります。
+
+* ストリームの項目の予期される型 
+* ハブ メソッドの名前。
+* ハブ メソッドで定義されている引数。 
+
+```java
+hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
+    .subscribe(
+        (item) -> {/* Define your onNext handler here. */ },
+        (error) -> {/* Define your onError handler here. */},
+        () -> {/* Define your onCompleted handler here. */});
+```
+`stream`メソッド`HubConnection`ストリーム項目の種類の観測可能なオブジェクトを返します。 監視可能な型の`subscribe`メソッドでは、定義、 `onNext`、`onError`と`onCompleted`ハンドラー。
 
 ::: moniker-end
 

@@ -2,15 +2,15 @@
 title: ASP.NET Core での Azure Active Directory B2C でのクラウド認証
 author: camsoper
 description: ASP.NET Core での Azure Active Directory B2C の認証を設定する方法を説明します。
-ms.date: 01/25/2018
+ms.date: 02/27/2019
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 2c544475ccd3eb76f2737fec1cf269ac86add372
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 86be999e02cfe34193bd594dcf89e8872590cca5
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098988"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346503"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>ASP.NET Core での Azure Active Directory B2C でのクラウド認証
 
@@ -104,6 +104,30 @@ Visual Studio:
 
 > [!WARNING]
 > ポリシー名は、のドキュメントで説明したとおりでこれらのポリシーが使用されていたことを確認、**認証の変更**Visual Studio でダイアログ。 ポリシー名を検証できます*appsettings.json*します。
+
+## <a name="configure-the-underlying-openidconnectoptionsjwtbearercookie-options"></a>基になる OpenIdConnectOptions/JwtBearer/Cookie オプションを構成します。
+
+基になるオプションを直接構成するには、内の適切なスキームの定数を使用して、 `Startup.ConfigureServices`:
+
+```csharp
+services.Configure<OpenIdConnectOptions>(
+    AzureAD[B2C]Defaults.OpenIdScheme, options => 
+    {
+        // Omitted for brevity
+    });
+
+services.Configure<CookieAuthenticationOptions>(
+    AzureAD[B2C]Defaults.CookieScheme, options => 
+    {
+        // Omitted for brevity
+    });
+
+services.Configure<JwtBearerOptions>(
+    AzureAD[B2C]Defaults.JwtBearerAuthenticationScheme, options => 
+    {
+        // Omitted for brevity
+    });
+```
 
 ## <a name="run-the-app"></a>アプリを実行する
 
