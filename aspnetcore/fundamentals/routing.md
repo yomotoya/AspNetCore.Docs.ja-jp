@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248434"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346568"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -583,7 +583,7 @@ URL 生成の詳細については、「[URL 生成参照](#url-generation-refer
 | `{Page=Home}`                            | `/Contact`              | 一致し、`Page` が `Contact` に設定されます。                                      |
 | `{controller}/{action}/{id?}`            | `/Products/List`        | `Products` コントローラーと `List` アクションにマッピングされます。                       |
 | `{controller}/{action}/{id?}`            | `/Products/Details/123` | `Products` コントローラーと `Details` アクションにマッピングされます (`id` は 123 に設定されます)。 |
-| `{controller=Home}/{action=Index}/{id?`} | `/`                     | `Home` コントローラーと `Index` メソッドにマッピングされます (`id` は無視されます)。        |
+| `{controller=Home}/{action=Index}/{id?}` | `/`                     | `Home` コントローラーと `Index` メソッドにマッピングされます (`id` は無視されます)。        |
 
 一般的に、テンプレートの利用が最も簡単なルーティングの手法となります。 ルート テンプレート以外では、制約と既定値も指定できます。
 
