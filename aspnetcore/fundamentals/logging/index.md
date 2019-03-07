@@ -4,14 +4,8 @@ author: tdykstra
 description: ASP.NET Core でのログ記録フレームワークについて説明します。 組み込みのログ プロバイダーと、サードパーティ製の一般的なプロバイダーについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 81620f0c844f3dbb1a2da0e9f1c319f87d9790b6
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667701"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -31,7 +25,7 @@ ASP.NET Core では、組み込みやサード パーティ製のさまざまな
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
 
-既定のプロジェクト テンプレートでは、次のログ プロバイダーを追加する <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> 拡張メソッドが呼び出されます。
+既定のプロジェクト テンプレートでは、次のログ プロバイダーを追加する <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> が呼び出されます。
 
 * コンソール
 * デバッグ
@@ -98,7 +92,7 @@ DI から <xref:Microsoft.Extensions.Logging.ILogger`1> オブジェクトを取
 
 `Startup` クラスでログを作成するには、コンストラクター シグネチャに `ILogger` パラメーターを追加します。
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,19,26)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,20,27)]
 
 ### <a name="create-logs-in-program"></a>プログラムでログを作成する
 
@@ -806,7 +800,7 @@ Azure でのログ記録については、次のセクションを参照して�
 
 * <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> を明示的に呼び出さないでください。 アプリを Azure App Service にデプロイすると、プロバイダーはアプリで自動的に使用できるようになります。
 
-.NET Framework をターゲットとする場合、または `Microsoft.AspNetCore.App` を参照している場合は、プロバイダー パッケージをプロジェクトに追加します。 <xref:Microsoft.Extensions.Logging.ILoggerFactory> インスタンス上で `AddAzureWebAppDiagnostics` を呼び出します。
+.NET Framework をターゲットとする場合、または `Microsoft.AspNetCore.App` を参照している場合は、プロバイダー パッケージをプロジェクトに追加します。 `AddAzureWebAppDiagnostics` を呼び出します。
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -822,19 +816,27 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-1.1"
+::: moniker range="<= aspnetcore-2.1"
 
 <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> のオーバーロードによって <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings> を渡すことができます。 設定オブジェクトで既定の設定をオーバーライドできます。たとえば、ログの出力テンプレート、BLOB 名、ファイル サイズの制限などです。 ("*出力テンプレート*" は、`ILogger` メソッドの呼び出しと共に指定されるものに加えて、すべてのログに適用されるメッセージ テンプレートです。)
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+プロバイダーの設定を構成するには、次の例のように <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> と <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions> を使用します。
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_AzLogOptions&highlight=19-27)]
+
+::: moniker-end
 
 アプリケーションを App Service アプリにデプロイすると、Azure portal の **[App Service]** ページの [[診断ログ]](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) セクションで指定された設定が適用されます。 これらの設定が更新されると、アプリの再起動や再デプロイを必要とせずに、変更がすぐに有効になります。
 
 ![Azure のログ設定](index/_static/azure-logging-settings.png)
 
-ログ ファイルの既定の場所は、*D:\\home\\LogFiles\\Application* です。既定のファイル名は *diagnostics-yyyymmdd.txt* です。 既定のファイル サイズ制限は 10 MB です。保持されるファイルの既定の最大数は 2 です。 既定の BLOB 名は *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt* です。 既定の動作について詳しくは、<xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings> をご覧ください。
+ログ ファイルの既定の場所は、*D:\\home\\LogFiles\\Application* です。既定のファイル名は *diagnostics-yyyymmdd.txt* です。 既定のファイル サイズ制限は 10 MB です。保持されるファイルの既定の最大数は 2 です。 既定の BLOB 名は *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt* です。
 
 このプロバイダーは、プロジェクトが Azure 環境で実行される場合にのみ機能します。 プロジェクトをローカルで実行しても、効果はありません&mdash;BLOB のローカル ファイルまたはローカル開発ストレージへの書き込みは行われません。
-
-::: moniker-end
 
 ### <a name="azure-log-streaming"></a>Azure ログのストリーミング
 

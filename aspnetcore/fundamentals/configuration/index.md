@@ -4,7 +4,7 @@ author: guardrex
 description: 構成 API を使用して、ASP.NET Core アプリを構成する方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 uid: fundamentals/configuration/index
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
@@ -128,7 +128,26 @@ ASP.NET Core の [dotnet new](/dotnet/core/tools/dotnet-new) テンプレート�
 
 ファイル構成プロバイダーには、アプリの起動後に基になる設定ファイルが変更された場合に、構成を再読み込みする機能があります。 ファイル構成プロバイダーについては、このトピックの後半で説明します。
 
-<xref:Microsoft.Extensions.Configuration.IConfiguration> は、アプリの[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) コンテナーで使用できます。 構成プロバイダーでは DI を使用できません。ホストによって構成プロバイダーが設定されている場合、DI を使用できないためです。
+<xref:Microsoft.Extensions.Configuration.IConfiguration> は、アプリの[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) コンテナーで使用できます。 <xref:Microsoft.Extensions.Configuration.IConfiguration> を Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> を挿入して、クラスの構成を取得することができます。
+
+```csharp
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    private readonly IConfiguration _config;
+
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+        
+    // The _config local variable is used to obtain configuration 
+    // throughout the class.
+}
+```
+
+構成プロバイダーでは DI を使用できません。ホストによって構成プロバイダーが設定されている場合、DI を使用できないためです。
 
 構成キーでは、次の規則が採用されます。
 
@@ -256,6 +275,8 @@ public void ConfigureServices(IServiceCollection services)
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
 ::: moniker-end
+
+<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリに指定した構成は、`Startup.ConfigureServices` などのアプリの起動中に使用できます。 詳細については、「[起動中に構成にアクセスする](#access-configuration-during-startup)」のセクションを参照してください。
 
 ## <a name="command-line-configuration-provider"></a>コマンド ライン構成プロバイダー
 
@@ -1305,10 +1326,29 @@ var host = new WebHostBuilder()
 
 [ConfigurationBinder.GetValue&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) によって、指定したキーで構成から値が抽出され、それが指定した型に変換されます。 オーバーロードを使用すると、キーが見つからない場合に既定値を指定することができます。
 
-次の例では、キー `NumberKey` を使用して構成から文字列値を抽出し、その値を `int` に型付けして、変数 `intValue` に格納します。 構成キーで `NumberKey` が見つからない場合、`intValue` は 規定値 `99` を受け取ります。
+次のような例です。
+
+* キー `NumberKey` の文字列値を構成から抽出します。 `NumberKey` が構成キーに見つからない場合、既定値の `99` が使用されます。
+* 値の型は `int` です。
+* `NumberConfig` プロパティの値をページで使用するために格納します。
 
 ```csharp
-var intValue = config.GetValue<int>("NumberKey", 99);
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+    
+    public int NumberConfig { get; private set; }
+        
+    public void OnGet()
+    {
+        NumberConfig = _config.GetValue<int>("NumberKey", 99);
+    }
+}
 ```
 
 ## <a name="getsection-getchildren-and-exists"></a>GetSection、GetChildren、Exists
