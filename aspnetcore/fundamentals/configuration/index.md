@@ -4,101 +4,101 @@ author: guardrex
 description: 構成 API を使用して、ASP.NET Core アプリを構成する方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 uid: fundamentals/configuration/index
 ---
-# <a name="configuration-in-aspnet-core"></a><span data-ttu-id="9248d-103">ASP.NET Core の構成</span><span class="sxs-lookup"><span data-stu-id="9248d-103">Configuration in ASP.NET Core</span></span>
+# <a name="configuration-in-aspnet-core"></a><span data-ttu-id="537ae-103">ASP.NET Core の構成</span><span class="sxs-lookup"><span data-stu-id="537ae-103">Configuration in ASP.NET Core</span></span>
 
-<span data-ttu-id="9248d-104">作成者: [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="9248d-104">By [Luke Latham](https://github.com/guardrex)</span></span>
+<span data-ttu-id="537ae-104">作成者: [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="537ae-104">By [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="9248d-105">ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によって設定するキーと値のペアに基づいています。</span><span class="sxs-lookup"><span data-stu-id="9248d-105">App configuration in ASP.NET Core is based on key-value pairs established by *configuration providers*.</span></span> <span data-ttu-id="9248d-106">構成プロバイダーは、さまざまな構成のソースから構成データを読み取り、キーと値のペアを作成します。</span><span class="sxs-lookup"><span data-stu-id="9248d-106">Configuration providers read configuration data into key-value pairs from a variety of configuration sources:</span></span>
+<span data-ttu-id="537ae-105">ASP.NET Core でのアプリの構成は、"*構成プロバイダー*" によって設定するキーと値のペアに基づいています。</span><span class="sxs-lookup"><span data-stu-id="537ae-105">App configuration in ASP.NET Core is based on key-value pairs established by *configuration providers*.</span></span> <span data-ttu-id="537ae-106">構成プロバイダーは、さまざまな構成のソースから構成データを読み取り、キーと値のペアを作成します。</span><span class="sxs-lookup"><span data-stu-id="537ae-106">Configuration providers read configuration data into key-value pairs from a variety of configuration sources:</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* <span data-ttu-id="9248d-107">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="9248d-107">Azure Key Vault</span></span>
-* <span data-ttu-id="9248d-108">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="9248d-108">Command-line arguments</span></span>
-* <span data-ttu-id="9248d-109">カスタム プロバイダー (インストール済みまたは作成済み)</span><span class="sxs-lookup"><span data-stu-id="9248d-109">Custom providers (installed or created)</span></span>
-* <span data-ttu-id="9248d-110">ディレクトリ ファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-110">Directory files</span></span>
-* <span data-ttu-id="9248d-111">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-111">Environment variables</span></span>
-* <span data-ttu-id="9248d-112">メモリ内 .NET オブジェクト</span><span class="sxs-lookup"><span data-stu-id="9248d-112">In-memory .NET objects</span></span>
-* <span data-ttu-id="9248d-113">設定ファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-113">Settings files</span></span>
+* <span data-ttu-id="537ae-107">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="537ae-107">Azure Key Vault</span></span>
+* <span data-ttu-id="537ae-108">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="537ae-108">Command-line arguments</span></span>
+* <span data-ttu-id="537ae-109">カスタム プロバイダー (インストール済みまたは作成済み)</span><span class="sxs-lookup"><span data-stu-id="537ae-109">Custom providers (installed or created)</span></span>
+* <span data-ttu-id="537ae-110">ディレクトリ ファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-110">Directory files</span></span>
+* <span data-ttu-id="537ae-111">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-111">Environment variables</span></span>
+* <span data-ttu-id="537ae-112">メモリ内 .NET オブジェクト</span><span class="sxs-lookup"><span data-stu-id="537ae-112">In-memory .NET objects</span></span>
+* <span data-ttu-id="537ae-113">設定ファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-113">Settings files</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0 || aspnetcore-1.1"
 
-* <span data-ttu-id="9248d-114">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="9248d-114">Azure Key Vault</span></span>
-* <span data-ttu-id="9248d-115">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="9248d-115">Command-line arguments</span></span>
-* <span data-ttu-id="9248d-116">カスタム プロバイダー (インストール済みまたは作成済み)</span><span class="sxs-lookup"><span data-stu-id="9248d-116">Custom providers (installed or created)</span></span>
-* <span data-ttu-id="9248d-117">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-117">Environment variables</span></span>
-* <span data-ttu-id="9248d-118">メモリ内 .NET オブジェクト</span><span class="sxs-lookup"><span data-stu-id="9248d-118">In-memory .NET objects</span></span>
-* <span data-ttu-id="9248d-119">設定ファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-119">Settings files</span></span>
+* <span data-ttu-id="537ae-114">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="537ae-114">Azure Key Vault</span></span>
+* <span data-ttu-id="537ae-115">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="537ae-115">Command-line arguments</span></span>
+* <span data-ttu-id="537ae-116">カスタム プロバイダー (インストール済みまたは作成済み)</span><span class="sxs-lookup"><span data-stu-id="537ae-116">Custom providers (installed or created)</span></span>
+* <span data-ttu-id="537ae-117">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-117">Environment variables</span></span>
+* <span data-ttu-id="537ae-118">メモリ内 .NET オブジェクト</span><span class="sxs-lookup"><span data-stu-id="537ae-118">In-memory .NET objects</span></span>
+* <span data-ttu-id="537ae-119">設定ファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-119">Settings files</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-1.0"
 
-* <span data-ttu-id="9248d-120">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="9248d-120">Command-line arguments</span></span>
-* <span data-ttu-id="9248d-121">カスタム プロバイダー (インストール済みまたは作成済み)</span><span class="sxs-lookup"><span data-stu-id="9248d-121">Custom providers (installed or created)</span></span>
-* <span data-ttu-id="9248d-122">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-122">Environment variables</span></span>
-* <span data-ttu-id="9248d-123">メモリ内 .NET オブジェクト</span><span class="sxs-lookup"><span data-stu-id="9248d-123">In-memory .NET objects</span></span>
-* <span data-ttu-id="9248d-124">設定ファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-124">Settings files</span></span>
+* <span data-ttu-id="537ae-120">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="537ae-120">Command-line arguments</span></span>
+* <span data-ttu-id="537ae-121">カスタム プロバイダー (インストール済みまたは作成済み)</span><span class="sxs-lookup"><span data-stu-id="537ae-121">Custom providers (installed or created)</span></span>
+* <span data-ttu-id="537ae-122">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-122">Environment variables</span></span>
+* <span data-ttu-id="537ae-123">メモリ内 .NET オブジェクト</span><span class="sxs-lookup"><span data-stu-id="537ae-123">In-memory .NET objects</span></span>
+* <span data-ttu-id="537ae-124">設定ファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-124">Settings files</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-125">"*オプション パターン*" は、このトピックで説明する構成の概念を拡張したものです。</span><span class="sxs-lookup"><span data-stu-id="9248d-125">The *options pattern* is an extension of the configuration concepts described in this topic.</span></span> <span data-ttu-id="9248d-126">オプションでは、クラスを使用して関連する設定のグループを表します。</span><span class="sxs-lookup"><span data-stu-id="9248d-126">Options uses classes to represent groups of related settings.</span></span> <span data-ttu-id="9248d-127">オプション パターンの使用について詳しくは、「<xref:fundamentals/configuration/options>」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="9248d-127">For more information on using the options pattern, see <xref:fundamentals/configuration/options>.</span></span>
+<span data-ttu-id="537ae-125">"*オプション パターン*" は、このトピックで説明する構成の概念を拡張したものです。</span><span class="sxs-lookup"><span data-stu-id="537ae-125">The *options pattern* is an extension of the configuration concepts described in this topic.</span></span> <span data-ttu-id="537ae-126">オプションでは、クラスを使用して関連する設定のグループを表します。</span><span class="sxs-lookup"><span data-stu-id="537ae-126">Options uses classes to represent groups of related settings.</span></span> <span data-ttu-id="537ae-127">オプション パターンの使用について詳しくは、「<xref:fundamentals/configuration/options>」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="537ae-127">For more information on using the options pattern, see <xref:fundamentals/configuration/options>.</span></span>
 
-<span data-ttu-id="9248d-128">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="9248d-128">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="537ae-128">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="537ae-128">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-129">これらの 3 つのパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-129">These three packages are included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-129">これらの 3 つのパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-129">These three packages are included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-130">これらの 3 つのパッケージは、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)に含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-130">These three packages are included in the [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).</span></span>
+<span data-ttu-id="537ae-130">これらの 3 つのパッケージは、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)に含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-130">These three packages are included in the [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).</span></span>
 
 ::: moniker-end
 
-## <a name="host-vs-app-configuration"></a><span data-ttu-id="9248d-131">ホストとアプリの構成</span><span class="sxs-lookup"><span data-stu-id="9248d-131">Host vs. app configuration</span></span>
+## <a name="host-vs-app-configuration"></a><span data-ttu-id="537ae-131">ホストとアプリの構成</span><span class="sxs-lookup"><span data-stu-id="537ae-131">Host vs. app configuration</span></span>
 
-<span data-ttu-id="9248d-132">アプリを構成して起動する前に、"*ホスト*" を構成して起動します。</span><span class="sxs-lookup"><span data-stu-id="9248d-132">Before the app is configured and started, a *host* is configured and launched.</span></span> <span data-ttu-id="9248d-133">ホストはアプリの起動と有効期間の管理を担当します。</span><span class="sxs-lookup"><span data-stu-id="9248d-133">The host is responsible for app startup and lifetime management.</span></span> <span data-ttu-id="9248d-134">アプリとホストは、両方ともこのトピックで説明する構成プロバイダーを使用して構成します。</span><span class="sxs-lookup"><span data-stu-id="9248d-134">Both the app and the host are configured using the configuration providers described in this topic.</span></span> <span data-ttu-id="9248d-135">ホストの構成のキーと値のペアは、アプリのグローバル構成の一部となります。</span><span class="sxs-lookup"><span data-stu-id="9248d-135">Host configuration key-value pairs become part of the app's global configuration.</span></span> <span data-ttu-id="9248d-136">ホストをビルドするときの構成プロバイダーの使用方法、およびホストの構成に対する構成ソースの影響について詳しくは、[ホスト](xref:fundamentals/index#host)に関する説明を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-136">For more information on how the configuration providers are used when the host is built and how configuration sources affect host configuration, see [The host](xref:fundamentals/index#host).</span></span>
+<span data-ttu-id="537ae-132">アプリを構成して起動する前に、"*ホスト*" を構成して起動します。</span><span class="sxs-lookup"><span data-stu-id="537ae-132">Before the app is configured and started, a *host* is configured and launched.</span></span> <span data-ttu-id="537ae-133">ホストはアプリの起動と有効期間の管理を担当します。</span><span class="sxs-lookup"><span data-stu-id="537ae-133">The host is responsible for app startup and lifetime management.</span></span> <span data-ttu-id="537ae-134">アプリとホストは、両方ともこのトピックで説明する構成プロバイダーを使用して構成します。</span><span class="sxs-lookup"><span data-stu-id="537ae-134">Both the app and the host are configured using the configuration providers described in this topic.</span></span> <span data-ttu-id="537ae-135">ホストの構成のキーと値のペアは、アプリのグローバル構成の一部となります。</span><span class="sxs-lookup"><span data-stu-id="537ae-135">Host configuration key-value pairs become part of the app's global configuration.</span></span> <span data-ttu-id="537ae-136">ホストをビルドするときの構成プロバイダーの使用方法、およびホストの構成に対する構成ソースの影響について詳しくは、[ホスト](xref:fundamentals/index#host)に関する説明を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-136">For more information on how the configuration providers are used when the host is built and how configuration sources affect host configuration, see [The host](xref:fundamentals/index#host).</span></span>
 
-## <a name="default-configuration"></a><span data-ttu-id="9248d-137">既定の構成</span><span class="sxs-lookup"><span data-stu-id="9248d-137">Default configuration</span></span>
+## <a name="default-configuration"></a><span data-ttu-id="537ae-137">既定の構成</span><span class="sxs-lookup"><span data-stu-id="537ae-137">Default configuration</span></span>
 
-<span data-ttu-id="9248d-138">ASP.NET Core の [dotnet new](/dotnet/core/tools/dotnet-new) テンプレートに基づく Web アプリは、ホストの構築時に <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-138">Web apps based on the ASP.NET Core [dotnet new](/dotnet/core/tools/dotnet-new) templates call <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> when building a host.</span></span> <span data-ttu-id="9248d-139">`CreateDefaultBuilder` はアプリの既定の構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="9248d-139">`CreateDefaultBuilder` provides default configuration for the app.</span></span>
+<span data-ttu-id="537ae-138">ASP.NET Core の [dotnet new](/dotnet/core/tools/dotnet-new) テンプレートに基づく Web アプリは、ホストの構築時に <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-138">Web apps based on the ASP.NET Core [dotnet new](/dotnet/core/tools/dotnet-new) templates call <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> when building a host.</span></span> <span data-ttu-id="537ae-139">`CreateDefaultBuilder` はアプリの既定の構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="537ae-139">`CreateDefaultBuilder` provides default configuration for the app.</span></span>
 
-* <span data-ttu-id="9248d-140">ホストの構成は、次から提供されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-140">Host configuration is provided from:</span></span>
-  * <span data-ttu-id="9248d-141">[環境変数構成プロバイダー](#environment-variables-configuration-provider)を使用する、プレフィックス `ASPNETCORE_` (`ASPNETCORE_ENVIRONMENT` など) が付いた環境変数。</span><span class="sxs-lookup"><span data-stu-id="9248d-141">Environment variables prefixed with `ASPNETCORE_` (for example, `ASPNETCORE_ENVIRONMENT`) using the [Environment Variables Configuration Provider](#environment-variables-configuration-provider).</span></span>
-  * <span data-ttu-id="9248d-142">[コマンドライン構成プロバイダー](#command-line-configuration-provider)を使用するコマンドライン引数。</span><span class="sxs-lookup"><span data-stu-id="9248d-142">Command-line arguments using the [Command-line Configuration Provider](#command-line-configuration-provider).</span></span>
-* <span data-ttu-id="9248d-143">アプリの構成は、次の順序で提供されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-143">App configuration is provided from (in the following order):</span></span>
-  * <span data-ttu-id="9248d-144">[ファイル構成プロバイダー](#file-configuration-provider)を使用する *appsettings.json*。</span><span class="sxs-lookup"><span data-stu-id="9248d-144">*appsettings.json* using the [File Configuration Provider](#file-configuration-provider).</span></span>
-  * <span data-ttu-id="9248d-145">[ファイル構成プロバイダー](#file-configuration-provider)を使用する *appsettings.{Environment}.json*。</span><span class="sxs-lookup"><span data-stu-id="9248d-145">*appsettings.{Environment}.json* using the [File Configuration Provider](#file-configuration-provider).</span></span>
-  * <span data-ttu-id="9248d-146">エントリ アセンブリを使用して `Development` 環境でアプリが実行される場合に使用される[シークレット マネージャー](xref:security/app-secrets)。</span><span class="sxs-lookup"><span data-stu-id="9248d-146">[Secret Manager](xref:security/app-secrets) when the app runs in the `Development` environment using the entry assembly.</span></span>
-  * <span data-ttu-id="9248d-147">[環境変数構成プロバイダー](#environment-variables-configuration-provider)を使用する環境変数。</span><span class="sxs-lookup"><span data-stu-id="9248d-147">Environment variables using the [Environment Variables Configuration Provider](#environment-variables-configuration-provider).</span></span>
-  * <span data-ttu-id="9248d-148">[コマンドライン構成プロバイダー](#command-line-configuration-provider)を使用するコマンドライン引数。</span><span class="sxs-lookup"><span data-stu-id="9248d-148">Command-line arguments using the [Command-line Configuration Provider](#command-line-configuration-provider).</span></span>
+* <span data-ttu-id="537ae-140">ホストの構成は、次から提供されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-140">Host configuration is provided from:</span></span>
+  * <span data-ttu-id="537ae-141">[環境変数構成プロバイダー](#environment-variables-configuration-provider)を使用する、プレフィックス `ASPNETCORE_` (`ASPNETCORE_ENVIRONMENT` など) が付いた環境変数。</span><span class="sxs-lookup"><span data-stu-id="537ae-141">Environment variables prefixed with `ASPNETCORE_` (for example, `ASPNETCORE_ENVIRONMENT`) using the [Environment Variables Configuration Provider](#environment-variables-configuration-provider).</span></span>
+  * <span data-ttu-id="537ae-142">[コマンドライン構成プロバイダー](#command-line-configuration-provider)を使用するコマンドライン引数。</span><span class="sxs-lookup"><span data-stu-id="537ae-142">Command-line arguments using the [Command-line Configuration Provider](#command-line-configuration-provider).</span></span>
+* <span data-ttu-id="537ae-143">アプリの構成は、次の順序で提供されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-143">App configuration is provided from (in the following order):</span></span>
+  * <span data-ttu-id="537ae-144">[ファイル構成プロバイダー](#file-configuration-provider)を使用する *appsettings.json*。</span><span class="sxs-lookup"><span data-stu-id="537ae-144">*appsettings.json* using the [File Configuration Provider](#file-configuration-provider).</span></span>
+  * <span data-ttu-id="537ae-145">[ファイル構成プロバイダー](#file-configuration-provider)を使用する *appsettings.{Environment}.json*。</span><span class="sxs-lookup"><span data-stu-id="537ae-145">*appsettings.{Environment}.json* using the [File Configuration Provider](#file-configuration-provider).</span></span>
+  * <span data-ttu-id="537ae-146">エントリ アセンブリを使用して `Development` 環境でアプリが実行される場合に使用される[シークレット マネージャー](xref:security/app-secrets)。</span><span class="sxs-lookup"><span data-stu-id="537ae-146">[Secret Manager](xref:security/app-secrets) when the app runs in the `Development` environment using the entry assembly.</span></span>
+  * <span data-ttu-id="537ae-147">[環境変数構成プロバイダー](#environment-variables-configuration-provider)を使用する環境変数。</span><span class="sxs-lookup"><span data-stu-id="537ae-147">Environment variables using the [Environment Variables Configuration Provider](#environment-variables-configuration-provider).</span></span>
+  * <span data-ttu-id="537ae-148">[コマンドライン構成プロバイダー](#command-line-configuration-provider)を使用するコマンドライン引数。</span><span class="sxs-lookup"><span data-stu-id="537ae-148">Command-line arguments using the [Command-line Configuration Provider](#command-line-configuration-provider).</span></span>
 
-<span data-ttu-id="9248d-149">これらの構成プロバイダーについては、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="9248d-149">The configuration providers are explained later in this topic.</span></span> <span data-ttu-id="9248d-150">ホストと `CreateDefaultBuilder` の詳細については、<xref:fundamentals/host/web-host#set-up-a-host> を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-150">For more information on the host and `CreateDefaultBuilder`, see <xref:fundamentals/host/web-host#set-up-a-host>.</span></span>
+<span data-ttu-id="537ae-149">これらの構成プロバイダーについては、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="537ae-149">The configuration providers are explained later in this topic.</span></span> <span data-ttu-id="537ae-150">ホストと `CreateDefaultBuilder` の詳細については、<xref:fundamentals/host/web-host#set-up-a-host> を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-150">For more information on the host and `CreateDefaultBuilder`, see <xref:fundamentals/host/web-host#set-up-a-host>.</span></span>
 
-## <a name="security"></a><span data-ttu-id="9248d-151">セキュリティ</span><span class="sxs-lookup"><span data-stu-id="9248d-151">Security</span></span>
+## <a name="security"></a><span data-ttu-id="537ae-151">セキュリティ</span><span class="sxs-lookup"><span data-stu-id="537ae-151">Security</span></span>
 
-<span data-ttu-id="9248d-152">次のベスト プラクティスを採用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-152">Adopt the following best practices:</span></span>
+<span data-ttu-id="537ae-152">次のベスト プラクティスを採用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-152">Adopt the following best practices:</span></span>
 
-* <span data-ttu-id="9248d-153">構成プロバイダーのコードやプレーンテキストの構成ファイルには、パスワードなどの機密データを格納しないでください。</span><span class="sxs-lookup"><span data-stu-id="9248d-153">Never store passwords or other sensitive data in configuration provider code or in plain text configuration files.</span></span>
-* <span data-ttu-id="9248d-154">開発環境やテスト環境では運用シークレットを使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="9248d-154">Don't use production secrets in development or test environments.</span></span>
-* <span data-ttu-id="9248d-155">プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。</span><span class="sxs-lookup"><span data-stu-id="9248d-155">Specify secrets outside of the project so that they can't be accidentally committed to a source code repository.</span></span>
+* <span data-ttu-id="537ae-153">構成プロバイダーのコードやプレーンテキストの構成ファイルには、パスワードなどの機密データを格納しないでください。</span><span class="sxs-lookup"><span data-stu-id="537ae-153">Never store passwords or other sensitive data in configuration provider code or in plain text configuration files.</span></span>
+* <span data-ttu-id="537ae-154">開発環境やテスト環境では運用シークレットを使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="537ae-154">Don't use production secrets in development or test environments.</span></span>
+* <span data-ttu-id="537ae-155">プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。</span><span class="sxs-lookup"><span data-stu-id="537ae-155">Specify secrets outside of the project so that they can't be accidentally committed to a source code repository.</span></span>
 
-<span data-ttu-id="9248d-156">[複数の環境を使用する方法](xref:fundamentals/environments)や、[シークレット マネージャーでの開発中のアプリ シークレットの安全な格納](xref:security/app-secrets)の管理 (機密データを格納するための環境変数の使用に関するアドバイスを含む) について、さらに学習することができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-156">Learn more about [how to use multiple environments](xref:fundamentals/environments) and managing the [safe storage of app secrets in development with the Secret Manager](xref:security/app-secrets) (includes advice on using environment variables to store sensitive data).</span></span> <span data-ttu-id="9248d-157">シークレット マネージャーは、ファイル構成プロバイダーを使用して、ユーザーの機密情報をローカル システム上の JSON ファイルに格納します。</span><span class="sxs-lookup"><span data-stu-id="9248d-157">The Secret Manager uses the File Configuration Provider to store user secrets in a JSON file on the local system.</span></span> <span data-ttu-id="9248d-158">ファイル構成プロバイダーについては、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="9248d-158">The File Configuration Provider is described later in this topic.</span></span>
+<span data-ttu-id="537ae-156">[複数の環境を使用する方法](xref:fundamentals/environments)や、[シークレット マネージャーでの開発中のアプリ シークレットの安全な格納](xref:security/app-secrets)の管理 (機密データを格納するための環境変数の使用に関するアドバイスを含む) について、さらに学習することができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-156">Learn more about [how to use multiple environments](xref:fundamentals/environments) and managing the [safe storage of app secrets in development with the Secret Manager](xref:security/app-secrets) (includes advice on using environment variables to store sensitive data).</span></span> <span data-ttu-id="537ae-157">シークレット マネージャーは、ファイル構成プロバイダーを使用して、ユーザーの機密情報をローカル システム上の JSON ファイルに格納します。</span><span class="sxs-lookup"><span data-stu-id="537ae-157">The Secret Manager uses the File Configuration Provider to store user secrets in a JSON file on the local system.</span></span> <span data-ttu-id="537ae-158">ファイル構成プロバイダーについては、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="537ae-158">The File Configuration Provider is described later in this topic.</span></span>
 
-<span data-ttu-id="9248d-159">[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) は、アプリのシークレットを安全に格納するための 1 つのオプションです。</span><span class="sxs-lookup"><span data-stu-id="9248d-159">[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) is one option for the safe storage of app secrets.</span></span> <span data-ttu-id="9248d-160">詳細については、「<xref:security/key-vault-configuration>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-160">For more information, see <xref:security/key-vault-configuration>.</span></span>
+<span data-ttu-id="537ae-159">[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) は、アプリのシークレットを安全に格納するための 1 つのオプションです。</span><span class="sxs-lookup"><span data-stu-id="537ae-159">[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) is one option for the safe storage of app secrets.</span></span> <span data-ttu-id="537ae-160">詳細については、「<xref:security/key-vault-configuration>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-160">For more information, see <xref:security/key-vault-configuration>.</span></span>
 
-## <a name="hierarchical-configuration-data"></a><span data-ttu-id="9248d-161">階層的な構成データ</span><span class="sxs-lookup"><span data-stu-id="9248d-161">Hierarchical configuration data</span></span>
+## <a name="hierarchical-configuration-data"></a><span data-ttu-id="537ae-161">階層的な構成データ</span><span class="sxs-lookup"><span data-stu-id="537ae-161">Hierarchical configuration data</span></span>
 
-<span data-ttu-id="9248d-162">構成 API は、構成キー内の区切り記号を使用して階層データをフラット化することにより、階層的な構成データを管理することができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-162">The Configuration API is capable of maintaining hierarchical configuration data by flattening the hierarchical data with the use of a delimiter in the configuration keys.</span></span>
+<span data-ttu-id="537ae-162">構成 API は、構成キー内の区切り記号を使用して階層データをフラット化することにより、階層的な構成データを管理することができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-162">The Configuration API is capable of maintaining hierarchical configuration data by flattening the hierarchical data with the use of a delimiter in the configuration keys.</span></span>
 
-<span data-ttu-id="9248d-163">次の JSON ファイルでは、2 つのセクションの構造化階層に 4 つのキーが存在します。</span><span class="sxs-lookup"><span data-stu-id="9248d-163">In the following JSON file, four keys exist in a structured hierarchy of two sections:</span></span>
+<span data-ttu-id="537ae-163">次の JSON ファイルでは、2 つのセクションの構造化階層に 4 つのキーが存在します。</span><span class="sxs-lookup"><span data-stu-id="537ae-163">In the following JSON file, four keys exist in a structured hierarchy of two sections:</span></span>
 
 ```json
 {
@@ -113,105 +113,124 @@ uid: fundamentals/configuration/index
 }
 ```
 
-<span data-ttu-id="9248d-164">ファイルが構成に読み込まれると、構成ソースの元の階層データ構造を維持するために、一意なキーが作成されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-164">When the file is read into configuration, unique keys are created to maintain the original hierarchical data structure of the configuration source.</span></span> <span data-ttu-id="9248d-165">セクションとキーは、元の構造を維持するために、コロン (`:`) を使用してフラット化されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-165">The sections and keys are flattened with the use of a colon (`:`) to maintain the original structure:</span></span>
+<span data-ttu-id="537ae-164">ファイルが構成に読み込まれると、構成ソースの元の階層データ構造を維持するために、一意なキーが作成されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-164">When the file is read into configuration, unique keys are created to maintain the original hierarchical data structure of the configuration source.</span></span> <span data-ttu-id="537ae-165">セクションとキーは、元の構造を維持するために、コロン (`:`) を使用してフラット化されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-165">The sections and keys are flattened with the use of a colon (`:`) to maintain the original structure:</span></span>
 
-* <span data-ttu-id="9248d-166">section0:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-166">section0:key0</span></span>
-* <span data-ttu-id="9248d-167">section0:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-167">section0:key1</span></span>
-* <span data-ttu-id="9248d-168">section1:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-168">section1:key0</span></span>
-* <span data-ttu-id="9248d-169">section1:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-169">section1:key1</span></span>
+* <span data-ttu-id="537ae-166">section0:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-166">section0:key0</span></span>
+* <span data-ttu-id="537ae-167">section0:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-167">section0:key1</span></span>
+* <span data-ttu-id="537ae-168">section1:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-168">section1:key0</span></span>
+* <span data-ttu-id="537ae-169">section1:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-169">section1:key1</span></span>
 
-<span data-ttu-id="9248d-170"><xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> メソッドと <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> メソッドを使用して、構成データ内のセクションとセクションの子を分離することができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-170"><xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> and <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> methods are available to isolate sections and children of a section in the configuration data.</span></span> <span data-ttu-id="9248d-171">これらのメソッドについては、後ほど「[GetSection、GetChildren、Exists](#getsection-getchildren-and-exists)」で説明します。</span><span class="sxs-lookup"><span data-stu-id="9248d-171">These methods are described later in [GetSection, GetChildren, and Exists](#getsection-getchildren-and-exists).</span></span> <span data-ttu-id="9248d-172">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-172">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-170"><xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> メソッドと <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> メソッドを使用して、構成データ内のセクションとセクションの子を分離することができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-170"><xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> and <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> methods are available to isolate sections and children of a section in the configuration data.</span></span> <span data-ttu-id="537ae-171">これらのメソッドについては、後ほど「[GetSection、GetChildren、Exists](#getsection-getchildren-and-exists)」で説明します。</span><span class="sxs-lookup"><span data-stu-id="537ae-171">These methods are described later in [GetSection, GetChildren, and Exists](#getsection-getchildren-and-exists).</span></span> <span data-ttu-id="537ae-172">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-172">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-## <a name="conventions"></a><span data-ttu-id="9248d-173">規約</span><span class="sxs-lookup"><span data-stu-id="9248d-173">Conventions</span></span>
+## <a name="conventions"></a><span data-ttu-id="537ae-173">規約</span><span class="sxs-lookup"><span data-stu-id="537ae-173">Conventions</span></span>
 
-<span data-ttu-id="9248d-174">アプリの起動時に、各構成プロバイダーが指定されている順序で構成ソースが読み取られます。</span><span class="sxs-lookup"><span data-stu-id="9248d-174">At app startup, configuration sources are read in the order that their configuration providers are specified.</span></span>
+<span data-ttu-id="537ae-174">アプリの起動時に、各構成プロバイダーが指定されている順序で構成ソースが読み取られます。</span><span class="sxs-lookup"><span data-stu-id="537ae-174">At app startup, configuration sources are read in the order that their configuration providers are specified.</span></span>
 
-<span data-ttu-id="9248d-175">ファイル構成プロバイダーには、アプリの起動後に基になる設定ファイルが変更された場合に、構成を再読み込みする機能があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-175">File Configuration Providers have the ability to reload configuration when an underlying settings file is changed after app startup.</span></span> <span data-ttu-id="9248d-176">ファイル構成プロバイダーについては、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="9248d-176">The File Configuration Provider is described later in this topic.</span></span>
+<span data-ttu-id="537ae-175">ファイル構成プロバイダーには、アプリの起動後に基になる設定ファイルが変更された場合に、構成を再読み込みする機能があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-175">File Configuration Providers have the ability to reload configuration when an underlying settings file is changed after app startup.</span></span> <span data-ttu-id="537ae-176">ファイル構成プロバイダーについては、このトピックの後半で説明します。</span><span class="sxs-lookup"><span data-stu-id="537ae-176">The File Configuration Provider is described later in this topic.</span></span>
 
-<span data-ttu-id="9248d-177"><xref:Microsoft.Extensions.Configuration.IConfiguration> は、アプリの[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) コンテナーで使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-177"><xref:Microsoft.Extensions.Configuration.IConfiguration> is available in the app's [Dependency Injection (DI)](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="9248d-178">構成プロバイダーでは DI を使用できません。ホストによって構成プロバイダーが設定されている場合、DI を使用できないためです。</span><span class="sxs-lookup"><span data-stu-id="9248d-178">Configuration providers can't utilize DI, as it's not available when they're set up by the host.</span></span>
+<span data-ttu-id="537ae-177"><xref:Microsoft.Extensions.Configuration.IConfiguration> は、アプリの[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) コンテナーで使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-177"><xref:Microsoft.Extensions.Configuration.IConfiguration> is available in the app's [dependency injection (DI)](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="537ae-178"><xref:Microsoft.Extensions.Configuration.IConfiguration> を Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> を挿入して、クラスの構成を取得することができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-178"><xref:Microsoft.Extensions.Configuration.IConfiguration> can be injected into a Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> to obtain configuration for the class:</span></span>
 
-<span data-ttu-id="9248d-179">構成キーでは、次の規則が採用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-179">Configuration keys adopt the following conventions:</span></span>
+```csharp
+// using Microsoft.Extensions.Configuration;
 
-* <span data-ttu-id="9248d-180">キーでは、大文字と小文字は区別されません。</span><span class="sxs-lookup"><span data-stu-id="9248d-180">Keys are case-insensitive.</span></span> <span data-ttu-id="9248d-181">たとえば、`ConnectionString` と `connectionstring` は同等のキーとして扱われます。</span><span class="sxs-lookup"><span data-stu-id="9248d-181">For example, `ConnectionString` and `connectionstring` are treated as equivalent keys.</span></span>
-* <span data-ttu-id="9248d-182">同じキーに対する値が、同じまたは別の構成プロバイダーによって設定された場合、最後にキーに設定された値が使用される値となります。</span><span class="sxs-lookup"><span data-stu-id="9248d-182">If a value for the same key is set by the same or different configuration providers, the last value set on the key is the value used.</span></span>
-* <span data-ttu-id="9248d-183">階層キー</span><span class="sxs-lookup"><span data-stu-id="9248d-183">Hierarchical keys</span></span>
-  * <span data-ttu-id="9248d-184">構成 API 内では、すべてのプラットフォームでコロン (`:`) の区切りが機能します。</span><span class="sxs-lookup"><span data-stu-id="9248d-184">Within the Configuration API, a colon separator (`:`) works on all platforms.</span></span>
-  * <span data-ttu-id="9248d-185">環境変数内では、コロン区切りがすべてのプラットフォームでは機能しない場合があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-185">In environment variables, a colon separator may not work on all platforms.</span></span> <span data-ttu-id="9248d-186">二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされ、コロンに変換されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-186">A double underscore (`__`) is supported by all platforms and is converted to a colon.</span></span>
-  * <span data-ttu-id="9248d-187">Azure Key Vault では、階層キーは区切り記号として `--` (2 つのダッシュ) を使用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-187">In Azure Key Vault, hierarchical keys use `--` (two dashes) as a separator.</span></span> <span data-ttu-id="9248d-188">コードを指定して、アプリの構成にシークレットが読み込まれるときにダッシュをコロンで置き換える必要があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-188">You must provide code to replace the dashes with a colon when the secrets are loaded into the app's configuration.</span></span>
-* <span data-ttu-id="9248d-189"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder> は、構成キーで配列インデックスを使用して、オブジェクトに対する配列のバインドをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="9248d-189">The <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> supports binding arrays to objects using array indices in configuration keys.</span></span> <span data-ttu-id="9248d-190">配列のバインドについては、「[配列をクラスにバインドする](#bind-an-array-to-a-class)」セクションで説明します。</span><span class="sxs-lookup"><span data-stu-id="9248d-190">Array binding is described in the [Bind an array to a class](#bind-an-array-to-a-class) section.</span></span>
+public class IndexModel : PageModel
+{
+    private readonly IConfiguration _config;
 
-<span data-ttu-id="9248d-191">構成値では、次の規則が採用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-191">Configuration values adopt the following conventions:</span></span>
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+        
+    // The _config local variable is used to obtain configuration 
+    // throughout the class.
+}
+```
 
-* <span data-ttu-id="9248d-192">値は文字列です。</span><span class="sxs-lookup"><span data-stu-id="9248d-192">Values are strings.</span></span>
-* <span data-ttu-id="9248d-193">Null 値を構成に格納したり、オブジェクトにバインドしたりすることはできません。</span><span class="sxs-lookup"><span data-stu-id="9248d-193">Null values can't be stored in configuration or bound to objects.</span></span>
+<span data-ttu-id="537ae-179">構成プロバイダーでは DI を使用できません。ホストによって構成プロバイダーが設定されている場合、DI を使用できないためです。</span><span class="sxs-lookup"><span data-stu-id="537ae-179">Configuration providers can't utilize DI, as it's not available when they're set up by the host.</span></span>
 
-## <a name="providers"></a><span data-ttu-id="9248d-194">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-194">Providers</span></span>
+<span data-ttu-id="537ae-180">構成キーでは、次の規則が採用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-180">Configuration keys adopt the following conventions:</span></span>
 
-<span data-ttu-id="9248d-195">ASP.NET Core アプリで使用できる構成プロバイダーを次の表に示します。</span><span class="sxs-lookup"><span data-stu-id="9248d-195">The following table shows the configuration providers available to ASP.NET Core apps.</span></span>
+* <span data-ttu-id="537ae-181">キーでは、大文字と小文字は区別されません。</span><span class="sxs-lookup"><span data-stu-id="537ae-181">Keys are case-insensitive.</span></span> <span data-ttu-id="537ae-182">たとえば、`ConnectionString` と `connectionstring` は同等のキーとして扱われます。</span><span class="sxs-lookup"><span data-stu-id="537ae-182">For example, `ConnectionString` and `connectionstring` are treated as equivalent keys.</span></span>
+* <span data-ttu-id="537ae-183">同じキーに対する値が、同じまたは別の構成プロバイダーによって設定された場合、最後にキーに設定された値が使用される値となります。</span><span class="sxs-lookup"><span data-stu-id="537ae-183">If a value for the same key is set by the same or different configuration providers, the last value set on the key is the value used.</span></span>
+* <span data-ttu-id="537ae-184">階層キー</span><span class="sxs-lookup"><span data-stu-id="537ae-184">Hierarchical keys</span></span>
+  * <span data-ttu-id="537ae-185">構成 API 内では、すべてのプラットフォームでコロン (`:`) の区切りが機能します。</span><span class="sxs-lookup"><span data-stu-id="537ae-185">Within the Configuration API, a colon separator (`:`) works on all platforms.</span></span>
+  * <span data-ttu-id="537ae-186">環境変数内では、コロン区切りがすべてのプラットフォームでは機能しない場合があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-186">In environment variables, a colon separator may not work on all platforms.</span></span> <span data-ttu-id="537ae-187">二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされ、コロンに変換されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-187">A double underscore (`__`) is supported by all platforms and is converted to a colon.</span></span>
+  * <span data-ttu-id="537ae-188">Azure Key Vault では、階層キーは区切り記号として `--` (2 つのダッシュ) を使用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-188">In Azure Key Vault, hierarchical keys use `--` (two dashes) as a separator.</span></span> <span data-ttu-id="537ae-189">コードを指定して、アプリの構成にシークレットが読み込まれるときにダッシュをコロンで置き換える必要があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-189">You must provide code to replace the dashes with a colon when the secrets are loaded into the app's configuration.</span></span>
+* <span data-ttu-id="537ae-190"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder> は、構成キーで配列インデックスを使用して、オブジェクトに対する配列のバインドをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="537ae-190">The <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> supports binding arrays to objects using array indices in configuration keys.</span></span> <span data-ttu-id="537ae-191">配列のバインドについては、「[配列をクラスにバインドする](#bind-an-array-to-a-class)」セクションで説明します。</span><span class="sxs-lookup"><span data-stu-id="537ae-191">Array binding is described in the [Bind an array to a class](#bind-an-array-to-a-class) section.</span></span>
+
+<span data-ttu-id="537ae-192">構成値では、次の規則が採用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-192">Configuration values adopt the following conventions:</span></span>
+
+* <span data-ttu-id="537ae-193">値は文字列です。</span><span class="sxs-lookup"><span data-stu-id="537ae-193">Values are strings.</span></span>
+* <span data-ttu-id="537ae-194">Null 値を構成に格納したり、オブジェクトにバインドしたりすることはできません。</span><span class="sxs-lookup"><span data-stu-id="537ae-194">Null values can't be stored in configuration or bound to objects.</span></span>
+
+## <a name="providers"></a><span data-ttu-id="537ae-195">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-195">Providers</span></span>
+
+<span data-ttu-id="537ae-196">ASP.NET Core アプリで使用できる構成プロバイダーを次の表に示します。</span><span class="sxs-lookup"><span data-stu-id="537ae-196">The following table shows the configuration providers available to ASP.NET Core apps.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-| <span data-ttu-id="9248d-196">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-196">Provider</span></span> | <span data-ttu-id="9248d-197">&hellip; から構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="9248d-197">Provides configuration from&hellip;</span></span> |
+| <span data-ttu-id="537ae-197">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-197">Provider</span></span> | <span data-ttu-id="537ae-198">&hellip; から構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="537ae-198">Provides configuration from&hellip;</span></span> |
 | -------- | ----------------------------------- |
-| <span data-ttu-id="9248d-198">[Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="9248d-198">[Azure Key Vault Configuration Provider](xref:security/key-vault-configuration) (*Security* topics)</span></span> | <span data-ttu-id="9248d-199">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="9248d-199">Azure Key Vault</span></span> |
-| [<span data-ttu-id="9248d-200">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-200">Command-line Configuration Provider</span></span>](#command-line-configuration-provider) | <span data-ttu-id="9248d-201">コマンド ライン パラメーター</span><span class="sxs-lookup"><span data-stu-id="9248d-201">Command-line parameters</span></span> |
-| [<span data-ttu-id="9248d-202">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-202">Custom configuration provider</span></span>](#custom-configuration-provider) | <span data-ttu-id="9248d-203">カスタム ソース</span><span class="sxs-lookup"><span data-stu-id="9248d-203">Custom source</span></span> |
-| [<span data-ttu-id="9248d-204">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-204">Environment Variables Configuration Provider</span></span>](#environment-variables-configuration-provider) | <span data-ttu-id="9248d-205">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-205">Environment variables</span></span> |
-| [<span data-ttu-id="9248d-206">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-206">File Configuration Provider</span></span>](#file-configuration-provider) | <span data-ttu-id="9248d-207">ファイル (INI、JSON、XML)</span><span class="sxs-lookup"><span data-stu-id="9248d-207">Files (INI, JSON, XML)</span></span> |
-| [<span data-ttu-id="9248d-208">ファイルごとのキーの構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-208">Key-per-file Configuration Provider</span></span>](#key-per-file-configuration-provider) | <span data-ttu-id="9248d-209">ディレクトリ ファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-209">Directory files</span></span> |
-| [<span data-ttu-id="9248d-210">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-210">Memory Configuration Provider</span></span>](#memory-configuration-provider) | <span data-ttu-id="9248d-211">メモリ内コレクション</span><span class="sxs-lookup"><span data-stu-id="9248d-211">In-memory collections</span></span> |
-| <span data-ttu-id="9248d-212">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="9248d-212">[User secrets (Secret Manager)](xref:security/app-secrets) (*Security* topics)</span></span> | <span data-ttu-id="9248d-213">ユーザー プロファイル ディレクトリ内のファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-213">File in the user profile directory</span></span> |
+| <span data-ttu-id="537ae-199">[Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="537ae-199">[Azure Key Vault Configuration Provider](xref:security/key-vault-configuration) (*Security* topics)</span></span> | <span data-ttu-id="537ae-200">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="537ae-200">Azure Key Vault</span></span> |
+| [<span data-ttu-id="537ae-201">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-201">Command-line Configuration Provider</span></span>](#command-line-configuration-provider) | <span data-ttu-id="537ae-202">コマンド ライン パラメーター</span><span class="sxs-lookup"><span data-stu-id="537ae-202">Command-line parameters</span></span> |
+| [<span data-ttu-id="537ae-203">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-203">Custom configuration provider</span></span>](#custom-configuration-provider) | <span data-ttu-id="537ae-204">カスタム ソース</span><span class="sxs-lookup"><span data-stu-id="537ae-204">Custom source</span></span> |
+| [<span data-ttu-id="537ae-205">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-205">Environment Variables Configuration Provider</span></span>](#environment-variables-configuration-provider) | <span data-ttu-id="537ae-206">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-206">Environment variables</span></span> |
+| [<span data-ttu-id="537ae-207">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-207">File Configuration Provider</span></span>](#file-configuration-provider) | <span data-ttu-id="537ae-208">ファイル (INI、JSON、XML)</span><span class="sxs-lookup"><span data-stu-id="537ae-208">Files (INI, JSON, XML)</span></span> |
+| [<span data-ttu-id="537ae-209">ファイルごとのキーの構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-209">Key-per-file Configuration Provider</span></span>](#key-per-file-configuration-provider) | <span data-ttu-id="537ae-210">ディレクトリ ファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-210">Directory files</span></span> |
+| [<span data-ttu-id="537ae-211">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-211">Memory Configuration Provider</span></span>](#memory-configuration-provider) | <span data-ttu-id="537ae-212">メモリ内コレクション</span><span class="sxs-lookup"><span data-stu-id="537ae-212">In-memory collections</span></span> |
+| <span data-ttu-id="537ae-213">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="537ae-213">[User secrets (Secret Manager)](xref:security/app-secrets) (*Security* topics)</span></span> | <span data-ttu-id="537ae-214">ユーザー プロファイル ディレクトリ内のファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-214">File in the user profile directory</span></span> |
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0 || aspnetcore-1.1"
 
-| <span data-ttu-id="9248d-214">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-214">Provider</span></span> | <span data-ttu-id="9248d-215">&hellip; から構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="9248d-215">Provides configuration from&hellip;</span></span> |
+| <span data-ttu-id="537ae-215">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-215">Provider</span></span> | <span data-ttu-id="537ae-216">&hellip; から構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="537ae-216">Provides configuration from&hellip;</span></span> |
 | -------- | ----------------------------------- |
-| <span data-ttu-id="9248d-216">[Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="9248d-216">[Azure Key Vault Configuration Provider](xref:security/key-vault-configuration) (*Security* topics)</span></span> | <span data-ttu-id="9248d-217">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="9248d-217">Azure Key Vault</span></span> |
-| [<span data-ttu-id="9248d-218">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-218">Command-line Configuration Provider</span></span>](#command-line-configuration-provider) | <span data-ttu-id="9248d-219">コマンド ライン パラメーター</span><span class="sxs-lookup"><span data-stu-id="9248d-219">Command-line parameters</span></span> |
-| [<span data-ttu-id="9248d-220">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-220">Custom configuration provider</span></span>](#custom-configuration-provider) | <span data-ttu-id="9248d-221">カスタム ソース</span><span class="sxs-lookup"><span data-stu-id="9248d-221">Custom source</span></span> |
-| [<span data-ttu-id="9248d-222">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-222">Environment Variables Configuration Provider</span></span>](#environment-variables-configuration-provider) | <span data-ttu-id="9248d-223">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-223">Environment variables</span></span> |
-| [<span data-ttu-id="9248d-224">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-224">File Configuration Provider</span></span>](#file-configuration-provider) | <span data-ttu-id="9248d-225">ファイル (INI、JSON、XML)</span><span class="sxs-lookup"><span data-stu-id="9248d-225">Files (INI, JSON, XML)</span></span> |
-| [<span data-ttu-id="9248d-226">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-226">Memory Configuration Provider</span></span>](#memory-configuration-provider) | <span data-ttu-id="9248d-227">メモリ内コレクション</span><span class="sxs-lookup"><span data-stu-id="9248d-227">In-memory collections</span></span> |
-| <span data-ttu-id="9248d-228">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="9248d-228">[User secrets (Secret Manager)](xref:security/app-secrets) (*Security* topics)</span></span> | <span data-ttu-id="9248d-229">ユーザー プロファイル ディレクトリ内のファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-229">File in the user profile directory</span></span> |
+| <span data-ttu-id="537ae-217">[Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="537ae-217">[Azure Key Vault Configuration Provider](xref:security/key-vault-configuration) (*Security* topics)</span></span> | <span data-ttu-id="537ae-218">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="537ae-218">Azure Key Vault</span></span> |
+| [<span data-ttu-id="537ae-219">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-219">Command-line Configuration Provider</span></span>](#command-line-configuration-provider) | <span data-ttu-id="537ae-220">コマンド ライン パラメーター</span><span class="sxs-lookup"><span data-stu-id="537ae-220">Command-line parameters</span></span> |
+| [<span data-ttu-id="537ae-221">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-221">Custom configuration provider</span></span>](#custom-configuration-provider) | <span data-ttu-id="537ae-222">カスタム ソース</span><span class="sxs-lookup"><span data-stu-id="537ae-222">Custom source</span></span> |
+| [<span data-ttu-id="537ae-223">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-223">Environment Variables Configuration Provider</span></span>](#environment-variables-configuration-provider) | <span data-ttu-id="537ae-224">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-224">Environment variables</span></span> |
+| [<span data-ttu-id="537ae-225">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-225">File Configuration Provider</span></span>](#file-configuration-provider) | <span data-ttu-id="537ae-226">ファイル (INI、JSON、XML)</span><span class="sxs-lookup"><span data-stu-id="537ae-226">Files (INI, JSON, XML)</span></span> |
+| [<span data-ttu-id="537ae-227">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-227">Memory Configuration Provider</span></span>](#memory-configuration-provider) | <span data-ttu-id="537ae-228">メモリ内コレクション</span><span class="sxs-lookup"><span data-stu-id="537ae-228">In-memory collections</span></span> |
+| <span data-ttu-id="537ae-229">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="537ae-229">[User secrets (Secret Manager)](xref:security/app-secrets) (*Security* topics)</span></span> | <span data-ttu-id="537ae-230">ユーザー プロファイル ディレクトリ内のファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-230">File in the user profile directory</span></span> |
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-1.0"
 
-| <span data-ttu-id="9248d-230">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-230">Provider</span></span> | <span data-ttu-id="9248d-231">&hellip; から構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="9248d-231">Provides configuration from&hellip;</span></span> |
+| <span data-ttu-id="537ae-231">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-231">Provider</span></span> | <span data-ttu-id="537ae-232">&hellip; から構成を提供します。</span><span class="sxs-lookup"><span data-stu-id="537ae-232">Provides configuration from&hellip;</span></span> |
 | -------- | ----------------------------------- |
-| [<span data-ttu-id="9248d-232">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-232">Command-line Configuration Provider</span></span>](#command-line-configuration-provider) | <span data-ttu-id="9248d-233">コマンド ライン パラメーター</span><span class="sxs-lookup"><span data-stu-id="9248d-233">Command-line parameters</span></span> |
-| [<span data-ttu-id="9248d-234">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-234">Custom configuration provider</span></span>](#custom-configuration-provider) | <span data-ttu-id="9248d-235">カスタム ソース</span><span class="sxs-lookup"><span data-stu-id="9248d-235">Custom source</span></span> |
-| [<span data-ttu-id="9248d-236">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-236">Environment Variables Configuration Provider</span></span>](#environment-variables-configuration-provider) | <span data-ttu-id="9248d-237">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-237">Environment variables</span></span> |
-| [<span data-ttu-id="9248d-238">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-238">File Configuration Provider</span></span>](#file-configuration-provider) | <span data-ttu-id="9248d-239">ファイル (INI、JSON、XML)</span><span class="sxs-lookup"><span data-stu-id="9248d-239">Files (INI, JSON, XML)</span></span> |
-| [<span data-ttu-id="9248d-240">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-240">Memory Configuration Provider</span></span>](#memory-configuration-provider) | <span data-ttu-id="9248d-241">メモリ内コレクション</span><span class="sxs-lookup"><span data-stu-id="9248d-241">In-memory collections</span></span> |
-| <span data-ttu-id="9248d-242">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="9248d-242">[User secrets (Secret Manager)](xref:security/app-secrets) (*Security* topics)</span></span> | <span data-ttu-id="9248d-243">ユーザー プロファイル ディレクトリ内のファイル</span><span class="sxs-lookup"><span data-stu-id="9248d-243">File in the user profile directory</span></span> |
+| [<span data-ttu-id="537ae-233">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-233">Command-line Configuration Provider</span></span>](#command-line-configuration-provider) | <span data-ttu-id="537ae-234">コマンド ライン パラメーター</span><span class="sxs-lookup"><span data-stu-id="537ae-234">Command-line parameters</span></span> |
+| [<span data-ttu-id="537ae-235">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-235">Custom configuration provider</span></span>](#custom-configuration-provider) | <span data-ttu-id="537ae-236">カスタム ソース</span><span class="sxs-lookup"><span data-stu-id="537ae-236">Custom source</span></span> |
+| [<span data-ttu-id="537ae-237">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-237">Environment Variables Configuration Provider</span></span>](#environment-variables-configuration-provider) | <span data-ttu-id="537ae-238">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-238">Environment variables</span></span> |
+| [<span data-ttu-id="537ae-239">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-239">File Configuration Provider</span></span>](#file-configuration-provider) | <span data-ttu-id="537ae-240">ファイル (INI、JSON、XML)</span><span class="sxs-lookup"><span data-stu-id="537ae-240">Files (INI, JSON, XML)</span></span> |
+| [<span data-ttu-id="537ae-241">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-241">Memory Configuration Provider</span></span>](#memory-configuration-provider) | <span data-ttu-id="537ae-242">メモリ内コレクション</span><span class="sxs-lookup"><span data-stu-id="537ae-242">In-memory collections</span></span> |
+| <span data-ttu-id="537ae-243">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) ("*セキュリティ*" トピック)</span><span class="sxs-lookup"><span data-stu-id="537ae-243">[User secrets (Secret Manager)](xref:security/app-secrets) (*Security* topics)</span></span> | <span data-ttu-id="537ae-244">ユーザー プロファイル ディレクトリ内のファイル</span><span class="sxs-lookup"><span data-stu-id="537ae-244">File in the user profile directory</span></span> |
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-244">アプリの起動時に各構成プロバイダーが指定されている順序で構成ソースが読み取られます。</span><span class="sxs-lookup"><span data-stu-id="9248d-244">Configuration sources are read in the order that their configuration providers are specified at startup.</span></span> <span data-ttu-id="9248d-245">このトピックで説明する構成プロバイダーは、それらをコードで配置する順ではなく、アルファベット順で説明します。</span><span class="sxs-lookup"><span data-stu-id="9248d-245">The configuration providers described in this topic are described in alphabetical order, not in the order that your code may arrange them.</span></span> <span data-ttu-id="9248d-246">基になる構成ソースの優先順位に合わせるために、コード内で構成プロバイダーを並べ替えます。</span><span class="sxs-lookup"><span data-stu-id="9248d-246">Order configuration providers in your code to suit your priorities for the underlying configuration sources.</span></span>
+<span data-ttu-id="537ae-245">アプリの起動時に各構成プロバイダーが指定されている順序で構成ソースが読み取られます。</span><span class="sxs-lookup"><span data-stu-id="537ae-245">Configuration sources are read in the order that their configuration providers are specified at startup.</span></span> <span data-ttu-id="537ae-246">このトピックで説明する構成プロバイダーは、それらをコードで配置する順ではなく、アルファベット順で説明します。</span><span class="sxs-lookup"><span data-stu-id="537ae-246">The configuration providers described in this topic are described in alphabetical order, not in the order that your code may arrange them.</span></span> <span data-ttu-id="537ae-247">基になる構成ソースの優先順位に合わせるために、コード内で構成プロバイダーを並べ替えます。</span><span class="sxs-lookup"><span data-stu-id="537ae-247">Order configuration providers in your code to suit your priorities for the underlying configuration sources.</span></span>
 
-<span data-ttu-id="9248d-247">一般的な一連の構成プロバイダーは次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="9248d-247">A typical sequence of configuration providers is:</span></span>
+<span data-ttu-id="537ae-248">一般的な一連の構成プロバイダーは次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="537ae-248">A typical sequence of configuration providers is:</span></span>
 
-1. <span data-ttu-id="9248d-248">ファイル (*appsettings.json*、*appsettings.{Environment}.json*。`{Environment}` はアプリの現在のホスト環境です)</span><span class="sxs-lookup"><span data-stu-id="9248d-248">Files (*appsettings.json*, *appsettings.{Environment}.json*, where `{Environment}` is the app's current hosting environment)</span></span>
-1. [<span data-ttu-id="9248d-249">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="9248d-249">Azure Key Vault</span></span>](xref:security/key-vault-configuration)
-1. <span data-ttu-id="9248d-250">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合のみ)</span><span class="sxs-lookup"><span data-stu-id="9248d-250">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment only)</span></span>
-1. <span data-ttu-id="9248d-251">環境変数</span><span class="sxs-lookup"><span data-stu-id="9248d-251">Environment variables</span></span>
-1. <span data-ttu-id="9248d-252">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="9248d-252">Command-line arguments</span></span>
+1. <span data-ttu-id="537ae-249">ファイル (*appsettings.json*、*appsettings.{Environment}.json*。`{Environment}` はアプリの現在のホスト環境です)</span><span class="sxs-lookup"><span data-stu-id="537ae-249">Files (*appsettings.json*, *appsettings.{Environment}.json*, where `{Environment}` is the app's current hosting environment)</span></span>
+1. [<span data-ttu-id="537ae-250">Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="537ae-250">Azure Key Vault</span></span>](xref:security/key-vault-configuration)
+1. <span data-ttu-id="537ae-251">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合のみ)</span><span class="sxs-lookup"><span data-stu-id="537ae-251">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment only)</span></span>
+1. <span data-ttu-id="537ae-252">環境変数</span><span class="sxs-lookup"><span data-stu-id="537ae-252">Environment variables</span></span>
+1. <span data-ttu-id="537ae-253">コマンド ライン引数</span><span class="sxs-lookup"><span data-stu-id="537ae-253">Command-line arguments</span></span>
 
-<span data-ttu-id="9248d-253">コマンド ライン引数が他のプロバイダーによって設定された構成をオーバーライドできるようにするために、コマンド ラインの構成プロバイダーを一連のプロバイダーの最後に配置するのは、一般的な方法です。</span><span class="sxs-lookup"><span data-stu-id="9248d-253">It's a common practice to position the Command-line Configuration Provider last in a series of providers to allow command-line arguments to override configuration set by the other providers.</span></span>
+<span data-ttu-id="537ae-254">コマンド ライン引数が他のプロバイダーによって設定された構成をオーバーライドできるようにするために、コマンド ラインの構成プロバイダーを一連のプロバイダーの最後に配置するのは、一般的な方法です。</span><span class="sxs-lookup"><span data-stu-id="537ae-254">It's a common practice to position the Command-line Configuration Provider last in a series of providers to allow command-line arguments to override configuration set by the other providers.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-254">この一連のプロバイダーは、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を使用して新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化するときに配置されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-254">This sequence of providers is put into place when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>.</span></span> <span data-ttu-id="9248d-255">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-255">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
+<span data-ttu-id="537ae-255">この一連のプロバイダーは、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を使用して新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化するときに配置されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-255">This sequence of providers is put into place when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>.</span></span> <span data-ttu-id="537ae-256">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-256">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-256"><xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> および `Startup` 内のその <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder.Build*> メソッドの呼び出しを使用して、(ホストではなく) アプリ用に一連のプロバイダーを作成できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-256">This sequence of providers can be created for the app (not the host) with a <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> and a call to its <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder.Build*> method in `Startup`:</span></span>
+<span data-ttu-id="537ae-257"><xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> および `Startup` 内のその <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder.Build*> メソッドの呼び出しを使用して、(ホストではなく) アプリ用に一連のプロバイダーを作成できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-257">This sequence of providers can be created for the app (not the host) with a <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> and a call to its <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder.Build*> method in `Startup`:</span></span>
 
 ```csharp
 public Startup(IHostingEnvironment env)
@@ -242,48 +261,50 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<span data-ttu-id="9248d-257">前の例では、<xref:Microsoft.Extensions.Hosting.IHostingEnvironment> によって環境名 (`env.EnvironmentName`) とアプリのアセンブリ名 (`env.ApplicationName`) が提供されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-257">In the preceding example, the environment name (`env.EnvironmentName`) and app assembly name (`env.ApplicationName`) are provided by the <xref:Microsoft.Extensions.Hosting.IHostingEnvironment>.</span></span> <span data-ttu-id="9248d-258">詳細については、「<xref:fundamentals/environments>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-258">For more information, see <xref:fundamentals/environments>.</span></span> <span data-ttu-id="9248d-259">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-259">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-260">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-260">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
-<span data-ttu-id="9248d-261">.</span><span class="sxs-lookup"><span data-stu-id="9248d-261">.</span></span>
+<span data-ttu-id="537ae-258">前の例では、<xref:Microsoft.Extensions.Hosting.IHostingEnvironment> によって環境名 (`env.EnvironmentName`) とアプリのアセンブリ名 (`env.ApplicationName`) が提供されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-258">In the preceding example, the environment name (`env.EnvironmentName`) and app assembly name (`env.ApplicationName`) are provided by the <xref:Microsoft.Extensions.Hosting.IHostingEnvironment>.</span></span> <span data-ttu-id="537ae-259">詳細については、「<xref:fundamentals/environments>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-259">For more information, see <xref:fundamentals/environments>.</span></span> <span data-ttu-id="537ae-260">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-260">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-261">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-261">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-262">.</span><span class="sxs-lookup"><span data-stu-id="537ae-262">.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="configureappconfiguration"></a><span data-ttu-id="9248d-262">ConfigureAppConfiguration</span><span class="sxs-lookup"><span data-stu-id="9248d-262">ConfigureAppConfiguration</span></span>
+## <a name="configureappconfiguration"></a><span data-ttu-id="537ae-263">ConfigureAppConfiguration</span><span class="sxs-lookup"><span data-stu-id="537ae-263">ConfigureAppConfiguration</span></span>
 
-<span data-ttu-id="9248d-263">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出し、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> によって自動的に追加されるものに加え、アプリの構成プロバイダーを指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-263">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration providers in addition to those added automatically by <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:</span></span>
+<span data-ttu-id="537ae-264">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出し、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> によって自動的に追加されるものに加え、アプリの構成プロバイダーを指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-264">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration providers in addition to those added automatically by <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:</span></span>
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
 ::: moniker-end
 
-## <a name="command-line-configuration-provider"></a><span data-ttu-id="9248d-264">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-264">Command-line Configuration Provider</span></span>
+<span data-ttu-id="537ae-265"><xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリに指定した構成は、`Startup.ConfigureServices` などのアプリの起動中に使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-265">Configuration supplied to the app in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> is available during the app's startup, including `Startup.ConfigureServices`.</span></span> <span data-ttu-id="537ae-266">詳細については、「[起動中に構成にアクセスする](#access-configuration-during-startup)」のセクションを参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-266">For more information, see the [Access configuration during startup](#access-configuration-during-startup) section.</span></span>
 
-<span data-ttu-id="9248d-265"><xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> では、実行時にコマンドライン引数のキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-265">The <xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> loads configuration from command-line argument key-value pairs at runtime.</span></span>
+## <a name="command-line-configuration-provider"></a><span data-ttu-id="537ae-267">コマンド ライン構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-267">Command-line Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-266">コマンド ライン構成をアクティブにするために、<xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> 拡張メソッドが <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスで呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-266">To activate command-line configuration, the <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> extension method is called on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-268"><xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> では、実行時にコマンドライン引数のキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-268">The <xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> loads configuration from command-line argument key-value pairs at runtime.</span></span>
+
+<span data-ttu-id="537ae-269">コマンド ライン構成をアクティブにするために、<xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> 拡張メソッドが <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスで呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-269">To activate command-line configuration, the <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> extension method is called on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-267"><xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddCommandLine` が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-267">`AddCommandLine` is automatically called when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>.</span></span> <span data-ttu-id="9248d-268">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-268">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
+<span data-ttu-id="537ae-270"><xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddCommandLine` が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-270">`AddCommandLine` is automatically called when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>.</span></span> <span data-ttu-id="537ae-271">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-271">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
 
-<span data-ttu-id="9248d-269">`CreateDefaultBuilder` では次のものも読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-269">`CreateDefaultBuilder` also loads:</span></span>
+<span data-ttu-id="537ae-272">`CreateDefaultBuilder` では次のものも読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-272">`CreateDefaultBuilder` also loads:</span></span>
 
-* <span data-ttu-id="9248d-270">*appsettings.json* および *appsettings.{Environment}.json* からのオプションの構成。</span><span class="sxs-lookup"><span data-stu-id="9248d-270">Optional configuration from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
-* <span data-ttu-id="9248d-271">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。</span><span class="sxs-lookup"><span data-stu-id="9248d-271">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment).</span></span>
-* <span data-ttu-id="9248d-272">環境変数。</span><span class="sxs-lookup"><span data-stu-id="9248d-272">Environment variables.</span></span>
+* <span data-ttu-id="537ae-273">*appsettings.json* および *appsettings.{Environment}.json* からのオプションの構成。</span><span class="sxs-lookup"><span data-stu-id="537ae-273">Optional configuration from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
+* <span data-ttu-id="537ae-274">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。</span><span class="sxs-lookup"><span data-stu-id="537ae-274">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment).</span></span>
+* <span data-ttu-id="537ae-275">環境変数。</span><span class="sxs-lookup"><span data-stu-id="537ae-275">Environment variables.</span></span>
 
-<span data-ttu-id="9248d-273">`CreateDefaultBuilder` はコマンド ライン構成プロバイダーを最後に追加します。</span><span class="sxs-lookup"><span data-stu-id="9248d-273">`CreateDefaultBuilder` adds the Command-line Configuration Provider last.</span></span> <span data-ttu-id="9248d-274">実行時に渡されるコマンド ライン引数によって、他のプロバイダーによって設定された構成がオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="9248d-274">Command-line arguments passed at runtime override configuration set by the other providers.</span></span>
+<span data-ttu-id="537ae-276">`CreateDefaultBuilder` はコマンド ライン構成プロバイダーを最後に追加します。</span><span class="sxs-lookup"><span data-stu-id="537ae-276">`CreateDefaultBuilder` adds the Command-line Configuration Provider last.</span></span> <span data-ttu-id="537ae-277">実行時に渡されるコマンド ライン引数によって、他のプロバイダーによって設定された構成がオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="537ae-277">Command-line arguments passed at runtime override configuration set by the other providers.</span></span>
 
-<span data-ttu-id="9248d-275">`CreateDefaultBuilder` は、ホストが作成されるときに機能します。</span><span class="sxs-lookup"><span data-stu-id="9248d-275">`CreateDefaultBuilder` acts when the host is constructed.</span></span> <span data-ttu-id="9248d-276">そのため、`CreateDefaultBuilder` によってアクティブ化されるコマンド ライン構成によって、ホストの構成方法に影響を与えることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-276">Therefore, command-line configuration activated by `CreateDefaultBuilder` can affect how the host is configured.</span></span>
+<span data-ttu-id="537ae-278">`CreateDefaultBuilder` は、ホストが作成されるときに機能します。</span><span class="sxs-lookup"><span data-stu-id="537ae-278">`CreateDefaultBuilder` acts when the host is constructed.</span></span> <span data-ttu-id="537ae-279">そのため、`CreateDefaultBuilder` によってアクティブ化されるコマンド ライン構成によって、ホストの構成方法に影響を与えることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-279">Therefore, command-line configuration activated by `CreateDefaultBuilder` can affect how the host is configured.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-277">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-277">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration.</span></span>
+<span data-ttu-id="537ae-280">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-280">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration.</span></span>
 
-<span data-ttu-id="9248d-278">`AddCommandLine` は既に `CreateDefaultBuilder` によって呼び出されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-278">`AddCommandLine` has already been called by `CreateDefaultBuilder`.</span></span> <span data-ttu-id="9248d-279">アプリの構成を指定して、引き続きコマンドラインの引数でその構成をオーバーライドできるようにする必要がある場合、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> でアプリの追加のプロバイダーを呼び出し、最後に `AddCommandLine` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-279">If you need to provide app configuration and still be able to override that configuration with command-line arguments, call the app's additional providers in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> and call `AddCommandLine` last.</span></span>
+<span data-ttu-id="537ae-281">`AddCommandLine` は既に `CreateDefaultBuilder` によって呼び出されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-281">`AddCommandLine` has already been called by `CreateDefaultBuilder`.</span></span> <span data-ttu-id="537ae-282">アプリの構成を指定して、引き続きコマンドラインの引数でその構成をオーバーライドできるようにする必要がある場合、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> でアプリの追加のプロバイダーを呼び出し、最後に `AddCommandLine` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-282">If you need to provide app configuration and still be able to override that configuration with command-line arguments, call the app's additional providers in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> and call `AddCommandLine` last.</span></span>
 
 ```csharp
 public class Program
@@ -304,15 +325,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-280"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-280">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-283"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-283">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-281"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-281">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method.</span></span>
+<span data-ttu-id="537ae-284"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-284">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method.</span></span>
 
-<span data-ttu-id="9248d-282">`UseConfiguration` が呼び出される場合、`AddCommandLine` は既に `CreateDefaultBuilder` によって呼び出されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-282">`AddCommandLine` has already been called by `CreateDefaultBuilder` when `UseConfiguration` is called.</span></span> <span data-ttu-id="9248d-283">アプリの構成を指定して、引き続きコマンドラインの引数でその構成をオーバーライドできるようにする必要がある場合、`ConfigurationBuilder` でアプリの追加のプロバイダーを呼び出し、最後に `AddCommandLine` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-283">If you need to provide app configuration and still be able to override that configuration with command-line arguments, call the app's additional providers on a `ConfigurationBuilder` and call `AddCommandLine` last.</span></span>
+<span data-ttu-id="537ae-285">`UseConfiguration` が呼び出される場合、`AddCommandLine` は既に `CreateDefaultBuilder` によって呼び出されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-285">`AddCommandLine` has already been called by `CreateDefaultBuilder` when `UseConfiguration` is called.</span></span> <span data-ttu-id="537ae-286">アプリの構成を指定して、引き続きコマンドラインの引数でその構成をオーバーライドできるようにする必要がある場合、`ConfigurationBuilder` でアプリの追加のプロバイダーを呼び出し、最後に `AddCommandLine` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-286">If you need to provide app configuration and still be able to override that configuration with command-line arguments, call the app's additional providers on a `ConfigurationBuilder` and call `AddCommandLine` last.</span></span>
 
 ```csharp
 public class Program
@@ -336,17 +357,17 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-284"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-284">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-287"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-287">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-285">コマンド ライン構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-285">To activate command-line configuration, call the <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-288">コマンド ライン構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-288">To activate command-line configuration, call the <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-286">最後にプロバイダーを呼び出すことにより、実行時に渡されるコマンドライン引数で、他の構成プロバイダーによって設定された構成をオーバーライドできるようにします。</span><span class="sxs-lookup"><span data-stu-id="9248d-286">Call the provider last to allow the command-line arguments passed at runtime to override configuration set by other configuration providers.</span></span>
+<span data-ttu-id="537ae-289">最後にプロバイダーを呼び出すことにより、実行時に渡されるコマンドライン引数で、他の構成プロバイダーによって設定された構成をオーバーライドできるようにします。</span><span class="sxs-lookup"><span data-stu-id="537ae-289">Call the provider last to allow the command-line arguments passed at runtime to override configuration set by other configuration providers.</span></span>
 
-<span data-ttu-id="9248d-287"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-287">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
+<span data-ttu-id="537ae-290"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-290">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
 
 ::: moniker-end
 
@@ -363,38 +384,38 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
-<span data-ttu-id="9248d-288">**例**</span><span class="sxs-lookup"><span data-stu-id="9248d-288">**Example**</span></span>
+<span data-ttu-id="537ae-291">**例**</span><span class="sxs-lookup"><span data-stu-id="537ae-291">**Example**</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-289">2.x のサンプル アプリでは、静的な簡易メソッド `CreateDefaultBuilder` を利用してホストをビルドします。これには <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> の呼び出しが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-289">The 2.x sample app takes advantage of the static convenience method `CreateDefaultBuilder` to build the host, which includes a call to <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.</span></span>
+<span data-ttu-id="537ae-292">2.x のサンプル アプリでは、静的な簡易メソッド `CreateDefaultBuilder` を利用してホストをビルドします。これには <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> の呼び出しが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-292">The 2.x sample app takes advantage of the static convenience method `CreateDefaultBuilder` to build the host, which includes a call to <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-290">1.x のサンプル アプリでは、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> の <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-290">The 1.x sample app calls <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> on a <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-293">1.x のサンプル アプリでは、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> の <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-293">The 1.x sample app calls <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> on a <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
 ::: moniker-end
 
-1. <span data-ttu-id="9248d-291">プロジェクトのディレクトリでコマンド プロンプトを開きます。</span><span class="sxs-lookup"><span data-stu-id="9248d-291">Open a command prompt in the project's directory.</span></span>
-1. <span data-ttu-id="9248d-292">`dotnet run` コマンドにコマンドライン引数を指定します (`dotnet run CommandLineKey=CommandLineValue`)。</span><span class="sxs-lookup"><span data-stu-id="9248d-292">Supply a command-line argument to the `dotnet run` command, `dotnet run CommandLineKey=CommandLineValue`.</span></span>
-1. <span data-ttu-id="9248d-293">アプリを実行したら、アプリに対して `http://localhost:5000` でブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="9248d-293">After the app is running, open a browser to the app at `http://localhost:5000`.</span></span>
-1. <span data-ttu-id="9248d-294">出力に、`dotnet run` に提供される構成のコマンド ライン引数のキーと値のペアが含まれていることを観察します。</span><span class="sxs-lookup"><span data-stu-id="9248d-294">Observe that the output contains the key-value pair for the configuration command-line argument provided to `dotnet run`.</span></span>
+1. <span data-ttu-id="537ae-294">プロジェクトのディレクトリでコマンド プロンプトを開きます。</span><span class="sxs-lookup"><span data-stu-id="537ae-294">Open a command prompt in the project's directory.</span></span>
+1. <span data-ttu-id="537ae-295">`dotnet run` コマンドにコマンドライン引数を指定します (`dotnet run CommandLineKey=CommandLineValue`)。</span><span class="sxs-lookup"><span data-stu-id="537ae-295">Supply a command-line argument to the `dotnet run` command, `dotnet run CommandLineKey=CommandLineValue`.</span></span>
+1. <span data-ttu-id="537ae-296">アプリを実行したら、アプリに対して `http://localhost:5000` でブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="537ae-296">After the app is running, open a browser to the app at `http://localhost:5000`.</span></span>
+1. <span data-ttu-id="537ae-297">出力に、`dotnet run` に提供される構成のコマンド ライン引数のキーと値のペアが含まれていることを観察します。</span><span class="sxs-lookup"><span data-stu-id="537ae-297">Observe that the output contains the key-value pair for the configuration command-line argument provided to `dotnet run`.</span></span>
 
-### <a name="arguments"></a><span data-ttu-id="9248d-295">引数</span><span class="sxs-lookup"><span data-stu-id="9248d-295">Arguments</span></span>
+### <a name="arguments"></a><span data-ttu-id="537ae-298">引数</span><span class="sxs-lookup"><span data-stu-id="537ae-298">Arguments</span></span>
 
-<span data-ttu-id="9248d-296">値は等号 (`=`) の後に続ける必要があります。または、値をスペースの後に続ける場合は、キーにプレフィックス (`--`または`/`) を付ける必要があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-296">The value must follow an equals sign (`=`), or the key must have a prefix (`--` or `/`) when the value follows a space.</span></span> <span data-ttu-id="9248d-297">等号を使用する場合は、値に null を指定できます (例: `CommandLineKey=`)。</span><span class="sxs-lookup"><span data-stu-id="9248d-297">The value can be null if an equals sign is used (for example, `CommandLineKey=`).</span></span>
+<span data-ttu-id="537ae-299">値は等号 (`=`) の後に続ける必要があります。または、値をスペースの後に続ける場合は、キーにプレフィックス (`--`または`/`) を付ける必要があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-299">The value must follow an equals sign (`=`), or the key must have a prefix (`--` or `/`) when the value follows a space.</span></span> <span data-ttu-id="537ae-300">等号を使用する場合は、値に null を指定できます (例: `CommandLineKey=`)。</span><span class="sxs-lookup"><span data-stu-id="537ae-300">The value can be null if an equals sign is used (for example, `CommandLineKey=`).</span></span>
 
-| <span data-ttu-id="9248d-298">キーのプレフィックス</span><span class="sxs-lookup"><span data-stu-id="9248d-298">Key prefix</span></span>               | <span data-ttu-id="9248d-299">例</span><span class="sxs-lookup"><span data-stu-id="9248d-299">Example</span></span>                                                |
+| <span data-ttu-id="537ae-301">キーのプレフィックス</span><span class="sxs-lookup"><span data-stu-id="537ae-301">Key prefix</span></span>               | <span data-ttu-id="537ae-302">例</span><span class="sxs-lookup"><span data-stu-id="537ae-302">Example</span></span>                                                |
 | ------------------------ | ------------------------------------------------------ |
-| <span data-ttu-id="9248d-300">プレフィックスなし</span><span class="sxs-lookup"><span data-stu-id="9248d-300">No prefix</span></span>                | `CommandLineKey1=value1`                               |
-| <span data-ttu-id="9248d-301">2 つのダッシュ (`--`)</span><span class="sxs-lookup"><span data-stu-id="9248d-301">Two dashes (`--`)</span></span>        | <span data-ttu-id="9248d-302">`--CommandLineKey2=value2`、 `--CommandLineKey2 value2`</span><span class="sxs-lookup"><span data-stu-id="9248d-302">`--CommandLineKey2=value2`, `--CommandLineKey2 value2`</span></span> |
-| <span data-ttu-id="9248d-303">スラッシュ (`/`)</span><span class="sxs-lookup"><span data-stu-id="9248d-303">Forward slash (`/`)</span></span>      | <span data-ttu-id="9248d-304">`/CommandLineKey3=value3`、 `/CommandLineKey3 value3`</span><span class="sxs-lookup"><span data-stu-id="9248d-304">`/CommandLineKey3=value3`, `/CommandLineKey3 value3`</span></span>   |
+| <span data-ttu-id="537ae-303">プレフィックスなし</span><span class="sxs-lookup"><span data-stu-id="537ae-303">No prefix</span></span>                | `CommandLineKey1=value1`                               |
+| <span data-ttu-id="537ae-304">2 つのダッシュ (`--`)</span><span class="sxs-lookup"><span data-stu-id="537ae-304">Two dashes (`--`)</span></span>        | <span data-ttu-id="537ae-305">`--CommandLineKey2=value2`、 `--CommandLineKey2 value2`</span><span class="sxs-lookup"><span data-stu-id="537ae-305">`--CommandLineKey2=value2`, `--CommandLineKey2 value2`</span></span> |
+| <span data-ttu-id="537ae-306">スラッシュ (`/`)</span><span class="sxs-lookup"><span data-stu-id="537ae-306">Forward slash (`/`)</span></span>      | <span data-ttu-id="537ae-307">`/CommandLineKey3=value3`、 `/CommandLineKey3 value3`</span><span class="sxs-lookup"><span data-stu-id="537ae-307">`/CommandLineKey3=value3`, `/CommandLineKey3 value3`</span></span>   |
 
-<span data-ttu-id="9248d-305">同じコマンド内のコマンド ライン引数で、等号を使用するキーと値のペアと、スペースを使用するキーと値のペアを混在させないでください。</span><span class="sxs-lookup"><span data-stu-id="9248d-305">Within the same command, don't mix command-line argument key-value pairs that use an equals sign with key-value pairs that use a space.</span></span>
+<span data-ttu-id="537ae-308">同じコマンド内のコマンド ライン引数で、等号を使用するキーと値のペアと、スペースを使用するキーと値のペアを混在させないでください。</span><span class="sxs-lookup"><span data-stu-id="537ae-308">Within the same command, don't mix command-line argument key-value pairs that use an equals sign with key-value pairs that use a space.</span></span>
 
-<span data-ttu-id="9248d-306">コマンドの例:</span><span class="sxs-lookup"><span data-stu-id="9248d-306">Example commands:</span></span>
+<span data-ttu-id="537ae-309">コマンドの例:</span><span class="sxs-lookup"><span data-stu-id="537ae-309">Example commands:</span></span>
 
 ```console
 dotnet run CommandLineKey1=value1 --CommandLineKey2=value2 /CommandLineKey3=value3
@@ -402,20 +423,20 @@ dotnet run --CommandLineKey1 value1 /CommandLineKey2 value2
 dotnet run CommandLineKey1= CommandLineKey2=value2
 ```
 
-### <a name="switch-mappings"></a><span data-ttu-id="9248d-307">スイッチ マッピング</span><span class="sxs-lookup"><span data-stu-id="9248d-307">Switch mappings</span></span>
+### <a name="switch-mappings"></a><span data-ttu-id="537ae-310">スイッチ マッピング</span><span class="sxs-lookup"><span data-stu-id="537ae-310">Switch mappings</span></span>
 
-<span data-ttu-id="9248d-308">スイッチ マッピングでは、キー名の交換ロジックが許可されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-308">Switch mappings allow key name replacement logic.</span></span> <span data-ttu-id="9248d-309"><xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> で構成を手動でビルドするときに、<xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> メソッドにスイッチ置換のディクショナリを指定することができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-309">When you manually build configuration with a <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>, you can provide a dictionary of switch replacements to the <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> method.</span></span>
+<span data-ttu-id="537ae-311">スイッチ マッピングでは、キー名の交換ロジックが許可されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-311">Switch mappings allow key name replacement logic.</span></span> <span data-ttu-id="537ae-312"><xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> で構成を手動でビルドするときに、<xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> メソッドにスイッチ置換のディクショナリを指定することができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-312">When you manually build configuration with a <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>, you can provide a dictionary of switch replacements to the <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> method.</span></span>
 
-<span data-ttu-id="9248d-310">スイッチ マッピング ディクショナリが使用されている場合、そのディレクトリで、コマンドライン引数によって指定されたキーと一致するキーが確認されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-310">When the switch mappings dictionary is used, the dictionary is checked for a key that matches the key provided by a command-line argument.</span></span> <span data-ttu-id="9248d-311">コマンド ライン キーがディクショナリで見つかった場合は、アプリの構成にキーと値のペアを設定するためにディクショナリの値 (キー交換) が返されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-311">If the command-line key is found in the dictionary, the dictionary value (the key replacement) is passed back to set the key-value pair into the app's configuration.</span></span> <span data-ttu-id="9248d-312">スイッチ マッピングは、単一のダッシュ (`-`) が前に付いたすべてのコマンドライン キーに必要です。</span><span class="sxs-lookup"><span data-stu-id="9248d-312">A switch mapping is required for any command-line key prefixed with a single dash (`-`).</span></span>
+<span data-ttu-id="537ae-313">スイッチ マッピング ディクショナリが使用されている場合、そのディレクトリで、コマンドライン引数によって指定されたキーと一致するキーが確認されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-313">When the switch mappings dictionary is used, the dictionary is checked for a key that matches the key provided by a command-line argument.</span></span> <span data-ttu-id="537ae-314">コマンド ライン キーがディクショナリで見つかった場合は、アプリの構成にキーと値のペアを設定するためにディクショナリの値 (キー交換) が返されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-314">If the command-line key is found in the dictionary, the dictionary value (the key replacement) is passed back to set the key-value pair into the app's configuration.</span></span> <span data-ttu-id="537ae-315">スイッチ マッピングは、単一のダッシュ (`-`) が前に付いたすべてのコマンドライン キーに必要です。</span><span class="sxs-lookup"><span data-stu-id="537ae-315">A switch mapping is required for any command-line key prefixed with a single dash (`-`).</span></span>
 
-<span data-ttu-id="9248d-313">スイッチ マッピング ディクショナリ キーの規則:</span><span class="sxs-lookup"><span data-stu-id="9248d-313">Switch mappings dictionary key rules:</span></span>
+<span data-ttu-id="537ae-316">スイッチ マッピング ディクショナリ キーの規則:</span><span class="sxs-lookup"><span data-stu-id="537ae-316">Switch mappings dictionary key rules:</span></span>
 
-* <span data-ttu-id="9248d-314">スイッチはダッシュ (`-`) または二重ダッシュ (`--`) で開始する必要があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-314">Switches must start with a dash (`-`) or double-dash (`--`).</span></span>
-* <span data-ttu-id="9248d-315">スイッチ マッピング ディクショナリに重複キーを含めることはできません。</span><span class="sxs-lookup"><span data-stu-id="9248d-315">The switch mappings dictionary must not contain duplicate keys.</span></span>
+* <span data-ttu-id="537ae-317">スイッチはダッシュ (`-`) または二重ダッシュ (`--`) で開始する必要があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-317">Switches must start with a dash (`-`) or double-dash (`--`).</span></span>
+* <span data-ttu-id="537ae-318">スイッチ マッピング ディクショナリに重複キーを含めることはできません。</span><span class="sxs-lookup"><span data-stu-id="537ae-318">The switch mappings dictionary must not contain duplicate keys.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-316">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-316">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
+<span data-ttu-id="537ae-319">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-319">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
 
 ```csharp
 public class Program
@@ -443,7 +464,7 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-317">前の例で示したように、スイッチ マッピングを使用する場合は `CreateDefaultBuilder` への呼び出しが引数を渡すことはできません。</span><span class="sxs-lookup"><span data-stu-id="9248d-317">As shown in the preceding example, the call to `CreateDefaultBuilder` shouldn't pass arguments when switch mappings are used.</span></span> <span data-ttu-id="9248d-318">`CreateDefaultBuilder` メソッドの `AddCommandLine` の呼び出しにはマップされたスイッチが含まれないため、スイッチ マッピング ディクショナリを `CreateDefaultBuilder` に渡す方法はありません。</span><span class="sxs-lookup"><span data-stu-id="9248d-318">`CreateDefaultBuilder` method's `AddCommandLine` call doesn't include mapped switches, and there's no way to pass the switch mapping dictionary to `CreateDefaultBuilder`.</span></span> <span data-ttu-id="9248d-319">引数にマップされたスイッチが含まれており、それが `CreateDefaultBuilder` に渡される場合は、その `AddCommandLine` プロバイダーは <xref:System.FormatException> で初期化に失敗します。</span><span class="sxs-lookup"><span data-stu-id="9248d-319">If the arguments include a mapped switch and are passed to `CreateDefaultBuilder`, its `AddCommandLine` provider fails to initialize with a <xref:System.FormatException>.</span></span> <span data-ttu-id="9248d-320">ソリューションでは `CreateDefaultBuilder` に引数を渡す代わりに、`ConfigurationBuilder` メソッドの `AddCommandLine` メソッドに、引数とスイッチ マッピング ディクショナリの両方を処理させることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-320">The solution isn't to pass the arguments to `CreateDefaultBuilder` but instead to allow the `ConfigurationBuilder` method's `AddCommandLine` method to process both the arguments and the switch mapping dictionary.</span></span>
+<span data-ttu-id="537ae-320">前の例で示したように、スイッチ マッピングを使用する場合は `CreateDefaultBuilder` への呼び出しが引数を渡すことはできません。</span><span class="sxs-lookup"><span data-stu-id="537ae-320">As shown in the preceding example, the call to `CreateDefaultBuilder` shouldn't pass arguments when switch mappings are used.</span></span> <span data-ttu-id="537ae-321">`CreateDefaultBuilder` メソッドの `AddCommandLine` の呼び出しにはマップされたスイッチが含まれないため、スイッチ マッピング ディクショナリを `CreateDefaultBuilder` に渡す方法はありません。</span><span class="sxs-lookup"><span data-stu-id="537ae-321">`CreateDefaultBuilder` method's `AddCommandLine` call doesn't include mapped switches, and there's no way to pass the switch mapping dictionary to `CreateDefaultBuilder`.</span></span> <span data-ttu-id="537ae-322">引数にマップされたスイッチが含まれており、それが `CreateDefaultBuilder` に渡される場合は、その `AddCommandLine` プロバイダーは <xref:System.FormatException> で初期化に失敗します。</span><span class="sxs-lookup"><span data-stu-id="537ae-322">If the arguments include a mapped switch and are passed to `CreateDefaultBuilder`, its `AddCommandLine` provider fails to initialize with a <xref:System.FormatException>.</span></span> <span data-ttu-id="537ae-323">ソリューションでは `CreateDefaultBuilder` に引数を渡す代わりに、`ConfigurationBuilder` メソッドの `AddCommandLine` メソッドに、引数とスイッチ マッピング ディクショナリの両方を処理させることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-323">The solution isn't to pass the arguments to `CreateDefaultBuilder` but instead to allow the `ConfigurationBuilder` method's `AddCommandLine` method to process both the arguments and the switch mapping dictionary.</span></span>
 
 ::: moniker-end
 
@@ -477,7 +498,7 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-321">前の例で示したように、スイッチ マッピングを使用する場合は `CreateDefaultBuilder` への呼び出しが引数を渡すことはできません。</span><span class="sxs-lookup"><span data-stu-id="9248d-321">As shown in the preceding example, the call to `CreateDefaultBuilder` shouldn't pass arguments when switch mappings are used.</span></span> <span data-ttu-id="9248d-322">`CreateDefaultBuilder` メソッドの `AddCommandLine` の呼び出しにはマップされたスイッチが含まれないため、スイッチ マッピング ディクショナリを `CreateDefaultBuilder` に渡す方法はありません。</span><span class="sxs-lookup"><span data-stu-id="9248d-322">`CreateDefaultBuilder` method's `AddCommandLine` call doesn't include mapped switches, and there's no way to pass the switch mapping dictionary to `CreateDefaultBuilder`.</span></span> <span data-ttu-id="9248d-323">引数にマップされたスイッチが含まれており、それが `CreateDefaultBuilder` に渡される場合は、その `AddCommandLine` プロバイダーは <xref:System.FormatException> で初期化に失敗します。</span><span class="sxs-lookup"><span data-stu-id="9248d-323">If the arguments include a mapped switch and are passed to `CreateDefaultBuilder`, its `AddCommandLine` provider fails to initialize with a <xref:System.FormatException>.</span></span> <span data-ttu-id="9248d-324">ソリューションでは `CreateDefaultBuilder` に引数を渡す代わりに、`ConfigurationBuilder` メソッドの `AddCommandLine` メソッドに、引数とスイッチ マッピング ディクショナリの両方を処理させることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-324">The solution isn't to pass the arguments to `CreateDefaultBuilder` but instead to allow the `ConfigurationBuilder` method's `AddCommandLine` method to process both the arguments and the switch mapping dictionary.</span></span>
+<span data-ttu-id="537ae-324">前の例で示したように、スイッチ マッピングを使用する場合は `CreateDefaultBuilder` への呼び出しが引数を渡すことはできません。</span><span class="sxs-lookup"><span data-stu-id="537ae-324">As shown in the preceding example, the call to `CreateDefaultBuilder` shouldn't pass arguments when switch mappings are used.</span></span> <span data-ttu-id="537ae-325">`CreateDefaultBuilder` メソッドの `AddCommandLine` の呼び出しにはマップされたスイッチが含まれないため、スイッチ マッピング ディクショナリを `CreateDefaultBuilder` に渡す方法はありません。</span><span class="sxs-lookup"><span data-stu-id="537ae-325">`CreateDefaultBuilder` method's `AddCommandLine` call doesn't include mapped switches, and there's no way to pass the switch mapping dictionary to `CreateDefaultBuilder`.</span></span> <span data-ttu-id="537ae-326">引数にマップされたスイッチが含まれており、それが `CreateDefaultBuilder` に渡される場合は、その `AddCommandLine` プロバイダーは <xref:System.FormatException> で初期化に失敗します。</span><span class="sxs-lookup"><span data-stu-id="537ae-326">If the arguments include a mapped switch and are passed to `CreateDefaultBuilder`, its `AddCommandLine` provider fails to initialize with a <xref:System.FormatException>.</span></span> <span data-ttu-id="537ae-327">ソリューションでは `CreateDefaultBuilder` に引数を渡す代わりに、`ConfigurationBuilder` メソッドの `AddCommandLine` メソッドに、引数とスイッチ マッピング ディクショナリの両方を処理させることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-327">The solution isn't to pass the arguments to `CreateDefaultBuilder` but instead to allow the `ConfigurationBuilder` method's `AddCommandLine` method to process both the arguments and the switch mapping dictionary.</span></span>
 
 ::: moniker-end
 
@@ -511,56 +532,56 @@ public static void Main(string[] args)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-325">スイッチ マッピング ディクショナリが作成されると、以下の表に示すデータが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-325">After the switch mappings dictionary is created, it contains the data shown in the following table.</span></span>
+<span data-ttu-id="537ae-328">スイッチ マッピング ディクショナリが作成されると、以下の表に示すデータが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-328">After the switch mappings dictionary is created, it contains the data shown in the following table.</span></span>
 
-| <span data-ttu-id="9248d-326">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-326">Key</span></span>       | <span data-ttu-id="9248d-327">[値]</span><span class="sxs-lookup"><span data-stu-id="9248d-327">Value</span></span>             |
+| <span data-ttu-id="537ae-329">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-329">Key</span></span>       | <span data-ttu-id="537ae-330">[値]</span><span class="sxs-lookup"><span data-stu-id="537ae-330">Value</span></span>             |
 | --------- | ----------------- |
 | `-CLKey1` | `CommandLineKey1` |
 | `-CLKey2` | `CommandLineKey2` |
 
-<span data-ttu-id="9248d-328">アプリの起動時にスイッチ マッピングされたキーを使用する場合、構成は、ディクショナリによって指定されたキーでの構成値を受け取ります。</span><span class="sxs-lookup"><span data-stu-id="9248d-328">If the switch-mapped keys are used when starting the app, configuration receives the configuration value on the key supplied by the dictionary:</span></span>
+<span data-ttu-id="537ae-331">アプリの起動時にスイッチ マッピングされたキーを使用する場合、構成は、ディクショナリによって指定されたキーでの構成値を受け取ります。</span><span class="sxs-lookup"><span data-stu-id="537ae-331">If the switch-mapped keys are used when starting the app, configuration receives the configuration value on the key supplied by the dictionary:</span></span>
 
 ```console
 dotnet run -CLKey1=value1 -CLKey2=value2
 ```
 
-<span data-ttu-id="9248d-329">上記のコマンドを実行すると、次の表に示す値が構成に含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-329">After running the preceding command, configuration contains the values shown in the following table.</span></span>
+<span data-ttu-id="537ae-332">上記のコマンドを実行すると、次の表に示す値が構成に含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-332">After running the preceding command, configuration contains the values shown in the following table.</span></span>
 
-| <span data-ttu-id="9248d-330">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-330">Key</span></span>               | <span data-ttu-id="9248d-331">[値]</span><span class="sxs-lookup"><span data-stu-id="9248d-331">Value</span></span>    |
+| <span data-ttu-id="537ae-333">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-333">Key</span></span>               | <span data-ttu-id="537ae-334">[値]</span><span class="sxs-lookup"><span data-stu-id="537ae-334">Value</span></span>    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
 
-## <a name="environment-variables-configuration-provider"></a><span data-ttu-id="9248d-332">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-332">Environment Variables Configuration Provider</span></span>
+## <a name="environment-variables-configuration-provider"></a><span data-ttu-id="537ae-335">環境変数構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-335">Environment Variables Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-333"><xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> では、実行時に環境変数のキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-333">The <xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> loads configuration from environment variable key-value pairs at runtime.</span></span>
+<span data-ttu-id="537ae-336"><xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> では、実行時に環境変数のキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-336">The <xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> loads configuration from environment variable key-value pairs at runtime.</span></span>
 
-<span data-ttu-id="9248d-334">環境変数の構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-334">To activate environment variables configuration, call the <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-337">環境変数の構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-337">To activate environment variables configuration, call the <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-335">環境変数内で階層キーを操作する場合、コロン区切り (`:`) がすべてのプラットフォームでは機能しない場合があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-335">When working with hierarchical keys in environment variables, a colon separator (`:`) may not work on all platforms.</span></span> <span data-ttu-id="9248d-336">二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされ、コロンに置換されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-336">A double underscore (`__`) is supported by all platforms and is replaced by a colon.</span></span>
+<span data-ttu-id="537ae-338">環境変数内で階層キーを操作する場合、コロン区切り (`:`) がすべてのプラットフォームでは機能しない場合があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-338">When working with hierarchical keys in environment variables, a colon separator (`:`) may not work on all platforms.</span></span> <span data-ttu-id="537ae-339">二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされ、コロンに置換されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-339">A double underscore (`__`) is supported by all platforms and is replaced by a colon.</span></span>
 
-<span data-ttu-id="9248d-337">[Azure App Service](https://azure.microsoft.com/services/app-service/) を使用すると、環境変数構成プロバイダーを使用してアプリの構成をオーバーライドすることができる環境変数を、Azure Portal で設定できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-337">[Azure App Service](https://azure.microsoft.com/services/app-service/) permits you to set environment variables in the Azure Portal that can override app configuration using the Environment Variables Configuration Provider.</span></span> <span data-ttu-id="9248d-338">詳細については、「[Azure アプリ: Azure Portal を使用してアプリの構成をオーバーライドする](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-338">For more information, see [Azure Apps: Override app configuration using the Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).</span></span>
+<span data-ttu-id="537ae-340">[Azure App Service](https://azure.microsoft.com/services/app-service/) を使用すると、環境変数構成プロバイダーを使用してアプリの構成をオーバーライドすることができる環境変数を、Azure Portal で設定できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-340">[Azure App Service](https://azure.microsoft.com/services/app-service/) permits you to set environment variables in the Azure Portal that can override app configuration using the Environment Variables Configuration Provider.</span></span> <span data-ttu-id="537ae-341">詳細については、「[Azure アプリ: Azure Portal を使用してアプリの構成をオーバーライドする](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-341">For more information, see [Azure Apps: Override app configuration using the Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-339">新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、`ASPNETCORE_` というプレフィックスが付いた環境変数に対して自動的に `AddEnvironmentVariables` が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-339">`AddEnvironmentVariables` is automatically called for environment variables prefixed with `ASPNETCORE_` when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>.</span></span> <span data-ttu-id="9248d-340">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-340">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
+<span data-ttu-id="537ae-342">新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、`ASPNETCORE_` というプレフィックスが付いた環境変数に対して自動的に `AddEnvironmentVariables` が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-342">`AddEnvironmentVariables` is automatically called for environment variables prefixed with `ASPNETCORE_` when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>.</span></span> <span data-ttu-id="537ae-343">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-343">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
 
-<span data-ttu-id="9248d-341">`CreateDefaultBuilder` では次のものも読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-341">`CreateDefaultBuilder` also loads:</span></span>
+<span data-ttu-id="537ae-344">`CreateDefaultBuilder` では次のものも読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-344">`CreateDefaultBuilder` also loads:</span></span>
 
-* <span data-ttu-id="9248d-342">プレフィックスなしの `AddEnvironmentVariables` 呼び出しによる、プレフィックスの付いていない環境変数からのアプリの構成。</span><span class="sxs-lookup"><span data-stu-id="9248d-342">App configuration from unprefixed environment variables by calling `AddEnvironmentVariables` without a prefix.</span></span>
-* <span data-ttu-id="9248d-343">*appsettings.json* および *appsettings.{Environment}.json* からのオプションの構成。</span><span class="sxs-lookup"><span data-stu-id="9248d-343">Optional configuration from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
-* <span data-ttu-id="9248d-344">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。</span><span class="sxs-lookup"><span data-stu-id="9248d-344">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment).</span></span>
-* <span data-ttu-id="9248d-345">コマンド ライン引数。</span><span class="sxs-lookup"><span data-stu-id="9248d-345">Command-line arguments.</span></span>
+* <span data-ttu-id="537ae-345">プレフィックスなしの `AddEnvironmentVariables` 呼び出しによる、プレフィックスの付いていない環境変数からのアプリの構成。</span><span class="sxs-lookup"><span data-stu-id="537ae-345">App configuration from unprefixed environment variables by calling `AddEnvironmentVariables` without a prefix.</span></span>
+* <span data-ttu-id="537ae-346">*appsettings.json* および *appsettings.{Environment}.json* からのオプションの構成。</span><span class="sxs-lookup"><span data-stu-id="537ae-346">Optional configuration from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
+* <span data-ttu-id="537ae-347">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。</span><span class="sxs-lookup"><span data-stu-id="537ae-347">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment).</span></span>
+* <span data-ttu-id="537ae-348">コマンド ライン引数。</span><span class="sxs-lookup"><span data-stu-id="537ae-348">Command-line arguments.</span></span>
 
-<span data-ttu-id="9248d-346">ユーザー シークレットと *appsettings* ファイルから構成が設定された後に、環境変数構成プロバイダーが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-346">The Environment Variables Configuration Provider is called after configuration is established from user secrets and *appsettings* files.</span></span> <span data-ttu-id="9248d-347">この位置でプロバイダーを呼び出すことにより、実行時に読み込まれた環境変数が、ユーザー シークレットと *appsettings* ファイルによって設定された構成をオーバーライドすることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-347">Calling the provider in this position allows the environment variables read at runtime to override configuration set by user secrets and *appsettings* files.</span></span>
+<span data-ttu-id="537ae-349">ユーザー シークレットと *appsettings* ファイルから構成が設定された後に、環境変数構成プロバイダーが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-349">The Environment Variables Configuration Provider is called after configuration is established from user secrets and *appsettings* files.</span></span> <span data-ttu-id="537ae-350">この位置でプロバイダーを呼び出すことにより、実行時に読み込まれた環境変数が、ユーザー シークレットと *appsettings* ファイルによって設定された構成をオーバーライドすることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-350">Calling the provider in this position allows the environment variables read at runtime to override configuration set by user secrets and *appsettings* files.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-348">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-348">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration.</span></span>
+<span data-ttu-id="537ae-351">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-351">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration.</span></span>
 
-<span data-ttu-id="9248d-349">追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-349">If you need to provide app configuration from additional environment variables, call the app's additional providers in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> and call `AddEnvironmentVariables` with the prefix.</span></span>
+<span data-ttu-id="537ae-352">追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-352">If you need to provide app configuration from additional environment variables, call the app's additional providers in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> and call `AddEnvironmentVariables` with the prefix.</span></span>
 
 ```csharp
 public class Program
@@ -583,15 +604,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-350"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-350">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-353"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-353">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-351"><xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの `AddEnvironmentVariables` 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-351">Call the `AddEnvironmentVariables` extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span> <span data-ttu-id="9248d-352"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-352">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method.</span></span>
+<span data-ttu-id="537ae-354"><xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの `AddEnvironmentVariables` 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-354">Call the `AddEnvironmentVariables` extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span> <span data-ttu-id="537ae-355"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-355">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method.</span></span>
 
-<span data-ttu-id="9248d-353">追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-353">If you need to provide app configuration from additional environment variables, call the app's additional providers in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> and call `AddEnvironmentVariables` with the prefix.</span></span>
+<span data-ttu-id="537ae-356">追加の環境変数からアプリの構成を指定する必要がある場合は、<xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> のアプリの追加プロバイダーを呼び出し、そのプレフィックスを含む `AddEnvironmentVariables` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-356">If you need to provide app configuration from additional environment variables, call the app's additional providers in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> and call `AddEnvironmentVariables` with the prefix.</span></span>
 
 ```csharp
 public class Program
@@ -617,13 +638,13 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-354"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-354">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-357"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-357">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-355"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-355">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
+<span data-ttu-id="537ae-358"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-358">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
 
 ::: moniker-end
 
@@ -638,43 +659,43 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
-<span data-ttu-id="9248d-356">**例**</span><span class="sxs-lookup"><span data-stu-id="9248d-356">**Example**</span></span>
+<span data-ttu-id="537ae-359">**例**</span><span class="sxs-lookup"><span data-stu-id="537ae-359">**Example**</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-357">2.x のサンプル アプリでは、静的な簡易メソッド `CreateDefaultBuilder` を利用してホストをビルドします。これには `AddEnvironmentVariables` の呼び出しが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-357">The 2.x sample app takes advantage of the static convenience method `CreateDefaultBuilder` to build the host, which includes a call to `AddEnvironmentVariables`.</span></span>
+<span data-ttu-id="537ae-360">2.x のサンプル アプリでは、静的な簡易メソッド `CreateDefaultBuilder` を利用してホストをビルドします。これには `AddEnvironmentVariables` の呼び出しが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-360">The 2.x sample app takes advantage of the static convenience method `CreateDefaultBuilder` to build the host, which includes a call to `AddEnvironmentVariables`.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-358">1.x のサンプル アプリでは、`ConfigurationBuilder` の `AddEnvironmentVariables` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-358">The 1.x sample app calls `AddEnvironmentVariables` on a `ConfigurationBuilder`.</span></span>
+<span data-ttu-id="537ae-361">1.x のサンプル アプリでは、`ConfigurationBuilder` の `AddEnvironmentVariables` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-361">The 1.x sample app calls `AddEnvironmentVariables` on a `ConfigurationBuilder`.</span></span>
 
 ::: moniker-end
 
-1. <span data-ttu-id="9248d-359">サンプル アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="9248d-359">Run the sample app.</span></span> <span data-ttu-id="9248d-360">アプリに対して `http://localhost:5000` でブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="9248d-360">Open a browser to the app at `http://localhost:5000`.</span></span>
-1. <span data-ttu-id="9248d-361">出力に、環境変数 `ENVIRONMENT` のキーと値のペアが含まれていることを観察します。</span><span class="sxs-lookup"><span data-stu-id="9248d-361">Observe that the output contains the key-value pair for the environment variable `ENVIRONMENT`.</span></span> <span data-ttu-id="9248d-362">値には、アプリを実行している環境が反映されます (ローカルで実行している場合は通常 `Development`)。</span><span class="sxs-lookup"><span data-stu-id="9248d-362">The value reflects the environment in which the app is running, typically `Development` when running locally.</span></span>
+1. <span data-ttu-id="537ae-362">サンプル アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="537ae-362">Run the sample app.</span></span> <span data-ttu-id="537ae-363">アプリに対して `http://localhost:5000` でブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="537ae-363">Open a browser to the app at `http://localhost:5000`.</span></span>
+1. <span data-ttu-id="537ae-364">出力に、環境変数 `ENVIRONMENT` のキーと値のペアが含まれていることを観察します。</span><span class="sxs-lookup"><span data-stu-id="537ae-364">Observe that the output contains the key-value pair for the environment variable `ENVIRONMENT`.</span></span> <span data-ttu-id="537ae-365">値には、アプリを実行している環境が反映されます (ローカルで実行している場合は通常 `Development`)。</span><span class="sxs-lookup"><span data-stu-id="537ae-365">The value reflects the environment in which the app is running, typically `Development` when running locally.</span></span>
 
-<span data-ttu-id="9248d-363">アプリによって表示される環境変数のリストを短くするために、アプリでは次で始まる環境変数がフィルター処理されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-363">To keep the list of environment variables rendered by the app short, the app filters environment variables to those that start with the following:</span></span>
+<span data-ttu-id="537ae-366">アプリによって表示される環境変数のリストを短くするために、アプリでは次で始まる環境変数がフィルター処理されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-366">To keep the list of environment variables rendered by the app short, the app filters environment variables to those that start with the following:</span></span>
 
-* <span data-ttu-id="9248d-364">ASPNETCORE_</span><span class="sxs-lookup"><span data-stu-id="9248d-364">ASPNETCORE_</span></span>
-* <span data-ttu-id="9248d-365">urls</span><span class="sxs-lookup"><span data-stu-id="9248d-365">urls</span></span>
-* <span data-ttu-id="9248d-366">ログの記録</span><span class="sxs-lookup"><span data-stu-id="9248d-366">Logging</span></span>
-* <span data-ttu-id="9248d-367">ENVIRONMENT</span><span class="sxs-lookup"><span data-stu-id="9248d-367">ENVIRONMENT</span></span>
-* <span data-ttu-id="9248d-368">contentRoot</span><span class="sxs-lookup"><span data-stu-id="9248d-368">contentRoot</span></span>
-* <span data-ttu-id="9248d-369">AllowedHosts</span><span class="sxs-lookup"><span data-stu-id="9248d-369">AllowedHosts</span></span>
-* <span data-ttu-id="9248d-370">applicationName</span><span class="sxs-lookup"><span data-stu-id="9248d-370">applicationName</span></span>
-* <span data-ttu-id="9248d-371">CommandLine</span><span class="sxs-lookup"><span data-stu-id="9248d-371">CommandLine</span></span>
+* <span data-ttu-id="537ae-367">ASPNETCORE_</span><span class="sxs-lookup"><span data-stu-id="537ae-367">ASPNETCORE_</span></span>
+* <span data-ttu-id="537ae-368">urls</span><span class="sxs-lookup"><span data-stu-id="537ae-368">urls</span></span>
+* <span data-ttu-id="537ae-369">ログの記録</span><span class="sxs-lookup"><span data-stu-id="537ae-369">Logging</span></span>
+* <span data-ttu-id="537ae-370">ENVIRONMENT</span><span class="sxs-lookup"><span data-stu-id="537ae-370">ENVIRONMENT</span></span>
+* <span data-ttu-id="537ae-371">contentRoot</span><span class="sxs-lookup"><span data-stu-id="537ae-371">contentRoot</span></span>
+* <span data-ttu-id="537ae-372">AllowedHosts</span><span class="sxs-lookup"><span data-stu-id="537ae-372">AllowedHosts</span></span>
+* <span data-ttu-id="537ae-373">applicationName</span><span class="sxs-lookup"><span data-stu-id="537ae-373">applicationName</span></span>
+* <span data-ttu-id="537ae-374">CommandLine</span><span class="sxs-lookup"><span data-stu-id="537ae-374">CommandLine</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-372">アプリで使用できるすべての環境変数を公開する場合は、*Pages/Index.cshtml.cs* の `FilteredConfiguration` を次のように変更します。</span><span class="sxs-lookup"><span data-stu-id="9248d-372">If you wish to expose all of the environment variables available to the app, change the `FilteredConfiguration` in *Pages/Index.cshtml.cs* to the following:</span></span>
+<span data-ttu-id="537ae-375">アプリで使用できるすべての環境変数を公開する場合は、*Pages/Index.cshtml.cs* の `FilteredConfiguration` を次のように変更します。</span><span class="sxs-lookup"><span data-stu-id="537ae-375">If you wish to expose all of the environment variables available to the app, change the `FilteredConfiguration` in *Pages/Index.cshtml.cs* to the following:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-373">アプリで使用できるすべての環境変数を公開する場合は、*Controllers/HomeController.cs* の `FilteredConfiguration` を次のように変更します。</span><span class="sxs-lookup"><span data-stu-id="9248d-373">If you wish to expose all of the environment variables available to the app, change the `FilteredConfiguration` in *Controllers/HomeController.cs* to the following:</span></span>
+<span data-ttu-id="537ae-376">アプリで使用できるすべての環境変数を公開する場合は、*Controllers/HomeController.cs* の `FilteredConfiguration` を次のように変更します。</span><span class="sxs-lookup"><span data-stu-id="537ae-376">If you wish to expose all of the environment variables available to the app, change the `FilteredConfiguration` in *Controllers/HomeController.cs* to the following:</span></span>
 
 ::: moniker-end
 
@@ -682,9 +703,9 @@ var host = new WebHostBuilder()
 FilteredConfiguration = _config.AsEnumerable();
 ```
 
-### <a name="prefixes"></a><span data-ttu-id="9248d-374">プレフィックス</span><span class="sxs-lookup"><span data-stu-id="9248d-374">Prefixes</span></span>
+### <a name="prefixes"></a><span data-ttu-id="537ae-377">プレフィックス</span><span class="sxs-lookup"><span data-stu-id="537ae-377">Prefixes</span></span>
 
-<span data-ttu-id="9248d-375">アプリの構成に読み込まれる環境変数は、`AddEnvironmentVariables` メソッドにプレフィックスを指定すると、フィルター処理されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-375">Environment variables loaded into the app's configuration are filtered when you supply a prefix to the `AddEnvironmentVariables` method.</span></span> <span data-ttu-id="9248d-376">たとえば、プレフィックス `CUSTOM_` で環境変数をフィルター処理するには、構成プロバイダーにプレフィックスを指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-376">For example, to filter environment variables on the prefix `CUSTOM_`, supply the prefix to the configuration provider:</span></span>
+<span data-ttu-id="537ae-378">アプリの構成に読み込まれる環境変数は、`AddEnvironmentVariables` メソッドにプレフィックスを指定すると、フィルター処理されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-378">Environment variables loaded into the app's configuration are filtered when you supply a prefix to the `AddEnvironmentVariables` method.</span></span> <span data-ttu-id="537ae-379">たとえば、プレフィックス `CUSTOM_` で環境変数をフィルター処理するには、構成プロバイダーにプレフィックスを指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-379">For example, to filter environment variables on the prefix `CUSTOM_`, supply the prefix to the configuration provider:</span></span>
 
 ```csharp
 var config = new ConfigurationBuilder()
@@ -692,62 +713,62 @@ var config = new ConfigurationBuilder()
     .Build();
 ```
 
-<span data-ttu-id="9248d-377">構成のキーと値のペアが作成されるときに、プレフィックスは削除されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-377">The prefix is stripped off when the configuration key-value pairs are created.</span></span>
+<span data-ttu-id="537ae-380">構成のキーと値のペアが作成されるときに、プレフィックスは削除されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-380">The prefix is stripped off when the configuration key-value pairs are created.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-378">静的な簡易メソッド `CreateDefaultBuilder` によって <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> が作成され、アプリのホストが確立されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-378">The static convenience method `CreateDefaultBuilder` creates a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> to establish the app's host.</span></span> <span data-ttu-id="9248d-379">`WebHostBuilder` は、作成されるときに、`ASPNETCORE_` というプレフィックスが付いた環境変数からホストの構成を見つけます。</span><span class="sxs-lookup"><span data-stu-id="9248d-379">When `WebHostBuilder` is created, it finds its host configuration in environment variables prefixed with `ASPNETCORE_`.</span></span>
+<span data-ttu-id="537ae-381">静的な簡易メソッド `CreateDefaultBuilder` によって <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> が作成され、アプリのホストが確立されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-381">The static convenience method `CreateDefaultBuilder` creates a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> to establish the app's host.</span></span> <span data-ttu-id="537ae-382">`WebHostBuilder` は、作成されるときに、`ASPNETCORE_` というプレフィックスが付いた環境変数からホストの構成を見つけます。</span><span class="sxs-lookup"><span data-stu-id="537ae-382">When `WebHostBuilder` is created, it finds its host configuration in environment variables prefixed with `ASPNETCORE_`.</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-380">**接続文字列のプレフィックス**</span><span class="sxs-lookup"><span data-stu-id="9248d-380">**Connection string prefixes**</span></span>
+<span data-ttu-id="537ae-383">**接続文字列のプレフィックス**</span><span class="sxs-lookup"><span data-stu-id="537ae-383">**Connection string prefixes**</span></span>
 
-<span data-ttu-id="9248d-381">構成 API には、アプリの環境に向けた Azure の接続文字列の構成に関係する、4 つの接続文字列環境変数のための特別な処理規則があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-381">The Configuration API has special processing rules for four connection string environment variables involved in configuring Azure connection strings for the app environment.</span></span> <span data-ttu-id="9248d-382">表に示されるプレフィックスを含む環境変数は、`AddEnvironmentVariables` にプレフィックスが指定されていない場合、アプリに読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-382">Environment variables with the prefixes shown in the table are loaded into the app if no prefix is supplied to `AddEnvironmentVariables`.</span></span>
+<span data-ttu-id="537ae-384">構成 API には、アプリの環境に向けた Azure の接続文字列の構成に関係する、4 つの接続文字列環境変数のための特別な処理規則があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-384">The Configuration API has special processing rules for four connection string environment variables involved in configuring Azure connection strings for the app environment.</span></span> <span data-ttu-id="537ae-385">表に示されるプレフィックスを含む環境変数は、`AddEnvironmentVariables` にプレフィックスが指定されていない場合、アプリに読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-385">Environment variables with the prefixes shown in the table are loaded into the app if no prefix is supplied to `AddEnvironmentVariables`.</span></span>
 
-| <span data-ttu-id="9248d-383">接続文字列のプレフィックス</span><span class="sxs-lookup"><span data-stu-id="9248d-383">Connection string prefix</span></span> | <span data-ttu-id="9248d-384">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-384">Provider</span></span> |
+| <span data-ttu-id="537ae-386">接続文字列のプレフィックス</span><span class="sxs-lookup"><span data-stu-id="537ae-386">Connection string prefix</span></span> | <span data-ttu-id="537ae-387">プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-387">Provider</span></span> |
 | ------------------------ | -------- |
-| `CUSTOMCONNSTR_` | <span data-ttu-id="9248d-385">カスタム プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-385">Custom provider</span></span> |
-| `MYSQLCONNSTR_` | [<span data-ttu-id="9248d-386">MySQL</span><span class="sxs-lookup"><span data-stu-id="9248d-386">MySQL</span></span>](https://www.mysql.com/) |
-| `SQLAZURECONNSTR_` | [<span data-ttu-id="9248d-387">Azure SQL Database</span><span class="sxs-lookup"><span data-stu-id="9248d-387">Azure SQL Database</span></span>](https://azure.microsoft.com/services/sql-database/) |
-| `SQLCONNSTR_` | [<span data-ttu-id="9248d-388">SQL Server</span><span class="sxs-lookup"><span data-stu-id="9248d-388">SQL Server</span></span>](https://www.microsoft.com/sql-server/) |
+| `CUSTOMCONNSTR_` | <span data-ttu-id="537ae-388">カスタム プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-388">Custom provider</span></span> |
+| `MYSQLCONNSTR_` | [<span data-ttu-id="537ae-389">MySQL</span><span class="sxs-lookup"><span data-stu-id="537ae-389">MySQL</span></span>](https://www.mysql.com/) |
+| `SQLAZURECONNSTR_` | [<span data-ttu-id="537ae-390">Azure SQL Database</span><span class="sxs-lookup"><span data-stu-id="537ae-390">Azure SQL Database</span></span>](https://azure.microsoft.com/services/sql-database/) |
+| `SQLCONNSTR_` | [<span data-ttu-id="537ae-391">SQL Server</span><span class="sxs-lookup"><span data-stu-id="537ae-391">SQL Server</span></span>](https://www.microsoft.com/sql-server/) |
 
-<span data-ttu-id="9248d-389">表に示す 4 つのプレフィックスのいずれかを使用して、環境変数が検出され構成に読み込まれた場合:</span><span class="sxs-lookup"><span data-stu-id="9248d-389">When an environment variable is discovered and loaded into configuration with any of the four prefixes shown in the table:</span></span>
+<span data-ttu-id="537ae-392">表に示す 4 つのプレフィックスのいずれかを使用して、環境変数が検出され構成に読み込まれた場合:</span><span class="sxs-lookup"><span data-stu-id="537ae-392">When an environment variable is discovered and loaded into configuration with any of the four prefixes shown in the table:</span></span>
 
-* <span data-ttu-id="9248d-390">環境変数のプレフィックスを削除し、構成キーのセクション (`ConnectionStrings`) を追加することによって、構成キーが作成されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-390">The configuration key is created by removing the environment variable prefix and adding a configuration key section (`ConnectionStrings`).</span></span>
-* <span data-ttu-id="9248d-391">データベースの接続プロバイダーを表す新しい構成のキーと値のペアが作成されます (示されたプロバイダーを含まない `CUSTOMCONNSTR_` を除く)。</span><span class="sxs-lookup"><span data-stu-id="9248d-391">A new configuration key-value pair is created that represents the database connection provider (except for `CUSTOMCONNSTR_`, which has no stated provider).</span></span>
+* <span data-ttu-id="537ae-393">環境変数のプレフィックスを削除し、構成キーのセクション (`ConnectionStrings`) を追加することによって、構成キーが作成されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-393">The configuration key is created by removing the environment variable prefix and adding a configuration key section (`ConnectionStrings`).</span></span>
+* <span data-ttu-id="537ae-394">データベースの接続プロバイダーを表す新しい構成のキーと値のペアが作成されます (示されたプロバイダーを含まない `CUSTOMCONNSTR_` を除く)。</span><span class="sxs-lookup"><span data-stu-id="537ae-394">A new configuration key-value pair is created that represents the database connection provider (except for `CUSTOMCONNSTR_`, which has no stated provider).</span></span>
 
-| <span data-ttu-id="9248d-392">環境変数キー</span><span class="sxs-lookup"><span data-stu-id="9248d-392">Environment variable key</span></span> | <span data-ttu-id="9248d-393">変換された構成キー</span><span class="sxs-lookup"><span data-stu-id="9248d-393">Converted configuration key</span></span> | <span data-ttu-id="9248d-394">プロバイダーの構成エントリ</span><span class="sxs-lookup"><span data-stu-id="9248d-394">Provider configuration entry</span></span>                                                    |
+| <span data-ttu-id="537ae-395">環境変数キー</span><span class="sxs-lookup"><span data-stu-id="537ae-395">Environment variable key</span></span> | <span data-ttu-id="537ae-396">変換された構成キー</span><span class="sxs-lookup"><span data-stu-id="537ae-396">Converted configuration key</span></span> | <span data-ttu-id="537ae-397">プロバイダーの構成エントリ</span><span class="sxs-lookup"><span data-stu-id="537ae-397">Provider configuration entry</span></span>                                                    |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------------------- |
-| `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | <span data-ttu-id="9248d-395">構成エントリは作成されません。</span><span class="sxs-lookup"><span data-stu-id="9248d-395">Configuration entry not created.</span></span>                                                |
-| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | <span data-ttu-id="9248d-396">キー: `ConnectionStrings:<KEY>_ProviderName`:</span><span class="sxs-lookup"><span data-stu-id="9248d-396">Key: `ConnectionStrings:<KEY>_ProviderName`:</span></span><br><span data-ttu-id="9248d-397">値: `MySql.Data.MySqlClient`</span><span class="sxs-lookup"><span data-stu-id="9248d-397">Value: `MySql.Data.MySqlClient`</span></span> |
-| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | <span data-ttu-id="9248d-398">キー: `ConnectionStrings:<KEY>_ProviderName`:</span><span class="sxs-lookup"><span data-stu-id="9248d-398">Key: `ConnectionStrings:<KEY>_ProviderName`:</span></span><br><span data-ttu-id="9248d-399">値: `System.Data.SqlClient`</span><span class="sxs-lookup"><span data-stu-id="9248d-399">Value: `System.Data.SqlClient`</span></span>  |
-| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | <span data-ttu-id="9248d-400">キー: `ConnectionStrings:<KEY>_ProviderName`:</span><span class="sxs-lookup"><span data-stu-id="9248d-400">Key: `ConnectionStrings:<KEY>_ProviderName`:</span></span><br><span data-ttu-id="9248d-401">値: `System.Data.SqlClient`</span><span class="sxs-lookup"><span data-stu-id="9248d-401">Value: `System.Data.SqlClient`</span></span>  |
+| `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | <span data-ttu-id="537ae-398">構成エントリは作成されません。</span><span class="sxs-lookup"><span data-stu-id="537ae-398">Configuration entry not created.</span></span>                                                |
+| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | <span data-ttu-id="537ae-399">キー: `ConnectionStrings:<KEY>_ProviderName`:</span><span class="sxs-lookup"><span data-stu-id="537ae-399">Key: `ConnectionStrings:<KEY>_ProviderName`:</span></span><br><span data-ttu-id="537ae-400">値: `MySql.Data.MySqlClient`</span><span class="sxs-lookup"><span data-stu-id="537ae-400">Value: `MySql.Data.MySqlClient`</span></span> |
+| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | <span data-ttu-id="537ae-401">キー: `ConnectionStrings:<KEY>_ProviderName`:</span><span class="sxs-lookup"><span data-stu-id="537ae-401">Key: `ConnectionStrings:<KEY>_ProviderName`:</span></span><br><span data-ttu-id="537ae-402">値: `System.Data.SqlClient`</span><span class="sxs-lookup"><span data-stu-id="537ae-402">Value: `System.Data.SqlClient`</span></span>  |
+| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | <span data-ttu-id="537ae-403">キー: `ConnectionStrings:<KEY>_ProviderName`:</span><span class="sxs-lookup"><span data-stu-id="537ae-403">Key: `ConnectionStrings:<KEY>_ProviderName`:</span></span><br><span data-ttu-id="537ae-404">値: `System.Data.SqlClient`</span><span class="sxs-lookup"><span data-stu-id="537ae-404">Value: `System.Data.SqlClient`</span></span>  |
 
-## <a name="file-configuration-provider"></a><span data-ttu-id="9248d-402">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-402">File Configuration Provider</span></span>
+## <a name="file-configuration-provider"></a><span data-ttu-id="537ae-405">ファイル構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-405">File Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-403"><xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> は、ファイル システムから構成を読み込むための基本クラスです。</span><span class="sxs-lookup"><span data-stu-id="9248d-403"><xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> is the base class for loading configuration from the file system.</span></span> <span data-ttu-id="9248d-404">次の構成プロバイダーは、特定のファイルの種類専用です。</span><span class="sxs-lookup"><span data-stu-id="9248d-404">The following configuration providers are dedicated to specific file types:</span></span>
+<span data-ttu-id="537ae-406"><xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> は、ファイル システムから構成を読み込むための基本クラスです。</span><span class="sxs-lookup"><span data-stu-id="537ae-406"><xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> is the base class for loading configuration from the file system.</span></span> <span data-ttu-id="537ae-407">次の構成プロバイダーは、特定のファイルの種類専用です。</span><span class="sxs-lookup"><span data-stu-id="537ae-407">The following configuration providers are dedicated to specific file types:</span></span>
 
-* [<span data-ttu-id="9248d-405">INI 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-405">INI Configuration Provider</span></span>](#ini-configuration-provider)
-* [<span data-ttu-id="9248d-406">JSON 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-406">JSON Configuration Provider</span></span>](#json-configuration-provider)
-* [<span data-ttu-id="9248d-407">XML 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-407">XML Configuration Provider</span></span>](#xml-configuration-provider)
+* [<span data-ttu-id="537ae-408">INI 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-408">INI Configuration Provider</span></span>](#ini-configuration-provider)
+* [<span data-ttu-id="537ae-409">JSON 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-409">JSON Configuration Provider</span></span>](#json-configuration-provider)
+* [<span data-ttu-id="537ae-410">XML 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-410">XML Configuration Provider</span></span>](#xml-configuration-provider)
 
-### <a name="ini-configuration-provider"></a><span data-ttu-id="9248d-408">INI 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-408">INI Configuration Provider</span></span>
+### <a name="ini-configuration-provider"></a><span data-ttu-id="537ae-411">INI 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-411">INI Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-409"><xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> では、実行時に INI ファイルのキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-409">The <xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> loads configuration from INI file key-value pairs at runtime.</span></span>
+<span data-ttu-id="537ae-412"><xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> では、実行時に INI ファイルのキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-412">The <xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> loads configuration from INI file key-value pairs at runtime.</span></span>
 
-<span data-ttu-id="9248d-410">INI ファイルの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-410">To activate INI file configuration, call the <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-413">INI ファイルの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-413">To activate INI file configuration, call the <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-411">INI ファイルの構成では、セクションの区切り記号としてコロンを使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-411">The colon can be used to as a section delimiter in INI file configuration.</span></span>
+<span data-ttu-id="537ae-414">INI ファイルの構成では、セクションの区切り記号としてコロンを使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-414">The colon can be used to as a section delimiter in INI file configuration.</span></span>
 
-<span data-ttu-id="9248d-412">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-412">Overloads permit specifying:</span></span>
+<span data-ttu-id="537ae-415">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-415">Overloads permit specifying:</span></span>
 
-* <span data-ttu-id="9248d-413">ファイルを省略可能かどうか。</span><span class="sxs-lookup"><span data-stu-id="9248d-413">Whether the file is optional.</span></span>
-* <span data-ttu-id="9248d-414">ファイルが変更された場合に構成を再度読み込むかどうか。</span><span class="sxs-lookup"><span data-stu-id="9248d-414">Whether the configuration is reloaded if the file changes.</span></span>
-* <span data-ttu-id="9248d-415">ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-415">The <xref:Microsoft.Extensions.FileProviders.IFileProvider> used to access the file.</span></span>
+* <span data-ttu-id="537ae-416">ファイルを省略可能かどうか。</span><span class="sxs-lookup"><span data-stu-id="537ae-416">Whether the file is optional.</span></span>
+* <span data-ttu-id="537ae-417">ファイルが変更された場合に構成を再度読み込むかどうか。</span><span class="sxs-lookup"><span data-stu-id="537ae-417">Whether the configuration is reloaded if the file changes.</span></span>
+* <span data-ttu-id="537ae-418">ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-418">The <xref:Microsoft.Extensions.FileProviders.IFileProvider> used to access the file.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-416">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-416">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
+<span data-ttu-id="537ae-419">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-419">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
 
 ```csharp
 public class Program
@@ -768,15 +789,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-417">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-417">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-418">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-418">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-420">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-420">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-421">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-421">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-419"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-419">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-422"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-422">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-420">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-420">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-423">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-423">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ```csharp
 public class Program
@@ -800,15 +821,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-421">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-421">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-422">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-422">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-424">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-424">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-425">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-425">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-423"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-423">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-426"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-426">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-424"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-424">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
+<span data-ttu-id="537ae-427"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-427">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
 
 ::: moniker-end
 
@@ -824,9 +845,9 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
-<span data-ttu-id="9248d-425">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-425">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-426">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-426">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-428">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-428">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-429">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-429">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-427">INI 構成ファイルの汎用的な例:</span><span class="sxs-lookup"><span data-stu-id="9248d-427">A generic example of an INI configuration file:</span></span>
+<span data-ttu-id="537ae-430">INI 構成ファイルの汎用的な例:</span><span class="sxs-lookup"><span data-stu-id="537ae-430">A generic example of an INI configuration file:</span></span>
 
 ```ini
 [section0]
@@ -843,48 +864,48 @@ key=value
 key=value
 ```
 
-<span data-ttu-id="9248d-428">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-428">The previous configuration file loads the following keys with `value`:</span></span>
+<span data-ttu-id="537ae-431">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-431">The previous configuration file loads the following keys with `value`:</span></span>
 
-* <span data-ttu-id="9248d-429">section0:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-429">section0:key0</span></span>
-* <span data-ttu-id="9248d-430">section0:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-430">section0:key1</span></span>
-* <span data-ttu-id="9248d-431">section1:subsection:key</span><span class="sxs-lookup"><span data-stu-id="9248d-431">section1:subsection:key</span></span>
-* <span data-ttu-id="9248d-432">section2:subsection0:key</span><span class="sxs-lookup"><span data-stu-id="9248d-432">section2:subsection0:key</span></span>
-* <span data-ttu-id="9248d-433">section2:subsection1:key</span><span class="sxs-lookup"><span data-stu-id="9248d-433">section2:subsection1:key</span></span>
+* <span data-ttu-id="537ae-432">section0:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-432">section0:key0</span></span>
+* <span data-ttu-id="537ae-433">section0:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-433">section0:key1</span></span>
+* <span data-ttu-id="537ae-434">section1:subsection:key</span><span class="sxs-lookup"><span data-stu-id="537ae-434">section1:subsection:key</span></span>
+* <span data-ttu-id="537ae-435">section2:subsection0:key</span><span class="sxs-lookup"><span data-stu-id="537ae-435">section2:subsection0:key</span></span>
+* <span data-ttu-id="537ae-436">section2:subsection1:key</span><span class="sxs-lookup"><span data-stu-id="537ae-436">section2:subsection1:key</span></span>
 
-### <a name="json-configuration-provider"></a><span data-ttu-id="9248d-434">JSON 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-434">JSON Configuration Provider</span></span>
+### <a name="json-configuration-provider"></a><span data-ttu-id="537ae-437">JSON 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-437">JSON Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-435"><xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> では、実行時に JSON ファイルのキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-435">The <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> loads configuration from JSON file key-value pairs during runtime.</span></span>
+<span data-ttu-id="537ae-438"><xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> では、実行時に JSON ファイルのキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-438">The <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> loads configuration from JSON file key-value pairs during runtime.</span></span>
 
-<span data-ttu-id="9248d-436">JSON ファイルの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-436">To activate JSON file configuration, call the <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-439">JSON ファイルの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-439">To activate JSON file configuration, call the <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-437">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-437">Overloads permit specifying:</span></span>
+<span data-ttu-id="537ae-440">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-440">Overloads permit specifying:</span></span>
 
-* <span data-ttu-id="9248d-438">ファイルを省略可能かどうか。</span><span class="sxs-lookup"><span data-stu-id="9248d-438">Whether the file is optional.</span></span>
-* <span data-ttu-id="9248d-439">ファイルが変更された場合に構成を再度読み込むかどうか。</span><span class="sxs-lookup"><span data-stu-id="9248d-439">Whether the configuration is reloaded if the file changes.</span></span>
-* <span data-ttu-id="9248d-440">ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-440">The <xref:Microsoft.Extensions.FileProviders.IFileProvider> used to access the file.</span></span>
+* <span data-ttu-id="537ae-441">ファイルを省略可能かどうか。</span><span class="sxs-lookup"><span data-stu-id="537ae-441">Whether the file is optional.</span></span>
+* <span data-ttu-id="537ae-442">ファイルが変更された場合に構成を再度読み込むかどうか。</span><span class="sxs-lookup"><span data-stu-id="537ae-442">Whether the configuration is reloaded if the file changes.</span></span>
+* <span data-ttu-id="537ae-443">ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-443">The <xref:Microsoft.Extensions.FileProviders.IFileProvider> used to access the file.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-441"><xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddJsonFile` が 2 回呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-441">`AddJsonFile` is automatically called twice when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>.</span></span> <span data-ttu-id="9248d-442">このメソッドは、次から構成を読み込むために呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-442">The method is called to load configuration from:</span></span>
+<span data-ttu-id="537ae-444"><xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddJsonFile` が 2 回呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-444">`AddJsonFile` is automatically called twice when you initialize a new <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>.</span></span> <span data-ttu-id="537ae-445">このメソッドは、次から構成を読み込むために呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-445">The method is called to load configuration from:</span></span>
 
-* <span data-ttu-id="9248d-443">*appsettings.json* &ndash; このファイルが最初に読み取られます。</span><span class="sxs-lookup"><span data-stu-id="9248d-443">*appsettings.json* &ndash; This file is read first.</span></span> <span data-ttu-id="9248d-444">ファイルの環境バージョンは、*appsettings.json* ファイルによって指定される値をオーバーライドできます。</span><span class="sxs-lookup"><span data-stu-id="9248d-444">The environment version of the file can override the values provided by the *appsettings.json* file.</span></span>
-* <span data-ttu-id="9248d-445">*appsettings.{Environment}.json* &ndash; ファイルの環境バージョンは、[IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*) に基づいて読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-445">*appsettings.{Environment}.json* &ndash; The environment version of the file is loaded based on the [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).</span></span>
+* <span data-ttu-id="537ae-446">*appsettings.json* &ndash; このファイルが最初に読み取られます。</span><span class="sxs-lookup"><span data-stu-id="537ae-446">*appsettings.json* &ndash; This file is read first.</span></span> <span data-ttu-id="537ae-447">ファイルの環境バージョンは、*appsettings.json* ファイルによって指定される値をオーバーライドできます。</span><span class="sxs-lookup"><span data-stu-id="537ae-447">The environment version of the file can override the values provided by the *appsettings.json* file.</span></span>
+* <span data-ttu-id="537ae-448">*appsettings.{Environment}.json* &ndash; ファイルの環境バージョンは、[IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*) に基づいて読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-448">*appsettings.{Environment}.json* &ndash; The environment version of the file is loaded based on the [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).</span></span>
 
-<span data-ttu-id="9248d-446">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-446">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
+<span data-ttu-id="537ae-449">詳細については、「[Web ホスト: ホストを設定する](xref:fundamentals/host/web-host#set-up-a-host)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-449">For more information, see [Web Host: Set up a host](xref:fundamentals/host/web-host#set-up-a-host).</span></span>
 
-<span data-ttu-id="9248d-447">`CreateDefaultBuilder` では次のものも読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-447">`CreateDefaultBuilder` also loads:</span></span>
+<span data-ttu-id="537ae-450">`CreateDefaultBuilder` では次のものも読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-450">`CreateDefaultBuilder` also loads:</span></span>
 
-* <span data-ttu-id="9248d-448">環境変数。</span><span class="sxs-lookup"><span data-stu-id="9248d-448">Environment variables.</span></span>
-* <span data-ttu-id="9248d-449">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。</span><span class="sxs-lookup"><span data-stu-id="9248d-449">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment).</span></span>
-* <span data-ttu-id="9248d-450">コマンド ライン引数。</span><span class="sxs-lookup"><span data-stu-id="9248d-450">Command-line arguments.</span></span>
+* <span data-ttu-id="537ae-451">環境変数。</span><span class="sxs-lookup"><span data-stu-id="537ae-451">Environment variables.</span></span>
+* <span data-ttu-id="537ae-452">[ユーザー シークレット (Secret Manager)](xref:security/app-secrets) (開発環境の場合)。</span><span class="sxs-lookup"><span data-stu-id="537ae-452">[User secrets (Secret Manager)](xref:security/app-secrets) (in the Development environment).</span></span>
+* <span data-ttu-id="537ae-453">コマンド ライン引数。</span><span class="sxs-lookup"><span data-stu-id="537ae-453">Command-line arguments.</span></span>
 
-<span data-ttu-id="9248d-451">JSON 構成プロバイダーが最初に確立されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-451">The JSON Configuration Provider is established first.</span></span> <span data-ttu-id="9248d-452">このため、ユーザー シークレット、環境変数、およびコマンド ライン引数によって、*appsettings* ファイルによって設定された構成がオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="9248d-452">Therefore, user secrets, environment variables, and command-line arguments override configuration set by the *appsettings* files.</span></span>
+<span data-ttu-id="537ae-454">JSON 構成プロバイダーが最初に確立されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-454">The JSON Configuration Provider is established first.</span></span> <span data-ttu-id="537ae-455">このため、ユーザー シークレット、環境変数、およびコマンド ライン引数によって、*appsettings* ファイルによって設定された構成がオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="537ae-455">Therefore, user secrets, environment variables, and command-line arguments override configuration set by the *appsettings* files.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-453">ホストのビルド時に <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、*appsettings.json* と *appsettings.{Environment}.json* 以外のファイルにアプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-453">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration for files other than *appsettings.json* and *appsettings.{Environment}.json*:</span></span>
+<span data-ttu-id="537ae-456">ホストのビルド時に <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、*appsettings.json* と *appsettings.{Environment}.json* 以外のファイルにアプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-456">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration for files other than *appsettings.json* and *appsettings.{Environment}.json*:</span></span>
 
 ```csharp
 public class Program
@@ -905,17 +926,17 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-454">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-454">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-455">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-455">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-457">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-457">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-458">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-458">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-456"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-456">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-459"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-459">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-457">また、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの `AddJsonFile` 拡張メソッドを直接呼び出すこともできます。</span><span class="sxs-lookup"><span data-stu-id="9248d-457">You can also directly call the `AddJsonFile` extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-460">また、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの `AddJsonFile` 拡張メソッドを直接呼び出すこともできます。</span><span class="sxs-lookup"><span data-stu-id="537ae-460">You can also directly call the `AddJsonFile` extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-458">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-458">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-461">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-461">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ```csharp
 public class Program
@@ -939,15 +960,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-459">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-459">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-460">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-460">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-462">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-462">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-463">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-463">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-461"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-461">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-464"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-464">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-462"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-462">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
+<span data-ttu-id="537ae-465"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-465">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
 
 ::: moniker-end
 
@@ -963,49 +984,49 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
-<span data-ttu-id="9248d-463">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-463">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-464">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-464">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-466">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-466">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-467">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-467">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-465">**例**</span><span class="sxs-lookup"><span data-stu-id="9248d-465">**Example**</span></span>
+<span data-ttu-id="537ae-468">**例**</span><span class="sxs-lookup"><span data-stu-id="537ae-468">**Example**</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-466">2.x のサンプル アプリでは、静的な簡易メソッド `CreateDefaultBuilder` を利用してホストをビルドします。これには 2 回の `AddJsonFile` の呼び出しが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-466">The 2.x sample app takes advantage of the static convenience method `CreateDefaultBuilder` to build the host, which includes two calls to `AddJsonFile`.</span></span> <span data-ttu-id="9248d-467">構成は、*appsettings.json* および *appsettings.{Environment}.json* から読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-467">Configuration is loaded from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
+<span data-ttu-id="537ae-469">2.x のサンプル アプリでは、静的な簡易メソッド `CreateDefaultBuilder` を利用してホストをビルドします。これには 2 回の `AddJsonFile` の呼び出しが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-469">The 2.x sample app takes advantage of the static convenience method `CreateDefaultBuilder` to build the host, which includes two calls to `AddJsonFile`.</span></span> <span data-ttu-id="537ae-470">構成は、*appsettings.json* および *appsettings.{Environment}.json* から読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-470">Configuration is loaded from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-468">1.x のサンプル アプリでは、`ConfigurationBuilder` の `AddJsonFile` を 2 回呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-468">The 1.x sample app calls `AddJsonFile` twice on a `ConfigurationBuilder`.</span></span> <span data-ttu-id="9248d-469">構成は、*appsettings.json* および *appsettings.{Environment}.json* から読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-469">Configuration is loaded from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
+<span data-ttu-id="537ae-471">1.x のサンプル アプリでは、`ConfigurationBuilder` の `AddJsonFile` を 2 回呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-471">The 1.x sample app calls `AddJsonFile` twice on a `ConfigurationBuilder`.</span></span> <span data-ttu-id="537ae-472">構成は、*appsettings.json* および *appsettings.{Environment}.json* から読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-472">Configuration is loaded from *appsettings.json* and *appsettings.{Environment}.json*.</span></span>
 
 ::: moniker-end
 
-1. <span data-ttu-id="9248d-470">サンプル アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="9248d-470">Run the sample app.</span></span> <span data-ttu-id="9248d-471">アプリに対して `http://localhost:5000` でブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="9248d-471">Open a browser to the app at `http://localhost:5000`.</span></span>
-1. <span data-ttu-id="9248d-472">出力に、環境に応じて、表に示す構成のキーと値のペアが含まれていることを観察します。</span><span class="sxs-lookup"><span data-stu-id="9248d-472">Observe that the output contains key-value pairs for the configuration shown in the table depending on the environment.</span></span> <span data-ttu-id="9248d-473">ログの構成キーでは、階層の区切り文字としてコロン (`:`) が使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-473">Logging configuration keys use the colon (`:`) as a hierarchical separator.</span></span>
+1. <span data-ttu-id="537ae-473">サンプル アプリを実行します。</span><span class="sxs-lookup"><span data-stu-id="537ae-473">Run the sample app.</span></span> <span data-ttu-id="537ae-474">アプリに対して `http://localhost:5000` でブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="537ae-474">Open a browser to the app at `http://localhost:5000`.</span></span>
+1. <span data-ttu-id="537ae-475">出力に、環境に応じて、表に示す構成のキーと値のペアが含まれていることを観察します。</span><span class="sxs-lookup"><span data-stu-id="537ae-475">Observe that the output contains key-value pairs for the configuration shown in the table depending on the environment.</span></span> <span data-ttu-id="537ae-476">ログの構成キーでは、階層の区切り文字としてコロン (`:`) が使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-476">Logging configuration keys use the colon (`:`) as a hierarchical separator.</span></span>
 
-| <span data-ttu-id="9248d-474">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-474">Key</span></span>                        | <span data-ttu-id="9248d-475">開発時の値</span><span class="sxs-lookup"><span data-stu-id="9248d-475">Development Value</span></span> | <span data-ttu-id="9248d-476">運用時の値</span><span class="sxs-lookup"><span data-stu-id="9248d-476">Production Value</span></span> |
+| <span data-ttu-id="537ae-477">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-477">Key</span></span>                        | <span data-ttu-id="537ae-478">開発時の値</span><span class="sxs-lookup"><span data-stu-id="537ae-478">Development Value</span></span> | <span data-ttu-id="537ae-479">運用時の値</span><span class="sxs-lookup"><span data-stu-id="537ae-479">Production Value</span></span> |
 | -------------------------- | :---------------: | :--------------: |
-| <span data-ttu-id="9248d-477">Logging:LogLevel:System</span><span class="sxs-lookup"><span data-stu-id="9248d-477">Logging:LogLevel:System</span></span>    | <span data-ttu-id="9248d-478">情報</span><span class="sxs-lookup"><span data-stu-id="9248d-478">Information</span></span>       | <span data-ttu-id="9248d-479">情報</span><span class="sxs-lookup"><span data-stu-id="9248d-479">Information</span></span>      |
-| <span data-ttu-id="9248d-480">Logging:LogLevel:Microsoft</span><span class="sxs-lookup"><span data-stu-id="9248d-480">Logging:LogLevel:Microsoft</span></span> | <span data-ttu-id="9248d-481">情報</span><span class="sxs-lookup"><span data-stu-id="9248d-481">Information</span></span>       | <span data-ttu-id="9248d-482">情報</span><span class="sxs-lookup"><span data-stu-id="9248d-482">Information</span></span>      |
-| <span data-ttu-id="9248d-483">Logging:LogLevel:Default</span><span class="sxs-lookup"><span data-stu-id="9248d-483">Logging:LogLevel:Default</span></span>   | <span data-ttu-id="9248d-484">デバッグ</span><span class="sxs-lookup"><span data-stu-id="9248d-484">Debug</span></span>             | <span data-ttu-id="9248d-485">Error</span><span class="sxs-lookup"><span data-stu-id="9248d-485">Error</span></span>            |
-| <span data-ttu-id="9248d-486">AllowedHosts</span><span class="sxs-lookup"><span data-stu-id="9248d-486">AllowedHosts</span></span>               | *                 | *                |
+| <span data-ttu-id="537ae-480">Logging:LogLevel:System</span><span class="sxs-lookup"><span data-stu-id="537ae-480">Logging:LogLevel:System</span></span>    | <span data-ttu-id="537ae-481">情報</span><span class="sxs-lookup"><span data-stu-id="537ae-481">Information</span></span>       | <span data-ttu-id="537ae-482">情報</span><span class="sxs-lookup"><span data-stu-id="537ae-482">Information</span></span>      |
+| <span data-ttu-id="537ae-483">Logging:LogLevel:Microsoft</span><span class="sxs-lookup"><span data-stu-id="537ae-483">Logging:LogLevel:Microsoft</span></span> | <span data-ttu-id="537ae-484">情報</span><span class="sxs-lookup"><span data-stu-id="537ae-484">Information</span></span>       | <span data-ttu-id="537ae-485">情報</span><span class="sxs-lookup"><span data-stu-id="537ae-485">Information</span></span>      |
+| <span data-ttu-id="537ae-486">Logging:LogLevel:Default</span><span class="sxs-lookup"><span data-stu-id="537ae-486">Logging:LogLevel:Default</span></span>   | <span data-ttu-id="537ae-487">デバッグ</span><span class="sxs-lookup"><span data-stu-id="537ae-487">Debug</span></span>             | <span data-ttu-id="537ae-488">Error</span><span class="sxs-lookup"><span data-stu-id="537ae-488">Error</span></span>            |
+| <span data-ttu-id="537ae-489">AllowedHosts</span><span class="sxs-lookup"><span data-stu-id="537ae-489">AllowedHosts</span></span>               | *                 | *                |
 
-### <a name="xml-configuration-provider"></a><span data-ttu-id="9248d-487">XML 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-487">XML Configuration Provider</span></span>
+### <a name="xml-configuration-provider"></a><span data-ttu-id="537ae-490">XML 構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-490">XML Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-488"><xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> では、実行時に XML ファイルのキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-488">The <xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> loads configuration from XML file key-value pairs at runtime.</span></span>
+<span data-ttu-id="537ae-491"><xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> では、実行時に XML ファイルのキーと値のペアから構成が読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-491">The <xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> loads configuration from XML file key-value pairs at runtime.</span></span>
 
-<span data-ttu-id="9248d-489">XML ファイルの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-489">To activate XML file configuration, call the <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-492">XML ファイルの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-492">To activate XML file configuration, call the <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-490">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-490">Overloads permit specifying:</span></span>
+<span data-ttu-id="537ae-493">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-493">Overloads permit specifying:</span></span>
 
-* <span data-ttu-id="9248d-491">ファイルを省略可能かどうか。</span><span class="sxs-lookup"><span data-stu-id="9248d-491">Whether the file is optional.</span></span>
-* <span data-ttu-id="9248d-492">ファイルが変更された場合に構成を再度読み込むかどうか。</span><span class="sxs-lookup"><span data-stu-id="9248d-492">Whether the configuration is reloaded if the file changes.</span></span>
-* <span data-ttu-id="9248d-493">ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-493">The <xref:Microsoft.Extensions.FileProviders.IFileProvider> used to access the file.</span></span>
+* <span data-ttu-id="537ae-494">ファイルを省略可能かどうか。</span><span class="sxs-lookup"><span data-stu-id="537ae-494">Whether the file is optional.</span></span>
+* <span data-ttu-id="537ae-495">ファイルが変更された場合に構成を再度読み込むかどうか。</span><span class="sxs-lookup"><span data-stu-id="537ae-495">Whether the configuration is reloaded if the file changes.</span></span>
+* <span data-ttu-id="537ae-496">ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-496">The <xref:Microsoft.Extensions.FileProviders.IFileProvider> used to access the file.</span></span>
 
-<span data-ttu-id="9248d-494">構成ファイルのルート ノードは、構成のキーと値のペアを作成するときには無視されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-494">The root node of the configuration file is ignored when the configuration key-value pairs are created.</span></span> <span data-ttu-id="9248d-495">ファイル内でドキュメント型定義 (DTD) または名前空間を指定しないでください。</span><span class="sxs-lookup"><span data-stu-id="9248d-495">Don't specify a Document Type Definition (DTD) or namespace in the file.</span></span>
+<span data-ttu-id="537ae-497">構成ファイルのルート ノードは、構成のキーと値のペアを作成するときには無視されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-497">The root node of the configuration file is ignored when the configuration key-value pairs are created.</span></span> <span data-ttu-id="537ae-498">ファイル内でドキュメント型定義 (DTD) または名前空間を指定しないでください。</span><span class="sxs-lookup"><span data-stu-id="537ae-498">Don't specify a Document Type Definition (DTD) or namespace in the file.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-496">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-496">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
+<span data-ttu-id="537ae-499">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-499">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
 
 ```csharp
 public class Program
@@ -1026,15 +1047,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-497">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-497">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-498">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-498">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-500">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-500">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-501">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-501">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-499"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-499">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-502"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-502">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-500">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-500">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-503">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-503">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ```csharp
 public class Program
@@ -1058,15 +1079,15 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-501">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-501">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-502">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-502">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-504">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-504">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-505">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-505">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-503"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-503">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-506"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-506">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-504"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-504">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
+<span data-ttu-id="537ae-507"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-507">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
 
 ::: moniker-end
 
@@ -1082,9 +1103,9 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
-<span data-ttu-id="9248d-505">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-505">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-506">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-506">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-508">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-508">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-509">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-509">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-507">XML 構成ファイルでは、繰り返しのセクション用に個別の要素名を使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-507">XML configuration files can use distinct element names for repeating sections:</span></span>
+<span data-ttu-id="537ae-510">XML 構成ファイルでは、繰り返しのセクション用に個別の要素名を使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-510">XML configuration files can use distinct element names for repeating sections:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1100,14 +1121,14 @@ var host = new WebHostBuilder()
 </configuration>
 ```
 
-<span data-ttu-id="9248d-508">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-508">The previous configuration file loads the following keys with `value`:</span></span>
+<span data-ttu-id="537ae-511">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-511">The previous configuration file loads the following keys with `value`:</span></span>
 
-* <span data-ttu-id="9248d-509">section0:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-509">section0:key0</span></span>
-* <span data-ttu-id="9248d-510">section0:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-510">section0:key1</span></span>
-* <span data-ttu-id="9248d-511">section1:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-511">section1:key0</span></span>
-* <span data-ttu-id="9248d-512">section1:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-512">section1:key1</span></span>
+* <span data-ttu-id="537ae-512">section0:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-512">section0:key0</span></span>
+* <span data-ttu-id="537ae-513">section0:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-513">section0:key1</span></span>
+* <span data-ttu-id="537ae-514">section1:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-514">section1:key0</span></span>
+* <span data-ttu-id="537ae-515">section1:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-515">section1:key1</span></span>
 
-<span data-ttu-id="9248d-513">同じ要素名を使用する要素の繰り返しは、要素を区別するために `name` 属性を使用する場合に機能します。</span><span class="sxs-lookup"><span data-stu-id="9248d-513">Repeating elements that use the same element name work if the `name` attribute is used to distinguish the elements:</span></span>
+<span data-ttu-id="537ae-516">同じ要素名を使用する要素の繰り返しは、要素を区別するために `name` 属性を使用する場合に機能します。</span><span class="sxs-lookup"><span data-stu-id="537ae-516">Repeating elements that use the same element name work if the `name` attribute is used to distinguish the elements:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1123,14 +1144,14 @@ var host = new WebHostBuilder()
 </configuration>
 ```
 
-<span data-ttu-id="9248d-514">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-514">The previous configuration file loads the following keys with `value`:</span></span>
+<span data-ttu-id="537ae-517">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-517">The previous configuration file loads the following keys with `value`:</span></span>
 
-* <span data-ttu-id="9248d-515">section:section0:key:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-515">section:section0:key:key0</span></span>
-* <span data-ttu-id="9248d-516">section:section0:key:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-516">section:section0:key:key1</span></span>
-* <span data-ttu-id="9248d-517">section:section1:key:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-517">section:section1:key:key0</span></span>
-* <span data-ttu-id="9248d-518">section:section1:key:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-518">section:section1:key:key1</span></span>
+* <span data-ttu-id="537ae-518">section:section0:key:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-518">section:section0:key:key0</span></span>
+* <span data-ttu-id="537ae-519">section:section0:key:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-519">section:section0:key:key1</span></span>
+* <span data-ttu-id="537ae-520">section:section1:key:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-520">section:section1:key:key0</span></span>
+* <span data-ttu-id="537ae-521">section:section1:key:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-521">section:section1:key:key1</span></span>
 
-<span data-ttu-id="9248d-519">値を指定するために属性を使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-519">Attributes can be used to supply values:</span></span>
+<span data-ttu-id="537ae-522">値を指定するために属性を使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-522">Attributes can be used to supply values:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1142,27 +1163,27 @@ var host = new WebHostBuilder()
 </configuration>
 ```
 
-<span data-ttu-id="9248d-520">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-520">The previous configuration file loads the following keys with `value`:</span></span>
+<span data-ttu-id="537ae-523">前の構成ファイルでは、`value` を使用して次のキーが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-523">The previous configuration file loads the following keys with `value`:</span></span>
 
-* <span data-ttu-id="9248d-521">key:attribute</span><span class="sxs-lookup"><span data-stu-id="9248d-521">key:attribute</span></span>
-* <span data-ttu-id="9248d-522">section:key:attribute</span><span class="sxs-lookup"><span data-stu-id="9248d-522">section:key:attribute</span></span>
+* <span data-ttu-id="537ae-524">key:attribute</span><span class="sxs-lookup"><span data-stu-id="537ae-524">key:attribute</span></span>
+* <span data-ttu-id="537ae-525">section:key:attribute</span><span class="sxs-lookup"><span data-stu-id="537ae-525">section:key:attribute</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="key-per-file-configuration-provider"></a><span data-ttu-id="9248d-523">ファイルごとのキーの構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-523">Key-per-file Configuration Provider</span></span>
+## <a name="key-per-file-configuration-provider"></a><span data-ttu-id="537ae-526">ファイルごとのキーの構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-526">Key-per-file Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-524"><xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> では、構成のキーと値のペアとしてディレクトリのファイルが使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-524">The <xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> uses a directory's files as configuration key-value pairs.</span></span> <span data-ttu-id="9248d-525">キーはファイル名です。</span><span class="sxs-lookup"><span data-stu-id="9248d-525">The key is the file name.</span></span> <span data-ttu-id="9248d-526">値にはファイルのコンテンツが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-526">The value contains the file's contents.</span></span> <span data-ttu-id="9248d-527">ファイルごとのキーの構成プロバイダーは、Docker ホスティングのシナリオで使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-527">The Key-per-file Configuration Provider is used in Docker hosting scenarios.</span></span>
+<span data-ttu-id="537ae-527"><xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> では、構成のキーと値のペアとしてディレクトリのファイルが使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-527">The <xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> uses a directory's files as configuration key-value pairs.</span></span> <span data-ttu-id="537ae-528">キーはファイル名です。</span><span class="sxs-lookup"><span data-stu-id="537ae-528">The key is the file name.</span></span> <span data-ttu-id="537ae-529">値にはファイルのコンテンツが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-529">The value contains the file's contents.</span></span> <span data-ttu-id="537ae-530">ファイルごとのキーの構成プロバイダーは、Docker ホスティングのシナリオで使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-530">The Key-per-file Configuration Provider is used in Docker hosting scenarios.</span></span>
 
-<span data-ttu-id="9248d-528">ファイルごとのキーの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-528">To activate key-per-file configuration, call the <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span> <span data-ttu-id="9248d-529">ファイルに対する `directoryPath` は、絶対パスである必要があります。</span><span class="sxs-lookup"><span data-stu-id="9248d-529">The `directoryPath` to the files must be an absolute path.</span></span>
+<span data-ttu-id="537ae-531">ファイルごとのキーの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-531">To activate key-per-file configuration, call the <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span> <span data-ttu-id="537ae-532">ファイルに対する `directoryPath` は、絶対パスである必要があります。</span><span class="sxs-lookup"><span data-stu-id="537ae-532">The `directoryPath` to the files must be an absolute path.</span></span>
 
-<span data-ttu-id="9248d-530">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-530">Overloads permit specifying:</span></span>
+<span data-ttu-id="537ae-533">オーバーロードによって次のものを指定できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-533">Overloads permit specifying:</span></span>
 
-* <span data-ttu-id="9248d-531">ソースを構成する `Action<KeyPerFileConfigurationSource>` デリゲート。</span><span class="sxs-lookup"><span data-stu-id="9248d-531">An `Action<KeyPerFileConfigurationSource>` delegate that configures the source.</span></span>
-* <span data-ttu-id="9248d-532">ディレクトリを省略可能かどうか、またディレクトリへのパス。</span><span class="sxs-lookup"><span data-stu-id="9248d-532">Whether the directory is optional and the path to the directory.</span></span>
+* <span data-ttu-id="537ae-534">ソースを構成する `Action<KeyPerFileConfigurationSource>` デリゲート。</span><span class="sxs-lookup"><span data-stu-id="537ae-534">An `Action<KeyPerFileConfigurationSource>` delegate that configures the source.</span></span>
+* <span data-ttu-id="537ae-535">ディレクトリを省略可能かどうか、またディレクトリへのパス。</span><span class="sxs-lookup"><span data-stu-id="537ae-535">Whether the directory is optional and the path to the directory.</span></span>
 
-<span data-ttu-id="9248d-533">アンダースコア 2 つ (`__`) は、ファイル名で構成キーの区切り記号として使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-533">The double-underscore (`__`) is used as a configuration key delimiter in file names.</span></span> <span data-ttu-id="9248d-534">たとえば、ファイル名 `Logging__LogLevel__System` では、構成キー `Logging:LogLevel:System` が生成されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-534">For example, the file name `Logging__LogLevel__System` produces the configuration key `Logging:LogLevel:System`.</span></span>
+<span data-ttu-id="537ae-536">アンダースコア 2 つ (`__`) は、ファイル名で構成キーの区切り記号として使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-536">The double-underscore (`__`) is used as a configuration key delimiter in file names.</span></span> <span data-ttu-id="537ae-537">たとえば、ファイル名 `Logging__LogLevel__System` では、構成キー `Logging:LogLevel:System` が生成されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-537">For example, the file name `Logging__LogLevel__System` produces the configuration key `Logging:LogLevel:System`.</span></span>
 
-<span data-ttu-id="9248d-535">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-535">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
+<span data-ttu-id="537ae-538">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-538">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
 
 ```csharp
 public class Program
@@ -1184,9 +1205,9 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-536">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="9248d-536">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="9248d-537">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-537">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-539">基本パスは <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> に設定されています。</span><span class="sxs-lookup"><span data-stu-id="537ae-539">The base path is set with <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.</span></span> <span data-ttu-id="537ae-540">`SetBasePath` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-540">`SetBasePath` is in the [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-538"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-538">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-541"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-541">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ```csharp
 var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
@@ -1202,17 +1223,17 @@ var host = new WebHostBuilder()
 
 ::: moniker-end
 
-## <a name="memory-configuration-provider"></a><span data-ttu-id="9248d-539">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-539">Memory Configuration Provider</span></span>
+## <a name="memory-configuration-provider"></a><span data-ttu-id="537ae-542">メモリ構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-542">Memory Configuration Provider</span></span>
 
-<span data-ttu-id="9248d-540"><xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> では、構成のキーと値のペアとして、メモリ内コレクションが使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-540">The <xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> uses an in-memory collection as configuration key-value pairs.</span></span>
+<span data-ttu-id="537ae-543"><xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> では、構成のキーと値のペアとして、メモリ内コレクションが使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-543">The <xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> uses an in-memory collection as configuration key-value pairs.</span></span>
 
-<span data-ttu-id="9248d-541">メモリ内コレクションの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-541">To activate in-memory collection configuration, call the <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
+<span data-ttu-id="537ae-544">メモリ内コレクションの構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> 拡張メソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-544">To activate in-memory collection configuration, call the <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> extension method on an instance of <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.</span></span>
 
-<span data-ttu-id="9248d-542">構成プロバイダーは、`IEnumerable<KeyValuePair<String,String>>` を使用して初期化できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-542">The configuration provider can be initialized with an `IEnumerable<KeyValuePair<String,String>>`.</span></span>
+<span data-ttu-id="537ae-545">構成プロバイダーは、`IEnumerable<KeyValuePair<String,String>>` を使用して初期化できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-545">The configuration provider can be initialized with an `IEnumerable<KeyValuePair<String,String>>`.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="9248d-543">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-543">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
+<span data-ttu-id="537ae-546">ホストをビルドするときに <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> を呼び出して、アプリの構成を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-546">Call <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> when building the host to specify the app's configuration:</span></span>
 
 ```csharp
 public class Program
@@ -1239,13 +1260,13 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-544"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-544">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-547"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-547">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-545">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-545">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-548">`CreateDefaultBuilder` を呼び出す場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-548">When calling `CreateDefaultBuilder`, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ```csharp
 public class Program
@@ -1274,13 +1295,13 @@ public class Program
 }
 ```
 
-<span data-ttu-id="9248d-546"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-546">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
+<span data-ttu-id="537ae-549"><xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を直接作成する場合、次の構成で <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-549">When creating a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> directly, call <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> with the configuration:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-547"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-547">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
+<span data-ttu-id="537ae-550"><xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> メソッドを使用して、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に構成を適用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-550">Apply the configuration to <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> with the <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> method:</span></span>
 
 ::: moniker-end
 
@@ -1301,19 +1322,38 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>();
 ```
 
-## <a name="getvalue"></a><span data-ttu-id="9248d-548">GetValue</span><span class="sxs-lookup"><span data-stu-id="9248d-548">GetValue</span></span>
+## <a name="getvalue"></a><span data-ttu-id="537ae-551">GetValue</span><span class="sxs-lookup"><span data-stu-id="537ae-551">GetValue</span></span>
 
-<span data-ttu-id="9248d-549">[ConfigurationBinder.GetValue&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) によって、指定したキーで構成から値が抽出され、それが指定した型に変換されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-549">[ConfigurationBinder.GetValue&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) extracts a value from configuration with a specified key and converts it to the specified type.</span></span> <span data-ttu-id="9248d-550">オーバーロードを使用すると、キーが見つからない場合に既定値を指定することができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-550">An overload permits you to provide a default value if the key isn't found.</span></span>
+<span data-ttu-id="537ae-552">[ConfigurationBinder.GetValue&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) によって、指定したキーで構成から値が抽出され、それが指定した型に変換されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-552">[ConfigurationBinder.GetValue&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) extracts a value from configuration with a specified key and converts it to the specified type.</span></span> <span data-ttu-id="537ae-553">オーバーロードを使用すると、キーが見つからない場合に既定値を指定することができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-553">An overload permits you to provide a default value if the key isn't found.</span></span>
 
-<span data-ttu-id="9248d-551">次の例では、キー `NumberKey` を使用して構成から文字列値を抽出し、その値を `int` に型付けして、変数 `intValue` に格納します。</span><span class="sxs-lookup"><span data-stu-id="9248d-551">The following example extracts the string value from configuration with the key `NumberKey`, types the value as an `int`, and stores the value in the variable `intValue`.</span></span> <span data-ttu-id="9248d-552">構成キーで `NumberKey` が見つからない場合、`intValue` は 規定値 `99` を受け取ります。</span><span class="sxs-lookup"><span data-stu-id="9248d-552">If `NumberKey` isn't found in the configuration keys, `intValue` receives the default value of `99`:</span></span>
+<span data-ttu-id="537ae-554">次のような例です。</span><span class="sxs-lookup"><span data-stu-id="537ae-554">The following example:</span></span>
+
+* <span data-ttu-id="537ae-555">キー `NumberKey` の文字列値を構成から抽出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-555">Extracts the string value from configuration with the key `NumberKey`.</span></span> <span data-ttu-id="537ae-556">`NumberKey` が構成キーに見つからない場合、既定値の `99` が使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-556">If `NumberKey` isn't found in the configuration keys, the default value of `99` is used.</span></span>
+* <span data-ttu-id="537ae-557">値の型は `int` です。</span><span class="sxs-lookup"><span data-stu-id="537ae-557">Types the value as an `int`.</span></span>
+* <span data-ttu-id="537ae-558">`NumberConfig` プロパティの値をページで使用するために格納します。</span><span class="sxs-lookup"><span data-stu-id="537ae-558">Stores the value in the `NumberConfig` property for use by the page.</span></span>
 
 ```csharp
-var intValue = config.GetValue<int>("NumberKey", 99);
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+    
+    public int NumberConfig { get; private set; }
+        
+    public void OnGet()
+    {
+        NumberConfig = _config.GetValue<int>("NumberKey", 99);
+    }
+}
 ```
 
-## <a name="getsection-getchildren-and-exists"></a><span data-ttu-id="9248d-553">GetSection、GetChildren、Exists</span><span class="sxs-lookup"><span data-stu-id="9248d-553">GetSection, GetChildren, and Exists</span></span>
+## <a name="getsection-getchildren-and-exists"></a><span data-ttu-id="537ae-559">GetSection、GetChildren、Exists</span><span class="sxs-lookup"><span data-stu-id="537ae-559">GetSection, GetChildren, and Exists</span></span>
 
-<span data-ttu-id="9248d-554">以下の例では、次の JSON ファイルについて考えます。</span><span class="sxs-lookup"><span data-stu-id="9248d-554">For the examples that follow, consider the following JSON file.</span></span> <span data-ttu-id="9248d-555">4 つのキーが 2 つのセクションに含まれています。そのうちの 1 つには、一組のサブセクションが含まれています。</span><span class="sxs-lookup"><span data-stu-id="9248d-555">Four keys are found across two sections, one of which includes a pair of subsections:</span></span>
+<span data-ttu-id="537ae-560">以下の例では、次の JSON ファイルについて考えます。</span><span class="sxs-lookup"><span data-stu-id="537ae-560">For the examples that follow, consider the following JSON file.</span></span> <span data-ttu-id="537ae-561">4 つのキーが 2 つのセクションに含まれています。そのうちの 1 つには、一組のサブセクションが含まれています。</span><span class="sxs-lookup"><span data-stu-id="537ae-561">Four keys are found across two sections, one of which includes a pair of subsections:</span></span>
 
 ```json
 {
@@ -1338,42 +1378,42 @@ var intValue = config.GetValue<int>("NumberKey", 99);
 }
 ```
 
-<span data-ttu-id="9248d-556">ファイルが構成に読み取られると、次の一意の階層キーが作成され、構成値が保持されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-556">When the file is read into configuration, the following unique hierarchical keys are created to hold the configuration values:</span></span>
+<span data-ttu-id="537ae-562">ファイルが構成に読み取られると、次の一意の階層キーが作成され、構成値が保持されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-562">When the file is read into configuration, the following unique hierarchical keys are created to hold the configuration values:</span></span>
 
-* <span data-ttu-id="9248d-557">section0:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-557">section0:key0</span></span>
-* <span data-ttu-id="9248d-558">section0:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-558">section0:key1</span></span>
-* <span data-ttu-id="9248d-559">section1:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-559">section1:key0</span></span>
-* <span data-ttu-id="9248d-560">section1:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-560">section1:key1</span></span>
-* <span data-ttu-id="9248d-561">section2:subsection0:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-561">section2:subsection0:key0</span></span>
-* <span data-ttu-id="9248d-562">section2:subsection0:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-562">section2:subsection0:key1</span></span>
-* <span data-ttu-id="9248d-563">section2:subsection1:key0</span><span class="sxs-lookup"><span data-stu-id="9248d-563">section2:subsection1:key0</span></span>
-* <span data-ttu-id="9248d-564">section2:subsection1:key1</span><span class="sxs-lookup"><span data-stu-id="9248d-564">section2:subsection1:key1</span></span>
+* <span data-ttu-id="537ae-563">section0:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-563">section0:key0</span></span>
+* <span data-ttu-id="537ae-564">section0:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-564">section0:key1</span></span>
+* <span data-ttu-id="537ae-565">section1:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-565">section1:key0</span></span>
+* <span data-ttu-id="537ae-566">section1:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-566">section1:key1</span></span>
+* <span data-ttu-id="537ae-567">section2:subsection0:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-567">section2:subsection0:key0</span></span>
+* <span data-ttu-id="537ae-568">section2:subsection0:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-568">section2:subsection0:key1</span></span>
+* <span data-ttu-id="537ae-569">section2:subsection1:key0</span><span class="sxs-lookup"><span data-stu-id="537ae-569">section2:subsection1:key0</span></span>
+* <span data-ttu-id="537ae-570">section2:subsection1:key1</span><span class="sxs-lookup"><span data-stu-id="537ae-570">section2:subsection1:key1</span></span>
 
-### <a name="getsection"></a><span data-ttu-id="9248d-565">GetSection</span><span class="sxs-lookup"><span data-stu-id="9248d-565">GetSection</span></span>
+### <a name="getsection"></a><span data-ttu-id="537ae-571">GetSection</span><span class="sxs-lookup"><span data-stu-id="537ae-571">GetSection</span></span>
 
-<span data-ttu-id="9248d-566">[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) では、指定したサブセクションのキーを持つ構成のサブセクションが抽出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-566">[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) extracts a configuration subsection with the specified subsection key.</span></span> <span data-ttu-id="9248d-567">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-567">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-572">[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) では、指定したサブセクションのキーを持つ構成のサブセクションが抽出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-572">[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) extracts a configuration subsection with the specified subsection key.</span></span> <span data-ttu-id="537ae-573">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-573">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-568">`section1` のキーと値のペアのみを含む <xref:Microsoft.Extensions.Configuration.IConfigurationSection> を返すには、`GetSection` を呼び出してセクション名を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-568">To return an <xref:Microsoft.Extensions.Configuration.IConfigurationSection> containing only the key-value pairs in `section1`, call `GetSection` and supply the section name:</span></span>
+<span data-ttu-id="537ae-574">`section1` のキーと値のペアのみを含む <xref:Microsoft.Extensions.Configuration.IConfigurationSection> を返すには、`GetSection` を呼び出してセクション名を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-574">To return an <xref:Microsoft.Extensions.Configuration.IConfigurationSection> containing only the key-value pairs in `section1`, call `GetSection` and supply the section name:</span></span>
 
 ```csharp
 var configSection = _config.GetSection("section1");
 ```
 
-<span data-ttu-id="9248d-569">`configSection` には値はなく、キーとパスのみが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-569">The `configSection` doesn't have a value, only a key and a path.</span></span>
+<span data-ttu-id="537ae-575">`configSection` には値はなく、キーとパスのみが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-575">The `configSection` doesn't have a value, only a key and a path.</span></span>
 
-<span data-ttu-id="9248d-570">同様に、`section2:subsection0` のキーの値を取得するには、`GetSection` を呼び出してセクションのパスを指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-570">Similarly, to obtain the values for keys in `section2:subsection0`, call `GetSection` and supply the section path:</span></span>
+<span data-ttu-id="537ae-576">同様に、`section2:subsection0` のキーの値を取得するには、`GetSection` を呼び出してセクションのパスを指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-576">Similarly, to obtain the values for keys in `section2:subsection0`, call `GetSection` and supply the section path:</span></span>
 
 ```csharp
 var configSection = _config.GetSection("section2:subsection0");
 ```
 
-<span data-ttu-id="9248d-571">`GetSection` が `null` を返すことはありません。</span><span class="sxs-lookup"><span data-stu-id="9248d-571">`GetSection` never returns `null`.</span></span> <span data-ttu-id="9248d-572">一致するセクションが見つからない場合は、空の `IConfigurationSection` が返されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-572">If a matching section isn't found, an empty `IConfigurationSection` is returned.</span></span>
+<span data-ttu-id="537ae-577">`GetSection` が `null` を返すことはありません。</span><span class="sxs-lookup"><span data-stu-id="537ae-577">`GetSection` never returns `null`.</span></span> <span data-ttu-id="537ae-578">一致するセクションが見つからない場合は、空の `IConfigurationSection` が返されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-578">If a matching section isn't found, an empty `IConfigurationSection` is returned.</span></span>
 
-<span data-ttu-id="9248d-573">`GetSection` で一致するセクションが返されると、<xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> は設定されません。</span><span class="sxs-lookup"><span data-stu-id="9248d-573">When `GetSection` returns a matching section, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> isn't populated.</span></span> <span data-ttu-id="9248d-574"><xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> と <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> はセクションが存在する場合に返されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-574">A <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> and <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> are returned when the section exists.</span></span>
+<span data-ttu-id="537ae-579">`GetSection` で一致するセクションが返されると、<xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> は設定されません。</span><span class="sxs-lookup"><span data-stu-id="537ae-579">When `GetSection` returns a matching section, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> isn't populated.</span></span> <span data-ttu-id="537ae-580"><xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> と <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> はセクションが存在する場合に返されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-580">A <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> and <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> are returned when the section exists.</span></span>
 
-### <a name="getchildren"></a><span data-ttu-id="9248d-575">GetChildren</span><span class="sxs-lookup"><span data-stu-id="9248d-575">GetChildren</span></span>
+### <a name="getchildren"></a><span data-ttu-id="537ae-581">GetChildren</span><span class="sxs-lookup"><span data-stu-id="537ae-581">GetChildren</span></span>
 
-<span data-ttu-id="9248d-576">`section2` での [IConfiguration.GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) の呼び出しでは、次を含む `IEnumerable<IConfigurationSection>` が取得されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-576">A call to [IConfiguration.GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) on `section2` obtains an `IEnumerable<IConfigurationSection>` that includes:</span></span>
+<span data-ttu-id="537ae-582">`section2` での [IConfiguration.GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) の呼び出しでは、次を含む `IEnumerable<IConfigurationSection>` が取得されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-582">A call to [IConfiguration.GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) on `section2` obtains an `IEnumerable<IConfigurationSection>` that includes:</span></span>
 
 * `subsection0`
 * `subsection1`
@@ -1386,25 +1426,25 @@ var children = configSection.GetChildren();
 
 ::: moniker range=">= aspnetcore-2.0"
 
-### <a name="exists"></a><span data-ttu-id="9248d-577">既存</span><span class="sxs-lookup"><span data-stu-id="9248d-577">Exists</span></span>
+### <a name="exists"></a><span data-ttu-id="537ae-583">既存</span><span class="sxs-lookup"><span data-stu-id="537ae-583">Exists</span></span>
 
-<span data-ttu-id="9248d-578">[ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) を使用して、構成セクションが存在するかどうかを判断します。</span><span class="sxs-lookup"><span data-stu-id="9248d-578">Use [ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) to determine if a configuration section exists:</span></span>
+<span data-ttu-id="537ae-584">[ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) を使用して、構成セクションが存在するかどうかを判断します。</span><span class="sxs-lookup"><span data-stu-id="537ae-584">Use [ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) to determine if a configuration section exists:</span></span>
 
 ```csharp
 var sectionExists = _config.GetSection("section2:subsection2").Exists();
 ```
 
-<span data-ttu-id="9248d-579">例のデータの場合、構成データに `section2:subsection2` セクションが存在しないため、`sectionExists` は `false` となります。</span><span class="sxs-lookup"><span data-stu-id="9248d-579">Given the example data, `sectionExists` is `false` because there isn't a `section2:subsection2` section in the configuration data.</span></span>
+<span data-ttu-id="537ae-585">例のデータの場合、構成データに `section2:subsection2` セクションが存在しないため、`sectionExists` は `false` となります。</span><span class="sxs-lookup"><span data-stu-id="537ae-585">Given the example data, `sectionExists` is `false` because there isn't a `section2:subsection2` section in the configuration data.</span></span>
 
 ::: moniker-end
 
-## <a name="bind-to-a-class"></a><span data-ttu-id="9248d-580">クラスにバインドする</span><span class="sxs-lookup"><span data-stu-id="9248d-580">Bind to a class</span></span>
+## <a name="bind-to-a-class"></a><span data-ttu-id="537ae-586">クラスにバインドする</span><span class="sxs-lookup"><span data-stu-id="537ae-586">Bind to a class</span></span>
 
-<span data-ttu-id="9248d-581">"*オプション パターン*" を使用して、関連する設定のグループを表すクラスに構成をバインドすることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-581">Configuration can be bound to classes that represent groups of related settings using the *options pattern*.</span></span> <span data-ttu-id="9248d-582">詳細については、「<xref:fundamentals/configuration/options>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-582">For more information, see <xref:fundamentals/configuration/options>.</span></span>
+<span data-ttu-id="537ae-587">"*オプション パターン*" を使用して、関連する設定のグループを表すクラスに構成をバインドすることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-587">Configuration can be bound to classes that represent groups of related settings using the *options pattern*.</span></span> <span data-ttu-id="537ae-588">詳細については、「<xref:fundamentals/configuration/options>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-588">For more information, see <xref:fundamentals/configuration/options>.</span></span>
 
-<span data-ttu-id="9248d-583">構成値は文字列として返されますが、<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> を呼び出すことで [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) オブジェクトを構築できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-583">Configuration values are returned as strings, but calling <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> enables the construction of [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) objects.</span></span> <span data-ttu-id="9248d-584">`Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-584">`Bind` is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-589">構成値は文字列として返されますが、<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> を呼び出すことで [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) オブジェクトを構築できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-589">Configuration values are returned as strings, but calling <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> enables the construction of [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) objects.</span></span> <span data-ttu-id="537ae-590">`Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-590">`Bind` is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-585">サンプル アプリには `Starship` モデル (*Models/Starship.cs*) が含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-585">The sample app contains a `Starship` model (*Models/Starship.cs*):</span></span>
+<span data-ttu-id="537ae-591">サンプル アプリには `Starship` モデル (*Models/Starship.cs*) が含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-591">The sample app contains a `Starship` model (*Models/Starship.cs*):</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1418,7 +1458,7 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-586">サンプル アプリが JSON 構成プロバイダーを使用して構成を読み込むときに、*starship.json* ファイルの `starship` セクションで構成が作成されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-586">The `starship` section of the *starship.json* file creates the configuration when the sample app uses the JSON Configuration Provider to load the configuration:</span></span>
+<span data-ttu-id="537ae-592">サンプル アプリが JSON 構成プロバイダーを使用して構成を読み込むときに、*starship.json* ファイルの `starship` セクションで構成が作成されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-592">The `starship` section of the *starship.json* file creates the configuration when the sample app uses the JSON Configuration Provider to load the configuration:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1432,18 +1472,18 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-587">次の構成のキーと値のペアが作成されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-587">The following configuration key-value pairs are created:</span></span>
+<span data-ttu-id="537ae-593">次の構成のキーと値のペアが作成されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-593">The following configuration key-value pairs are created:</span></span>
 
-| <span data-ttu-id="9248d-588">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-588">Key</span></span>                   | <span data-ttu-id="9248d-589">[値]</span><span class="sxs-lookup"><span data-stu-id="9248d-589">Value</span></span>                                             |
+| <span data-ttu-id="537ae-594">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-594">Key</span></span>                   | <span data-ttu-id="537ae-595">[値]</span><span class="sxs-lookup"><span data-stu-id="537ae-595">Value</span></span>                                             |
 | --------------------- | ------------------------------------------------- |
-| <span data-ttu-id="9248d-590">starship:name</span><span class="sxs-lookup"><span data-stu-id="9248d-590">starship:name</span></span>         | <span data-ttu-id="9248d-591">USS Enterprise</span><span class="sxs-lookup"><span data-stu-id="9248d-591">USS Enterprise</span></span>                                    |
-| <span data-ttu-id="9248d-592">starship:registry</span><span class="sxs-lookup"><span data-stu-id="9248d-592">starship:registry</span></span>     | <span data-ttu-id="9248d-593">NCC-1701</span><span class="sxs-lookup"><span data-stu-id="9248d-593">NCC-1701</span></span>                                          |
-| <span data-ttu-id="9248d-594">starship:class</span><span class="sxs-lookup"><span data-stu-id="9248d-594">starship:class</span></span>        | <span data-ttu-id="9248d-595">Constitution</span><span class="sxs-lookup"><span data-stu-id="9248d-595">Constitution</span></span>                                      |
-| <span data-ttu-id="9248d-596">starship:length</span><span class="sxs-lookup"><span data-stu-id="9248d-596">starship:length</span></span>       | <span data-ttu-id="9248d-597">304.8</span><span class="sxs-lookup"><span data-stu-id="9248d-597">304.8</span></span>                                             |
-| <span data-ttu-id="9248d-598">starship:commissioned</span><span class="sxs-lookup"><span data-stu-id="9248d-598">starship:commissioned</span></span> | <span data-ttu-id="9248d-599">False</span><span class="sxs-lookup"><span data-stu-id="9248d-599">False</span></span>                                             |
-| <span data-ttu-id="9248d-600">trademark</span><span class="sxs-lookup"><span data-stu-id="9248d-600">trademark</span></span>             | <span data-ttu-id="9248d-601">Paramount Pictures Corp. http://www.paramount.com</span><span class="sxs-lookup"><span data-stu-id="9248d-601">Paramount Pictures Corp. http://www.paramount.com</span></span> |
+| <span data-ttu-id="537ae-596">starship:name</span><span class="sxs-lookup"><span data-stu-id="537ae-596">starship:name</span></span>         | <span data-ttu-id="537ae-597">USS Enterprise</span><span class="sxs-lookup"><span data-stu-id="537ae-597">USS Enterprise</span></span>                                    |
+| <span data-ttu-id="537ae-598">starship:registry</span><span class="sxs-lookup"><span data-stu-id="537ae-598">starship:registry</span></span>     | <span data-ttu-id="537ae-599">NCC-1701</span><span class="sxs-lookup"><span data-stu-id="537ae-599">NCC-1701</span></span>                                          |
+| <span data-ttu-id="537ae-600">starship:class</span><span class="sxs-lookup"><span data-stu-id="537ae-600">starship:class</span></span>        | <span data-ttu-id="537ae-601">Constitution</span><span class="sxs-lookup"><span data-stu-id="537ae-601">Constitution</span></span>                                      |
+| <span data-ttu-id="537ae-602">starship:length</span><span class="sxs-lookup"><span data-stu-id="537ae-602">starship:length</span></span>       | <span data-ttu-id="537ae-603">304.8</span><span class="sxs-lookup"><span data-stu-id="537ae-603">304.8</span></span>                                             |
+| <span data-ttu-id="537ae-604">starship:commissioned</span><span class="sxs-lookup"><span data-stu-id="537ae-604">starship:commissioned</span></span> | <span data-ttu-id="537ae-605">False</span><span class="sxs-lookup"><span data-stu-id="537ae-605">False</span></span>                                             |
+| <span data-ttu-id="537ae-606">trademark</span><span class="sxs-lookup"><span data-stu-id="537ae-606">trademark</span></span>             | <span data-ttu-id="537ae-607">Paramount Pictures Corp. http://www.paramount.com</span><span class="sxs-lookup"><span data-stu-id="537ae-607">Paramount Pictures Corp. http://www.paramount.com</span></span> |
 
-<span data-ttu-id="9248d-602">サンプル アプリは `starship` キーを使用して `GetSection` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="9248d-602">The sample app calls `GetSection` with the `starship` key.</span></span> <span data-ttu-id="9248d-603">`starship` のキーと値のペアは分離されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-603">The `starship` key-value pairs are isolated.</span></span> <span data-ttu-id="9248d-604">`Starship` クラスのインスタンスを渡すサブセクションで、`Bind` メソッドが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-604">The `Bind` method is called on the subsection passing in an instance of the `Starship` class.</span></span> <span data-ttu-id="9248d-605">インスタンスの値をバインドした後、インスタンスがレンダリング用のプロパティに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="9248d-605">After binding the instance values, the instance is assigned to a property for rendering:</span></span>
+<span data-ttu-id="537ae-608">サンプル アプリは `starship` キーを使用して `GetSection` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="537ae-608">The sample app calls `GetSection` with the `starship` key.</span></span> <span data-ttu-id="537ae-609">`starship` のキーと値のペアは分離されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-609">The `starship` key-value pairs are isolated.</span></span> <span data-ttu-id="537ae-610">`Starship` クラスのインスタンスを渡すサブセクションで、`Bind` メソッドが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-610">The `Bind` method is called on the subsection passing in an instance of the `Starship` class.</span></span> <span data-ttu-id="537ae-611">インスタンスの値をバインドした後、インスタンスがレンダリング用のプロパティに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="537ae-611">After binding the instance values, the instance is assigned to a property for rendering:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1457,13 +1497,13 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-606">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-606">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-612">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-612">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-## <a name="bind-to-an-object-graph"></a><span data-ttu-id="9248d-607">オブジェクト グラフにバインドする</span><span class="sxs-lookup"><span data-stu-id="9248d-607">Bind to an object graph</span></span>
+## <a name="bind-to-an-object-graph"></a><span data-ttu-id="537ae-613">オブジェクト グラフにバインドする</span><span class="sxs-lookup"><span data-stu-id="537ae-613">Bind to an object graph</span></span>
 
-<span data-ttu-id="9248d-608"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> では、POCO オブジェクト グラフ全体をバインドすることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-608"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> is capable of binding an entire POCO object graph.</span></span> <span data-ttu-id="9248d-609">`Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-609">`Bind` is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-614"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> では、POCO オブジェクト グラフ全体をバインドすることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-614"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> is capable of binding an entire POCO object graph.</span></span> <span data-ttu-id="537ae-615">`Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-615">`Bind` is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="9248d-610">サンプルには、オブジェクト グラフに `Metadata` クラスと `Actors` クラスが含まれる `TvShow` モデルが含まれます (*Models/TvShow.cs*)。</span><span class="sxs-lookup"><span data-stu-id="9248d-610">The sample contains a `TvShow` model whose object graph includes `Metadata` and `Actors` classes (*Models/TvShow.cs*):</span></span>
+<span data-ttu-id="537ae-616">サンプルには、オブジェクト グラフに `Metadata` クラスと `Actors` クラスが含まれる `TvShow` モデルが含まれます (*Models/TvShow.cs*)。</span><span class="sxs-lookup"><span data-stu-id="537ae-616">The sample contains a `TvShow` model whose object graph includes `Metadata` and `Actors` classes (*Models/TvShow.cs*):</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1477,7 +1517,7 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-611">サンプル アプリには、構成データを含む *tvshow.xml* ファイルが含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-611">The sample app has a *tvshow.xml* file containing the configuration data:</span></span>
+<span data-ttu-id="537ae-617">サンプル アプリには、構成データを含む *tvshow.xml* ファイルが含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-617">The sample app has a *tvshow.xml* file containing the configuration data:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1491,7 +1531,7 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-612">構成は、`Bind` メソッドを使用して、`TvShow` オブジェクト グラフ全体にバインドされます。</span><span class="sxs-lookup"><span data-stu-id="9248d-612">Configuration is bound to the entire `TvShow` object graph with the `Bind` method.</span></span> <span data-ttu-id="9248d-613">バインドされたインスタンスは、表示のためにプロパティに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="9248d-613">The bound instance is assigned to a property for rendering:</span></span>
+<span data-ttu-id="537ae-618">構成は、`Bind` メソッドを使用して、`TvShow` オブジェクト グラフ全体にバインドされます。</span><span class="sxs-lookup"><span data-stu-id="537ae-618">Configuration is bound to the entire `TvShow` object graph with the `Bind` method.</span></span> <span data-ttu-id="537ae-619">バインドされたインスタンスは、表示のためにプロパティに割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="537ae-619">The bound instance is assigned to a property for rendering:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1515,7 +1555,7 @@ viewModel.TvShow = tvShow;
 
 ::: moniker range=">= aspnetcore-1.1"
 
-<span data-ttu-id="9248d-614">[ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) によってバインドされ、指定した型が返されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-614">[ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) binds and returns the specified type.</span></span> <span data-ttu-id="9248d-615">`Get<T>` は `Bind` を使用するよりも便利です。</span><span class="sxs-lookup"><span data-stu-id="9248d-615">`Get<T>` is more convenient than using `Bind`.</span></span> <span data-ttu-id="9248d-616">次のコードは、前の例と共に `Get<T>` を使用する方法を示しています。これにより、バインドされたインスタンスを、表示用に使用するプロパティに直接割り当てることができます。</span><span class="sxs-lookup"><span data-stu-id="9248d-616">The following code shows how to use `Get<T>` with the preceding example, which allows the bound instance to be directly assigned to the property used for rendering:</span></span>
+<span data-ttu-id="537ae-620">[ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) によってバインドされ、指定した型が返されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-620">[ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) binds and returns the specified type.</span></span> <span data-ttu-id="537ae-621">`Get<T>` は `Bind` を使用するよりも便利です。</span><span class="sxs-lookup"><span data-stu-id="537ae-621">`Get<T>` is more convenient than using `Bind`.</span></span> <span data-ttu-id="537ae-622">次のコードは、前の例と共に `Get<T>` を使用する方法を示しています。これにより、バインドされたインスタンスを、表示用に使用するプロパティに直接割り当てることができます。</span><span class="sxs-lookup"><span data-stu-id="537ae-622">The following code shows how to use `Get<T>` with the preceding example, which allows the bound instance to be directly assigned to the property used for rendering:</span></span>
 
 ::: moniker-end
 
@@ -1531,30 +1571,30 @@ viewModel.TvShow = tvShow;
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-617"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-617"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span> <span data-ttu-id="9248d-618">`Get<T>` は、ASP.NET Core 1.1 以降で使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-618">`Get<T>` is available in ASP.NET Core 1.1 or later.</span></span> <span data-ttu-id="9248d-619">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-619">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-623"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-623"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span> <span data-ttu-id="537ae-624">`Get<T>` は、ASP.NET Core 1.1 以降で使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-624">`Get<T>` is available in ASP.NET Core 1.1 or later.</span></span> <span data-ttu-id="537ae-625">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-625">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-## <a name="bind-an-array-to-a-class"></a><span data-ttu-id="9248d-620">配列をクラスにバインドする</span><span class="sxs-lookup"><span data-stu-id="9248d-620">Bind an array to a class</span></span>
+## <a name="bind-an-array-to-a-class"></a><span data-ttu-id="537ae-626">配列をクラスにバインドする</span><span class="sxs-lookup"><span data-stu-id="537ae-626">Bind an array to a class</span></span>
 
-<span data-ttu-id="9248d-621">*サンプル アプリは、このセクションで説明する概念を示しています。*</span><span class="sxs-lookup"><span data-stu-id="9248d-621">*The sample app demonstrates the concepts explained in this section.*</span></span>
+<span data-ttu-id="537ae-627">*サンプル アプリは、このセクションで説明する概念を示しています。*</span><span class="sxs-lookup"><span data-stu-id="537ae-627">*The sample app demonstrates the concepts explained in this section.*</span></span>
 
-<span data-ttu-id="9248d-622"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> は、構成キーで配列インデックスを使用して、オブジェクトに対する配列のバインドをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="9248d-622">The <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> supports binding arrays to objects using array indices in configuration keys.</span></span> <span data-ttu-id="9248d-623">数値のキー セグメント (`:0:`、`:1:`、&hellip; `:{n}:`) を公開する配列形式は、すべて POCO クラスの配列にバインドできます。</span><span class="sxs-lookup"><span data-stu-id="9248d-623">Any array format that exposes a numeric key segment (`:0:`, `:1:`, &hellip; `:{n}:`) is capable of array binding to a POCO class array.</span></span> <span data-ttu-id="9248d-624">`Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-624">\`Bind\`\` is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-628"><xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> は、構成キーで配列インデックスを使用して、オブジェクトに対する配列のバインドをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="537ae-628">The <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> supports binding arrays to objects using array indices in configuration keys.</span></span> <span data-ttu-id="537ae-629">数値のキー セグメント (`:0:`、`:1:`、&hellip; `:{n}:`) を公開する配列形式は、すべて POCO クラスの配列にバインドできます。</span><span class="sxs-lookup"><span data-stu-id="537ae-629">Any array format that exposes a numeric key segment (`:0:`, `:1:`, &hellip; `:{n}:`) is capable of array binding to a POCO class array.</span></span> <span data-ttu-id="537ae-630">`Bind` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-630">\`Bind\`\` is in the [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="9248d-625">バインドは慣例に従って指定されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-625">Binding is provided by convention.</span></span> <span data-ttu-id="9248d-626">カスタム構成プロバイダーが配列のバインドを実装する必要はありません。</span><span class="sxs-lookup"><span data-stu-id="9248d-626">Custom configuration providers aren't required to implement array binding.</span></span>
+> <span data-ttu-id="537ae-631">バインドは慣例に従って指定されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-631">Binding is provided by convention.</span></span> <span data-ttu-id="537ae-632">カスタム構成プロバイダーが配列のバインドを実装する必要はありません。</span><span class="sxs-lookup"><span data-stu-id="537ae-632">Custom configuration providers aren't required to implement array binding.</span></span>
 
-<span data-ttu-id="9248d-627">**メモリ内配列の処理**</span><span class="sxs-lookup"><span data-stu-id="9248d-627">**In-memory array processing**</span></span>
+<span data-ttu-id="537ae-633">**メモリ内配列の処理**</span><span class="sxs-lookup"><span data-stu-id="537ae-633">**In-memory array processing**</span></span>
 
-<span data-ttu-id="9248d-628">次の表に示す構成のキーと値について考えます。</span><span class="sxs-lookup"><span data-stu-id="9248d-628">Consider the configuration keys and values shown in the following table.</span></span>
+<span data-ttu-id="537ae-634">次の表に示す構成のキーと値について考えます。</span><span class="sxs-lookup"><span data-stu-id="537ae-634">Consider the configuration keys and values shown in the following table.</span></span>
 
-| <span data-ttu-id="9248d-629">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-629">Key</span></span>             | <span data-ttu-id="9248d-630">[値]</span><span class="sxs-lookup"><span data-stu-id="9248d-630">Value</span></span>  |
+| <span data-ttu-id="537ae-635">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-635">Key</span></span>             | <span data-ttu-id="537ae-636">[値]</span><span class="sxs-lookup"><span data-stu-id="537ae-636">Value</span></span>  |
 | :-------------: | :----: |
-| <span data-ttu-id="9248d-631">配列:エントリ:0</span><span class="sxs-lookup"><span data-stu-id="9248d-631">array:entries:0</span></span> | <span data-ttu-id="9248d-632">value0</span><span class="sxs-lookup"><span data-stu-id="9248d-632">value0</span></span> |
-| <span data-ttu-id="9248d-633">配列:エントリ:1</span><span class="sxs-lookup"><span data-stu-id="9248d-633">array:entries:1</span></span> | <span data-ttu-id="9248d-634">value1</span><span class="sxs-lookup"><span data-stu-id="9248d-634">value1</span></span> |
-| <span data-ttu-id="9248d-635">配列:エントリ:2</span><span class="sxs-lookup"><span data-stu-id="9248d-635">array:entries:2</span></span> | <span data-ttu-id="9248d-636">value2</span><span class="sxs-lookup"><span data-stu-id="9248d-636">value2</span></span> |
-| <span data-ttu-id="9248d-637">配列:エントリ:4</span><span class="sxs-lookup"><span data-stu-id="9248d-637">array:entries:4</span></span> | <span data-ttu-id="9248d-638">value4</span><span class="sxs-lookup"><span data-stu-id="9248d-638">value4</span></span> |
-| <span data-ttu-id="9248d-639">配列:エントリ:5</span><span class="sxs-lookup"><span data-stu-id="9248d-639">array:entries:5</span></span> | <span data-ttu-id="9248d-640">value5</span><span class="sxs-lookup"><span data-stu-id="9248d-640">value5</span></span> |
+| <span data-ttu-id="537ae-637">配列:エントリ:0</span><span class="sxs-lookup"><span data-stu-id="537ae-637">array:entries:0</span></span> | <span data-ttu-id="537ae-638">value0</span><span class="sxs-lookup"><span data-stu-id="537ae-638">value0</span></span> |
+| <span data-ttu-id="537ae-639">配列:エントリ:1</span><span class="sxs-lookup"><span data-stu-id="537ae-639">array:entries:1</span></span> | <span data-ttu-id="537ae-640">value1</span><span class="sxs-lookup"><span data-stu-id="537ae-640">value1</span></span> |
+| <span data-ttu-id="537ae-641">配列:エントリ:2</span><span class="sxs-lookup"><span data-stu-id="537ae-641">array:entries:2</span></span> | <span data-ttu-id="537ae-642">value2</span><span class="sxs-lookup"><span data-stu-id="537ae-642">value2</span></span> |
+| <span data-ttu-id="537ae-643">配列:エントリ:4</span><span class="sxs-lookup"><span data-stu-id="537ae-643">array:entries:4</span></span> | <span data-ttu-id="537ae-644">value4</span><span class="sxs-lookup"><span data-stu-id="537ae-644">value4</span></span> |
+| <span data-ttu-id="537ae-645">配列:エントリ:5</span><span class="sxs-lookup"><span data-stu-id="537ae-645">array:entries:5</span></span> | <span data-ttu-id="537ae-646">value5</span><span class="sxs-lookup"><span data-stu-id="537ae-646">value5</span></span> |
 
-<span data-ttu-id="9248d-641">これらのキーと値は、メモリ構成プロバイダーを使用してサンプル アプリに読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-641">These keys and values are loaded in the sample app using the Memory Configuration Provider:</span></span>
+<span data-ttu-id="537ae-647">これらのキーと値は、メモリ構成プロバイダーを使用してサンプル アプリに読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-647">These keys and values are loaded in the sample app using the Memory Configuration Provider:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1568,9 +1608,9 @@ viewModel.TvShow = tvShow;
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-642">配列は、インデックス &num;3 の値をスキップします。</span><span class="sxs-lookup"><span data-stu-id="9248d-642">The array skips a value for index &num;3.</span></span> <span data-ttu-id="9248d-643">構成バインダーは、null 値をバインドしたり、バインドされたオブジェクトに null エントリを作成したりすることはできません。このことは、この配列をオブジェクトにバインドした結果によって明らかになります。</span><span class="sxs-lookup"><span data-stu-id="9248d-643">The configuration binder isn't capable of binding null values or creating null entries in bound objects, which becomes clear in a moment when the result of binding this array to an object is demonstrated.</span></span>
+<span data-ttu-id="537ae-648">配列は、インデックス &num;3 の値をスキップします。</span><span class="sxs-lookup"><span data-stu-id="537ae-648">The array skips a value for index &num;3.</span></span> <span data-ttu-id="537ae-649">構成バインダーは、null 値をバインドしたり、バインドされたオブジェクトに null エントリを作成したりすることはできません。このことは、この配列をオブジェクトにバインドした結果によって明らかになります。</span><span class="sxs-lookup"><span data-stu-id="537ae-649">The configuration binder isn't capable of binding null values or creating null entries in bound objects, which becomes clear in a moment when the result of binding this array to an object is demonstrated.</span></span>
 
-<span data-ttu-id="9248d-644">サンプル アプリでは、バインドされた構成データを保持するために POCO クラスを使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-644">In the sample app, a POCO class is available to hold the bound configuration data:</span></span>
+<span data-ttu-id="537ae-650">サンプル アプリでは、バインドされた構成データを保持するために POCO クラスを使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-650">In the sample app, a POCO class is available to hold the bound configuration data:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1584,18 +1624,18 @@ viewModel.TvShow = tvShow;
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-645">構成データはオブジェクトにバインドされます。</span><span class="sxs-lookup"><span data-stu-id="9248d-645">The configuration data is bound to the object:</span></span>
+<span data-ttu-id="537ae-651">構成データはオブジェクトにバインドされます。</span><span class="sxs-lookup"><span data-stu-id="537ae-651">The configuration data is bound to the object:</span></span>
 
 ```csharp
 var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
 
-<span data-ttu-id="9248d-646">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="9248d-646">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="537ae-652">`GetSection` は [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) パッケージにあります。</span><span class="sxs-lookup"><span data-stu-id="537ae-652">`GetSection` is in the [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
 ::: moniker range=">= aspnetcore-1.1"
 
-<span data-ttu-id="9248d-647">また、[ConfigurationBinder.Get&lt;T&gt; ](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) 構文を使用して、コードをよりコンパクトにすることもできます。</span><span class="sxs-lookup"><span data-stu-id="9248d-647">[ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) syntax can also be used, which results in more compact code:</span></span>
+<span data-ttu-id="537ae-653">また、[ConfigurationBinder.Get&lt;T&gt; ](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) 構文を使用して、コードをよりコンパクトにすることもできます。</span><span class="sxs-lookup"><span data-stu-id="537ae-653">[ConfigurationBinder.Get&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) syntax can also be used, which results in more compact code:</span></span>
 
 ::: moniker-end
 
@@ -1611,21 +1651,21 @@ _config.GetSection("array").Bind(arrayExample);
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-648">バインドされたオブジェクト (`ArrayExample` のインスタンス) は、構成から配列データを受け取ります。</span><span class="sxs-lookup"><span data-stu-id="9248d-648">The bound object, an instance of `ArrayExample`, receives the array data from configuration.</span></span>
+<span data-ttu-id="537ae-654">バインドされたオブジェクト (`ArrayExample` のインスタンス) は、構成から配列データを受け取ります。</span><span class="sxs-lookup"><span data-stu-id="537ae-654">The bound object, an instance of `ArrayExample`, receives the array data from configuration.</span></span>
 
-| <span data-ttu-id="9248d-649">`ArrayExample.Entries` インデックス</span><span class="sxs-lookup"><span data-stu-id="9248d-649">`ArrayExample.Entries` Index</span></span> | <span data-ttu-id="9248d-650">`ArrayExample.Entries` 値</span><span class="sxs-lookup"><span data-stu-id="9248d-650">`ArrayExample.Entries` Value</span></span> |
+| <span data-ttu-id="537ae-655">`ArrayExample.Entries` インデックス</span><span class="sxs-lookup"><span data-stu-id="537ae-655">`ArrayExample.Entries` Index</span></span> | <span data-ttu-id="537ae-656">`ArrayExample.Entries` 値</span><span class="sxs-lookup"><span data-stu-id="537ae-656">`ArrayExample.Entries` Value</span></span> |
 | :--------------------------: | :--------------------------: |
-| <span data-ttu-id="9248d-651">0</span><span class="sxs-lookup"><span data-stu-id="9248d-651">0</span></span>                            | <span data-ttu-id="9248d-652">value0</span><span class="sxs-lookup"><span data-stu-id="9248d-652">value0</span></span>                       |
-| <span data-ttu-id="9248d-653">1</span><span class="sxs-lookup"><span data-stu-id="9248d-653">1</span></span>                            | <span data-ttu-id="9248d-654">value1</span><span class="sxs-lookup"><span data-stu-id="9248d-654">value1</span></span>                       |
-| <span data-ttu-id="9248d-655">2</span><span class="sxs-lookup"><span data-stu-id="9248d-655">2</span></span>                            | <span data-ttu-id="9248d-656">value2</span><span class="sxs-lookup"><span data-stu-id="9248d-656">value2</span></span>                       |
-| <span data-ttu-id="9248d-657">3</span><span class="sxs-lookup"><span data-stu-id="9248d-657">3</span></span>                            | <span data-ttu-id="9248d-658">value4</span><span class="sxs-lookup"><span data-stu-id="9248d-658">value4</span></span>                       |
-| <span data-ttu-id="9248d-659">4</span><span class="sxs-lookup"><span data-stu-id="9248d-659">4</span></span>                            | <span data-ttu-id="9248d-660">value5</span><span class="sxs-lookup"><span data-stu-id="9248d-660">value5</span></span>                       |
+| <span data-ttu-id="537ae-657">0</span><span class="sxs-lookup"><span data-stu-id="537ae-657">0</span></span>                            | <span data-ttu-id="537ae-658">value0</span><span class="sxs-lookup"><span data-stu-id="537ae-658">value0</span></span>                       |
+| <span data-ttu-id="537ae-659">1</span><span class="sxs-lookup"><span data-stu-id="537ae-659">1</span></span>                            | <span data-ttu-id="537ae-660">value1</span><span class="sxs-lookup"><span data-stu-id="537ae-660">value1</span></span>                       |
+| <span data-ttu-id="537ae-661">2</span><span class="sxs-lookup"><span data-stu-id="537ae-661">2</span></span>                            | <span data-ttu-id="537ae-662">value2</span><span class="sxs-lookup"><span data-stu-id="537ae-662">value2</span></span>                       |
+| <span data-ttu-id="537ae-663">3</span><span class="sxs-lookup"><span data-stu-id="537ae-663">3</span></span>                            | <span data-ttu-id="537ae-664">value4</span><span class="sxs-lookup"><span data-stu-id="537ae-664">value4</span></span>                       |
+| <span data-ttu-id="537ae-665">4</span><span class="sxs-lookup"><span data-stu-id="537ae-665">4</span></span>                            | <span data-ttu-id="537ae-666">value5</span><span class="sxs-lookup"><span data-stu-id="537ae-666">value5</span></span>                       |
 
-<span data-ttu-id="9248d-661">バインドされたオブジェクトのインデックス &num;3 によって、`array:4` 構成キーの構成データと、その値 `value4` が保持されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-661">Index &num;3 in the bound object holds the configuration data for the `array:4` configuration key and its value of `value4`.</span></span> <span data-ttu-id="9248d-662">配列を含む構成データがバインドされると、構成キーの配列のインデックスは、オブジェクトを作成するときに構成データを反復処理するためだけに使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-662">When configuration data containing an array is bound, the array indices in the configuration keys are merely used to iterate the configuration data when creating the object.</span></span> <span data-ttu-id="9248d-663">構成データに null 値を保持することはできません。また、構成キーの配列が 1 つまたは複数のインデックスをスキップしても、バインドされたオブジェクトに null 値のエントリは作成されません。</span><span class="sxs-lookup"><span data-stu-id="9248d-663">A null value can't be retained in configuration data, and a null-valued entry isn't created in a bound object when an array in configuration keys skip one or more indices.</span></span>
+<span data-ttu-id="537ae-667">バインドされたオブジェクトのインデックス &num;3 によって、`array:4` 構成キーの構成データと、その値 `value4` が保持されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-667">Index &num;3 in the bound object holds the configuration data for the `array:4` configuration key and its value of `value4`.</span></span> <span data-ttu-id="537ae-668">配列を含む構成データがバインドされると、構成キーの配列のインデックスは、オブジェクトを作成するときに構成データを反復処理するためだけに使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-668">When configuration data containing an array is bound, the array indices in the configuration keys are merely used to iterate the configuration data when creating the object.</span></span> <span data-ttu-id="537ae-669">構成データに null 値を保持することはできません。また、構成キーの配列が 1 つまたは複数のインデックスをスキップしても、バインドされたオブジェクトに null 値のエントリは作成されません。</span><span class="sxs-lookup"><span data-stu-id="537ae-669">A null value can't be retained in configuration data, and a null-valued entry isn't created in a bound object when an array in configuration keys skip one or more indices.</span></span>
 
-<span data-ttu-id="9248d-664">インデックス &num;3 の不足している構成項目は、`ArrayExample` インスタンスにバインドする前に、構成で適切なキーと値のペアを生成する構成プロバイダーによって指定できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-664">The missing configuration item for index &num;3 can be supplied before binding to the `ArrayExample` instance by any configuration provider that produces the correct key-value pair in configuration.</span></span> <span data-ttu-id="9248d-665">不足しているキーと値のペアを含む JSON 構成プロバイダーがサンプルに含まれる場合、`ArrayExample.Entries` は完全な構成の配列と一致します。</span><span class="sxs-lookup"><span data-stu-id="9248d-665">If the sample included an additional JSON Configuration Provider with the missing key-value pair, the `ArrayExample.Entries` matches the complete configuration array:</span></span>
+<span data-ttu-id="537ae-670">インデックス &num;3 の不足している構成項目は、`ArrayExample` インスタンスにバインドする前に、構成で適切なキーと値のペアを生成する構成プロバイダーによって指定できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-670">The missing configuration item for index &num;3 can be supplied before binding to the `ArrayExample` instance by any configuration provider that produces the correct key-value pair in configuration.</span></span> <span data-ttu-id="537ae-671">不足しているキーと値のペアを含む JSON 構成プロバイダーがサンプルに含まれる場合、`ArrayExample.Entries` は完全な構成の配列と一致します。</span><span class="sxs-lookup"><span data-stu-id="537ae-671">If the sample included an additional JSON Configuration Provider with the missing key-value pair, the `ArrayExample.Entries` matches the complete configuration array:</span></span>
 
-<span data-ttu-id="9248d-666">*missing_value.json*:</span><span class="sxs-lookup"><span data-stu-id="9248d-666">*missing_value.json*:</span></span>
+<span data-ttu-id="537ae-672">*missing_value.json*:</span><span class="sxs-lookup"><span data-stu-id="537ae-672">*missing_value.json*:</span></span>
 
 ```json
 {
@@ -1635,7 +1675,7 @@ _config.GetSection("array").Bind(arrayExample);
 
 ::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="9248d-667"><xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>の場合:</span><span class="sxs-lookup"><span data-stu-id="9248d-667">In <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>:</span></span>
+<span data-ttu-id="537ae-673"><xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>の場合:</span><span class="sxs-lookup"><span data-stu-id="537ae-673">In <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>:</span></span>
 
 ```csharp
 config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false);
@@ -1645,7 +1685,7 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="9248d-668">`Startup` コンストラクターの場合:</span><span class="sxs-lookup"><span data-stu-id="9248d-668">In the `Startup` constructor:</span></span>
+<span data-ttu-id="537ae-674">`Startup` コンストラクターの場合:</span><span class="sxs-lookup"><span data-stu-id="537ae-674">In the `Startup` constructor:</span></span>
 
 ```csharp
 .AddJsonFile("missing_value.json", optional: false, reloadOnChange: false);
@@ -1653,26 +1693,26 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-669">表に示すキーと値のペアが構成に読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-669">The key-value pair shown in the table is loaded into configuration.</span></span>
+<span data-ttu-id="537ae-675">表に示すキーと値のペアが構成に読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-675">The key-value pair shown in the table is loaded into configuration.</span></span>
 
-| <span data-ttu-id="9248d-670">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-670">Key</span></span>             | <span data-ttu-id="9248d-671">[値]</span><span class="sxs-lookup"><span data-stu-id="9248d-671">Value</span></span>  |
+| <span data-ttu-id="537ae-676">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-676">Key</span></span>             | <span data-ttu-id="537ae-677">[値]</span><span class="sxs-lookup"><span data-stu-id="537ae-677">Value</span></span>  |
 | :-------------: | :----: |
-| <span data-ttu-id="9248d-672">array:entries:3</span><span class="sxs-lookup"><span data-stu-id="9248d-672">array:entries:3</span></span> | <span data-ttu-id="9248d-673">value3</span><span class="sxs-lookup"><span data-stu-id="9248d-673">value3</span></span> |
+| <span data-ttu-id="537ae-678">array:entries:3</span><span class="sxs-lookup"><span data-stu-id="537ae-678">array:entries:3</span></span> | <span data-ttu-id="537ae-679">value3</span><span class="sxs-lookup"><span data-stu-id="537ae-679">value3</span></span> |
 
-<span data-ttu-id="9248d-674">JSON 構成プロバイダーにインデックス &num;3 のエントリが含まれた後に `ArrayExample` クラスのインスタンスがバインドされる場合、`ArrayExample.Entries` 配列に値が含まれます。</span><span class="sxs-lookup"><span data-stu-id="9248d-674">If the `ArrayExample` class instance is bound after the JSON Configuration Provider includes the entry for index &num;3, the `ArrayExample.Entries` array includes the value.</span></span>
+<span data-ttu-id="537ae-680">JSON 構成プロバイダーにインデックス &num;3 のエントリが含まれた後に `ArrayExample` クラスのインスタンスがバインドされる場合、`ArrayExample.Entries` 配列に値が含まれます。</span><span class="sxs-lookup"><span data-stu-id="537ae-680">If the `ArrayExample` class instance is bound after the JSON Configuration Provider includes the entry for index &num;3, the `ArrayExample.Entries` array includes the value.</span></span>
 
-| <span data-ttu-id="9248d-675">`ArrayExample.Entries` インデックス</span><span class="sxs-lookup"><span data-stu-id="9248d-675">`ArrayExample.Entries` Index</span></span> | <span data-ttu-id="9248d-676">`ArrayExample.Entries` 値</span><span class="sxs-lookup"><span data-stu-id="9248d-676">`ArrayExample.Entries` Value</span></span> |
+| <span data-ttu-id="537ae-681">`ArrayExample.Entries` インデックス</span><span class="sxs-lookup"><span data-stu-id="537ae-681">`ArrayExample.Entries` Index</span></span> | <span data-ttu-id="537ae-682">`ArrayExample.Entries` 値</span><span class="sxs-lookup"><span data-stu-id="537ae-682">`ArrayExample.Entries` Value</span></span> |
 | :--------------------------: | :--------------------------: |
-| <span data-ttu-id="9248d-677">0</span><span class="sxs-lookup"><span data-stu-id="9248d-677">0</span></span>                            | <span data-ttu-id="9248d-678">value0</span><span class="sxs-lookup"><span data-stu-id="9248d-678">value0</span></span>                       |
-| <span data-ttu-id="9248d-679">1</span><span class="sxs-lookup"><span data-stu-id="9248d-679">1</span></span>                            | <span data-ttu-id="9248d-680">value1</span><span class="sxs-lookup"><span data-stu-id="9248d-680">value1</span></span>                       |
-| <span data-ttu-id="9248d-681">2</span><span class="sxs-lookup"><span data-stu-id="9248d-681">2</span></span>                            | <span data-ttu-id="9248d-682">value2</span><span class="sxs-lookup"><span data-stu-id="9248d-682">value2</span></span>                       |
-| <span data-ttu-id="9248d-683">3</span><span class="sxs-lookup"><span data-stu-id="9248d-683">3</span></span>                            | <span data-ttu-id="9248d-684">value3</span><span class="sxs-lookup"><span data-stu-id="9248d-684">value3</span></span>                       |
-| <span data-ttu-id="9248d-685">4</span><span class="sxs-lookup"><span data-stu-id="9248d-685">4</span></span>                            | <span data-ttu-id="9248d-686">value4</span><span class="sxs-lookup"><span data-stu-id="9248d-686">value4</span></span>                       |
-| <span data-ttu-id="9248d-687">5</span><span class="sxs-lookup"><span data-stu-id="9248d-687">5</span></span>                            | <span data-ttu-id="9248d-688">value5</span><span class="sxs-lookup"><span data-stu-id="9248d-688">value5</span></span>                       |
+| <span data-ttu-id="537ae-683">0</span><span class="sxs-lookup"><span data-stu-id="537ae-683">0</span></span>                            | <span data-ttu-id="537ae-684">value0</span><span class="sxs-lookup"><span data-stu-id="537ae-684">value0</span></span>                       |
+| <span data-ttu-id="537ae-685">1</span><span class="sxs-lookup"><span data-stu-id="537ae-685">1</span></span>                            | <span data-ttu-id="537ae-686">value1</span><span class="sxs-lookup"><span data-stu-id="537ae-686">value1</span></span>                       |
+| <span data-ttu-id="537ae-687">2</span><span class="sxs-lookup"><span data-stu-id="537ae-687">2</span></span>                            | <span data-ttu-id="537ae-688">value2</span><span class="sxs-lookup"><span data-stu-id="537ae-688">value2</span></span>                       |
+| <span data-ttu-id="537ae-689">3</span><span class="sxs-lookup"><span data-stu-id="537ae-689">3</span></span>                            | <span data-ttu-id="537ae-690">value3</span><span class="sxs-lookup"><span data-stu-id="537ae-690">value3</span></span>                       |
+| <span data-ttu-id="537ae-691">4</span><span class="sxs-lookup"><span data-stu-id="537ae-691">4</span></span>                            | <span data-ttu-id="537ae-692">value4</span><span class="sxs-lookup"><span data-stu-id="537ae-692">value4</span></span>                       |
+| <span data-ttu-id="537ae-693">5</span><span class="sxs-lookup"><span data-stu-id="537ae-693">5</span></span>                            | <span data-ttu-id="537ae-694">value5</span><span class="sxs-lookup"><span data-stu-id="537ae-694">value5</span></span>                       |
 
-<span data-ttu-id="9248d-689">**JSON 配列の処理**</span><span class="sxs-lookup"><span data-stu-id="9248d-689">**JSON array processing**</span></span>
+<span data-ttu-id="537ae-695">**JSON 配列の処理**</span><span class="sxs-lookup"><span data-stu-id="537ae-695">**JSON array processing**</span></span>
 
-<span data-ttu-id="9248d-690">JSON ファイルに配列が含まれる場合、配列要素の構成キーは、0 から始まるセクションのインデックスで作成されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-690">If a JSON file contains an array, configuration keys are created for the array elements with a zero-based section index.</span></span> <span data-ttu-id="9248d-691">次の構成ファイルにおいて、`subsection` は配列です。</span><span class="sxs-lookup"><span data-stu-id="9248d-691">In the following configuration file, `subsection` is an array:</span></span>
+<span data-ttu-id="537ae-696">JSON ファイルに配列が含まれる場合、配列要素の構成キーは、0 から始まるセクションのインデックスで作成されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-696">If a JSON file contains an array, configuration keys are created for the array elements with a zero-based section index.</span></span> <span data-ttu-id="537ae-697">次の構成ファイルにおいて、`subsection` は配列です。</span><span class="sxs-lookup"><span data-stu-id="537ae-697">In the following configuration file, `subsection` is an array:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1686,16 +1726,16 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-692">JSON 構成プロバイダーは、次のキーと値のペアに構成データを読み取ります。</span><span class="sxs-lookup"><span data-stu-id="9248d-692">The JSON Configuration Provider reads the configuration data into the following key-value pairs:</span></span>
+<span data-ttu-id="537ae-698">JSON 構成プロバイダーは、次のキーと値のペアに構成データを読み取ります。</span><span class="sxs-lookup"><span data-stu-id="537ae-698">The JSON Configuration Provider reads the configuration data into the following key-value pairs:</span></span>
 
-| <span data-ttu-id="9248d-693">キー</span><span class="sxs-lookup"><span data-stu-id="9248d-693">Key</span></span>                     | <span data-ttu-id="9248d-694">[値]</span><span class="sxs-lookup"><span data-stu-id="9248d-694">Value</span></span>  |
+| <span data-ttu-id="537ae-699">キー</span><span class="sxs-lookup"><span data-stu-id="537ae-699">Key</span></span>                     | <span data-ttu-id="537ae-700">[値]</span><span class="sxs-lookup"><span data-stu-id="537ae-700">Value</span></span>  |
 | ----------------------- | :----: |
-| <span data-ttu-id="9248d-695">json_array:key</span><span class="sxs-lookup"><span data-stu-id="9248d-695">json_array:key</span></span>          | <span data-ttu-id="9248d-696">valueA</span><span class="sxs-lookup"><span data-stu-id="9248d-696">valueA</span></span> |
-| <span data-ttu-id="9248d-697">json_array:subsection:0</span><span class="sxs-lookup"><span data-stu-id="9248d-697">json_array:subsection:0</span></span> | <span data-ttu-id="9248d-698">valueB</span><span class="sxs-lookup"><span data-stu-id="9248d-698">valueB</span></span> |
-| <span data-ttu-id="9248d-699">json_array:subsection:1</span><span class="sxs-lookup"><span data-stu-id="9248d-699">json_array:subsection:1</span></span> | <span data-ttu-id="9248d-700">valueC</span><span class="sxs-lookup"><span data-stu-id="9248d-700">valueC</span></span> |
-| <span data-ttu-id="9248d-701">json_array:subsection:2</span><span class="sxs-lookup"><span data-stu-id="9248d-701">json_array:subsection:2</span></span> | <span data-ttu-id="9248d-702">valueD</span><span class="sxs-lookup"><span data-stu-id="9248d-702">valueD</span></span> |
+| <span data-ttu-id="537ae-701">json_array:key</span><span class="sxs-lookup"><span data-stu-id="537ae-701">json_array:key</span></span>          | <span data-ttu-id="537ae-702">valueA</span><span class="sxs-lookup"><span data-stu-id="537ae-702">valueA</span></span> |
+| <span data-ttu-id="537ae-703">json_array:subsection:0</span><span class="sxs-lookup"><span data-stu-id="537ae-703">json_array:subsection:0</span></span> | <span data-ttu-id="537ae-704">valueB</span><span class="sxs-lookup"><span data-stu-id="537ae-704">valueB</span></span> |
+| <span data-ttu-id="537ae-705">json_array:subsection:1</span><span class="sxs-lookup"><span data-stu-id="537ae-705">json_array:subsection:1</span></span> | <span data-ttu-id="537ae-706">valueC</span><span class="sxs-lookup"><span data-stu-id="537ae-706">valueC</span></span> |
+| <span data-ttu-id="537ae-707">json_array:subsection:2</span><span class="sxs-lookup"><span data-stu-id="537ae-707">json_array:subsection:2</span></span> | <span data-ttu-id="537ae-708">valueD</span><span class="sxs-lookup"><span data-stu-id="537ae-708">valueD</span></span> |
 
-<span data-ttu-id="9248d-703">サンプル アプリでは、構成のキーと値のペアをバインドするために、次の POCO クラスを使用できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-703">In the sample app, the following POCO class is available to bind the configuration key-value pairs:</span></span>
+<span data-ttu-id="537ae-709">サンプル アプリでは、構成のキーと値のペアをバインドするために、次の POCO クラスを使用できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-709">In the sample app, the following POCO class is available to bind the configuration key-value pairs:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1709,27 +1749,27 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-704">バインド後、`JsonArrayExample.Key` は値 `valueA` を保持します。</span><span class="sxs-lookup"><span data-stu-id="9248d-704">After binding, `JsonArrayExample.Key` holds the value `valueA`.</span></span> <span data-ttu-id="9248d-705">サブセクションの値は、POCO 配列のプロパティ `Subsection` に格納されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-705">The subsection values are stored in the POCO array property, `Subsection`.</span></span>
+<span data-ttu-id="537ae-710">バインド後、`JsonArrayExample.Key` は値 `valueA` を保持します。</span><span class="sxs-lookup"><span data-stu-id="537ae-710">After binding, `JsonArrayExample.Key` holds the value `valueA`.</span></span> <span data-ttu-id="537ae-711">サブセクションの値は、POCO 配列のプロパティ `Subsection` に格納されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-711">The subsection values are stored in the POCO array property, `Subsection`.</span></span>
 
-| <span data-ttu-id="9248d-706">`JsonArrayExample.Subsection` インデックス</span><span class="sxs-lookup"><span data-stu-id="9248d-706">`JsonArrayExample.Subsection` Index</span></span> | <span data-ttu-id="9248d-707">`JsonArrayExample.Subsection` 値</span><span class="sxs-lookup"><span data-stu-id="9248d-707">`JsonArrayExample.Subsection` Value</span></span> |
+| <span data-ttu-id="537ae-712">`JsonArrayExample.Subsection` インデックス</span><span class="sxs-lookup"><span data-stu-id="537ae-712">`JsonArrayExample.Subsection` Index</span></span> | <span data-ttu-id="537ae-713">`JsonArrayExample.Subsection` 値</span><span class="sxs-lookup"><span data-stu-id="537ae-713">`JsonArrayExample.Subsection` Value</span></span> |
 | :---------------------------------: | :---------------------------------: |
-| <span data-ttu-id="9248d-708">0</span><span class="sxs-lookup"><span data-stu-id="9248d-708">0</span></span>                                   | <span data-ttu-id="9248d-709">valueB</span><span class="sxs-lookup"><span data-stu-id="9248d-709">valueB</span></span>                              |
-| <span data-ttu-id="9248d-710">1</span><span class="sxs-lookup"><span data-stu-id="9248d-710">1</span></span>                                   | <span data-ttu-id="9248d-711">valueC</span><span class="sxs-lookup"><span data-stu-id="9248d-711">valueC</span></span>                              |
-| <span data-ttu-id="9248d-712">2</span><span class="sxs-lookup"><span data-stu-id="9248d-712">2</span></span>                                   | <span data-ttu-id="9248d-713">valueD</span><span class="sxs-lookup"><span data-stu-id="9248d-713">valueD</span></span>                              |
+| <span data-ttu-id="537ae-714">0</span><span class="sxs-lookup"><span data-stu-id="537ae-714">0</span></span>                                   | <span data-ttu-id="537ae-715">valueB</span><span class="sxs-lookup"><span data-stu-id="537ae-715">valueB</span></span>                              |
+| <span data-ttu-id="537ae-716">1</span><span class="sxs-lookup"><span data-stu-id="537ae-716">1</span></span>                                   | <span data-ttu-id="537ae-717">valueC</span><span class="sxs-lookup"><span data-stu-id="537ae-717">valueC</span></span>                              |
+| <span data-ttu-id="537ae-718">2</span><span class="sxs-lookup"><span data-stu-id="537ae-718">2</span></span>                                   | <span data-ttu-id="537ae-719">valueD</span><span class="sxs-lookup"><span data-stu-id="537ae-719">valueD</span></span>                              |
 
-## <a name="custom-configuration-provider"></a><span data-ttu-id="9248d-714">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="9248d-714">Custom configuration provider</span></span>
+## <a name="custom-configuration-provider"></a><span data-ttu-id="537ae-720">カスタム構成プロバイダー</span><span class="sxs-lookup"><span data-stu-id="537ae-720">Custom configuration provider</span></span>
 
-<span data-ttu-id="9248d-715">サンプル アプリでは、[Entity Framework (EF)](/ef/core/) を使用してデータベースから構成のキーと値のペアを読み取る、基本的な構成プロバイダーを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="9248d-715">The sample app demonstrates how to create a basic configuration provider that reads configuration key-value pairs from a database using [Entity Framework (EF)](/ef/core/).</span></span>
+<span data-ttu-id="537ae-721">サンプル アプリでは、[Entity Framework (EF)](/ef/core/) を使用してデータベースから構成のキーと値のペアを読み取る、基本的な構成プロバイダーを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="537ae-721">The sample app demonstrates how to create a basic configuration provider that reads configuration key-value pairs from a database using [Entity Framework (EF)](/ef/core/).</span></span>
 
-<span data-ttu-id="9248d-716">プロバイダーの特徴は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="9248d-716">The provider has the following characteristics:</span></span>
+<span data-ttu-id="537ae-722">プロバイダーの特徴は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="537ae-722">The provider has the following characteristics:</span></span>
 
-* <span data-ttu-id="9248d-717">EF のメモリ内データベースは、デモンストレーションのために使用されます。</span><span class="sxs-lookup"><span data-stu-id="9248d-717">The EF in-memory database is used for demonstration purposes.</span></span> <span data-ttu-id="9248d-718">接続文字列を必要とするデータベースを使用するには、第 2 の `ConfigurationBuilder` を実装して、別の構成プロバイダーからの接続文字列を指定します。</span><span class="sxs-lookup"><span data-stu-id="9248d-718">To use a database that requires a connection string, implement a secondary `ConfigurationBuilder` to supply the connection string from another configuration provider.</span></span>
-* <span data-ttu-id="9248d-719">プロバイダーは、起動時に、構成にデータベース テーブルを読み取ります。</span><span class="sxs-lookup"><span data-stu-id="9248d-719">The provider reads a database table into configuration at startup.</span></span> <span data-ttu-id="9248d-720">プロバイダーは、キー単位でデータベースを照会しません。</span><span class="sxs-lookup"><span data-stu-id="9248d-720">The provider doesn't query the database on a per-key basis.</span></span>
-* <span data-ttu-id="9248d-721">変更時に再度読み込む機能は実装されていません。このため、アプリの起動後にデータベースを更新しても、アプリの構成には影響がありません。</span><span class="sxs-lookup"><span data-stu-id="9248d-721">Reload-on-change isn't implemented, so updating the database after the app starts has no effect on the app's configuration.</span></span>
+* <span data-ttu-id="537ae-723">EF のメモリ内データベースは、デモンストレーションのために使用されます。</span><span class="sxs-lookup"><span data-stu-id="537ae-723">The EF in-memory database is used for demonstration purposes.</span></span> <span data-ttu-id="537ae-724">接続文字列を必要とするデータベースを使用するには、第 2 の `ConfigurationBuilder` を実装して、別の構成プロバイダーからの接続文字列を指定します。</span><span class="sxs-lookup"><span data-stu-id="537ae-724">To use a database that requires a connection string, implement a secondary `ConfigurationBuilder` to supply the connection string from another configuration provider.</span></span>
+* <span data-ttu-id="537ae-725">プロバイダーは、起動時に、構成にデータベース テーブルを読み取ります。</span><span class="sxs-lookup"><span data-stu-id="537ae-725">The provider reads a database table into configuration at startup.</span></span> <span data-ttu-id="537ae-726">プロバイダーは、キー単位でデータベースを照会しません。</span><span class="sxs-lookup"><span data-stu-id="537ae-726">The provider doesn't query the database on a per-key basis.</span></span>
+* <span data-ttu-id="537ae-727">変更時に再度読み込む機能は実装されていません。このため、アプリの起動後にデータベースを更新しても、アプリの構成には影響がありません。</span><span class="sxs-lookup"><span data-stu-id="537ae-727">Reload-on-change isn't implemented, so updating the database after the app starts has no effect on the app's configuration.</span></span>
 
-<span data-ttu-id="9248d-722">データベースに構成値を格納するための `EFConfigurationValue` エンティティを定義します。</span><span class="sxs-lookup"><span data-stu-id="9248d-722">Define an `EFConfigurationValue` entity for storing configuration values in the database.</span></span>
+<span data-ttu-id="537ae-728">データベースに構成値を格納するための `EFConfigurationValue` エンティティを定義します。</span><span class="sxs-lookup"><span data-stu-id="537ae-728">Define an `EFConfigurationValue` entity for storing configuration values in the database.</span></span>
 
-<span data-ttu-id="9248d-723">*Models/EFConfigurationValue.cs*:</span><span class="sxs-lookup"><span data-stu-id="9248d-723">*Models/EFConfigurationValue.cs*:</span></span>
+<span data-ttu-id="537ae-729">*Models/EFConfigurationValue.cs*:</span><span class="sxs-lookup"><span data-stu-id="537ae-729">*Models/EFConfigurationValue.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1743,9 +1783,9 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-724">構成した値を格納し、その値にアクセスするための `EFConfigurationContext` を追加します。</span><span class="sxs-lookup"><span data-stu-id="9248d-724">Add an `EFConfigurationContext` to store and access the configured values.</span></span>
+<span data-ttu-id="537ae-730">構成した値を格納し、その値にアクセスするための `EFConfigurationContext` を追加します。</span><span class="sxs-lookup"><span data-stu-id="537ae-730">Add an `EFConfigurationContext` to store and access the configured values.</span></span>
 
-<span data-ttu-id="9248d-725">*EFConfigurationProvider/EFConfigurationContext.cs*:</span><span class="sxs-lookup"><span data-stu-id="9248d-725">*EFConfigurationProvider/EFConfigurationContext.cs*:</span></span>
+<span data-ttu-id="537ae-731">*EFConfigurationProvider/EFConfigurationContext.cs*:</span><span class="sxs-lookup"><span data-stu-id="537ae-731">*EFConfigurationProvider/EFConfigurationContext.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1759,10 +1799,10 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-726">
-  <xref:Microsoft.Extensions.Configuration.IConfigurationSource> を実装するクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="9248d-726">Create a class that implements <xref:Microsoft.Extensions.Configuration.IConfigurationSource>.</span></span>
+<span data-ttu-id="537ae-732">
+  <xref:Microsoft.Extensions.Configuration.IConfigurationSource> を実装するクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="537ae-732">Create a class that implements <xref:Microsoft.Extensions.Configuration.IConfigurationSource>.</span></span>
 
-<span data-ttu-id="9248d-727">*EFConfigurationProvider/EFConfigurationSource.cs*:</span><span class="sxs-lookup"><span data-stu-id="9248d-727">*EFConfigurationProvider/EFConfigurationSource.cs*:</span></span>
+<span data-ttu-id="537ae-733">*EFConfigurationProvider/EFConfigurationSource.cs*:</span><span class="sxs-lookup"><span data-stu-id="537ae-733">*EFConfigurationProvider/EFConfigurationSource.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1776,9 +1816,9 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-728"><xref:Microsoft.Extensions.Configuration.ConfigurationProvider> から継承して、カスタム構成プロバイダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="9248d-728">Create the custom configuration provider by inheriting from <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>.</span></span> <span data-ttu-id="9248d-729">データベースが空だった場合、構成プロバイダーはこれを初期化します。</span><span class="sxs-lookup"><span data-stu-id="9248d-729">The configuration provider initializes the database when it's empty.</span></span>
+<span data-ttu-id="537ae-734"><xref:Microsoft.Extensions.Configuration.ConfigurationProvider> から継承して、カスタム構成プロバイダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="537ae-734">Create the custom configuration provider by inheriting from <xref:Microsoft.Extensions.Configuration.ConfigurationProvider>.</span></span> <span data-ttu-id="537ae-735">データベースが空だった場合、構成プロバイダーはこれを初期化します。</span><span class="sxs-lookup"><span data-stu-id="537ae-735">The configuration provider initializes the database when it's empty.</span></span>
 
-<span data-ttu-id="9248d-730">*EFConfigurationProvider/EFConfigurationProvider.cs*:</span><span class="sxs-lookup"><span data-stu-id="9248d-730">*EFConfigurationProvider/EFConfigurationProvider.cs*:</span></span>
+<span data-ttu-id="537ae-736">*EFConfigurationProvider/EFConfigurationProvider.cs*:</span><span class="sxs-lookup"><span data-stu-id="537ae-736">*EFConfigurationProvider/EFConfigurationProvider.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1792,9 +1832,9 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-731">`AddEFConfiguration` 拡張メソッドを使用すると、`ConfigurationBuilder` に構成ソースを追加できます。</span><span class="sxs-lookup"><span data-stu-id="9248d-731">An `AddEFConfiguration` extension method permits adding the configuration source to a `ConfigurationBuilder`.</span></span>
+<span data-ttu-id="537ae-737">`AddEFConfiguration` 拡張メソッドを使用すると、`ConfigurationBuilder` に構成ソースを追加できます。</span><span class="sxs-lookup"><span data-stu-id="537ae-737">An `AddEFConfiguration` extension method permits adding the configuration source to a `ConfigurationBuilder`.</span></span>
 
-<span data-ttu-id="9248d-732">*Extensions/EntityFrameworkExtensions.cs*:</span><span class="sxs-lookup"><span data-stu-id="9248d-732">*Extensions/EntityFrameworkExtensions.cs*:</span></span>
+<span data-ttu-id="537ae-738">*Extensions/EntityFrameworkExtensions.cs*:</span><span class="sxs-lookup"><span data-stu-id="537ae-738">*Extensions/EntityFrameworkExtensions.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1808,7 +1848,7 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-<span data-ttu-id="9248d-733">次のコードでは、*Program.cs* でカスタムの `EFConfigurationProvider` を使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="9248d-733">The following code shows how to use the custom `EFConfigurationProvider` in *Program.cs*:</span></span>
+<span data-ttu-id="537ae-739">次のコードでは、*Program.cs* でカスタムの `EFConfigurationProvider` を使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="537ae-739">The following code shows how to use the custom `EFConfigurationProvider` in *Program.cs*:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -1822,9 +1862,9 @@ config.AddJsonFile("missing_value.json", optional: false, reloadOnChange: false)
 
 ::: moniker-end
 
-## <a name="access-configuration-during-startup"></a><span data-ttu-id="9248d-734">起動中に構成にアクセスする</span><span class="sxs-lookup"><span data-stu-id="9248d-734">Access configuration during startup</span></span>
+## <a name="access-configuration-during-startup"></a><span data-ttu-id="537ae-740">起動中に構成にアクセスする</span><span class="sxs-lookup"><span data-stu-id="537ae-740">Access configuration during startup</span></span>
 
-<span data-ttu-id="9248d-735">`Startup` コンストラクターに `IConfiguration` を挿入して、`Startup.ConfigureServices` で構成値にアクセスします。</span><span class="sxs-lookup"><span data-stu-id="9248d-735">Inject `IConfiguration` into the `Startup` constructor to access configuration values in `Startup.ConfigureServices`.</span></span> <span data-ttu-id="9248d-736">`Startup.Configure` で構成にアクセスするには、メソッドに直接 `IConfiguration` を挿入するか、コンストラクターからのインスタンスを使用します。</span><span class="sxs-lookup"><span data-stu-id="9248d-736">To access configuration in `Startup.Configure`, either inject `IConfiguration` directly into the method or use the instance from the constructor:</span></span>
+<span data-ttu-id="537ae-741">`Startup` コンストラクターに `IConfiguration` を挿入して、`Startup.ConfigureServices` で構成値にアクセスします。</span><span class="sxs-lookup"><span data-stu-id="537ae-741">Inject `IConfiguration` into the `Startup` constructor to access configuration values in `Startup.ConfigureServices`.</span></span> <span data-ttu-id="537ae-742">`Startup.Configure` で構成にアクセスするには、メソッドに直接 `IConfiguration` を挿入するか、コンストラクターからのインスタンスを使用します。</span><span class="sxs-lookup"><span data-stu-id="537ae-742">To access configuration in `Startup.Configure`, either inject `IConfiguration` directly into the method or use the instance from the constructor:</span></span>
 
 ```csharp
 public class Startup
@@ -1848,13 +1888,13 @@ public class Startup
 }
 ```
 
-<span data-ttu-id="9248d-737">起動時の簡易メソッドを使用して構成にアクセスする例については、[アプリ起動時の簡易メソッド](xref:fundamentals/startup#convenience-methods)に関連する記事をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="9248d-737">For an example of accessing configuration using startup convenience methods, see [App startup: Convenience methods](xref:fundamentals/startup#convenience-methods).</span></span>
+<span data-ttu-id="537ae-743">起動時の簡易メソッドを使用して構成にアクセスする例については、[アプリ起動時の簡易メソッド](xref:fundamentals/startup#convenience-methods)に関連する記事をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="537ae-743">For an example of accessing configuration using startup convenience methods, see [App startup: Convenience methods](xref:fundamentals/startup#convenience-methods).</span></span>
 
-## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a><span data-ttu-id="9248d-738">Razor Pages ページまたは MVC ビューで構成にアクセスする</span><span class="sxs-lookup"><span data-stu-id="9248d-738">Access configuration in a Razor Pages page or MVC view</span></span>
+## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a><span data-ttu-id="537ae-744">Razor Pages ページまたは MVC ビューで構成にアクセスする</span><span class="sxs-lookup"><span data-stu-id="537ae-744">Access configuration in a Razor Pages page or MVC view</span></span>
 
-<span data-ttu-id="9248d-739">Razor Pages ページまたは MVC ビューで構成設定にアクセスするには、[Microsoft.Extensions.Configuration 名前空間](xref:Microsoft.Extensions.Configuration)に [using ディレクティブ](xref:mvc/views/razor#using) ([C# リファレンス: using ディレクティブ](/dotnet/csharp/language-reference/keywords/using-directive)) を追加して、<xref:Microsoft.Extensions.Configuration.IConfiguration> をページまたはビューに挿入します。</span><span class="sxs-lookup"><span data-stu-id="9248d-739">To access configuration settings in a Razor Pages page or an MVC view, add a [using directive](xref:mvc/views/razor#using) ([C# reference: using directive](/dotnet/csharp/language-reference/keywords/using-directive)) for the [Microsoft.Extensions.Configuration namespace](xref:Microsoft.Extensions.Configuration) and inject <xref:Microsoft.Extensions.Configuration.IConfiguration> into the page or view.</span></span>
+<span data-ttu-id="537ae-745">Razor Pages ページまたは MVC ビューで構成設定にアクセスするには、[Microsoft.Extensions.Configuration 名前空間](xref:Microsoft.Extensions.Configuration)に [using ディレクティブ](xref:mvc/views/razor#using) ([C# リファレンス: using ディレクティブ](/dotnet/csharp/language-reference/keywords/using-directive)) を追加して、<xref:Microsoft.Extensions.Configuration.IConfiguration> をページまたはビューに挿入します。</span><span class="sxs-lookup"><span data-stu-id="537ae-745">To access configuration settings in a Razor Pages page or an MVC view, add a [using directive](xref:mvc/views/razor#using) ([C# reference: using directive](/dotnet/csharp/language-reference/keywords/using-directive)) for the [Microsoft.Extensions.Configuration namespace](xref:Microsoft.Extensions.Configuration) and inject <xref:Microsoft.Extensions.Configuration.IConfiguration> into the page or view.</span></span>
 
-<span data-ttu-id="9248d-740">Razor ページ: </span><span class="sxs-lookup"><span data-stu-id="9248d-740">In a Razor Pages page:</span></span>
+<span data-ttu-id="537ae-746">Razor ページ: </span><span class="sxs-lookup"><span data-stu-id="537ae-746">In a Razor Pages page:</span></span>
 
 ```cshtml
 @page
@@ -1874,7 +1914,7 @@ public class Startup
 </html>
 ```
 
-<span data-ttu-id="9248d-741">MVC ビュー: </span><span class="sxs-lookup"><span data-stu-id="9248d-741">In an MVC view:</span></span>
+<span data-ttu-id="537ae-747">MVC ビュー: </span><span class="sxs-lookup"><span data-stu-id="537ae-747">In an MVC view:</span></span>
 
 ```cshtml
 @using Microsoft.Extensions.Configuration
@@ -1892,11 +1932,11 @@ public class Startup
 </html>
 ```
 
-## <a name="add-configuration-from-an-external-assembly"></a><span data-ttu-id="9248d-742">外部アセンブリから構成を追加する</span><span class="sxs-lookup"><span data-stu-id="9248d-742">Add configuration from an external assembly</span></span>
+## <a name="add-configuration-from-an-external-assembly"></a><span data-ttu-id="537ae-748">外部アセンブリから構成を追加する</span><span class="sxs-lookup"><span data-stu-id="537ae-748">Add configuration from an external assembly</span></span>
 
-<span data-ttu-id="9248d-743"><xref:Microsoft.AspNetCore.Hosting.IHostingStartup> の実装により、アプリの `Startup` クラスの外部にある外部アセンブリから、起動時に拡張機能をアプリに追加できるようになります。</span><span class="sxs-lookup"><span data-stu-id="9248d-743">An <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> implementation allows adding enhancements to an app at startup from an external assembly outside of the app's `Startup` class.</span></span> <span data-ttu-id="9248d-744">詳細については、「<xref:fundamentals/configuration/platform-specific-configuration>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="9248d-744">For more information, see <xref:fundamentals/configuration/platform-specific-configuration>.</span></span>
+<span data-ttu-id="537ae-749"><xref:Microsoft.AspNetCore.Hosting.IHostingStartup> の実装により、アプリの `Startup` クラスの外部にある外部アセンブリから、起動時に拡張機能をアプリに追加できるようになります。</span><span class="sxs-lookup"><span data-stu-id="537ae-749">An <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> implementation allows adding enhancements to an app at startup from an external assembly outside of the app's `Startup` class.</span></span> <span data-ttu-id="537ae-750">詳細については、「<xref:fundamentals/configuration/platform-specific-configuration>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="537ae-750">For more information, see <xref:fundamentals/configuration/platform-specific-configuration>.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="9248d-745">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="9248d-745">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="537ae-751">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="537ae-751">Additional resources</span></span>
 
 * <xref:fundamentals/configuration/options>
-* [<span data-ttu-id="9248d-746">Microsoft の構成について詳しく調べる</span><span class="sxs-lookup"><span data-stu-id="9248d-746">Deep Dive into Microsoft Configuration</span></span>](https://www.paraesthesia.com/archive/2018/06/20/microsoft-extensions-configuration-deep-dive/)
+* [<span data-ttu-id="537ae-752">Microsoft の構成について詳しく調べる</span><span class="sxs-lookup"><span data-stu-id="537ae-752">Deep Dive into Microsoft Configuration</span></span>](https://www.paraesthesia.com/archive/2018/06/20/microsoft-extensions-configuration-deep-dive/)
