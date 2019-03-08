@@ -20,7 +20,7 @@ ms.locfileid: "54837755"
 
 このセクションではしようとしている変更、`HelloWorldController`ビュー テンプレート ファイルを明確には、クライアントへの HTML 応答を生成するプロセスをカプセル化を使用するクラス。 
 
-使用してビュー テンプレート ファイルを作成します、 [Razor ビュー エンジン](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md)します。 Razor ベースのビュー テンプレートが、 *.cshtml*ファイル拡張子、および HTML 出力を # を使用して作成する洗練された方法を提供します。 Razor の文字と、ビュー テンプレートの作成時に必要なキーストローク数を最小化し、ワークフローのコーディングの高速で、流体できます。
+使用してビュー テンプレート ファイルを作成します、 [Razor ビュー エンジン](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md)します。 Razor ベースのビュー テンプレートが、 *.cshtml*ファイル拡張子、および HTML 出力を C# を使用して作成する洗練された方法を提供します。 Razor の文字と、ビュー テンプレートの作成時に必要なキーストローク数を最小化し、ワークフローのコーディングの高速で、流体できます。
 
 現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。 変更、`Index`メソッドを呼び出すコント ローラー[ビュー](/dotnet/api/microsoft.aspnetcore.mvc.controller.view#Microsoft_AspNetCore_Mvc_Controller_View)メソッドは、次のコードに示すようにします。
 
