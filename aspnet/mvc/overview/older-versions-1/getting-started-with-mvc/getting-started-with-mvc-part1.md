@@ -59,7 +59,7 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 ## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
 
-Visual Basic または Visual c# を使用してアプリケーションを作成することができます。 ここで、選択 Visual c#、左側の「ASP.NET MVC 2 Web アプリケーション」を選択し、 プロジェクトに"Movies"という名前し、[ok] をクリックします。
+Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 ここで、選択 Visual C#、左側の「ASP.NET MVC 2 Web アプリケーション」を選択し、 プロジェクトに"Movies"という名前し、[ok] をクリックします。
 
 [![新しいプロジェクト](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
