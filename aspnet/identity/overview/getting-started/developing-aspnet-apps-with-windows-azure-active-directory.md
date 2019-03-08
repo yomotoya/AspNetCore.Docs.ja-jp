@@ -54,7 +54,7 @@ Azure Active Directory でホストされる web アプリの認証を有効化�
 
 使用して、次の手順[Visual Studio Express 2013 for Web](https://www.microsoft.com/download/details.aspx?id=40747)、する必要があります[Visual Studio 2013 Update 3](https://www.microsoft.com/download/details.aspx?id=43721)します。
 
-1. Visual Studio で、次のようにクリックします。**ファイル**し**新しいプロジェクト**します。 **新しいプロジェクト**ダイアログで、選択、Visual c# Web を左側のメニューからプロジェクト をクリックして**OK**します。 オフにすることも、**プロジェクトに Application Insights の追加**アプリケーション機能が必要ない場合。
+1. Visual Studio で、次のようにクリックします。**ファイル**し**新しいプロジェクト**します。 **新しいプロジェクト**ダイアログで、選択、Visual C# Web を左側のメニューからプロジェクト をクリックして**OK**します。 オフにすることも、**プロジェクトに Application Insights の追加**アプリケーション機能が必要ない場合。
 2. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、 **MVC**、 をクリックし、**認証の変更**します。
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image6.png)
