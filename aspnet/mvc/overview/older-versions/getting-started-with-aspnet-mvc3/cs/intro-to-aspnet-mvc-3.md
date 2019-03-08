@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
-title: ASP.NET MVC 3 (c#) の概要 |Microsoft Docs
+title: ASP.NET MVC 3 (C#) の概要 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/04/2018
 ms.locfileid: "48576288"
 ---
-<a name="intro-to-aspnet-mvc-3-c"></a>ASP.NET MVC 3 (c#) の概要
+<a name="intro-to-aspnet-mvc-3-c"></a>ASP.NET MVC 3 (C#) の概要
 ====================
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -64,7 +64,7 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 ## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
 
-プログラミング言語として Visual Basic または Visual c# を使用してアプリケーションを作成することができます。 左側の Visual c# を選択し、 **ASP.NET MVC 3 Web アプリケーション**します。 クリックして、プロジェクトに"MvcMovie" **OK**します。 (Visual Basic を使用する場合に切り替えて、 [Visual Basic バージョン](../vb/intro-to-aspnet-mvc-3.md)このチュートリアルの)。
+プログラミング言語として Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 左側の Visual C# を選択し、 **ASP.NET MVC 3 Web アプリケーション**します。 クリックして、プロジェクトに"MvcMovie" **OK**します。 (Visual Basic を使用する場合に切り替えて、 [Visual Basic バージョン](../vb/intro-to-aspnet-mvc-3.md)このチュートリアルの)。
 
 ![](intro-to-aspnet-mvc-3/_static/image5.png)
 
