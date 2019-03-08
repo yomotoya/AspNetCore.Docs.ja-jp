@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/04/2018
 ms.locfileid: "48576613"
 ---
-<a name="adding-a-view-c"></a>ビュー (c#) を追加します。
+<a name="adding-a-view-c"></a>ビュー (C#) を追加します。
 ====================
 によって[Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -36,7 +36,7 @@ ms.locfileid: "48576613"
 
 このセクションではしようとしている変更、`HelloWorldController`ビュー テンプレート ファイルを明確には、クライアントへの HTML 応答を生成するプロセスをカプセル化を使用するクラス。
 
-新しいビュー テンプレート ファイルを作成します[Razor ビュー エンジン](https://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx)ASP.NET MVC 3 で導入されました。 Razor ベースのビュー テンプレートが、 *.cshtml*ファイル拡張子、および HTML 出力を c# を使用して作成する洗練された方法を提供します。 Razor の文字と、ビュー テンプレートの作成時に必要なキーストローク数を最小化し、ワークフローのコーディングの高速で、流体できます。
+新しいビュー テンプレート ファイルを作成します[Razor ビュー エンジン](https://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx)ASP.NET MVC 3 で導入されました。 Razor ベースのビュー テンプレートが、 *.cshtml*ファイル拡張子、および HTML 出力を C# を使用して作成する洗練された方法を提供します。 Razor の文字と、ビュー テンプレートの作成時に必要なキーストローク数を最小化し、ワークフローのコーディングの高速で、流体できます。
 
 ビュー テンプレートを使用して開始、`Index`メソッドで、`HelloWorldController`クラス。 現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。 変更、`Index`を返すメソッドを`View`オブジェクトを次に示すようにします。
 
