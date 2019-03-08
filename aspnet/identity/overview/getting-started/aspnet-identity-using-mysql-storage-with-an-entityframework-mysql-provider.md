@@ -61,7 +61,7 @@ ms.locfileid: "48912372"
 2. クリックして**新しいプロジェクト**から、**開始** ページで、またはする をクリックして、**ファイル**メニューをクリックし**新しいプロジェクト**:
 
    [展開の次の画像をクリックします。 ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.jpg)
-3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**Visual c#** テンプレートの一覧でをクリックし、 **Web**、選び**のASP.NETWebアプリケーション**. プロジェクトに名前を**IdentityMySQLDemo**し**OK**:
+3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**Visual C#** テンプレートの一覧でをクリックし、 **Web**、選び**のASP.NETWebアプリケーション**. プロジェクトに名前を**IdentityMySQLDemo**し**OK**:
 
    [展開の次の画像をクリックします。 ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image14.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image13.png)
 4. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、 **MVC**され、既定のオプションはこの構成では**個々 のユーザー アカウント**認証方法として。 **[OK]** をクリックします。
