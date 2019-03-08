@@ -79,7 +79,7 @@ Visual Studio で ASP.NET Razor の web サイトを作成します。
 2. **ファイル** メニューのをクリックして**新しい Web サイト**します。
 
     ![新しい web サイトを作成します。](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
-3. **新しい Web サイト** ダイアログ ボックスで、(Visual c# または Visual Basic) を使用する言語を選択します。
+3. **新しい Web サイト** ダイアログ ボックスで、(Visual C# または Visual Basic) を使用する言語を選択します。
 4. 選択、 **ASP.NET Web サイト (Razor)** テンプレート。
 
     ![razor のサイト](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
