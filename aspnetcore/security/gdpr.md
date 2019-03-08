@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 5f5ed96354b0b71961c122506602e60b95b809fa
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: bbb3b8e091b5a0be8e852d70ba1a5d7100782ba3
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889744"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665377"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core での EU 一般データ保護規則 (GDPR) のサポート
 
@@ -75,7 +75,9 @@ Razor ページと MVC プロジェクト テンプレートで作成したプ�
 
 [!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
 
-[セッション状態](xref:fundamentals/app-state)cookie が必須ではないです。 追跡を無効にすると、セッション状態は機能しません。
+[セッション状態](xref:fundamentals/app-state)cookie が必須ではないです。 追跡を無効にすると、セッション状態は機能しません。 次のコードでは、セッション cookie が不可欠です。
+
+[!code-csharp[](gdpr/sample/RP/Startup.cs?name=snippet2)]
 
 <a name="pd"></a>
 

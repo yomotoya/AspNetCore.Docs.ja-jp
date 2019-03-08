@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: be4812487c92a16c44e3983b234bc9e31be65190
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c2bc626b2dd341dda878a151def6b405884357d7
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410390"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665403"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
 
@@ -68,11 +68,11 @@ ms.locfileid: "56410390"
 
 ### <a name="handler-registration"></a>ハンドラーの登録
 
-ハンドラーは、構成中にサービスのコレクションに登録されます。 例:
+ハンドラーは、構成中にサービスのコレクションに登録されます。 例えば:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
 
-各ハンドラーは呼び出すことによってサービスのコレクションに追加`services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();`します。
+上記のコードを登録`MinimumAgeHandler`を呼び出すことによって、シングルトンとして`services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`します。 組み込みのいずれかを使用してハンドラーを登録できる[サービスの有効期間](xref:fundamentals/dependency-injection#service-lifetimes)します。
 
 ## <a name="what-should-a-handler-return"></a>ハンドラーを返すどのような必要があります。
 

@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570023"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665614"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でのクライアント側パッケージを管理します。
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Noel Rice](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)、および[Scott Addie](https://scottaddie.com)
+によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Noel Rice](https://twitter.com/noelrice1)、および[Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
 > Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 [ライブラリ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (略して LibMan) は、Visual Studio の新しいクライアント側ライブラリ取得ツール (Visual Studio 15.8 またはそれ以降)。 詳細については、「 <xref:client-side/libman/index> 」を参照してください。 Bower は、Visual studio バージョン 15.5 でサポートされます。
@@ -91,7 +91,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 * 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択、**空**プロジェクト テンプレートとクリック**OK**。
 
-* ソリューション エクスプ ローラーでプロジェクトを右クリックして >**新しい項目の追加**選択**Bower 構成ファイル**します。 注: A *.bowerrc*ファイルも追加されます。
+* ソリューション エクスプ ローラーでプロジェクトを右クリックして >**新しい項目の追加**選択**Bower 構成ファイル**します。 メモ:A *.bowerrc*ファイルも追加されます。
 
 * 開いている*bower.json*、jquery を追加し、ブートス トラップ、`dependencies`セクション。 その結果、 *bower.json*ファイルは次の例のようになります。 バージョンは、時間の経過と共にが変更され、下の画像が一致しません。
 
@@ -101,7 +101,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
   プロジェクトを含むことを確認、*ブートス トラップ*と*jQuery*ディレクトリ*wwwroot/lib*します。 Bower は、 *.bowerrc*で資産をインストールするファイル*wwwroot/lib*します。
 
-  注:"Bower パッケージの管理 の UI では、手動のファイルを編集する代わりを提供します。
+  メモ:"Bower パッケージの管理 の UI では、手動のファイルを編集する代わりに提供します。
 
 ### <a name="enable-static-files"></a>静的ファイルを有効にします。
 
@@ -114,7 +114,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 このセクションでは、配置したパッケージにアクセスできることを確認する HTML ページを作成します。
 
-* という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダー。 注: HTML ファイルを追加する必要があります、 *wwwroot*フォルダー。 既定では、外部の静的コンテンツを提供できない*wwwroot*します。 参照してください[静的ファイル](xref:fundamentals/static-files)詳細についてはします。
+* という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダー。 メモ:HTML ファイルを追加する必要があります、 *wwwroot*フォルダー。 既定では、外部の静的コンテンツを提供できない*wwwroot*します。 参照してください[静的ファイル](xref:fundamentals/static-files)詳細についてはします。
 
   内容を置き換える*Index.html*を次のマークアップ。
 

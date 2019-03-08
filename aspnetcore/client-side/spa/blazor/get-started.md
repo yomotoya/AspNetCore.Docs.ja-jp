@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: 26336f73f6c8976ed5de819cebc3c5c50274ab03
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 667c57d536450fa2f8ae1cabc7c5a76a16d38a55
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410009"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665588"
 ---
 # <a name="get-started-with-blazor"></a>Blazor を概要します。
 
@@ -32,7 +32,7 @@ Visual Studio で、最初の Blazor プロジェクトを作成するには
 1. コマンド シェルで次のコマンドを実行して Blazor テンプレートを .NET Core CLI で使用できるようにするには。
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.8.0-preview-19104-04
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
    ```
 
 1. 選択**ファイル** > **新しいプロジェクト** > **Web** > **ASP.NET Core Web アプリケーション**します。
@@ -97,7 +97,7 @@ Congratulations! You just ran your first Blazor app!
 1. コマンド シェルで次のコマンドを実行して Blazor テンプレートを追加します。
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.8.0-preview-19104-04
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
    ```
 
 1. コマンド シェルで、最初の Blazor プロジェクトを作成します。

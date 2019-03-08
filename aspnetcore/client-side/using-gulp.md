@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450607"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665627"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core での Gulp を使用します。
 
@@ -24,7 +24,7 @@ ms.locfileid: "52450607"
 * CSS にコンパイル未満または SASS ファイル。
 * JavaScript に CoffeeScript または TypeScript ファイルをコンパイルします。
 
-A*タスク ランナー*はこれらの日常的な開発タスクを自動化するツールです。 Visual Studio では、2 つの一般的な JavaScript ベースのタスク ランナーの組み込みのサポート: [Gulp](https://gulpjs.com/)と[Grunt](using-grunt.md)します。
+A*タスク ランナー*はこれらの日常的な開発タスクを自動化するツールです。 Visual Studio では、2 つの一般的な JavaScript ベースのタスク ランナーの組み込みサポートを提供します。[Gulp](https://gulpjs.com/)と[Grunt](using-grunt.md)します。
 
 ## <a name="gulp"></a>Gulp
 
@@ -337,7 +337,7 @@ Gulp タスクは、関数名で登録されます。 現在のタスクの前�
 |src   |`gulp.src(globs[, options]) { }`|`src`関数 glob 値に一致するファイルを提供します。 `glob`パラメーターは、`string`または`array`ファイルを読み取るかを決定します。 `options`パラメーターが追加のファイル オプションを提供します。|
 |追加先  |`gulp.dest(path[, options]) { }`|`dest`関数は、ファイルの書き込み先の場所を定義します。 `path`パラメーターは、文字列またはコピー先のフォルダーを決定する関数。 `options`パラメーターが出力フォルダーのオプションを指定するオブジェクト。|
 
-Gulp の API リファレンスの詳細は、次を参照してください。 [Gulp Docs API](https://github.com/gulpjs/gulp/blob/master/docs/API.md)します。
+Gulp の API リファレンスの詳細は、次を参照してください。 [Gulp Docs API](https://gulpjs.org/API.html)します。
 
 ## <a name="gulp-recipes"></a>Gulp のレシピ
 
