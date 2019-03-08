@@ -37,10 +37,10 @@ ms.locfileid: "51021704"
 > このチュートリアルは、ASP.NET Web Pages 2 でも機能します。
 
 
-Razor 構文を使用する ASP.NET Web ページを使用するほとんどの例は c# を使用します。 Razor 構文では、Visual Basic もサポートされています。 Visual Basic での ASP.NET web ページをプログラミングで web ページを作成する、 *.vbhtml*ファイル名拡張子、Visual Basic コードを追加します。 この記事では、Visual Basic 言語と ASP.NET web ページを作成する構文の概要を示します。
+Razor 構文を使用する ASP.NET Web ページを使用するほとんどの例は C# を使用します。 Razor 構文では、Visual Basic もサポートされています。 Visual Basic での ASP.NET web ページをプログラミングで web ページを作成する、 *.vbhtml*ファイル名拡張子、Visual Basic コードを追加します。 この記事では、Visual Basic 言語と ASP.NET web ページを作成する構文の概要を示します。
 
 > [!NOTE]
-> Microsoft WebMatrix の既定の web サイト テンプレート (**パン屋さん**、**フォト ギャラリー**、および**スターター サイト**など) は c# および Visual Basic のバージョンで使用できます。 NuGet パッケージとしてでは、Visual Basic テンプレートをインストールできます。 Web サイト テンプレートがという名前のフォルダーで、サイトのルート フォルダーにインストールされている*Microsoft テンプレート*します。
+> Microsoft WebMatrix の既定の web サイト テンプレート (**パン屋さん**、**フォト ギャラリー**、および**スターター サイト**など) は C# および Visual Basic のバージョンで使用できます。 NuGet パッケージとしてでは、Visual Basic テンプレートをインストールできます。 Web サイト テンプレートがという名前のフォルダーで、サイトのルート フォルダーにインストールされている*Microsoft テンプレート*します。
 
 
 ## <a name="the-top-8-programming-tips"></a>最上位の 8 つのプログラミングのヒント
@@ -179,7 +179,7 @@ Visual Basic 言語は大文字小文字が区別されません。 プログラ
 
 以前、ASP.NET web ページを作成する方法と、HTML マークアップをサーバー コードを追加する方法の基本的な例を説明しました。 Visual Basic を使用して、Razor 構文を使用して ASP.NET サーバー コードを記述するの基礎を学習ここ&#8212;プログラミング言語の規則では、します。
 
-(特に C、C++、c#、Visual Basic、または JavaScript を使用した) 場合のプログラミング経験豊富な場合は、ここで読んだの多くが使い慣れたになります。 内のマークアップに WebMatrix のコードを追加する方法でのみについて理解しておく必要がありますおそらく *.vbhtml*ファイル。
+(特に C、C++、C#、Visual Basic、または JavaScript を使用した) 場合のプログラミング経験豊富な場合は、ここで読んだの多くが使い慣れたになります。 内のマークアップに WebMatrix のコードを追加する方法でのみについて理解しておく必要がありますおそらく *.vbhtml*ファイル。
 
 ### <a id="BM_CombiningTextMarkupAndCode"></a>  テキスト、マークアップ、およびコード ブロック内のコードを組み合わせること
 
