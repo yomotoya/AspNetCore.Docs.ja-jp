@@ -75,7 +75,7 @@ Visual Studio 2008 または Visual Web Developer 2008 をインストールし�
 
 ## <a name="creating-an-aspnet-mvc-web-application-project"></a>ASP.NET MVC Web アプリケーション プロジェクトを作成します。
 
-Visual Studio 2008 で新しい ASP.NET MVC Web アプリケーション プロジェクトを作成してみましょう。 メニュー オプションを選択**ファイル、新しいプロジェクト**図 1 新しいプロジェクト ダイアログ ボックスが表示されます。 プログラミング言語として c# を選択し、ASP.NET MVC Web アプリケーション プロジェクト テンプレートを選択します。 プロジェクト MovieApp の名前を付け、[ok] ボタンをクリックします。
+Visual Studio 2008 で新しい ASP.NET MVC Web アプリケーション プロジェクトを作成してみましょう。 メニュー オプションを選択**ファイル、新しいプロジェクト**図 1 新しいプロジェクト ダイアログ ボックスが表示されます。 プログラミング言語として C# を選択し、ASP.NET MVC Web アプリケーション プロジェクト テンプレートを選択します。 プロジェクト MovieApp の名前を付け、[ok] ボタンをクリックします。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image1.jpg)](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image1.png)
