@@ -54,7 +54,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 2 番目の行が表示される HTML マークアップをリテラルだけ&quot;日付テンプレートを使用した&quot;日付フィールドの前にします。 この日付テンプレートが使用されていることを確認するのにこの行を一時的に使用します。
 
-次の行が、 [Html.TextBox](https://msdn.microsoft.com/library/system.web.mvc.html.inputextensions.textbox.aspx)レンダリング ヘルパー、`input`テキスト ボックスにあるフィールドです。 ヘルパーの 3 番目のパラメーターでは、匿名型を使用して、テキスト ボックスのクラスを設定する`datefield`タイプを`date`します。 (ため`class`、予約されている c# を使用する必要があります、`@`文字をエスケープするため、 `class` c# パーサーで属性)。
+次の行が、 [Html.TextBox](https://msdn.microsoft.com/library/system.web.mvc.html.inputextensions.textbox.aspx)レンダリング ヘルパー、`input`テキスト ボックスにあるフィールドです。 ヘルパーの 3 番目のパラメーターでは、匿名型を使用して、テキスト ボックスのクラスを設定する`datefield`タイプを`date`します。 (ため`class`、予約されている C# を使用する必要があります、`@`文字をエスケープするため、 `class` C# パーサーで属性)。
 
 `date`型により、HTML5 対応のブラウザーで HTML5 カレンダー コントロールをレンダリングする HTML5 入力型です。 後で、jQuery の datepicker にフックする何らかの JavaScript を追加します、`Html.TextBox`要素を使用して、`datefield`クラス。
 
