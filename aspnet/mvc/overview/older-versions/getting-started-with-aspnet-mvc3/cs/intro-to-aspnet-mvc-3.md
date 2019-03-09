@@ -64,7 +64,7 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 ## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
 
-プログラミング言語として Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 左側の Visual C# を選択し、 **ASP.NET MVC 3 Web アプリケーション**します。 クリックして、プロジェクトに"MvcMovie" **OK**します。 (Visual Basic を使用する場合に切り替えて、 [Visual Basic バージョン](../vb/intro-to-aspnet-mvc-3.md)このチュートリアルの)。
+プログラミング言語として Visual Basic または Visual c# を使用してアプリケーションを作成することができます。 左側の Visual c# を選択し、 **ASP.NET MVC 3 Web アプリケーション**します。 クリックして、プロジェクトに"MvcMovie" **OK**します。 (Visual Basic を使用する場合に切り替えて、 [Visual Basic バージョン](../vb/intro-to-aspnet-mvc-3.md)このチュートリアルの)。
 
 ![](intro-to-aspnet-mvc-3/_static/image5.png)
 
