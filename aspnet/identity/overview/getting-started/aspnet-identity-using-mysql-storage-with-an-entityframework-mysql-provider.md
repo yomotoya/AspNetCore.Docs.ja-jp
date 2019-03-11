@@ -1,6 +1,6 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
-title: 'ASP.NET Identity: EntityFramework MySQL プロバイダーでは (c#) での MySQL の Storage の使用 |Microsoft Docs'
+title: 'ASP.NET Identity:EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#) |Microsoft Docs'
 author: maumar
 description: このチュートリアルでは、MySQL または EntityFramework (SQL クライアント プロバイダー) で ASP.NET Identity の既定のデータ ストレージ機構を置き換える方法を紹介しています.
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 10/10/2018
 ms.locfileid: "48912372"
 ---
-<a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: EntityFramework MySQL プロバイダー (c#) で MySQL ストレージを使用します。
+<a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity:EntityFramework MySQL プロバイダーで MySQL ストレージを使用する (C#)
 ====================
 によって[Maurycy Markowski](https://github.com/maumar)、 [Raquel Soares De Almeida](https://github.com/raquelsa)、 [Robert McMurray](https://github.com/rmcmurray)
 
