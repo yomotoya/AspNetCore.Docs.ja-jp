@@ -120,7 +120,7 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 
 ### <a name="install-the-preview-site-extension"></a>プレビュー サイト拡張機能をインストールする
 
-プレビュー サイト拡張機能の使用に関する問題が発生した場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
+プレビュー サイト拡張機能の使用に関する問題が発生した場合は、[aspnet/AspNetCore issue](https://github.com/aspnet/AspNetCore/issues) を作成してください。
 
 1. Azure Portal から App Service に移動します。
 1. Web アプリを選択します。
