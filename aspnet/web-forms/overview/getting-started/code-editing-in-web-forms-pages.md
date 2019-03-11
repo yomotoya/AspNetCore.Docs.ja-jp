@@ -56,7 +56,7 @@ ms.locfileid: "49391220"
     ![[ファイル] メニュー](code-editing-in-web-forms-pages/_static/image1.png)
 
     **[新しいプロジェクト]** ダイアログ ボックスが表示されます。
-3. 選択、**テンプレート** - &gt; **Visual c#**  - &gt; **Web**左側のテンプレート グループ。
+3. 選択、**テンプレート** - &gt; **Visual C#**  - &gt; **Web**左側のテンプレート グループ。
 4. 選択、 **ASP.NET Web アプリケーション**中央の列のテンプレート。
 5. プロジェクトに名前を***BasicWebApp***  をクリックし、 **OK**ボタン。   
 ![新しいプロジェクト ダイアログ ボックス](code-editing-in-web-forms-pages/_static/image2.png)
@@ -76,7 +76,7 @@ ms.locfileid: "49391220"
 
 1. **ソリューション エクスプ ローラー**、Web アプリケーションの名前を右クリックし (アプリケーション名は、このチュートリアルでは**BasicWebSite**)、をクリックし、**追加** - &gt;**新しい項目の**します。   
 **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. 選択、 **Visual c#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**Web フォーム**中央から一覧表示し、名前を*名前*します。   
+2. 選択、 **Visual C#**  - &gt; **Web**左側のテンプレート グループ。 次に、選択**Web フォーム**中央から一覧表示し、名前を*名前*します。   
     ![新しい項目 ダイアログ ボックスを追加します。](code-editing-in-web-forms-pages/_static/image4.png)
 3. クリックして**追加**をプロジェクトに Web フォーム ページを追加します。  
  Visual Studio では、新しいページを作成し、それを開きます。
@@ -179,7 +179,7 @@ Visual Studio でコード エディターを使用して、コードを記述�
 
 Web フォームの開発者が頻繁に実行する必要がある多くのコーディング作業があるため、コード エディターは、スニペット、または作成済みのコード ブロックのライブラリを提供します。 ページには、これらのスニペットを挿入できます。
 
-Visual Studio で使用する各言語には、コード スニペットを挿入する方法にはわずかな違いがあります。 スニペットの挿入については、次を参照してください。 [Visual Basic の IntelliSense コード スニペット](https://msdn.microsoft.com/library/18yz4be4.aspx)します。 Visual c# スニペットの挿入については、次を参照してください。 [Visual c# コード スニペット](https://msdn.microsoft.com/library/z41h7fat.aspx)します。
+Visual Studio で使用する各言語には、コード スニペットを挿入する方法にはわずかな違いがあります。 スニペットの挿入については、次を参照してください。 [Visual Basic の IntelliSense コード スニペット](https://msdn.microsoft.com/library/18yz4be4.aspx)します。 Visual C# スニペットの挿入については、次を参照してください。 [Visual C# コード スニペット](https://msdn.microsoft.com/library/z41h7fat.aspx)します。
 
 ## <a name="next-steps"></a>次の手順
 
@@ -188,4 +188,4 @@ Visual Studio で使用する各言語には、コード スニペットを挿�
 - IntelliSense オプションの変更、コード スニペットを管理、コード スニペットをオンラインで検索などの IntelliSense の機能についてよりについて説明します。 詳細については、「[IntelliSense の使用](https://msdn.microsoft.com/library/hcw1s69b.aspx)」を参照してください。
 - 独自のコード スニペットを作成する方法について説明します。 詳細については、次を参照してください[の作成と IntelliSense コード スニペットの使用。](https://msdn.microsoft.com/library/ms165392.aspx)
 - IntelliSense コード スニペットでは、スニペットのカスタマイズやトラブルシューティングなどの Visual Basic 固有の機能について説明します。 詳細については、次を参照してください[Visual Basic の IntelliSense コード スニペット。](https://msdn.microsoft.com/library/18yz4be4.aspx)
-- 詳細については、c# は、リファクタリングとコード スニペットなど、IntelliSense の特定の機能。 詳細については、次を参照してください。 [Visual c# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx)します。
+- 詳細については、C# は、リファクタリングとコード スニペットなど、IntelliSense の特定の機能。 詳細については、次を参照してください。 [Visual C# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx)します。

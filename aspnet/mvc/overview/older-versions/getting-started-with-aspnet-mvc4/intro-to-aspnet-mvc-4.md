@@ -61,7 +61,7 @@ Visual Studio は、IDE、または統合開発環境です。 Microsoft Word �
 
 ## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
 
-プログラミング言語として Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 左側の Visual C# を選択し、 **ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;MvcMovie&quot;  をクリックし、 **OK**します。
+プログラミング言語として Visual Basic または Visual C# を使用してアプリケーションを作成することができます。 左側の Visual C# を選択し、 **ASP.NET MVC 4 Web アプリケーション**します。 プロジェクトに名前を&quot;MvcMovie&quot; をクリックし、 **OK**します。
 
 ![](intro-to-aspnet-mvc-4/_static/image4.png)
 
