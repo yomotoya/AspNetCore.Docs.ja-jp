@@ -866,6 +866,7 @@ Application Insights SDK では、ASP.NET Core のログ インフラストラ�
 * [Application Insights の概要](/azure/application-insights/app-insights-overview)
 * [ASP.NET Core 用 Application Insights](/azure/application-insights/app-insights-asp-net-core)
 * [Application Insights のログ アダプター](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md)。
+* [Application Insights ILogger の実装のサンプル](/azure/azure-monitor/app/ilogger)
 
 ::: moniker-end
 
