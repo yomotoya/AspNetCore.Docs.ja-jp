@@ -8,7 +8,7 @@ items:
   - uid: fundamentals/choose-between-aspnet-and-aspnetcore
     name: ASP.NET Core と ASP.NET の比較
   - name: .NET Core と .NET Framework の比較
-    href: /dotnet/standard/choosing-core-framework-server
+    href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - uid: getting-started
   name: 作業開始
 - name: 新機能
@@ -36,12 +36,52 @@ items:
       displayName: tutorial
   - name: Web アプリ
     items:
-    - uid: tutorials/razor-pages/index
-      name: Razor ページ
+    - name: Razor ページ
       displayName: tutorial
-    - uid: tutorials/first-mvc-app/index
-      name: MVC
+      items:
+      - uid: tutorials/razor-pages/index
+        name: 概要
+      - uid: tutorials/razor-pages/razor-pages-start
+        name: 作業開始
+      - uid: tutorials/razor-pages/model
+        name: モデルを追加する
+      - uid: tutorials/razor-pages/page
+        name: スキャフォールディング
+      - uid: tutorials/razor-pages/sql
+        name: データベースの操作
+      - uid: tutorials/razor-pages/da1
+        name: ページの更新
+      - uid: tutorials/razor-pages/search
+        name: 検索の追加
+      - uid: tutorials/razor-pages/new-field
+        name: 新しいフィールドの追加
+      - uid: tutorials/razor-pages/validation
+        name: 検証の追加
+    - name: MVC
       displayName: tutorial
+      items:
+      - uid: tutorials/first-mvc-app/index
+        name: 概要
+      - uid: tutorials/first-mvc-app/start-mvc
+        name: 作業開始
+      - uid: tutorials/first-mvc-app/adding-controller
+        name: コントローラーの追加
+      - uid: tutorials/first-mvc-app/adding-view
+        name: ビューを追加する
+      - uid: tutorials/first-mvc-app/adding-model
+        name: モデルを追加する
+      - uid: tutorials/first-mvc-app/working-with-sql
+        name: データベースの操作
+      - uid: tutorials/first-mvc-app/controller-methods-views
+        name: コントローラー アクションとビュー
+      - uid: tutorials/first-mvc-app/search
+        name: 検索の追加
+      - uid: tutorials/first-mvc-app/new-field
+        name: 新しいフィールドの追加
+      - uid: tutorials/first-mvc-app/validation
+        name: 検証の追加
+      - uid: tutorials/first-mvc-app/details
+        name: Details メソッドと Delete メソッドの確認
   - name: リアルタイムの Web アプリ
     items:
     - uid: tutorials/signalr
@@ -52,17 +92,57 @@ items:
       displayName: tutorial
   - name: データ アクセス
     items:
-    - uid: data/ef-rp/index
-      name: EF Core と Razor Pages
+    - name: EF Core と Razor Pages
       displayName: tutorial
+      items:
+      - uid: data/ef-rp/index
+        name: 概要
+      - uid: data/ef-rp/intro
+        name: 作業開始
+      - uid: data/ef-rp/crud
+        name: 作成、読み取り、更新、および削除
+      - uid: data/ef-rp/sort-filter-page
+        name: 並べ替え、フィルター、ページ、およびグループ化
+      - uid: data/ef-rp/migrations
+        name: 移行
+      - uid: data/ef-rp/complex-data-model
+        name: 複合データ モデルの作成
+      - uid: data/ef-rp/read-related-data
+        name: 関連データの読み取り
+      - uid: data/ef-rp/update-related-data
+        name: 関連データの更新
+      - uid: data/ef-rp/concurrency
+        name: コンカレンシーの競合の処理
     - name: EF Core と MVC、既存のデータベース
       displayName: tutorial
-      href: /ef/core/get-started/aspnetcore/existing-db
+      href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: EF Core と MVC、新しいデータベース
       displayName: tutorial
-      href: /ef/core/get-started/aspnetcore/new-db
-    - uid: data/ef-mvc/index
-      name: EF Core と MVC、長いチュートリアル
+      href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: EF Core と MVC、10 チュートリアル
+      items:
+      - uid: data/ef-mvc/index
+        name: 概要
+      - uid: data/ef-mvc/intro
+        name: 作業開始
+      - uid: data/ef-mvc/crud
+        name: 作成、読み取り、更新、および削除
+      - uid: data/ef-mvc/sort-filter-page
+        name: 並べ替え、フィルター、ページ、およびグループ化
+      - uid: data/ef-mvc/migrations
+        name: 移行
+      - uid: data/ef-mvc/complex-data-model
+        name: 複合データ モデルの作成
+      - uid: data/ef-mvc/read-related-data
+        name: 関連データの読み取り
+      - uid: data/ef-mvc/update-related-data
+        name: 関連データの更新
+      - uid: data/ef-mvc/concurrency
+        name: コンカレンシーの競合の処理
+      - uid: data/ef-mvc/inheritance
+        name: 継承
+      - uid: data/ef-mvc/advanced
+        name: 高度なトピック
 - name: Fundamentals
   items:
   - uid: fundamentals/index
@@ -115,7 +195,7 @@ items:
       - uid: tutorials/razor-pages/page
         name: スキャフォールディング
       - uid: tutorials/razor-pages/sql
-        name: DB の操作
+        name: データベースの操作
       - uid: tutorials/razor-pages/da1
         name: ページの更新
       - uid: tutorials/razor-pages/search
@@ -150,7 +230,7 @@ items:
       - uid: tutorials/first-mvc-app/adding-model
         name: モデルを追加する
       - uid: tutorials/first-mvc-app/working-with-sql
-        name: DB の操作
+        name: データベースの操作
       - uid: tutorials/first-mvc-app/controller-methods-views
         name: コントローラー アクションとビュー
       - uid: tutorials/first-mvc-app/search
@@ -337,7 +417,7 @@ items:
       displayName: signalr
     - name: Azure SignalR Service
       displayName: signalr
-      href: /azure/azure-signalr/signalr-overview
+      href: /azure/azure-signalr/signalr-overview?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - uid: signalr/redis-backplane
       name: Redis バックプレーン
       displayName: signalr
@@ -370,7 +450,7 @@ items:
 - name: テスト、デバッグ、およびトラブルシューティング
   items:
   - name: 単体テスト
-    href: /dotnet/core/testing/unit-testing-with-dotnet-test
+    href: /dotnet/core/testing/unit-testing-with-dotnet-test?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
   - uid: test/razor-pages-tests
     name: Razor Pages の単体テスト
   - uid: mvc/controllers/testing
@@ -378,7 +458,7 @@ items:
   - name: リモート デバッグ
     href: /visualstudio/debugger/remote-debugging-azure
   - name: スナップショットのデバッグ
-    href: /azure/application-insights/app-insights-snapshot-debugger
+    href: /azure/azure-monitor/app/snapshot-debugger?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
   - name: Visual Studio のスナップショットのデバッグ
     href: /visualstudio/debugger/debug-live-azure-applications
   - uid: test/integration-tests
@@ -414,10 +494,10 @@ items:
       - uid: data/ef-rp/concurrency
         name: コンカレンシーの競合の処理
     - name: EF Core と MVC、新しいデータベース
-      href: /ef/core/get-started/aspnetcore/new-db
+      href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: EF Core と MVC、既存のデータベース
-      href: /ef/core/get-started/aspnetcore/existing-db
-    - name: EF Core と MVC、長いチュートリアル
+      href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: EF Core と MVC、10 チュートリアル
       items:
       - uid: data/ef-mvc/index
         name: 概要
@@ -446,13 +526,13 @@ items:
   - name: Visual Studio による Azure Storage
     items:
     - name: 接続済みサービス
-      href: /azure/vs-azure-tools-connected-services-storage
+      href: /visualstudio/azure/vs-azure-tools-connected-services-storage
     - name: BLOB ストレージ
-      href: /azure/vs-storage-aspnet5-getting-started-blobs/
+      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Queue ストレージ
-      href: /azure/vs-storage-aspnet5-getting-started-queues/
+      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Table ストレージ
-      href: /azure/vs-storage-aspnet5-getting-started-tables/
+      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: クライアント側の開発
   items:
   - name: Razor Components
@@ -562,10 +642,10 @@ items:
       displayName: azure, deploy, publish
     - name: Visual Studio for Mac での公開
       displayName: azure, deploy, publish
-      href: /visualstudio/mac/publish-app-svc
+      href: /visualstudio/mac/publish-app-svc?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: CLI ツールでの公開
       displayName: azure, deploy, publish
-      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
+      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - uid: host-and-deploy/azure-apps/azure-continuous-deployment
       name: Visual Studio および Git での公開
       displayName: azure, deploy, publish
@@ -654,7 +734,7 @@ items:
       displayName: deploy, publish, docker
     - name: Docker イメージへの公開
       displayName: deploy, publish, docker
-      href: /azure/vs-azure-tools-docker-hosting-web-apps-in-docker
+      href: /visualstudio/containers/vs-azure-tools-docker-hosting-web-apps-in-docker
     - name: Docker イメージのサンプル
       displayName: deploy, publish, docker
       href: https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md
@@ -669,7 +749,7 @@ items:
     displayName: deploy, publish
   - name: Visual Studio for Mac でのフォルダーへの発行
     displayName: deploy, publish
-    href: /visualstudio/mac/publish-folder
+    href: /visualstudio/mac/publish-folder?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
   - uid: host-and-deploy/directory-structure
     name: ディレクトリの構造
     displayName: deploy, publish
@@ -754,7 +834,7 @@ items:
     - name: IdentityServer4 での ASP.NET Core アプリのセキュリティ保護
       href: https://identityserver4.readthedocs.io/
     - name: Azure App Service 認証 (Easy Auth) での ASP.NET Core アプリのセキュリティ保護
-      href: /azure/app-service/app-service-authentication-overview
+      href: /azure/app-service/overview-authentication-authorization?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - uid: security/authentication/individual
       name: 個人のユーザー アカウント
   - name: 承認
@@ -980,9 +1060,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 755ddaf4262956deb285b48c6c1d0205c25f4ced
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 1430ab85bd40bb3090b5e6a2e313a690bc280f1e
+ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665471"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57733520"
