@@ -5,12 +5,12 @@ description: 区分は ASP.NET MVC の機能であり、関連する機能を別
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833528"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400646"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core の区分
 
@@ -27,6 +27,8 @@ ms.locfileid: "56833528"
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 ダウンロード サンプルからは、区分をテストするための基本的なアプリが与えられます。
 
+Razor Pages を使用している場合は、このドキュメントの「[Razor Pages を使った区分](#areas-with-razor-pages)」をご覧ください。
+
 ## <a name="areas-for-controllers-with-views"></a>ビューを伴うコントローラーの区分
 
 区分、コントローラー、ビューを使用する一般的な ASP.NET Core Web アプリに含まれる内容:
@@ -35,7 +37,7 @@ ms.locfileid: "56833528"
 * コントローラーと区分を関連付ける目的で [&lbrack;Area&rbrack;](#attribute) 属性で装飾されたコントローラー: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 * [スタートアップに追加された区分ルート](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
-## <a name="area-folder-structure"></a>区分フォルダーの構造
+### <a name="area-folder-structure"></a>区分フォルダーの構造
 あるアプリに *Products* と *Services* という 2 つの論理グループが与えられているとします。 区分を利用すると、フォルダーの構造は次のようになります。
 
 * Project name
@@ -68,11 +70,6 @@ ms.locfileid: "56833528"
 
 *Controllers* や *Models* など、ビュー以外のフォルダーの場所は問題では**ありません**。 たとえば、*Controllers* や *Models* のフォルダーは不要です。 *Controllers* と *Models* の内容はコードであり、.dll にコンパイルされます。 *Views* の内容は、ビューに対する要求が行われるまでコンパイルされません。
 
-<!-- TODO review:
-The content of the *Views* isn't compiled until a request to that view has been made.
-
-What about precompiled views? 
- -->
 <a name="attribute"></a>
 
 ### <a name="associate-the-controller-with-an-area"></a>コントローラーを区分に関連付ける
@@ -99,7 +96,7 @@ ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub �
 
 詳細については、[区分のルーティング](xref:mvc/controllers/routing#areas)に関するページを参照してください。
 
-### <a name="link-generation-with-areas"></a>区分を含むリンクの生成
+### <a name="link-generation-with-mvc-areas"></a>MVC 区分を使ったリンクの生成
 
 [サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)に含まれる次のコードでは、区分が指定された上でリンクが生成されます。
 
@@ -107,7 +104,7 @@ ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub �
 
 上記のコードで生成されたリンクは、アプリ内のあらゆる場所で有効となります。
 
-サンプル ダウンロードには、[部分ビュー](xref:mvc/views/partial)が含まれます。部分ビューには、上記のリンクと区分が指定されていない同じリンクが含まれます。 部分ビューは[レイアウト ファイル]()で参照されます。そのため、生成されたリンクがアプリのすべてのページに表示されます。 区分が指定されずに生成されたリンクは、同じ区分やコントローラーのページから参照されるときにのみ有効です。
+サンプル ダウンロードには、[部分ビュー](xref:mvc/views/partial)が含まれます。部分ビューには、上記のリンクと区分が指定されていない同じリンクが含まれます。 部分ビューは[レイアウト ファイル](xref:mvc/views/layout)で参照されます。そのため、生成されたリンクがアプリのすべてのページに表示されます。 区分が指定されずに生成されたリンクは、同じ区分やコントローラーのページから参照されるときにのみ有効です。
 
 区分またはコントローラーが指定されていないとき、ルーティングは*アンビエント*値に依存します。 現在の要求の現在のルート値は、リンク生成の場合、アンビエント値として見なされます。 サンプル アプリでは多くの場合、アンビエント値を使用すると、間違ったリンクが生成されます。
 
@@ -117,11 +114,6 @@ ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub �
 
 アプリ全体で共通レイアウトを共有するには、アプリケーションのルート フォルダーに *_ViewStart.cshtml* を移動します。
 
-<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
-<a name="arp"></a>
-
-## Areas for Razor Pages
--->
 <a name="rename"></a>
 
 ### <a name="change-default-area-folder-where-views-are-stored"></a>ビューが保存されている既定の区分フォルダーを変更する
@@ -130,7 +122,72 @@ ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub �
 
 [!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+<a name="arp"></a>
+
+## <a name="areas-with-razor-pages"></a>Razor Pages を使った区分
+
+Razor Pages を使った区分を使うには、アプリのルートに *Areas/&lt;区分名&gt;/Pages* フォルダーが必要です。 [サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)では次のフォルダー構造が使われます
+
+* Project name
+  * Areas
+    * Products
+      * Pages
+        * _ViewImports
+        * バージョン情報
+        * インデックス
+    * Services
+      * Pages
+        * Manage
+          * バージョン情報
+          * インデックス
+
+### <a name="link-generation-with-razor-pages-and-areas"></a>Razor Pages と区分を使ったリンクの生成
+
+[サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas)の次のコードでは、区分を指定したリンクの生成を示しています (例: `asp-area="Products"`)。
+
+[!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet)]
+
+上記のコードで生成されたリンクは、アプリ内のあらゆる場所で有効となります。
+
+サンプル ダウンロードには、[部分ビュー](xref:mvc/views/partial)が含まれます。部分ビューには、上記のリンクと区分が指定されていない同じリンクが含まれます。 部分ビューは[レイアウト ファイル](xref:mvc/views/layout)で参照されます。そのため、生成されたリンクがアプリのすべてのページに表示されます。 区分が指定されずに生成されたリンクは、同じ区分のページから参照されるときにのみ有効です。
+
+区分が指定されていないとき、ルーティングは "*アンビエント*" 値に依存します。 現在の要求の現在のルート値は、リンク生成の場合、アンビエント値として見なされます。 サンプル アプリでは多くの場合、アンビエント値を使用すると、間違ったリンクが生成されます。 たとえば、次のコードから生成されるリンクを考えてみます。
+
+[!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet2)]
+
+上のコードの場合:
+
+* `<a asp-page="/Manage/About">` から生成されるリンクは、前回の要求が `Services` 区分内のページに向けられていた場合にのみ正しくなります。 たとえば、`/Services/Manage/`、`/Services/Manage/Index`、または `/Services/Manage/About` です。
+* `<a asp-page="/About">` から生成されるリンクは、前回の要求が `/Home` 内のページに向けられていた場合にのみ正しくなります。
+* コードは、[サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas)からのものです。
+
+### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>_ViewImports ファイルを使って名前空間とタグ ヘルパーをインポートする
+
+*_ViewImports* ファイルを各区分の *Pages* フォルダーに追加して、フォルダー内の各 Razor ページに名前空間とタグ ヘルパーをインポートすることができます。
+
+サンプル コードの *Services* 区分について検討します。これには *_ViewImports* ファイルが含まれていません。 次のマークアップは */Services/Manage/About* Razor ページを表示します。
+
+[!code-cshtml[](areas/samples/RPareas/Areas/Services/Pages/Manage/About.cshtml)]
+
+上のマークアップについて:
+
+* 完全修飾ドメイン名を使ってモデルを指定する必要があります (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`)。
+* [タグ ヘルパー]()は `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` によって有効になります
+
+サンプル ダウンロードでは、Products 区分に次の *_ViewImports* ファイルが含まれています。
+
+[!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
+
+次のマークアップは */Products/About* Razor ページを表示します: [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
+
+上のファイルでは、*Areas/Products/Pages/_ViewImports.cshtml* ファイルによって、名前空間と `@addTagHelper` ディレクティブがファイルにインポートされています。
+
+詳細については、「[タグ ヘルパーのスコープの管理](xref:mvc/views/tag-helpers/intro?view=aspnetcore-2.2#managing-tag-helper-scope)」と「[共有ディレクティブのインポート](xref:mvc/views/layout#importing-shared-directives)」をご覧ください。
+
+### <a name="shared-layout-for-razor-pages-areas"></a>Razor Pages 区分の共有レイアウト
+
+アプリ全体で共通レイアウトを共有するには、アプリケーションのルート フォルダーに *_ViewStart.cshtml* を移動します。
+
 ### <a name="publishing-areas"></a>区分の発行
 
-`<Project Sdk="Microsoft.NET.Sdk.Web">` が *.csproj* ファイルに含まれている場合、すべての `*.cshtml` および `wwwroot/**` ファイルが発行され、出力されます。
+`<Project Sdk="Microsoft.NET.Sdk.Web">` が the.csproj* ファイルに含まれている場合、すべての `*.cshtml` および `wwwroot/**` ファイルが発行され、出力されます。

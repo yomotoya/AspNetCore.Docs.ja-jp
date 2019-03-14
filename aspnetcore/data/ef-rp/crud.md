@@ -5,12 +5,12 @@ description: EF Core で作成、読み取り、更新、削除を行う方法�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: adb281277599456356251c6ee30772a25f14ac58
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477437"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346055"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 
@@ -165,7 +165,7 @@ Students インデックス ページのスキャフォールディング コー
 
 Razor ページで、`PageModel` 派生クラスはビュー モデルです。
 
-## <a name="update-the-edit-page"></a>Edit ページを更新する
+## <a name="update-the-edit-page"></a>[編集] ページを更新する
 
 [編集] ページのページ モデルを更新します。 大きな変更点が強調表示されています。
 
@@ -187,15 +187,15 @@ DB コンテキストは、メモリ内のエンティティが、DB 内の対�
 
 エンティティは、[次のいずれかの状態](/dotnet/api/microsoft.entityframeworkcore.entitystate)になる可能性があります。
 
-* `Added`: エンティティは DB にまだ存在しません。 `SaveChanges` メソッドは INSERT ステートメントを発行します。
+* `Added`:エンティティは DB にまだ存在しません。 `SaveChanges` メソッドは INSERT ステートメントを発行します。
 
-* `Unchanged`: このエンティティでは変更を保存する必要がありません。 エンティティがこの状態になるのは、エンティティが DB から読み取られた場合です。
+* `Unchanged`:このエンティティでは変更を保存する必要がありません。 エンティティがこの状態になるのは、エンティティが DB から読み取られた場合です。
 
-* `Modified`: エンティティのプロパティ値の一部またはすべてが変更されています。 `SaveChanges` メソッドは UPDATE ステートメントを発行します。
+* `Modified`:エンティティのプロパティ値の一部またはすべてが変更されています。 `SaveChanges` メソッドは UPDATE ステートメントを発行します。
 
-* `Deleted`: エンティティには削除のマークが付けられています。 `SaveChanges` メソッドは DELETE ステートメントを発行します。
+* `Deleted`:エンティティには削除のマークが付けられています。 `SaveChanges` メソッドは DELETE ステートメントを発行します。
 
-* `Detached`: エンティティは DB コンテキストによって追跡されていません。
+* `Detached`:エンティティは DB コンテキストによって追跡されていません。
 
 デスクトップ アプリにおいて、通常、状態の変更は自動的に設定されます。 エンティティが読み取られ、変更が加えられると、エンティティの状態は自動的に `Modified` に変更されます。 `SaveChanges` を呼び出すと、変更されたプロパティのみを更新する SQL UPDATE ステートメントが生成されます。
 
@@ -207,7 +207,8 @@ Web アプリにおいて、エンティティを読み取り、データを表�
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
-`OnGetAsync` メソッドを次のコードで置き換えます。
+
+  `OnGetAsync` メソッドを次のコードで置き換えます。
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 
@@ -247,6 +248,10 @@ Razor ページに正しい `@page` ディレクティブが含まれている�
 各 Razor ページには、`@page` ディレクティブを含める必要があります。
 
 ::: moniker-end
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [このチュートリアルの YouTube バージョン](https://www.youtube.com/watch?v=F0SP7Ry4flQ&list=PLnVvOWNfuhGV45HnNgd0vuIIkoQ1UaVBf)
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/intro)

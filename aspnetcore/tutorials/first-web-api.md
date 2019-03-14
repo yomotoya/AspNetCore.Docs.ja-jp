@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 686397cd25248ce7b37e505c7129a3b56d4ada1b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 24c87f2ad0446aef51f9d648fd20c181cbeaed2e
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833762"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346472"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>チュートリアル: ASP.NET Core MVC で Web API を作成する
 
@@ -350,7 +350,7 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
 
 `PutTodoItem` は `PostTodoItem` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、変更だけでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、[HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute) を使用します。
 
-`PutTodoItem` を呼び出してエラーが表示された場合、`GET` を呼び出し、データベースに項目があることを確認してください。
+`PutTodoItem` 呼び出しでエラーが発生した場合、`GET` を呼び出してデータベース内に項目があることを確認してください。
 
 ### <a name="test-the-puttodoitem-method"></a>PutTodoItem メソッドのテスト
 
@@ -454,6 +454,7 @@ To Do アイテムを削除するには、`DELETE` への AJAX 呼び出しで `
 * <xref:web-api/action-return-types>
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/index>
+* [このチュートリアルの YouTube バージョン](https://www.youtube.com/watch?v=TTkhEyGBfAk)
 
 ## <a name="next-steps"></a>次の手順
 

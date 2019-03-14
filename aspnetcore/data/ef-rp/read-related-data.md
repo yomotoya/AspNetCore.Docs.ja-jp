@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207557"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345894"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -42,13 +42,13 @@ EF Core がエンティティのナビゲーション プロパティに関連�
   * メイン クエリに 1 つのクエリ 
   * 読み込みツリー内のコレクション "エッジ" ごとに 1 つのクエリ
 
-* `Load` で分離したクエリ: データは分離したクエリで取得でき、EF Core がナビゲーション プロパティを "修正" します。 "修正" は、ナビゲーション プロパティが EF Core によって自動的に入力されることを意味します。 `Load` で分離したクエリは、一括読み込みよりも明示的読み込みに似ています。
+* `Load` で分離したクエリ:データは分離したクエリで取得でき、EF Core がナビゲーション プロパティを "修正" します。 "修正" は、ナビゲーション プロパティが EF Core によって自動的に入力されることを意味します。 `Load` で分離したクエリは、一括読み込みよりも明示的読み込みに似ています。
 
   ![分離したクエリの例](read-related-data/_static/separate-queries.png)
 
-  注: EF Core は、コンテキスト インスタンスに以前に読み込まれたその他のエンティティに対して、ナビゲーション プロパティを自動的に修正します。 ナビゲーション プロパティのデータが明示的に含まれ*ない*場合でも、関連エンティティの一部またはすべてが以前に読み込まれていれば、プロパティを設定することができます。
+  メモ:EF Core は、コンテキスト インスタンスに以前に読み込まれたその他のエンティティに対して、ナビゲーション プロパティを自動的に修正します。 ナビゲーション プロパティのデータが明示的に含まれ*ない*場合でも、関連エンティティの一部またはすべてが以前に読み込まれていれば、プロパティを設定することができます。
 
-* [明示的読み込み](/ef/core/querying/related-data#explicit-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 必要なときに関連するデータを取得するコードを記述する必要があります。 分離したクエリによる明示的読み込みにより、複数のクエリが DB に送信されます。 明示的読み込みでは、コードで読み込まれるナビゲーション プロパティを指定します。 明示的読み込みを行うには、`Load` メソッドを使用します。 例:
+* [明示的読み込み](/ef/core/querying/related-data#explicit-loading)。 エンティティが最初に読み込まれるときに、関連データは取得されません。 必要なときに関連するデータを取得するコードを記述する必要があります。 分離したクエリによる明示的読み込みにより、複数のクエリが DB に送信されます。 明示的読み込みでは、コードで読み込まれるナビゲーション プロパティを指定します。 明示的読み込みを行うには、`Load` メソッドを使用します。 次に例を示します。
 
   ![明示的読み込みの例](read-related-data/_static/explicit-loading.png)
 
@@ -184,8 +184,8 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 
 クエリには次の 2 つが含まれています。
 
-* `OfficeAssignment`: [Instructors ビュー](#IP)に表示されます。
-* `CourseAssignments`: 担当したコースを取り込みます。
+* `OfficeAssignment`:[Instructors ビュー](#IP)に表示されます。
+* `CourseAssignments`:担当したコースを取り込みます。
 
 
 ### <a name="update-the-instructors-index-page"></a>Instructors/Index ページを更新する
@@ -330,6 +330,11 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 アプリをテストします。 ユーザーの観点からは、アプリの動作は以前のバージョンと同じです。
 
 次のチュートリアルでは、関連データの更新方法を示します。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [このチュートリアルの YouTube バージョン (part1)](https://www.youtube.com/watch?v=PzKimUDmrvE)
+* [このチュートリアルの YouTube バージョン (part2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
 >[前へ](xref:data/ef-rp/complex-data-model)

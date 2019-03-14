@@ -5,14 +5,14 @@ description: ASP.NET Core アプリで Razor ファイルのコンパイルが�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0b6173a7860f5f1d9d11219fbf3f57f76d703031
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0b3aea584de63cb8032e4ca112d2441349bdfbb3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899269"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345489"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core での Razor ファイルのコンパイル
 
@@ -38,7 +38,7 @@ ms.locfileid: "56899269"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Razor ファイルは、[Razor SDK](xref:razor-pages/sdk) を使用してビルド時と公開時にコンパイルされます。 実行時コンパイルは、アプリケーションを構成することで任意で有効にできることがあります。
+Razor ファイルは、[Razor SDK](xref:razor-pages/sdk) を使用してビルド時と公開時にコンパイルされます。 実行時コンパイルは、アプリケーションを構成することで必要に応じて有効にできることがあります。
 
 ::: moniker-end
 
@@ -93,7 +93,7 @@ ASP.NET Core 2.x プロジェクト テンプレートは既定で、暗黙的�
 dotnet publish -c Release
 ```
 
-コンパイル済みの Razor ファイルを含む、*<project_name>.PrecompiledViews.dll* ファイルは、プリコンパイルが正常に行われたときに生成されます。 たとえば、次のスクリーンショットは、*WebApplication1.PrecompiledViews.dll* 内の *Index.cshtml* のコンテンツを示しています。
+コンパイル済みの Razor ファイルを含む、*\<project_name>.PrecompiledViews.dll* ファイルは、プリコンパイルが成功したときに生成されます。 たとえば、次のスクリーンショットは、*WebApplication1.PrecompiledViews.dll* 内の *Index.cshtml* のコンテンツを示しています。
 
 ![DLL 内の Razor ビュー](view-compilation/_static/razor-views-in-dll.png)
 
@@ -122,18 +122,19 @@ dotnet publish -c Release
 
 ::: moniker range=">= aspnetcore-3.0"
 
-実行時コンパイルは `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` パッケージを使用して有効になっています。 実行時コンパイルを有効にするには、アプリで 
+実行時コンパイルは `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` パッケージを使用して有効になっています。 実行時コンパイルを有効にするには、アプリで次を行う必要があります。
 
-* [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) NuGet パッケージをインストールする必要があります。
+* [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) NuGet パッケージをインストールします。
 * アプリケーションの `ConfigureServices` を更新し、`AddMvcRazorRuntimeCompilation` の呼び出しを含めます。
 
-```csharp
-services
-    .AddMvc()
-    .AddMvcRazorRuntimeCompilation()
-```
+  ```csharp
+  services
+      .AddMvc()
+      .AddMvcRazorRuntimeCompilation()
+  ```
 
 展開時に実行時コンパイルを動作させるには、アプリでそのプロジェクト ファイルをさらに変更し、`PreserveCompilationReferences` を `true` に設定する必要があります。
+
 [!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
 
 ::: moniker-end

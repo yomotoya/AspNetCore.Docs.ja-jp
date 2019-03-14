@@ -5,12 +5,12 @@ description: ASP.NET Core アプリで複数の環境にわたりアプリの動
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 39e1b48481832a6d76de605b37410fe2e16dcd88
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836741"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345952"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -43,7 +43,7 @@ Windows と macOS では、環境変数と値で大文字と小文字が区別�
 
 ### <a name="development"></a>開発
 
-開発環境では、実稼働で公開すべきではない機能を有効にすることがあります。 たとえば、ASP.NET Core テンプレートは、開発環境で[開発者例外ページ](xref:fundamentals/error-handling#the-developer-exception-page)を有効にします。
+開発環境では、実稼働で公開すべきではない機能を有効にすることがあります。 たとえば、ASP.NET Core テンプレートは、開発環境で[開発者例外ページ](xref:fundamentals/error-handling#developer-exception-page)を有効にします。
 
 ローカル コンピューターの開発環境をプロジェクトの *Properties\launchSettings.json* ファイルで設定できます。 *launchSettings.json* に設定されている環境値で、システム環境に設定されている値がオーバーライドされます。
 

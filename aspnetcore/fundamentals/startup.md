@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: d629c2f02f9021454d8f8539018f3e2ca4703a00
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744184"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346399"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションのスタートアップ
 
@@ -40,7 +40,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 `Startup` クラスへの[依存関係挿入](xref:fundamentals/dependency-injection)の一般的な用途は、以下を挿入する場合です。
 
 * <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> (環境別にサービスを構成するため)。
-* <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> (構成を読み取るため)。
+* <xref:Microsoft.Extensions.Configuration.IConfiguration> (構成を読み取るため)。
 * <xref:Microsoft.Extensions.Logging.ILoggerFactory> (`Startup.ConfigureServices` でロガーを作成するため)。
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
@@ -73,7 +73,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 [ASP.NET Core テンプレート](/dotnet/core/tools/dotnet-new)では、次をサポートするパイプラインが構成されます。
 
-* [開発者例外ページ](xref:fundamentals/error-handling#the-developer-exception-page)
+* [開発者例外ページ](xref:fundamentals/error-handling#developer-exception-page)
 * [例外ハンドラー](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
 * [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [HTTPS リダイレクト](xref:security/enforcing-ssl)

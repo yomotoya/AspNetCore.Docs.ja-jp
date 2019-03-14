@@ -5,12 +5,12 @@ description: このチュートリアルでは、外部キー フィールドと
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207544"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345763"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 
@@ -197,7 +197,7 @@ Instructor Razor ビューを更新します。
 
 アプリを実行し、更新された Instructors/Edit ページをテストします。 一部のコース割り当てを変更します。 変更が Index ページに反映されます。
 
-注: インストラクター コース データを編集するためにここで採用されている方法は、コースの数が限られている場合にはうまく機能します。 非常に大きいコレクションの場合、別の UI と別の更新方法の方が有効で効率的な場合があります。
+メモ:インストラクター コース データを編集するためにここで採用されている方法は、コースの数が限られている場合にはうまく機能します。 非常に大きいコレクションの場合、別の UI と別の更新方法の方が有効で効率的な場合があります。
 
 ### <a name="update-the-instructors-create-page"></a>Instructors/Create ページを更新する
 
@@ -224,6 +224,11 @@ Instructors/Create ページをテストします。
 * 一括読み込みを `CourseAssignments` ナビゲーション プロパティに使用します。 `CourseAssignments` を含める必要があります。そうしないと、インストラクターが削除されたときに削除されません。 これらを読み取らなくても済むようにするには、データベースで連鎖削除を構成します。
 
 * 削除されるインストラクターが任意の部門の管理者として割り当てられている場合、インストラクターの割り当てをその部門から削除します。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [このチュートリアルの YouTube バージョン (パート 1)](https://www.youtube.com/watch?v=Csh6gkmwc9E)
+* [このチュートリアルの YouTube バージョン (パート 2)](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/read-related-data)

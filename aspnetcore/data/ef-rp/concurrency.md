@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 71d68a7ee249c31efa78d98247017e85c009ed8b
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997319"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346295"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 
@@ -306,6 +306,9 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 
 * [コンカレンシー トークン](/ef/core/modeling/concurrency)
 * [EF Core のコンカレンシーの処理](/ef/core/saving/concurrency)
+* [このチュートリアルの YouTube バージョン (コンカレンシーの競合の処理)](https://youtu.be/EosxHTFgYps)
+* [このチュートリアルの YouTube バージョン (パート 2)](https://www.youtube.com/watch?v=kcxERLnaGO0)
+* [このチュートリアルの YouTube バージョン (パート 3)](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/update-related-data)

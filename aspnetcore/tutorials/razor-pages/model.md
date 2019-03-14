@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) を利用し、データベース�
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: c7341430e8e2ace7eb04faa308020095139d5b94
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0ba00750dee1ccbef5d91d8c66f2de0db401c5c1
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56410233"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346360"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -147,10 +147,6 @@ ms.locfileid: "56410233"
 
 ---
 
-上記のコマンドで次の警告が生成されます。"エンティティ型 'Movie' の decimal 列 'Price' に型が指定されていません。 これにより、値が既定の有効桁数と小数点以下桁数に収まらない場合、自動的に切り捨てられます。 'HasColumnType()' を使用してすべての値に適合する SQL server 列の型を明示的に指定します。"
-
-この警告は無視して構いません。後のチュートリアルで修正されます。
-
 スキャフォールディングのプロセスが作成され、次のファイルが更新されます。
 
 ### <a name="files-created"></a>作成されたファイル
@@ -204,6 +200,10 @@ Update-Database
 
 ---  
 <!-- End of VS tabs -->
+
+上記のコマンドで次の警告が生成されます。"エンティティ型 'Movie' の decimal 列 'Price' に型が指定されていません。 これにより、値が既定の有効桁数と小数点以下桁数に収まらない場合、自動的に切り捨てられます。 'HasColumnType()' を使用してすべての値に適合する SQL server 列の型を明示的に指定します。"
+
+この警告は無視して構いません。後のチュートリアルで修正されます。
 
 `ef migrations add InitialCreate` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。 このスキーマは、`DbContext` で指定されたモデルに基づきます (*RazorPagesMovieContext.cs* ファイル内)。 `InitialCreate` 引数は移行の命名に使用されます。 任意の名前を使用できますが、規則により、移行を説明する名前が選択されます。
 
@@ -272,6 +272,10 @@ Login failed for user 'User-name'.
 
 次のチュートリアルでは、スキャフォールディングによって作成されるファイルについて説明します。
 
+## <a name="additional-resources"></a>その他の技術情報
+
+* [このチュートリアルの YouTube バージョン](https://www.youtube.com/watch?v=sFVIsdR_RcM)
+
 > [!div class="step-by-step"]
-> [前: はじめに](xref:tutorials/razor-pages/razor-pages-start)
+> [前へ:はじめに](xref:tutorials/razor-pages/razor-pages-start)
 > [次: スキャフォールディングされた Razor Pages](xref:tutorials/razor-pages/page)
