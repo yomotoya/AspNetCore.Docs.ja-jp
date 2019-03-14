@@ -5,12 +5,12 @@ description: ASP.NET Core アプリに検証を追加する方法
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 431715e7c584d3ee381cbafb42171a7c01dddb3a
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382057"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665445"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの検証の追加
 
@@ -59,7 +59,7 @@ ASP.NET Core によって検証規則が自動的に適用されるようにす�
 
 重要な利点は、この検証 UI を有効にするために、`MoviesController` クラスまたは *Create.cshtml* ビューのコードを 1 行も変更する必要がないことです。 このチュートリアルで前に作成したコントローラーとビューにより、`Movie` モデル クラスのプロパティで検証属性を使って指定した検証規則が自動的に取得されます。 `Edit` アクション メソッドを使って検証をテストします。同じ検証が適用されます。
 
-クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 このことは、[Fiddler ツール](http://www.telerik.com/fiddler) または [F12 開発者ツール](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)を使って `HTTP Post` メソッドにブレークポイントを設定することにより確認できます。
+クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 このことは、[Fiddler ツール](http://www.telerik.com/fiddler) または [F12 開発者ツール](/microsoft-edge/devtools-guide)を使って `HTTP Post` メソッドにブレークポイントを設定することにより確認できます。
 
 ## <a name="how-validation-works"></a>検証の動作方法
 
