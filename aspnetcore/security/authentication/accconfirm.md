@@ -3,14 +3,14 @@ title: アカウントの確認と ASP.NET Core でのパスワードの回復
 author: rick-anderson
 description: 電子メールの確認とパスワードのリセットと ASP.NET Core アプリを構築する方法について説明します。
 ms.author: riande
-ms.date: 2/11/2019
+ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 05efb75d26558702c88e87d191a780371034282c
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56159409"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841476"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -22,7 +22,7 @@ ms.locfileid: "56159409"
 
 ::: moniker range=">= aspnetcore-2.1"
 
-作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Joe Audette](https://twitter.com/joeaudette)
+によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Ponant](https://github.com/Ponant)、および[Joe Audette](https://twitter.com/joeaudette)
 
 このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリをビルドする方法を示します。 このチュートリアルは**いない**先頭トピック。 理解しておく必要があります。
 
@@ -34,45 +34,23 @@ ms.locfileid: "56159409"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE [](~/includes/2.1-SDK.md)]
+[.NET core 2.2 SDK またはそれ以降](https://www.microsoft.com/net/download/all)
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Web アプリを作成し、Identity のスキャフォールディング
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* Visual Studio で、作成、新しい**Web アプリケーション**という名前のプロジェクト**WebPWrecover**します。
-* **[ASP.NET Core 2.1]** を選択します。
-* 既定値を保持**認証**設定**認証なし**します。 認証は、次の手順で追加されます。
-
-次の手順。
-
-* レイアウト ページを設定 *~/Pages/Shared/_Layout.cshtml*
-* 選択*アカウント/登録*
-* 新規作成**データ コンテキスト クラス**
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+認証を使用した web アプリを作成するには、次のコマンドを実行します。
 
 ```console
-dotnet new webapp -o WebPWrecover
+dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
-dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
-dotnet aspnet-codegenerator identity -fi Account.Register -dc WebPWrecover.Models.WebPWrecoverContext
-dotnet ef migrations add CreateIdentitySchema
+dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail
 dotnet ef database drop -f
 dotnet ef database update
-dotnet build
+dotnet run
+
 ```
-
-実行`dotnet aspnet-codegenerator identity --help`スキャフォールディング ツールのヘルプを表示します。
-
-------
-
-指示に従って[認証を有効に](xref:security/authentication/scaffold-identity#useauthentication):
-
-* 追加`app.UseAuthentication();`に `Startup.Configure`
-* 追加`<partial name="_LoginPartial" />`レイアウト ファイルにします。
 
 ## <a name="test-new-user-registration"></a>新規ユーザー登録をテストします。
 
@@ -91,9 +69,9 @@ dotnet build
 
 新しいユーザーが確認された電子メールを受ける前に、web サイトにデータを送信するを防ぐために一般的にします。
 
-Update *Areas/Identity/IdentityHostingStartup.cs*確認された電子メールを要求します。
+Update`Startup.ConfigureServices`確認された電子メールを要求します。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/IdentityHostingStartup.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=8-11)]
 
 `config.SignIn.RequireConfirmedEmail = true;` 登録済みのユーザーで自分の電子メールを確認するまでのログ記録はできません。
 
@@ -103,13 +81,9 @@ Update *Areas/Identity/IdentityHostingStartup.cs*確認された電子メール�
 
 電子メールをセキュリティで保護されたキーを取得するためのクラスを作成します。 このサンプルでは、次のように作成します*Services/AuthMessageSenderOptions.cs*:。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
 #### <a name="configure-sendgrid-user-secrets"></a>SendGrid のユーザーの機密情報を構成します。
-
-一意な追加`<UserSecretsId>`値を`<PropertyGroup>`プロジェクト ファイルの要素。
-
-[!code-xml[](accconfirm/sample/WebPWrecover21/WebPWrecover.csproj?highlight=5)]
 
 設定、`SendGridUser`と`SendGridKey`で、 [secret manager ツール](xref:security/app-secrets)します。 例:
 
@@ -120,7 +94,7 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 
 Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*ファイル、`%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>`ディレクトリ。
 
-内容、 *secrets.json*ファイルは暗号化されません。 *Secrets.json*ファイルを次に示します (、`SendGridKey`値が削除されました)。
+内容、 *secrets.json*ファイルは暗号化されません。 次のマークアップに示す、 *secrets.json*ファイル。 `SendGridKey`値が削除されました。
 
  ```json
   {
@@ -137,7 +111,7 @@ Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*フ
 
 インストール、 `SendGrid` NuGet パッケージ。
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 パッケージ マネージャー コンソールで、次のコマンドを入力します。
 
@@ -160,7 +134,7 @@ dotnet add package SendGrid
 
 実装`IEmailSender`、作成*Services/EmailSender.cs*次のようなコードで。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/EmailSender.cs)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/EmailSender.cs)]
 
 ### <a name="configure-startup-to-support-email"></a>電子メールをサポートするために起動時を構成します。
 
@@ -169,13 +143,13 @@ dotnet add package SendGrid
 * 追加`EmailSender`一時的なサービスとして。
 * 登録、`AuthMessageSenderOptions`構成インスタンス。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=15-99)]
 
 ## <a name="enable-account-confirmation-and-password-recovery"></a>アカウントの確認とパスワードの回復を有効にします。
 
 テンプレートには、アカウントの確認とパスワードの回復用コードがあります。 検索、`OnPostAsync`メソッド*Areas/Identity/Pages/Account/Register.cshtml.cs*します。
 
-新しく登録されたユーザーが、次の行をコメント アウトによって自動的にログオンされているようにします。
+新しく登録されたユーザーが、次の行をコメント アウトして自動的にサインインするようにします。
 
 ```csharp
 await _signInManager.SignInAsync(user, isPersistent: false);
@@ -183,16 +157,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 メソッド全体を強調表示されている変更された行が表示されます。
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
 ## <a name="register-confirm-email-and-reset-password"></a>登録、確認の電子メール、およびパスワードのリセット
 
 Web アプリを実行し、アカウントの確認とパスワードの回復フローをテストします。
 
 * アプリを実行し、新しいユーザーの登録
-
-  ![Web アプリケーションのアカウントの登録の表示](accconfirm/_static/loginaccconfirm1.png)
-
 * アカウント確認用のリンクは、電子メールを確認します。 参照してください[デバッグ電子メール](#debug)電子メールが届かない場合。
 * 電子メールを確認するリンクをクリックします。
 * 電子メール アドレスとパスワードでサインインします。
@@ -202,21 +173,46 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ブラウザーで、ユーザー名を選択:![ユーザー名を備えたブラウザー ウィンドウ](accconfirm/_static/un.png)
 
-ユーザー名を参照するナビゲーション バーを展開する必要があります。
-
-![ナビゲーション バー](accconfirm/_static/x.png)
-
 管理ページが表示されますが、**プロファイル**タブを選択します。 **電子メール**電子メールを示すチェック ボックスが確認されているかを示します。
 
 ### <a name="test-password-reset"></a>テストのパスワードのリセット
 
-* ログインしている場合は、選択**ログアウト**します。
+* サインインしている場合は、選択**ログアウト**します。
 * 選択、**ログイン**リンクし、選択、**パスワードを忘れた場合でしょうか。** リンク。
 * アカウントを登録するために使用する電子メール アドレスを入力します。
 * パスワードをリセットするリンクを含む電子メールが送信されます。 電子メールを確認し、パスワードをリセットするリンクをクリックします。 パスワードが正常にリセットされると後、はの電子メール アドレスと新しいパスワードでサインインすることができます。
 
-<a name="debug"></a>
+## <a name="change-email-and-activity-timeout"></a>電子メールとアクティビティのタイムアウトを変更します。
 
+既定のアイドル タイムアウトは、14 日間です。 次のコードでは、アイドル タイムアウトを 5 日に設定します。
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAppCookie.cs?name=snippet1)]
+
+### <a name="change-all-data-protection-token-lifespans"></a>すべてのデータの保護トークン lifespans を変更します。
+
+次のコードは、すべてのデータの保護トークンのタイムアウト期間を 3 時間に変更します。
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAllTokens.cs?name=snippet1&highlight=15-16)]
+
+組み込みの Id のユーザー トークン (を参照してください[AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) が、 [1 日のタイムアウト](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs)。
+
+### <a name="change-the-email-token-lifespan"></a>電子メールのトークン有効期間を変更します。
+
+既定のトークン有効期間[Id のユーザー トークン](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs)は[1 日](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs)します。 このセクションでは、電子メールのトークン有効期間を変更する方法を示します。
+
+追加のカスタム[DataProtectorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1)と<xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/TokenProviders/CustomTokenProvider.cs?name=snippet1)]
+
+サービス コンテナーには、カスタム プロバイダーを追加します。
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupEmail.cs?name=snippet1&highlight=10-13)]
+
+### <a name="resend-email-confirmation"></a>確認の電子メールを再送信します。
+
+参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/5410)します。
+
+<a name="debug"></a>
 ### <a name="debug-email"></a>電子メールをデバッグします。
 
 電子メールの作業が発生したことはできません: 場合

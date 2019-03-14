@@ -2,23 +2,23 @@
 title: ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 author: guardrex
 description: IHostingStartup 実装を使用して、外部アセンブリから ASP.NET Core アプリを拡張する方法について説明します。
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 02/14/2019
+ms.date: 03/10/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: cffad201c84414ee4788877d80d3619a9013ae99
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 6111ae77369608e828eebf6229b5702630bc63f8
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410496"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841463"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 
 作成者: [Luke Latham](https://github.com/guardrex) および [Pavel Krymets](https://github.com/pakrym)
 
-外部アセンブリからの起動時には、[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (ホスティング スタートアップ) 実装によって拡張機能がアプリに追加されます。 たとえば、外部ライブラリではホスティング スタートアップ実装を使用して、追加の構成プロバイダーまたはサービスをアプリに提供できます。 `IHostingStartup` *は、ASP.NET Core 2.0 以降で使用できます。*
+外部アセンブリからの起動時には、[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (ホスティング スタートアップ) 実装によって拡張機能がアプリに追加されます。 たとえば、外部ライブラリではホスティング スタートアップ実装を使用して、追加の構成プロバイダーまたはサービスをアプリに提供できます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
@@ -40,8 +40,6 @@ ms.locfileid: "56410496"
 
 ## <a name="disable-automatic-loading-of-hosting-startup-assemblies"></a>ホスティング スタートアップ アセンブリの自動読み込みを無効にする
 
-::: moniker range=">= aspnetcore-2.1"
-
 ホスティング スタートアップ アセンブリの自動読み込みを無効にするには、次の方法のいずれかを使用します。
 
 * すべてのホスティング スタートアップ アセンブリの読み込みを回避するには、次のいずれかを `true` または `1` に設定します。
@@ -50,17 +48,6 @@ ms.locfileid: "56410496"
 * 特定のホスティング スタートアップ アセンブリの読み込みを回避するには、次に示すいずれかを、起動時に除外するホスティング スタートアップ アセンブリを示すセミコロンで区切られた文字列に設定します。
   * [[Hosting Startup Exclude Assemblies]\(除外するホスティング スタートアップ アセンブリ\)](xref:fundamentals/host/web-host#hosting-startup-exclude-assemblies) ホスト構成設定。
   * `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES` 環境変数。
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-ホスティング スタートアップ アセンブリの自動読み込みを無効にするには、次に示すいずれかを `true` または `1` に設定します。
-
-* [[ホスティング スタートアップを回避する]](xref:fundamentals/host/web-host#prevent-hosting-startup) ホスト構成設定。
-* `ASPNETCORE_PREVENTHOSTINGSTARTUP` 環境変数。
-
-::: moniker-end
 
 ホスト構成設定と環境変数が両方とも設定されている場合は、ホスト設定によって動作が制御されます。
 
