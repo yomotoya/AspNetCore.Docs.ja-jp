@@ -83,7 +83,7 @@ Visual Studio を使用する新しい ASP.NET プロジェクトを作成する
 [!code-xml[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample5.xml?highlight=2)]
 
 <a id="da"></a>
-## <a name="deploying-secrets-to-azure"></a>シークレットを Azure に展開します。
+## <a name="deploying-secrets-to-azure"></a>Azure へシークレットを展開
 
 Web アプリを Azure にデプロイするときに、 *AppSettingsSecrets.config* (つまり対象) ファイルはデプロイされません。 移動する可能性があります、 [Azure 管理ポータル](https://azure.microsoft.com/services/management-portal/)し、そのためには、それらを手動で設定します。
 
@@ -105,16 +105,16 @@ Web アプリを Azure にデプロイするときに、 *AppSettingsSecrets.con
 > セキュリティ - パスワードやその他のシークレットをそのララェホの PowerShell スクリプトを使用して機密データを展開する目的の実行、PowerShell スクリプトに含めないでください。 [Get-credential](https://technet.microsoft.com/library/hh849815.aspx)コマンドレットは、パスワードを取得するセキュリティで保護されたメカニズムを提供します。 UI プロンプトを使用して、パスワードのリークを防止できます。
 
 
-### <a name="deploying-db-connection-strings"></a>DB の接続文字列を展開します。
+### <a name="deploying-db-connection-strings"></a>DB 接続文字列の展開
 
 DB の接続文字列は、アプリの設定を同様に処理されます。 Visual Studio から web アプリをデプロイする場合、接続文字列が構成します。 これは、ポータルで確認できます。 接続文字列を設定することをお勧めの方法は、PowerShell を使用したです。 PowerShell スクリプトの例については、web サイトとデータベースを作成し、接続文字列を設定、web サイトでダウンロード[新規 AzureWebsitewithDB.ps1](https://gallery.technet.microsoft.com/scriptcenter/Ultimate-Create-Web-SQL-DB-9e0fdfd3)から、 [Azure スクリプト ライブラリ](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&amp;f%5B0%5D.Value=WindowsAzure)します。
 
 <a id="not"></a>
-## <a name="notes-for-php"></a>PHP のノート
+## <a name="notes-for-php"></a>PHP における考慮事項
 
 両方のキーと値のペアから**アプリ設定**と**接続文字列**任意の web アプリ (PHP) などのフレームワークを簡単に使用する開発者で、Azure App Service 環境変数に格納されますこれらの値を取得します。 Stefan Schackow を参照してください。 [Windows Azure Web サイト: アプリケーション文字列と接続文字列の動作](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)ブログの投稿がアプリの設定と接続文字列を読み取るための PHP スニペットが表示されます。
 
-## <a name="notes-for-on-premises-servers"></a>オンプレミス サーバーでのノート
+## <a name="notes-for-on-premises-servers"></a>オンプレミス サーバーにおける考慮事項
 
 オンプレミスの web サーバーを展開する場合は、によってセキュリティで保護された機密情報が役立つことができます[構成ファイルの構成セクションを暗号化](https://msdn.microsoft.com/library/ff647398.aspx)します。 別の方法として、同じ方法で Azure Websites の推奨を使用することができます。 構成ファイルでの開発設定を保持し、運用環境の設定の環境変数の値を使用します。 機能には、Azure Websites では、自動のアプリケーション コードを記述する必要がただし、ここでは、: 環境変数から設定を取得し、構成ファイルの設定の代わりにそれらの値を使用して、または構成ファイルの設定を使用して、ときに環境変数が見つかりませんでした。
 
