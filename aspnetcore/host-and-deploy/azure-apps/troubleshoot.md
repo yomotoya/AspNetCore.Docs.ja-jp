@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 03/05/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c3732bfab362ec034248eb3912d4b1337c94216e
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341642"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665429"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -71,11 +71,56 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
 
 1. **[開発ツール]** 領域で **[高度なツール]** を開きます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
 1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
-1. パス **site** > **wwwroot** へのフォルダーを開きます。
-1. コンソールで、アプリのアセンブリを実行することによってアプリを実行します。
-   * アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)である場合、*dotnet.exe* を使ってアプリのアセンブリを実行します。 次のコマンドで、`<assembly_name>` をアプリのアセンブリの名前に置き換えます。`dotnet .\<assembly_name>.dll`
-   * アプリが[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)である場合は、アプリの実行可能ファイルを実行します。 次のコマンドで、`<assembly_name>` をアプリのアセンブリの名前に置き換えます。`<assembly_name>.exe`
-1. エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
+
+#### <a name="test-a-32-bit-x86-app"></a>32 ビット (x86) アプリをテストする
+
+##### <a name="current-release"></a>現在のリリース
+
+1. `cd d:\home\site\wwwroot`
+1. 次のようにアプリを実行します。
+   * アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)の場合:
+
+     ```console
+     dotnet .\{ASSEMBLY NAME}.dll
+     ```
+   * アプリが[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合:
+
+     ```console
+     {ASSEMBLY NAME}.exe
+     ```
+   
+エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
+   
+##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>プレビュー リリース上で実行されているフレームワークに依存する展開
+
+"*ASP.NET Core {バージョン} (x86) ランタイムのサイト拡張機能をインストールする必要があります。*"
+
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` はランタイム バージョンです)
+1. アプリを実行します: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+
+エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
+
+#### <a name="test-a-64-bit-x64-app"></a>64 ビット (x64) アプリをテストする
+
+##### <a name="current-release"></a>現在のリリース
+
+* アプリが 64 ビット (x64) の[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)の場合:
+  1. `cd D:\Program Files\dotnet`
+  1. アプリを実行します: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+* アプリが[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合:
+  1. `cd D:\home\site\wwwroot`
+  1. アプリを実行します: `{ASSEMBLY NAME}.exe`
+
+エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
+
+##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>プレビュー リリース上で実行されているフレームワークに依存する展開
+
+"*ASP.NET Core {バージョン} (x64) ランタイムのサイト拡張機能をインストールする必要があります。*"
+
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` はランタイム バージョンです)
+1. アプリを実行します: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+
+エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
 
 ### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core モジュールの stdout ログ
 

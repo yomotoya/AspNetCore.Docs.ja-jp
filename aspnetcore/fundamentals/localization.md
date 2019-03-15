@@ -5,16 +5,16 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505831"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665541"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
-作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Damien Bowden](https://twitter.com/damien_bod)、[Bart Calixto](https://twitter.com/bartmax)、[Nadeem Afana](https://twitter.com/NadeemAfana)、[Hisham Bin Ateya](https://twitter.com/hishambinateya)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Damien Bowden](https://twitter.com/damien_bod)、[Bart Calixto](https://twitter.com/bartmax)、[Nadeem Afana](https://afana.me/)、[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
 ASP.NET Core で多言語の Web サイトを作成すると、より幅広い対象者がサイトにアクセスできるようになります。 ASP.NET Core は、さまざまな言語と文化にローカライズするためのサービスとミドルウェアを提供します。
 
@@ -127,7 +127,7 @@ ASP.NET Core では、`SupportedCultures` と `SupportedUICultures` という 2 
 
 1. **ソリューション エクスプローラー**で、リソース ファイルが格納されているフォルダーを右クリックし、**[追加]** > **[新しい項目]** を選択します。
 
-    ![入れ子になったコンテキスト メニュー: ソリューション エクスプローラーでリソースのコンテキスト メニューが開かれます。 [追加] の 2 つ目のコンテキスト メニューが開き、[新しい項目] コマンドが強調表示されます。](localization/_static/newi.png)
+    ![入れ子になったコンテキスト メニュー:ソリューション エクスプローラーで、リソースのコンテキスト メニューが開かれます。 [追加] の 2 つ目のコンテキスト メニューが開き、[新しい項目] コマンドが強調表示されます。](localization/_static/newi.png)
 
 2. **インストールされているテンプレートの検索**ボックスに、「resource」と入力し、ファイルに名前を付けます。
 
@@ -330,14 +330,14 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 用語:
 
-* グローバリゼーション (G11N): アプリが別の言語と地域をサポートするようにするプロセス。
-* ローカリゼーション (L10N): 特定の言語と地域向けにアプリをカスタマイズするプロセス。
-* 国際化 (I18N): グローバリゼーションとローカリゼーションの両方を示します。
-* カルチャ: 言語および必要に応じて地域です。
-* ニュートラル カルチャ: 指定した言語のみを含み、地域は含まないカルチャ  (例: "en"、"es")。
-* 特定のカルチャ: 指定した言語と地域を含むカルチャ  (例: "en-US"、"en-GB"、"es-CL")。
-* 親カルチャ: 特定のカルチャを含むニュートラル カルチャ  (たとえば、"en" は "en-US" および "en-GB" の親カルチャです)。
-* ロケール: ロケールはカルチャと同じです。
+* グローバリゼーション (G11N):アプリが別の言語と地域をサポートするようにするプロセス。
+* ローカリゼーション (L10N):特定の言語と地域向けにアプリをカスタマイズするプロセス。
+* 国際化 (I18N):グローバリゼーションとローカリゼーションの両方を示します。
+* カルチャ:言語および必要に応じて地域です。
+* ニュートラル カルチャ:指定した言語のみを含み、地域は含まないカルチャ。 (例: "en"、"es")。
+* 特定のカルチャ:指定した言語と地域を含むカルチャ。 (例: "en-US"、"en-GB"、"es-CL")。
+* 親カルチャ:特定のカルチャを含むニュートラル カルチャ。 (たとえば、"en" は "en-US" および "en-GB" の親カルチャです)。
+* ロケール:ロケールはカルチャと同じです。
 
 [!INCLUDE[](~/includes/currency.md)]
 

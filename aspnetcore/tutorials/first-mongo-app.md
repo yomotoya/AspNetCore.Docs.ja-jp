@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 01/31/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 5e146261fdc8354fc9f4295a8af317e5cc36332f
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 91d8be6cd9160eefe56731d23d5dc7ba18eb6a8f
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667337"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665458"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>ASP.NET Core と MongoDB で Web API を作成する
 
@@ -144,7 +144,7 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
 1. **[ファイル]** > **[新規作成]** > **[プロジェクト]** に移動します。
 1. **[ASP.NET Core Web アプリケーション]** を選択し、プロジェクト名を「*BooksApi*」として、**[OK]** をクリックします。
-1. **[.NET Core]** ターゲット フレームワークと **[ASP.NET Core 2.1]** を選択します。 **[API]** プロジェクト テンプレートを選択し、**[OK]** をクリックします。
+1. **[.NET Core]** ターゲット フレームワークと **[ASP.NET Core 2.2]** を選択します。 **[API]** プロジェクト テンプレートを選択し、**[OK]** をクリックします。
 1. [NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。 **[パッケージ マネージャー コンソール]** ウィンドウで、プロジェクトのルートに移動します。 次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。
 
     ```powershell

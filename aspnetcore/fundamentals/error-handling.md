@@ -5,14 +5,14 @@ description: ASP.NET Core アプリでエラーを処理する方法について
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 03/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a2ae2cb25c8cc5048b189b4035abbfc32a29aaff
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345496"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665364"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
@@ -24,9 +24,9 @@ ms.locfileid: "57345496"
 
 ## <a name="developer-exception-page"></a>開発者例外ページ
 
-例外に関する詳細情報を表示するページを表示するアプリを構成するには、*開発者例外ページ*を使用します。 このページは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) 内で利用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。 `Startup.Configure` メソッドに次の行を追加します。
+アプリを構成して要求の例外に関する詳細情報を示すページを表示させるには、"*開発者例外ページ*" を使用します。 このページは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) 内で利用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。 アプリを開発[環境](xref:fundamentals/environments)で実行しているときに、`Startup.Configure` メソッドに次の行を追加します。
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=5)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
 
 例外をキャッチしたい任意のミドルウェアの前に <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> への呼び出しを配置します。
 
@@ -50,7 +50,7 @@ ms.locfileid: "57345496"
 
 サンプル アプリの次の例では、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> により非開発環境に例外処理ミドルウェアを追加しています。 この拡張メソッドでは、例外がキャッチされてログに記録された後、再実行された要求用に `/Error` エンドポイントにあるエラー ページまたはコントローラーを指定します。
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=9)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
 
 Razor Pages アプリのテンプレートには、エラー ページ (*.cshtml*) と <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> クラス (`ErrorModel`) が Pages フォルダー内に用意されています。
 
@@ -66,6 +66,36 @@ public IActionResult Error()
 ```
 
 `HttpGet` などの HTTP メソッド属性を使ってエラー ハンドラー アクション メソッドを修飾しないでください。 明示的な動詞を使用すると、要求がメソッドに届かないことがあります。 認証されていないユーザーがエラー ビューを受信できるように、メソッドへの匿名アクセスを許可します。
+
+## <a name="access-the-exception"></a>例外にアクセスする
+
+<xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> を使って、例外や、コントローラーまたはページ内の元の要求パスにアクセスします。
+
+* このパスは <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> プロパティから取得できます。
+* 継承した [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) プロパティから <xref:System.Exception?displayProperty=fullName> を読み取ります。
+
+```csharp
+// using Microsoft.AspNetCore.Diagnostics;
+
+var exceptionHandlerPathFeature = 
+    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+var path = exceptionHandlerPathFeature?.Path;
+var error = exceptionHandlerPathFeature?.Error;
+```
+
+> [!WARNING]
+> <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> または <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> からの機密性の高いエラー情報をクライアントに提供**しないでください**。 エラーの提供はセキュリティ上のリスクです。
+
+## <a name="configure-custom-exception-handling-code"></a>カスタム例外処理コードを構成する
+
+[カスタム例外処理ページ](#configure-a-custom-exception-handling-page)を使ってエラー用にエンドポイントを提供する方法の代替手段は、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> にラムダを指定することです。 <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> と共にラムダを使うと、応答を返す前にエラーにアクセスできます。
+
+サンプル アプリは、`Startup.Configure` のカスタム例外処理コードを示しています。 Index ページの **[例外のスロー]** リンクを使って例外をトリガーします。 次のラムダが実行されます。
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
+
+> [!WARNING]
+> <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> または <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> からの機密性の高いエラー情報をクライアントに提供**しないでください**。 エラーの提供はセキュリティ上のリスクです。
 
 ## <a name="configure-status-code-pages"></a>状態コード ページを構成する
 
@@ -265,7 +295,7 @@ public class ErrorModel : PageModel
 
 ## <a name="server-exception-handling"></a>サーバー例外処理
 
-アプリ内の例外処理ロジックに加えて、[サーバー実装](xref:fundamentals/servers/index)でも一部の例外を処理できます。 応答ヘッダーの送信前にサーバーで例外がキャッチされると、サーバーによって "*500 - 内部サーバー エラーです*" 応答が応答本文なしで送信されます。 応答ヘッダーの送信後にサーバーで例外がキャッチされた場合、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 例外が発生すると、サーバーの例外処理で処理されます。 カスタムのエラー ページ、例外処理ミドルウェア、フィルターを構成しても、この動作は変わりません。
+アプリ内の例外処理ロジックに加えて、[サーバー実装](xref:fundamentals/servers/index)でも一部の例外を処理できます。 応答ヘッダーの送信前にサーバーで例外がキャッチされると、サーバーによって "*500 - 内部サーバー エラーです*" 応答が応答本文なしで送信されます。 応答ヘッダーの送信後にサーバーで例外がキャッチされた場合、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 サーバーが要求を処理しているときに発生した例外は、すべてサーバーの例外処理によって処理されます。 この動作は、アプリのカスタム エラー ページ、例外処理ミドルウェア、およびフィルターから影響を受けません。
 
 ## <a name="startup-exception-handling"></a>起動時の例外処理
 
@@ -285,10 +315,10 @@ public class ErrorModel : PageModel
 
 ### <a name="exception-filters"></a>例外フィルター
 
-例外フィルターはグローバルに構成するか、MVC アプリのコントローラーまたはアクション単位で構成できます。 このようなフィルターはコントローラー アクションや別のフィルターの実行中に発生する未処理の例外を処理します。 これらのフィルターは、それ以外の場合には呼び出されません。 詳細については、<xref:mvc/controllers/filters> をご覧ください。
+例外フィルターはグローバルに構成するか、MVC アプリのコントローラーまたはアクション単位で構成できます。 このようなフィルターはコントローラー アクションや別のフィルターの実行中に発生する未処理の例外を処理します。 これらのフィルターは、それ以外の場合には呼び出されません。 詳細については、「<xref:mvc/controllers/filters#exception-filters>」を参照してください。
 
 > [!TIP]
-> 例外フィルターは、MVC アクション内で発生した例外をトラップする場合は便利ですが、エラー処理ミドルウェアほど柔軟ではありません。 ミドルウェアの使用をお勧めします。 選択された MVC アクションに応じて "*異なる方法で*" エラー処理を実行する必要がある場合にのみ、フィルターを使用します。
+> 例外フィルターは、MVC アクション内で発生した例外をトラップする場合は便利ですが、例外処理ミドルウェアほど柔軟ではありません。 ミドルウェアの使用をお勧めします。 選択された MVC アクションに応じて "*異なる方法で*" エラー処理を実行する必要がある場合にのみ、フィルターを使用します。
 
 ### <a name="handle-model-state-errors"></a>モデルの状態エラーを処理する
 
