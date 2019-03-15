@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript クライアントの概要です�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 03/14/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: db9a8bbc8f111728f0827e3639e40785149bf79e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0980dca2eb8d483a9d9f1c5667fb74ee06364f0
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899217"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978343"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -63,6 +63,9 @@ JavaScript クライアントは、ハブ経由でのパブリック メソッ�
 * ハブ メソッドで定義されている引数。 次の例では引数名は`message`します。 コード例では、現在のバージョンの Internet Explorer を除くすべての主要ブラウザーでサポートされている矢印関数の構文を使用します。
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
+
+> [!NOTE]
+> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 
@@ -119,3 +122,4 @@ SignalR JavaScript クライアントは自動的に再接続しません。 ク
 * [.NET クライアント](xref:signalr/dotnet-client)
 * [Azure に発行する](xref:signalr/publish-to-azure-web-app)
 * [クロス オリジン要求 (CORS)](xref:security/cors)
+* [Azure SignalR サービスのサーバーレス ドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)

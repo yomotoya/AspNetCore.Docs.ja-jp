@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR の Java クライアントを使用する方�
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 03/14/2019
 uid: signalr/java-client
-ms.openlocfilehash: d0eff38c1f622b896ed1dc3002238aec7b6bfd38
-ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
+ms.openlocfilehash: 09e5ce23ddcc250d212a8cdf1176f39531a9c0ba
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892095"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978491"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR の Java クライアント
 
@@ -49,6 +49,9 @@ implementation 'com.microsoft.signalr:signalr:1.0.0'
 呼び出し`send`ハブ メソッドを呼び出します。 ハブ メソッドの名前およびハブ メソッドで定義されている引数を渡す`send`します。
 
 [!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
+
+> [!NOTE]
+> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 
@@ -105,3 +108,4 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
+* [Azure SignalR サービスのサーバーレス ドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)

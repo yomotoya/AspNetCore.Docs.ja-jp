@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 6be8b4da1642a9eff021371c229a17071d6e9bfb
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346373"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978472"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -446,11 +446,11 @@ CORS をテストします。
 
   * Microsoft Edge の使用。
 
-    **SEC7120: [CORS]、配信元 'https://localhost:44375'が見つかりませんでした'https://localhost:44375でクロス オリジン リソースへのアクセス制御の許可-オリジン応答ヘッダー' で'https://webapi.azurewebsites.net/api/values/1'。**
+    **SEC7120: [CORS]、配信元`https://localhost:44375`が見つかりませんでした`https://localhost:44375`でクロス オリジン リソースへのアクセス制御の許可-オリジン応答ヘッダー `https://webapi.azurewebsites.net/api/values/1`**
 
   * Chrome を使用します。
 
-    **XMLHttpRequest へのアクセス 'https://webapi.azurewebsites.net/api/values/1'から配信元'https://localhost:44375' CORS ポリシーによってブロックされています。'へのアクセス制御の許可-オリジン' ヘッダーが要求されたリソースに存在しません。**
+    **XMLHttpRequest へのアクセス`https://webapi.azurewebsites.net/api/values/1`配信元から`https://localhost:44375`CORS ポリシーによってブロックされています。'へのアクセス制御の許可-オリジン' ヘッダーが要求されたリソースに存在しません。**
 
 ## <a name="additional-resources"></a>その他の技術情報
 
