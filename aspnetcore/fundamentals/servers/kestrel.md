@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core 用のクロスプラットフォーム Web サーバーである Kestrel について説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: dcf027c2c495cbecd8464e43749b9154a4360e36
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 5fc6c78f3eb76fcf3dd663c8d878250f0051f153
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248408"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665640"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
@@ -417,6 +417,17 @@ Kestrel のその他のオプションと制限については、以下をご覧
 * `http://localhost:5000`
 * `https://localhost:5001` (ローカル開発証明書が存在する場合)
 
+以下を使用して URL を指定します。
+
+* `ASPNETCORE_URLS` 環境変数。
+* `--urls` コマンド ライン引数。
+* `urls` ホスト構成キー。
+* `UseUrls` 拡張メソッド。
+
+これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。 セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000;http://localhost:8001"`)。
+
+これらの方法について詳しくは、「[サーバーの URL](xref:fundamentals/host/web-host#server-urls)」および「[構成のオーバーライド](xref:fundamentals/host/web-host#override-configuration)」をご覧ください。
+
 開発証明書が作成されます。
 
 * [.NET Core SDK](/dotnet/core/sdk) がインストールされるとき。
@@ -430,7 +441,7 @@ ASP.NET Core 2.1 およびそれより後のプロジェクト テンプレー�
 
 `UseUrls`、`--urls` コマンドライン引数、`urls` ホスト構成キー、`ASPNETCORE_URLS` 環境変数も機能しますが、このセクションで後述する制限があります (既定の証明書が、HTTPS エンドポイントの構成に使用できる必要があります)。
 
-ASP.NET Core 2.1 の `KestrelServerOptions` の構成:
+ASP.NET Core 2.1 以降の `KestrelServerOptions` の構成:
 
 ### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a>ConfigureEndpointDefaults(Action&lt;ListenOptions&gt;)
 
@@ -484,17 +495,6 @@ HTTPS を使用するように Kestrel を構成します。
 *構成なし*
 
 Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証明書が使用可能な場合) でリッスンします。
-
-以下を使用して URL を指定します。
-
-* `ASPNETCORE_URLS` 環境変数。
-* `--urls` コマンド ライン引数。
-* `urls` ホスト構成キー。
-* `UseUrls` 拡張メソッド。
-
-詳しくは、「[サーバーの URL](xref:fundamentals/host/web-host#server-urls)」および「[構成のオーバーライド](xref:fundamentals/host/web-host#override-configuration)」をご覧ください。
-
-これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。 セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000; http://localhost:8001"`)。
 
 *構成から既定の証明書を置き換える*
 
