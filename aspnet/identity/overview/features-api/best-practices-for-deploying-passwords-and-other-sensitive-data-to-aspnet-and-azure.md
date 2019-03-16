@@ -10,7 +10,7 @@ msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-pass
 msc.type: authoredcontent
 ms.openlocfilehash: 8b5d6bf9fad72218341e4e0b90144da01abea3aa
 ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/04/2018
 ms.locfileid: "48577542"
