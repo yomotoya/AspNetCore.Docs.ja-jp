@@ -5,14 +5,8 @@ description: ASP.NET Core アプリ内に .NET を使った対話型のクライ
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 uid: razor-components/index
-ms.openlocfilehash: 04a73d33cee0deedaf3dc97395836a936b580fbd
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159527"
 ---
 # <a name="introduction-to-razor-components"></a>Razor Components の概要
 
@@ -54,11 +48,11 @@ Razor Components では、UI の更新を適用する方法からコンポーネ
 
 *Razor Component* は、ページ、ダイアログ、データ入力フォームなど、UI の一部です。 コンポーネントではユーザー イベントが処理され、柔軟な UI のレンダリング ロジックが定義されます。 コンポーネントは、入れ子にしたり再利用したりできます。
 
-コンポーネントは .NET アセンブリに組み込まれた .NET クラスであり、NuGet パッケージとして共有したり配布したりできます。 このクラスは、Razor マークアップ ページの形式 (*.cshtml*) で記述することも、C# クラス (*.cs*) として記述することもできます。
+コンポーネントは .NET アセンブリに組み込まれた .NET クラスであり、NuGet パッケージとして共有したり配布したりできます。 クラスは通常、Razor マークアップ ページの形式で、*.razor* ファイル拡張子と共に記述します。
 
 [Razor](xref:mvc/views/razor) とは、HTML マークアップを C# コードに結合するための構文です。 Razor は開発者の生産性向上を目的に設計されています。これにより開発者は [IntelliSense](/visualstudio/ide/using-intellisense) サポートを使用して同じファイル内でマークアップと C# を切り替えることができます。 Razor Pages と MVC ビューでも Razor が使われます。 要求/応答モデルを中心に構築される Razor Pages や MVC ビューとは異なり、コンポーネントは特に UI コンポジションを処理するために使われます。 Razor Components は特にクライアント側の UI ロジックとコンポジションのために使えます。
 
-次のマークアップは、Razor ファイル (*DialogComponent.cshtml*) に含まれるカスタム ダイアログ コンポーネントの例です。
+次のマークアップは、Razor ファイルに含まれるカスタム ダイアログ コンポーネントの例です (*DialogComponent.razor*)。
 
 ```cshtml
 <div>

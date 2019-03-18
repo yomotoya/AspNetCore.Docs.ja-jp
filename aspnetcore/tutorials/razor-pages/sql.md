@@ -5,12 +5,12 @@ description: データベースと ASP.NET Core の使用について説明し�
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 9f01f5c9fcf9c423ccc2af8ae6ca55c2f427c9c1
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e2e9be0aa25166e216d34419859cd907d0423f70
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346029"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841567"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>データベースと ASP.NET Core を使用する
 
@@ -89,16 +89,18 @@ LocalDB は、プログラム開発を対象にした、SQL Server Express デ�
 
 * `Movie` テーブルを右クリックし、**[データの表示]** を選択します。
 
-  ![開いた Movie テーブルにテーブル データが表示されています](sql/_static/vd22.png)
+  ![テーブル データが表示されている開いた Movie テーブル](sql/_static/vd22.png)
 <!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
 <!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
 ---  
 <!-- End of VS tabs -->

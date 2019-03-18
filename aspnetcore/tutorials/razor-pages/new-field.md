@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: f8661a48ddd6fc616c141435edc603117b4925fb
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 3799b072da04e32948b5fc78032f0575e760aa1d
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345893"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841450"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいファイルを追加する
 
@@ -114,39 +114,17 @@ DB 内のすべてのレコードを削除すると、初期化子は DB にデ�
   ```
 
 <!-- Code -------------------------->
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
-<!-- copy/paste this tab to the next. Not worth an include  -->
+### <a name="drop-and-re-create-the-database"></a>データベースを削除して再作成する
 
-次の .NET Core CLI コマンドを実行します。
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-```console
-dotnet ef migrations add Rating
-dotnet ef database update
-```
-
-`ef migrations add` コマンドにより、フレームワークに次の指示があります。
-
-* `Movie` モデルを、`Movie` DB のスキーマと比較します。
-* DB スキーマを新しいモデルに移行するコードを作成します。
-
-"Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。 移行ファイルには意味のある名前を使用すると便利です。
-
-フレームワークは、データベースにスキーマ変更を適用するように、`ef database update` コマンドから指示されます。
-
-DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。 これを行うには、ブラウザー内の削除リンクを使用することも、SQLite ツールを使用することもできます。
-
-別のオプションとしては、データベースを削除してから、移行を使用することで、データベースを再作成することもできます。 データベースを削除するには、データベース ファイル (*MvcMovie.db*) を削除します。 次に、`ef database update` コマンドを実行します。 
+データベースを削除し、移行を使ってデータベースを再作成します。 データベースを削除するには、データベース ファイル (*MvcMovie.db*) を削除します。 次に、`ef database update` コマンドを実行します。 
 
 ```console
 dotnet ef database update
 ```
-
-> [!NOTE]
-> スキーマ変更操作の多くは、EF Core の SQLite プロバイダーによってサポートされていません。 たとえば、列の追加はサポートされていますが、列の削除はサポートされていません。 移行を追加することで列を削除する場合、`ef migrations add` コマンドは成功しますが、`ef database update` コマンドは失敗します。 制限事項の一部を解決するには、手動で移行コードを記述してテーブルのリビルドを実行します。 テーブルのリビルドには、既存のテーブルの名前変更、新しいテーブルの作成、新しいテーブルへのデータのコピー、および古いテーブルの削除が必要です。 詳細については、次のリソースを参照してください。
-> * [SQLite EF Core データベース プロバイダーの制限事項](/ef/core/providers/sqlite/limitations)
-> * [移行コードをカスタマイズする](/ef/core/managing-schemas/migrations/#customize-migration-code)
-> * [データのシード処理](/ef/core/modeling/data-seeding)
 
 ---  
 <!-- End of VS tabs -->

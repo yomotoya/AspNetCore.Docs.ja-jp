@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 03/06/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637691"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841554"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -236,13 +236,51 @@ stdout ログを有効にして表示するには:
 
 アプリが要求に応答できる場合は、ターミナル インライン ミドルウェアを使用して、要求、接続、その他のデータをアプリから取得します。 詳細およびサンプル コードについては、「<xref:test/troubleshoot#obtain-data-from-an-app>」を参照してください。
 
-## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
+## <a name="create-a-dump"></a>ダンプを作成する
 
-要求に対してアプリの反応が遅い場合、またはハングする場合は、[ダンプ ファイル](/visualstudio/debugger/using-dump-files)を取得して分析します。 ダンプ ファイルは、次のいずれかのツールを使用して取得できます。
+"*ダンプ*" とはシステムのメモリのスナップショットであり、アプリのクラッシュ、起動の失敗、遅いアプリの原因を突き止めるのに役立ちます。
 
-* [ProcDump](/sysinternals/downloads/procdump)
-* [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
-* WinDbg:[Windows 用デバッグ ツールのダウンロード](https://developer.microsoft.com/windows/hardware/download-windbg)、[WinDbg を使用したデバッグ](/windows-hardware/drivers/debugger/debugging-using-windbg)
+### <a name="app-crashes-or-encounters-an-exception"></a>アプリのクラッシュまたは例外の発生
+
+[Windows エラー報告 (WER)](/windows/desktop/wer/windows-error-reporting) からダンプを取得して分析します。
+
+1. `c:\dumps` にクラッシュ ダンプ ファイルを保持するフォルダーを作成します。 アプリ プールには、そのフォルダーへの書き込みアクセス権が必要です。
+1. [EnableDumps PowerShell スクリプト](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1) を実行します。
+   * アプリで[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
+
+     ```console
+     .\EnableDumps w3wp.exe c:\dumps
+     ```
+   * アプリで[アウト プロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
+
+     ```console
+     .\EnableDumps dotnet.exe c:\dumps
+     ```
+1. クラッシュが発生する条件の下でアプリを実行します。
+1. クラッシュが発生した後、[DisableDumps PowerShell スクリプト](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1)を実行します。
+   * アプリで[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
+
+     ```console
+     .\DisableDumps w3wp.exe
+     ```
+   * アプリで[アウト プロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
+
+     ```console
+     .\DisableDumps dotnet.exe
+     ```
+
+アプリがクラッシュし、ダンプの収集が完了したら、アプリを普通に終了してかまいません。 PowerShell スクリプトにより、アプリごとに最大 5 つのダンプを収集する WER が構成されます。
+
+> [!WARNING]
+> クラッシュ ダンプでは、大量のディスク領域 (1 つにつき最大、数ギガバイト) が使用される場合があります。
+
+### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>アプリが起動時または正常な実行中にハングまたは失敗する
+
+アプリが起動時または正常な実行中に "*ハング*" (応答を停止するがクラッシュしない) または失敗するときは、「[User-Mode Dump Files:Choosing the Best Tool](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool)」(ユーザー モード ダンプ ファイル: 最適なツールの選択) を参照し、適切なツールを選択してダンプを生成します。
+
+### <a name="analyze-the-dump"></a>ダンプを分析する
+
+ダンプはいくつかの方法で分析できます。 詳細については、「[Analyzing a User-Mode Dump File](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file)」(ユーザー モード ダンプ ファイルの分析) を参照してください。
 
 ## <a name="remote-debugging"></a>リモート デバッグ
 

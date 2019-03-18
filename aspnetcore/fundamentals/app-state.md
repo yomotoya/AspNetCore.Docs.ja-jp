@@ -2,16 +2,17 @@
 title: ASP.NET Core でのセッションとアプリの状態
 author: rick-anderson
 description: 異なる要求の間でセッションとアプリの状態を維持する方法を説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 2e3591ac1d6b1670b27b1ed9e42f59ba2b956b37
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 7de57d4923beaf32c0cb9aec49ea3e570fec6170
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400711"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841580"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -64,7 +65,7 @@ ASP.NET Core は、セッション ID を含む Cookie をクライアントに�
 * アプリは、最後の要求から限られた時間だけセッションを維持します。 アプリでは、セッション タイムアウトを設定するか、既定値の 20 分を使用します。 セッション状態は、特定のセッションに固有であるが、セッション間で永続的に保持する必要のないユーザー データの格納に最適です。
 * セッション データは、[ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) の実装が呼び出されるか、セッションが期限切れになると、削除されます。
 * クライアント ブラウザーが閉じられたこと、またはクライアントでセッション Cookie が削除されるか期限切れになったことを、アプリ コードに通知する既定のメカニズムはありません。
-ASP.NET Core MVC と Razor ページのテンプレートには、一般データ保護規制 (GDPR) のサポートが含まれます。 セッション状態の Cookie は既定では必須になっていません。このため、サイトの訪問者が追跡を許可しない限り、セッション状態は機能しません。 詳細については、「<xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>」を参照してください。
+* ASP.NET Core MVC と Razor ページのテンプレートには、一般データ保護規制 (GDPR) のサポートが含まれます。 セッション状態の Cookie は既定では必須になっていません。このため、サイトの訪問者が追跡を許可しない限り、セッション状態は機能しません。 詳細については、「<xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>」を参照してください。
 
 > [!WARNING]
 > セッション状態には機密データを保存しないでください。 ユーザーがブラウザーを閉じず、セッション Cookie がクリアされない可能性があります。 一部のブラウザーでは、ブラウザー ウィンドウの間で有効なセッションの Cookie が維持されます。 セッションが 1 人のユーザーに制限されず、次のユーザーが同じセッション Cookie でアプリの閲覧を続けることがあります。
@@ -76,17 +77,7 @@ ASP.NET Core MVC と Razor ページのテンプレートには、一般デー�
 
 ### <a name="configure-session-state"></a>セッション状態を構成する
 
-::: moniker range=">= aspnetcore-2.0"
-
 [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) に含まれる [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) パッケージは、セッション状態を管理するためのミドルウェアを提供します。 セッション ミドルウェアを有効にするには、`Startup` に次が含まれている必要があります。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) パッケージは、セッション状態を管理するためのミドルウェアを提供します。 セッション ミドルウェアを有効にするには、`Startup` に次が含まれている必要があります。
-
-::: moniker-end
 
 * いずれかの [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) メモリ キャッシュ。 `IDistributedCache` 実装はセッションのバックアップ ストアとして利用されます。 詳細については、「<xref:performance/caching/distributed>」を参照してください。
 * `ConfigureServices` での [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) の呼び出し。
@@ -94,17 +85,7 @@ ASP.NET Core MVC と Razor ページのテンプレートには、一般デー�
 
 次のコードでは、`IDistributedCache` の既定のメモリ内実装でメモリ内セッション プロバイダーを設定する方法を示します。
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/2.x/SessionSample/Startup.cs?name=snippet1&highlight=11,13-18,39)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Startup.cs?name=snippet1&highlight=5,7-12,19)]
-
-::: moniker-end
+[!code-csharp[](app-state/samples/2.x/SessionSample/Startup.cs?name=snippet1&highlight=5-14,34)]
 
 ミドルウェアの順序が重要です。 上の例では、`UseMvc` の後で `UseSession` を呼び出すと、`InvalidOperationException` 例外が発生します。 詳細については、[ミドルウェアの順序](xref:fundamentals/middleware/index#order)に関するページをご覧ください。
 
@@ -124,8 +105,6 @@ ASP.NET Core MVC と Razor ページのテンプレートには、一般デー�
 
 セッションの既定値をオーバーライドするには、[SessionOptions](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions) を使用します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 | オプション | 説明 |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Cookie の作成に使用される設定を決定します。 [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) の既定値は [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`) です。 [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) の既定値は [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`) です。 [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) の既定値は [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`) です。 [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) の既定値は `true` です。 [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) の既定値は `false` です。 |
@@ -134,36 +113,9 @@ ASP.NET Core MVC と Razor ページのテンプレートには、一般デー�
 
 セッションは Cookie を利用し、1 つのブラウザーからの要求を追跡し、識別します。 既定では、この Cookie は `.AspNetCore.Session` という名前になり、パス `/` を使用します。 Cookie の既定値ではドメインが指定されないため、ページのクライアント側スクリプトには使用できません ([HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) の既定値が `true` になるため)。
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-| オプション | 説明 |
-| ------ | ----------- |
-| [CookieDomain](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiedomain) | Cookie の作成に使用されるドメインを決定します。 既定では、`CookieDomain` は設定されません。 |
-| [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiehttponly) | クライアント側 JavaScript が Cookie にアクセスするのをブラウザーが許可する必要があるかどうかを決定します。 既定値の `true` は、Cookie が HTTP 要求に対して渡されるだけであり、ページ上のスクリプトでは使用できないことを意味します。 |
-| [CookieName](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiename) | セッション ID の保持に使われる Cookie の名前を決定します。 既定値は [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`) です。 |
-| [CookiePath](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiepath) | Cookie の作成に使用されるパスを決定します。 既定値は [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`) です。 |
-| [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiesecure) | Cookie を HTTPS 要求のみで送信するかどうかを決定します。 既定値は [CookieSecurePolicy.None](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy) (`2`) です。 |
-| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` は、内容を破棄されることなくセッションがアイドル状態になっていることのできる最大時間を示します。 セッションへのアクセスがあるたびに、タイムアウトはリセットされます。 これはセッションの内容にのみ適用され、Cookie には適用されないことに注意してください。 既定値は 20 分です。 |
-
-セッションは Cookie を利用し、1 つのブラウザーからの要求を追跡し、識別します。 既定では、この Cookie は `.AspNet.Session` という名前になり、パス `/` を使用します。
-
-::: moniker-end
-
 Cookie セッションの既定値をオーバーライドするには、`SessionOptions` を使用します。
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples_snapshot/2.x/SessionSample/Startup.cs?name=snippet1&highlight=13-18)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples_snapshot/1.x/SessionSample/Startup.cs?name=snippet1&highlight=5-9)]
-
-::: moniker-end
+[!code-csharp[](app-state/samples_snapshot/2.x/SessionSample/Startup.cs?name=snippet1&highlight=14-19)]
 
 アプリは [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) プロパティを使用し、サーバーのキャッシュ内の内容が破棄されるまでのセッションのアイドル時間を決定します。 このプロパティは Cookie の有効期限に依存しません。 要求が[セッション ミドルウェア](/dotnet/api/microsoft.aspnetcore.session.sessionmiddleware)を通過するたびにタイムアウトがリセットされます。
 
@@ -173,17 +125,7 @@ Cookie セッションの既定値をオーバーライドするには、`Sessio
 
 セッション状態には、Razor Pages の [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) クラスから、または MVC の [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller) クラスの [HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session) でアクセスします。 このプロパティは [ISession](/dotnet/api/microsoft.aspnetcore.http.isession) 実装です。
 
-::: moniker range=">= aspnetcore-2.0"
-
 `ISession` の実装では、整数値や文字列値を設定および取得するための複数の拡張メソッドが提供されています。 [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/) パッケージがプロジェクトによって参照されている場合、拡張メソッドは [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) 名前空間内にあります (拡張メソッドにアクセスするには、`using Microsoft.AspNetCore.Http;` ステートメントを追加します)。 どちらのパッケージも、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれます。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-`ISession` の実装では、整数値や文字列値を設定および取得するための複数の拡張メソッドが提供されています。 [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/) パッケージがプロジェクトによって参照されている場合、拡張メソッドは [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) 名前空間内にあります (拡張メソッドにアクセスするには、`using Microsoft.AspNetCore.Http;` ステートメントを追加します)。
-
-::: moniker-end
 
 `ISession` 拡張メソッド:
 
@@ -207,47 +149,17 @@ Name: @HttpContext.Session.GetString(IndexModel.SessionKeyName)
 
 次の例では、整数および文字列を設定および取得する方法を示します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=18-19,22-23)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Controllers/HomeController.cs?name=snippet1&highlight=10-11,18-19)]
-
-::: moniker-end
 
 分散キャッシュのシナリオを有効にするには、メモリ内キャッシュを使用する場合であっても、すべてのセッション データをシリアル化する必要があります。 最小限の文字列と数値のシリアライザーが提供されています ([ISession](/dotnet/api/microsoft.aspnetcore.http.isession) のメソッドおよびの拡張メソッドをご覧ください)。 複合型は、JSON などの別のメカニズムを使ってユーザーがシリアル化する必要があります。
 
 シリアル化可能なオブジェクトを設定および取得するには、次の拡張メソッドを追加します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Extensions/SessionExtensions.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Extensions/SessionExtensions.cs?name=snippet1)]
-
-::: moniker-end
 
 次の例では、シリアル化可能オブジェクトを拡張メソッドで設定および取得する方法を示します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet2)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Controllers/HomeController.cs?name=snippet2&highlight=4,12)]
-
-::: moniker-end
 
 ## <a name="tempdata"></a>TempData
 
@@ -255,19 +167,9 @@ ASP.NET Core は、[Razor Pages ページ モデルの TempData プロパティ]
 
 ### <a name="tempdata-providers"></a>TempData プロバイダー
 
-::: moniker range=">= aspnetcore-2.0"
-
-ASP.NET Core 2.0 以降では、Cookie に TempData を保存するために Cookie ベースの TempData プロバイダーが既定で使用されます。
+Cookie に TempData を格納するには、Cookie ベースの TempData プロバイダーが既定で使われます。
 
 Cookie データは [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) を使用して暗号化され、[Base64UrlTextEncoder](/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder) でエンコードされ、チャンクされます。 Cookie はチャンクされるため、ASP.NET Core 1.x の 1 Cookie のサイズ上限は適用されません。 暗号化されているデータを圧縮すると、[CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) 攻撃や [BREACH](https://wikipedia.org/wiki/BREACH_(security_exploit)) 攻撃など、セキュリティ上の問題を起す可能性があるため、Cookie データは圧縮されません。 Cookie ベース TempData プロバイダーの詳細については、「[CookieTempDataProvider](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.cookietempdataprovider)」を参照してください。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-ASP.NET Core 1.0 と 1.1 では、セッション状態 TempData プロバイダーが既定のプロバイダーです。
-
-::: moniker-end
 
 ### <a name="choose-a-tempdata-provider"></a>TempData プロバイダーを選択する
 
@@ -282,23 +184,11 @@ TempData プロバイダーを選択するときの考慮事項:
 
 ### <a name="configure-the-tempdata-provider"></a>TempData プロバイダーを構成する
 
-::: moniker range=">= aspnetcore-2.0"
-
 Cookie ベース TempData プロバイダーは既定で有効になります。
 
 セッション ベースの TempData プロバイダーを有効にするには、[AddSessionStateTempDataProvider](/dotnet/api/microsoft.extensions.dependencyinjection.mvcviewfeaturesmvcbuilderextensions.addsessionstatetempdataprovider) 拡張メソッドを使います。
 
 [!code-csharp[](app-state/samples_snapshot_2/2.x/SessionSample/Startup.cs?name=snippet1&highlight=11,13,32)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-次の `Startup` クラス コードでは、セッション ベース TempData プロバイダーが構成されます。
-
-[!code-csharp[](app-state/samples_snapshot_2/1.x/SessionSample/Startup.cs?name=snippet1&highlight=4,9)]
-
-::: moniker-end
 
 ミドルウェアの順序が重要です。 上の例では、`UseMvc` の後で `UseSession` を呼び出すと、`InvalidOperationException` 例外が発生します。 詳細については、[ミドルウェアの順序](xref:fundamentals/middleware/index#order)に関するページをご覧ください。
 
@@ -341,31 +231,11 @@ app.Run(async (context) =>
 
 1 つのアプリでのみ使用されるミドルウェアの場合、`string` キーが許容されます。 アプリのインスタンス間で共有されるミドルウェアでは、キーの競合を避けるため、一意のオブジェクト キーを使う必要があります。 次の例では、ミドルウェア クラスで定義されている一意のオブジェクト キーを使用する方法を示します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Middleware/HttpContextItemsMiddleware.cs?name=snippet1&highlight=4,13)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Middleware/HttpContextItemsMiddleware.cs?name=snippet1&highlight=5,14)]
-
-::: moniker-end
 
 その他のコードは、ミドルウェア クラスで公開されるキーを利用し、`HttpContext.Items` に格納されている値にアクセスできます。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet3)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Controllers/HomeController.cs?name=snippet3)]
-
-::: moniker-end
 
 この方法には、コード内でキーの文字列を使用する必要がないという利点もあります。
 
@@ -401,8 +271,6 @@ app.Run(async (context) =>
 
 3. データ サービス クラスを使用します。
 
-    ::: moniker range=">= aspnetcore-2.0"
-
     ```csharp
     public class IndexModel : PageModel
     {
@@ -413,23 +281,6 @@ app.Run(async (context) =>
         }
     }
     ```
-
-    ::: moniker-end
-
-    ::: moniker range="< aspnetcore-2.0"
-
-    ```csharp
-    public class HomeController : Controller
-    {
-        public HomeController(MyAppData myService)
-        {
-            // Do something with the service
-            //    Examples: Read data, store in a field or property
-        }
-    }
-    ```
-
-    ::: moniker-end
 
 ## <a name="common-errors"></a>一般的なエラー
 

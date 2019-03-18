@@ -5,14 +5,14 @@ description: Windows サービスで ASP.NET Core アプリケーションをホ
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/08/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 081a631c9c3e74c01e15f4b0b272d650c162bd20
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: ecc7f3a8cd813c2803d03294e38d726905eeb1b8
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248252"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841424"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -21,6 +21,10 @@ ms.locfileid: "56248252"
 ASP.NET Core アプリは、IIS を 使用せずに、[Windows サービス](/dotnet/framework/windows-services/introduction-to-windows-service-applications)として Windows にホストできます。 Windows サービスとしてホストされている場合、再起動後にアプリが自動的に起動します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+
+## <a name="prerequisites"></a>必須コンポーネント
+
+* [PowerShell 6](https://github.com/PowerShell/PowerShell)
 
 ## <a name="deployment-type"></a>配置の種類
 
@@ -121,13 +125,13 @@ Windows イベント ログのログ記録を有効にするには、[Microsoft.
 
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
-### <a name="publish-the-app"></a>アプリの発行
+## <a name="publish-the-app"></a>アプリの発行
 
 [dotnet publish](/dotnet/articles/core/tools/dotnet-publish)、[Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)、または Visual Studio Code を使用してアプリを発行します。 Visual Studio を使用する場合、**[発行]** ボタンを選択する前に、**[FolderProfile]** を選択して **[ターゲットの場所]** を構成します。
 
 コマンドライン インターフェイス (CLI) ツールを使用してサンプル アプリを発行するには、プロジェクト フォルダーからコマンド プロンプトで [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行し、その際にリリース構成を [-c|--configuration](/dotnet/core/tools/dotnet-publish#options) オプションに渡します。 アプリ外部のフォルダーに発行するには、[-o|--output](/dotnet/core/tools/dotnet-publish#options) オプションをパスと一緒に使用します。
 
-#### <a name="publish-a-framework-dependent-deployment-fdd"></a>フレームワーク依存型展開 (FDD) を発行する
+### <a name="publish-a-framework-dependent-deployment-fdd"></a>フレームワーク依存型展開 (FDD) を発行する
 
 次の例では、アプリは *c:\\svc* フォルダーに発行されます。
 
@@ -135,7 +139,7 @@ Windows イベント ログのログ記録を有効にするには、[Microsoft.
 dotnet publish --configuration Release --output c:\svc
 ```
 
-#### <a name="publish-a-self-contained-deployment-scd"></a>自己完結型展開 (SCD) を発行する
+### <a name="publish-a-self-contained-deployment-scd"></a>自己完結型展開 (SCD) を発行する
 
 プロジェクト ファイルの `<RuntimeIdenfifier>` (または `<RuntimeIdentifiers>`) プロパティに RID を指定する必要があります。 ランタイムを `dotnet publish` コマンドの [-r|--runtime](/dotnet/core/tools/dotnet-publish#options) オプションに指定します。
 
@@ -145,11 +149,11 @@ dotnet publish --configuration Release --output c:\svc
 dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 ```
 
-### <a name="create-a-user-account"></a>ユーザー アカウントを作成する
+## <a name="create-a-user-account"></a>ユーザー アカウントを作成する
 
-管理コマンド シェルから `net user` コマンドを使って、サービスのユーザー アカウントを作成します。
+PowerShell 6 の管理コマンド シェルから `net user` コマンドを使って、サービスのユーザー アカウントを作成します。
 
-```console
+```powershell
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
 
@@ -157,13 +161,13 @@ net user {USER ACCOUNT} {PASSWORD} /add
 
 サンプル アプリでは、名前 `ServiceUser` とパスワードを持つユーザー アカウントを作成します。 次のコマンド内の `{PASSWORD}` を、[強力なパスワード](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements)に置き換えます。
 
-```console
+```powershell
 net user ServiceUser {PASSWORD} /add
 ```
 
 ユーザーをグループに追加する必要がある場合は、`net localgroup` コマンドを使用します。`{GROUP}` にはグループの名前を指定します。
 
-```console
+```powershell
 net localgroup {GROUP} {USER ACCOUNT} /add
 ```
 
@@ -171,13 +175,11 @@ net localgroup {GROUP} {USER ACCOUNT} /add
 
 Active Directory を使う場合、ユーザーを管理するための別の方法は、マネージド サービス アカウントを使うことです。 詳細については、「[Group Managed Service Accounts Overview (グループ マネージド サービス アカウントの概要)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)」をご覧ください。
 
-### <a name="set-permissions"></a>アクセス許可を設定する
+## <a name="set-permission-log-on-as-a-service"></a>アクセス許可の設定: サービスとしてログオンする
 
-#### <a name="access-to-the-app-folder"></a>アプリのフォルダーにアクセスする
+[icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
 
-管理コマンド シェルから [icacls](/windows-server/administration/windows-commands/icacls) コマンドを使用して、アプリのフォルダーに書き込み/読み取り/実行アクセス許可を与えます。
-
-```console
+```powershell
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
 ```
 
@@ -195,82 +197,69 @@ icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
 
 *c:\\svc* フォルダーに発行されるサンプル アプリと、書き込み/読み取り/実行アクセス許可を持つ `ServiceUser` アカウントに対して、次のコマンドを使用します。
 
-```console
+```powershell
 icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 ```
 
 詳細については、「[icacls](/windows-server/administration/windows-commands/icacls)」をご覧ください。
 
-#### <a name="log-on-as-a-service"></a>サービスとしてログオン
+## <a name="create-the-service"></a>サービスを作成する
 
-ユーザー アカウントに[サービスとしてログオン](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service)権限を付与するには:
+サービスを登録するには、[RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) PowerShell スクリプトを使います。 PowerShell 6 の管理コマンド プロンプトから、次のコマンドを実行します。
 
-1. [ローカル セキュリティ設定] コンソール、[ローカル グループ ポリシー エディター] コンソールのいずれかで、**[ユーザー権利の割り当て]** ポリシーを探します。 手順については、以下をご覧ください。[セキュリティ ポリシー設定を構成します](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings)。
-1. `Log on as a service` ポリシーを探します。 ポリシーをダブルクリックして開きます。
-1. **[ユーザーまたはグループの追加]** を選択します。
-1. **[詳細]** を選択し、**[検索開始]** を選択します。
-1. 前の「[ユーザー アカウントを作成する](#create-a-user-account)」セクションで作成したユーザー アカウントを選択します。 **[OK]** を選択して選択を確定します。
-1. オブジェクト名が正しいことを確認した後、**[OK]** を選択します。
-1. **[適用]** を選択します。 **[OK]** を選択してポリシー ウィンドウを閉じます。
-
-## <a name="manage-the-service"></a>サービスを管理する
-
-### <a name="create-the-service"></a>サービスを作成する
-
-コマンド ライン ツール [sc.exe](https://technet.microsoft.com/library/bb490995) を使って、管理コマンド シェルからサービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) と、各パラメーターおよび値の引用符文字の間には、スペースが必要です。**
-
-```console
-sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+```powershell
+.\RegisterService.ps1 
+    -Name {NAME} 
+    -DisplayName "{DISPLAY NAME}" 
+    -Description "{DESCRIPTION}" 
+    -Path "{PATH}" 
+    -Exe {ASSEMBLY}.exe 
+    -User {DOMAIN\USER}
 ```
-
-* `{SERVICE NAME}` &ndash; [サービス コントロール マネージャー](/windows/desktop/services/service-control-manager)でサービスに割り当てる名前。
-* `{PATH}` &ndash; サービス実行可能ファイルへのパス。
-* `{DOMAIN}` &ndash; ドメイン参加済みマシンのドメイン。 マシンがドメインに参加していない場合は、ローカル コンピューターの名前を使います。
-* `{USER ACCOUNT}` &ndash; サービスが実行されるユーザー アカウント。
-* `{PASSWORD}` &ndash; ユーザー アカウントのパスワード。
-
-> [!WARNING]
-> `obj` パラメーターを省略**しない**でください。 `obj` の既定値は、[LocalSystem アカウント](/windows/desktop/services/localsystem-account) アカウントです。 `LocalSystem` アカウントでサービスを実行すると、重大なセキュリティ リクスが生じます。 常に、特権が制限されているユーザー アカウントでサービスを実行します。
 
 サンプル アプリの例を次に示します。
 
 * サービスは **MyService** という名前です。
-* 発行されたサービスは、*c:\\svc* フォルダーに配置されます。 アプリの実行可能ファイルの名前は *SampleApp.exe* です。 `binPath` 値を二重引用符 (") で囲みます。
-* サービスは `ServiceUser` アカウントで実行されます。 `{DOMAIN}` を、ユーザー アカウントのドメインまたはローカル コンピューター名に置き換えます。 `obj` 値を二重引用符 (") で囲みます。 例:ホスト システムが `MairaPC` という名前のローカル コンピューターである場合は、`obj` を `"MairaPC\ServiceUser"` に設定にします。
-* `{PASSWORD}` をユーザー アカウントのパスワードに置き換えます。 `password` 値を二重引用符 (") で囲みます。
+* 発行されたサービスは、*c:\\svc* フォルダーに配置されます。 アプリの実行可能ファイルの名前は *SampleApp.exe* です。
+* サービスは `ServiceUser` アカウントで実行されます。 次の例では、ローカル コンピューターの名前は `Desktop-PC` です。
 
-```console
-sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+```powershell
+.\RegisterService.ps1 
+    -Name MyService 
+    -DisplayName "My Cool Service" 
+    -Description "This is the Sample App service." 
+    -Path "c:\svc" 
+    -Exe SampleApp.exe 
+    -User Desktop-PC\ServiceUser
 ```
 
-> [!IMPORTANT]
-> パラメーターの等号とパラメーターの値の間にスペースがあることを確認します。
+## <a name="manage-the-service"></a>サービスを管理する
 
 ### <a name="start-the-service"></a>サービスを開始する
 
-サービスを `sc start {SERVICE NAME}` コマンドで開始します。
+PowerShell 6 の `Start-Service -Name {NAME}` コマンドでサービスを開始します。
 
 サンプル アプリ サービスを開始するには、次のコマンドを使用します。
 
-```console
-sc start MyService
+```powershell
+Start-Service -Name MyService
 ```
 
 このコマンドでサービスを開始するには数秒かかります。
 
 ### <a name="determine-the-service-status"></a>サービスの状態を確認する
 
-サービスの状態を確認するには、`sc query {SERVICE NAME}` コマンドを使用します。 この状態は、次のいずれかの値として報告されます。
+サービスの状態を確認するには、PowerShell 6 の `Get-Service -Name {NAME}` コマンドを使います。 この状態は、次のいずれかの値として報告されます。
 
-* `START_PENDING`
-* `RUNNING`
-* `STOP_PENDING`
-* `STOPPED`
+* `Starting`
+* `Running`
+* `Stopping`
+* `Stopped`
 
 次のコマンドを使用し、サンプル アプリ サービスの状態を確認します。
 
-```console
-sc query MyService
+```powershell
+Get-Service -Name MyService
 ```
 
 ### <a name="browse-a-web-app-service"></a>Web アプリ サービスを参照する
@@ -281,28 +270,22 @@ sc query MyService
 
 ### <a name="stop-the-service"></a>サービスを停止して
 
-`sc stop {SERVICE NAME}` コマンドを使用して、サービスを停止します。
+PowerShell 6 の `Stop-Service -Name {NAME}` コマンドでサービスを停止します。
 
 サンプル アプリ サービスは、次のコマンドで停止できます。
 
-```console
-sc stop MyService
+```powershell
+Stop-Service -Name MyService
 ```
 
-### <a name="delete-the-service"></a>サービスを削除する
+### <a name="remove-the-service"></a>サービスを削除する
 
-サービスの停止の少し後に、`sc delete {SERVICE NAME}` コマンドを使用して、サービスをアンインストールします。
+サービスを停止した後少ししてから、Powershell 6 の `Remove-Service -Name {NAME}` コマンドを使ってサービスを削除します。
 
 サンプル アプリ サービスの状態を確認します。
 
-```console
-sc query MyService
-```
-
-サンプル アプリ サービスの状態が `STOPPED` 状態の場合、次のコマンドを使用して、サンプル アプリ サービスをアンインストールします。
-
-```console
-sc delete MyService
+```powershell
+Remove-Service -Name MyService
 ```
 
 ## <a name="handle-starting-and-stopping-events"></a>イベントの開始と停止を扱う
