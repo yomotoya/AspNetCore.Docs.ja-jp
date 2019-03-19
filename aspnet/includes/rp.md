@@ -1,1 +1,0 @@
-新しい web アプリケーションの開発、Razor ページはお勧めします。 詳細については、次を参照してください。 [Razor ページの概要](/aspnet/core/tutorials/razor-pages/razor-pages-start)します。
