@@ -193,7 +193,6 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 Visual Studio でサンプル アプリを実行したときに [デバッグ] ウィンドウに表示されるログと同じログの例を、次に示します。
 
-
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
 Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executing action method TodoApi.Controllers.TodoController.GetById (TodoApi) with arguments (0) - ModelState is Valid
@@ -214,7 +213,7 @@ Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 3
 
 ## <a name="log-category"></a>ログのカテゴリ
 
-`ILogger` オブジェクトが作成されるときに、その "*カテゴリ*" が指定されます。 このカテゴリは、その `Ilogger` のインスタンスによって作成される各ログ メッセージと共に含められます。 カテゴリには任意の文字列を指定できますが、"TodoApi.Controllers.TodoController" などのクラス名を使用するが慣例です。
+`ILogger` オブジェクトが作成されるときに、その "*カテゴリ*" が指定されます。 このカテゴリは、その `ILogger` のインスタンスによって作成される各ログ メッセージと共に含められます。 カテゴリには任意の文字列を指定できますが、"TodoApi.Controllers.TodoController" などのクラス名を使用するが慣例です。
 
 `ILogger<T>` を使用して、カテゴリとして `T` の完全修飾型名が使用される `ILogger` インスタンスを取得します。
 

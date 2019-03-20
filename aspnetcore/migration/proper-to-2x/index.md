@@ -5,12 +5,6 @@ description: 既存の ASP.NET MVC または Web API アプリを ASP.NET Core.w
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284397"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET から ASP.NET Core への移行
 
@@ -66,10 +60,10 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 `Startup` は、`Configure` メソッドを含む必要があります。 `Configure` では、必要なミドルウェアをパイプラインに追加します。 (既定の Web サイト テンプレートからの) 次の例では、拡張メソッドにより、以下をサポートするパイプラインが構成されます。
 
-* エラー ページ
-* HTTP Strict Transport Security
-* HTTP への HTTP リダイレクト
-* ASP.NET Core MVC
+- エラー ページ
+- HTTP Strict Transport Security
+- HTTP への HTTP リダイレクト
+- ASP.NET Core MVC
 
 [!code-csharp[](samples/startup.cs)]
 
@@ -118,15 +112,15 @@ ASP.NET アプリでは、開発者はサードパーティのライブラリに
 
 Unity で依存性の注入を設定する例は、`UnityContainer` をラップする `IDependencyResolver` の実装です。
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](samples/sample8.cs)]
 
 `UnityContainer` のインスタンスを作成し、サービスを登録して、`HttpConfiguration` の依存関係リゾルバーをコンテナー用の `UnityResolver` の新しいインスタンスに設定します。
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](samples/sample9.cs)]
 
 必要な場所に `IProductRepository` を挿入します。
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](samples/sample5.cs)]
 
 依存性の注入は ASP.NET Core の一部であるため、*Startup.cs* の `ConfigureServices` メソッドに独自のサービスを追加できます。
 

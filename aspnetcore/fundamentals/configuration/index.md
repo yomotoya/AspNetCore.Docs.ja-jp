@@ -531,8 +531,6 @@ JSON ファイルの構成をアクティブにするには、<xref:Microsoft.Ex
 * ファイルが変更された場合に構成を再度読み込むかどうか。
 * ファイルにアクセスするために <xref:Microsoft.Extensions.FileProviders.IFileProvider> が使用されます。
 
-
-
 <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> で新しい <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> を初期化すると、自動的に `AddJsonFile` が 2 回呼び出されます。 このメソッドは、次から構成を読み込むために呼び出されます。
 
 * *appsettings.json* &ndash; このファイルが最初に読み取られます。 ファイルの環境バージョンは、*appsettings.json* ファイルによって指定される値をオーバーライドできます。
