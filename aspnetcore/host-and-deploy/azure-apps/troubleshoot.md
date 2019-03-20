@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: c3732bfab362ec034248eb3912d4b1337c94216e
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665429"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841403"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -187,7 +187,10 @@ ASP.NET Core モジュール デバッグ ログでは、ASP.NET Core モジュ�
 
 ## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
 
-要求に対してアプリの応答が遅いとき、またはアプリがハングするときのデバッグ ガイダンスについては、「[Azure App Service での Web アプリのパフォーマンス低下に関する問題のトラブルシューティング](/azure/app-service/app-service-web-troubleshoot-performance-degradation)」をご覧ください。
+要求に対してアプリの反応が遅い場合、またはハングする場合は、次の記事を参照してください。
+
+* [Azure App Service での Web アプリのパフォーマンス低下に関する問題のトラブルシューティング](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
+* [Use Crash Diagnoser Site Extension to Capture Dump for Intermittent Exception issues or performance issues on Azure Web App (クラッシュ診断サイト拡張機能を使用して Azure Web App での断続的な例外の問題またはパフォーマンスの問題用のダンプをキャプチャする)](https://blogs.msdn.microsoft.com/asiatech/2015/12/28/use-crash-diagnoser-site-extension-to-capture-dump-for-intermittent-exception-issues-or-performance-issues-on-azure-web-app/)
 
 ## <a name="remote-debugging"></a>リモート デバッグ
 
