@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Id を使用します。 パスワ�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d57ab5f2fdfabdfe3a987475d2db68b3fc1dec72
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209201"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265467"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core Identity の概要
 
@@ -27,6 +27,7 @@ Id は、ユーザー名、パスワード、およびプロファイル デー�
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="adi"></a>
+
 ## <a name="adddefaultidentity-and-addidentity"></a>AddDefaultIdentity と AddIdentity
 
 [AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__)は ASP.NET Core 2.1 で導入されました。 呼び出す`AddDefaultIdentity`は、次の呼び出しに似ています。
@@ -71,6 +72,7 @@ dotnet new webapp --auth Individual -o WebApp1
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
 <a name="pw"></a>
+
 ### <a name="configure-identity-services"></a>Id サービスを構成します。
 
 サービスを追加`ConfigureServices`します。 一般的なパターンは、すべての `Add{Service}` メソッドを呼び出した後、すべての `services.Configure{Service}` メソッドを呼び出すことです。

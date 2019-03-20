@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 12/07/2018
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0b1de069e7892fff451617f2c6570fa789808c4f
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099053"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210003"
 ---
 # <a name="performance-diagnostic-tools"></a>パフォーマンスの診断ツール
 
@@ -43,9 +43,9 @@ Azure Application Insights では、監視対象のアプリで洞察を提供�
 
 Application Insights は、さまざまな環境で使用できます。
 
-* Azure で動作するように最適化します。
-* 運用、開発、およびステージング環境で機能します。
-* ローカルで動作[Visual Studio](/azure/application-insights/app-insights-visual-studio)または他のホスト環境にします。
+- Azure で動作するように最適化します。
+- 運用、開発、およびステージング環境で機能します。
+- ローカルで動作[Visual Studio](/azure/application-insights/app-insights-visual-studio)または他のホスト環境にします。
 
 詳細については、「[Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)」を参照してください。
 

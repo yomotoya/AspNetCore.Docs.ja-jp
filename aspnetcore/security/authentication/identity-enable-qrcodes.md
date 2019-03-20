@@ -5,12 +5,12 @@ description: ASP.NET Core 2 要素認証と連携する TOTP authenticator ア�
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf99cc21a7a1bb4d01c7cc092106d23375a1a76f
-ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
+ms.openlocfilehash: 5581f2001036746974a858d8a664db16df50edb2
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209227"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET Core で TOTP authenticator アプリの QR コード生成を有効にします。
 
@@ -103,7 +103,7 @@ QR コードでは、サイト名は、最初に、プロジェクトを作成�
 private string GenerateQrCodeUri(string email, string unformattedKey)
 {
     return string.Format(
-        AuthenicatorUriFormat,
+        AuthenticatorUriFormat,
         _urlEncoder.Encode("Razor Pages"),
         _urlEncoder.Encode(email),
         unformattedKey);

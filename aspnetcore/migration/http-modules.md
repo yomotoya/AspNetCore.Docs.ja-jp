@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 516230a66ee3edba986c91d79684256aa8e4c994
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743856"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209847"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core のミドルウェアへの HTTP ハンドラーとモジュールを移行します。
 
@@ -26,29 +26,29 @@ ASP.NET Core のミドルウェアを次に進む前にまず局所的 HTTP モ�
 
 **ハンドラーは次のとおりです。**
 
-   * 実装するクラス[IHttpHandler](/dotnet/api/system.web.ihttphandler)
+* 実装するクラス[IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
-   * 指定されたファイル名または拡張子で要求を処理するために使用*レポート*
+* 指定されたファイル名または拡張子で要求を処理するために使用*レポート*
 
-   * [構成されている](/iis/configuration/system.webserver/handlers/)で*Web.config*
+* [構成されている](/iis/configuration/system.webserver/handlers/)で*Web.config*
 
 **モジュールは次のとおりです。**
 
-   * 実装するクラス[IHttpModule](/dotnet/api/system.web.ihttpmodule)
+* 実装するクラス[IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
-   * すべての要求に対して呼び出されます
+* すべての要求に対して呼び出されます
 
-   * (さらに処理の停止の要求) をショート サーキットすること
+* (さらに処理の停止の要求) をショート サーキットすること
 
-   * HTTP 応答に追加したり、独自に作成できません。
+* HTTP 応答に追加したり、独自に作成できません。
 
-   * [構成されている](/iis/configuration/system.webserver/modules/)で*Web.config*
+* [構成されている](/iis/configuration/system.webserver/modules/)で*Web.config*
 
 **モジュールが受信要求を処理する順序は、によって決まります。**
 
-   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントであります。[BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)など。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
+1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントであります。[BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)など。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
 
-   2. 同一のイベントで構成されている順序*Web.config*します。
+2. 同一のイベントで構成されている順序*Web.config*します。
 
 ライフ サイクル イベントのハンドラーを追加するだけでなく、モジュール、 *Global.asax.cs*ファイル。 これらのハンドラーは、構成済みのモジュール内のハンドラーの後に実行します。
 
@@ -56,29 +56,29 @@ ASP.NET Core のミドルウェアを次に進む前にまず局所的 HTTP モ�
 
 **ミドルウェアは、HTTP モジュールとハンドラーよりも簡単です。**
 
-   * モジュール、ハンドラー、 *Global.asax.cs*、 *Web.config* (IIS の構成) を除くアプリケーションのライフ サイクルがなくなり、
+* モジュール、ハンドラー、 *Global.asax.cs*、 *Web.config* (IIS の構成) を除くアプリケーションのライフ サイクルがなくなり、
 
-   * ミドルウェアによって作成されたモジュールとハンドラーの両方のロール
+* ミドルウェアによって作成されたモジュールとハンドラーの両方のロール
 
-   * ミドルウェアがコードを使用して構成されているのではなく*Web.config*
+* ミドルウェアがコードを使用して構成されているのではなく*Web.config*
 
-   * [パイプラインを分岐](xref:fundamentals/middleware/index#use-run-and-map)要求ヘッダー、クエリ文字列などでも、URL だけでなくに基づいて、特定のミドルウェアに要求を送信することができます。
+* [パイプラインを分岐](xref:fundamentals/middleware/index#use-run-and-map)要求ヘッダー、クエリ文字列などでも、URL だけでなくに基づいて、特定のミドルウェアに要求を送信することができます。
 
 **ミドルウェアは、モジュールとよく似ています。**
 
-   * 基本的にすべての要求に対して呼び出されます
+* 基本的にすべての要求に対して呼び出されます
 
-   * によって、要求をショート サーキットできなければ[要求を次のミドルウェアに渡されていません。](#http-modules-shortcircuiting-middleware)
+* によって、要求をショート サーキットできなければ[要求を次のミドルウェアに渡されていません。](#http-modules-shortcircuiting-middleware)
 
-   * 独自の HTTP 応答を作成できません。
+* 独自の HTTP 応答を作成できません。
 
 **ミドルウェアとモジュールは、別の順序で処理されます。**
 
-   * ミドルウェアの順序が順番に挿入する要求パイプラインでは、モジュールの順序は主に基づいて順序に基づいて[アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)イベント
+* ミドルウェアの順序が順番に挿入する要求パイプラインでは、モジュールの順序は主に基づいて順序に基づいて[アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)イベント
 
-   * 応答のミドルウェアの順序は、要求から逆モジュールの順序は要求と応答の同じ
+* 応答のミドルウェアの順序は、要求から逆モジュールの順序は要求と応答の同じ
 
-   * 参照してください[IApplicationBuilder を使用したミドルウェア パイプラインを作成します。](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
+* 参照してください[IApplicationBuilder を使用したミドルウェア パイプラインを作成します。](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![ミドルウェア](http-modules/_static/middleware.png)
 

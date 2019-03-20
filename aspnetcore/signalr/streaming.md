@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: fb7183f7189d62c181f69ffdb170e3da25612919
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 7c176e3f21ffca7b97d9d3c2e8861032f22587b8
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345588"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264304"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用して、
 
@@ -139,12 +139,14 @@ JavaScript クライアントは、ハブにストリーミング メソッド�
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
+
 ## <a name="java-client"></a>Java クライアント
+
 SignalR の Java クライアントを使用して、`stream`ストリーミング メソッドを呼び出すメソッド。 次の 3 つ以上の引数を受け取ります。
 
-* ストリームの項目の予期される型 
+* ストリームの項目の予期される型
 * ハブ メソッドの名前。
-* ハブ メソッドで定義されている引数。 
+* ハブ メソッドで定義されている引数。
 
 ```java
 hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
@@ -153,6 +155,7 @@ hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
         (error) -> {/* Define your onError handler here. */},
         () -> {/* Define your onCompleted handler here. */});
 ```
+
 `stream`メソッド`HubConnection`ストリーム項目の種類の観測可能なオブジェクトを返します。 監視可能な型の`subscribe`メソッドでは、定義、 `onNext`、`onError`と`onCompleted`ハンドラー。
 
 ::: moniker-end

@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 02/07/2019
 uid: signalr/configuration
-ms.openlocfilehash: 070d6fed26b6d14c4b8a35d0f7d94abafb08993b
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 2c1bb8d5e317813d1fdb8d474b7d7d892e6f67ec
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665416"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264583"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR の構成
 
@@ -27,7 +27,7 @@ JSON のシリアル化を使用して、サーバーで構成できます、 [A
 ```csharp
 services.AddSignalR()
     .AddJsonProtocol(options => {
-        options.PayloadSerializerSettings.ContractResolver = 
+        options.PayloadSerializerSettings.ContractResolver =
         new DefaultContractResolver();
     });
 ```
@@ -41,7 +41,7 @@ using Microsoft.Extensions.DependencyInjection;
 // When constructing your connection:
 var connection = new HubConnectionBuilder()
     .AddJsonProtocol(options => {
-        options.PayloadSerializerSettings.ContractResolver = 
+        options.PayloadSerializerSettings.ContractResolver =
             new DefaultContractResolver();
     })
     .Build();
@@ -98,13 +98,13 @@ services.AddSignalR().AddHubOptions<MyHub>(options =>
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    app.UseSignalR((configure) => 
+    app.UseSignalR((configure) =>
     {
-        var desiredTransports = 
+        var desiredTransports =
             HttpTransportType.WebSockets |
             HttpTransportType.LongPolling;
 
-        configure.MapHub<MyHub>("/myhub", (options) => 
+        configure.MapHub<MyHub>("/myhub", (options) =>
         {
             options.Transports = desiredTransports;
         });
@@ -224,6 +224,7 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
     .withTransport(TransportEnum.WEBSOCKETS)
     .build();
 ```
+
 > [!NOTE]
 > SignalR の Java クライアントは、まだトランスポートにフォールバックをサポートしていません。
 
@@ -259,8 +260,7 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-
-アクセス トークン ファクトリを提供することで、認証に使用するベアラー トークンを構成する、SignalR の Java クライアントで、 [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)します。 使用[withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__)を提供する、 [RxJava](https://github.com/ReactiveX/RxJava) [単一<String>](http://reactivex.io/documentation/single.html)します。 呼び出して[Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)クライアントのアクセス トークンを生成するロジックを記述することができます。
+アクセス トークン ファクトリを提供することで、認証に使用するベアラー トークンを構成する、SignalR の Java クライアントで、 [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java)します。 使用[withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__)を提供する、 [RxJava](https://github.com/ReactiveX/RxJava) [単一\<文字列 >](http://reactivex.io/documentation/single.html)します。 呼び出して[Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-)クライアントのアクセス トークンを生成するロジックを記述することができます。
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
@@ -319,12 +319,14 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
 | `WebSocketConfiguration` | `null` | 追加の WebSocket オプションを構成するために使用するデリゲート。 インスタンスを受け取る[ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions)オプションを構成できます。 |
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 | JavaScript のオプション | 既定値 | 説明 |
 | ----------------- | ------------- | ----------- |
 | `accessTokenFactory` | `null` | HTTP 要求でベアラー認証トークンとして提供されている文字列を返す関数。 |
 | `skipNegotiation` | `false` | これを設定`true`ネゴシエーションの手順をスキップします。 **Websocket トランスポートがトランスポートには、のみの有効な場合にのみサポート**します。 Azure SignalR サービスを使用する場合は、この設定を有効にすることはできません。 |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
+
 | Java オプション | 既定値 | 説明 |
 | ----------- | ------------- | ----------- |
 | `withAccessTokenProvider` | `null` | HTTP 要求でベアラー認証トークンとして提供されている文字列を返す関数。 |
@@ -357,7 +359,6 @@ let connection = new signalR.HubConnectionBuilder()
 ```
 
 Java クライアントでこれらのオプションで構成できますメソッドを使って、`HttpHubConnectionBuilder`から返される、 `HubConnectionBuilder.create("HUB URL")`
-
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")

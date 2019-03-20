@@ -1,24 +1,24 @@
 ---
-title: ASP.NET Core での認証済み暗号化の詳細
+title: ASP.NET Core での認証された暗号化の詳細
 author: rick-anderson
-description: ASP.NET Core データの保護が認証された暗号化の実装の詳細を説明します。
+description: ASP.NET Core データ保護が認証された暗号化の実装の詳細について説明します。
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: ac650e5c32e7eacc4088225e63f56340f95e1913
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9def03e6b27e19fc34a839e923d6152e086889db
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208581"
 ---
-# <a name="authenticated-encryption-details-in-aspnet-core"></a>ASP.NET Core での認証済み暗号化の詳細
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>ASP.NET Core での認証された暗号化の詳細
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
-IDataProtector.Protect への呼び出しは、認証済み暗号化操作です。 保護する方法は、機密性と完全性の両方を提供し、IDataProtectionProvider、ルートから派生してこの特定の IDataProtector インスタンスに使用された目的のチェーンに関連付けられています。
+IDataProtector.Protect への呼び出しは、認証された暗号化操作です。 機密性と完全性、保護メソッドが提供および IDataProtectionProvider ルートからのこの特定の IDataProtector インスタンスの派生に使用された目的のチェーンに関連付けられていること。
 
-IDataProtector.Protect は byte[] プレーン テキスト パラメーターを受け取りし、バイトに保護されているペイロード、その形式は以下の説明を生成します。 (も文字列のプレーン テキスト パラメーターを受け取りを文字列の保護されているペイロードを返す拡張メソッド オーバー ロードします。 この API を使用する場合、保護されているペイロード形式が残っている、構造体、以下がなります[base64url でエンコードされた](https://tools.ietf.org/html/rfc4648#section-5))。
+IDataProtector.Protect は、byte[] プレーン テキスト パラメーターを受け取り、その形式は以下の説明をバイト ・ [保護されたペイロードを生成します。 (も、拡張機能メソッド オーバー ロードがプレーン テキストの文字列パラメーターを取得し、文字列の保護されたペイロードを返します。 この API を使用する場合、保護されたペイロード形式が残っている、構造体には、以下がそのは[base64url でエンコードされた](https://tools.ietf.org/html/rfc4648#section-5))。
 
 ## <a name="protected-payload-format"></a>保護されたペイロードの形式
 
@@ -26,11 +26,15 @@ IDataProtector.Protect は byte[] プレーン テキスト パラメーター�
 
 * データ保護システムのバージョンを識別する 32 ビット マジック ヘッダー。
 
-* この特定のペイロードを保護するために使用するキーを識別する 128 ビット キー id です。
+* この特定のペイロードを保護するために使用するキーを識別する 128 ビット キー id。
 
-* 保護されたペイロードの残りの部分は[このキーによってカプセル化された暗号化機能に固有](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation)です。 次の例で、キー、AES 256-CBC + HMACSHA256 暗号化機能を表し、ペイロードは次のようにさらに分割します。 * A 128 ビット キー修飾子です。 * は、128 ビットの初期化ベクトルです。 * AES 256-CBC 出力の 48 バイトです。 * HMACSHA256 認証タグ。
+* 保護されたペイロードの残りの部分は[このキーによってカプセル化された暗号化機能に固有](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation)します。 次の例では、キーが表して、AES-CBC 256 + HMACSHA256 暗号化機能とペイロードは次のようにさらに分割します。
+  * 128 ビット キー修飾子です。
+  * 128 ビットの初期化ベクトルです。
+  * AES-CBC 256 出力の 48 バイト数。
+  * HMACSHA256 認証タグ。
 
-サンプルの保護されているペイロードを次に示します。
+保護されたペイロードのサンプルを次に示します。
 
 ```
 09 F0 C9 F0 80 9C 81 0C 19 66 19 40 95 36 53 F8
@@ -44,11 +48,11 @@ AA FF EE 57 57 2F 40 4C 3F 7F CC 9D CC D9 32 3E
 52 C9 74 A0
 ```
 
-最初の 32 ビット、または 4 バイトの上、ペイロード形式マジック ヘッダー バージョン (09 F0 C9 F0) を識別するには
+最初の 32 ビット、または 4 バイトのペイロード形式からは、マジックのヘッダー バージョン (09 F0 C9 F0) を識別します。
 
-[次へ] の 128 ビットまたは 16 バイトは、キー識別子 (80 9 C 81 0 C 19 66 19 40 95 36 53 F8 AA FF EE 57)
+次の 128 ビットまたは 16 バイトは、キー識別子 (80 9 の C 81 0 C 19 66 19 40 95 36 53 F8 AA FF EE 57)
 
 残りの部分では、ペイロードを含むあり、使用する形式に固有です。
 
->[!WARNING]
-> 指定されたキーに対して保護されているすべてのペイロードは、同じ 20 バイト (マジック値、キー id) のヘッダーで開始されます。 管理者は、およそのペイロードが生成されたときに、診断目的のためには、このファクトを使用できます。 たとえば、上記のペイロードは、{0c819c80-6619-4019-9536-53f8aaffee57} をキーに対応します。 キーのリポジトリを確認した後は、この特定のキーのアクティブ化された日付が 2015-01-01 と有効期限の日付が 2015-03-01、そのことがあると想定する不適切なを見つけられない場合、ペイロード (改ざんされない) 場合により、そのウィンドウ内で生成されたか、小さないずれかの側の一種です。
+> [!WARNING]
+> 指定されたキーに対して保護されているすべてのペイロードは、同じ 20 バイト (魔法の値、キー id) ヘッダーで開始されます。 管理者は、およそのペイロードが生成されたときに、診断のために、このファクトを使用できます。 たとえば、上記のペイロードは、{0c819c80-6619-4019-9536-53f8aaffee57} をキーに対応します。 キーのリポジトリを確認した後は、この特定のキーのアクティブ化日付が 2015-01-01 をし、その有効期限の日付が 2015-03-01、あると想定するが妥当を見つけられない場合、ペイロード (で改ざんされていない) 場合により、そのウィンドウ内で生成されたまたは小さないずれかの側の一種です。

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 9a7727ad41a05f39d74877af3c8f2e3f7a620c7d
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208273"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core でメモリ内キャッシュします。
 
@@ -111,10 +111,10 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 
 次のサンプル:
 
-- 絶対有効期限を設定します。 これは、エントリをキャッシュできる最大時間であり、項目が古くなりすぎないスライド式有効期限が継続的に更新されることを防ぎます。
-- スライド式有効期限を設定します。 このキャッシュされた項目にアクセスする要求は、スライド式有効期限の時間にリセットされます。
-- キャッシュ優先度を設定`CacheItemPriority.NeverRemove`します。
-- セットを[PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate)するエントリがキャッシュから削除された後に呼び出されます。 コールバックは、キャッシュから項目を削除するコードから別のスレッドで実行されます。
+* 絶対有効期限を設定します。 これは、エントリをキャッシュできる最大時間であり、項目が古くなりすぎないスライド式有効期限が継続的に更新されることを防ぎます。
+* スライド式有効期限を設定します。 このキャッシュされた項目にアクセスする要求は、スライド式有効期限の時間にリセットされます。
+* キャッシュ優先度を設定`CacheItemPriority.NeverRemove`します。
+* セットを[PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate)するエントリがキャッシュから削除された後に呼び出されます。 コールバックは、キャッシュから項目を削除するコードから別のスレッドで実行されます。
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
 
@@ -161,14 +161,14 @@ A`MemoryCache`インスタンスが必要に応じて指定し、サイズ制限
 
 ## <a name="additional-notes"></a>補足メモ
 
-- コールバックを使用して、キャッシュ項目を再作成します。
+* コールバックを使用して、キャッシュ項目を再作成します。
 
-  - コールバックが完了していないために、複数の要求には、キャッシュされたキーの値が空ことができます検索します。
-  - これは、結果、複数のスレッドが、キャッシュされた項目を再作成します。
+  * コールバックが完了していないために、複数の要求には、キャッシュされたキーの値が空ことができます検索します。
+  * これは、結果、複数のスレッドが、キャッシュされた項目を再作成します。
 
-- 1 つのキャッシュ エントリを使用して、別に作成したときに、子は親エントリの有効期限のトークンと有効期限の時間ベースの設定をコピーします。 子は、手動で削除して期限切れまたは親エントリの更新はありません。
+* 1 つのキャッシュ エントリを使用して、別に作成したときに、子は親エントリの有効期限のトークンと有効期限の時間ベースの設定をコピーします。 子は、手動で削除して期限切れまたは親エントリの更新はありません。
 
-- 使用[PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks)キャッシュ エントリがキャッシュから削除された後に起動されるコールバックを設定します。
+* 使用[PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks)キャッシュ エントリがキャッシュから削除された後に起動されるコールバックを設定します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

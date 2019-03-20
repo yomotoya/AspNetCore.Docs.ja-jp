@@ -5,12 +5,12 @@ description: 個々 のユーザー アカウントで作成した ASP.NET Core 
 ms.author: riande
 ms.date: 11/30/2017
 uid: security/authentication/individual
-ms.openlocfilehash: c73365eafaf2c38ef02c3c83ccf5ced4264f7dc0
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: f9c1be16386da935382275815bb5fd5c72894b1c
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743775"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265429"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>個々 のユーザー アカウントで作成した ASP.NET Core プロジェクトに基づく記事
 
@@ -39,6 +39,7 @@ dotnet new razor -au Individual
 参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/5833)web API 認証します。
 
 <a name="no"></a>
+
 ## <a name="no-authentication"></a>認証なし
 
 .NET Core CLI で認証が指定された、`-au`オプション。 Visual Studio で、**認証の変更**ダイアログは、新しい web アプリケーションで利用できます。 Visual Studio で新しい web アプリの既定値は**認証なし**します。
@@ -49,6 +50,7 @@ dotnet new razor -au Individual
 * 認証コードが含まれていません。
 
 <a name="win"></a>
+
 ## <a name="windows-authentication"></a>Windows 認証
 
 .NET Core CLI で新しい web アプリの Windows 認証が指定されて、`-au Windows`オプション。 Visual Studio で、**認証の変更**ダイアログ ボックスには、 **Windows 認証**オプション。

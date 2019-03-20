@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: e09d03f1d30f128b1db1588aa92b28ec3e4ae626
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284540"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264382"
 ---
 # <a name="deploy-an-app-to-app-service"></a>App Service にアプリをデプロイします。
 
@@ -35,7 +35,7 @@ ms.locfileid: "53284540"
 
 コマンド シェルからコードをダウンロードしてプロジェクトをビルドして、次のように実行します。
 
-> *注 :Linux または macOS ユーザーくださいパスについて、適切な変更など、フォワード スラッシュを使用して (`/`) バック スラッシュではなく (`\`)。*
+> *注:Linux または macOS ユーザーくださいパスについて、適切な変更など、フォワード スラッシュを使用して (`/`) バック スラッシュではなく (`\`)。*
 
 1. ローカル コンピューター上のフォルダーにコードを複製します。
 
@@ -141,7 +141,7 @@ ms.locfileid: "53284540"
 
 ## <a name="deployment-with-visual-studio"></a>Visual Studio でのデプロイ
 
-> *注 :このセクションでは、Windows にのみ適用されます。Linux および macOS ユーザーには、次のステップ 2 で説明されている変更を加える必要があります。ファイルを保存しをローカル リポジトリに変更をコミット`git commit`します。最後に、変更をプッシュ`git push`最初のセクションのようにします。*
+> *注:このセクションでは、Windows にのみ適用されます。Linux および macOS ユーザーには、次のステップ 2 で説明されている変更を加える必要があります。ファイルを保存しをローカル リポジトリに変更をコミット`git commit`します。最後に、変更をプッシュ`git push`最初のセクションのようにします。*
 
 コマンド シェルから、アプリは既に展開されています。 Visual Studio の統合ツールを使用して、アプリに更新プログラムをデプロイしましょう。 バック グラウンドでは、Visual Studio には、Visual Studio の使い慣れた UI 内でコマンド ライン ツールと同じことが実現されます。
 
@@ -193,6 +193,7 @@ Visual Studio がビルドされ、アプリを Azure にデプロイします�
     ```console
     git commit -a -m "upgraded to V3"
     ```
+
 5. ローカル コンピューターのコマンド シェルを使用してでは、Git リモートとしてステージング配置の URL を追加し、コミットされた変更をプッシュします。
 
     a.  ローカルの Git リポジトリには、ステージング用のリモート URL を追加します。

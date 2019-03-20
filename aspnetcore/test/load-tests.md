@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: 587df6e216943d3eeec779df4d0554dd0fc2fda0
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 39632af2c92dac548c03e24d35a5e8a03e00890d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209834"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>ロード テストとストレス テストの ASP.NET Core
 
@@ -22,7 +22,7 @@ ms.locfileid: "57345429"
 **ストレス テスト**:テスト アプリの安定性では、極端な場合は、多くの場合、長期間実行されている場合:
 
 * 高度なユーザー ロード – スパイクまたは徐々 に増やしていきます。
-* コンピューティング リソースの制約。  
+* コンピューティング リソースの制約。
 
 ストレス条件下でをアプリの障害から回復し、適切に想定される動作に戻りますか。 アプリは、ストレス条件下で*いない*通常の状況下で実行します。
 
@@ -44,41 +44,42 @@ Azure DevOps を使用してクラウドで実行またはオンプレミスで�
 
 使用してロード テストの実行を開始することができます、 [Azure DevOps テスト計画](/azure/devops/test/load-test/index?view=vsts)サービス。
 
-![](./load-tests/_static/azure-devops-load-test.png)
+![Azure DevOps のロード テストのランディング ページ](./load-tests/_static/azure-devops-load-test.png)
 
 サービスには、次の種類のテストの形式がサポートされています。
 
-- Visual Studio テスト – Visual Studio で作成した web テストします。
-- HTTP アーカイブ ベースのテスト – アーカイブ内にキャプチャされた HTTP トラフィックがテスト中に再生されます。
-- [URL ベースのテスト](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts)– テスト、要求の種類、ヘッダー、およびクエリ文字列を読み込む Url を指定できます。 実行時間などのパラメーターの設定を実行するには、ロード パターンでは、ユーザーなどの数を構成できます。
-- [Apache JMeter](https://jmeter.apache.org/)をテストします。
+* Visual Studio テスト – Visual Studio で作成した web テストします。
+* HTTP アーカイブ ベースのテスト – アーカイブ内にキャプチャされた HTTP トラフィックがテスト中に再生されます。
+* [URL ベースのテスト](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts)– テスト、要求の種類、ヘッダー、およびクエリ文字列を読み込む Url を指定できます。 実行時間などのパラメーターの設定を実行するには、ロード パターンでは、ユーザーなどの数を構成できます。
+* [Apache JMeter](https://jmeter.apache.org/)をテストします。
 
 ## <a name="azure-portal"></a>Azure ポータル
 
 [Azure ポータルでは、設定して、Web アプリのロード テストを実行する](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts)Azure portal で App Service の [パフォーマンス] タブから直接します。
 
-![](./load-tests/_static/azure-appservice-perf-test.png)
+![Azure Portal で azure App Service](./load-tests/_static/azure-appservice-perf-test.png)
 
 テストでは、指定した URL、または複数の Url をテストできる、Visual Studio Web テスト ファイルで手動テストを指定できます。
 
-![](./load-tests/_static/azure-appservice-perf-test-config.png)
+![Azure Portal で新しいパフォーマンス テスト ページ](./load-tests/_static/azure-appservice-perf-test-config.png)
 
 テストの最後に、アプリのパフォーマンス特性を表示するレポートを生成します。 統計の例は次のとおりです。
 
-- 平均応答時間
-- 最大スループット: 1 秒あたりの要求
-- 失敗率
+* 平均応答時間
+* 最大スループット: 1 秒あたりの要求
+* 失敗率
 
 ## <a name="third-party-tools"></a>サード パーティのツール
 
 次の一覧には、さまざまな機能セットとサード パーティの web パフォーマンス ツールが含まれています。
 
-- [Apache JMeter](https://jmeter.apache.org/) :ロード テスト ツールの完全なおすすめのスイートです。 スレッドに依存します。 には、ユーザーごとの 1 つのスレッドが必要があります。
-- [ab - Apache HTTP server がベンチマーク ツール](https://httpd.apache.org/docs/2.4/programs/ab.html)
-- [ガットリング](https://gatling.io/):GUI ツールとテスト レコーダーでデスクトップ ツールです。 JMeter よりパフォーマンスが向上します。
-- [Locust.io](https://locust.io/) :スレッドに制限されません。
+* [Apache JMeter](https://jmeter.apache.org/) :ロード テスト ツールの完全なおすすめのスイートです。 スレッドに依存します。 には、ユーザーごとの 1 つのスレッドが必要があります。
+* [ab - Apache HTTP server がベンチマーク ツール](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [ガットリング](https://gatling.io/):GUI ツールとテスト レコーダーでデスクトップ ツールです。 JMeter よりパフォーマンスが向上します。
+* [Locust.io](https://locust.io/) :スレッドに制限されません。
 
 <a name="add"></a>
+
 ## <a name="additional-resources"></a>その他のリソース
 
 [ロード テストのブログ シリーズ](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/)作成者: Charles Sterling します。 日が指定されたが、ほとんどの項目は引き続き関連します。

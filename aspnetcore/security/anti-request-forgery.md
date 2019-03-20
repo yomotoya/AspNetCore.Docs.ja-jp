@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 6e140717834b901e12ef7863fd07b983b0c55107
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 88a2d127407378b9e83df7f48b1938ed081f9bb2
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208529"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core で防ぐクロスサイト リクエスト フォージェリ (XSRF または CSRF) 攻撃
 
@@ -106,8 +106,8 @@ ASP.NET Core 2.0 以降では、 [FormTagHelper](xref:mvc/views/working-with-for
 
 偽造防止トークンの自動生成の HTML フォーム要素の発生時に、`<form>`タグが含まれています、`method="post"`属性と、次のいずれかに該当します。
 
-  * Action 属性が空 (`action=""`)。
-  * Action 属性が指定されていない (`<form method="post">`)。
+* Action 属性が空 (`action=""`)。
+* Action 属性が指定されていない (`<form method="post">`)。
 
 HTML フォーム要素を偽造防止トークンの自動生成を無効にすることができます。
 

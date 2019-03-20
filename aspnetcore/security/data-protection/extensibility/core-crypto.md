@@ -1,40 +1,40 @@
 ---
-title: ASP.NET Core の中核となる暗号化の拡張性
+title: ASP.NET Core での主要な暗号化の拡張性
 author: rick-anderson
-description: IAuthenticatedEncryptor、IAuthenticatedEncryptorDescriptor、IAuthenticatedEncryptorDescriptorDeserializer、および最上位のファクトリについて説明します。
+description: IAuthenticatedEncryptor、IAuthenticatedEncryptorDescriptor、IAuthenticatedEncryptorDescriptorDeserializer、および最上位レベルのファクトリについて説明します。
 ms.author: riande
 ms.date: 8/11/2017
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 47432cfefe0a52c9f815d717f7269ec68fdb6af3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cf4a142992efe5b00a75285ef9ad9735fe7be411
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272897"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209071"
 ---
-# <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core の中核となる暗号化の拡張性
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core での主要な暗号化の拡張性
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
 >[!WARNING]
-> 次のインターフェイスのいずれかを実装する型はスレッド セーフである必要があります複数の呼び出し元のです。
+> 次のインターフェイスのいずれかを実装する型がスレッド セーフにする必要があります複数の呼び出し元の。
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptor"></a>
 
 ## <a name="iauthenticatedencryptor"></a>IAuthenticatedEncryptor
 
-**IAuthenticatedEncryptor**インターフェイスは、暗号化サブシステムの基本的なビルド ブロックです。 一般には、キー、ごとの 1 つの IAuthenticatedEncryptor と IAuthenticatedEncryptor インスタンスは、すべての暗号化キー マテリアルと暗号化操作の実行に必要なアルゴリズムの情報をラップします。
+**IAuthenticatedEncryptor**インターフェイスは、暗号化サブシステムの基本的なビルディング ブロックです。 通常は、1 つのキーの 1 つの IAuthenticatedEncryptor と IAuthenticatedEncryptor インスタンスがすべての暗号化キー マテリアルと暗号化操作の実行に必要なアルゴリズムの情報をラップします。
 
-その名前からわかるように、型、認証済みの暗号化と復号化サービスを提供します。 これは、次の 2 つの Api を公開します。
+その名前からわかるように、型は、認証済みの暗号化と復号化サービスを提供する責任を負います。 これは、次の 2 つの Api を公開します。
 
-* 復号化 (ArraySegment<byte>暗号文、ArraySegment<byte> additionalAuthenticatedData): byte[]
+* `Decrypt(ArraySegment<byte> ciphertext, ArraySegment<byte> additionalAuthenticatedData) : byte[]`
 
-* 暗号化 (ArraySegment<byte>プレーン テキスト、ArraySegment<byte> additionalAuthenticatedData): byte[]
+* `Encrypt(ArraySegment<byte> plaintext, ArraySegment<byte> additionalAuthenticatedData) : byte[]`
 
-暗号化メソッドは、enciphered プレーン テキストとな認証タグを含む blob を返します。 認証タグは、AAD 自体は、最終的なペイロードから回復可能な必要はありませんが、追加の認証済みデータ (AAD) を囲んでいる必要があります。 復号化メソッドは、認証タグを検証し、解読はペイロードを返します。 すべてのエラー (ArgumentNullException を除くと似ています) は、CryptographicException に homogenized 必要があります。
+Encrypt メソッドでは、したり、プレーン テキストと、認証タグが含まれる blob を返します。 認証タグは、AAD 自体は最終的なペイロードから回復可能な必要はありませんが、追加の認証済みデータ (AAD) を網羅する必要があります。 復号化メソッドは、認証タグを検証し、解読はペイロードを返します。 すべてのエラー (ArgumentNullException 以外と似ています) は、CryptographicException に homogenized する必要があります。
 
 > [!NOTE]
-> IAuthenticatedEncryptor インスタンス自体実際には、キー マテリアルを格納する必要はありません。 たとえば、実装では、すべての操作の HSM に委任します。
+> IAuthenticatedEncryptor インスタンス自体実際には、キー マテリアルを格納する必要はありません。 など、実装は、すべての操作の HSM に委任でした。
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptorfactory"></a>
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
@@ -43,11 +43,11 @@ ms.locfileid: "36272897"
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-**IAuthenticatedEncryptorFactory**インターフェイスを作成する方法を認識する型を表す、 [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンス。 その API は次のとおりです。
+**IAuthenticatedEncryptorFactory**インターフェイスが作成する方法を認識している型を表す、 [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンス。 その API は次のとおりです。
 
-* CreateEncryptorInstance (IKey キー): IAuthenticatedEncryptor
+* CreateEncryptorInstance (IKey キー)。IAuthenticatedEncryptor
 
-指定された IKey インスタンスに対してその CreateEncryptorInstance メソッドによって作成された任意の認証済み受け付け必要があります等価と見なされる、ように、次のコード例です。
+それと同等と見なす必要があります、CreateEncryptorInstance メソッドによって作成された任意の認証済み受け付け IKey の特定のインスタンスの、以下のコード サンプル。
 
 ```csharp
 // we have an IAuthenticatedEncryptorFactory instance and an IKey instance
@@ -70,13 +70,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-**IAuthenticatedEncryptorDescriptor**インターフェイスを作成する方法を認識する型を表す、 [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンス。 その API は次のとおりです。
+**IAuthenticatedEncryptorDescriptor**インターフェイスが作成する方法を認識している型を表す、 [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンス。 その API は次のとおりです。
 
-* CreateEncryptorInstance(): IAuthenticatedEncryptor
+* CreateEncryptorInstance() :IAuthenticatedEncryptor
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() :XmlSerializedDescriptorInfo
 
-IAuthenticatedEncryptor と同様に IAuthenticatedEncryptorDescriptor のインスタンスが 1 つの特定のキーをラップすると見なされます。 つまりが、特定の IAuthenticatedEncryptorDescriptor インスタンス、その CreateEncryptorInstance メソッドによって作成された任意の認証済み受け付け必要がありますと見なされるように、同等の次のコード例です。
+IAuthenticatedEncryptor のような IAuthenticatedEncryptorDescriptor のインスタンスが 1 つの特定のキーをラップすると見なされます。 つまり、IAuthenticatedEncryptorDescriptor の特定のインスタンスの CreateEncryptorInstance メソッドによって作成された任意の認証済み受け付けする必要がありますと見なされるようにそれと同等の以下のコード サンプル。
 
 ```csharp
 // we have an IAuthenticatedEncryptorDescriptor instance
@@ -100,13 +100,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
-## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET のコア 2.x のみ)
+## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET Core 2.x のみ)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-**IAuthenticatedEncryptorDescriptor**インターフェイスは、型自体を XML にエクスポートする方法を把握していることを表します。 その API は次のとおりです。
+**IAuthenticatedEncryptorDescriptor**インターフェイス自体を XML にエクスポートする方法を認識している型を表します。 その API は次のとおりです。
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() :XmlSerializedDescriptorInfo
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -114,28 +114,28 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 ## <a name="xml-serialization"></a>XML シリアル化
 
-IAuthenticatedEncryptor と IAuthenticatedEncryptorDescriptor の主な違いは、記述子が、暗号化機能を作成し、有効な引数で指定する方法を知っていることです。 これらの実装では、対称アルゴリズムおよび KeyedHashAlgorithm 依存、IAuthenticatedEncryptor を検討してください。 暗号化機能のジョブが、これらの型を使用するが、必ずしもを認識していないこれらの型が送信元アプリケーションが再起動した場合、それ自体を再作成する方法の適切な説明を本当に書き込むことができないようにします。 記述子は、さらに高いレベルとして機能します。 記述子は、暗号化機能のインスタンスを作成する方法を認識しているため (たとえば、認識必要なアルゴリズムを作成する方法)、アプリケーションをリセットした後、暗号化機能のインスタンスが再作成できるようには XML 形式でそのナレッジがシリアル化します。
+IAuthenticatedEncryptor と IAuthenticatedEncryptorDescriptor の主な違いは、記述子が暗号化機能を作成し、有効な引数を指定する方法を知っていることです。 実装は SymmetricAlgorithm と KeyedHashAlgorithm を IAuthenticatedEncryptor を検討してください。 暗号化機能のジョブは、これらの型を使用するが、必ずしもを認識していないから、これらの型が付属していたため、アプリケーションが再起動した場合、それ自体を再作成する方法の適切な説明を実際に書き込むことはできません。 記述子は、これより高いレベルとして機能します。 記述子は、暗号化機能のインスタンスを作成する方法を知っているため (たとえば、方法を確認する必要なアルゴリズムを作成する)、アプリケーションをリセットした後、暗号化機能のインスタンスが再作成できるように XML 形式では、その知識をシリアル化ができます。
 
 <a name="data-protection-extensibility-core-crypto-exporttoxml"></a>
 
-記述子は、その ExportToXml ルーチンを使用してシリアル化できます。 このルーチンは、次の 2 つのプロパティが含まれて XmlSerializedDescriptorInfo を返します: 記述子とを表す型の XElement 形式、 [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer)があります指定された対応する XElement この記述子を再生するために使用します。
+記述子は、その ExportToXml ルーチンを使用してシリアル化することができます。 このルーチンは、2 つのプロパティを含む、XmlSerializedDescriptorInfo を返します記述子の型を表す XElement 表現、 [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer)できます。この記述子の指定、対応する XElement を再生するために使用します。
 
-シリアル化された記述子には、暗号化キー マテリアルなどの機密情報を含めることがあります。 データ保護システムには、これが記憶域に保存される前に、情報を暗号化するための組み込みサポートがあります。 記述子活用するためにこれを属性名"requiresEncryption"で機密情報を含む要素をマークする必要があります (xmlns"<http://schemas.asp.net/2015/03/dataProtection>")、"true"の値します。
+シリアル化された記述子は、暗号化キー マテリアルなどの機密情報を含めることができます。 データ保護システムがストレージに永続化される前に、情報を暗号化するための組み込みサポートしています。 これを活用する記述子が機微な情報で属性名"requiresEncryption"を含む要素をマークします。 (xmlns"<http://schemas.asp.net/2015/03/dataProtection>")、"true"の値。
 
 >[!TIP]
-> この属性を設定するヘルパー API があります。 XElement.MarkAsRequiresEncryption() が Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel 名前空間にある拡張メソッドを呼び出します。
+> この属性を設定するためのヘルパー API があります。 XElement.MarkAsRequiresEncryption() Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel を名前空間にある拡張メソッドを呼び出します。
 
-ここで、シリアル化された記述子が含まれていない機密情報には場合もあります。 HSM に格納されている暗号化キーの大文字と小文字を再度検討してください。 HSM は、プレーン テキスト形式の内容を公開しないため自体をシリアル化した場合、キー マテリアルを記述子を書き込めません。 代わりに、記述子 (HSM は、この方法でエクスポートを許可する) 場合、キーまたはキーを HSM の一意識別子のキーによってラップされたバージョンが書き込まれる可能性があります。
+シリアル化された記述子が機密情報を格納しない場合もあります。 HSM に格納されている暗号化キーの大文字と小文字をもう一度考えてみましょう。 記述子は、HSM がプレーン テキスト形式の内容を公開しないため自体をシリアル化するとき、キー マテリアルを書き込むことはできません。 代わりに、記述子 (HSM では、この方法でエクスポートが可能) の場合、キーまたはキーを HSM の一意の識別子のキーでラップされたバージョンが書き込まれる可能性があります。
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
 ## <a name="iauthenticatedencryptordescriptordeserializer"></a>IAuthenticatedEncryptorDescriptorDeserializer
 
-**IAuthenticatedEncryptorDescriptorDeserializer**インターフェイスは XElement から IAuthenticatedEncryptorDescriptor インスタンスを逆シリアル化する方法を認識する型を表します。 1 つのメソッドを公開します。
+**IAuthenticatedEncryptorDescriptorDeserializer**インターフェイスは、XElement から IAuthenticatedEncryptorDescriptor インスタンスを逆シリアル化する方法を認識する型を表します。 1 つのメソッドを公開します。
 
-* ImportFromXml (XElement 要素): IAuthenticatedEncryptorDescriptor
+* ImportFromXml (XElement 要素)。IAuthenticatedEncryptorDescriptor
 
-ImportFromXml メソッドは、返された XElement [IAuthenticatedEncryptorDescriptor.ExportToXml](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-exporttoxml)され元 IAuthenticatedEncryptorDescriptor の同等なが作成されます。
+ImportFromXml メソッドには、返された XElement [IAuthenticatedEncryptorDescriptor.ExportToXml](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-exporttoxml)元 IAuthenticatedEncryptorDescriptor に相当するを作成します。
 
 IAuthenticatedEncryptorDescriptorDeserializer を実装する型は、次の 2 つのパブリック コンス トラクターのいずれかが必要です。
 
@@ -146,30 +146,30 @@ IAuthenticatedEncryptorDescriptorDeserializer を実装する型は、次の 2 �
 > [!NOTE]
 > コンス トラクターに渡される IServiceProvider を null にすることがあります。
 
-## <a name="the-top-level-factory"></a>最上位のファクトリ
+## <a name="the-top-level-factory"></a>最上位レベルのファクトリ
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-**AlgorithmConfiguration**クラスを作成する方法を知っている型を表す[IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor)インスタンス。 これは、単一の API を公開します。
+**AlgorithmConfiguration**クラスを作成する方法を認識している型を表す[IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor)インスタンス。 これは、1 つの API を公開します。
 
-* CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
+* CreateNewDescriptor() :IAuthenticatedEncryptorDescriptor
 
-AlgorithmConfiguration の最上位のファクトリとして考えます。 構成は、テンプレートとして機能します。 それがラップ アルゴリズム情報 (例: この構成によって生成される値、AES 128-GCM マスター _ キーを持つ記述子) がまだ特定のキーに関連付けられているが、します。
+AlgorithmConfiguration の最上位レベルのファクトリとして考えます。 構成は、テンプレートとして機能します。 アルゴリズムの情報をラップします (例: この構成は AES 128-GCM のマスター _ キーで記述子を作成します)、特定のキーに関連付けされていないが、します。
 
-CreateNewDescriptor し、呼ばれ、この呼び出しのためだけに最新のキー マテリアルが作成された新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアル、および、マテリアルを使用する必要な情報をアルゴリズムをラップします。 キー マテリアルでしたするソフトウェアで作成された (メモリ内に保持) と作成され、HSM およびよびな内で保持されている可能性があります。 重要な点は、CreateNewDescriptor への呼び出しの 2 つが等価 IAuthenticatedEncryptorDescriptor インスタンスを作成しないでことです。
+CreateNewDescriptor が呼び出され、この呼び出しでは、専用の最新のキー マテリアルを作成し、新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアルとアルゴリズムにマテリアルを使用するために必要な情報をラップします。 キー マテリアルでしたするソフトウェアで作成 (メモリに保持されている) を作成し、HSM および具合内で保持されている可能性があります。 重要なポイントは、CreateNewDescriptor への 2 つの呼び出しでは同等 IAuthenticatedEncryptorDescriptor インスタンスは作成しません。
 
-AlgorithmConfiguration 型ポイントとして機能、エントリのキーの作成ルーチンなど[自動キーのローリング](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling)です。 将来のすべてのキーの実装を変更するには、KeyManagementOptions で AuthenticatedEncryptorConfiguration プロパティを設定します。
+など、AlgorithmConfiguration 型をキーの作成のルーチンのエントリ ポイントとして機能[自動のキーをローリング](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling)します。 将来のすべてのキーの実装を変更するには、KeyManagementOptions で AuthenticatedEncryptorConfiguration プロパティを設定します。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-**IAuthenticatedEncryptorConfiguration**インターフェイスを作成する方法を知っている型を表す[IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor)インスタンス。 これは、単一の API を公開します。
+**IAuthenticatedEncryptorConfiguration**インターフェイスが作成する方法を認識している型を表す[IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor)インスタンス。 これは、1 つの API を公開します。
 
-* CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
+* CreateNewDescriptor() :IAuthenticatedEncryptorDescriptor
 
-IAuthenticatedEncryptorConfiguration の最上位のファクトリとして考えます。 構成は、テンプレートとして機能します。 それがラップ アルゴリズム情報 (例: この構成によって生成される値、AES 128-GCM マスター _ キーを持つ記述子) がまだ特定のキーに関連付けられているが、します。
+IAuthenticatedEncryptorConfiguration の最上位レベルのファクトリとして考えます。 構成は、テンプレートとして機能します。 アルゴリズムの情報をラップします (例: この構成は AES 128-GCM のマスター _ キーで記述子を作成します)、特定のキーに関連付けされていないが、します。
 
-CreateNewDescriptor し、呼ばれ、この呼び出しのためだけに最新のキー マテリアルが作成された新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアル、および、マテリアルを使用する必要な情報をアルゴリズムをラップします。 キー マテリアルでしたするソフトウェアで作成された (メモリ内に保持) と作成され、HSM およびよびな内で保持されている可能性があります。 重要な点は、CreateNewDescriptor への呼び出しの 2 つが等価 IAuthenticatedEncryptorDescriptor インスタンスを作成しないでことです。
+CreateNewDescriptor が呼び出され、この呼び出しでは、専用の最新のキー マテリアルを作成し、新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアルとアルゴリズムにマテリアルを使用するために必要な情報をラップします。 キー マテリアルでしたするソフトウェアで作成 (メモリに保持されている) を作成し、HSM および具合内で保持されている可能性があります。 重要なポイントは、CreateNewDescriptor への 2 つの呼び出しでは同等 IAuthenticatedEncryptorDescriptor インスタンスは作成しません。
 
-IAuthenticatedEncryptorConfiguration 型ポイントとして機能、エントリのキーの作成ルーチンなど[自動キーのローリング](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling)です。 将来のすべてのキーの実装を変更するには、サービス コンテナーに IAuthenticatedEncryptorConfiguration シングルトンを登録します。
+など、IAuthenticatedEncryptorConfiguration 型をキーの作成のルーチンのエントリ ポイントとして機能[自動のキーをローリング](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling)します。 将来のすべてのキーの実装を変更するには、サービス コンテナーにシングルトン IAuthenticatedEncryptorConfiguration を登録します。
 
 ---

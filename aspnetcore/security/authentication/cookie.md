@@ -5,12 +5,12 @@ description: ASP.NET Core Identity なしでの cookie 認証を使用しての�
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: 29370a3ff25469b34edc2a71e00601cf6ecc00ca
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: c6cba588abb003ee677d8f1753b73a1ced1414b0
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209376"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしでの cookie 認証を使用します。
 
@@ -119,7 +119,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions()
 | [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure?view=aspnetcore-1.1) | 作成された cookie を HTTPS に制限するかどうかを示すフラグ (`CookieSecurePolicy.Always`)、HTTP または HTTPS (`CookieSecurePolicy.None`)、または、要求と同じプロトコル (`CookieSecurePolicy.SameAsRequest`)。 既定値は `CookieSecurePolicy.SameAsRequest` です。 |
 | [説明](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description?view=aspnetcore-1.1) | アプリに利用可能になっている認証の種類に関する追加情報。 |
 | [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.expiretimespan?view=aspnetcore-1.1) | `TimeSpan`認証チケットが期限切れ後。 チケットの有効期限を作成するには、現在の時刻に追加されます。 使用する`ExpireTimeSpan`を設定する必要があります`IsPersistent`に`true`で、`AuthenticationProperties`に渡される`SignInAsync`します。 既定値は 14 日間です。 |
-| [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-1.1) | 複数の半分のクッキーの有効期限の日時をリセットするかどうかを示すフラグ、`ExpireTimeSpan`間隔が渡されます。 新しい exipiration 時間は順方向に移動は、現在の日付を指定するだけでなく、`ExpireTimespan`します。 [絶対クッキーの有効期限](xref:security/authentication/cookie#absolute-cookie-expiration)を使用して設定することができます、`AuthenticationProperties`クラスを呼び出すときに`SignInAsync`します。 絶対有効期限は、認証 cookie が有効な時間を制限することで、アプリのセキュリティを強化できます。 既定値は `true` です。 |
+| [SlidingExpiration](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-1.1) | 複数の半分のクッキーの有効期限の日時をリセットするかどうかを示すフラグ、`ExpireTimeSpan`間隔が渡されます。 新しい有効期限は順方向に移動は、現在の日付を指定するだけでなく、`ExpireTimespan`します。 [絶対クッキーの有効期限](xref:security/authentication/cookie#absolute-cookie-expiration)を使用して設定することができます、`AuthenticationProperties`クラスを呼び出すときに`SignInAsync`します。 絶対有効期限は、認証 cookie が有効な時間を制限することで、アプリのセキュリティを強化できます。 既定値は `true` です。 |
 
 設定`CookieAuthenticationOptions`で Cookie 認証ミドルウェアの`Configure`メソッド。
 

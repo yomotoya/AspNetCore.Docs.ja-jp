@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 48bfc50378fc0ec212f5b9d4e7ce05bb4fc97b9d
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 116249a7cd4faebd0c899e383d86f5c5c3c7146a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098897"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265249"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core での SMS で 2 要素認証
 
@@ -35,9 +35,13 @@ ms.locfileid: "54098897"
 
 #### <a name="figuring-out-sms-provider-credentials"></a>SMS プロバイダーの資格情報を見極める
 
-**Twilio:** Twilio アカウントのダッシュ ボード タブで、コピー、**アカウント SID**と**認証トークン**します。
+**Twilio:**
 
-**ASPSMS:** アカウントの設定に移動します。**別子-Userkey**と共にそれをコピーし、**パスワード**します。
+Twilio アカウントのダッシュ ボード タブで、コピー、**アカウント SID**と**認証トークン**します。
+
+**ASPSMS:**
+
+アカウントの設定に移動します。**別子-Userkey**と共にそれをコピーし、**パスワード**します。
 
 キー内 secret manager ツールを使用してこれらの値を後で保存`SMSAccountIdentification`と`SMSAccountPassword`します。
 
@@ -49,12 +53,11 @@ ms.locfileid: "54098897"
 
 キー内のシークレット マネージャー ツールを使用してこの値を後で保存`SMSAccountFrom`します。
 
-
 ### <a name="provide-credentials-for-the-sms-service"></a>SMS サービスの資格情報を提供します。
 
 使用して、[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスします。
 
-   * セキュリティで保護された SMS キーを取得するためのクラスを作成します。 このサンプルで、`SMSoptions`でクラスを作成、 *Services/SMSoptions.cs*ファイル。
+* セキュリティで保護された SMS キーを取得するためのクラスを作成します。 このサンプルで、`SMSoptions`でクラスを作成、 *Services/SMSoptions.cs*ファイル。
 
 [!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
@@ -64,17 +67,18 @@ ms.locfileid: "54098897"
 C:/Web2FA/src/WebApp1>dotnet user-secrets set SMSAccountIdentification 12345
 info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 ```
+
 * SMS プロバイダーの NuGet パッケージを追加します。 パッケージ マネージャー コンソール (PMC) を実行します。
 
 **Twilio:**
+
 `Install-Package Twilio`
 
 **ASPSMS:**
+
 `Install-Package ASPSMS`
 
-
 * 内のコードを追加、 *Services/MessageServices.cs* SMS が有効にするファイル。 Twilio または ASPSMS セクションのいずれかを使用します。
-
 
 **Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
@@ -88,7 +92,7 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 ### <a name="enable-two-factor-authentication"></a>2 要素認証を有効にします。
 
-開く、 *Views/Manage/Index.cshtml* Razor ビュー ファイルと、コメント文字 (マークアップには、空欄はありません)、削除します。
+開く、 *Views/Manage/Index.cshtml* Razor ビュー ファイルと、コメント文字 (マークアップがないコメント アウトされています) ため削除します。
 
 ## <a name="log-in-with-two-factor-authentication"></a>2 要素認証をログインします。
 

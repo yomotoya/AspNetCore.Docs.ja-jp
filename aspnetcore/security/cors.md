@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: 6be8b4da1642a9eff021371c229a17071d6e9bfb
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 2cad26d0f61519f63888a2bc399bb7e8a0f1ee04
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210133"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -84,7 +84,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         app.UseHsts();
     }
 
-    app.UseCors(); 
+    app.UseCors();
 
     app.UseHttpsRedirection();
     app.UseMvc();
@@ -141,25 +141,25 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 * [クロス オリジン要求で資格情報](#credentials-in-cross-origin-requests)
 * [プレフライトの有効期限を設定します。](#set-the-preflight-expiration-time)
 
- <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> 呼び出される`Startup.ConfigureServices`します。 いくつかのオプションの読み取りをすると役立つ場合があります、 [CORS ではどのように動作](#how-cors)最初のセクションします。
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> 呼び出される`Startup.ConfigureServices`します。 いくつかのオプションの読み取りをすると役立つ場合があります、 [CORS ではどのように動作](#how-cors)最初のセクションします。
 
 ## <a name="set-the-allowed-origins"></a>許可されるオリジンを設定します。
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; 任意のスキームですべてのオリジンからの CORS 要求を許可 (`http`または`https`)。 `AllowAnyOrigin` 安全でないため、*任意の web サイト*をアプリにクロスオリジン要求を行うことができます。
 
-  ::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-2.2"
 
-  > [!NOTE]
-  > 指定する`AllowAnyOrigin`と`AllowCredentials`構成は安全でないと、クロスサイト リクエスト フォージェリで発生することができます。 CORS サービスは、アプリが両方の方法で構成されている場合、CORS の無効な応答を返します。
+> [!NOTE]
+> 指定する`AllowAnyOrigin`と`AllowCredentials`構成は安全でないと、クロスサイト リクエスト フォージェリで発生することができます。 CORS サービスは、アプリが両方の方法で構成されている場合、CORS の無効な応答を返します。
 
-  ::: moniker-end
+::: moniker-end
 
-  ::: moniker range="< aspnetcore-2.2"
+::: moniker range="< aspnetcore-2.2"
 
-  > [!NOTE]
-  > 指定する`AllowAnyOrigin`と`AllowCredentials`構成は安全でないと、クロスサイト リクエスト フォージェリで発生することができます。 セキュリティで保護されたアプリでは、クライアントを承認する必要があります自体と、サーバー リソースにアクセスする場合のオリジンの正確なリストを指定します。
+> [!NOTE]
+> 指定する`AllowAnyOrigin`と`AllowCredentials`構成は安全でないと、クロスサイト リクエスト フォージェリで発生することができます。 セキュリティで保護されたアプリでは、クライアントを承認する必要があります自体と、サーバー リソースにアクセスする場合のオリジンの正確なリストを指定します。
 
-  ::: moniker-end
+::: moniker-end
 
 <!-- REVIEW required
 I changed from
@@ -167,16 +167,16 @@ Specifying `AllowAnyOrigin` and `AllowCredentials` is an insecure configuration.
 to
 **`AllowAnyOrigin`** affects preflight requests and the
 
-to remove the ambiguous **This**. 
+to remove the ambiguous **This**.
 -->
 
-  `AllowAnyOrigin` プリフライト要求の影響と`Access-Control-Allow-Origin`ヘッダー。 詳細については、次を参照してください。、[プレフライト要求](#preflight-requests)セクション。
+`AllowAnyOrigin` プリフライト要求の影響と`Access-Control-Allow-Origin`ヘッダー。 詳細については、次を参照してください。、[プレフライト要求](#preflight-requests)セクション。
 
 ::: moniker range=">= aspnetcore-2.0"
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> &ndash; セット、<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*>配信元が許可されている場合に評価するときに構成されているワイルドカード ドメインに一致するオリジンを許可する関数として、ポリシーのプロパティ。
 
-  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
 
 ::: moniker-end
 
@@ -381,14 +381,14 @@ Date: Wed, 20 May 2015 06:33:22 GMT
   * たとえば、悪意のあるアクターを使用[ようにクロス サイト スクリプティング (XSS)](xref:security/cross-site-scripting)サイトに対して、CORS が有効になっているサイトに情報の盗用のサイト間で要求を実行します。
 * CORS を許可することで、API をより安全なすることはできません。
   * クライアント (ブラウザー) に CORS を適用します。 サーバーが要求を実行し、応答を返します、それがクライアントでエラーとブロックの応答を返します。 たとえば、次のツールのいずれかのサーバーの応答が表示されます。
-     * [Fiddler](https://www.telerik.com/fiddler)
-     * [Postman](https://www.getpostman.com/)
-     * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
-     * アドレス バーに URL を入力して、web ブラウザー。
+    * [Fiddler](https://www.telerik.com/fiddler)
+    * [Postman](https://www.getpostman.com/)
+    * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
+    * アドレス バーに URL を入力して、web ブラウザー。
 * クロス オリジンを実行するには、サーバーがブラウザーを許可する方法は[XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)または[フェッチ API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)それ以外の場合、禁止されるよう要求します。
   * (CORS) なしのブラウザーでは、クロス オリジン要求を実行できません。 CORS をする前に[JSONP](https://www.w3schools.com/js/js_json_jsonp.asp)この制限を回避するために使用されました。 JSONP は、XHR を使用していないを使用して、`<script>`応答を受信するタグ。 スクリプトが読み込まれたクロス オリジンが許可されます。
 
-[CORS の仕様]()のクロス オリジン要求を有効にするいくつかの新しい HTTP ヘッダーが導入されました。 ブラウザーでは、CORS をサポートする場合は、クロス オリジン要求を自動的にこれらのヘッダーを設定します。 カスタム JavaScript コードは、CORS を有効にする必要はありません。
+[CORS の仕様](https://www.w3.org/TR/cors/)のクロス オリジン要求を有効にするいくつかの新しい HTTP ヘッダーが導入されました。 ブラウザーでは、CORS をサポートする場合は、クロス オリジン要求を自動的にこれらのヘッダーを設定します。 カスタム JavaScript コードは、CORS を有効にする必要はありません。
 
 次は、クロス オリジン要求の例です。 `Origin`ヘッダーは要求を行っているサイトのドメインを提供します。
 
@@ -429,7 +429,7 @@ CORS をテストします。
 1. このドキュメントで、アプローチの 1 つを使用して、CORS を有効にします。 例:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
-  
+
   > [!WARNING]
   > `WithOrigins("https://localhost:<port>");` ようなサンプル アプリをテストするためにのみ使用する必要があります、[サンプル コードをダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors)します。
 
@@ -444,13 +444,13 @@ CORS をテストします。
 1. Localhost 原点からの削除`WithOrigins`と、アプリをデプロイします。 または、別のポートでクライアント アプリを実行します。 たとえば、Visual Studio から実行します。
 1. クライアント アプリをテストします。 CORS の障害には、エラーが返されますが、エラー メッセージは JavaScript を使用できません。 F12 ツールで、[コンソール] タブを使用して、エラーを参照してください。 ブラウザーによっては、次のような (F12 ツールのコンソール) で、エラーが発生します。
 
-  * Microsoft Edge の使用。
+   * Microsoft Edge の使用。
 
-    **SEC7120: [CORS]、配信元`https://localhost:44375`が見つかりませんでした`https://localhost:44375`でクロス オリジン リソースへのアクセス制御の許可-オリジン応答ヘッダー `https://webapi.azurewebsites.net/api/values/1`**
+     **SEC7120: [CORS]、配信元`https://localhost:44375`が見つかりませんでした`https://localhost:44375`でクロス オリジン リソースへのアクセス制御の許可-オリジン応答ヘッダー `https://webapi.azurewebsites.net/api/values/1`**
 
-  * Chrome を使用します。
+   * Chrome を使用します。
 
-    **XMLHttpRequest へのアクセス`https://webapi.azurewebsites.net/api/values/1`配信元から`https://localhost:44375`CORS ポリシーによってブロックされています。'へのアクセス制御の許可-オリジン' ヘッダーが要求されたリソースに存在しません。**
+     **XMLHttpRequest へのアクセス`https://webapi.azurewebsites.net/api/values/1`配信元から`https://localhost:44375`CORS ポリシーによってブロックされています。'へのアクセス制御の許可-オリジン' ヘッダーが要求されたリソースに存在しません。**
 
 ## <a name="additional-resources"></a>その他の技術情報
 

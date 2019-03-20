@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 9f6d03a1e8a81bceca15cb1e1aa664c22c31e1d3
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665627"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209873"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core での Gulp を使用します。
 
@@ -86,7 +86,7 @@ gulp.task("min:css", () => {
 });
 
 gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
 // A 'default' task is required by Gulp v4
 gulp.task("default", gulp.series(["min"]));
 ```
@@ -108,7 +108,7 @@ gulp.task("default", gulp.series(["min"]));
 
 既に新しい Web アプリを作成していない場合は、Visual Studio で新しい ASP.NET Web アプリケーション プロジェクトを作成します。
 
-1.  開く、 *package.json*ファイル (追加ない場合があります)、次を追加します。
+1. 開く、 *package.json*ファイル (追加ない場合があります)、次を追加します。
 
     ```json
     {
@@ -122,71 +122,71 @@ gulp.task("default", gulp.series(["min"]));
     }
     ```
 
-2.  新しい JavaScript ファイルをプロジェクトに追加し、名前*gulpfile.js*、次のコードをコピーします。
+2. 新しい JavaScript ファイルをプロジェクトに追加し、名前*gulpfile.js*、次のコードをコピーします。
 
     ```javascript
     /// <binding Clean='clean' />
     "use strict";
-    
+
     const gulp = require("gulp"),
           rimraf = require("rimraf"),
           concat = require("gulp-concat"),
           cssmin = require("gulp-cssmin"),
           uglify = require("gulp-uglify");
-    
+
     const paths = {
       webroot: "./wwwroot/"
     };
-    
+
     paths.js = paths.webroot + "js/**/*.js";
     paths.minJs = paths.webroot + "js/**/*.min.js";
     paths.css = paths.webroot + "css/**/*.css";
     paths.minCss = paths.webroot + "css/**/*.min.css";
     paths.concatJsDest = paths.webroot + "js/site.min.js";
     paths.concatCssDest = paths.webroot + "css/site.min.css";
-    
+
     gulp.task("clean:js", done => rimraf(paths.concatJsDest, done));
     gulp.task("clean:css", done => rimraf(paths.concatCssDest, done));
     gulp.task("clean", gulp.series(["clean:js", "clean:css"]));
 
     gulp.task("min:js", () => {
       return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
-        .pipe(concat(paths.concatJsDest))
-        .pipe(uglify())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatJsDest))
+      .pipe(uglify())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min:css", () => {
       return gulp.src([paths.css, "!" + paths.minCss])
-        .pipe(concat(paths.concatCssDest))
-        .pipe(cssmin())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatCssDest))
+      .pipe(cssmin())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
     // A 'default' task is required by Gulp v4
     gulp.task("default", gulp.series(["min"]));
     ```
 
-3.  **ソリューション エクスプ ローラー**を右クリックして*gulpfile.js*、選び**Task Runner Explorer**します。
-    
+3. **ソリューション エクスプ ローラー**を右クリックして*gulpfile.js*、選び**Task Runner Explorer**します。
+
     ![ソリューション エクスプ ローラーから Task Runner Explorer を開く](using-gulp/_static/02-SolutionExplorer-TaskRunnerExplorer.png)
-    
+
     **Task Runner Explorer** Gulp タスクの一覧が表示されます。 (をクリックする必要があります、**更新**プロジェクト名の左側に表示されるボタン)。
-    
+
     ![Task Runner Explorer](using-gulp/_static/03-TaskRunnerExplorer.png)
-    
+
     > [!IMPORTANT]
     > **Task Runner Explorer**コンテキスト メニュー項目が表示される場合のみ*gulpfile.js*プロジェクトのルート ディレクトリにします。
 
-4.  下に**タスク**で**Task Runner Explorer**を右クリックして**クリーン**、選び**実行**ポップアップ メニューから。
+4. 下に**タスク**で**Task Runner Explorer**を右クリックして**クリーン**、選び**実行**ポップアップ メニューから。
 
     ![タスク ランナー エクスプ ローラーのクリーン タスク](using-gulp/_static/04-TaskRunner-clean.png)
 
     **Task Runner Explorer**という名前の新しいタブを作成する**クリーン**で定義されているように、clean タスクを実行および*gulpfile.js*します。
 
-5.  右クリックし、**クリーン**タスク、し、選択**バインド** > **Before Build**します。
+5. 右クリックし、**クリーン**タスク、し、選択**バインド** > **Before Build**します。
 
     ![バインド BeforeBuild タスク ランナー エクスプ ローラー](using-gulp/_static/05-TaskRunner-BeforeBuild.png)
 
@@ -206,7 +206,7 @@ gulp.task("default", gulp.series(["min"]));
 
 新しい Gulp タスクを定義する次のように変更します。 *gulpfile.js*します。
 
-1.  末尾に次の JavaScript を追加*gulpfile.js*:
+1. 末尾に次の JavaScript を追加*gulpfile.js*:
 
     ```javascript
     gulp.task('first', done => {
@@ -217,11 +217,11 @@ gulp.task("default", gulp.series(["min"]));
 
     このタスクの名前は`first`、単に文字列を表示します。
 
-2.  保存*gulpfile.js*します。
+2. 保存*gulpfile.js*します。
 
-3.  **ソリューション エクスプ ローラー**を右クリックして*gulpfile.js*、選び*Task Runner Explorer*します。
+3. **ソリューション エクスプ ローラー**を右クリックして*gulpfile.js*、選び*Task Runner Explorer*します。
 
-4.  **Task Runner Explorer**、右クリックして**最初**を選択し、**実行**します。
+4. **Task Runner Explorer**、右クリックして**最初**を選択し、**実行**します。
 
     ![最初のタスクを実行するタスク ランナー エクスプ ローラー](using-gulp/_static/06-TaskRunner-First.png)
 
@@ -231,7 +231,7 @@ gulp.task("default", gulp.series(["min"]));
 
 複数のタスクを実行するときに既定では、タスクが同時に実行します。 ただし、特定の順序でタスクを実行する場合は、する必要があります指定する各タスクが完了するもタスクとして別のタスクの完了に依存します。
 
-1.  一連の順序で実行するタスクを定義するには、置換、`first`上で追加したタスク*gulpfile.js*次。
+1. 一連の順序で実行するタスクを定義するには、置換、`first`上で追加したタスク*gulpfile.js*次。
 
     ```javascript
     gulp.task('series:first', done => {
@@ -240,22 +240,22 @@ gulp.task("default", gulp.series(["min"]));
     });
     gulp.task('series:second', done => {
       console.log('second task! <-----');
-      done(); // signal completion
+        done(); // signal completion
     });
 
     gulp.task('series', gulp.series(['series:first', 'series:second']), () => { });
 
     // A 'default' task is required by Gulp v4
-    gulp.task('default', gulp.series('series'));
+      gulp.task('default', gulp.series('series'));
     ```
- 
+
     3 つのタスクがあるようになりました: `series:first`、 `series:second`、および`series`します。 `series:second`タスクには実行する前に完了したタスクの配列を指定する 2 番目のパラメーターが含まれています、`series:second`タスクが実行されます。 上だけのコードで指定されている、`series:first`する前にタスクを完了する必要があります、`series:second`タスクが実行されます。
 
-2.  保存*gulpfile.js*します。
+2. 保存*gulpfile.js*します。
 
-3.  **ソリューション エクスプ ローラー**、右クリック*gulpfile.js*選択**Task Runner Explorer**まだ開いていない場合。
+3. **ソリューション エクスプ ローラー**、右クリック*gulpfile.js*選択**Task Runner Explorer**まだ開いていない場合。
 
-4.  **Task Runner Explorer**を右クリックして**シリーズ**選択**実行**します。
+4. **Task Runner Explorer**を右クリックして**シリーズ**選択**実行**します。
 
     ![一連のタスクを実行するタスク ランナー エクスプ ローラー](using-gulp/_static/07-TaskRunner-Series.png)
 
@@ -298,27 +298,27 @@ Gulp を使用して、クライアント側ファイルのステージングと
 
 異なる環境でのコンパイルの間には、変更、 **ASPNETCORE_ENVIRONMENT**環境変数の値。
 
-1.  **Task Runner Explorer**、いることを確認、 **min**を実行するタスクが設定されている**Before Build**。
+1. **Task Runner Explorer**、いることを確認、 **min**を実行するタスクが設定されている**Before Build**。
 
-2.  **ソリューション エクスプ ローラー**でプロジェクト名を右クリックし、選択**プロパティ**します。
+2. **ソリューション エクスプ ローラー**でプロジェクト名を右クリックし、選択**プロパティ**します。
 
     Web アプリのプロパティ シートが表示されます。
 
-3.  **[デバッグ]** タブをクリックします。
+3. **[デバッグ]** タブをクリックします。
 
-4.  値を設定、**ホスティング環境:** 環境変数を`Production`します。
+4. 値を設定、**ホスティング環境:** 環境変数を`Production`します。
 
-5.  キーを押して**F5**ブラウザーでアプリケーションを実行します。
+5. キーを押して**F5**ブラウザーでアプリケーションを実行します。
 
-6.  ブラウザーのウィンドウでは、ページを右クリックして**ソースの表示**ページの HTML を表示します。
+6. ブラウザーのウィンドウでは、ページを右クリックして**ソースの表示**ページの HTML を表示します。
 
     スタイル シートのリンクが縮小された CSS ファイルを指していることを確認します。
 
-7.  Web アプリを停止するブラウザーを閉じます。
+7. Web アプリを停止するブラウザーを閉じます。
 
-8.  Visual Studio で Web アプリのプロパティ シートに戻るし、変更、**ホスティング環境:** 環境変数にバックアップ`Development`します。
+8. Visual Studio で Web アプリのプロパティ シートに戻るし、変更、**ホスティング環境:** 環境変数にバックアップ`Development`します。
 
-9.  キーを押して**F5**ブラウザーでアプリケーションをもう一度実行します。
+9. キーを押して**F5**ブラウザーでアプリケーションをもう一度実行します。
 
 10. ブラウザーのウィンドウでは、ページを右クリックして**ソースの表示**に HTML ページを参照してください。
 

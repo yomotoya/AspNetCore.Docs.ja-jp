@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: 0b7001a311eeaaa78e3d52e2ec66d33ad057c381
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 3b708da13ff9f2887eee87ea17844312a4fe1b8d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207409"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264732"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>認証の ASP.NET メンバーシップから ASP.NET Core 2.0 Identity に移行します。
 
@@ -54,6 +54,7 @@ ASP.NET Core 2.0 の Identity のスキーマを表示する最も簡単な方�
       }
     }
     ```
+
 1. 選択**ビュー** > **SQL Server オブジェクト エクスプ ローラー**します。 指定されたデータベース名に対応するノードを展開し、`ConnectionStrings:DefaultConnection`プロパティの*appsettings.json*します。
 
     `Update-Database`コマンドは、スキーマで指定されたデータベースとアプリの初期化に必要なすべてのデータを作成します。 次の図は、上記の手順で作成されるテーブル構造を示しています。
@@ -64,9 +65,9 @@ ASP.NET Core 2.0 の Identity のスキーマを表示する最も簡単な方�
 
 テーブルの構造とメンバーシップと ASP.NET Core Identity の両方のフィールドにわずかな違いがあります。 パターンは、ASP.NET と ASP.NET Core アプリでの認証/承認の大幅に変更されました。 Id で引き続き使用されるキー オブジェクトが*ユーザー*と*ロール*します。 マッピング テーブルを次のとおり*ユーザー*、*ロール*、および*UserRoles*します。
 
-### <a name="users"></a>ユーザー
+### <a name="users"></a>Users
 
-|*Identity<br>(dbo します。AspNetUsers)*        ||*メンバーシップ<br>(dbo.aspnet_Users/dbo.aspnet_Membership)*||
+|*Identity<br>(dbo します。AspNetUsers)*        ||*Membership<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
 |----------------------------------------|-----------------------------------------------------------|
 |**フィールド名**                 |**Type**|**フィールド名**                                    |**Type**|
 |`Id`                           |string  |`aspnet_Users.UserId`                             |string  |
@@ -82,7 +83,7 @@ ASP.NET Core 2.0 の Identity のスキーマを表示する最も簡単な方�
 
 ### <a name="roles"></a>役割
 
-|*Identity<br>(dbo します。AspNetRoles)*        ||*メンバーシップ<br>(dbo.aspnet_Roles)*||
+|*Identity<br>(dbo.AspNetRoles)*        ||*Membership<br>(dbo.aspnet_Roles)*||
 |----------------------------------------|-----------------------------------|
 |**フィールド名**                 |**Type**|**フィールド名**   |**Type**         |
 |`Id`                           |string  |`RoleId`         | string          |
@@ -91,7 +92,7 @@ ASP.NET Core 2.0 の Identity のスキーマを表示する最も簡単な方�
 
 ### <a name="user-roles"></a>ユーザー ロール
 
-|*Identity<br>(dbo します。AspNetUserRoles)*||*メンバーシップ<br>(dbo.aspnet_UsersInRoles)*||
+|*Identity<br>(dbo.AspNetUserRoles)*||*Membership<br>(dbo.aspnet_UsersInRoles)*||
 |------------------------------------|------------------------------------------|
 |**フィールド名**           |**Type**  |**フィールド名**|**Type**                   |
 |`RoleId`                 |string    |`RoleId`      |string                     |
@@ -127,7 +128,7 @@ SELECT aspnet_Users.UserId,
        -- Creates an empty password since passwords don't map between the 2 schemas
        '',
        /*
-        The SecurityStamp token is used to verify the state of an account and 
+        The SecurityStamp token is used to verify the state of an account and
         is subject to change at any time. It should be initialized as a new ID.
        */
        NewID(),

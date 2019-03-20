@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: test/troubleshoot
-ms.openlocfilehash: c8b34f51fd329eb9a7c34f7be93bd7f2aa054283
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1f53375a6aa504c989920a0bff83b400b7bd83ec
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208844"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core プロジェクトをトラブルシューティングします。
 
@@ -53,7 +53,7 @@ ms.locfileid: "56899290"
 
 .NET Core SDK の少なくとも 1 つのインストール ディレクトリの外部にある場合、このメッセージが表示 *c:\\Program Files\\dotnet\\sdk\\* します。 通常は、.NET Core SDK が、MSI インストーラーではなくコピー/貼り付けを使用して、マシンにデプロイされている場合に発生します。
 
-この警告を回避するには、32 ビット .NET Core SDK をアンインストールします。 アンインストール**コントロール パネルの** > **プログラムと機能** > **のアンインストールと変更プログラム**です。 警告が発生した理由とその影響を理解している場合は、警告を無視できます。
+すべて 32 ビット .NET Core Sdk とランタイムをこの警告を防ぐためにアンインストールします。 アンインストール**コントロール パネルの** > **プログラムと機能** > **のアンインストールと変更プログラム**です。 警告が発生した理由とその影響を理解している場合は、警告を無視できます。
 
 ### <a name="no-net-core-sdks-were-detected"></a>.NET Core Sdk は検出されませんでした。
 

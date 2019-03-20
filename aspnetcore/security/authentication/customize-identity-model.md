@@ -5,12 +5,12 @@ description: この記事では、ASP.NET Core Identity の基になる Entity F
 ms.author: avickers
 ms.date: 09/24/2018
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 90c867eeac0e64bfe77cc7a829d61e831a2fb8e1
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 55346c571f180fa17a1108a622d991d15f365bae
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402253"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209463"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET Core での id モデルのカスタマイズ
 
@@ -209,7 +209,7 @@ Identity は、既定値を定義します。[共通言語ランタイム](/dotn
 
 これらの型を直接使用するのではなく アプリの種類の型の基本クラスとして使用できます。 `DbContext` Id によって定義されているクラスはジェネリックでは、モデルのエンティティ型の 1 つ以上の別の CLR 型を使用できるようにします。 これらのジェネリック型が許可することも、`User`主キー (PK) データの種類を変更します。
 
-ロールについては、サポートでの Id を使用する場合、<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext>クラスを使用する必要があります。 例えば:
+ロールについては、サポートでの Id を使用する場合、<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext>クラスを使用する必要があります。 例:
 
 ```csharp
 // Uses all the built-in Identity types
@@ -302,7 +302,6 @@ public abstract class IdentityUserContext<
 
 [カスタム ユーザー データ](xref:security/authentication/add-user-data)から継承することではサポートされて`IdentityUser`します。 この型名前を指定するが通例`ApplicationUser`:
 
-
 ```csharp
 public class ApplicationUser : IdentityUser
 {
@@ -334,7 +333,7 @@ services.AddDefaultIdentity<ApplicationUser>()
         .AddDefaultUI();
 ```
 
-ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリとして提供されます。 詳細については、「<xref:security/authentication/scaffold-identity>」を参照してください。 したがって、上記のコードへの呼び出しが必要です。<xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>します。 Id ファイルをプロジェクトに追加する Identity scaffolder を使用した場合への呼び出しを削除`AddDefaultUI`します。 詳細については次を参照してください:
+ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリとして提供されます。 詳細については、「 <xref:security/authentication/scaffold-identity> 」を参照してください。 したがって、上記のコードへの呼び出しが必要です。<xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>します。 Id ファイルをプロジェクトに追加する Identity scaffolder を使用した場合への呼び出しを削除`AddDefaultUI`します。 詳細については次を参照してください:
 
 * [Identity のスキャフォールディング](xref:security/authentication/scaffold-identity)
 * [追加、ダウンロード、および Id にカスタム ユーザー データの削除](xref:security/authentication/add-user-data)
@@ -426,7 +425,7 @@ services.AddIdentity<ApplicationUser, IdentityRole>()
 
     ::: moniker-end
 
-4. 場合、カスタム`ApplicationUser`クラスが使用されているから継承するクラスを更新`IdentityUser`します。 例えば:
+4. 場合、カスタム`ApplicationUser`クラスが使用されているから継承するクラスを更新`IdentityUser`します。 例:
 
     ::: moniker range="<= aspnetcore-1.1"
 
@@ -466,7 +465,7 @@ services.AddIdentity<ApplicationUser, IdentityRole>()
 
     分析することで、プライマリ キーのデータ型が推論される、<xref:Microsoft.EntityFrameworkCore.DbContext>オブジェクト。
 
-    ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリとして提供されます。 詳細については、「<xref:security/authentication/scaffold-identity>」を参照してください。 したがって、上記のコードへの呼び出しが必要です。<xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>します。 Id ファイルをプロジェクトに追加する Identity scaffolder を使用した場合への呼び出しを削除`AddDefaultUI`します。
+    ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリとして提供されます。 詳細については、「 <xref:security/authentication/scaffold-identity> 」を参照してください。 したがって、上記のコードへの呼び出しが必要です。<xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>します。 Id ファイルをプロジェクトに追加する Identity scaffolder を使用した場合への呼び出しを削除`AddDefaultUI`します。
 
     ::: moniker-end
 
@@ -494,7 +493,7 @@ services.AddIdentity<ApplicationUser, IdentityRole>()
 
     ::: moniker-end
 
-5. 場合、カスタム`ApplicationRole`クラスが使用されているから継承するクラスを更新`IdentityRole<TKey>`します。 例えば:
+5. 場合、カスタム`ApplicationRole`クラスが使用されているから継承するクラスを更新`IdentityRole<TKey>`します。 例:
 
     [!code-csharp[](customize-identity-model/samples/2.1/RazorPagesSampleApp/Data/ApplicationRole.cs?name=snippet_ApplicationRole&highlight=4)]
 
@@ -510,7 +509,7 @@ services.AddIdentity<ApplicationUser, IdentityRole>()
 
     分析することで、プライマリ キーのデータ型が推論される、<xref:Microsoft.EntityFrameworkCore.DbContext>オブジェクト。
 
-    ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリとして提供されます。 詳細については、「<xref:security/authentication/scaffold-identity>」を参照してください。 したがって、上記のコードへの呼び出しが必要です。<xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>します。 Id ファイルをプロジェクトに追加する Identity scaffolder を使用した場合への呼び出しを削除`AddDefaultUI`します。
+    ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリとして提供されます。 詳細については、「 <xref:security/authentication/scaffold-identity> 」を参照してください。 したがって、上記のコードへの呼び出しが必要です。<xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>します。 Id ファイルをプロジェクトに追加する Identity scaffolder を使用した場合への呼び出しを削除`AddDefaultUI`します。
 
     ::: moniker-end
 
@@ -943,7 +942,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 ### <a name="map-to-a-different-schema"></a>別のスキーマにマップします。
 
-スキーマは、データベース プロバイダーにわたる動作が異なることができます。 既定値は、SQL Server のすべてのテーブルを作成する、 *dbo*スキーマ。 別のスキーマ内のテーブルを作成できます。 例えば:
+スキーマは、データベース プロバイダーにわたる動作が異なることができます。 既定値は、SQL Server のすべてのテーブルを作成する、 *dbo*スキーマ。 別のスキーマ内のテーブルを作成できます。 例:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)

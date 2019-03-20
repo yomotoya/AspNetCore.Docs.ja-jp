@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 16cfa672fe4a81d9e8f09fc3dd1e6c036edd4c4e
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208977"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -31,7 +31,7 @@ API ようにするありませんクライアントの最初の要求で機密�
 > * ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
 
 
-## <a name="require-https"></a>HTTPS が必要です。
+## <a name="require-https"></a>HTTPS を要求する
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -70,7 +70,7 @@ Web アプリの呼び出しを実稼働 ASP.NET Core を推奨します。
 
   **キー**: `https_port`  
   **型**: *文字列*  
-  **既定の**:既定値が設定されていません。  
+  **既定**:既定値は設定されていません。  
   **次を使用して設定**: `UseSetting`  
   **環境変数**:`<PREFIX_>HTTPS_PORT` (プレフィックスは`ASPNETCORE_`を使用する場合、 [Web ホスト](xref:fundamentals/host/web-host))。
 
@@ -213,9 +213,10 @@ ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。
 
 ![新しい ASP.NET Core Web アプリケーションのダイアログが HTTPS チェック ボックスをオフの構成を表示します。](enforcing-ssl/_static/out.png)
 
-#   <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
-`--no-https` オプションを使用します。 次に例を示します。
+
+  `--no-https` オプションを使用します。 次に例を示します。
 
 ```console
 dotnet new webapp --no-https

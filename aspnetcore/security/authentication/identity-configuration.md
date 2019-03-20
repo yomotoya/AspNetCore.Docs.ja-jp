@@ -5,12 +5,12 @@ description: ASP.NET Core Identity の既定値を理解し、カスタム値を
 ms.author: riande
 ms.date: 02/11/2019
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 3213f669cbfccdcda7cc7c0142b8101e696678e6
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 823182bed2cb953e07f9374d135868aeb2be9c60
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159514"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210120"
 ---
 # <a name="configure-aspnet-core-identity"></a>ASP.NET Core Identity を構成します。
 
@@ -131,14 +131,13 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 
 [IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens)を指定します、 [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions)表に示したプロパティを使用します。
 
-
 |                                                        プロパティ                                                         |                                                                                      説明                                                                                      |
 |-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider)     |                                       取得または設定します、`AuthenticatorTokenProvider`認証子とサインインを 2 つの要素を検証するために使用します。                                       |
 |       [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider)       |                                     取得または設定します、`ChangeEmailTokenProvider`電子メール変更の確認メールで使用されるトークンを生成するために使用します。                                     |
 | [ChangePhoneNumberTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changephonenumbertokenprovider) |                                      取得または設定します、`ChangePhoneNumberTokenProvider`電話番号を変更するときに使用されるトークンを生成するために使用します。                                      |
 | [EmailConfirmationTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.emailconfirmationtokenprovider) |                                             取得または確認メールのアカウントで使用されるトークンを生成するために使用するトークン プロバイダーを設定します。                                              |
-|     [PasswordResetTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.passwordresettokenprovider)     | 取得または設定します、 [IUserTwoFactorTokenProvider<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactortokenprovider-1)パスワード リセット メールで使用されるトークンを生成するために使用します。 |
+|     [PasswordResetTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.passwordresettokenprovider)     | 取得または設定します、 [IUserTwoFactorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactortokenprovider-1)パスワード リセット メールで使用されるトークンを生成するために使用します。 |
 |                    [ProviderMap](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.providermap)                    |                構築に使用される、[ユーザー トークン プロバイダー](/dotnet/api/microsoft.aspnetcore.identity.tokenproviderdescriptor)プロバイダーの名前として使用されるキーを持つ。                 |
 
 ### <a name="user"></a>ユーザー

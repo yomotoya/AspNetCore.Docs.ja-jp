@@ -5,12 +5,12 @@ description: 電子メールの確認とパスワードのリセットと ASP.NE
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: d102ed0a4a75f6273fcda0a8cc7e9d091ff94b50
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209927"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265498"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -45,6 +45,7 @@ dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
+dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail"
 dotnet ef database drop -f
 dotnet ef database update
@@ -63,6 +64,7 @@ dotnet run
 アプリが送信された確認メールを送信するとき、次の手順でこの電子メールをもう一度使用する場合があります。 クリックし、行を右クリックして**削除**します。 電子メール エイリアスを削除する簡単で、次の手順。
 
 <a name="prevent-login-at-registration"></a>
+
 ## <a name="require-email-confirmation"></a>確認の電子メールが必要です。
 
 新規ユーザー登録の電子メール アドレスを確認することをお勧めします。 電子メールの他のユーザーが偽装はいないしていることを確認することを確認できます (つまりに登録していない他のユーザーの電子メールで)。 ディスカッション フォーラムでは、行われていればし、しないようにする"yli@example.comとして登録する"から"nolivetto@contoso.com"。 電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを受け取ることができます。 ユーザーが誤ってとして登録されているとします"ylo@example.com""yli"のスペル ミスを認識していなかったとします。 アプリは、正しいメール アドレスがあるないために、パスワードの回復を使用できるでしょう。 確認の電子メールは、ボットからの限られた保護を提供します。 確認の電子メールは、多くの電子メール アカウントを使用して悪意のあるユーザーから保護を提供しません。
@@ -96,13 +98,13 @@ Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*フ
 
 内容、 *secrets.json*ファイルは暗号化されません。 次のマークアップに示す、 *secrets.json*ファイル。 `SendGridKey`値が削除されました。
 
- ```json
-  {
-    "SendGridUser": "RickAndMSFT",
-    "SendGridKey": "<key removed>"
-  }
-  ```
- 
+```json
+{
+  "SendGridUser": "RickAndMSFT",
+  "SendGridKey": "<key removed>"
+}
+```
+
 詳細については、次を参照してください。、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)します。
 
 ### <a name="install-sendgrid"></a>SendGrid をインストールします。
@@ -130,6 +132,7 @@ dotnet add package SendGrid
 ------
 
 参照してください[SendGrid を無料で開始する](https://sendgrid.com/free/)無料の SendGrid アカウントを登録します。
+
 ### <a name="implement-iemailsender"></a>IEmailSender を実装します。
 
 実装`IEmailSender`、作成*Services/EmailSender.cs*次のようなコードで。
@@ -213,6 +216,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/5410)します。
 
 <a name="debug"></a>
+
 ### <a name="debug-email"></a>電子メールをデバッグします。
 
 電子メールの作業が発生したことはできません: 場合

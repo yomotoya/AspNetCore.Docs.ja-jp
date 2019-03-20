@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 676620b5dd151c9cd009d7cb278ed2c2b122c83f
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346308"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264884"
 ---
 # <a name="continuous-integration-and-deployment"></a>継続的インテグレーションとデプロイ
 
@@ -39,17 +39,23 @@ ms.locfileid: "57346308"
 1. をクリックして、**リポジトリの作成**ボタンをクリックします。
 1. ローカル コンピューターのコマンド シェルを開きます。 ディレクトリに移動し、*単純なフィード-リーダー* Git リポジトリが格納されています。
 1. 既存の名前を変更*原点*にリモート*上流*します。 次のコマンドを実行します。
+
     ```console
     git remote rename origin upstream
     ```
+
 1. 新しい追加*原点*github リポジトリのコピーをリモートでポイントします。 次のコマンドを実行します。
+
     ```console
     git remote add origin https://github.com/<GitHub_username>/simple-feed-reader/
     ```
+
 1. 新しく作成された GitHub リポジトリをローカル Git リポジトリを発行します。 次のコマンドを実行します。
+
     ```console
     git push -u origin master
     ```
+
 1. ブラウザーのウィンドウを開きに移動します`https://github.com/<GitHub_username>/simple-feed-reader/`します。 GitHub リポジトリでコードが表示されることを検証します。
 
 ## <a name="disconnect-local-git-deployment"></a>ローカル Git デプロイを切断します。
@@ -192,6 +198,7 @@ ms.locfileid: "57346308"
     ```console
     git commit -a -m "upgraded to V4"
     ```
+
 1. 変更をプッシュ、*マスター*に分岐、*原点*GitHub リポジトリのリモート。
 
     ```console

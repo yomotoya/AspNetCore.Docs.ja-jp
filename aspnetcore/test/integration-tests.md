@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209240"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core で統合テスト
 
@@ -91,7 +91,7 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 [単体テスト](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)ドキュメントが名前のテストにテストと方法に関する推奨事項を実行して、クラスをテストする方法の詳細な手順と共に、テスト プロジェクトとテスト ランナーを設定する方法について説明します。
 
 > [!NOTE]
-> アプリのテスト プロジェクトを作成する場合は、別々 のプロジェクトに統合テストから単体テストを区切ります。 こうことからテストのインフラストラクチャ コンポーネントの単体テストに含まれる誤っていないことを確認します。 単体テストや統合テストの分離により、テストのどのセットに対してが実行を制御します。
+> アプリのテスト プロジェクトを作成する場合は、別々 のプロジェクトに統合テストから単体テストを区切ります。 テストのインフラストラクチャ コンポーネントが、単体テストに含まれていない誤ってを維持します。 単体テストや統合テストの分離により、テストのどのセットに対してが実行を制御します。
 
 これは、Razor ページ アプリのテストの構成と MVC アプリの違いはほとんどありません。 唯一の違いは、テストの名前付け方法です。 Razor ページ アプリでページのエンドポイントのテストの名前は通常、ページ モデル クラスの後 (たとえば、`IndexPageTests`インデックス ページのコンポーネントの統合をテストする)。 MVC アプリでテストは通常は別に整理されたコント ローラー クラスとテスト コント ローラーにちなんだ名前 (たとえば、 `HomeControllerTests` Home コント ローラー用のコンポーネントの統合をテストする)。
 
