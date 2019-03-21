@@ -5,12 +5,12 @@ description: ASP.NET Core データ保護キー ストレージの形式の実�
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: bca19ad001dd20b5d02ae5470f7d928082496037
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 81df124f3dd0cadf8fd895ab55f66eec6415705f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208019"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>ASP.NET Core でのキー ストレージの形式
 
@@ -65,7 +65,7 @@ ms.locfileid: "39219278"
 
 **&lt;EncryptedSecret&gt;** 秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する可能性がある場合[rest でのシークレットの暗号化が有効になっている](xref:security/data-protection/implementation/key-encryption-at-rest)します。 属性`decryptorType`を実装する型のアセンブリ修飾名は、 [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor)します。 この型は、内部の読み取りを行う **&lt;encryptedKey&gt;** 要素と、元のプレーン テキストを回復する復号化します。
 
-同様\<記述子 > の特定の形式、<encryptedSecret>要素が使用中の保存時暗号化メカニズムに依存します。 上記の例では、Windows DPAPI を使用して、コメント、マスター _ キーが暗号化します。
+同様`<descriptor>`の特定の形式、`<encryptedSecret>`要素が使用中の保存時暗号化メカニズムに依存します。 上記の例では、Windows DPAPI を使用して、コメント、マスター _ キーが暗号化します。
 
 ## <a name="the-revocation-element"></a>\<失効 > 要素
 

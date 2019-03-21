@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 9960932bd288ea12e346272f1838026778f1d355
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7f048f2f95f1a51a0b6ce3d36665420ff28ec26f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208474"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
@@ -21,7 +21,7 @@ ms.locfileid: "50148864"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-インストール**1 つ**から次の[.NET ダウンロード: Windows](https://www.microsoft.com/net/download/windows):
+インストール**1 つ**から次の[.NET ダウンロードします。Windows](https://www.microsoft.com/net/download/windows):
 
 * .NET Core SDK
 * Visual Studio for Windows
@@ -76,7 +76,7 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 * エラー ページ
 * 静的ファイル
 * ASP.NET Core MVC
-* 同一。
+* Identity
 
 [!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
 
@@ -123,15 +123,15 @@ ASP.NET アプリケーションでは、開発者は、依存関係の注入を
 
 Unity で依存関係の注入を設定する例を実装する`IDependencyResolver`をラップする、 `UnityContainer`:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](samples/sample8.cs)]
 
 `UnityContainer` のインスタンスを作成し、サービスを登録して、`HttpConfiguration` の依存関係リゾルバーをコンテナー用の `UnityResolver` の新しいインスタンスに設定します。
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](samples/sample9.cs)]
 
 必要な場所に `IProductRepository` を挿入します。
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](samples/sample5.cs)]
 
 サービスを追加するには依存関係の挿入は、ASP.NET Core の一部であるため、 `Startup.ConfigureServices`:
 
@@ -151,7 +151,7 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 [!code-csharp[](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 
-**注:** .NET Framework を対象にする場合は、NuGet パッケージ `Microsoft.AspNetCore.StaticFiles` をインストールします。
+**注:**.NET Framework を対象にする場合は、NuGet パッケージ `Microsoft.AspNetCore.StaticFiles` をインストールします。
 
 たとえば、*wwwroot/images* フォルダー内のイメージ アセットには、ブラウザーから `http://<app>/images/<imageFileName>` などの場所でアクセスできます。
 
