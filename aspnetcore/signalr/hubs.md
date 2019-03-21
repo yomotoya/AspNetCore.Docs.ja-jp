@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 9bc74079235338c75c47e06bde2b78dc1c466bd6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 244ddc40e647bfcc3ca8cda2797c51bc49174822
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836689"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320148"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET core SignalR のハブの使用
 
@@ -52,6 +52,7 @@ public class ChatHub : Hub
 
 > [!NOTE]
 > ハブは、一時的なものです。
+>
 > * ハブ クラスのプロパティの状態を保存しないでください。 すべてのハブ メソッド呼び出しは、新しいハブ インスタンスで実行されます。  
 > * 使用`await`ままになります、ハブに依存する非同期のメソッドを呼び出すとき。 などのメソッドではたとえば、`Clients.All.SendAsync(...)`が失敗することがなく呼び出された場合`await`ハブ メソッドの完了と`SendAsync`が完了するとします。
 
@@ -125,7 +126,7 @@ public class ChatHub : Hub
 
 使用して`Hub<IChatClient>`クライアント メソッドのコンパイル時にチェックできるようにします。 これにより、問題のため、マジック文字列を使用することで`Hub<T>`のみ、インターフェイスで定義されたメソッドへのアクセスを提供できます。
 
-厳密に型指定を使用して`Hub<T>`を使用する機能を無効にします。`SendAsync`します。 インターフェイスで定義されたメソッドを非同期と定義できますはまだ。 実際には、これらの各メソッドを返す必要があります、`Task`します。 インターフェイスであるために使用しないでください、`async`キーワード。 例:
+厳密に型指定を使用して`Hub<T>`を使用する機能を無効にします。`SendAsync`します。 インターフェイスで定義されたメソッドを非同期と定義できますはまだ。 実際には、これらの各メソッドを返す必要があります、`Task`します。 インターフェイスであるために使用しないでください、`async`キーワード。 例えば:
 
 ```csharp
 public interface IClient
@@ -153,7 +154,7 @@ SignalR ハブ API は、提供、`OnConnectedAsync`と`OnDisconnectedAsync`接�
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
-## <a name="handle-errors"></a>エラー処理
+## <a name="handle-errors"></a>エラーの処理
 
 ハブ メソッドでスローされた例外は、メソッドを呼び出したクライアントに送信されます。 JavaScript クライアントで、`invoke`メソッドを返します。 を[JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises)します。 クライアントが、ハンドラーでエラーを受信すると promise を使用して、接続されている`catch`、呼び出されるは、JavaScript として渡される`Error`オブジェクト。
 

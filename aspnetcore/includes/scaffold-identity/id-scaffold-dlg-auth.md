@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 53774177030adf8a61606a696af85cd1f57d6ab9
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320293"
+---
 Identity scaffolder を実行します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
@@ -15,41 +23,41 @@ Identity scaffolder を実行します。
   * 選択、 **+** 新たに作成するボタン**データ コンテキスト クラス**します。
   * 選択**追加**します。
 
-注: 新しいユーザー コンテキストを作成する場合、オーバーライドするファイルを選択する必要はありません。
+メモ:新しいユーザー コンテキストを作成する場合は、オーバーライドするファイルを選択する必要はありません。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ASP.NET Core scaffolder を以前インストールしていない場合は、今すぐインストールします。
 
-```cli
+```console
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 パッケージ参照を追加[Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/)プロジェクト (\*.csproj) ファイル。 プロジェクト ディレクトリに、次のコマンドを実行します。
 
-```cli
+```console
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Identity scaffolder オプションを一覧表示するには、次のコマンドを実行します。
 
-```cli
+```console
 dotnet aspnet-codegenerator identity -h
 ```
 
 プロジェクト フォルダー内には、必要なオプションで Identity scaffolder を実行します。 たとえば、id、既定値は、UI とファイルの最小数を設定するには、次のコマンドを実行します。 DB コンテキストの正しい完全修飾名を使用します。
 
-```cli
+```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
-Powershell では、コマンドの区切り記号としてセミコロンを使用します。 Powershell を使用する場合は、ファイルの一覧でセミコロンをエスケープまたは二重引用符で囲まれたファイルの一覧を配置します。 例えば:
+PowerShell では、コマンドの区切り記号としてセミコロンを使用します。 PowerShell を使用する場合は、ファイルの一覧でセミコロンをエスケープまたは二重引用符で囲まれたファイルの一覧を配置します。 例えば:
 
-```cli
+```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
 Identity scaffolder を指定せずに実行する場合、`--files`フラグまたは`--useDefaultUI`プロジェクトで使用可能なの Identity の UI ページが作成されるすべてのフラグします。
 
--------------
+---
