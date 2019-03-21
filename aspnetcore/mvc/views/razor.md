@@ -5,12 +5,12 @@ description: Web ページにサーバー ベースのコードを埋め込む�
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 8e9ec3c5040e5a24cd5f773b1232897338741c0c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396260"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264755"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
@@ -69,9 +69,9 @@ C# の `await` キーワードを除き、暗黙的な式にスペースを含�
 
 上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
 
- * The "int" element wasn't closed. All elements must be either self-closing or have a matching end tag. ("int" 要素が閉じられませんでした。すべての要素は、自己終了するか、対応する終了タグが存在する必要があります。)
- *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' に変換することはできません。 このメソッドを呼び出しますか? 
- 
+* The "int" element wasn't closed. All elements must be either self-closing or have a matching end tag. ("int" 要素が閉じられませんでした。すべての要素は、自己終了するか、対応する終了タグが存在する必要があります。)
+* メソッド グループ 'GenericMethod' を非デリゲート型 'object' に変換することはできません。 このメソッドを呼び出しますか?
+
 ジェネリック メソッドの呼び出しは、[明示的な Razor 式](#explicit-razor-expressions)または [Razor コード ブロック](#razor-code-blocks)にラップする必要があります。
 
 ## <a name="explicit-razor-expressions"></a>明示的な Razor 式
@@ -199,7 +199,7 @@ HTML タグによって囲まれていない HTML をレンダリングするに
 
 **\<text>** タグは、内容をレンダリングするときに空白文字を制御するのに便利です。
 
-* **\<text>** タグの間の内容だけがレンダリングされます。 
+* **\<text>** タグの間の内容だけがレンダリングされます。
 * **\<text>** タグの前後にある空白文字は HTML の出力には表示されません。
 
 ### <a name="explicit-line-transition-with-"></a>@: による明示的な行の遷移
@@ -216,7 +216,7 @@ HTML タグによって囲まれていない HTML をレンダリングするに
 
 コードに `@:` がないと、Razor ランタイム エラーが生成されます。
 
-警告:Razor ファイルに余分な `@` 文字があると、ブロックの後続のステートメントでコンパイラ エラーが発生することがあります。 これらのコンパイラ エラーは、実際のエラーは報告されたエラーより前で発生しているため、理解するのが難しい場合があります。 このエラーは、複数の暗黙的/明示的な式を 1 つのコード ブロックに結合した後で発生することがよくあります。
+警告 :Razor ファイルに余分な `@` 文字があると、ブロックの後続のステートメントでコンパイラ エラーが発生することがあります。 これらのコンパイラ エラーは、実際のエラーは報告されたエラーより前で発生しているため、理解するのが難しい場合があります。 このエラーは、複数の暗黙的/明示的な式を 1 つのコード ブロックに結合した後で発生することがよくあります。
 
 ## <a name="control-structures"></a>制御構造
 
@@ -337,7 +337,6 @@ else
 
 C# では、オブジェクトを確実に破棄するために `using` オブジェクトが使われています。 Razor では、同じメカニズムが、追加コンテンツを含む HTML ヘルパーを作成するために使われています。 次のコードの HTML ヘルパーは、`@using` ステートメントを含むフォーム タグをレンダリングします。
 
-
 ```cshtml
 @using (Html.BeginForm())
 {
@@ -425,6 +424,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 後の「[ビューに対して生成された Razor C# クラスを調べる](#inspect-the-razor-c-class-generated-for-a-view)」セクションでは、この生成されたクラスを表示する方法について説明します。
 
 <a name="using"></a>
+
 ### <a name="using"></a>@using
 
 `@using` ディレクティブは、生成されるビューに C# の `using` ディレクティブを追加します。
@@ -579,7 +579,7 @@ public class Pet
 @using Microsoft.AspNetCore.Html
 
 @functions {
-    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times,
         Func<dynamic, IHtmlContent> template)
     {
         var html = new HtmlContentBuilder();

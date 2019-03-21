@@ -5,12 +5,12 @@ description: ASP.NET Core 2.0 の新機能について説明します。
 ms.author: riande
 ms.date: 07/10/2017
 uid: aspnetcore-2.0
-ms.openlocfilehash: a6d3179c84bfef0b15c2772e696466b88d228de5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 60e44e64bd1cfada0143e374f6f51dec0e4e84f8
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209886"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 の新機能
 
@@ -81,9 +81,9 @@ Angular、Aurelia、Knockout.js、React.js、Redux 用 React.js で、シング�
 
 Kestrel Web サーバーを、インターネット接続用サーバーとして使用するのにより適切にする新機能が追加されました。 `KestrelServerOptions` クラスの新しい `Limits` プロパティに、多数のサーバー制約構成が追加されました。 次に制限を追加できるようになりました。
 
-- クライアントの最大接続数
-- 要求本文の最大サイズ
-- 要求本文の最小レート
+* クライアントの最大接続数
+* 要求本文の最大サイズ
+* 要求本文の最小レート
 
 詳細については、「[Kestrel web server implementation in ASP.NET Core](xref:fundamentals/servers/kestrel)」 (ASP.NET Core への Kestrel Web サーバーの実装) を参照してください。
 

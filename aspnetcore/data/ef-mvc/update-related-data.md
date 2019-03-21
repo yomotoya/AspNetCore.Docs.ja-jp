@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209415"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>チュートリアル: 関連データを更新する - ASP.NET MVC と EF Core
 
@@ -131,11 +131,11 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
 
 このコードは次のことを行います。
 
--  署名が HttpGet `Edit` メソッドと同じになっているため、メソッド名を `EditPost` に変更します (`ActionName` 属性は `/Edit/` URL が引き続き使用されることを指定します)。
+* 署名が HttpGet `Edit` メソッドと同じになっているため、メソッド名を `EditPost` に変更します (`ActionName` 属性は `/Edit/` URL が引き続き使用されることを指定します)。
 
--  `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の Instructor エンティティをデータベースから取得します。 これは、HttpGet `Edit` メソッドで行ったのと同じです。
+* `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の Instructor エンティティをデータベースから取得します。 これは、HttpGet `Edit` メソッドで行ったのと同じです。
 
--  モデル バインダーからの値を使用して、取得した Instructor エンティティを更新します。 `TryUpdateModel` オーバーロードは、含めたいプロパティをホワイトリストに登録できるようにします。 これにより、[2 番目のチュートリアル](crud.md)で説明したように、過剰ポスティングを防止します。
+* モデル バインダーからの値を使用して、取得した Instructor エンティティを更新します。 `TryUpdateModel` オーバーロードは、含めたいプロパティをホワイトリストに登録できるようにします。 これにより、[2 番目のチュートリアル](crud.md)で説明したように、過剰ポスティングを防止します。
 
     <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -146,7 +146,7 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
 
--   オフィスの場所が空白の場合は、OfficeAssignment テーブル内の関連する行が削除されるように、Instructor.OfficeAssignment プロパティを null に設定します。
+* オフィスの場所が空白の場合は、OfficeAssignment テーブル内の関連する行が削除されるように、Instructor.OfficeAssignment プロパティを null に設定します。
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
@@ -157,7 +157,7 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
     }
     ```
 
-- データベースへの変更を保存します。
+* データベースへの変更を保存します。
 
 ### <a name="update-the-instructor-edit-view"></a>Instructors/Edit ビューを更新する
 
@@ -225,7 +225,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 <a id="notepad"></a>
 > [!NOTE]
-> Visual Studio にコードを貼り付けると、改行がコードを分割するように変更されます。  Ctrl キーを押しながら Z キーを 1 回押して、オート フォーマットを元に戻します。  これにより、改行がここに示されているように修正されます。 インデントは完璧である必要はありませんが、`@</tr><tr>`、`@:<td>`、`@:</td>`、および `@:</tr>` の行は、示されているようにそれぞれ 1 行にする必要があります。そうしないと、ランタイム エラーが発生します。 新しいコードのブロックを選択して、Tab キーを 3 回押して、新しいコードと既存のコードを並べます。 この問題の状態は、[ここ](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)で確認できます。
+> Visual Studio にコードを貼り付けると、改行がコードを分割するように変更されます。 Ctrl キーを押しながら Z キーを 1 回押して、オート フォーマットを元に戻します。 これにより、改行がここに示されているように修正されます。 インデントは完璧である必要はありませんが、`@</tr><tr>`、`@:<td>`、`@:</td>`、および `@:</tr>` の行は、示されているようにそれぞれ 1 行にする必要があります。そうしないと、ランタイム エラーが発生します。 新しいコードのブロックを選択して、Tab キーを 3 回押して、新しいコードと既存のコードを並べます。 この問題の状態は、[ここ](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)で確認できます。
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -250,7 +250,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 このコードにより、次の変更が行われます。
 
-* `CourseAssignments` ナビゲーション プロパティに対して一括読み込みを行います。  これを含める必要があります。そうしないと、EF で関連 `CourseAssignment` エンティティが認識されず、削除されません。  ここでこれらを読み取らなくても済むようにするには、データベースで連鎖削除を構成します。
+* `CourseAssignments` ナビゲーション プロパティに対して一括読み込みを行います。 これを含める必要があります。そうしないと、EF で関連 `CourseAssignment` エンティティが認識されず、削除されません。 ここでこれらを読み取らなくても済むようにするには、データベースで連鎖削除を構成します。
 
 * 削除されるインストラクターが任意の部門の管理者として割り当てられている場合、インストラクターの割り当てをその部門から削除します。
 

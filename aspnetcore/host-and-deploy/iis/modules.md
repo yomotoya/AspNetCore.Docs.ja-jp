@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400685"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265479"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core での IIS モジュール
 
@@ -123,7 +123,7 @@ IIS マネージャーを使って設定を構成すると、アプリの *web.c
     </system.webServer>
    </configuration>
    ```
-   
+
 *web.config* を利用して IIS Express のモジュールを追加または削除するには、`<modules>` セクションのロックを解除するには、*applicationHost.config* を変更します。
 
 1. *{APPLICATION ROOT}\\.vs\config\applicationhost.config* を開きます。
@@ -131,17 +131,17 @@ IIS マネージャーを使って設定を構成すると、アプリの *web.c
 1. IIS モジュールの `<section>` 要素を見つけ、`overrideModeDefault` を `Deny` から `Allow` に変更します。
 
    ```xml
-   <section name="modules" 
-            allowDefinition="MachineToApplication" 
+   <section name="modules"
+            allowDefinition="MachineToApplication"
             overrideModeDefault="Allow" />
    ```
-   
+
 1. `<location path="" overrideMode="Allow"><system.webServer><modules>` セクションを見つけます。 削除するモジュールに対して、`lockItem` を `true` から `false` に設定します。 次の例では、CGI モジュールのロックが解除されています。
 
    ```xml
    <add name="CgiModule" lockItem="false" />
    ```
-   
+
 1. `<modules>` セクションと個々のモジュールのロックが解除されたら、IIS Express でアプリを実行するためのアプリの *web.config* ファイルを利用し、IIS モジュールを自由に追加したり、削除したりできます。
 
 IIS モジュールは、*Appcmd.exe* を使って削除することもできます。 コマンドで `MODULE_NAME` と `APPLICATION_NAME` を指定します。

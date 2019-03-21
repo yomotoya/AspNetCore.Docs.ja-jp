@@ -5,12 +5,12 @@ description: このチュートリアルでは、外部キー フィールドと
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208610"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 
@@ -136,9 +136,9 @@ Create、Edit、Details、Delete の各ページをテストします。
 
 上のコードでは以下の操作が行われます。
 
-- `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の `Instructor` エンティティをデータベースから取得します。
-- モデル バインダーからの値を使用して、取得した `Instructor` エンティティを更新します。 `TryUpdateModel` は[過剰ポスティング](xref:data/ef-rp/crud#overposting)を防止します。
-- オフィスの場所が空白の場合は、`Instructor.OfficeAssignment` を null に設定します。 `Instructor.OfficeAssignment` が null の場合、`OfficeAssignment` テーブル内の関連する行が削除されます。
+* `OfficeAssignment` ナビゲーション プロパティの一括読み込みを使用して、現在の `Instructor` エンティティをデータベースから取得します。
+* モデル バインダーからの値を使用して、取得した `Instructor` エンティティを更新します。 `TryUpdateModel` は[過剰ポスティング](xref:data/ef-rp/crud#overposting)を防止します。
+* オフィスの場所が空白の場合は、`Instructor.OfficeAssignment` を null に設定します。 `Instructor.OfficeAssignment` が null の場合、`OfficeAssignment` テーブル内の関連する行が削除されます。
 
 ### <a name="update-the-instructor-edit-page"></a>Instructors/Edit ページを更新する
 

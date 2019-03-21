@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: ac924e7d6bee2f02ab11281a5c27f2c94a7183b3
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 6d4ed0e95499c30417e1cfd07f57de824a8a62ed
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102995"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265516"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>チュートリアル: 移行機能の使用 - ASP.NET MVC と EF Core
 
@@ -28,7 +28,6 @@ ms.locfileid: "56102995"
 > * Up および Down メソッドを確認する
 > * データ モデルのスナップショットについて学習する
 > * 移行を適用する
-
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -60,6 +59,7 @@ ms.locfileid: "56102995"
 
 > [!NOTE]
 > データベース名を変更する代わりに、データベースを削除することもできます。 **SQL Server オブジェクト エクスプローラー** (SSOX) または `database drop` CLI コマンドを使用します。
+>
 > ```console
 > dotnet ef database drop
 > ```

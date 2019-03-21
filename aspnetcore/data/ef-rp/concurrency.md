@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 3fb8ebe415d0619d33302a08e97da78db0ad1d1e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346295"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265508"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 
@@ -95,9 +95,9 @@ John が Edit ページの **[保存]** をクリックします。このとき�
 
 データベースによって、行が更新されるたびに増える、連続する `rowversion` 番号値が生成されます。 `Update` または `Delete` コマンドの `Where` 句には、フェッチされた `rowversion` の値が含まれます。 更新された行が変更された場合、次のようになります。
 
- * `rowversion` がフェッチされた値と一致しなくなります。
- * `Where` 句にフェッチされた `rowversion` が含まれるので、`Update` または `Delete` コマンドでは行が検索されません。
- * `DbUpdateConcurrencyException` がスローされます。
+* `rowversion` がフェッチされた値と一致しなくなります。
+* `Where` 句にフェッチされた `rowversion` が含まれるので、`Update` または `Delete` コマンドでは行が検索されません。
+* `DbUpdateConcurrencyException` がスローされます。
 
 EF Core では、`Update` または `Delete` コマンドで行が更新されない場合、コンカレンシー競合がスローされます。
 
@@ -152,6 +152,7 @@ dotnet ef database update
 * データベースを更新するために移行が実行されます。
 
 <a name="scaffold"></a>
+
 ## <a name="scaffold-the-departments-model"></a>部署モデルのスキャフォールディング
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -272,7 +273,6 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 次のコードを使用して、*Pages/Departments/Delete.cshtml* を更新します。
 
 [!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
-
 
 上記のマークアップは、次の変更を加えます。
 

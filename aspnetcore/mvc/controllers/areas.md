@@ -5,12 +5,12 @@ description: 区分は ASP.NET MVC の機能であり、関連する機能を別
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400646"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264763"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core の区分
 
@@ -38,6 +38,7 @@ Razor Pages を使用している場合は、このドキュメントの「[Razo
 * [スタートアップに追加された区分ルート](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>区分フォルダーの構造
+
 あるアプリに *Products* と *Services* という 2 つの論理グループが与えられているとします。 区分を利用すると、フォルダーの構造は次のようになります。
 
 * Project name
@@ -52,7 +53,7 @@ Razor Pages を使用している場合は、このドキュメントの「[Razo
         * Manage
           * Index.cshtml
           * About.cshtml
-    * Services
+    * サービス
       * Controllers
         * HomeController.cs
       * Views
@@ -135,7 +136,7 @@ Razor Pages を使った区分を使うには、アプリのルートに *Areas/
         * _ViewImports
         * バージョン情報
         * インデックス
-    * Services
+    * サービス
       * Pages
         * Manage
           * バージョン情報
@@ -172,7 +173,7 @@ Razor Pages を使った区分を使うには、アプリのルートに *Areas/
 上のマークアップについて:
 
 * 完全修飾ドメイン名を使ってモデルを指定する必要があります (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`)。
-* [タグ ヘルパー]()は `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` によって有効になります
+* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)は `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` によって有効になります
 
 サンプル ダウンロードでは、Products 区分に次の *_ViewImports* ファイルが含まれています。
 

@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 952e4dbb2c4343ca87ace1535e4a5968faf088cf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209016"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC でコントローラーで要求を処理する
 
@@ -98,7 +98,7 @@ ms.locfileid: "56410438"
 `[Authorize]` など、フィルター属性の多くは、求められる詳細度に基づき、コントローラーまたはアクション レベルで適用できます。
 
 エラー処理と応答キャッシュは多くの場合、横断的な問題です。
-   * [エラーの処理](xref:mvc/controllers/filters#exception-filters)
-   * [応答キャッシュ](xref:performance/caching/response)
+* [エラーの処理](xref:mvc/controllers/filters#exception-filters)
+* [応答キャッシュ](xref:performance/caching/response)
 
 横断的な問題の多くはフィルターやカスタム [ミドルウェア](xref:fundamentals/middleware/index)の利用で処理できます。

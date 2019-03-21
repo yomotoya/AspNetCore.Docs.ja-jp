@@ -5,12 +5,12 @@ description: 基本的な ASP.NET Core MVC アプリに検索を追加する方�
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: e5dce35b60080ef752f8e6c6004158219015cbf5
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 41d7494b77edaddbf719cab087142f0132dd3ed6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208383"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの検索の追加
 
@@ -37,7 +37,7 @@ var movies = from m in _context.Movie
 
 上の `s => s.Title.Contains()` コードは[ラムダ式](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions)です。 ラムダは、メソッド ベースの [LINQ](/dotnet/standard/using-linq) クエリで、[Where](/dotnet/api/system.linq.enumerable.where) メソッドや `Contains` (上のコードで使用されている) など、標準クエリ演算子メソッドの引数として使用されます。 LINQ クエリは、`Where`、`Contains`、`OrderBy` などのメソッドの呼び出しで定義または変更されたときには実行されません。 クエリ実行は先送りされます。  つまり、その具体値が実際に繰り返されるか、`ToListAsync` メソッドが呼び出されるまで、式の評価が延期されます。 クエリの遅延実行の詳細については、「[クエリの実行](/dotnet/framework/data/adonet/ef/language-reference/query-execution)」を参照してください。
 
-メモ:[Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) メソッドは、上記の C# コードではなく、データベースで実行されます。 クエリの大文字と小文字の区別は、データベースや照合順序に依存します。 SQL Server では、[Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) は大文字と小文字の区別がない [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql) にマッピングされます。 SQLlite の場合、既定の照合順序で、大文字と小文字が区別されます。
+メモ:[Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) メソッドは、上記の C# コードではなく、データベースで実行されます。 クエリの大文字と小文字の区別は、データベースや照合順序に依存します。 SQL Server では、[Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) は大文字と小文字の区別がない [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql) にマッピングされます。 SQLite では、既定の照合順序で、大文字と小文字が区別されます。
 
 `/Movies/Index` に移動します。 `?searchString=Ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
 
@@ -113,10 +113,10 @@ HTML `<form>` タグでは[フォーム タグ ヘルパー](xref:mvc/views/work
 
 ムービージャンルのビュー モデルには以下が含まれます。
 
-   * ムービーのリスト。
-   * ジャンルのリストを含む `SelectList`。 これにより、ユーザーは一覧からジャンルを選択できます。
-   * 選択されたジャンルを含む、`MovieGenre`。
-   * ユーザーが検索テキスト ボックスに入力したテキストが含まれる `SearchString`。
+* ムービーのリスト。
+* ジャンルのリストを含む `SelectList`。 これにより、ユーザーは一覧からジャンルを選択できます。
+* 選択されたジャンルを含む、`MovieGenre`。
+* ユーザーが検索テキスト ボックスに入力したテキストが含まれる `SearchString`。
 
 `MoviesController.cs` の `Index` メソッドを次のコードに置き換えます。
 
@@ -148,4 +148,4 @@ HTML `<form>` タグでは[フォーム タグ ヘルパー](xref:mvc/views/work
 
 > [!div class="step-by-step"]
 > [前へ](controller-methods-views.md)
-> [次へ](new-field.md)  
+> [次へ](new-field.md)

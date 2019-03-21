@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c82571d3cfa57ccd6e7c83f654f119bdd8991486
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210458"
+---
 ```console
 npm run release
 ```
@@ -11,5 +19,5 @@ Webpack は、次のタスクを完了しました。
 * 生成後の JavaScript のファイルのサイズを縮小しました&mdash;*縮小*と呼ばれるプロセス。
 * 処理済みの JavaScript、CSS、および HTML ファイルを *src* から *wwwroot* ディレクトリにコピーしました。
 * 次の要素を *wwwroot/index.html* ファイルに挿入しました。
-    * *wwwroot/main.\<hash\>.css* ファイルを参照している `<link>` タグ。 このタグは、終了 `</head>` タグの直前に置かれます。
-    * 縮小された *wwwroot/main.\<hash\>.js* ファイルを参照している `<script>` タグ。 このタグは、終了 `</body>` タグの直前に置かれます。
+  * *wwwroot/main.\<hash\>.css* ファイルを参照している `<link>` タグ。 このタグは、終了 `</head>` タグの直前に置かれます。
+  * 縮小された *wwwroot/main.\<hash\>.js* ファイルを参照している `<script>` タグ。 このタグは、終了 `</body>` タグの直前に置かれます。

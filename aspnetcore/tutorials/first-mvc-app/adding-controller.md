@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core MVC アプリにコントローラーを追�
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: bbb7b06e2c9c63f44cb7f7a8ee63bffa1e316b3e
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: dad9262e544fc216ddc694b11b0dfb88b58db9cd
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381869"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265008"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリにコントローラーを追加する
 
@@ -30,7 +30,6 @@ MVC パターンは、これらの要素間の疎結合を提供しながら、�
 
 ## <a name="add-a-controller"></a>コントローラーの追加
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **ソリューション エクスプローラー**で、**[コントローラー] を右クリックし、[追加]、[コントローラー]、[コンテキスト メニュー] の順に選択します。**
@@ -42,14 +41,12 @@ MVC パターンは、これらの要素間の疎結合を提供しながら、�
 
 * **[Add Empty MVC Controller]\(空の MVC コント ローラーの追加\)** ダイアログで、「**HelloWorldController**」と入力して、**[追加]** を選択します。
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 **[エクスプローラー]** アイコンで、**[コントローラー] を右クリックして [新しいファイル] を選択し**、新しいファイルに「*HelloWorldController.cs*」という名前を付けます。
 
   ![コンテキスト メニュー](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 **ソリューション エクスプローラー**で、**[Controllers] を右クリックし、[追加]、[新しいファイル]** の順に選択します。
@@ -62,7 +59,6 @@ MVC パターンは、これらの要素間の疎結合を提供しながら、�
 ![MVC コント ローラーを追加し、名前を付けます](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
 
 ---
-<!-- End of VS tabs -->
 
 *Controllers/HelloWorldController.cs* の内容を次のように置き換えます。
 
@@ -119,7 +115,8 @@ URL からコントローラーにいくつかのパラメーター情報を渡�
 
 上の図では、URL セグメント (`Parameters`) は使われておらず、`name` および `numTimes` パラメーターは[クエリ文字列](https://wikipedia.org/wiki/Query_string)として渡されています。 上の URL の `?` (疑問符) は区切り記号であり、後にクエリ文字列が続きます。 `&` 文字は、クエリ文字列を区切ります。
 
-`Welcome` メソッドを次のコードで置き換えます。
+
+  `Welcome` メソッドを次のコードで置き換えます。
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
@@ -130,7 +127,6 @@ URL からコントローラーにいくつかのパラメーター情報を渡�
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 これらの例では、コントローラーによって MVC の "VC" 部分が実行されています。つまり、ビューとコントローラーが動作します。 コントローラーは HTML を直接返しています。 一般に、コントローラーが HTML を直接返すのは、コーディングと保守が非常に面倒になるので、望ましくありません。 代わりに、通常は、別の Razor ビュー テンプレート ファイルを使って、HTML 応答の生成を支援します。 これは次のチュートリアルで行います。
-
 
 > [!div class="step-by-step"]
 > [前へ](start-mvc.md)

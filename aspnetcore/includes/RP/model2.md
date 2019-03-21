@@ -1,7 +1,16 @@
+---
+ms.openlocfilehash: 86cf1874677dc8b79e3223fb0819eb1881c69a11
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265609"
+---
 <a name="dc"></a>
-### 
 
-次の `RazorPagesMovieContext` クラスを *Models* フォルダーに追加します。  
+### <a name="add-a-database-context-class"></a>データベース コンテキスト クラスの追加
+
+次の `RazorPagesMovieContext` クラスを *Models* フォルダーに追加します。
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 

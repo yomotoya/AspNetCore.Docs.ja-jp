@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: b2b5a155d0dff28e471af449731da787f19d1faf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208359"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio を使用して Azure に ASP.NET Core アプリを発行する
 
@@ -127,7 +127,7 @@ Visual Studio が **[App Service の作成]** ダイアログに戻ります。
 
 ![[SQL Database の構成] ダイアログ](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio は、Azure で Web アプリと SQL Server を作成します。 このステップには数分かかる場合があります。 作成されるリソースについては、「[追加のリソース](#additonal-resources)」を参照してください。
+Visual Studio は、Azure で Web アプリと SQL Server を作成します。 このステップには数分かかる場合があります。 作成されるリソースについては、「[追加のリソース](#additional-resources)」を参照してください。
 
 配置が完了したら、**[設定]** を選択します。
 
@@ -135,8 +135,8 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 **[発行]** ダイアログの **[設定]** ページで次の手順を実行します。
 
-  * **[データベース]** を展開し、**[この接続文字列を実行時に使用する]** をオンにします。
-  * **[Entity Framework の移行]** を展開し、**[発行時にこの移行を適用する]** をオンにします。
+* **[データベース]** を展開し、**[この接続文字列を実行時に使用する]** をオンにします。
+* **[Entity Framework の移行]** を展開し、**[発行時にこの移行を適用する]** をオンにします。
 
 * **[保存]** を選択します。 Visual Studio が **[発行]** ダイアログに戻ります。 
 
@@ -184,7 +184,7 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 * <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
-## <a name="additonal-resources"></a>追加のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
 * [Azure App Service](/azure/app-service/app-service-web-overview)
 * [Azure リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)

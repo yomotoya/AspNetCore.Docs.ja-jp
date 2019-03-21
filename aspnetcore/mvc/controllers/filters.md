@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209295"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -19,11 +19,11 @@ ms.locfileid: "56833736"
 
 ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプラインの特定のステージの前または後にコードを実行できます。
 
- 組み込みのフィルターでは次のようなタスクが処理されます。
+組み込みのフィルターでは次のようなタスクが処理されます。
 
- * 許可 (ユーザーに許可が与えられていないリソースの場合、アクセスを禁止する)。
- * すべての要求で HTTPS を使用する。
- * 応答キャッシュ (要求パイプラインを迂回し、キャッシュされている応答を返す)。 
+* 許可 (ユーザーに許可が与えられていないリソースの場合、アクセスを禁止する)。
+* すべての要求で HTTPS を使用する。
+* 応答キャッシュ (要求パイプラインを迂回し、キャッシュされている応答を返す)。 
 
 横断的な問題を処理するカスタム フィルターを作成できます。 フィルターでは、アクション間のコード重複を回避できます。 たとえば、エラー処理例外フィルターではエラー処理を統合できます。
 
@@ -373,7 +373,7 @@ HTTP ヘッダーを追加する結果フィルターの例を次に示します
 
 アクションの結果または後続の結果フィルターが例外をスローした場合、`ResultExecutedContext.Exception` は null 以外の値に設定されます。 `Exception` を null に設定すると、例外を効果的に '処理' でき、パイプラインの後方で MVC によって例外が再スローされることを防げます。 結果フィルター内の例外を処理しているときに、応答にどのデータも書き込めない場合があります。 アクションの結果がその実行の途中でスローして、クライアントに対してはヘッダーが既にフラッシュされている場合、エラー コードを送信するための信頼性の高いメカニズムはありません。
 
-`IAsyncResultFilter` の場合、`ResultExecutionDelegate` での `await next` への呼び出しは、後続のすべての結果フィルターとアクションの結果を実行します。 ショートサーキットするには、`ResultExecutingContext.Cancel` を true に設定します。`ResultExectionDelegate` は呼び出さないでください。
+`IAsyncResultFilter` の場合、`ResultExecutionDelegate` での `await next` への呼び出しは、後続のすべての結果フィルターとアクションの結果を実行します。 ショートサーキットするには、`ResultExecutingContext.Cancel` を true に設定します。`ResultExecutionDelegate` は呼び出さないでください。
 
 フレームワークは、サブクラス化できる抽象 `ResultFilterAttribute` を提供します。 前に示した [AddHeaderAttribute](#add-header-attribute) クラスは、結果フィルター属性の一例です。
 

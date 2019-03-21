@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 56c2d783e8c75aad7487aa03309bb962f4354567
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: fbe43e019ddab6f9acc2ea46799f0a39aa7c2e7c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208991"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
 
@@ -223,8 +223,8 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ナビゲーション プロパティの型には次のようなものがあります。
 
 * `ICollection<T>`
-*  `List<T>`
-*  `HashSet<T>`
+* `List<T>`
+* `HashSet<T>`
 
 `ICollection<T>` が指定されている場合は、EF Core で `HashSet<T>` コレクションが既定で作成されます。
 
@@ -267,7 +267,6 @@ public int InstructorID { get; set; }
 
 * 参照型 (クラスが null 許容型である)。
 * 講師にオフィスが割り当てられていない可能性がある。
-
 
 `OfficeAssignment` エンティティには、以下の理由で null 非許容の `Instructor` ナビゲーション プロパティがあります。
 
