@@ -5,40 +5,40 @@ description: 電子メールの確認とパスワードのリセットと ASP.NE
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 59041bcf11f7deb351a2f0bb075ed80c8af5e12b
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265498"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320221"
 ---
-# <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a><span data-ttu-id="426da-103">アカウントの確認と ASP.NET Core でのパスワードの回復</span><span class="sxs-lookup"><span data-stu-id="426da-103">Account confirmation and password recovery in ASP.NET Core</span></span>
+# <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a><span data-ttu-id="3c1c9-103">アカウントの確認と ASP.NET Core でのパスワードの回復</span><span class="sxs-lookup"><span data-stu-id="3c1c9-103">Account confirmation and password recovery in ASP.NET Core</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
-<span data-ttu-id="426da-104">参照してください[この PDF ファイル](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf)ASP.NET Core 1.1 と version 2.1 です。</span><span class="sxs-lookup"><span data-stu-id="426da-104">See [this PDF file](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core 1.1 and 2.1 version.</span></span>
+<span data-ttu-id="3c1c9-104">参照してください[この PDF ファイル](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf)ASP.NET Core 1.1 と version 2.1 です。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-104">See [this PDF file](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core 1.1 and 2.1 version.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="426da-105">によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Ponant](https://github.com/Ponant)、および[Joe Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="426da-105">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com/Ponant), and [Joe Audette](https://twitter.com/joeaudette)</span></span>
+<span data-ttu-id="3c1c9-105">によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Ponant](https://github.com/Ponant)、および[Joe Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="3c1c9-105">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com/Ponant), and [Joe Audette](https://twitter.com/joeaudette)</span></span>
 
-<span data-ttu-id="426da-106">このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリをビルドする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="426da-106">This tutorial shows how to build an ASP.NET Core app with email confirmation and password reset.</span></span> <span data-ttu-id="426da-107">このチュートリアルは**いない**先頭トピック。</span><span class="sxs-lookup"><span data-stu-id="426da-107">This tutorial is **not** a beginning topic.</span></span> <span data-ttu-id="426da-108">理解しておく必要があります。</span><span class="sxs-lookup"><span data-stu-id="426da-108">You should be familiar with:</span></span>
+<span data-ttu-id="3c1c9-106">このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリをビルドする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-106">This tutorial shows how to build an ASP.NET Core app with email confirmation and password reset.</span></span> <span data-ttu-id="3c1c9-107">このチュートリアルは**いない**先頭トピック。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-107">This tutorial is **not** a beginning topic.</span></span> <span data-ttu-id="3c1c9-108">理解しておく必要があります。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-108">You should be familiar with:</span></span>
 
-* [<span data-ttu-id="426da-109">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="426da-109">ASP.NET Core</span></span>](xref:tutorials/razor-pages/razor-pages-start)
-* [<span data-ttu-id="426da-110">認証</span><span class="sxs-lookup"><span data-stu-id="426da-110">Authentication</span></span>](xref:security/authentication/identity)
-* [<span data-ttu-id="426da-111">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="426da-111">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
+* [<span data-ttu-id="3c1c9-109">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="3c1c9-109">ASP.NET Core</span></span>](xref:tutorials/razor-pages/razor-pages-start)
+* [<span data-ttu-id="3c1c9-110">認証</span><span class="sxs-lookup"><span data-stu-id="3c1c9-110">Authentication</span></span>](xref:security/authentication/identity)
+* [<span data-ttu-id="3c1c9-111">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="3c1c9-111">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
 
-## <a name="prerequisites"></a><span data-ttu-id="426da-112">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="426da-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="3c1c9-112">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="3c1c9-112">Prerequisites</span></span>
 
-[<span data-ttu-id="426da-113">.NET core 2.2 SDK またはそれ以降</span><span class="sxs-lookup"><span data-stu-id="426da-113">.NET Core 2.2 SDK or later</span></span>](https://www.microsoft.com/net/download/all)
+[<span data-ttu-id="3c1c9-113">.NET core 2.2 SDK またはそれ以降</span><span class="sxs-lookup"><span data-stu-id="3c1c9-113">.NET Core 2.2 SDK or later</span></span>](https://www.microsoft.com/net/download/all)
 
-## <a name="create-a-web--app-and-scaffold-identity"></a><span data-ttu-id="426da-114">Web アプリを作成し、Identity のスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="426da-114">Create a web  app and scaffold Identity</span></span>
+## <a name="create-a-web--app-and-scaffold-identity"></a><span data-ttu-id="3c1c9-114">Web アプリを作成し、Identity のスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="3c1c9-114">Create a web  app and scaffold Identity</span></span>
 
-<span data-ttu-id="426da-115">認証を使用した web アプリを作成するには、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="426da-115">Run the following commands to create a web app with authentication.</span></span>
+<span data-ttu-id="3c1c9-115">認証を使用した web アプリを作成するには、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-115">Run the following commands to create a web app with authentication.</span></span>
 
 ```console
 dotnet new webapp -au Individual -uld -o WebPWrecover
@@ -53,50 +53,50 @@ dotnet run
 
 ```
 
-## <a name="test-new-user-registration"></a><span data-ttu-id="426da-116">新規ユーザー登録をテストします。</span><span class="sxs-lookup"><span data-stu-id="426da-116">Test new user registration</span></span>
+## <a name="test-new-user-registration"></a><span data-ttu-id="3c1c9-116">新規ユーザー登録をテストします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-116">Test new user registration</span></span>
 
-<span data-ttu-id="426da-117">アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。</span><span class="sxs-lookup"><span data-stu-id="426da-117">Run the app, select the **Register** link, and register a user.</span></span> <span data-ttu-id="426da-118">この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。</span><span class="sxs-lookup"><span data-stu-id="426da-118">At this point, the only validation on the email is with the [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attribute.</span></span> <span data-ttu-id="426da-119">登録を送信した後は、アプリにログインします。</span><span class="sxs-lookup"><span data-stu-id="426da-119">After submitting the registration, you are logged into the app.</span></span> <span data-ttu-id="426da-120">チュートリアルの後半では、自分の電子メールが検証されるまでに新しいユーザーがサインインできないように、コードが更新されます。</span><span class="sxs-lookup"><span data-stu-id="426da-120">Later in the tutorial, the code is updated so new users can't sign in until their email is validated.</span></span>
+<span data-ttu-id="3c1c9-117">アプリを実行し、選択、**登録**リンク、およびユーザーを登録します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-117">Run the app, select the **Register** link, and register a user.</span></span> <span data-ttu-id="3c1c9-118">この時点では、電子メールの検証のみ、 [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-118">At this point, the only validation on the email is with the [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attribute.</span></span> <span data-ttu-id="3c1c9-119">登録を送信した後は、アプリにログインします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-119">After submitting the registration, you are logged into the app.</span></span> <span data-ttu-id="3c1c9-120">チュートリアルの後半では、自分の電子メールが検証されるまでに新しいユーザーがサインインできないように、コードが更新されます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-120">Later in the tutorial, the code is updated so new users can't sign in until their email is validated.</span></span>
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
-<span data-ttu-id="426da-121">テーブルに注意してください`EmailConfirmed`フィールドは`False`します。</span><span class="sxs-lookup"><span data-stu-id="426da-121">Note the table's `EmailConfirmed` field is `False`.</span></span>
+<span data-ttu-id="3c1c9-121">テーブルに注意してください`EmailConfirmed`フィールドは`False`します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-121">Note the table's `EmailConfirmed` field is `False`.</span></span>
 
-<span data-ttu-id="426da-122">アプリが送信された確認メールを送信するとき、次の手順でこの電子メールをもう一度使用する場合があります。</span><span class="sxs-lookup"><span data-stu-id="426da-122">You might want to use this email again in the next step when the app sends a confirmation email.</span></span> <span data-ttu-id="426da-123">クリックし、行を右クリックして**削除**します。</span><span class="sxs-lookup"><span data-stu-id="426da-123">Right-click on the row and select **Delete**.</span></span> <span data-ttu-id="426da-124">電子メール エイリアスを削除する簡単で、次の手順。</span><span class="sxs-lookup"><span data-stu-id="426da-124">Deleting the email alias makes it easier in the following steps.</span></span>
+<span data-ttu-id="3c1c9-122">アプリが送信された確認メールを送信するとき、次の手順でこの電子メールをもう一度使用する場合があります。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-122">You might want to use this email again in the next step when the app sends a confirmation email.</span></span> <span data-ttu-id="3c1c9-123">クリックし、行を右クリックして**削除**します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-123">Right-click on the row and select **Delete**.</span></span> <span data-ttu-id="3c1c9-124">電子メール エイリアスを削除する簡単で、次の手順。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-124">Deleting the email alias makes it easier in the following steps.</span></span>
 
 <a name="prevent-login-at-registration"></a>
 
-## <a name="require-email-confirmation"></a><span data-ttu-id="426da-125">確認の電子メールが必要です。</span><span class="sxs-lookup"><span data-stu-id="426da-125">Require email confirmation</span></span>
+## <a name="require-email-confirmation"></a><span data-ttu-id="3c1c9-125">確認の電子メールが必要です。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-125">Require email confirmation</span></span>
 
-<span data-ttu-id="426da-126">新規ユーザー登録の電子メール アドレスを確認することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="426da-126">It's a best practice to confirm the email of a new user registration.</span></span> <span data-ttu-id="426da-127">電子メールの他のユーザーが偽装はいないしていることを確認することを確認できます (つまりに登録していない他のユーザーの電子メールで)。</span><span class="sxs-lookup"><span data-stu-id="426da-127">Email confirmation helps to verify they're not impersonating someone else (that is, they haven't registered with someone else's email).</span></span> <span data-ttu-id="426da-128">ディスカッション フォーラムでは、行われていればし、しないようにする"yli@example.comとして登録する"から"nolivetto@contoso.com"。</span><span class="sxs-lookup"><span data-stu-id="426da-128">Suppose you had a discussion forum, and you wanted to prevent "yli@example.com" from registering as "nolivetto@contoso.com".</span></span> <span data-ttu-id="426da-129">電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを受け取ることができます。</span><span class="sxs-lookup"><span data-stu-id="426da-129">Without email confirmation, "nolivetto@contoso.com" could receive unwanted email from your app.</span></span> <span data-ttu-id="426da-130">ユーザーが誤ってとして登録されているとします"ylo@example.com""yli"のスペル ミスを認識していなかったとします。</span><span class="sxs-lookup"><span data-stu-id="426da-130">Suppose the user accidentally registered as "ylo@example.com" and hadn't noticed the misspelling of "yli".</span></span> <span data-ttu-id="426da-131">アプリは、正しいメール アドレスがあるないために、パスワードの回復を使用できるでしょう。</span><span class="sxs-lookup"><span data-stu-id="426da-131">They wouldn't be able to use password recovery because the app doesn't have their correct email.</span></span> <span data-ttu-id="426da-132">確認の電子メールは、ボットからの限られた保護を提供します。</span><span class="sxs-lookup"><span data-stu-id="426da-132">Email confirmation provides limited protection from bots.</span></span> <span data-ttu-id="426da-133">確認の電子メールは、多くの電子メール アカウントを使用して悪意のあるユーザーから保護を提供しません。</span><span class="sxs-lookup"><span data-stu-id="426da-133">Email confirmation doesn't provide protection from malicious users with many email accounts.</span></span>
+<span data-ttu-id="3c1c9-126">新規ユーザー登録の電子メール アドレスを確認することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-126">It's a best practice to confirm the email of a new user registration.</span></span> <span data-ttu-id="3c1c9-127">電子メールの他のユーザーが偽装はいないしていることを確認することを確認できます (つまりに登録していない他のユーザーの電子メールで)。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-127">Email confirmation helps to verify they're not impersonating someone else (that is, they haven't registered with someone else's email).</span></span> <span data-ttu-id="3c1c9-128">ディスカッション フォーラムでは、行われていればし、しないようにする"yli@example.comとして登録する"から"nolivetto@contoso.com"。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-128">Suppose you had a discussion forum, and you wanted to prevent "yli@example.com" from registering as "nolivetto@contoso.com".</span></span> <span data-ttu-id="3c1c9-129">電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを受け取ることができます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-129">Without email confirmation, "nolivetto@contoso.com" could receive unwanted email from your app.</span></span> <span data-ttu-id="3c1c9-130">ユーザーが誤ってとして登録されているとします"ylo@example.com""yli"のスペル ミスを認識していなかったとします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-130">Suppose the user accidentally registered as "ylo@example.com" and hadn't noticed the misspelling of "yli".</span></span> <span data-ttu-id="3c1c9-131">アプリは、正しいメール アドレスがあるないために、パスワードの回復を使用できるでしょう。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-131">They wouldn't be able to use password recovery because the app doesn't have their correct email.</span></span> <span data-ttu-id="3c1c9-132">確認の電子メールは、ボットからの限られた保護を提供します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-132">Email confirmation provides limited protection from bots.</span></span> <span data-ttu-id="3c1c9-133">確認の電子メールは、多くの電子メール アカウントを使用して悪意のあるユーザーから保護を提供しません。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-133">Email confirmation doesn't provide protection from malicious users with many email accounts.</span></span>
 
-<span data-ttu-id="426da-134">新しいユーザーが確認された電子メールを受ける前に、web サイトにデータを送信するを防ぐために一般的にします。</span><span class="sxs-lookup"><span data-stu-id="426da-134">You generally want to prevent new users from posting any data to your web site before they have a confirmed email.</span></span>
+<span data-ttu-id="3c1c9-134">新しいユーザーが確認された電子メールを受ける前に、web サイトにデータを送信するを防ぐために一般的にします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-134">You generally want to prevent new users from posting any data to your web site before they have a confirmed email.</span></span>
 
-<span data-ttu-id="426da-135">Update`Startup.ConfigureServices`確認された電子メールを要求します。</span><span class="sxs-lookup"><span data-stu-id="426da-135">Update `Startup.ConfigureServices`  to require a confirmed email:</span></span>
+<span data-ttu-id="3c1c9-135">Update`Startup.ConfigureServices`確認された電子メールを要求します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-135">Update `Startup.ConfigureServices`  to require a confirmed email:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=8-11)]
 
-<span data-ttu-id="426da-136">`config.SignIn.RequireConfirmedEmail = true;` 登録済みのユーザーで自分の電子メールを確認するまでのログ記録はできません。</span><span class="sxs-lookup"><span data-stu-id="426da-136">`config.SignIn.RequireConfirmedEmail = true;` prevents registered users from logging in until their email is confirmed.</span></span>
+<span data-ttu-id="3c1c9-136">`config.SignIn.RequireConfirmedEmail = true;` 登録済みのユーザーで自分の電子メールを確認するまでのログ記録はできません。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-136">`config.SignIn.RequireConfirmedEmail = true;` prevents registered users from logging in until their email is confirmed.</span></span>
 
-### <a name="configure-email-provider"></a><span data-ttu-id="426da-137">電子メール プロバイダーを構成します。</span><span class="sxs-lookup"><span data-stu-id="426da-137">Configure email provider</span></span>
+### <a name="configure-email-provider"></a><span data-ttu-id="3c1c9-137">電子メール プロバイダーを構成します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-137">Configure email provider</span></span>
 
-<span data-ttu-id="426da-138">このチュートリアルで[SendGrid](https://sendgrid.com)電子メールを送信するために使用します。</span><span class="sxs-lookup"><span data-stu-id="426da-138">In this tutorial, [SendGrid](https://sendgrid.com) is used to send email.</span></span> <span data-ttu-id="426da-139">SendGrid アカウントとキーが電子メールを送信する必要があります。</span><span class="sxs-lookup"><span data-stu-id="426da-139">You need a SendGrid account and key to send email.</span></span> <span data-ttu-id="426da-140">その他の電子メール プロバイダーを使用することができます。</span><span class="sxs-lookup"><span data-stu-id="426da-140">You can use other email providers.</span></span> <span data-ttu-id="426da-141">ASP.NET Core の 2.x を含む`System.Net.Mail`、アプリから電子メールを送信できます。</span><span class="sxs-lookup"><span data-stu-id="426da-141">ASP.NET Core 2.x includes `System.Net.Mail`, which allows you to send email from your app.</span></span> <span data-ttu-id="426da-142">SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="426da-142">We recommend you use SendGrid or another email service to send email.</span></span> <span data-ttu-id="426da-143">SMTP では、セキュリティで保護し、設定を正しく困難です。</span><span class="sxs-lookup"><span data-stu-id="426da-143">SMTP is difficult to secure and set up correctly.</span></span>
+<span data-ttu-id="3c1c9-138">このチュートリアルで[SendGrid](https://sendgrid.com)電子メールを送信するために使用します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-138">In this tutorial, [SendGrid](https://sendgrid.com) is used to send email.</span></span> <span data-ttu-id="3c1c9-139">SendGrid アカウントとキーが電子メールを送信する必要があります。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-139">You need a SendGrid account and key to send email.</span></span> <span data-ttu-id="3c1c9-140">その他の電子メール プロバイダーを使用することができます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-140">You can use other email providers.</span></span> <span data-ttu-id="3c1c9-141">ASP.NET Core の 2.x を含む`System.Net.Mail`、アプリから電子メールを送信できます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-141">ASP.NET Core 2.x includes `System.Net.Mail`, which allows you to send email from your app.</span></span> <span data-ttu-id="3c1c9-142">SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-142">We recommend you use SendGrid or another email service to send email.</span></span> <span data-ttu-id="3c1c9-143">SMTP では、セキュリティで保護し、設定を正しく困難です。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-143">SMTP is difficult to secure and set up correctly.</span></span>
 
-<span data-ttu-id="426da-144">電子メールをセキュリティで保護されたキーを取得するためのクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="426da-144">Create a class to fetch the secure email key.</span></span> <span data-ttu-id="426da-145">このサンプルでは、次のように作成します*Services/AuthMessageSenderOptions.cs*:。</span><span class="sxs-lookup"><span data-stu-id="426da-145">For this sample, create *Services/AuthMessageSenderOptions.cs*:</span></span>
+<span data-ttu-id="3c1c9-144">電子メールをセキュリティで保護されたキーを取得するためのクラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-144">Create a class to fetch the secure email key.</span></span> <span data-ttu-id="3c1c9-145">このサンプルでは、次のように作成します*Services/AuthMessageSenderOptions.cs*:。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-145">For this sample, create *Services/AuthMessageSenderOptions.cs*:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
-#### <a name="configure-sendgrid-user-secrets"></a><span data-ttu-id="426da-146">SendGrid のユーザーの機密情報を構成します。</span><span class="sxs-lookup"><span data-stu-id="426da-146">Configure SendGrid user secrets</span></span>
+#### <a name="configure-sendgrid-user-secrets"></a><span data-ttu-id="3c1c9-146">SendGrid のユーザーの機密情報を構成します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-146">Configure SendGrid user secrets</span></span>
 
-<span data-ttu-id="426da-147">設定、`SendGridUser`と`SendGridKey`で、 [secret manager ツール](xref:security/app-secrets)します。</span><span class="sxs-lookup"><span data-stu-id="426da-147">Set the `SendGridUser` and `SendGridKey` with the [secret-manager tool](xref:security/app-secrets).</span></span> <span data-ttu-id="426da-148">例:</span><span class="sxs-lookup"><span data-stu-id="426da-148">For example:</span></span>
+<span data-ttu-id="3c1c9-147">設定、`SendGridUser`と`SendGridKey`で、 [secret manager ツール](xref:security/app-secrets)します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-147">Set the `SendGridUser` and `SendGridKey` with the [secret-manager tool](xref:security/app-secrets).</span></span> <span data-ttu-id="3c1c9-148">例:</span><span class="sxs-lookup"><span data-stu-id="3c1c9-148">For example:</span></span>
 
 ```console
 C:/WebAppl>dotnet user-secrets set SendGridUser RickAndMSFT
 info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 ```
 
-<span data-ttu-id="426da-149">Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*ファイル、`%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>`ディレクトリ。</span><span class="sxs-lookup"><span data-stu-id="426da-149">On Windows, Secret Manager stores keys/value pairs in a *secrets.json* file in the `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` directory.</span></span>
+<span data-ttu-id="3c1c9-149">Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*ファイル、`%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>`ディレクトリ。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-149">On Windows, Secret Manager stores keys/value pairs in a *secrets.json* file in the `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` directory.</span></span>
 
-<span data-ttu-id="426da-150">内容、 *secrets.json*ファイルは暗号化されません。</span><span class="sxs-lookup"><span data-stu-id="426da-150">The contents of the *secrets.json* file aren't encrypted.</span></span> <span data-ttu-id="426da-151">次のマークアップに示す、 *secrets.json*ファイル。</span><span class="sxs-lookup"><span data-stu-id="426da-151">The following markup shows the *secrets.json* file.</span></span> <span data-ttu-id="426da-152">`SendGridKey`値が削除されました。</span><span class="sxs-lookup"><span data-stu-id="426da-152">The `SendGridKey` value has been removed.</span></span>
+<span data-ttu-id="3c1c9-150">内容、 *secrets.json*ファイルは暗号化されません。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-150">The contents of the *secrets.json* file aren't encrypted.</span></span> <span data-ttu-id="3c1c9-151">次のマークアップに示す、 *secrets.json*ファイル。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-151">The following markup shows the *secrets.json* file.</span></span> <span data-ttu-id="3c1c9-152">`SendGridKey`値が削除されました。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-152">The `SendGridKey` value has been removed.</span></span>
 
 ```json
 {
@@ -105,154 +105,154 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 }
 ```
 
-<span data-ttu-id="426da-153">詳細については、次を参照してください。、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)します。</span><span class="sxs-lookup"><span data-stu-id="426da-153">For more information, see the [Options pattern](xref:fundamentals/configuration/options) and [configuration](xref:fundamentals/configuration/index).</span></span>
+<span data-ttu-id="3c1c9-153">詳細については、次を参照してください。、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-153">For more information, see the [Options pattern](xref:fundamentals/configuration/options) and [configuration](xref:fundamentals/configuration/index).</span></span>
 
-### <a name="install-sendgrid"></a><span data-ttu-id="426da-154">SendGrid をインストールします。</span><span class="sxs-lookup"><span data-stu-id="426da-154">Install SendGrid</span></span>
+### <a name="install-sendgrid"></a><span data-ttu-id="3c1c9-154">SendGrid をインストールします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-154">Install SendGrid</span></span>
 
-<span data-ttu-id="426da-155">このチュートリアルは、使用して電子メール通知を追加する方法を示します[SendGrid](https://sendgrid.com/)が SMTP およびその他のメカニズムを使用して電子メールを送信できます。</span><span class="sxs-lookup"><span data-stu-id="426da-155">This tutorial shows how to add email notifications through [SendGrid](https://sendgrid.com/), but you can send email using SMTP and other mechanisms.</span></span>
+<span data-ttu-id="3c1c9-155">このチュートリアルは、使用して電子メール通知を追加する方法を示します[SendGrid](https://sendgrid.com/)が SMTP およびその他のメカニズムを使用して電子メールを送信できます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-155">This tutorial shows how to add email notifications through [SendGrid](https://sendgrid.com/), but you can send email using SMTP and other mechanisms.</span></span>
 
-<span data-ttu-id="426da-156">インストール、 `SendGrid` NuGet パッケージ。</span><span class="sxs-lookup"><span data-stu-id="426da-156">Install the `SendGrid` NuGet package:</span></span>
+<span data-ttu-id="3c1c9-156">インストール、 `SendGrid` NuGet パッケージ。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-156">Install the `SendGrid` NuGet package:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="426da-157">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="426da-157">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="3c1c9-157">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="3c1c9-157">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="426da-158">パッケージ マネージャー コンソールで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="426da-158">From the Package Manager Console, enter the following command:</span></span>
+<span data-ttu-id="3c1c9-158">パッケージ マネージャー コンソールで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-158">From the Package Manager Console, enter the following command:</span></span>
 
 ``` PMC
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="426da-159">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="426da-159">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="3c1c9-159">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="3c1c9-159">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="426da-160">コンソールで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="426da-160">From the console, enter the following command:</span></span>
+<span data-ttu-id="3c1c9-160">コンソールで、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-160">From the console, enter the following command:</span></span>
 
 ```cli
 dotnet add package SendGrid
 ```
 
-------
+---
 
-<span data-ttu-id="426da-161">参照してください[SendGrid を無料で開始する](https://sendgrid.com/free/)無料の SendGrid アカウントを登録します。</span><span class="sxs-lookup"><span data-stu-id="426da-161">See [Get Started with SendGrid for Free](https://sendgrid.com/free/) to register for a free SendGrid account.</span></span>
+<span data-ttu-id="3c1c9-161">参照してください[SendGrid を無料で開始する](https://sendgrid.com/free/)無料の SendGrid アカウントを登録します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-161">See [Get Started with SendGrid for Free](https://sendgrid.com/free/) to register for a free SendGrid account.</span></span>
 
-### <a name="implement-iemailsender"></a><span data-ttu-id="426da-162">IEmailSender を実装します。</span><span class="sxs-lookup"><span data-stu-id="426da-162">Implement IEmailSender</span></span>
+### <a name="implement-iemailsender"></a><span data-ttu-id="3c1c9-162">IEmailSender を実装します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-162">Implement IEmailSender</span></span>
 
-<span data-ttu-id="426da-163">実装`IEmailSender`、作成*Services/EmailSender.cs*次のようなコードで。</span><span class="sxs-lookup"><span data-stu-id="426da-163">To Implement `IEmailSender`, create *Services/EmailSender.cs* with code similar to the following:</span></span>
+<span data-ttu-id="3c1c9-163">実装`IEmailSender`、作成*Services/EmailSender.cs*次のようなコードで。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-163">To Implement `IEmailSender`, create *Services/EmailSender.cs* with code similar to the following:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/Services/EmailSender.cs)]
 
-### <a name="configure-startup-to-support-email"></a><span data-ttu-id="426da-164">電子メールをサポートするために起動時を構成します。</span><span class="sxs-lookup"><span data-stu-id="426da-164">Configure startup to support email</span></span>
+### <a name="configure-startup-to-support-email"></a><span data-ttu-id="3c1c9-164">電子メールをサポートするために起動時を構成します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-164">Configure startup to support email</span></span>
 
-<span data-ttu-id="426da-165">次のコードを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="426da-165">Add the following code to the `ConfigureServices` method in the *Startup.cs* file:</span></span>
+<span data-ttu-id="3c1c9-165">次のコードを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-165">Add the following code to the `ConfigureServices` method in the *Startup.cs* file:</span></span>
 
-* <span data-ttu-id="426da-166">追加`EmailSender`一時的なサービスとして。</span><span class="sxs-lookup"><span data-stu-id="426da-166">Add `EmailSender` as a transient service.</span></span>
-* <span data-ttu-id="426da-167">登録、`AuthMessageSenderOptions`構成インスタンス。</span><span class="sxs-lookup"><span data-stu-id="426da-167">Register the `AuthMessageSenderOptions` configuration instance.</span></span>
+* <span data-ttu-id="3c1c9-166">追加`EmailSender`一時的なサービスとして。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-166">Add `EmailSender` as a transient service.</span></span>
+* <span data-ttu-id="3c1c9-167">登録、`AuthMessageSenderOptions`構成インスタンス。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-167">Register the `AuthMessageSenderOptions` configuration instance.</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=15-99)]
 
-## <a name="enable-account-confirmation-and-password-recovery"></a><span data-ttu-id="426da-168">アカウントの確認とパスワードの回復を有効にします。</span><span class="sxs-lookup"><span data-stu-id="426da-168">Enable account confirmation and password recovery</span></span>
+## <a name="enable-account-confirmation-and-password-recovery"></a><span data-ttu-id="3c1c9-168">アカウントの確認とパスワードの回復を有効にします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-168">Enable account confirmation and password recovery</span></span>
 
-<span data-ttu-id="426da-169">テンプレートには、アカウントの確認とパスワードの回復用コードがあります。</span><span class="sxs-lookup"><span data-stu-id="426da-169">The template has the code for account confirmation and password recovery.</span></span> <span data-ttu-id="426da-170">検索、`OnPostAsync`メソッド*Areas/Identity/Pages/Account/Register.cshtml.cs*します。</span><span class="sxs-lookup"><span data-stu-id="426da-170">Find the `OnPostAsync` method in *Areas/Identity/Pages/Account/Register.cshtml.cs*.</span></span>
+<span data-ttu-id="3c1c9-169">テンプレートには、アカウントの確認とパスワードの回復用コードがあります。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-169">The template has the code for account confirmation and password recovery.</span></span> <span data-ttu-id="3c1c9-170">検索、`OnPostAsync`メソッド*Areas/Identity/Pages/Account/Register.cshtml.cs*します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-170">Find the `OnPostAsync` method in *Areas/Identity/Pages/Account/Register.cshtml.cs*.</span></span>
 
-<span data-ttu-id="426da-171">新しく登録されたユーザーが、次の行をコメント アウトして自動的にサインインするようにします。</span><span class="sxs-lookup"><span data-stu-id="426da-171">Prevent newly registered users from being automatically signed in by commenting out the following line:</span></span>
+<span data-ttu-id="3c1c9-171">新しく登録されたユーザーが、次の行をコメント アウトして自動的にサインインするようにします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-171">Prevent newly registered users from being automatically signed in by commenting out the following line:</span></span>
 
 ```csharp
 await _signInManager.SignInAsync(user, isPersistent: false);
 ```
 
-<span data-ttu-id="426da-172">メソッド全体を強調表示されている変更された行が表示されます。</span><span class="sxs-lookup"><span data-stu-id="426da-172">The complete method is shown with the changed line highlighted:</span></span>
+<span data-ttu-id="3c1c9-172">メソッド全体を強調表示されている変更された行が表示されます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-172">The complete method is shown with the changed line highlighted:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
-## <a name="register-confirm-email-and-reset-password"></a><span data-ttu-id="426da-173">登録、確認の電子メール、およびパスワードのリセット</span><span class="sxs-lookup"><span data-stu-id="426da-173">Register, confirm email, and reset password</span></span>
+## <a name="register-confirm-email-and-reset-password"></a><span data-ttu-id="3c1c9-173">登録、確認の電子メール、およびパスワードのリセット</span><span class="sxs-lookup"><span data-stu-id="3c1c9-173">Register, confirm email, and reset password</span></span>
 
-<span data-ttu-id="426da-174">Web アプリを実行し、アカウントの確認とパスワードの回復フローをテストします。</span><span class="sxs-lookup"><span data-stu-id="426da-174">Run the web app, and test the account confirmation and password recovery flow.</span></span>
+<span data-ttu-id="3c1c9-174">Web アプリを実行し、アカウントの確認とパスワードの回復フローをテストします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-174">Run the web app, and test the account confirmation and password recovery flow.</span></span>
 
-* <span data-ttu-id="426da-175">アプリを実行し、新しいユーザーの登録</span><span class="sxs-lookup"><span data-stu-id="426da-175">Run the app and register a new user</span></span>
-* <span data-ttu-id="426da-176">アカウント確認用のリンクは、電子メールを確認します。</span><span class="sxs-lookup"><span data-stu-id="426da-176">Check your email for the account confirmation link.</span></span> <span data-ttu-id="426da-177">参照してください[デバッグ電子メール](#debug)電子メールが届かない場合。</span><span class="sxs-lookup"><span data-stu-id="426da-177">See [Debug email](#debug) if you don't get the email.</span></span>
-* <span data-ttu-id="426da-178">電子メールを確認するリンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="426da-178">Click the link to confirm your email.</span></span>
-* <span data-ttu-id="426da-179">電子メール アドレスとパスワードでサインインします。</span><span class="sxs-lookup"><span data-stu-id="426da-179">Sign in with your email and password.</span></span>
-* <span data-ttu-id="426da-180">サインアウトします。</span><span class="sxs-lookup"><span data-stu-id="426da-180">Sign out.</span></span>
+* <span data-ttu-id="3c1c9-175">アプリを実行し、新しいユーザーの登録</span><span class="sxs-lookup"><span data-stu-id="3c1c9-175">Run the app and register a new user</span></span>
+* <span data-ttu-id="3c1c9-176">アカウント確認用のリンクは、電子メールを確認します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-176">Check your email for the account confirmation link.</span></span> <span data-ttu-id="3c1c9-177">参照してください[デバッグ電子メール](#debug)電子メールが届かない場合。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-177">See [Debug email](#debug) if you don't get the email.</span></span>
+* <span data-ttu-id="3c1c9-178">電子メールを確認するリンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-178">Click the link to confirm your email.</span></span>
+* <span data-ttu-id="3c1c9-179">電子メール アドレスとパスワードでサインインします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-179">Sign in with your email and password.</span></span>
+* <span data-ttu-id="3c1c9-180">サインアウトします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-180">Sign out.</span></span>
 
-### <a name="view-the-manage-page"></a><span data-ttu-id="426da-181">ビューの管理 ページ</span><span class="sxs-lookup"><span data-stu-id="426da-181">View the manage page</span></span>
+### <a name="view-the-manage-page"></a><span data-ttu-id="3c1c9-181">ビューの管理 ページ</span><span class="sxs-lookup"><span data-stu-id="3c1c9-181">View the manage page</span></span>
 
-<span data-ttu-id="426da-182">ブラウザーで、ユーザー名を選択:![ユーザー名を備えたブラウザー ウィンドウ](accconfirm/_static/un.png)</span><span class="sxs-lookup"><span data-stu-id="426da-182">Select your user name in the browser: ![browser window with user name](accconfirm/_static/un.png)</span></span>
+<span data-ttu-id="3c1c9-182">ブラウザーで、ユーザー名を選択:![ユーザー名を備えたブラウザー ウィンドウ](accconfirm/_static/un.png)</span><span class="sxs-lookup"><span data-stu-id="3c1c9-182">Select your user name in the browser: ![browser window with user name](accconfirm/_static/un.png)</span></span>
 
-<span data-ttu-id="426da-183">管理ページが表示されますが、**プロファイル**タブを選択します。</span><span class="sxs-lookup"><span data-stu-id="426da-183">The manage page is displayed with the **Profile** tab selected.</span></span> <span data-ttu-id="426da-184">**電子メール**電子メールを示すチェック ボックスが確認されているかを示します。</span><span class="sxs-lookup"><span data-stu-id="426da-184">The **Email** shows a check box indicating the email has been confirmed.</span></span>
+<span data-ttu-id="3c1c9-183">管理ページが表示されますが、**プロファイル**タブを選択します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-183">The manage page is displayed with the **Profile** tab selected.</span></span> <span data-ttu-id="3c1c9-184">**電子メール**電子メールを示すチェック ボックスが確認されているかを示します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-184">The **Email** shows a check box indicating the email has been confirmed.</span></span>
 
-### <a name="test-password-reset"></a><span data-ttu-id="426da-185">テストのパスワードのリセット</span><span class="sxs-lookup"><span data-stu-id="426da-185">Test password reset</span></span>
+### <a name="test-password-reset"></a><span data-ttu-id="3c1c9-185">テストのパスワードのリセット</span><span class="sxs-lookup"><span data-stu-id="3c1c9-185">Test password reset</span></span>
 
-* <span data-ttu-id="426da-186">サインインしている場合は、選択**ログアウト**します。</span><span class="sxs-lookup"><span data-stu-id="426da-186">If you're signed in, select **Logout**.</span></span>
-* <span data-ttu-id="426da-187">選択、**ログイン**リンクし、選択、**パスワードを忘れた場合でしょうか。** リンク。</span><span class="sxs-lookup"><span data-stu-id="426da-187">Select the **Log in** link and select the **Forgot your password?** link.</span></span>
-* <span data-ttu-id="426da-188">アカウントを登録するために使用する電子メール アドレスを入力します。</span><span class="sxs-lookup"><span data-stu-id="426da-188">Enter the email you used to register the account.</span></span>
-* <span data-ttu-id="426da-189">パスワードをリセットするリンクを含む電子メールが送信されます。</span><span class="sxs-lookup"><span data-stu-id="426da-189">An email with a link to reset your password is sent.</span></span> <span data-ttu-id="426da-190">電子メールを確認し、パスワードをリセットするリンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="426da-190">Check your email and click the link to reset your password.</span></span> <span data-ttu-id="426da-191">パスワードが正常にリセットされると後、はの電子メール アドレスと新しいパスワードでサインインすることができます。</span><span class="sxs-lookup"><span data-stu-id="426da-191">After your password has been successfully reset, you can sign in with your email and new password.</span></span>
+* <span data-ttu-id="3c1c9-186">サインインしている場合は、選択**ログアウト**します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-186">If you're signed in, select **Logout**.</span></span>
+* <span data-ttu-id="3c1c9-187">選択、**ログイン**リンクし、選択、**パスワードを忘れた場合でしょうか。** リンク。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-187">Select the **Log in** link and select the **Forgot your password?** link.</span></span>
+* <span data-ttu-id="3c1c9-188">アカウントを登録するために使用する電子メール アドレスを入力します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-188">Enter the email you used to register the account.</span></span>
+* <span data-ttu-id="3c1c9-189">パスワードをリセットするリンクを含む電子メールが送信されます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-189">An email with a link to reset your password is sent.</span></span> <span data-ttu-id="3c1c9-190">電子メールを確認し、パスワードをリセットするリンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-190">Check your email and click the link to reset your password.</span></span> <span data-ttu-id="3c1c9-191">パスワードが正常にリセットされると後、はの電子メール アドレスと新しいパスワードでサインインすることができます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-191">After your password has been successfully reset, you can sign in with your email and new password.</span></span>
 
-## <a name="change-email-and-activity-timeout"></a><span data-ttu-id="426da-192">電子メールとアクティビティのタイムアウトを変更します。</span><span class="sxs-lookup"><span data-stu-id="426da-192">Change email and activity timeout</span></span>
+## <a name="change-email-and-activity-timeout"></a><span data-ttu-id="3c1c9-192">電子メールとアクティビティのタイムアウトを変更します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-192">Change email and activity timeout</span></span>
 
-<span data-ttu-id="426da-193">既定のアイドル タイムアウトは、14 日間です。</span><span class="sxs-lookup"><span data-stu-id="426da-193">The default inactivity timeout is 14 days.</span></span> <span data-ttu-id="426da-194">次のコードでは、アイドル タイムアウトを 5 日に設定します。</span><span class="sxs-lookup"><span data-stu-id="426da-194">The following code sets the inactivity timeout to 5 days:</span></span>
+<span data-ttu-id="3c1c9-193">既定のアイドル タイムアウトは、14 日間です。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-193">The default inactivity timeout is 14 days.</span></span> <span data-ttu-id="3c1c9-194">次のコードでは、アイドル タイムアウトを 5 日に設定します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-194">The following code sets the inactivity timeout to 5 days:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAppCookie.cs?name=snippet1)]
 
-### <a name="change-all-data-protection-token-lifespans"></a><span data-ttu-id="426da-195">すべてのデータの保護トークン lifespans を変更します。</span><span class="sxs-lookup"><span data-stu-id="426da-195">Change all data protection token lifespans</span></span>
+### <a name="change-all-data-protection-token-lifespans"></a><span data-ttu-id="3c1c9-195">すべてのデータの保護トークン lifespans を変更します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-195">Change all data protection token lifespans</span></span>
 
-<span data-ttu-id="426da-196">次のコードは、すべてのデータの保護トークンのタイムアウト期間を 3 時間に変更します。</span><span class="sxs-lookup"><span data-stu-id="426da-196">The following code changes all data protection tokens timeout period to 3 hours:</span></span>
+<span data-ttu-id="3c1c9-196">次のコードは、すべてのデータの保護トークンのタイムアウト期間を 3 時間に変更します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-196">The following code changes all data protection tokens timeout period to 3 hours:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAllTokens.cs?name=snippet1&highlight=15-16)]
 
-<span data-ttu-id="426da-197">組み込みの Id のユーザー トークン (を参照してください[AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) が、 [1 日のタイムアウト](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs)。</span><span class="sxs-lookup"><span data-stu-id="426da-197">The built in Identity user tokens (see [AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) )have a [one day timeout](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span></span>
+<span data-ttu-id="3c1c9-197">組み込みの Id のユーザー トークン (を参照してください[AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) が、 [1 日のタイムアウト](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs)。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-197">The built in Identity user tokens (see [AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) )have a [one day timeout](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span></span>
 
-### <a name="change-the-email-token-lifespan"></a><span data-ttu-id="426da-198">電子メールのトークン有効期間を変更します。</span><span class="sxs-lookup"><span data-stu-id="426da-198">Change the email token lifespan</span></span>
+### <a name="change-the-email-token-lifespan"></a><span data-ttu-id="3c1c9-198">電子メールのトークン有効期間を変更します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-198">Change the email token lifespan</span></span>
 
-<span data-ttu-id="426da-199">既定のトークン有効期間[Id のユーザー トークン](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs)は[1 日](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs)します。</span><span class="sxs-lookup"><span data-stu-id="426da-199">The default token lifespan of [the Identity user tokens](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) is [one day](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span></span> <span data-ttu-id="426da-200">このセクションでは、電子メールのトークン有効期間を変更する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="426da-200">This section shows how to change the email token lifespan.</span></span>
+<span data-ttu-id="3c1c9-199">既定のトークン有効期間[Id のユーザー トークン](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs)は[1 日](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs)します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-199">The default token lifespan of [the Identity user tokens](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) is [one day](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span></span> <span data-ttu-id="3c1c9-200">このセクションでは、電子メールのトークン有効期間を変更する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-200">This section shows how to change the email token lifespan.</span></span>
 
-<span data-ttu-id="426da-201">追加のカスタム[DataProtectorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1)と<xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:</span><span class="sxs-lookup"><span data-stu-id="426da-201">Add a custom [DataProtectorTokenProvider\<TUser>](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) and <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:</span></span>
+<span data-ttu-id="3c1c9-201">追加のカスタム[DataProtectorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1)と<xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:</span><span class="sxs-lookup"><span data-stu-id="3c1c9-201">Add a custom [DataProtectorTokenProvider\<TUser>](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) and <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/TokenProviders/CustomTokenProvider.cs?name=snippet1)]
 
-<span data-ttu-id="426da-202">サービス コンテナーには、カスタム プロバイダーを追加します。</span><span class="sxs-lookup"><span data-stu-id="426da-202">Add the custom provider to the service container:</span></span>
+<span data-ttu-id="3c1c9-202">サービス コンテナーには、カスタム プロバイダーを追加します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-202">Add the custom provider to the service container:</span></span>
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/StartupEmail.cs?name=snippet1&highlight=10-13,18)]
 
-### <a name="resend-email-confirmation"></a><span data-ttu-id="426da-203">確認の電子メールを再送信します。</span><span class="sxs-lookup"><span data-stu-id="426da-203">Resend email confirmation</span></span>
+### <a name="resend-email-confirmation"></a><span data-ttu-id="3c1c9-203">確認の電子メールを再送信します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-203">Resend email confirmation</span></span>
 
-<span data-ttu-id="426da-204">参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/5410)します。</span><span class="sxs-lookup"><span data-stu-id="426da-204">See [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/5410).</span></span>
+<span data-ttu-id="3c1c9-204">参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/5410)します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-204">See [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/5410).</span></span>
 
 <a name="debug"></a>
 
-### <a name="debug-email"></a><span data-ttu-id="426da-205">電子メールをデバッグします。</span><span class="sxs-lookup"><span data-stu-id="426da-205">Debug email</span></span>
+### <a name="debug-email"></a><span data-ttu-id="3c1c9-205">電子メールをデバッグします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-205">Debug email</span></span>
 
-<span data-ttu-id="426da-206">電子メールの作業が発生したことはできません: 場合</span><span class="sxs-lookup"><span data-stu-id="426da-206">If you can't get email working:</span></span>
+<span data-ttu-id="3c1c9-206">電子メールの作業が発生したことはできません: 場合</span><span class="sxs-lookup"><span data-stu-id="3c1c9-206">If you can't get email working:</span></span>
 
-* <span data-ttu-id="426da-207">ブレークポイントを設定`EmailSender.Execute`を確認する`SendGridClient.SendEmailAsync`が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="426da-207">Set a breakpoint in `EmailSender.Execute` to verify `SendGridClient.SendEmailAsync` is called.</span></span>
-* <span data-ttu-id="426da-208">作成、[電子メールを送信するためのコンソール アプリ](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html)に同様のコードを使用して`EmailSender.Execute`します。</span><span class="sxs-lookup"><span data-stu-id="426da-208">Create a [console app to send email](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) using similar code to `EmailSender.Execute`.</span></span>
-* <span data-ttu-id="426da-209">レビュー、[電子メール アクティビティ](https://sendgrid.com/docs/User_Guide/email_activity.html)ページ。</span><span class="sxs-lookup"><span data-stu-id="426da-209">Review the [Email Activity](https://sendgrid.com/docs/User_Guide/email_activity.html) page.</span></span>
-* <span data-ttu-id="426da-210">迷惑メール フォルダーを確認します。</span><span class="sxs-lookup"><span data-stu-id="426da-210">Check your spam folder.</span></span>
-* <span data-ttu-id="426da-211">別のメール プロバイダー (Microsoft、Yahoo、Gmail など) に別の電子メール エイリアスをお試しください。</span><span class="sxs-lookup"><span data-stu-id="426da-211">Try another email alias on a different email provider (Microsoft, Yahoo, Gmail, etc.)</span></span>
-* <span data-ttu-id="426da-212">別のメール アカウントへの送信を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="426da-212">Try sending to different email accounts.</span></span>
+* <span data-ttu-id="3c1c9-207">ブレークポイントを設定`EmailSender.Execute`を確認する`SendGridClient.SendEmailAsync`が呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-207">Set a breakpoint in `EmailSender.Execute` to verify `SendGridClient.SendEmailAsync` is called.</span></span>
+* <span data-ttu-id="3c1c9-208">作成、[電子メールを送信するためのコンソール アプリ](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html)に同様のコードを使用して`EmailSender.Execute`します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-208">Create a [console app to send email](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) using similar code to `EmailSender.Execute`.</span></span>
+* <span data-ttu-id="3c1c9-209">レビュー、[電子メール アクティビティ](https://sendgrid.com/docs/User_Guide/email_activity.html)ページ。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-209">Review the [Email Activity](https://sendgrid.com/docs/User_Guide/email_activity.html) page.</span></span>
+* <span data-ttu-id="3c1c9-210">迷惑メール フォルダーを確認します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-210">Check your spam folder.</span></span>
+* <span data-ttu-id="3c1c9-211">別のメール プロバイダー (Microsoft、Yahoo、Gmail など) に別の電子メール エイリアスをお試しください。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-211">Try another email alias on a different email provider (Microsoft, Yahoo, Gmail, etc.)</span></span>
+* <span data-ttu-id="3c1c9-212">別のメール アカウントへの送信を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-212">Try sending to different email accounts.</span></span>
 
-<span data-ttu-id="426da-213">**セキュリティのベスト プラクティス**は**いない**テストと開発における運用シークレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="426da-213">**A security best practice** is to **not** use production secrets in test and development.</span></span> <span data-ttu-id="426da-214">アプリを Azure に発行する場合は、Web アプリを Azure portal でアプリケーション設定と SendGrid シークレットを設定できます。</span><span class="sxs-lookup"><span data-stu-id="426da-214">If you publish the app to Azure, you can set the SendGrid secrets as application settings in the Azure Web App portal.</span></span> <span data-ttu-id="426da-215">構成システムは、環境変数からキーの読み取りを設定します。</span><span class="sxs-lookup"><span data-stu-id="426da-215">The configuration system is set up to read keys from environment variables.</span></span>
+<span data-ttu-id="3c1c9-213">**セキュリティのベスト プラクティス**は**いない**テストと開発における運用シークレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-213">**A security best practice** is to **not** use production secrets in test and development.</span></span> <span data-ttu-id="3c1c9-214">アプリを Azure に発行する場合は、Web アプリを Azure portal でアプリケーション設定と SendGrid シークレットを設定できます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-214">If you publish the app to Azure, you can set the SendGrid secrets as application settings in the Azure Web App portal.</span></span> <span data-ttu-id="3c1c9-215">構成システムは、環境変数からキーの読み取りを設定します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-215">The configuration system is set up to read keys from environment variables.</span></span>
 
-## <a name="combine-social-and-local-login-accounts"></a><span data-ttu-id="426da-216">ソーシャル、ローカルのログイン アカウントを組み合わせる</span><span class="sxs-lookup"><span data-stu-id="426da-216">Combine social and local login accounts</span></span>
+## <a name="combine-social-and-local-login-accounts"></a><span data-ttu-id="3c1c9-216">ソーシャル、ローカルのログイン アカウントを組み合わせる</span><span class="sxs-lookup"><span data-stu-id="3c1c9-216">Combine social and local login accounts</span></span>
 
-<span data-ttu-id="426da-217">このセクションを完了するには、まず、外部認証プロバイダーを有効にする必要があります。</span><span class="sxs-lookup"><span data-stu-id="426da-217">To complete this section, you must first enable an external authentication provider.</span></span> <span data-ttu-id="426da-218">参照してください[Facebook、Google、および外部プロバイダー認証](xref:security/authentication/social/index)します。</span><span class="sxs-lookup"><span data-stu-id="426da-218">See [Facebook, Google, and external provider authentication](xref:security/authentication/social/index).</span></span>
+<span data-ttu-id="3c1c9-217">このセクションを完了するには、まず、外部認証プロバイダーを有効にする必要があります。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-217">To complete this section, you must first enable an external authentication provider.</span></span> <span data-ttu-id="3c1c9-218">参照してください[Facebook、Google、および外部プロバイダー認証](xref:security/authentication/social/index)します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-218">See [Facebook, Google, and external provider authentication](xref:security/authentication/social/index).</span></span>
 
-<span data-ttu-id="426da-219">電子メールのリンクをクリックして、ローカルおよびソーシャル アカウントを組み合わせることができます。</span><span class="sxs-lookup"><span data-stu-id="426da-219">You can combine local and social accounts by clicking on your email link.</span></span> <span data-ttu-id="426da-220">次の順序で"RickAndMSFT@gmail.com"が最初に、ローカルのログインとして作成ただし、最初に、ソーシャル ログインとしてアカウントを作成し、ローカル ログインを追加します。</span><span class="sxs-lookup"><span data-stu-id="426da-220">In the following sequence, "RickAndMSFT@gmail.com" is first created as a local login; however, you can create the account as a social login first, then add a local login.</span></span>
+<span data-ttu-id="3c1c9-219">電子メールのリンクをクリックして、ローカルおよびソーシャル アカウントを組み合わせることができます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-219">You can combine local and social accounts by clicking on your email link.</span></span> <span data-ttu-id="3c1c9-220">次の順序で"RickAndMSFT@gmail.com"が最初に、ローカルのログインとして作成ただし、最初に、ソーシャル ログインとしてアカウントを作成し、ローカル ログインを追加します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-220">In the following sequence, "RickAndMSFT@gmail.com" is first created as a local login; however, you can create the account as a social login first, then add a local login.</span></span>
 
 ![Web アプリケーション:RickAndMSFT@gmail.com認証されたユーザー](accconfirm/_static/rick.png)
 
-<span data-ttu-id="426da-222">をクリックして、**管理**リンク。</span><span class="sxs-lookup"><span data-stu-id="426da-222">Click on the **Manage** link.</span></span> <span data-ttu-id="426da-223">このアカウントに関連付けられた 0 外部 (ソーシャル ログイン) に注意してください。</span><span class="sxs-lookup"><span data-stu-id="426da-223">Note the 0 external (social logins) associated with this account.</span></span>
+<span data-ttu-id="3c1c9-222">をクリックして、**管理**リンク。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-222">Click on the **Manage** link.</span></span> <span data-ttu-id="3c1c9-223">このアカウントに関連付けられた 0 外部 (ソーシャル ログイン) に注意してください。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-223">Note the 0 external (social logins) associated with this account.</span></span>
 
 ![ビューを管理します。](accconfirm/_static/manage.png)
 
-<span data-ttu-id="426da-225">別のログイン サービスへのリンクをクリックし、アプリの要求をそのまま使用します。</span><span class="sxs-lookup"><span data-stu-id="426da-225">Click the link to another login service and accept the app requests.</span></span> <span data-ttu-id="426da-226">次の図では、Facebook は、外部認証プロバイダーは。</span><span class="sxs-lookup"><span data-stu-id="426da-226">In the following image, Facebook is the external authentication provider:</span></span>
+<span data-ttu-id="3c1c9-225">別のログイン サービスへのリンクをクリックし、アプリの要求をそのまま使用します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-225">Click the link to another login service and accept the app requests.</span></span> <span data-ttu-id="3c1c9-226">次の図では、Facebook は、外部認証プロバイダーは。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-226">In the following image, Facebook is the external authentication provider:</span></span>
 
 ![Facebook を一覧表示する、外部ログイン ビューを管理します。](accconfirm/_static/fb.png)
 
-<span data-ttu-id="426da-228">2 つのアカウントが統合されました。</span><span class="sxs-lookup"><span data-stu-id="426da-228">The two accounts have been combined.</span></span> <span data-ttu-id="426da-229">いずれかのアカウントでサインインすることは。</span><span class="sxs-lookup"><span data-stu-id="426da-229">You are able to sign in with either account.</span></span> <span data-ttu-id="426da-230">ユーザーがソーシャル ログインの認証サービスがダウンしているか、自分のソーシャル アカウントにアクセスを紛失した可能性が高い場合に、ローカル アカウントを追加することができます。</span><span class="sxs-lookup"><span data-stu-id="426da-230">You might want your users to add local accounts in case their social login authentication service is down, or more likely they've lost access to their social account.</span></span>
+<span data-ttu-id="3c1c9-228">2 つのアカウントが統合されました。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-228">The two accounts have been combined.</span></span> <span data-ttu-id="3c1c9-229">いずれかのアカウントでサインインすることは。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-229">You are able to sign in with either account.</span></span> <span data-ttu-id="3c1c9-230">ユーザーがソーシャル ログインの認証サービスがダウンしているか、自分のソーシャル アカウントにアクセスを紛失した可能性が高い場合に、ローカル アカウントを追加することができます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-230">You might want your users to add local accounts in case their social login authentication service is down, or more likely they've lost access to their social account.</span></span>
 
-## <a name="enable-account-confirmation-after-a-site-has-users"></a><span data-ttu-id="426da-231">サイトがユーザー アカウントの確認を有効にします。</span><span class="sxs-lookup"><span data-stu-id="426da-231">Enable account confirmation after a site has users</span></span>
+## <a name="enable-account-confirmation-after-a-site-has-users"></a><span data-ttu-id="3c1c9-231">サイトがユーザー アカウントの確認を有効にします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-231">Enable account confirmation after a site has users</span></span>
 
-<span data-ttu-id="426da-232">ユーザーとサイトのアカウント確認を有効にする既存のすべてのユーザーをロックアウトします。</span><span class="sxs-lookup"><span data-stu-id="426da-232">Enabling account confirmation on a site with users locks out all the existing users.</span></span> <span data-ttu-id="426da-233">自分のアカウントが確認されないために、既存のユーザーはロックアウトされます。</span><span class="sxs-lookup"><span data-stu-id="426da-233">Existing users are locked out because their accounts aren't confirmed.</span></span> <span data-ttu-id="426da-234">既存のユーザーのロックアウトを回避するには、次の方法のいずれかを使用します。</span><span class="sxs-lookup"><span data-stu-id="426da-234">To work around existing user lockout, use one of the following approaches:</span></span>
+<span data-ttu-id="3c1c9-232">ユーザーとサイトのアカウント確認を有効にする既存のすべてのユーザーをロックアウトします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-232">Enabling account confirmation on a site with users locks out all the existing users.</span></span> <span data-ttu-id="3c1c9-233">自分のアカウントが確認されないために、既存のユーザーはロックアウトされます。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-233">Existing users are locked out because their accounts aren't confirmed.</span></span> <span data-ttu-id="3c1c9-234">既存のユーザーのロックアウトを回避するには、次の方法のいずれかを使用します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-234">To work around existing user lockout, use one of the following approaches:</span></span>
 
-* <span data-ttu-id="426da-235">確認されているすべての既存ユーザーをマークするデータベースを更新します。</span><span class="sxs-lookup"><span data-stu-id="426da-235">Update the database to mark all existing users as being confirmed.</span></span>
-* <span data-ttu-id="426da-236">既存のユーザーを確認します。</span><span class="sxs-lookup"><span data-stu-id="426da-236">Confirm existing users.</span></span> <span data-ttu-id="426da-237">確認リンクを含むメールなどのバッチの送信をします。</span><span class="sxs-lookup"><span data-stu-id="426da-237">For example, batch-send emails with confirmation links.</span></span>
+* <span data-ttu-id="3c1c9-235">確認されているすべての既存ユーザーをマークするデータベースを更新します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-235">Update the database to mark all existing users as being confirmed.</span></span>
+* <span data-ttu-id="3c1c9-236">既存のユーザーを確認します。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-236">Confirm existing users.</span></span> <span data-ttu-id="3c1c9-237">確認リンクを含むメールなどのバッチの送信をします。</span><span class="sxs-lookup"><span data-stu-id="3c1c9-237">For example, batch-send emails with confirmation links.</span></span>
 
 ::: moniker-end
