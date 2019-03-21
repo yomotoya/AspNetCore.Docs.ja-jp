@@ -109,7 +109,7 @@ dotnet publish -c Release
 * アプリがブラウザー UI スレッド上で直接実行されます。 次の方法のいずれかがサポートされています。
   * Blazor アプリは、ASP.NET Core アプリによって提供されます。 詳細については、「[ASP.NET Core を使用してホストされているクライアント側 Blazor 展開](#client-side-blazor-hosted-deployment-with-aspnet-core)」セクションで説明します。
   * Blazor アプリは、Blazor アプリの提供に .NET が使用されていない静的ホスティング Web サーバーまたはサービス上に配置されます。 詳細については、「[クライアント側 Blazor スタンドアロン展開](#client-side-blazor-standalone-deployment)」セクションで説明します。
-  
+
 ### <a name="configure-the-linker"></a>リンカーを構成する
 
 Blazor では、出力アセンブリから不要な中間言語 (IL) を削除するために、IL リンク設定が各ビルド上で実行されます。 ビルド上のアセンブリのリンク設定を制御することができます。 詳細については、「<xref:host-and-deploy/razor-components/configure-linker>」を参照してください。
@@ -191,7 +191,8 @@ ASP.NET Core アプリでのホストと展開の詳細については、「<xre
 
 Azure App Service の展開については、次のトピックを参照してください。
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
 
 ### <a name="client-side-blazor-standalone-deployment"></a>クライアント側 Blazor スタンドアロン展開
@@ -299,5 +300,6 @@ ASP.NET Core アプリが発行されると、ASP.NET Core アプリと Razor Co
 
 Azure App Service の展開については、次のトピックを参照してください。
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
