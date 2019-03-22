@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: 667c57d536450fa2f8ae1cabc7c5a76a16d38a55
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: f46bd9af0f0762e794349d4e98de5c086a690d72
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665588"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327230"
 ---
 # <a name="get-started-with-blazor"></a>Blazor を概要します。
 
@@ -28,7 +28,7 @@ ms.locfileid: "57665588"
 
 Visual Studio で、最初の Blazor プロジェクトを作成するには
 
-1. 最新のインストール[Blazor 言語サービス拡張機能](https://go.microsoft.com/fwlink/?linkid=870389)Visual Studio Marketplace から。 この手順では、Visual Studio を使用可能な Blazor テンプレートをによりします。
+1. 最新のインストール[Blazor 拡張子](https://go.microsoft.com/fwlink/?linkid=870389)Visual Studio Marketplace から。 この手順では、Visual Studio を使用可能な Blazor テンプレートをによりします。
 1. コマンド シェルで次のコマンドを実行して Blazor テンプレートを .NET Core CLI で使用できるようにするには。
 
    ```console

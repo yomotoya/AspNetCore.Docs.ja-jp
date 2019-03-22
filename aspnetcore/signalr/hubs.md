@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 244ddc40e647bfcc3ca8cda2797c51bc49174822
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: f037c1f6fd7ef773b8e7b2fd4fdf6e28222c441a
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320148"
+ms.locfileid: "58327262"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET core SignalR のハブの使用
 
@@ -116,7 +116,7 @@ public class ChatHub : Hub
 
 使用する欠点`SendAsync`が呼び出されるクライアント メソッドを指定する文字列に依存していること。 これにより、メソッド名のスペルが正しい場合、ランタイム エラー コードを開くまたはクライアントから不足しています。
 
-使用する代わりに`SendAsync`を厳密に型が、`Hub`で<xref:Microsoft.AspNetCore.SignalR.Hub`1>します。 次の例では、`ChatHub`クライアント メソッドがアウトというインターフェイスに抽出された`IChatClient`します。  
+使用する代わりに`SendAsync`を厳密に型が、`Hub`で<xref:Microsoft.AspNetCore.SignalR.Hub%601>します。 次の例では、`ChatHub`クライアント メソッドがアウトというインターフェイスに抽出された`IChatClient`します。  
 
 [!code-csharp[Interface for IChatClient](hubs/sample/hubs/ichatclient.cs?name=snippet_IChatClient)]
 

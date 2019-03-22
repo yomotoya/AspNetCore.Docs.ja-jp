@@ -5,12 +5,12 @@ description: この記事では、ASP.NET Core Identity の基になる Entity F
 ms.author: avickers
 ms.date: 09/24/2018
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 55346c571f180fa17a1108a622d991d15f365bae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 0aa7448ac37a97a4d09a04caf365f641f22f5997
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209463"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327302"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET Core での id モデルのカスタマイズ
 
@@ -253,7 +253,7 @@ public abstract class IdentityDbContext<
          where TUserToken : IdentityUserToken<TKey>
 ```
 
-この場合、ロール (要求のみ) がない Id を使用することも、<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext`1>クラスを使用する必要があります。
+この場合、ロール (要求のみ) がない Id を使用することも、<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext%601>クラスを使用する必要があります。
 
 ```csharp
 // Uses the built-in non-role Identity types except with a custom User type
@@ -368,7 +368,7 @@ services.AddIdentity<ApplicationUser, IdentityRole>()
 
 1. データベースが作成された場合、PK 変更する前に実行`Drop-Database`(PMC) または`dotnet ef database drop`(.NET Core CLI) を削除します。
 2. データベースの削除を確定した後で初期の移行を削除`Remove-Migration`(PMC) または`dotnet ef migrations remove`(.NET Core CLI)。
-3. 更新プログラム、`ApplicationDbContext`クラスから派生する<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`3>します。 新しいキーの種類を指定`TKey`します。 たとえば、使用するため、`Guid`キーの種類。
+3. 更新プログラム、`ApplicationDbContext`クラスから派生する<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext%603>します。 新しいキーの種類を指定`TKey`します。 たとえば、使用するため、`Guid`キーの種類。
 
     ```csharp
     public class ApplicationDbContext
@@ -383,13 +383,13 @@ services.AddIdentity<ApplicationUser, IdentityRole>()
 
     ::: moniker range=">= aspnetcore-2.0"
 
-    上記のコードでは、ジェネリック クラスで<xref:Microsoft.AspNetCore.Identity.IdentityUser`1>と<xref:Microsoft.AspNetCore.Identity.IdentityRole`1>新しいキーの種類を使用するように指定する必要があります。
+    上記のコードでは、ジェネリック クラスで<xref:Microsoft.AspNetCore.Identity.IdentityUser%601>と<xref:Microsoft.AspNetCore.Identity.IdentityRole%601>新しいキーの種類を使用するように指定する必要があります。
 
     ::: moniker-end
 
     ::: moniker range="<= aspnetcore-1.1"
 
-    上記のコードでは、ジェネリック クラスで<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser`1>と<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole`1>新しいキーの種類を使用するように指定する必要があります。
+    上記のコードでは、ジェネリック クラスで<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser%601>と<xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole%601>新しいキーの種類を使用するように指定する必要があります。
 
     ::: moniker-end
 

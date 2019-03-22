@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: 9a24ac138950ef2bedac48f506655d06520137cf
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 49c323fab64bd4ea52dd1d8cf2e43a79d4d0d0dc
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708362"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327353"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>その他の要求と ASP.NET Core での外部プロバイダーからのトークンを保存します。
 
@@ -64,7 +64,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=8)]
 
-<xref:Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync*>、 <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) が使用して、アプリにサインイン<xref:Microsoft.AspNetCore.Identity.SignInManager`1.SignInAsync*>します。 プロセスでは、サインアップ時に、<xref:Microsoft.AspNetCore.Identity.UserManager`1>格納できる、`ApplicationUser`から使用可能なユーザー データの要求、<xref:Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal*>します。
+<xref:Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync*>、 <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) が使用して、アプリにサインイン<xref:Microsoft.AspNetCore.Identity.SignInManager%601.SignInAsync*>します。 プロセスでは、サインアップ時に、<xref:Microsoft.AspNetCore.Identity.UserManager%601>格納できる、`ApplicationUser`から使用可能なユーザー データの要求、<xref:Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal*>します。
 
 サンプル アプリで`OnPostConfirmationAsync`(*Account/ExternalLogin.cshtml.cs*) を確立、 <xref:System.Security.Claims.ClaimTypes.Gender> 、符号付きの要求で`ApplicationUser`:
 
