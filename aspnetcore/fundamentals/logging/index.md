@@ -56,7 +56,7 @@ ASP.NET Core の[依存関係の挿入 (DI)](xref:fundamentals/dependency-inject
 
 ## <a name="create-logs"></a>ログを作成する
 
-DI から <xref:Microsoft.Extensions.Logging.ILogger`1> オブジェクトを取得します。
+DI から <xref:Microsoft.Extensions.Logging.ILogger%601> オブジェクトを取得します。
 
 ::: moniker range=">= aspnetcore-2.0"
 
