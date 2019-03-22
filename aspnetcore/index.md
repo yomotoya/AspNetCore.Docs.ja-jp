@@ -18,7 +18,7 @@ ASP.NET Core は、インターネットに接続された最新のクラウド 
 * クラウドまたはオンプレミスに展開する。
 * [.NET Core または .NET Framework](/dotnet/articles/standard/choosing-core-framework-server) 上で実行する。
 
-## <a name="why-use-aspnet-core"></a>ASP.NET Core を使う理由
+## <a name="why-to-use-aspnet-core"></a>ASP.NET Core を使用する理由
 
 何百万人もの開発者が、これまで、そして現在も、Web アプリの作成に [ASP.NET 4.x](/aspnet/overview) を使っています。 ASP.NET Core は ASP.NET 4.x を設計し直したものであり、無駄のないモジュール形式のフレームワークになるようにアーキテクチャが変更されています。
 
@@ -136,7 +136,7 @@ WebHost.CreateDefaultBuilder(args)
 
 先述の C# コード スニペットは、トピックのマークダウン ファイルの次の行で示されています。
 
-```
+```md
 [!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
 ```
 

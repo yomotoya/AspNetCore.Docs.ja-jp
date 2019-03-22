@@ -5,12 +5,12 @@ description: アプリのリソースで抽象化されたものである、ア�
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: c0d3ad6bcdf2e56df915b176b28759c59e76faf6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 67bd40adef4cdb0bd781f70114d3954cd9a8ed09
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206564"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320096"
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core のアプリケーション パーツ
 
@@ -20,7 +20,7 @@ ms.locfileid: "50206564"
 
 ## <a name="introducing-application-parts"></a>アプリケーション パーツの概要
 
-MVC アプリはその機能を[アプリケーション パーツ](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)から読み込みます。 たとえば、[AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) クラスは、アセンブリでバックアップされるアプリケーション パーツを表します。 これらのクラスを使用して、コントローラー、ビュー コンポーネント、タグ ヘルパー、Razor コンパイル ソースなどの MVC 機能を検出して読み込むことができます。 [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) は、MVC アプリで使用できるアプリケーション パーツと機能プロバイダーの追跡を担当します。 MVC の構成時に `Startup` の `ApplicationPartManager` を操作できます。
+MVC アプリはその機能を[アプリケーション パーツ](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)から読み込みます。 たとえば、[AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) クラスは、アセンブリでバックアップされるアプリケーション パーツを表します。 これらのクラスを使用して、コントローラー、ビュー コンポーネント、タグ ヘルパー、Razor コンパイル ソースなどの MBV 機能を検出して読み込むことができます。 [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) は、MVC アプリで使用できるアプリケーション パーツと機能プロバイダーの追跡を担当します。 MVC の構成時に `Startup` の `ApplicationPartManager` を操作できます。
 
 ```csharp
 // create an assembly part from a class's assembly
@@ -68,7 +68,7 @@ services.AddMvc()
 
 機能プロバイダーは `IApplicationFeatureProvider<T>` から継承されます。ここで `T` は機能の種類です。 上にリストされている MVC の機能のいずれかの種類に対して、独自の機能プロバイダーを実装することができます。 `ApplicationPartManager.FeatureProviders` コレクションでの機能プロバイダーの順序は重要な場合があります。前のプロバイダーによって行われたアクションに後のプロバイダーが反応する可能性があるためです。
 
-### <a name="sample-generic-controller-feature"></a>サンプル: 汎用コントローラーの機能
+### <a name="sample-generic-controller-feature"></a>サンプル:汎用コント ローラーの機能
 
 既定では、ASP.NET Core MVC は汎用コントローラー (`SomeController<T>` など) を無視します。 このサンプルでは、既定のプロバイダーの後に実行されるコントローラー機能プロバイダーを使用して、指定された型のリスト (`EntityTypes.Types` で定義) に対して汎用コントローラー インスタンスを追加します。
 
@@ -96,7 +96,7 @@ services.AddMvc()
 
 一致するルートが要求された場合の結果:
 
-![サンプル アプリからの出力例は 'Hello from a generic Sproket controller.' となっています](app-parts/_static/generic-controller.png)
+![サンプル アプリからの出力例は 'Hello from a generic Sprocket controller.' となっています](app-parts/_static/generic-controller.png)
 
 ### <a name="sample-display-available-features"></a>サンプル: 使用可能な機能の表示
 
