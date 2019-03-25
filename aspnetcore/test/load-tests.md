@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: 39632af2c92dac548c03e24d35a5e8a03e00890d
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 08c4251059b7d9f4549ad710054d8299c4943465
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209834"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419382"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>ロード テストとストレス テストの ASP.NET Core
 
-ロード テストとストレス テストは、web アプリが高パフォーマンスであることを確認する重要な拡張性の高いです。 その目標が異なる類似のテストを多くの場合、共有もします。
+ロード テストとストレス テストは、web アプリが高パフォーマンスであることを確認する重要な拡張性の高いです。 多くの場合、類似のテストを共有する場合でも、その目標が異なります。
 
 **ロード テスト**:アプリは、応答の目標を引き続き満たしながら特定のシナリオのユーザーの指定した負荷を処理できるかどうかをテストします。 アプリは、通常の状況で実行されます。
 

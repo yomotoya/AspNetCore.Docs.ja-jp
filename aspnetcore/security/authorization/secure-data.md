@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: bdba706c1ef24ebe35129cb8bb2d9949196245a1
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 748de9264a1b22b50e0832fdd350e06eeefd5cb3
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098923"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419460"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>承認によって保護されたユーザー データと ASP.NET Core アプリを作成します。
 
@@ -89,7 +89,7 @@ ASP.NET Core 2.1 で`User.IsInRole`を使用する場合は失敗`AddDefaultIden
 
 ## <a name="the-starter-and-completed-app"></a>Starter および完成したアプリ
 
-[ダウンロード](xref:index#how-to-download-a-sample)、[完了](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)アプリ。 [テスト](#test-the-completed-app)完成したアプリのセキュリティ機能を理解するようにします。
+[ダウンロード](xref:index#how-to-download-a-sample)、[完了](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples)アプリ。 [テスト](#test-the-completed-app)完成したアプリのセキュリティ機能を理解するようにします。
 
 ### <a name="the-starter-app"></a>スターター アプリ
 
