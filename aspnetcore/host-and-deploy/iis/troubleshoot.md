@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/06/2019
+ms.date: 03/14/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 1fa90737aadebe3f714c702fbce649629d79dcd4
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841554"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264551"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -33,17 +33,13 @@ Visual Studio では、ASP.NET Core プロジェクトのデバッグ時に [IIS
 
 その他のトラブルシューティング トピック:
 
-<xref:host-and-deploy/azure-apps/troubleshoot>  
-App Service は[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module)と IIS を使用してアプリをホストしますが、App Service 固有の手順については、この専用のトピックを参照してください。
+<xref:host-and-deploy/azure-apps/troubleshoot>App Service は [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) と IIS を使用してアプリをホストしますが、App Service 固有の手順については、この専用のトピックを参照してください。
 
-<xref:fundamentals/error-handling>  
-ローカル システム上で開発しているときに発生する ASP.NET Core アプリのエラーを処理する方法について説明しています。
+<xref:fundamentals/error-handling> ローカル システム上で開発しているときに発生する ASP.NET Core アプリのエラーを処理する方法について説明しています。
 
-[Visual Studio を使用したデバッグについて理解する](/visualstudio/debugger/getting-started-with-the-debugger)  
-このトピックでは、Visual Studio デバッガーの機能を紹介しています。
+[Visual Studio を使用したデバッグについて理解する](/visualstudio/debugger/getting-started-with-the-debugger) このトピックでは、Visual Studio デバッガーの機能を紹介しています。
 
-[Visual Studio Code でのデバッグ](https://code.visualstudio.com/docs/editor/debugging)  
-Visual Studio Code に組み込まれているデバッグのサポートについて説明します。
+[Visual Studio Code でのデバッグ](https://code.visualstudio.com/docs/editor/debugging) Visual Studio Code に組み込まれているデバッグのサポートについて説明します。
 
 ## <a name="app-startup-errors"></a>アプリ起動時のエラー
 
@@ -51,7 +47,7 @@ Visual Studio Code に組み込まれているデバッグのサポートにつ�
 
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
-ASP.NET Core モジュールはバックエンドのドットネット プロセスの開始を試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。 
+ASP.NET Core モジュールはバックエンドのドットネット プロセスの開始を試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。
 
 一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。
 
@@ -65,7 +61,7 @@ ASP.NET Core モジュールはバックエンドのドットネット プロセ
 
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
-ASP.NET Core モジュールは .NET Core CLR の開始をインプロセスで試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。 
+ASP.NET Core モジュールは .NET Core CLR の開始をインプロセスで試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。
 
 一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。
 
@@ -82,7 +78,7 @@ ASP.NET Core モジュールは .NET Core CLR の検出に失敗し、インプ�
 
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
-ASP.NET Core モジュールは、アウト プロセスのホスティング要求ハンドラーの検索に失敗します。 *aspnetcorev2_outofprocess.dll* が *aspnetcorev2.dll* の隣のサブフォルダーにあることを確認してください。 
+ASP.NET Core モジュールは、アウト プロセスのホスティング要求ハンドラーの検索に失敗します。 *aspnetcorev2_outofprocess.dll* が *aspnetcorev2.dll* の隣のサブフォルダーにあることを確認してください。
 
 ::: moniker-end
 
@@ -172,7 +168,7 @@ stdout ログを有効にして表示するには:
 
 1. ホスティング システム上のサイトの展開フォルダーに移動します。
 1. *logs* フォルダーが存在しない場合は、フォルダーを作成します。 MSBuild で展開フォルダーに *logs* フォルダーを自動的に作成されるようにする手順については、「[ディレクトリ構造](xref:host-and-deploy/directory-structure)」のトピックを参照してください。
-1. *web.config* ファイルを編集します。 **stdoutLogEnabled** を `true` に設定し、**stdoutLogFile** のパスを *logs* フォルダー (たとえば `.\logs\stdout`) を指すように変更します。 パスの `stdout` はログ ファイル名のプレフィックスです。 ログ ファイルの作成時には、タイムスタンプ、プロセス ID、およびファイルの拡張子が自動的に追加されます。 ファイル名のプレフィックスとして `stdout` を使用すると、一般的なログ ファイルの名前は *stdout_20180205184032_5412.log* になります。 
+1. *web.config* ファイルを編集します。 **stdoutLogEnabled** を `true` に設定し、**stdoutLogFile** のパスを *logs* フォルダー (たとえば `.\logs\stdout`) を指すように変更します。 パスの `stdout` はログ ファイル名のプレフィックスです。 ログ ファイルの作成時には、タイムスタンプ、プロセス ID、およびファイルの拡張子が自動的に追加されます。 ファイル名のプレフィックスとして `stdout` を使用すると、一般的なログ ファイルの名前は *stdout_20180205184032_5412.log* になります。
 1. アプリケーション プールの ID に *logs* フォルダーへの書き込みアクセス許可があることを確認します。
 1. 更新した *web.config* ファイルを保存します。
 1. アプリに対して要求します。
@@ -245,24 +241,27 @@ stdout ログを有効にして表示するには:
 [Windows エラー報告 (WER)](/windows/desktop/wer/windows-error-reporting) からダンプを取得して分析します。
 
 1. `c:\dumps` にクラッシュ ダンプ ファイルを保持するフォルダーを作成します。 アプリ プールには、そのフォルダーへの書き込みアクセス権が必要です。
-1. [EnableDumps PowerShell スクリプト](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1) を実行します。
+1. [EnableDumps PowerShell スクリプト](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1) を実行します。
    * アプリで[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
+
    * アプリで[アウト プロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
      ```
+
 1. クラッシュが発生する条件の下でアプリを実行します。
-1. クラッシュが発生した後、[DisableDumps PowerShell スクリプト](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1)を実行します。
+1. クラッシュが発生した後、[DisableDumps PowerShell スクリプト](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1)を実行します。
    * アプリで[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
 
      ```console
      .\DisableDumps w3wp.exe
      ```
+
    * アプリで[アウト プロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
 
      ```console

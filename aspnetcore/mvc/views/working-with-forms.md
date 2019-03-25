@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209558"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
 
@@ -205,9 +205,7 @@ Type expected
 |Int|type="number"|
 |Single、Double|type="number"|
 
-
 次の表は、入力タグ ヘルパーが特定の入力の型にマップする一般的な[データ注釈](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性の一部をまとめたものです (すべての検証属性を網羅した一覧ではありません)。
-
 
 |属性|入力の型|
 |---|---|
@@ -215,10 +213,9 @@ Type expected
 |[Url]|type="url"|
 |[HiddenInput]|type="hidden"|
 |[Phone]|type="tel"|
-|[DataType(DataType.Password)]| type="password"|
-|[DataType(DataType.Date)]| type="date"|
-|[DataType(DataType.Time)]| type="time"|
-
+|[DataType(DataType.Password)]|type="password"|
+|[DataType(DataType.Date)]|type="date"|
+|[DataType(DataType.Time)]|type="time"|
 
 サンプル:
 
@@ -378,7 +375,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ## <a name="the-label-tag-helper"></a>ラベル タグ ヘルパー
 
-* 式の名前の [<label>](https://www.w3.org/wiki/HTML/Elements/label) 要素に対してラベルのキャプションと `for` 属性を生成します。
+* 式の名前の [\<label>](https://www.w3.org/wiki/HTML/Elements/label) 要素に対してラベルのキャプションと `for` 属性を生成します。
 
 * HTML ヘルパーの代替: `Html.LabelFor`。
 

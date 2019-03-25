@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 36c2bdfa585a0fd54ca93bf4c0edb4cf6f7d934a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841403"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265448"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -23,8 +23,7 @@ ms.locfileid: "57841403"
 
 ## <a name="app-startup-errors"></a>アプリ起動時のエラー
 
-**502.5 処理エラー**  
-ワーカー プロセスが失敗します。 アプリは起動しません。
+**502.5 処理エラー** ワーカー プロセスが失敗します。 アプリは起動しません。
 
 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)はワーカー プロセスの開始を試みますが、開始に失敗します。 この種の問題のトラブルシューティングには、アプリケーション イベント ログを調べると役に立つことがよくあります。 ログへのアクセスについては、「[アプリケーション イベント ログ](#application-event-log)」セクションで説明します。
 
@@ -32,7 +31,8 @@ ms.locfileid: "57841403"
 
 ![502.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
 
-**500 内部サーバー エラー**  
+**500 内部サーバー エラー**
+
 アプリは起動しますが、エラーのためにサーバーは要求を実行できません。
 
 このエラーは、起動時または応答の作成中に、アプリのコード内で発生します。 応答にコンテンツが含まれていないか、またはブラウザーに "*500 内部サーバー エラー*" という応答が表示される可能性があります。 通常、アプリケーション イベント ログではアプリが正常に起動したことが示されます。 サーバーから見るとそれは正しいことです。 アプリは起動しましたが、有効な応答を生成できません。 問題のトラブルシューティングを行うには、[Kudu コンソールでアプリを実行する](#run-the-app-in-the-kudu-console)か、または [ASP.NET Core モジュールの stdout ログを有効にします](#aspnet-core-module-stdout-log)。
@@ -83,15 +83,16 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
      ```console
      dotnet .\{ASSEMBLY NAME}.dll
      ```
+
    * アプリが[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合:
 
      ```console
      {ASSEMBLY NAME}.exe
      ```
-   
+
 エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
-   
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>プレビュー リリース上で実行されているフレームワークに依存する展開
+
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>プレビュー リリース上で実行されているフレームワークに依存する展開
 
 "*ASP.NET Core {バージョン} (x86) ランタイムのサイト拡張機能をインストールする必要があります。*"
 
@@ -113,7 +114,7 @@ ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に
 
 エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
 
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>プレビュー リリース上で実行されているフレームワークに依存する展開
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>プレビュー リリース上で実行されているフレームワークに依存する展開
 
 "*ASP.NET Core {バージョン} (x64) ランタイムのサイト拡張機能をインストールする必要があります。*"
 
@@ -230,7 +231,7 @@ stdout ログが有効になっていない場合は、次の手順のように�
 
 1. Azure portal で **[診断ログ]** ブレードを選びます。
 1. **[アプリケーション ログ (ファイル システム)]** および **[詳細なエラー メッセージ]** の **[オン]** スイッチを選びます。 ブレードの上部にある **[保存]** ボタンを選びます。
-1. 失敗した要求イベントのバッファ処理 (FREB) とも呼ばれる失敗した要求のトレースを含めるには、**[失敗した要求のトレース]** で **[オン]** スイッチを選びます。 
+1. 失敗した要求イベントのバッファ処理 (FREB) とも呼ばれる失敗した要求のトレースを含めるには、**[失敗した要求のトレース]** で **[オン]** スイッチを選びます。
 1. ポータルで **[診断ログ]** ブレードのすぐ下にある **[ログ ストリーム]** ブレードを選びます。
 1. アプリに対して要求します。
 1. ログ ストリーム データ内で、エラーの原因が示されます。

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 819bf1b49b56e953a9a4398e82866ba0b01ab4db
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b0fce0632fd2d885cb8e9a056923ec365d2f327d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209987"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API の応答データの書式設定
 
@@ -129,13 +129,13 @@ services.AddMvc(options =>
 
 XML 書式設定のサポートを追加すると、コントローラー メソッドは、要求の `Accept` ヘッダーに基づき、適切な書式を返すはずです。下の Fiddler の例をご覧ください。
 
-![Fiddler コンソール: 要求の [Raw] タブで、Accept ヘッダー値が application/xml であることを確認できます。 応答の [Raw] タブで、Content-Type ヘッダー値が application/xml であることを確認できます。](formatting/_static/xml-response.png)
+![Fiddler コンソール:要求の [Raw] タブで、Accept ヘッダー値が application/xml であることを確認できます。 応答の [Raw] タブで、Content-Type ヘッダー値が application/xml であることを確認できます。](formatting/_static/xml-response.png)
 
 [Inspectors] タブで、`Accept: application/xml` ヘッダーが設定された状態で Raw GET 要求が行われたことを確認できます。 応答ウィンドウに `Content-Type: application/xml` ヘッダーが表示されます。`Author` オブジェクトが XML にシリアル化されています。
 
 [Composer] タブを使用して要求を変更し、`Accept` ヘッダーに `application/json` を指定します。 要求を実行します。応答が JSON で書式設定されます。
 
-![Fiddler コンソール: 要求の [Raw] タブで、Accept ヘッダー値が application/json であることを確認できます。 応答の [Raw] タブで、Content-Type ヘッダー値が application/json であることを確認できます。](formatting/_static/json-response-fiddler.png)
+![Fiddler コンソール:要求の [Raw] タブで、Accept ヘッダー値が application/json であることを確認できます。 応答の [Raw] タブで、Content-Type ヘッダー値が application/json であることを確認できます。](formatting/_static/json-response-fiddler.png)
 
 このスクリーンショットでは、`Accept: application/json` のヘッダーとして要求セットを確認できます。応答によって、その `Content-Type` と同じものが指定されます。 `Author` オブジェクトは応答の本文に JSON 形式で表示されます。
 
@@ -168,7 +168,7 @@ services.AddMvc(options =>
 
 ## <a name="response-format-url-mappings"></a>応答形式の URL マッピング
 
-クライアントは URL の一部として特定の書式を要求できます。たとえば、クエリ文字列やパスの一部に含めます。あるいは、.xml や .json など、書式固有のファイル拡張子を利用します。 要求パスからのマッピングは、API で使用されるルートに指定する必要があります。 例:
+クライアントは URL の一部として特定の書式を要求できます。たとえば、クエリ文字列やパスの一部に含めます。あるいは、.xml や .json など、書式固有のファイル拡張子を利用します。 要求パスからのマッピングは、API で使用されるルートに指定する必要があります。 次に例を示します。
 
 ```csharp
 [FormatFilter]
@@ -180,10 +180,8 @@ public class ProductsController
 
 このルートにより、要求された書式をオプションのファイル拡張子として指定できます。 `[FormatFilter]` 属性は `RouteData` に書式値がないか確認し、応答が作成されると、応答形式を適切なフォーマッタにマッピングします。
 
-
 |           ルート            |             フォーマッタ              |
 |----------------------------|------------------------------------|
 |   `/products/GetById/5`    |    既定の出力フォーマッタ    |
 | `/products/GetById/5.json` | JSON フォーマッタ (構成される場合) |
 | `/products/GetById/5.xml`  | XML フォーマッタ (構成される場合)  |
-

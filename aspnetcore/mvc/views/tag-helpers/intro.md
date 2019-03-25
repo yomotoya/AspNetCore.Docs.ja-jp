@@ -4,14 +4,14 @@ author: rick-anderson
 description: タグ ヘルパーと、ASP.NET Core でのその使用方法について説明します。
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 2/14/2018
+ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 7768dd45bdbe40c16176d57a76823cbb9dd0b91b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477307"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264616"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー
 
@@ -122,6 +122,7 @@ FQN を使用してビューにタグ ヘルパーを追加するには、最初
 ```cshtml
 @tagHelperPrefix th:
 ```
+
 以下のコード イメージでは、タグ ヘルパーのプレフィックスが `th:` に設定されているため、プレフィックス `th:` を使用する要素のみでタグ ヘルパーがサポートされます (タグ ヘルパーが有効な要素には独特なフォントがあります)。 `<label>` 要素と `<input>` 要素にはタグ ヘルパー プレフィックスがあり、タグ ヘルパーが有効ですが、`<span>` 要素にはありません。
 
 ![イメージ](intro/_static/thp.png)
@@ -186,37 +187,21 @@ IntelliSense では、ページのモデルで使用可能なプロパティと�
 new {@class="caption"}
 ```
 
-これは属性を表すために使用される匿名オブジェクトです。 <strong>class</strong> は C# の予約済みのキーワードであるため、`@` シンボルを使用して、C# で強制的に "@class=" をシンボル (プロパティ名) として解釈するようにします。 フロント エンドのデザイナー (HTML/CSS/JavaScript とその他のクライアント テクノロジには慣れているものの、C# や Razor には慣れていないデザイナー) には、行のほとんどが馴染みのないものです。 IntelliSense に頼らずに行全体を作成する必要があります。
+これは属性を表すために使用される匿名オブジェクトです。 `class` は C# の予約済みのキーワードであるため、`@` シンボルを使用して、C# で強制的に `@class=` をシンボル (プロパティ名) として解釈するようにします。 フロント エンドのデザイナー (HTML/CSS/JavaScript とその他のクライアント テクノロジには慣れているものの、C# や Razor には慣れていないデザイナー) には、行のほとんどが馴染みのないものです。 IntelliSense に頼らずに行全体を作成する必要があります。
 
 `LabelTagHelper` を使用すれば、以下と同じマークアップを書き込むことができます。
 
-![イメージ](intro/_static/label2.png)
+```cshtml
+<label class="caption" asp-for="FirstName"></label>
+```
 
 タグ ヘルパー バージョンを使用して Visual Studio エディターで `<l` を入力するとすぐに、IntelliSense で一致する要素が表示されます。
 
 ![イメージ](intro/_static/label.png)
 
-IntelliSense は行全体を書き込む場合に役立ちます。 `LabelTagHelper` でも既定で `asp-for` 属性値のコンテンツ ("FirstName") が "First Name" に設定されます。キャメル ケースのプロパティは、新しい大文字がそれぞれ示されるスペースがあるプロパティ名で構成された文に変換されます。 次のマークアップでは、
+IntelliSense は行全体を書き込む場合に役立ちます。
 
-![イメージ](intro/_static/label2.png)
-
-この場合、次のように生成されます。
-
-```cshtml
-<label class="caption" for="FirstName">First Name</label>
-```
-
-`<label>` にコンテンツを追加する場合、キャメル ケースからセンテンス ケースのコンテンツは使用されません。 例:
-
-![イメージ](intro/_static/1stName.png)
-
-この場合、次のように生成されます。
-
-```cshtml
-<label class="caption" for="FirstName">Name First</label>
-```
-
-次のコード イメージは、Visual Studio 2015 に含まれているレガシ ASP.NET 4.5.x MVC テンプレートから生成される *Views/Account/Register.cshtml* Razor ビューの Form 部分を示しています。
+次のコード イメージは、Visual Studio に含まれている ASP.NET 4.5.x MVC テンプレートから生成される *Views/Account/Register.cshtml* Razor ビューの Form 部分を示しています。
 
 ![イメージ](intro/_static/regCS.png)
 

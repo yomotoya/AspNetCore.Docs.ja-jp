@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102982"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264830"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>チュートリアル: CRUD 機能を実装する - ASP.NET MVC と EF Core
 
@@ -123,6 +123,7 @@ Index ページでは、Razor ビューのタグ ヘルパーのステートメ�
 `ValidateAntiForgeryToken` 属性は、クロスサイト リクエスト フォージェリ (CSRF) 攻撃を防ぐのに役立ちます。 トークンは、[FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) によってビューに自動的に挿入され、ユーザーがフォームを送信するときに追加されます。 トークンは、`ValidateAntiForgeryToken` 属性によって検証されます。 CSRF については、[リクエスト フォージェリの対策](../../security/anti-request-forgery.md)に関する記事をご覧ください。
 
 <a id="overpost"></a>
+
 ### <a name="security-note-about-overposting"></a>過剰ポスティングに関するセキュリティの注意事項
 
 スキャフォールディングされたコードによって `Create` メソッドに追加される `Bind` 属性は、作成シナリオで過剰ポスティングを防ぐ 1 つの方法です。 たとえば、Student エンティティに、この Web ページで設定したくない `Secret` プロパティが含まれているものとします。

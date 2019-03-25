@@ -1,4 +1,12 @@
-# <a name="contribute-to-the-aspnet-documentation"></a>ASP.NET ドキュメントに貢献する
+---
+ms.openlocfilehash: 98a03118954baa85b093a0514e1ac6f0fb6353e8
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320109"
+---
+# <a name="contribute-to-the-aspnet-core-documentation"></a>ASP.NET Core ドキュメントに貢献する
 
 このドキュメントでは、[ASP.NET ドキュメント サイト](https://docs.microsoft.com/aspnet/)でホストされている記事とコード サンプルに貢献するためのプロセスを説明します。 誤字修正と新しい記事の貢献を歓迎します。
 
@@ -18,7 +26,7 @@
 
 このプロセスで新しい記事が公開された例については、.NET Docs リポジトリの[問題 &num;67](https://github.com/dotnet/docs/issues/67) と[Pull Request &num;798](https://github.com/dotnet/docs/pull/798) を参照してください。 新しい記事は「[XML コメントによるコードの文書化](https://docs.microsoft.com/dotnet/articles/csharp/codedoc)」です。
 
-## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Visual Studio Code での Docs Authoring 拡張機能 
+## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Visual Studio Code での Docs Authoring 拡張機能
 
 Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場合は、[Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) 拡張機能をインストールすることで生産性を高めることができます。 拡張機能では、Markdown の lint 処理、コードのスペル チェック、および記事のテンプレートを支援する各種のツールが提供されています。
 
@@ -30,7 +38,7 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 
 マークダウン ファイルごとに、画像用のフォルダーとサンプル コード用のフォルダーが存在する場合があります。 記事が [fundamentals/configuration/index.md](https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/configuration/index.md) の場合、画像は [fundamentals/configuration/index/\_static](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) にあり、サンプル アプリのプロジェクト ファイルは [fundamentals/configuration/index/sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) にあります。 *fundamentals/configuration/index.md* ファイル内の画像は、次の Markdown によってレンダリングされます。
 
-```
+```md
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
@@ -42,13 +50,13 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 
 内部リンクでは、xref リンクでターゲット記事の `uid` を使用する必要があります (リンク テキストは、リンクされたコンテンツのタイトルに設定されます)。
 
-```
+```md
 <xref:uid_of_the_topic>
 ```
 
 記事のタイトルがリンク テキストに適さない場合は (たとえば、文の単語や語句がリンク テキストである場合)、次のように xref リンクとリンク テキストを指定します。
 
-```
+```md
 [link text](xref:uid_of_the_topic)
 ```
 
@@ -73,13 +81,13 @@ Visual Studio Code を使用して ASP.NET ドキュメントに貢献する場�
 
 コード ファイル全体をスニペットとして表示するには:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs)]
 ```
 
 行番号を使用してファイルの一部をスニペットとして表示するには:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?range=1-10,20,30,40-50]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=1-10,20,30,40-50]
 ```
@@ -88,13 +96,13 @@ C# のスニペットについては、[C# の領域](https://docs.microsoft.com
 
 C# の "snippet_Example" という名前の領域を表示するには:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example)]
 ```
 
 表示されたスニペットで選択されている行を強調表示するには (通常は黄色の背景色で表示されます):
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example&highlight=1-3,10,20-25)]
 [!code-csharp[](configuration/index/sample/Program.cs?range=10-20&highlight=1-3]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=10-20&highlight=1-3]
@@ -119,6 +127,7 @@ DocFX には次のものが必要です。
   ```console
   docfx --serve
   ```
+
 * ブラウザーで、`http://localhost:8080/group1-dest/` に移動します。
 
 ### <a name="mono-instructions"></a>Mono での手順
@@ -128,6 +137,7 @@ DocFX には次のものが必要です。
   ```console
   brew install mono
   ```
+
 * [最新バージョンの DocFX](https://github.com/dotnet/docfx/releases) をダウンロードします。
 * アーカイブを *$HOME/bin/docfx* に抽出します。
 * bash シェルで **docfx** の別名を 2 つ作成します。 最初の別名は、ドキュメントを構築するために使います。 2 番目の別名は、ドキュメントを構築して提供するために使います。
@@ -136,11 +146,13 @@ DocFX には次のものが必要です。
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
+
 * コマンド シェルで、*docfx.json* ファイル (ASP.NET コンテンツの場合は *aspnet*、ASP.NET Core コンテンツの場合は *aspnetcore*) を含むフォルダーに移動し、ドキュメントをその別名経由で構築して提供するために、次のコマンドを実行します。
 
   ```console
   docfx-serve
   ```
+
 * ブラウザーで、`http://localhost:8080/group1-dest/` に移動します。
 
 ## <a name="voice-and-tone"></a>スタイルとトーン

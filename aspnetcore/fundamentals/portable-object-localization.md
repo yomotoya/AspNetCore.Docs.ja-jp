@@ -5,12 +5,12 @@ description: この記事では、Portable Object (PO) ファイルについて�
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: c9f892f5a886d7167b4705595ed2277279495201
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 466759b30e756a7cac8abab7352025df0462bb6f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210094"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>ASP.NET Core で Portable Object のローカライズを構成する
 
@@ -49,15 +49,15 @@ msgstr[1] "Les adresses email sont \"{0}\""
 
 この例では、次の構文を使用します。
 
-- `#:`: 翻訳される文字列のコンテキストを示すコメント。 同じ文字列でも、使用される場所によって翻訳が変わることがあります。
-- `msgid`: 翻訳前の文字列。
-- `msgstr`: 翻訳後の文字列。
+- `#:`:翻訳される文字列のコンテキストを示すコメント。 同じ文字列でも、使用される場所によって翻訳が変わることがあります。
+- `msgid`:翻訳前の文字列。
+- `msgstr`:翻訳後の文字列。
 
 複数形化をサポートする場合は、その他のエントリも定義できます。
 
-- `msgid_plural`: 翻訳前の文字列の複数形。
-- `msgstr[0]`: 0 の場合の翻訳後の文字列。
-- `msgstr[N]`: N の場合の翻訳後の文字列。
+- `msgid_plural`:翻訳前の文字列の複数形。
+- `msgstr[0]`:0 の場合の翻訳後の文字列。
+- `msgstr[N]`:N の場合の翻訳後の文字列。
 
 PO ファイルの仕様については、[こちら](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/PO-Files.html)を参照してください。
 
@@ -91,7 +91,7 @@ PO ファイルの仕様については、[こちら](https://www.gnu.org/savann
 
 ### <a name="creating-a-po-file"></a>PO ファイルの作成
 
-アプリケーションのルート フォルダーに *<culture code>.po* というファイルを作成します。 この例では、フランス語が使用されているため、ファイル名は *fr.po* です。
+アプリケーションのルート フォルダーに *\<culture code>.po* というファイルを作成します。 この例では、フランス語が使用されているため、ファイル名は *fr.po* です。
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 

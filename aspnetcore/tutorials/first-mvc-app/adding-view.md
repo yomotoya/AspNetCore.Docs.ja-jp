@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core MVC アプリにビューを追加する
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 32eddb233a8a6b9b8f480926673d15d568ce6ede
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 6ff706012dabbf9500a805708c1f058b59ebc610
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236433"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265550"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのビューの追加
 
@@ -28,7 +28,6 @@ ms.locfileid: "55236433"
 
 ## <a name="add-a-view"></a>ビューを追加する
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * *Views* フォルダーを右クリックし、**[追加]、[新しいフォルダー]** の順に選択し、フォルダーに *HelloWorld* という名前を付けます。
@@ -47,7 +46,6 @@ ms.locfileid: "55236433"
 
 ![[新しい項目の追加] ダイアログ](adding-view/_static/add_view.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 `HelloWorldController` の `Index` ビューを追加します。
@@ -55,7 +53,6 @@ ms.locfileid: "55236433"
 * *Views/HelloWorld* という名前の新しいフォルダーを追加します。
 * *Views/HelloWorld* フォルダー名 *Index.cshtml* に新しいファイルを追加します。
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * *Views* フォルダーを右クリックし、**[追加]、[新しいフォルダー]** の順に選択し、フォルダーに *HelloWorld* という名前を付けます。
@@ -69,8 +66,7 @@ ms.locfileid: "55236433"
 
 ![[新しい項目の追加] ダイアログ](adding-view/_static/add_view.png)
 
----  
-<!-- End of VS tabs -->
+---
 
 *Views/HelloWorld/Index.cshtml* Razor ビュー ファイルの内容を次のコードに置き換えます。
 
@@ -152,7 +148,7 @@ ms.locfileid: "55236433"
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
-`ViewData` ディクショナリ オブジェクトには、ビューに渡されるデータが含まれています。 
+`ViewData` ディクショナリ オブジェクトには、ビューに渡されるデータが含まれています。
 
 *Views/HelloWorld/Welcome.cshtml* という名前の [ようこそ] ビュー テンプレートを作成します。
 

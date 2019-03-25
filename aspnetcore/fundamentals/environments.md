@@ -5,12 +5,12 @@ description: ASP.NET Core アプリで複数の環境にわたりアプリの動
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208456"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -31,9 +31,9 @@ ASP.NET Core はアプリの起動時に環境変数 `ASPNETCORE_ENVIRONMENT` �
 * `ASPNETCORE_ENVIRONMENT` が `Development` に設定されているとき、[UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) を呼び出します。
 * `ASPNETCORE_ENVIRONMENT` の値が次のいずれかに設定されているとき、[UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) を呼び出します。
 
-    * `Staging`
-    * `Production`
-    * `Staging_2`
+  * `Staging`
+  * `Production`
+  * `Staging_2`
 
 [環境タグ ヘルパー ](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) は `IHostingEnvironment.EnvironmentName` の値を使用し、要素にマークアップを追加するか、要素からマークアップを除外します。
 
@@ -290,7 +290,7 @@ Linux ディストリビューションの場合、セッション ベースの�
 
 環境ごとに構成を読み込む場合の推奨事項は次のとおりです。
 
-* *appsettings* ファイル (*appsettings.&lt;<Environment>&gt;.json)。 構成に関するページの「[構成: ファイル構成プロバイダー](xref:fundamentals/configuration/index#file-configuration-provider)」を参照してください。
+* *appsettings* ファイル (*appsettings.\<Environment>.json*)。 構成に関するページの「[構成: ファイル構成プロバイダー](xref:fundamentals/configuration/index#file-configuration-provider)」を参照してください。
 * 環境変数 (アプリがホストされている各システムで設定します)。 構成に関するページの「[構成: ファイル構成プロバイダー」](xref:fundamentals/configuration/index#file-configuration-provider)と[開発中のアプリ シークレットの安全な格納に関するページの「環境変数」](xref:security/app-secrets#environment-variables)を参照してください。
 * Secret Manager (開発環境の場合のみ) 以下を参照してください。<xref:security/app-secrets>
 

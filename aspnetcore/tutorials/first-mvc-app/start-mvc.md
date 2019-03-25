@@ -5,12 +5,12 @@ description: ASP.NET Core MVC の概要について説明します。
 ms.author: riande
 ms.date: 12/12/2018
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: c09c06f55c4179e9e2174f0063ab7387b7e4c31b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dbc07558d7d7672e60e8834dc3e4e9d8aab437e3
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899230"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265286"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -36,7 +36,6 @@ ms.locfileid: "56899230"
 
 ## <a name="create-a-web-app"></a>Web アプリの作成
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の順に選択します。
@@ -62,7 +61,6 @@ Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の
 
 Visual Studio は、作成した MVC プロジェクトの既定のテンプレートを使用しました。 プロジェクト名を入力し、いくつかのオプションを選択すると、すぐに作業アプリができあがります。 これは基本的なスターター プロジェクトなので、ここから始めることをお勧めします。
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 このチュートリアルは VS Code の知識があることを前提としています。 詳細については、[VS Code の概要](https://code.visualstudio.com/docs)、および [Visual Studio Code のヘルプ](#visual-studio-code-help)に関するページを参照してください。
@@ -81,7 +79,6 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
   * `dotnet new mvc -o MvcMovie`: *MvcMovie* フォルダー内に新しい ASP.NET Core MVC プロジェクトを作成します。
   * `code -r MvcMovie`:Visual Studio Code で *MvcMovie.csproj* プロジェクト ファイルを読み込みます。
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * **[ファイル]**、**[新しいソリューション]** の順に選択します。
@@ -96,12 +93,11 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
 
 * プロジェクトに **MvcMovie** という名前を付けて、**[作成]** を選択します。
 
----  
-<!-- End of VS tabs -->
+---
 
 ### <a name="run-the-app"></a>アプリを実行する
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 **Ctrl + F5** キーを押して、デバッグ以外のモードでアプリを実行します。
 
@@ -117,13 +113,13 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ctrl + F5 キーを押して、デバッガーなしで実行します。
 
 [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-  Visual Studio Code で [Kestrel](xref:fundamentals/servers/kestrel) が開始され、ブラウザーが起動され、`https://localhost:5001` に移動されます。 アドレス バーには、`example.com` などではなく、`localhost:port:5001` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。
+  Visual Studio Code で [Kestrel](xref:fundamentals/servers/kestrel) が開始され、ブラウザーが起動して、`https://localhost:5001` に移動します。 アドレス バーには、`example.com` などではなく、`localhost:port:5001` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。
 
   Ctrl + F5 キー (非デバッグ モード) でアプリを起動することで、コードの変更、ファイルの保存、ブラウザーの更新、コード変更の確認を行うことができます。 多くの開発者は、ページを更新して変更を確認できる非デバッグ モードの使用を好みます。
 
@@ -136,7 +132,7 @@ Ctrl + F5 キーを押して、デバッガーなしで実行します。
 * アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。 アプリを実行する際には、別のポート番号が表示されます。
 * **[実行]** メニューから、デバッグ モードまたは非デバッグ モードでアプリを起動できます。
 
-------
+---
 
 * **[同意する]** を選択し、追跡に同意します。 このアプリでは個人情報は追跡されません。 テンプレートで生成されたコードには、[一般的なデータ保護規制 (GDPR)](xref:security/gdpr) を満たす資産が含まれます。
 
@@ -151,4 +147,4 @@ Ctrl + F5 キーを押して、デバッガーなしで実行します。
 このチュートリアルの次のパートでは、MVC について説明し、コードの作成を開始します。
 
 > [!div class="step-by-step"]
-> [次へ](adding-controller.md)  
+> [次へ](adding-controller.md)

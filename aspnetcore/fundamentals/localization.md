@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 0eda297b7df97a5d20fea035983f426eafa03775
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665541"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264642"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -98,6 +98,7 @@ DataAnnotations エラー メッセージは `IStringLocalizer<T>` を使用し�
 ASP.NET Core MVC 1.1.0 以上では、非検証属性がローカライズされます。 ASP.NET Core MVC 1.0 は、非検証属性のローカライズされた文字列を検索**しません**。
 
 <a name="one-resource-string-multiple-classes"></a>
+
 ### <a name="using-one-resource-string-for-multiple-classes"></a>複数のクラスに 1 つのリソース文字列を使用する
 
 次のコードは、複数のクラスに検証属性の 1 つのリソース文字列を使用する方法を示しています。
@@ -304,7 +305,6 @@ services.Configure<RequestLocalizationOptions>(options =>
 ### <a name="set-the-culture-programmatically"></a>プログラムでカルチャを設定する
 
 この [GitHub](https://github.com/aspnet/entropy) のサンプル **Localization.StarterWeb** プロジェクトには、`Culture` を設定するための UI が含まれています。 *Views/Shared/_SelectLanguagePartial.cshtml* ファイルを使用して、サポートされているカルチャの一覧からカルチャを選択することができます。
-
 
 [!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 

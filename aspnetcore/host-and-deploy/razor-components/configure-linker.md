@@ -5,14 +5,14 @@ description: Blazor アプリを構築するときに、中間言語 (IL) リン
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 03/11/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: 7c53e7912ec3b0ae471ea38777f874f55a32487d
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: c73c972e22a51842c5d8dd209b7e1ed987f9090d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207932"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Blazor 用のリンカーを構成する
 
@@ -20,14 +20,14 @@ ms.locfileid: "56647942"
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-Blazor では、各リリース モードのビルド中に[中間言語 (IL)](/dotnet/standard/managed-code#intermediate-language--execution) のリンク設定を実行して、出力アセンブリから不要な IL を削除します。
+Blazor では、各リリース モードのビルド中に[中間言語 (IL)](/dotnet/standard/managed-code#intermediate-language--execution) のリンク設定を実行して、アプリの出力アセンブリから不要な IL を削除します。
 
-次の方法のいずれかを使って、アセンブリのリンクを制御できます。
+次の方法のいずれかを使って、アセンブリのリンクを制御します。
 
-* MSBuild プロパティを使ってリンクをグローバルに無効にする。
-* 構成ファイルを使ってアセンブリごとにリンクを制御する。
+* [MSBuild プロパティ](#disable-linking-with-a-msbuild-property)を使ってリンクをグローバルに無効にする。
+* [構成ファイル](#control-linking-with-a-configuration-file)を使ってアセンブリごとにリンクを制御する。
 
-## <a name="disable-linking-with-an-msbuild-property"></a>MSBuild プロパティを使ってリンクを無効にする
+## <a name="disable-linking-with-a-msbuild-property"></a>MSBuild プロパティを使ってリンクを無効にする
 
 リリース モードでは、アプリをビルドするときに既定でリンクが有効になります。これには公開が含まれます。 すべてのアセンブリに対してリンクを無効にするには、プロジェクト ファイルで MSBuild プロパティ `<BlazorLinkOnBuild>` を `false` に設定します。
 
@@ -39,9 +39,15 @@ Blazor では、各リリース モードのビルド中に[中間言語 (IL)](/
 
 ## <a name="control-linking-with-a-configuration-file"></a>構成ファイルを使ってリンクを制御する
 
-XML の構成ファイルを用意してそのファイルをプロジェクト ファイル内で MSBuild 項目として指定することで、アセンブリごとにリンクを制御できます。
+XML の構成ファイルを用意してそのファイルをプロジェクト ファイル内で MSBuild 項目として指定することで、アセンブリごとにリンクを制御します。
 
-構成ファイルの例 (*Linker.xml*) を次に示します。
+```xml
+<ItemGroup>
+  <BlazorLinkerDescriptor Include="Linker.xml" />
+</ItemGroup>
+```
+
+*Linker.xml*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -73,12 +79,4 @@ XML の構成ファイルを用意してそのファイルをプロジェクト 
 </linker>
 ```
 
-構成ファイルのファイル形式について詳しくは、[IL リンカー:xml 記述子の構文](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor)に関するページをご覧ください。
-
-`BlazorLinkerDescriptor` 項目を使ってプロジェクト ファイル内で構成ファイルを指定します。
-
-```xml
-<ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
-</ItemGroup>
-```
+詳細については、[IL リンカー:xml 記述子の構文](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor)に関するページをご覧ください。

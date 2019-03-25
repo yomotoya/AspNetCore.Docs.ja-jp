@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103099"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264594"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>チュートリアル: 高度なシナリオについて学習する - ASP.NET MVC と EF Core
 
@@ -81,7 +81,7 @@ Contoso University の管理者が、すべてのコースの単位数を変更�
 
 ![Course Credits ページを更新する](advanced/_static/update-credits.png)
 
-*CoursesContoller.cs* で、HttpGet および HttpPost に UpdateCourseCredits メソッドを追加します。
+*CoursesController.cs* で、HttpGet および HttpPost に UpdateCourseCredits メソッドを追加します。
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
@@ -202,6 +202,7 @@ Entity Framework Core のソースは、[https://github.com/aspnet/EntityFramewo
 チュートリアルを執筆してくださった、Tom Dykstra と Rick Anderson (twitter @RickAndMSFT)。 コードの確認をサポートし、チュートリアル用のコードの記述中に発生した問題のデバッグを支援してくれた、Rowan Miller、Diego Vega、およびその他の Entity Framework チームのメンバー。 ASP.NET Core 2.2 用にチュートリアルの更新作業を行ってくれた、John Parente と Paul Goldman。
 
 <a id="common-errors"></a>
+
 ## <a name="troubleshoot-common-errors"></a>一般的なエラーのトラブルシューティング
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll が別のプロセスによって使用されている

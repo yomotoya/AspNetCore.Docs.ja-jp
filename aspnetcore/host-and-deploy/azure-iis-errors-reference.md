@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 053dcce7f8c59b7afe7e52d2f704c992afce0b67
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346227"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265173"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>ASP.NET Core を使用した Azure App Service および IIS の一般的なエラーのリファレンス
 
@@ -61,7 +61,7 @@ ms.locfileid: "57346227"
 
 "*Azure App Services でホストしているアプリに適用されます。*"
 
-* **ブラウザー:** HTTP エラー 500.0 - ANCM インプロセス ハンドラーの読み込みエラー 
+* **ブラウザー:** HTTP エラー 500.0 - ANCM インプロセス ハンドラーの読み込みエラー
 
 * **アプリケーション ログ:** hostfxr を呼び出し、インプロセス要求ハンドラーを見つけようとすると、ネイティブの依存関係が見つからず、失敗しました。 インプロセス要求ハンドラーが見つかりませんでした。 hostfxr の呼び出し時にキャプチャされた出力:互換性のあるフレームワーク バージョンが見つかりませんでした。 指定したフレームワーク 'Microsoft.AspNetCore.App'、バージョン '{VERSION}-preview-\*' が見つかりませんでした。 アプリケーション '/LM/W3SVC/1416782824/ROOT' を起動できませんでした、エラー コード '0x8000ffff'。
 
@@ -80,7 +80,7 @@ ms.locfileid: "57346227"
   * ASP.NET Core {ランタイム バージョン} (x86) ランタイム
   * ASP.NET Core {ランタイム バージョン} (x64) ランタイム
 
-  アプリを再起動します。 アプリが再起動するまで数秒待ちます。 
+  アプリを再起動します。 アプリが再起動するまで数秒待ちます。
 
 * プレビュー ランタイムでアプリを実行していて、32 ビット (x86)、64 ビット (x64) 両方の[サイト拡張機能](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension)がインストールされている場合、アプリのビットと一致しないサイト拡張機能をアンインストールします。 サイト拡張機能を削除した後、アプリを再起動します。 アプリが再起動するまで数秒待ちます。
 
@@ -201,7 +201,7 @@ IIS Web サイトの**基本設定**と物理アプリのフォルダーを確�
   ```xml
   <section name="aspNetCore" overrideModeDefault="Allow" />
   ```
-  
+
   または、ASP.NET Core ホスティング バンドルの最新バージョンをインストールします。 最新バージョンは、ポートされている ASP.NET Core アプリと下位互換性があります。
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>processPath の誤り、PATH 変数の欠如、ホスティング バンドルが未インストール、システムまたは IIS が再起動されていない、VC++ 再頒布可能パッケージが未インストール、dotnet.exe アクセス違反

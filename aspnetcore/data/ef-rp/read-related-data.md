@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: a264cdaf0f577be6ea2043935b485f4fd16e0229
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345894"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264954"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -65,9 +65,10 @@ Course エンティティには、`Department` エンティティを含むナビ
 * `Department` エンティティから `Name` プロパティを取得します。
 * `Department` エンティティは `Course.Department` ナビゲーション プロパティから取得されます。
 
-![ourse.Department](read-related-data/_static/dep-crs.png)
+![Course.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-course-model"></a>Course モデルのスキャフォールディング
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -115,6 +116,7 @@ Course エンティティには、`Department` エンティティを含むナビ
 ![Courses/Index ページ](read-related-data/_static/courses-index.png)
 
 <a name="select"></a>
+
 ### <a name="loading-related-data-with-select"></a>Select を使用した関連データの読み込み
 
 `OnGetAsync` メソッドは、`Include` メソッドを使用して関連データを読み込みます。
@@ -187,7 +189,6 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 * `OfficeAssignment`:[Instructors ビュー](#IP)に表示されます。
 * `CourseAssignments`:担当したコースを取り込みます。
 
-
 ### <a name="update-the-instructors-index-page"></a>Instructors/Index ページを更新する
 
 次のマークアップを使用して *Pages/Instructors/Index.cshtml* を更新します。
@@ -198,11 +199,11 @@ Instructors ページには、3 つの異なるテーブルからのデータが
 
 * `page` ディレクティブを `@page` から `@page "{id:int?}"` に更新します。 `"{id:int?}"` はルート テンプレートです。 ルート テンプレートは、URL 内の整数クエリ文字列をルート データに変更します。 たとえば、`@page` ディレクティブのみのインストラクターで **[Select]** リンクをクリックすると、次のような URL を生成します。
 
-    `http://localhost:1234/Instructors?id=2`
+  `http://localhost:1234/Instructors?id=2`
 
-    ページ ディレクティブが `@page "{id:int?}"` の場合、上記の URL は次のようになります。
+  ページ ディレクティブが `@page "{id:int?}"` の場合、上記の URL は次のようになります。
 
-    `http://localhost:1234/Instructors/2`
+  `http://localhost:1234/Instructors/2`
 
 * ページ タイトルは **Instructors** です。
 * `item.OfficeAssignment` が null ではない場合にのみ `item.OfficeAssignment.Location` を表示する **Office** 列を追加しました。 これは、一対ゼロまたは一対一のリレーションシップであるため、関連する OfficeAssignment エンティティがない場合があります。

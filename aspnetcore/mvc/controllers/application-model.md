@@ -5,12 +5,12 @@ description: アプリケーションを読み、操作し、ASP.NET Core での
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6b0591a877c0d82e0ee6ab002eb6a6650753677b
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225500"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208597"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core のアプリケーション モデルの使用
 
@@ -25,9 +25,9 @@ ASP.NET Core MVC アプリケーション モデルには、MVC アプリケー�
 ASP.NET Core MVC アプリケーション モデルの構造は、次のとおりです。
 
 * ApplicationModel
-    * コントローラー (ControllerModel)
-        * アクション (ActionModel)
-            * パラメーター (ParameterModel)
+  * コントローラー (ControllerModel)
+    * アクション (ActionModel)
+      * パラメーター (ParameterModel)
 
 このモデルでは、各レベルで、共通の `Properties` コレクションにアクセスできます。下位レベルでは、階層の上位レベルで設定されたプロパティ値にアクセスしたり上書きしたりできます。 このプロパティは、アクションの作成時、`ActionDescriptor.Properties` に保存されます。 そして要求の処理時に、規則によって追加または変更されたすべてのプロパティに、`ActionContext.ActionDescriptor.Properties` を介してアクセスできます。 フィルターやモデル バインダーなどをアクションごとに構成するのに、プロパティを使用するのはよい方法です。
 
@@ -82,7 +82,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 規則は、規則を MVC オプションを追加したり、`Attribute` を実装してそれらをコントローラー、アクション、またはアクション パラメーターに適用したりすることによって適用します ([`Filters`](xref:mvc/controllers/filters) と類似しています)。 フィルターとは異なり、規則は、各要求の一部としてではなく、アプリの起動時にのみ実行されます。
 
-### <a name="sample-modifying-the-applicationmodel"></a>サンプル: ApplicationModel を変更する
+### <a name="sample-modifying-the-applicationmodel"></a>サンプル:ApplicationModel を変更する
 
 次の規則は、アプリケーション モデルにプロパティを追加するために使用します。 
 
@@ -96,7 +96,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
 
-### <a name="sample-modifying-the-controllermodel-description"></a>サンプル: ControllerModel の説明を変更する
+### <a name="sample-modifying-the-controllermodel-description"></a>サンプル:ControllerModel の説明を変更する
 
 前の例のように、コントローラー モデルを変更して、カスタム プロパティを含めることもできます。 これらは、アプリケーション モデルで指定した同じ名前の既存のプロパティをオーバーライドします。 次の規則属性では、コントローラー レベルで説明が追加されます。
 
@@ -108,7 +108,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 "description" プロパティは、前の例と同じ方法でアクセスされます。
 
-### <a name="sample-modifying-the-actionmodel-description"></a>サンプル: ActionModel の説明を変更する
+### <a name="sample-modifying-the-actionmodel-description"></a>サンプル:ActionModel の説明を変更する
 
 既にアプリケーションまたはコントローラー レベルに適用されている動作をオーバーライドして、個別のアクションに別の属性規則を適用することができます。
 
@@ -118,7 +118,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
 
-### <a name="sample-modifying-the-parametermodel"></a>例: ParameterModel を変更する
+### <a name="sample-modifying-the-parametermodel"></a>サンプル:ParameterModel を変更する
 
 次の規則をアクション パラメーターに適用して、`BindingInfo` を変更することができます。 次の規則では、パラメーターはルート パラメーターである必要があります。その他のバインディング ソースとなる可能性のあるものは (クエリ文字列の値など) 無視されます。
 
@@ -128,7 +128,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
 
-### <a name="sample-modifying-the-actionmodel-name"></a>Sample: ActionModel 名を変更する
+### <a name="sample-modifying-the-actionmodel-name"></a>サンプル:ActionModel 名を変更する
 
 次の規則は、`ActionModel` が適用されるアクションの*名前*を更新してそれを変更します。 この新しい名前は、属性にパラメーターとして提供されます。 この新しい名前はルーティングによって使用されるので、このアクション メソッドに到達するのに使用されるルートに影響します。
 
@@ -143,7 +143,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 > [!NOTE]
 > この例は、基本的に、組み込みの [ActionName](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) 属性を使用するのと同じです。
 
-### <a name="sample-custom-routing-convention"></a>サンプル: カスタム ルーティング規則
+### <a name="sample-custom-routing-convention"></a>サンプル:カスタム ルーティング規則
 
 `IApplicationModelConvention` を使用して、ルーティングの動作をカスタマイズできます。 たとえば、次の規則は、名前空間の `.` をルートの `/` に置き換えてコントローラーの名前空間をそのルートに組み込みます。
 
