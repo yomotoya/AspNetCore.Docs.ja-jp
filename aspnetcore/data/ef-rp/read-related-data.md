@@ -6,77 +6,78 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: a264cdaf0f577be6ea2043935b485f4fd16e0229
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345894"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264954"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a><span data-ttu-id="1a546-103">ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8</span><span class="sxs-lookup"><span data-stu-id="1a546-103">Razor Pages with EF Core in ASP.NET Core - Read Related Data - 6 of 8</span></span>
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a><span data-ttu-id="d3bb1-103">ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8</span><span class="sxs-lookup"><span data-stu-id="d3bb1-103">Razor Pages with EF Core in ASP.NET Core - Read Related Data - 6 of 8</span></span>
 
-<span data-ttu-id="1a546-104">作成者: [Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)、[Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="1a546-104">By [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="d3bb1-104">作成者: [Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)、[Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="d3bb1-104">By [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-<span data-ttu-id="1a546-105">このチュートリアルでは、関連データが読み取られ、表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-105">In this tutorial, related data is read and displayed.</span></span> <span data-ttu-id="1a546-106">関連データとは、EF Core がナビゲーション プロパティに読み込むデータのことです。</span><span class="sxs-lookup"><span data-stu-id="1a546-106">Related data is data that EF Core loads into navigation properties.</span></span>
+<span data-ttu-id="d3bb1-105">このチュートリアルでは、関連データが読み取られ、表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-105">In this tutorial, related data is read and displayed.</span></span> <span data-ttu-id="d3bb1-106">関連データとは、EF Core がナビゲーション プロパティに読み込むデータのことです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-106">Related data is data that EF Core loads into navigation properties.</span></span>
 
-<span data-ttu-id="1a546-107">解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。</span><span class="sxs-lookup"><span data-stu-id="1a546-107">If you run into problems you can't solve, [download or view the completed app.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)</span></span> <span data-ttu-id="1a546-108">[ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="1a546-108">[Download instructions](xref:index#how-to-download-a-sample).</span></span>
+<span data-ttu-id="d3bb1-107">解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-107">If you run into problems you can't solve, [download or view the completed app.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)</span></span> <span data-ttu-id="d3bb1-108">[ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="d3bb1-108">[Download instructions](xref:index#how-to-download-a-sample).</span></span>
 
-<span data-ttu-id="1a546-109">以下の図は、このチュートリアルの完成したページを示しています。</span><span class="sxs-lookup"><span data-stu-id="1a546-109">The following illustrations show the completed pages for this tutorial:</span></span>
+<span data-ttu-id="d3bb1-109">以下の図は、このチュートリアルの完成したページを示しています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-109">The following illustrations show the completed pages for this tutorial:</span></span>
 
 ![Courses/Index ページ](read-related-data/_static/courses-index.png)
 
 ![Instructors/Index ページ](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a><span data-ttu-id="1a546-112">関連データの一括読み込み、明示的読み込み、遅延読み込み</span><span class="sxs-lookup"><span data-stu-id="1a546-112">Eager, explicit, and lazy Loading of related data</span></span>
+## <a name="eager-explicit-and-lazy-loading-of-related-data"></a><span data-ttu-id="d3bb1-112">関連データの一括読み込み、明示的読み込み、遅延読み込み</span><span class="sxs-lookup"><span data-stu-id="d3bb1-112">Eager, explicit, and lazy Loading of related data</span></span>
 
-<span data-ttu-id="1a546-113">EF Core がエンティティのナビゲーション プロパティに関連データを読み込むには、複数の方法があります。</span><span class="sxs-lookup"><span data-stu-id="1a546-113">There are several ways that EF Core can load related data into the navigation properties of an entity:</span></span>
+<span data-ttu-id="d3bb1-113">EF Core がエンティティのナビゲーション プロパティに関連データを読み込むには、複数の方法があります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-113">There are several ways that EF Core can load related data into the navigation properties of an entity:</span></span>
 
-* <span data-ttu-id="1a546-114">[一括読み込み](/ef/core/querying/related-data#eager-loading)。</span><span class="sxs-lookup"><span data-stu-id="1a546-114">[Eager loading](/ef/core/querying/related-data#eager-loading).</span></span> <span data-ttu-id="1a546-115">一括読み込みは、エンティティの 1 つの型に対するクエリが関連エンティティも読み込む場合です。</span><span class="sxs-lookup"><span data-stu-id="1a546-115">Eager loading is when a query for one type of entity also loads related entities.</span></span> <span data-ttu-id="1a546-116">エンティティが読み取られるときに、その関連データが取得されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-116">When the entity is read, its related data is retrieved.</span></span> <span data-ttu-id="1a546-117">これは通常、必要なすべてのデータを取得する 1 つの結合クエリになります。</span><span class="sxs-lookup"><span data-stu-id="1a546-117">This typically results in a single join query that retrieves all of the data that's needed.</span></span> <span data-ttu-id="1a546-118">EF Core は、一部の型の一括読み込みに対して複数のクエリを発行します。</span><span class="sxs-lookup"><span data-stu-id="1a546-118">EF Core will issue multiple queries for some types of eager loading.</span></span> <span data-ttu-id="1a546-119">複数のクエリを発行することで、1 つのクエリしかなかった EF6 の一部のクエリよりも、効率を高めることができます。</span><span class="sxs-lookup"><span data-stu-id="1a546-119">Issuing multiple queries can be more efficient than was the case for some queries in EF6 where there was a single query.</span></span> <span data-ttu-id="1a546-120">一括読み込みは、`Include` メソッドと `ThenInclude` メソッドを使用して指定されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-120">Eager loading is specified with the `Include` and `ThenInclude` methods.</span></span>
+* <span data-ttu-id="d3bb1-114">[一括読み込み](/ef/core/querying/related-data#eager-loading)。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-114">[Eager loading](/ef/core/querying/related-data#eager-loading).</span></span> <span data-ttu-id="d3bb1-115">一括読み込みは、エンティティの 1 つの型に対するクエリが関連エンティティも読み込む場合です。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-115">Eager loading is when a query for one type of entity also loads related entities.</span></span> <span data-ttu-id="d3bb1-116">エンティティが読み取られるときに、その関連データが取得されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-116">When the entity is read, its related data is retrieved.</span></span> <span data-ttu-id="d3bb1-117">これは通常、必要なすべてのデータを取得する 1 つの結合クエリになります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-117">This typically results in a single join query that retrieves all of the data that's needed.</span></span> <span data-ttu-id="d3bb1-118">EF Core は、一部の型の一括読み込みに対して複数のクエリを発行します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-118">EF Core will issue multiple queries for some types of eager loading.</span></span> <span data-ttu-id="d3bb1-119">複数のクエリを発行することで、1 つのクエリしかなかった EF6 の一部のクエリよりも、効率を高めることができます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-119">Issuing multiple queries can be more efficient than was the case for some queries in EF6 where there was a single query.</span></span> <span data-ttu-id="d3bb1-120">一括読み込みは、`Include` メソッドと `ThenInclude` メソッドを使用して指定されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-120">Eager loading is specified with the `Include` and `ThenInclude` methods.</span></span>
 
   ![一括読み込みの例](read-related-data/_static/eager-loading.png)
  
-  <span data-ttu-id="1a546-122">一括読み込みでは、コレクション ナビゲーションが含まれるときに、複数のクエリが送信されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-122">Eager loading sends multiple queries when a collection navigation is included:</span></span>
+  <span data-ttu-id="d3bb1-122">一括読み込みでは、コレクション ナビゲーションが含まれるときに、複数のクエリが送信されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-122">Eager loading sends multiple queries when a collection navigation is included:</span></span>
 
-  * <span data-ttu-id="1a546-123">メイン クエリに 1 つのクエリ</span><span class="sxs-lookup"><span data-stu-id="1a546-123">One query for the main query</span></span> 
-  * <span data-ttu-id="1a546-124">読み込みツリー内のコレクション "エッジ" ごとに 1 つのクエリ</span><span class="sxs-lookup"><span data-stu-id="1a546-124">One query for each collection "edge" in the load tree.</span></span>
+  * <span data-ttu-id="d3bb1-123">メイン クエリに 1 つのクエリ</span><span class="sxs-lookup"><span data-stu-id="d3bb1-123">One query for the main query</span></span> 
+  * <span data-ttu-id="d3bb1-124">読み込みツリー内のコレクション "エッジ" ごとに 1 つのクエリ</span><span class="sxs-lookup"><span data-stu-id="d3bb1-124">One query for each collection "edge" in the load tree.</span></span>
 
-* <span data-ttu-id="1a546-125">`Load` で分離したクエリ:データは分離したクエリで取得でき、EF Core がナビゲーション プロパティを "修正" します。</span><span class="sxs-lookup"><span data-stu-id="1a546-125">Separate queries with `Load`: The data can be retrieved in separate queries, and EF Core "fixes up" the navigation properties.</span></span> <span data-ttu-id="1a546-126">"修正" は、ナビゲーション プロパティが EF Core によって自動的に入力されることを意味します。</span><span class="sxs-lookup"><span data-stu-id="1a546-126">"fixes up" means that EF Core automatically populates the navigation properties.</span></span> <span data-ttu-id="1a546-127">`Load` で分離したクエリは、一括読み込みよりも明示的読み込みに似ています。</span><span class="sxs-lookup"><span data-stu-id="1a546-127">Separate queries with `Load` is more like explict loading than eager loading.</span></span>
+* <span data-ttu-id="d3bb1-125">`Load` で分離したクエリ:データは分離したクエリで取得でき、EF Core がナビゲーション プロパティを "修正" します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-125">Separate queries with `Load`: The data can be retrieved in separate queries, and EF Core "fixes up" the navigation properties.</span></span> <span data-ttu-id="d3bb1-126">"修正" は、ナビゲーション プロパティが EF Core によって自動的に入力されることを意味します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-126">"fixes up" means that EF Core automatically populates the navigation properties.</span></span> <span data-ttu-id="d3bb1-127">`Load` で分離したクエリは、一括読み込みよりも明示的読み込みに似ています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-127">Separate queries with `Load` is more like explict loading than eager loading.</span></span>
 
   ![分離したクエリの例](read-related-data/_static/separate-queries.png)
 
-  <span data-ttu-id="1a546-129">メモ:EF Core は、コンテキスト インスタンスに以前に読み込まれたその他のエンティティに対して、ナビゲーション プロパティを自動的に修正します。</span><span class="sxs-lookup"><span data-stu-id="1a546-129">Note: EF Core automatically fixes up navigation properties to any other entities that were previously loaded into the context instance.</span></span> <span data-ttu-id="1a546-130">ナビゲーション プロパティのデータが明示的に含まれ*ない*場合でも、関連エンティティの一部またはすべてが以前に読み込まれていれば、プロパティを設定することができます。</span><span class="sxs-lookup"><span data-stu-id="1a546-130">Even if the data for a navigation property is *not* explicitly included, the property may still be populated if some or all of the related entities were previously loaded.</span></span>
+  <span data-ttu-id="d3bb1-129">メモ:EF Core は、コンテキスト インスタンスに以前に読み込まれたその他のエンティティに対して、ナビゲーション プロパティを自動的に修正します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-129">Note: EF Core automatically fixes up navigation properties to any other entities that were previously loaded into the context instance.</span></span> <span data-ttu-id="d3bb1-130">ナビゲーション プロパティのデータが明示的に含まれ*ない*場合でも、関連エンティティの一部またはすべてが以前に読み込まれていれば、プロパティを設定することができます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-130">Even if the data for a navigation property is *not* explicitly included, the property may still be populated if some or all of the related entities were previously loaded.</span></span>
 
-* <span data-ttu-id="1a546-131">[明示的読み込み](/ef/core/querying/related-data#explicit-loading)。</span><span class="sxs-lookup"><span data-stu-id="1a546-131">[Explicit loading](/ef/core/querying/related-data#explicit-loading).</span></span> <span data-ttu-id="1a546-132">エンティティが最初に読み込まれるときに、関連データは取得されません。</span><span class="sxs-lookup"><span data-stu-id="1a546-132">When the entity is first read, related data isn't retrieved.</span></span> <span data-ttu-id="1a546-133">必要なときに関連するデータを取得するコードを記述する必要があります。</span><span class="sxs-lookup"><span data-stu-id="1a546-133">Code must be written to retrieve the related data when it's needed.</span></span> <span data-ttu-id="1a546-134">分離したクエリによる明示的読み込みにより、複数のクエリが DB に送信されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-134">Explicit loading with separate queries results in multiple queries sent to the DB.</span></span> <span data-ttu-id="1a546-135">明示的読み込みでは、コードで読み込まれるナビゲーション プロパティを指定します。</span><span class="sxs-lookup"><span data-stu-id="1a546-135">With explicit loading, the code specifies the navigation properties to be loaded.</span></span> <span data-ttu-id="1a546-136">明示的読み込みを行うには、`Load` メソッドを使用します。</span><span class="sxs-lookup"><span data-stu-id="1a546-136">Use the `Load` method to do explicit loading.</span></span> <span data-ttu-id="1a546-137">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-137">For example:</span></span>
+* <span data-ttu-id="d3bb1-131">[明示的読み込み](/ef/core/querying/related-data#explicit-loading)。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-131">[Explicit loading](/ef/core/querying/related-data#explicit-loading).</span></span> <span data-ttu-id="d3bb1-132">エンティティが最初に読み込まれるときに、関連データは取得されません。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-132">When the entity is first read, related data isn't retrieved.</span></span> <span data-ttu-id="d3bb1-133">必要なときに関連するデータを取得するコードを記述する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-133">Code must be written to retrieve the related data when it's needed.</span></span> <span data-ttu-id="d3bb1-134">分離したクエリによる明示的読み込みにより、複数のクエリが DB に送信されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-134">Explicit loading with separate queries results in multiple queries sent to the DB.</span></span> <span data-ttu-id="d3bb1-135">明示的読み込みでは、コードで読み込まれるナビゲーション プロパティを指定します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-135">With explicit loading, the code specifies the navigation properties to be loaded.</span></span> <span data-ttu-id="d3bb1-136">明示的読み込みを行うには、`Load` メソッドを使用します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-136">Use the `Load` method to do explicit loading.</span></span> <span data-ttu-id="d3bb1-137">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-137">For example:</span></span>
 
   ![明示的読み込みの例](read-related-data/_static/explicit-loading.png)
 
-* <span data-ttu-id="1a546-139">[遅延読み込み](/ef/core/querying/related-data#lazy-loading)。</span><span class="sxs-lookup"><span data-stu-id="1a546-139">[Lazy loading](/ef/core/querying/related-data#lazy-loading).</span></span> <span data-ttu-id="1a546-140">[遅延読み込みがバージョン 2.1 内の EF Core に追加されました](/ef/core/querying/related-data#lazy-loading)。</span><span class="sxs-lookup"><span data-stu-id="1a546-140">[Lazy loading was added to EF Core in version 2.1](/ef/core/querying/related-data#lazy-loading).</span></span> <span data-ttu-id="1a546-141">エンティティが最初に読み込まれるときに、関連データは取得されません。</span><span class="sxs-lookup"><span data-stu-id="1a546-141">When the entity is first read, related data isn't retrieved.</span></span> <span data-ttu-id="1a546-142">ナビゲーション プロパティに初めてアクセスすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-142">The first time a navigation property is accessed, the data required for that navigation property is automatically retrieved.</span></span> <span data-ttu-id="1a546-143">初めてナビゲーション プロパティにアクセスされるたびに、クエリが DB に送信されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-143">A query is sent to the DB each time a navigation property is accessed for the first time.</span></span>
+* <span data-ttu-id="d3bb1-139">[遅延読み込み](/ef/core/querying/related-data#lazy-loading)。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-139">[Lazy loading](/ef/core/querying/related-data#lazy-loading).</span></span> <span data-ttu-id="d3bb1-140">[遅延読み込みがバージョン 2.1 内の EF Core に追加されました](/ef/core/querying/related-data#lazy-loading)。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-140">[Lazy loading was added to EF Core in version 2.1](/ef/core/querying/related-data#lazy-loading).</span></span> <span data-ttu-id="d3bb1-141">エンティティが最初に読み込まれるときに、関連データは取得されません。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-141">When the entity is first read, related data isn't retrieved.</span></span> <span data-ttu-id="d3bb1-142">ナビゲーション プロパティに初めてアクセスすると、そのナビゲーション プロパティに必要なデータが自動的に取得されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-142">The first time a navigation property is accessed, the data required for that navigation property is automatically retrieved.</span></span> <span data-ttu-id="d3bb1-143">初めてナビゲーション プロパティにアクセスされるたびに、クエリが DB に送信されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-143">A query is sent to the DB each time a navigation property is accessed for the first time.</span></span>
 
-* <span data-ttu-id="1a546-144">`Select` 演算子は必要な関連データのみを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="1a546-144">The `Select` operator loads only the related data needed.</span></span>
+* <span data-ttu-id="d3bb1-144">`Select` 演算子は必要な関連データのみを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-144">The `Select` operator loads only the related data needed.</span></span>
 
-## <a name="create-a-course-page-that-displays-department-name"></a><span data-ttu-id="1a546-145">部門名を表示する Course ページを作成する</span><span class="sxs-lookup"><span data-stu-id="1a546-145">Create a Course page that displays department name</span></span>
+## <a name="create-a-course-page-that-displays-department-name"></a><span data-ttu-id="d3bb1-145">部門名を表示する Course ページを作成する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-145">Create a Course page that displays department name</span></span>
 
-<span data-ttu-id="1a546-146">Course エンティティには、`Department` エンティティを含むナビゲーション プロパティが含まれています。</span><span class="sxs-lookup"><span data-stu-id="1a546-146">The Course entity includes a navigation property that contains the `Department` entity.</span></span> <span data-ttu-id="1a546-147">`Department` エンティティには、コースが割り当てられる部門が含まれています。</span><span class="sxs-lookup"><span data-stu-id="1a546-147">The `Department` entity contains the department that the course is assigned to.</span></span>
+<span data-ttu-id="d3bb1-146">Course エンティティには、`Department` エンティティを含むナビゲーション プロパティが含まれています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-146">The Course entity includes a navigation property that contains the `Department` entity.</span></span> <span data-ttu-id="d3bb1-147">`Department` エンティティには、コースが割り当てられる部門が含まれています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-147">The `Department` entity contains the department that the course is assigned to.</span></span>
 
-<span data-ttu-id="1a546-148">コースの一覧で割り当てられている部門の名前を表示するには:</span><span class="sxs-lookup"><span data-stu-id="1a546-148">To display the name of the assigned department in a list of courses:</span></span>
+<span data-ttu-id="d3bb1-148">コースの一覧で割り当てられている部門の名前を表示するには:</span><span class="sxs-lookup"><span data-stu-id="d3bb1-148">To display the name of the assigned department in a list of courses:</span></span>
 
-* <span data-ttu-id="1a546-149">`Department` エンティティから `Name` プロパティを取得します。</span><span class="sxs-lookup"><span data-stu-id="1a546-149">Get the `Name` property from the `Department` entity.</span></span>
-* <span data-ttu-id="1a546-150">`Department` エンティティは `Course.Department` ナビゲーション プロパティから取得されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-150">The `Department` entity comes from the `Course.Department` navigation property.</span></span>
+* <span data-ttu-id="d3bb1-149">`Department` エンティティから `Name` プロパティを取得します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-149">Get the `Name` property from the `Department` entity.</span></span>
+* <span data-ttu-id="d3bb1-150">`Department` エンティティは `Course.Department` ナビゲーション プロパティから取得されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-150">The `Department` entity comes from the `Course.Department` navigation property.</span></span>
 
-![ourse.Department](read-related-data/_static/dep-crs.png)
+![Course.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
-### <a name="scaffold-the-course-model"></a><span data-ttu-id="1a546-152">Course モデルのスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="1a546-152">Scaffold the Course model</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="1a546-153">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="1a546-153">Visual Studio</span></span>](#tab/visual-studio) 
+### <a name="scaffold-the-course-model"></a><span data-ttu-id="d3bb1-152">Course モデルのスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="d3bb1-152">Scaffold the Course model</span></span>
 
-<span data-ttu-id="1a546-154">「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Course` を使用します。</span><span class="sxs-lookup"><span data-stu-id="1a546-154">Follow the instructions in [Scaffold the student model](xref:data/ef-rp/intro#scaffold-the-student-model) and use `Course` for the model class.</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="d3bb1-153">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d3bb1-153">Visual Studio</span></span>](#tab/visual-studio) 
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="1a546-155">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="1a546-155">.NET Core CLI</span></span>](#tab/netcore-cli)
+<span data-ttu-id="d3bb1-154">「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Course` を使用します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-154">Follow the instructions in [Scaffold the student model](xref:data/ef-rp/intro#scaffold-the-student-model) and use `Course` for the model class.</span></span>
 
- <span data-ttu-id="1a546-156">次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="1a546-156">Run the following command:</span></span>
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="d3bb1-155">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="d3bb1-155">.NET Core CLI</span></span>](#tab/netcore-cli)
+
+ <span data-ttu-id="d3bb1-156">次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-156">Run the following command:</span></span>
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
@@ -84,85 +85,86 @@ ms.locfileid: "57345894"
 
 ------
 
-<span data-ttu-id="1a546-157">上記のコマンドは、`Course` モデルをスキャフォールディングします。</span><span class="sxs-lookup"><span data-stu-id="1a546-157">The preceding command scaffolds the `Course` model.</span></span> <span data-ttu-id="1a546-158">Visual Studio でプロジェクトを開きます。</span><span class="sxs-lookup"><span data-stu-id="1a546-158">Open the project in Visual Studio.</span></span>
+<span data-ttu-id="d3bb1-157">上記のコマンドは、`Course` モデルをスキャフォールディングします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-157">The preceding command scaffolds the `Course` model.</span></span> <span data-ttu-id="d3bb1-158">Visual Studio でプロジェクトを開きます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-158">Open the project in Visual Studio.</span></span>
 
-<span data-ttu-id="1a546-159">*Pages/Courses/Index.cshtml.cs* を開き、`OnGetAsync` メソッドを調べます。</span><span class="sxs-lookup"><span data-stu-id="1a546-159">Open *Pages/Courses/Index.cshtml.cs* and examine the `OnGetAsync` method.</span></span> <span data-ttu-id="1a546-160">スキャフォールディング エンジンは、`Department` ナビゲーション プロパティに一括読み込みを指定しました。</span><span class="sxs-lookup"><span data-stu-id="1a546-160">The scaffolding engine specified eager loading for the `Department` navigation property.</span></span> <span data-ttu-id="1a546-161">`Include` メソッドが一括読み込みを指定します。</span><span class="sxs-lookup"><span data-stu-id="1a546-161">The `Include` method specifies eager loading.</span></span>
+<span data-ttu-id="d3bb1-159">*Pages/Courses/Index.cshtml.cs* を開き、`OnGetAsync` メソッドを調べます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-159">Open *Pages/Courses/Index.cshtml.cs* and examine the `OnGetAsync` method.</span></span> <span data-ttu-id="d3bb1-160">スキャフォールディング エンジンは、`Department` ナビゲーション プロパティに一括読み込みを指定しました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-160">The scaffolding engine specified eager loading for the `Department` navigation property.</span></span> <span data-ttu-id="d3bb1-161">`Include` メソッドが一括読み込みを指定します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-161">The `Include` method specifies eager loading.</span></span>
 
-<span data-ttu-id="1a546-162">アプリを実行し、**[Courses]** リンクを選択します。</span><span class="sxs-lookup"><span data-stu-id="1a546-162">Run the app and select the **Courses** link.</span></span> <span data-ttu-id="1a546-163">Department 列に `DepartmentID` が表示されますが、これには役に立ちません。</span><span class="sxs-lookup"><span data-stu-id="1a546-163">The department column displays the `DepartmentID`, which isn't useful.</span></span>
+<span data-ttu-id="d3bb1-162">アプリを実行し、**[Courses]** リンクを選択します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-162">Run the app and select the **Courses** link.</span></span> <span data-ttu-id="d3bb1-163">Department 列に `DepartmentID` が表示されますが、これには役に立ちません。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-163">The department column displays the `DepartmentID`, which isn't useful.</span></span>
 
-<span data-ttu-id="1a546-164">`OnGetAsync` メソッドを次のコードで更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-164">Update the `OnGetAsync` method with the following code:</span></span>
+<span data-ttu-id="d3bb1-164">`OnGetAsync` メソッドを次のコードで更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-164">Update the `OnGetAsync` method with the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-<span data-ttu-id="1a546-165">上のコードは `AsNoTracking` を追加します。</span><span class="sxs-lookup"><span data-stu-id="1a546-165">The preceding code adds `AsNoTracking`.</span></span> <span data-ttu-id="1a546-166">`AsNoTracking` は、返されるエンティティが追跡されないため、パフォーマンスが向上します。</span><span class="sxs-lookup"><span data-stu-id="1a546-166">`AsNoTracking` improves performance because the entities returned are not tracked.</span></span> <span data-ttu-id="1a546-167">これらのエンティティは現在のコンテキストでは更新されないため、追跡されません。</span><span class="sxs-lookup"><span data-stu-id="1a546-167">The entities are not tracked because they're not updated in the current context.</span></span>
+<span data-ttu-id="d3bb1-165">上のコードは `AsNoTracking` を追加します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-165">The preceding code adds `AsNoTracking`.</span></span> <span data-ttu-id="d3bb1-166">`AsNoTracking` は、返されるエンティティが追跡されないため、パフォーマンスが向上します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-166">`AsNoTracking` improves performance because the entities returned are not tracked.</span></span> <span data-ttu-id="d3bb1-167">これらのエンティティは現在のコンテキストでは更新されないため、追跡されません。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-167">The entities are not tracked because they're not updated in the current context.</span></span>
 
-<span data-ttu-id="1a546-168">次の強調表示されているマークアップで *Pages/Courses/Index.cshtml* を更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-168">Update *Pages/Courses/Index.cshtml* with the following highlighted markup:</span></span>
+<span data-ttu-id="d3bb1-168">次の強調表示されているマークアップで *Pages/Courses/Index.cshtml* を更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-168">Update *Pages/Courses/Index.cshtml* with the following highlighted markup:</span></span>
 
 [!code-html[](intro/samples/cu/Pages/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 
-<span data-ttu-id="1a546-169">スキャフォールディング コードに、次の変更が行われました。</span><span class="sxs-lookup"><span data-stu-id="1a546-169">The following changes have been made to the scaffolded code:</span></span>
+<span data-ttu-id="d3bb1-169">スキャフォールディング コードに、次の変更が行われました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-169">The following changes have been made to the scaffolded code:</span></span>
 
-* <span data-ttu-id="1a546-170">見出しが Index から Courses に変更されました。</span><span class="sxs-lookup"><span data-stu-id="1a546-170">Changed the heading from Index to Courses.</span></span>
-* <span data-ttu-id="1a546-171">`CourseID` プロパティ値を示す **Number** 列が追加されました。</span><span class="sxs-lookup"><span data-stu-id="1a546-171">Added a **Number** column that shows the `CourseID` property value.</span></span> <span data-ttu-id="1a546-172">既定では、主キーは、通常、エンドユーザーにとって意味がないため、スキャフォールディングされません。</span><span class="sxs-lookup"><span data-stu-id="1a546-172">By default, primary keys aren't scaffolded because normally they're meaningless to end users.</span></span> <span data-ttu-id="1a546-173">ただし、このケースでは、主キーは意味があります。</span><span class="sxs-lookup"><span data-stu-id="1a546-173">However, in this case the primary key is meaningful.</span></span>
-* <span data-ttu-id="1a546-174">部門名が表示されるように、**Department** 列を変更しました。</span><span class="sxs-lookup"><span data-stu-id="1a546-174">Changed the **Department** column to display the department name.</span></span> <span data-ttu-id="1a546-175">コードは、`Department` ナビゲーション プロパティに読み込まれる `Department` エンティティの `Name` プロパティを表示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-175">The code displays the `Name` property of the `Department` entity that's loaded into the `Department` navigation property:</span></span>
+* <span data-ttu-id="d3bb1-170">見出しが Index から Courses に変更されました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-170">Changed the heading from Index to Courses.</span></span>
+* <span data-ttu-id="d3bb1-171">`CourseID` プロパティ値を示す **Number** 列が追加されました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-171">Added a **Number** column that shows the `CourseID` property value.</span></span> <span data-ttu-id="d3bb1-172">既定では、主キーは、通常、エンドユーザーにとって意味がないため、スキャフォールディングされません。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-172">By default, primary keys aren't scaffolded because normally they're meaningless to end users.</span></span> <span data-ttu-id="d3bb1-173">ただし、このケースでは、主キーは意味があります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-173">However, in this case the primary key is meaningful.</span></span>
+* <span data-ttu-id="d3bb1-174">部門名が表示されるように、**Department** 列を変更しました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-174">Changed the **Department** column to display the department name.</span></span> <span data-ttu-id="d3bb1-175">コードは、`Department` ナビゲーション プロパティに読み込まれる `Department` エンティティの `Name` プロパティを表示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-175">The code displays the `Name` property of the `Department` entity that's loaded into the `Department` navigation property:</span></span>
 
   ```html
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-<span data-ttu-id="1a546-176">アプリを実行し、**[Courses]** タブを選択して部門名のリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-176">Run the app and select the **Courses** tab to see the list with department names.</span></span>
+<span data-ttu-id="d3bb1-176">アプリを実行し、**[Courses]** タブを選択して部門名のリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-176">Run the app and select the **Courses** tab to see the list with department names.</span></span>
 
 ![Courses/Index ページ](read-related-data/_static/courses-index.png)
 
 <a name="select"></a>
-### <a name="loading-related-data-with-select"></a><span data-ttu-id="1a546-178">Select を使用した関連データの読み込み</span><span class="sxs-lookup"><span data-stu-id="1a546-178">Loading related data with Select</span></span>
 
-<span data-ttu-id="1a546-179">`OnGetAsync` メソッドは、`Include` メソッドを使用して関連データを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="1a546-179">The `OnGetAsync` method loads related data with the `Include` method:</span></span>
+### <a name="loading-related-data-with-select"></a><span data-ttu-id="d3bb1-178">Select を使用した関連データの読み込み</span><span class="sxs-lookup"><span data-stu-id="d3bb1-178">Loading related data with Select</span></span>
+
+<span data-ttu-id="d3bb1-179">`OnGetAsync` メソッドは、`Include` メソッドを使用して関連データを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-179">The `OnGetAsync` method loads related data with the `Include` method:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-<span data-ttu-id="1a546-180">`Select` 演算子は必要な関連データのみを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="1a546-180">The `Select` operator loads only the related data needed.</span></span> <span data-ttu-id="1a546-181">`Department.Name` のような単一の項目の場合、SQL INNER JOIN が使用されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-181">For single items, like the `Department.Name` it uses a SQL INNER JOIN.</span></span> <span data-ttu-id="1a546-182">コレクションの場合は、別のデータベース アクセスが使用されますが、コレクションの `Include` 演算子でも同じです。</span><span class="sxs-lookup"><span data-stu-id="1a546-182">For collections, it uses another database access, but so does the `Include` operator on collections.</span></span>
+<span data-ttu-id="d3bb1-180">`Select` 演算子は必要な関連データのみを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-180">The `Select` operator loads only the related data needed.</span></span> <span data-ttu-id="d3bb1-181">`Department.Name` のような単一の項目の場合、SQL INNER JOIN が使用されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-181">For single items, like the `Department.Name` it uses a SQL INNER JOIN.</span></span> <span data-ttu-id="d3bb1-182">コレクションの場合は、別のデータベース アクセスが使用されますが、コレクションの `Include` 演算子でも同じです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-182">For collections, it uses another database access, but so does the `Include` operator on collections.</span></span>
 
-<span data-ttu-id="1a546-183">次のコードは、`Select` メソッドを使用して関連データを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="1a546-183">The following code loads related data with the `Select` method:</span></span>
+<span data-ttu-id="d3bb1-183">次のコードは、`Select` メソッドを使用して関連データを読み込みます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-183">The following code loads related data with the `Select` method:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-<span data-ttu-id="1a546-184">`CourseViewModel`:</span><span class="sxs-lookup"><span data-stu-id="1a546-184">The `CourseViewModel`:</span></span>
+<span data-ttu-id="d3bb1-184">`CourseViewModel`:</span><span class="sxs-lookup"><span data-stu-id="d3bb1-184">The `CourseViewModel`:</span></span>
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-<span data-ttu-id="1a546-185">完全な例については、[IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) と [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="1a546-185">See [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) and [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) for a complete example.</span></span>
+<span data-ttu-id="d3bb1-185">完全な例については、[IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) と [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-185">See [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) and [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) for a complete example.</span></span>
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a><span data-ttu-id="1a546-186">コース登録を示す Instructors ページを作成する</span><span class="sxs-lookup"><span data-stu-id="1a546-186">Create an Instructors page that shows Courses and Enrollments</span></span>
+## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a><span data-ttu-id="d3bb1-186">コース登録を示す Instructors ページを作成する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-186">Create an Instructors page that shows Courses and Enrollments</span></span>
 
-<span data-ttu-id="1a546-187">このセクションでは、Instructors ページが作成されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-187">In this section, the Instructors page is created.</span></span>
+<span data-ttu-id="d3bb1-187">このセクションでは、Instructors ページが作成されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-187">In this section, the Instructors page is created.</span></span>
 
 <a name="IP"></a>
-<span data-ttu-id="1a546-188">![Instructors/Index ページ](read-related-data/_static/instructors-index.png)</span><span class="sxs-lookup"><span data-stu-id="1a546-188">![Instructors Index page](read-related-data/_static/instructors-index.png)</span></span>
+<span data-ttu-id="d3bb1-188">![Instructors/Index ページ](read-related-data/_static/instructors-index.png)</span><span class="sxs-lookup"><span data-stu-id="d3bb1-188">![Instructors Index page](read-related-data/_static/instructors-index.png)</span></span>
 
-<span data-ttu-id="1a546-189">このページは、次の方法で関連データを読み取って表示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-189">This page reads and displays related data in the following ways:</span></span>
+<span data-ttu-id="d3bb1-189">このページは、次の方法で関連データを読み取って表示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-189">This page reads and displays related data in the following ways:</span></span>
 
-* <span data-ttu-id="1a546-190">インストラクターのリストには `OfficeAssignment` エンティティからの関連データが表示されます (上の図の Office)。</span><span class="sxs-lookup"><span data-stu-id="1a546-190">The list of instructors displays related data from the `OfficeAssignment` entity (Office in the preceding image).</span></span> <span data-ttu-id="1a546-191">`Instructor` エンティティと `OfficeAssignment` エンティティは、一対ゼロまたは一対一のリレーションシップです。</span><span class="sxs-lookup"><span data-stu-id="1a546-191">The `Instructor` and `OfficeAssignment` entities are in a one-to-zero-or-one relationship.</span></span> <span data-ttu-id="1a546-192">`OfficeAssignment` エンティティには一括読み込みが使用されています。</span><span class="sxs-lookup"><span data-stu-id="1a546-192">Eager loading is used for the `OfficeAssignment` entities.</span></span> <span data-ttu-id="1a546-193">一括読み込みは一般的に、関連データを表示する必要がある場合により効率的です。</span><span class="sxs-lookup"><span data-stu-id="1a546-193">Eager loading is typically more efficient when the related data needs to be displayed.</span></span> <span data-ttu-id="1a546-194">この場合、インストラクターへのオフィスの割り当てが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-194">In this case, office assignments for the instructors are displayed.</span></span>
-* <span data-ttu-id="1a546-195">ユーザーがインストラクターを選択 (上の図では Harui) すると、関連 `Course` エンティティが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-195">When the user selects an instructor (Harui in the preceding image), related `Course` entities are displayed.</span></span> <span data-ttu-id="1a546-196">`Instructor` エンティティと `Course` エンティティは多対多リレーションシップです。</span><span class="sxs-lookup"><span data-stu-id="1a546-196">The `Instructor` and `Course` entities are in a many-to-many relationship.</span></span> <span data-ttu-id="1a546-197">`Course` エンティティとその関連 `Department` エンティティには一括読み込みが使用されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-197">Eager loading is used for the `Course` entities and their related `Department` entities.</span></span> <span data-ttu-id="1a546-198">このケースでは、選択したインストラクターのコースのみが必要なため、分離したクエリの方が効率的な場合があります。</span><span class="sxs-lookup"><span data-stu-id="1a546-198">In this case, separate queries might be more efficient because only courses for the selected instructor are needed.</span></span> <span data-ttu-id="1a546-199">この例では、ナビゲーション プロパティ内のエンティティのナビゲーション プロパティに一括読み込みを使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-199">This example shows how to use eager loading for navigation properties in entities that are in navigation properties.</span></span>
-* <span data-ttu-id="1a546-200">ユーザーがコースを選択すると (上の図では Chemistry (化学))、`Enrollments` エンティティからの関連データが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-200">When the user selects a course (Chemistry in the preceding image), related data from the `Enrollments` entity is displayed.</span></span> <span data-ttu-id="1a546-201">上の図では、受講者名とグレードが表示されています。</span><span class="sxs-lookup"><span data-stu-id="1a546-201">In the preceding image, student name and grade are displayed.</span></span> <span data-ttu-id="1a546-202">`Course` エンティティと `Enrollment` エンティティは一対多リレーションシップです。</span><span class="sxs-lookup"><span data-stu-id="1a546-202">The `Course` and `Enrollment` entities are in a one-to-many relationship.</span></span>
+* <span data-ttu-id="d3bb1-190">インストラクターのリストには `OfficeAssignment` エンティティからの関連データが表示されます (上の図の Office)。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-190">The list of instructors displays related data from the `OfficeAssignment` entity (Office in the preceding image).</span></span> <span data-ttu-id="d3bb1-191">`Instructor` エンティティと `OfficeAssignment` エンティティは、一対ゼロまたは一対一のリレーションシップです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-191">The `Instructor` and `OfficeAssignment` entities are in a one-to-zero-or-one relationship.</span></span> <span data-ttu-id="d3bb1-192">`OfficeAssignment` エンティティには一括読み込みが使用されています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-192">Eager loading is used for the `OfficeAssignment` entities.</span></span> <span data-ttu-id="d3bb1-193">一括読み込みは一般的に、関連データを表示する必要がある場合により効率的です。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-193">Eager loading is typically more efficient when the related data needs to be displayed.</span></span> <span data-ttu-id="d3bb1-194">この場合、インストラクターへのオフィスの割り当てが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-194">In this case, office assignments for the instructors are displayed.</span></span>
+* <span data-ttu-id="d3bb1-195">ユーザーがインストラクターを選択 (上の図では Harui) すると、関連 `Course` エンティティが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-195">When the user selects an instructor (Harui in the preceding image), related `Course` entities are displayed.</span></span> <span data-ttu-id="d3bb1-196">`Instructor` エンティティと `Course` エンティティは多対多リレーションシップです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-196">The `Instructor` and `Course` entities are in a many-to-many relationship.</span></span> <span data-ttu-id="d3bb1-197">`Course` エンティティとその関連 `Department` エンティティには一括読み込みが使用されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-197">Eager loading is used for the `Course` entities and their related `Department` entities.</span></span> <span data-ttu-id="d3bb1-198">このケースでは、選択したインストラクターのコースのみが必要なため、分離したクエリの方が効率的な場合があります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-198">In this case, separate queries might be more efficient because only courses for the selected instructor are needed.</span></span> <span data-ttu-id="d3bb1-199">この例では、ナビゲーション プロパティ内のエンティティのナビゲーション プロパティに一括読み込みを使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-199">This example shows how to use eager loading for navigation properties in entities that are in navigation properties.</span></span>
+* <span data-ttu-id="d3bb1-200">ユーザーがコースを選択すると (上の図では Chemistry (化学))、`Enrollments` エンティティからの関連データが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-200">When the user selects a course (Chemistry in the preceding image), related data from the `Enrollments` entity is displayed.</span></span> <span data-ttu-id="d3bb1-201">上の図では、受講者名とグレードが表示されています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-201">In the preceding image, student name and grade are displayed.</span></span> <span data-ttu-id="d3bb1-202">`Course` エンティティと `Enrollment` エンティティは一対多リレーションシップです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-202">The `Course` and `Enrollment` entities are in a one-to-many relationship.</span></span>
 
-### <a name="create-a-view-model-for-the-instructor-index-view"></a><span data-ttu-id="1a546-203">Instructor インデックス ビューのビュー モデルを作成する</span><span class="sxs-lookup"><span data-stu-id="1a546-203">Create a view model for the Instructor Index view</span></span>
+### <a name="create-a-view-model-for-the-instructor-index-view"></a><span data-ttu-id="d3bb1-203">Instructor インデックス ビューのビュー モデルを作成する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-203">Create a view model for the Instructor Index view</span></span>
 
-<span data-ttu-id="1a546-204">Instructors ページには、3 つの異なるテーブルからのデータが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-204">The instructors page shows data from three different tables.</span></span> <span data-ttu-id="1a546-205">3 つのテーブルを表す 3 つのエンティティを含むビュー モデルが作成されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-205">A view model is created that includes the three entities representing the three tables.</span></span>
+<span data-ttu-id="d3bb1-204">Instructors ページには、3 つの異なるテーブルからのデータが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-204">The instructors page shows data from three different tables.</span></span> <span data-ttu-id="d3bb1-205">3 つのテーブルを表す 3 つのエンティティを含むビュー モデルが作成されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-205">A view model is created that includes the three entities representing the three tables.</span></span>
 
-<span data-ttu-id="1a546-206">次のコードを使用して、*SchoolViewModels* フォルダー内に *InstructorIndexData.cs* を作成します。</span><span class="sxs-lookup"><span data-stu-id="1a546-206">In the *SchoolViewModels* folder, create *InstructorIndexData.cs* with the following code:</span></span>
+<span data-ttu-id="d3bb1-206">次のコードを使用して、*SchoolViewModels* フォルダー内に *InstructorIndexData.cs* を作成します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-206">In the *SchoolViewModels* folder, create *InstructorIndexData.cs* with the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
-### <a name="scaffold-the-instructor-model"></a><span data-ttu-id="1a546-207">Instructor モデルのスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="1a546-207">Scaffold the Instructor model</span></span>
+### <a name="scaffold-the-instructor-model"></a><span data-ttu-id="d3bb1-207">Instructor モデルのスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="d3bb1-207">Scaffold the Instructor model</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="1a546-208">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="1a546-208">Visual Studio</span></span>](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="d3bb1-208">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d3bb1-208">Visual Studio</span></span>](#tab/visual-studio) 
 
-<span data-ttu-id="1a546-209">「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Instructor` を使用します。</span><span class="sxs-lookup"><span data-stu-id="1a546-209">Follow the instructions in [Scaffold the student model](xref:data/ef-rp/intro#scaffold-the-student-model) and use `Instructor` for the model class.</span></span>
+<span data-ttu-id="d3bb1-209">「[Student モデルをスキャホールディングする](xref:data/ef-rp/intro#scaffold-the-student-model)」の手順に従い、モデル クラスの `Instructor` を使用します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-209">Follow the instructions in [Scaffold the student model](xref:data/ef-rp/intro#scaffold-the-student-model) and use `Instructor` for the model class.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="1a546-210">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="1a546-210">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="d3bb1-210">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="d3bb1-210">.NET Core CLI</span></span>](#tab/netcore-cli)
 
- <span data-ttu-id="1a546-211">次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="1a546-211">Run the following command:</span></span>
+ <span data-ttu-id="d3bb1-211">次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-211">Run the following command:</span></span>
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
@@ -170,42 +172,41 @@ ms.locfileid: "57345894"
 
 ------
 
-<span data-ttu-id="1a546-212">上記のコマンドは、`Instructor` モデルをスキャフォールディングします。</span><span class="sxs-lookup"><span data-stu-id="1a546-212">The preceding command scaffolds the `Instructor` model.</span></span> <span data-ttu-id="1a546-213">アプリを実行し、Instructors ページに移動します。</span><span class="sxs-lookup"><span data-stu-id="1a546-213">Run the app and navigate to the instructors page.</span></span>
+<span data-ttu-id="d3bb1-212">上記のコマンドは、`Instructor` モデルをスキャフォールディングします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-212">The preceding command scaffolds the `Instructor` model.</span></span> <span data-ttu-id="d3bb1-213">アプリを実行し、Instructors ページに移動します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-213">Run the app and navigate to the instructors page.</span></span>
 
-<span data-ttu-id="1a546-214">*Pages/Instructors/Index.cshtml.cs* を次のコードで置き換えます。</span><span class="sxs-lookup"><span data-stu-id="1a546-214">Replace *Pages/Instructors/Index.cshtml.cs* with the following code:</span></span>
+<span data-ttu-id="d3bb1-214">*Pages/Instructors/Index.cshtml.cs* を次のコードで置き換えます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-214">Replace *Pages/Instructors/Index.cshtml.cs* with the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,18-99)]
 
-<span data-ttu-id="1a546-215">`OnGetAsync` メソッドは、選択したインストラクターの ID の任意のルート データを受け取ります。</span><span class="sxs-lookup"><span data-stu-id="1a546-215">The `OnGetAsync` method accepts optional route data for the ID of the selected instructor.</span></span>
+<span data-ttu-id="d3bb1-215">`OnGetAsync` メソッドは、選択したインストラクターの ID の任意のルート データを受け取ります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-215">The `OnGetAsync` method accepts optional route data for the ID of the selected instructor.</span></span>
 
-<span data-ttu-id="1a546-216">*Pages/Instructors/Index.cshtml.cs* ファイルでクエリを調べます。</span><span class="sxs-lookup"><span data-stu-id="1a546-216">Examine the query in the *Pages/Instructors/Index.cshtml.cs* file:</span></span>
+<span data-ttu-id="d3bb1-216">*Pages/Instructors/Index.cshtml.cs* ファイルでクエリを調べます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-216">Examine the query in the *Pages/Instructors/Index.cshtml.cs* file:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
-<span data-ttu-id="1a546-217">クエリには次の 2 つが含まれています。</span><span class="sxs-lookup"><span data-stu-id="1a546-217">The query has two includes:</span></span>
+<span data-ttu-id="d3bb1-217">クエリには次の 2 つが含まれています。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-217">The query has two includes:</span></span>
 
-* <span data-ttu-id="1a546-218">`OfficeAssignment`:[Instructors ビュー](#IP)に表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-218">`OfficeAssignment`: Displayed in the [instructors view](#IP).</span></span>
-* <span data-ttu-id="1a546-219">`CourseAssignments`:担当したコースを取り込みます。</span><span class="sxs-lookup"><span data-stu-id="1a546-219">`CourseAssignments`: Which brings in the courses taught.</span></span>
+* <span data-ttu-id="d3bb1-218">`OfficeAssignment`:[Instructors ビュー](#IP)に表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-218">`OfficeAssignment`: Displayed in the [instructors view](#IP).</span></span>
+* <span data-ttu-id="d3bb1-219">`CourseAssignments`:担当したコースを取り込みます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-219">`CourseAssignments`: Which brings in the courses taught.</span></span>
 
+### <a name="update-the-instructors-index-page"></a><span data-ttu-id="d3bb1-220">Instructors/Index ページを更新する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-220">Update the instructors Index page</span></span>
 
-### <a name="update-the-instructors-index-page"></a><span data-ttu-id="1a546-220">Instructors/Index ページを更新する</span><span class="sxs-lookup"><span data-stu-id="1a546-220">Update the instructors Index page</span></span>
-
-<span data-ttu-id="1a546-221">次のマークアップを使用して *Pages/Instructors/Index.cshtml* を更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-221">Update *Pages/Instructors/Index.cshtml* with the following markup:</span></span>
+<span data-ttu-id="d3bb1-221">次のマークアップを使用して *Pages/Instructors/Index.cshtml* を更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-221">Update *Pages/Instructors/Index.cshtml* with the following markup:</span></span>
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=1-65&highlight=1,5,8,16-21,25-32,43-57)]
 
-<span data-ttu-id="1a546-222">上記のマークアップは、次の変更を加えます。</span><span class="sxs-lookup"><span data-stu-id="1a546-222">The preceding markup makes the following changes:</span></span>
+<span data-ttu-id="d3bb1-222">上記のマークアップは、次の変更を加えます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-222">The preceding markup makes the following changes:</span></span>
 
-* <span data-ttu-id="1a546-223">`page` ディレクティブを `@page` から `@page "{id:int?}"` に更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-223">Updates the `page` directive from `@page` to `@page "{id:int?}"`.</span></span> <span data-ttu-id="1a546-224">`"{id:int?}"` はルート テンプレートです。</span><span class="sxs-lookup"><span data-stu-id="1a546-224">`"{id:int?}"` is a route template.</span></span> <span data-ttu-id="1a546-225">ルート テンプレートは、URL 内の整数クエリ文字列をルート データに変更します。</span><span class="sxs-lookup"><span data-stu-id="1a546-225">The route template changes integer query strings in the URL to route data.</span></span> <span data-ttu-id="1a546-226">たとえば、`@page` ディレクティブのみのインストラクターで **[Select]** リンクをクリックすると、次のような URL を生成します。</span><span class="sxs-lookup"><span data-stu-id="1a546-226">For example, clicking on the **Select** link for an instructor with only the `@page` directive produces a URL like the following:</span></span>
+* <span data-ttu-id="d3bb1-223">`page` ディレクティブを `@page` から `@page "{id:int?}"` に更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-223">Updates the `page` directive from `@page` to `@page "{id:int?}"`.</span></span> <span data-ttu-id="d3bb1-224">`"{id:int?}"` はルート テンプレートです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-224">`"{id:int?}"` is a route template.</span></span> <span data-ttu-id="d3bb1-225">ルート テンプレートは、URL 内の整数クエリ文字列をルート データに変更します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-225">The route template changes integer query strings in the URL to route data.</span></span> <span data-ttu-id="d3bb1-226">たとえば、`@page` ディレクティブのみのインストラクターで **[Select]** リンクをクリックすると、次のような URL を生成します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-226">For example, clicking on the **Select** link for an instructor with only the `@page` directive produces a URL like the following:</span></span>
 
-    `http://localhost:1234/Instructors?id=2`
+  `http://localhost:1234/Instructors?id=2`
 
-    <span data-ttu-id="1a546-227">ページ ディレクティブが `@page "{id:int?}"` の場合、上記の URL は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="1a546-227">When the page directive is `@page "{id:int?}"`, the previous URL is:</span></span>
+  <span data-ttu-id="d3bb1-227">ページ ディレクティブが `@page "{id:int?}"` の場合、上記の URL は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-227">When the page directive is `@page "{id:int?}"`, the previous URL is:</span></span>
 
-    `http://localhost:1234/Instructors/2`
+  `http://localhost:1234/Instructors/2`
 
-* <span data-ttu-id="1a546-228">ページ タイトルは **Instructors** です。</span><span class="sxs-lookup"><span data-stu-id="1a546-228">Page title is **Instructors**.</span></span>
-* <span data-ttu-id="1a546-229">`item.OfficeAssignment` が null ではない場合にのみ `item.OfficeAssignment.Location` を表示する **Office** 列を追加しました。</span><span class="sxs-lookup"><span data-stu-id="1a546-229">Added an **Office** column that displays `item.OfficeAssignment.Location` only if `item.OfficeAssignment` isn't null.</span></span> <span data-ttu-id="1a546-230">これは、一対ゼロまたは一対一のリレーションシップであるため、関連する OfficeAssignment エンティティがない場合があります。</span><span class="sxs-lookup"><span data-stu-id="1a546-230">Because this is a one-to-zero-or-one relationship, there might not be a related OfficeAssignment entity.</span></span>
+* <span data-ttu-id="d3bb1-228">ページ タイトルは **Instructors** です。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-228">Page title is **Instructors**.</span></span>
+* <span data-ttu-id="d3bb1-229">`item.OfficeAssignment` が null ではない場合にのみ `item.OfficeAssignment.Location` を表示する **Office** 列を追加しました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-229">Added an **Office** column that displays `item.OfficeAssignment.Location` only if `item.OfficeAssignment` isn't null.</span></span> <span data-ttu-id="d3bb1-230">これは、一対ゼロまたは一対一のリレーションシップであるため、関連する OfficeAssignment エンティティがない場合があります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-230">Because this is a one-to-zero-or-one relationship, there might not be a related OfficeAssignment entity.</span></span>
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -214,9 +215,9 @@ ms.locfileid: "57345894"
   }
   ```
 
-* <span data-ttu-id="1a546-231">インストラクターごとに担当したコースを表示する **Courses** 列を追加しました。</span><span class="sxs-lookup"><span data-stu-id="1a546-231">Added a **Courses** column that displays courses taught by each instructor.</span></span> <span data-ttu-id="1a546-232">この Razor 構文の詳細については、「[Explicit Line Transition with `@:`](xref:mvc/views/razor#explicit-line-transition-with-)」(@: による明示的な行の遷移) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="1a546-232">See [Explicit Line Transition with `@:`](xref:mvc/views/razor#explicit-line-transition-with-) for more about this razor syntax.</span></span>
+* <span data-ttu-id="d3bb1-231">インストラクターごとに担当したコースを表示する **Courses** 列を追加しました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-231">Added a **Courses** column that displays courses taught by each instructor.</span></span> <span data-ttu-id="d3bb1-232">この Razor 構文の詳細については、「[Explicit Line Transition with `@:`](xref:mvc/views/razor#explicit-line-transition-with-)」(@: による明示的な行の遷移) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-232">See [Explicit Line Transition with `@:`](xref:mvc/views/razor#explicit-line-transition-with-) for more about this razor syntax.</span></span>
 
-* <span data-ttu-id="1a546-233">選択したインストラクターの `tr` 要素に `class="success"` を動的に追加するコードを追加しました。</span><span class="sxs-lookup"><span data-stu-id="1a546-233">Added code that dynamically adds `class="success"` to the `tr` element of the selected instructor.</span></span> <span data-ttu-id="1a546-234">これは、ブートストラップ クラスを使用して、選択した行の背景色を設定します。</span><span class="sxs-lookup"><span data-stu-id="1a546-234">This sets a background color for the selected row using a Bootstrap class.</span></span>
+* <span data-ttu-id="d3bb1-233">選択したインストラクターの `tr` 要素に `class="success"` を動的に追加するコードを追加しました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-233">Added code that dynamically adds `class="success"` to the `tr` element of the selected instructor.</span></span> <span data-ttu-id="d3bb1-234">これは、ブートストラップ クラスを使用して、選択した行の背景色を設定します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-234">This sets a background color for the selected row using a Bootstrap class.</span></span>
 
   ```html
   string selectedRow = "";
@@ -227,116 +228,116 @@ ms.locfileid: "57345894"
   <tr class="@selectedRow">
   ```
 
-* <span data-ttu-id="1a546-235">**Select** とラベル付けされるハイパーリンクを追加しました。</span><span class="sxs-lookup"><span data-stu-id="1a546-235">Added a new hyperlink labeled **Select**.</span></span> <span data-ttu-id="1a546-236">このリンクは、選択したインストラクターの ID を `Index` メソッドに送信し、背景色を設定します。</span><span class="sxs-lookup"><span data-stu-id="1a546-236">This link sends the selected instructor's ID to the `Index` method and sets a background color.</span></span>
+* <span data-ttu-id="d3bb1-235">**Select** とラベル付けされるハイパーリンクを追加しました。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-235">Added a new hyperlink labeled **Select**.</span></span> <span data-ttu-id="d3bb1-236">このリンクは、選択したインストラクターの ID を `Index` メソッドに送信し、背景色を設定します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-236">This link sends the selected instructor's ID to the `Index` method and sets a background color.</span></span>
 
   ```html
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-<span data-ttu-id="1a546-237">アプリを実行し、**[Instructors]** タブを選択します。関連する `OfficeAssignment` エンティティから `Location` (オフィス) がページに表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-237">Run the app and select the **Instructors** tab. The page displays the `Location` (office) from the related `OfficeAssignment` entity.</span></span> <span data-ttu-id="1a546-238">OfficeAssignment\` が null の場合、空のテーブル セルが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-238">If OfficeAssignment\` is null, an empty table cell is displayed.</span></span>
+<span data-ttu-id="d3bb1-237">アプリを実行し、**[Instructors]** タブを選択します。関連する `OfficeAssignment` エンティティから `Location` (オフィス) がページに表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-237">Run the app and select the **Instructors** tab. The page displays the `Location` (office) from the related `OfficeAssignment` entity.</span></span> <span data-ttu-id="d3bb1-238">OfficeAssignment\` が null の場合、空のテーブル セルが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-238">If OfficeAssignment\` is null, an empty table cell is displayed.</span></span>
 
 ![何も選択されていない Instructors/Index ページ](read-related-data/_static/instructors-index-no-selection.png)
 
-<span data-ttu-id="1a546-240">**[Select]** リンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="1a546-240">Click on the **Select** link.</span></span> <span data-ttu-id="1a546-241">行のスタイルが変更されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-241">The row style changes.</span></span>
+<span data-ttu-id="d3bb1-240">**[Select]** リンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-240">Click on the **Select** link.</span></span> <span data-ttu-id="d3bb1-241">行のスタイルが変更されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-241">The row style changes.</span></span>
 
-### <a name="add-courses-taught-by-selected-instructor"></a><span data-ttu-id="1a546-242">選択したインストラクターが担当するコースを追加する</span><span class="sxs-lookup"><span data-stu-id="1a546-242">Add courses taught by selected instructor</span></span>
+### <a name="add-courses-taught-by-selected-instructor"></a><span data-ttu-id="d3bb1-242">選択したインストラクターが担当するコースを追加する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-242">Add courses taught by selected instructor</span></span>
 
-<span data-ttu-id="1a546-243">次のコードを使用して、*Pages/Instructors/Index.cshtml.cs* 内の `OnGetAsync` メソッドを更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-243">Update the `OnGetAsync` method in *Pages/Instructors/Index.cshtml.cs* with the following code:</span></span>
+<span data-ttu-id="d3bb1-243">次のコードを使用して、*Pages/Instructors/Index.cshtml.cs* 内の `OnGetAsync` メソッドを更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-243">Update the `OnGetAsync` method in *Pages/Instructors/Index.cshtml.cs* with the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
-<span data-ttu-id="1a546-244">`public int CourseID { get; set; }` を追加します</span><span class="sxs-lookup"><span data-stu-id="1a546-244">Add `public int CourseID { get; set; }`</span></span>
+<span data-ttu-id="d3bb1-244">`public int CourseID { get; set; }` を追加します</span><span class="sxs-lookup"><span data-stu-id="d3bb1-244">Add `public int CourseID { get; set; }`</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_1&highlight=12)]
 
-<span data-ttu-id="1a546-245">更新されたクエリを確認します。</span><span class="sxs-lookup"><span data-stu-id="1a546-245">Examine the updated query:</span></span>
+<span data-ttu-id="d3bb1-245">更新されたクエリを確認します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-245">Examine the updated query:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
-<span data-ttu-id="1a546-246">上記のクエリは `Department` エンティティを追加します。</span><span class="sxs-lookup"><span data-stu-id="1a546-246">The preceding query adds the `Department` entities.</span></span>
+<span data-ttu-id="d3bb1-246">上記のクエリは `Department` エンティティを追加します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-246">The preceding query adds the `Department` entities.</span></span>
 
-<span data-ttu-id="1a546-247">次のコードは、インストラクターが選択されたとき (`id != null`) に実行されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-247">The following code executes when an instructor is selected (`id != null`).</span></span> <span data-ttu-id="1a546-248">選択されたインストラクターがビュー モデルのインストラクターのリストから取得されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-248">The selected instructor is retrieved from the list of instructors in the view model.</span></span> <span data-ttu-id="1a546-249">ビュー モデルの `Courses` プロパティが `Course` エンティティと共にそのインストラクターの `CourseAssignments` ナビゲーション プロパティから読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="1a546-249">The view model's `Courses` property is loaded with the `Course` entities from that instructor's `CourseAssignments` navigation property.</span></span>
+<span data-ttu-id="d3bb1-247">次のコードは、インストラクターが選択されたとき (`id != null`) に実行されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-247">The following code executes when an instructor is selected (`id != null`).</span></span> <span data-ttu-id="d3bb1-248">選択されたインストラクターがビュー モデルのインストラクターのリストから取得されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-248">The selected instructor is retrieved from the list of instructors in the view model.</span></span> <span data-ttu-id="d3bb1-249">ビュー モデルの `Courses` プロパティが `Course` エンティティと共にそのインストラクターの `CourseAssignments` ナビゲーション プロパティから読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-249">The view model's `Courses` property is loaded with the `Course` entities from that instructor's `CourseAssignments` navigation property.</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
-<span data-ttu-id="1a546-250">`Where` メソッドはコレクションを返します。</span><span class="sxs-lookup"><span data-stu-id="1a546-250">The `Where` method returns a collection.</span></span> <span data-ttu-id="1a546-251">上記の `Where` メソッドでは、1 つの `Instructor` エンティティのみが返されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-251">In the preceding `Where` method, only a single `Instructor` entity is returned.</span></span> <span data-ttu-id="1a546-252">`Single` メソッドはコレクションを 1 つの `Instructor` エンティティに変換します。</span><span class="sxs-lookup"><span data-stu-id="1a546-252">The `Single` method converts the collection into a single `Instructor` entity.</span></span> <span data-ttu-id="1a546-253">`Instructor` エンティティは `CourseAssignments` プロパティへのアクセスを提供します。</span><span class="sxs-lookup"><span data-stu-id="1a546-253">The `Instructor` entity provides access to the `CourseAssignments` property.</span></span> <span data-ttu-id="1a546-254">`CourseAssignments` は関連する `Course` エンティティへのアクセスを提供します。</span><span class="sxs-lookup"><span data-stu-id="1a546-254">`CourseAssignments` provides access to the related `Course` entities.</span></span>
+<span data-ttu-id="d3bb1-250">`Where` メソッドはコレクションを返します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-250">The `Where` method returns a collection.</span></span> <span data-ttu-id="d3bb1-251">上記の `Where` メソッドでは、1 つの `Instructor` エンティティのみが返されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-251">In the preceding `Where` method, only a single `Instructor` entity is returned.</span></span> <span data-ttu-id="d3bb1-252">`Single` メソッドはコレクションを 1 つの `Instructor` エンティティに変換します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-252">The `Single` method converts the collection into a single `Instructor` entity.</span></span> <span data-ttu-id="d3bb1-253">`Instructor` エンティティは `CourseAssignments` プロパティへのアクセスを提供します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-253">The `Instructor` entity provides access to the `CourseAssignments` property.</span></span> <span data-ttu-id="d3bb1-254">`CourseAssignments` は関連する `Course` エンティティへのアクセスを提供します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-254">`CourseAssignments` provides access to the related `Course` entities.</span></span>
 
 ![インストラクター対コース m:M](complex-data-model/_static/courseassignment.png)
 
-<span data-ttu-id="1a546-256">コレクションに 1 つの項目しかない場合は、`Single` メソッドがコレクションで使用されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-256">The `Single` method is used on a collection when the collection has only one item.</span></span> <span data-ttu-id="1a546-257">コレクションが空の場合、または複数の項目がある場合、`Single` メソッドは例外をスローします。</span><span class="sxs-lookup"><span data-stu-id="1a546-257">The `Single` method throws an exception if the collection is empty or if there's more than one item.</span></span> <span data-ttu-id="1a546-258">代わりに、コレクションが空の場合に既定値を返す (この場合は null) `SingleOrDefault` を使用します。</span><span class="sxs-lookup"><span data-stu-id="1a546-258">An alternative is `SingleOrDefault`, which returns a default value (null in this case) if the collection is empty.</span></span> <span data-ttu-id="1a546-259">空のコレクションで `SingleOrDefault` を使用すると、次のようになります。</span><span class="sxs-lookup"><span data-stu-id="1a546-259">Using `SingleOrDefault` on an empty collection:</span></span>
+<span data-ttu-id="d3bb1-256">コレクションに 1 つの項目しかない場合は、`Single` メソッドがコレクションで使用されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-256">The `Single` method is used on a collection when the collection has only one item.</span></span> <span data-ttu-id="d3bb1-257">コレクションが空の場合、または複数の項目がある場合、`Single` メソッドは例外をスローします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-257">The `Single` method throws an exception if the collection is empty or if there's more than one item.</span></span> <span data-ttu-id="d3bb1-258">代わりに、コレクションが空の場合に既定値を返す (この場合は null) `SingleOrDefault` を使用します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-258">An alternative is `SingleOrDefault`, which returns a default value (null in this case) if the collection is empty.</span></span> <span data-ttu-id="d3bb1-259">空のコレクションで `SingleOrDefault` を使用すると、次のようになります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-259">Using `SingleOrDefault` on an empty collection:</span></span>
 
-* <span data-ttu-id="1a546-260">(null 参照で `Courses` プロパティを見つけようとすると) 例外になります。</span><span class="sxs-lookup"><span data-stu-id="1a546-260">Results in an exception (from trying to find a `Courses` property on a null reference).</span></span>
-* <span data-ttu-id="1a546-261">例外メッセージに問題の原因が明確に示されない場合があります。</span><span class="sxs-lookup"><span data-stu-id="1a546-261">The exception message would less clearly indicate the cause of the problem.</span></span>
+* <span data-ttu-id="d3bb1-260">(null 参照で `Courses` プロパティを見つけようとすると) 例外になります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-260">Results in an exception (from trying to find a `Courses` property on a null reference).</span></span>
+* <span data-ttu-id="d3bb1-261">例外メッセージに問題の原因が明確に示されない場合があります。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-261">The exception message would less clearly indicate the cause of the problem.</span></span>
 
-<span data-ttu-id="1a546-262">次のコードは、コースが選択されたときにビュー モデルの `Enrollments` プロパティを設定します。</span><span class="sxs-lookup"><span data-stu-id="1a546-262">The following code populates the view model's `Enrollments` property when a course is selected:</span></span>
+<span data-ttu-id="d3bb1-262">次のコードは、コースが選択されたときにビュー モデルの `Enrollments` プロパティを設定します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-262">The following code populates the view model's `Enrollments` property when a course is selected:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
-<span data-ttu-id="1a546-263">*Pages/Instructors/Index.cshtml* Razor ページの末尾に次のマークアップを追加します。</span><span class="sxs-lookup"><span data-stu-id="1a546-263">Add the following markup to the end of the *Pages/Instructors/Index.cshtml* Razor Page:</span></span>
+<span data-ttu-id="d3bb1-263">*Pages/Instructors/Index.cshtml* Razor ページの末尾に次のマークアップを追加します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-263">Add the following markup to the end of the *Pages/Instructors/Index.cshtml* Razor Page:</span></span>
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
-<span data-ttu-id="1a546-264">上記のマークアップは、インストラクターが選択されたときに、インストラクターに関連するコースのリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-264">The preceding markup displays a list of courses related to an instructor when an instructor is selected.</span></span>
+<span data-ttu-id="d3bb1-264">上記のマークアップは、インストラクターが選択されたときに、インストラクターに関連するコースのリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-264">The preceding markup displays a list of courses related to an instructor when an instructor is selected.</span></span>
 
-<span data-ttu-id="1a546-265">アプリをテストします。</span><span class="sxs-lookup"><span data-stu-id="1a546-265">Test the app.</span></span> <span data-ttu-id="1a546-266">Instructors ページの **[Select]** リンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="1a546-266">Click on a **Select** link on the instructors page.</span></span>
+<span data-ttu-id="d3bb1-265">アプリをテストします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-265">Test the app.</span></span> <span data-ttu-id="d3bb1-266">Instructors ページの **[Select]** リンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-266">Click on a **Select** link on the instructors page.</span></span>
 
 ![インストラクターが選択された Instructors/Index ページ](read-related-data/_static/instructors-index-instructor-selected.png)
 
-### <a name="show-student-data"></a><span data-ttu-id="1a546-268">受講者データを表示する</span><span class="sxs-lookup"><span data-stu-id="1a546-268">Show student data</span></span>
+### <a name="show-student-data"></a><span data-ttu-id="d3bb1-268">受講者データを表示する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-268">Show student data</span></span>
 
-<span data-ttu-id="1a546-269">このセクションでは、選択したコースの受講者データを表示するため、アプリが更新されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-269">In this section, the app is updated to show the student data for a selected course.</span></span>
+<span data-ttu-id="d3bb1-269">このセクションでは、選択したコースの受講者データを表示するため、アプリが更新されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-269">In this section, the app is updated to show the student data for a selected course.</span></span>
 
-<span data-ttu-id="1a546-270">次のコードを使用して、*Pages/Instructors/Index.cshtml.cs* 内の `OnGetAsync` メソッドのクエリを更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-270">Update the query in the `OnGetAsync` method in *Pages/Instructors/Index.cshtml.cs* with the following code:</span></span>
+<span data-ttu-id="d3bb1-270">次のコードを使用して、*Pages/Instructors/Index.cshtml.cs* 内の `OnGetAsync` メソッドのクエリを更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-270">Update the query in the `OnGetAsync` method in *Pages/Instructors/Index.cshtml.cs* with the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
-<span data-ttu-id="1a546-271">*Pages/Instructors/Index.cshtml* を更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-271">Update *Pages/Instructors/Index.cshtml*.</span></span> <span data-ttu-id="1a546-272">ファイルの末尾に次のマークアップを追加します。</span><span class="sxs-lookup"><span data-stu-id="1a546-272">Add the following markup to the end of the file:</span></span>
+<span data-ttu-id="d3bb1-271">*Pages/Instructors/Index.cshtml* を更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-271">Update *Pages/Instructors/Index.cshtml*.</span></span> <span data-ttu-id="d3bb1-272">ファイルの末尾に次のマークアップを追加します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-272">Add the following markup to the end of the file:</span></span>
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=103-)]
 
-<span data-ttu-id="1a546-273">上記のマークアップは、選択したコースに登録されている受講者のリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-273">The preceding markup displays a list of the students who are enrolled in the selected course.</span></span>
+<span data-ttu-id="d3bb1-273">上記のマークアップは、選択したコースに登録されている受講者のリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-273">The preceding markup displays a list of the students who are enrolled in the selected course.</span></span>
 
-<span data-ttu-id="1a546-274">ページを更新し、インストラクターを選択します。</span><span class="sxs-lookup"><span data-stu-id="1a546-274">Refresh the page and select an instructor.</span></span> <span data-ttu-id="1a546-275">コースを選択して、登録済みの受講者とその成績のリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-275">Select a course to see the list of enrolled students and their grades.</span></span>
+<span data-ttu-id="d3bb1-274">ページを更新し、インストラクターを選択します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-274">Refresh the page and select an instructor.</span></span> <span data-ttu-id="d3bb1-275">コースを選択して、登録済みの受講者とその成績のリストを表示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-275">Select a course to see the list of enrolled students and their grades.</span></span>
 
 ![インストラクターとコースが選択された Instructors/Index ページ](read-related-data/_static/instructors-index.png)
 
-## <a name="using-single"></a><span data-ttu-id="1a546-277">Single を使用する</span><span class="sxs-lookup"><span data-stu-id="1a546-277">Using Single</span></span>
+## <a name="using-single"></a><span data-ttu-id="d3bb1-277">Single を使用する</span><span class="sxs-lookup"><span data-stu-id="d3bb1-277">Using Single</span></span>
 
-<span data-ttu-id="1a546-278">`Single` メソッドは、`Where` メソッドを別に呼び出す代わりに、`Where` 条件で渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="1a546-278">The `Single` method can pass in the `Where` condition instead of calling the `Where` method separately:</span></span>
+<span data-ttu-id="d3bb1-278">`Single` メソッドは、`Where` メソッドを別に呼び出す代わりに、`Where` 条件で渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-278">The `Single` method can pass in the `Where` condition instead of calling the `Where` method separately:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21-22,30-31)]
 
-<span data-ttu-id="1a546-279">上記の `Single` アプローチでは、`Where` を使用すること以上のメリットは提供されません。</span><span class="sxs-lookup"><span data-stu-id="1a546-279">The preceding `Single` approach provides no benefits over using `Where`.</span></span> <span data-ttu-id="1a546-280">一部の開発者は、`Single` アプローチ スタイルを選択します。</span><span class="sxs-lookup"><span data-stu-id="1a546-280">Some developers prefer the `Single` approach style.</span></span>
+<span data-ttu-id="d3bb1-279">上記の `Single` アプローチでは、`Where` を使用すること以上のメリットは提供されません。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-279">The preceding `Single` approach provides no benefits over using `Where`.</span></span> <span data-ttu-id="d3bb1-280">一部の開発者は、`Single` アプローチ スタイルを選択します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-280">Some developers prefer the `Single` approach style.</span></span>
 
-## <a name="explicit-loading"></a><span data-ttu-id="1a546-281">明示的読み込み</span><span class="sxs-lookup"><span data-stu-id="1a546-281">Explicit loading</span></span>
+## <a name="explicit-loading"></a><span data-ttu-id="d3bb1-281">明示的読み込み</span><span class="sxs-lookup"><span data-stu-id="d3bb1-281">Explicit loading</span></span>
 
-<span data-ttu-id="1a546-282">現在のコードは、`Enrollments` と `Students` に一括読み込みを指定します。</span><span class="sxs-lookup"><span data-stu-id="1a546-282">The current code specifies eager loading for `Enrollments` and `Students`:</span></span>
+<span data-ttu-id="d3bb1-282">現在のコードは、`Enrollments` と `Students` に一括読み込みを指定します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-282">The current code specifies eager loading for `Enrollments` and `Students`:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
-<span data-ttu-id="1a546-283">ユーザーがコースの登録を表示することはほとんどないとします。</span><span class="sxs-lookup"><span data-stu-id="1a546-283">Suppose users rarely want to see enrollments in a course.</span></span> <span data-ttu-id="1a546-284">その場合、最適化は要求された場合にのみ登録データを読み込むことです。</span><span class="sxs-lookup"><span data-stu-id="1a546-284">In that case, an optimization would be to only load the enrollment data if it's requested.</span></span> <span data-ttu-id="1a546-285">このセクションでは、`Enrollments` と `Students` の明示的読み込みを使用するために `OnGetAsync` が更新されます。</span><span class="sxs-lookup"><span data-stu-id="1a546-285">In this section, the `OnGetAsync` is updated to use explicit loading of `Enrollments` and `Students`.</span></span>
+<span data-ttu-id="d3bb1-283">ユーザーがコースの登録を表示することはほとんどないとします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-283">Suppose users rarely want to see enrollments in a course.</span></span> <span data-ttu-id="d3bb1-284">その場合、最適化は要求された場合にのみ登録データを読み込むことです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-284">In that case, an optimization would be to only load the enrollment data if it's requested.</span></span> <span data-ttu-id="d3bb1-285">このセクションでは、`Enrollments` と `Students` の明示的読み込みを使用するために `OnGetAsync` が更新されます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-285">In this section, the `OnGetAsync` is updated to use explicit loading of `Enrollments` and `Students`.</span></span>
 
-<span data-ttu-id="1a546-286">次のコードを使用して `OnGetAsync` を更新します。</span><span class="sxs-lookup"><span data-stu-id="1a546-286">Update the `OnGetAsync` with the following code:</span></span>
+<span data-ttu-id="d3bb1-286">次のコードを使用して `OnGetAsync` を更新します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-286">Update the `OnGetAsync` with the following code:</span></span>
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
-<span data-ttu-id="1a546-287">上記のコードは、登録と学生データの *ThenInclude* メソッド呼び出しを破棄します。</span><span class="sxs-lookup"><span data-stu-id="1a546-287">The preceding code drops the *ThenInclude* method calls for enrollment and student data.</span></span> <span data-ttu-id="1a546-288">コースが選択されると、強調表示されたコードが以下を取得します。</span><span class="sxs-lookup"><span data-stu-id="1a546-288">If a course is selected, the highlighted code retrieves:</span></span>
+<span data-ttu-id="d3bb1-287">上記のコードは、登録と学生データの *ThenInclude* メソッド呼び出しを破棄します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-287">The preceding code drops the *ThenInclude* method calls for enrollment and student data.</span></span> <span data-ttu-id="d3bb1-288">コースが選択されると、強調表示されたコードが以下を取得します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-288">If a course is selected, the highlighted code retrieves:</span></span>
 
-* <span data-ttu-id="1a546-289">選択したコースの `Enrollment` エンティティ。</span><span class="sxs-lookup"><span data-stu-id="1a546-289">The `Enrollment` entities for the selected course.</span></span>
-* <span data-ttu-id="1a546-290">各 `Enrollment` の `Student` エンティティ。</span><span class="sxs-lookup"><span data-stu-id="1a546-290">The `Student` entities for each `Enrollment`.</span></span>
+* <span data-ttu-id="d3bb1-289">選択したコースの `Enrollment` エンティティ。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-289">The `Enrollment` entities for the selected course.</span></span>
+* <span data-ttu-id="d3bb1-290">各 `Enrollment` の `Student` エンティティ。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-290">The `Student` entities for each `Enrollment`.</span></span>
 
-<span data-ttu-id="1a546-291">上記のコードでは、`.AsNoTracking()` がコメント アウトされていることに注目してください。</span><span class="sxs-lookup"><span data-stu-id="1a546-291">Notice the preceding code comments out `.AsNoTracking()`.</span></span> <span data-ttu-id="1a546-292">追跡対象のエンティティに対して、ナビゲーション プロパティのみを明示的に読み込むことができます。</span><span class="sxs-lookup"><span data-stu-id="1a546-292">Navigation properties can only be explicitly loaded for tracked entities.</span></span>
+<span data-ttu-id="d3bb1-291">上記のコードでは、`.AsNoTracking()` がコメント アウトされていることに注目してください。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-291">Notice the preceding code comments out `.AsNoTracking()`.</span></span> <span data-ttu-id="d3bb1-292">追跡対象のエンティティに対して、ナビゲーション プロパティのみを明示的に読み込むことができます。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-292">Navigation properties can only be explicitly loaded for tracked entities.</span></span>
 
-<span data-ttu-id="1a546-293">アプリをテストします。</span><span class="sxs-lookup"><span data-stu-id="1a546-293">Test the app.</span></span> <span data-ttu-id="1a546-294">ユーザーの観点からは、アプリの動作は以前のバージョンと同じです。</span><span class="sxs-lookup"><span data-stu-id="1a546-294">From a users perspective, the app behaves identically to the previous version.</span></span>
+<span data-ttu-id="d3bb1-293">アプリをテストします。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-293">Test the app.</span></span> <span data-ttu-id="d3bb1-294">ユーザーの観点からは、アプリの動作は以前のバージョンと同じです。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-294">From a users perspective, the app behaves identically to the previous version.</span></span>
 
-<span data-ttu-id="1a546-295">次のチュートリアルでは、関連データの更新方法を示します。</span><span class="sxs-lookup"><span data-stu-id="1a546-295">The next tutorial shows how to update related data.</span></span>
+<span data-ttu-id="d3bb1-295">次のチュートリアルでは、関連データの更新方法を示します。</span><span class="sxs-lookup"><span data-stu-id="d3bb1-295">The next tutorial shows how to update related data.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="1a546-296">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="1a546-296">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="d3bb1-296">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="d3bb1-296">Additional resources</span></span>
 
-* [<span data-ttu-id="1a546-297">このチュートリアルの YouTube バージョン (part1)</span><span class="sxs-lookup"><span data-stu-id="1a546-297">YouTube version of this tutorial (part1)</span></span>](https://www.youtube.com/watch?v=PzKimUDmrvE)
-* [<span data-ttu-id="1a546-298">このチュートリアルの YouTube バージョン (part2)</span><span class="sxs-lookup"><span data-stu-id="1a546-298">YouTube version of this tutorial (part2)</span></span>](https://www.youtube.com/watch?v=xvDDrIHv5ko)
+* [<span data-ttu-id="d3bb1-297">このチュートリアルの YouTube バージョン (part1)</span><span class="sxs-lookup"><span data-stu-id="d3bb1-297">YouTube version of this tutorial (part1)</span></span>](https://www.youtube.com/watch?v=PzKimUDmrvE)
+* [<span data-ttu-id="d3bb1-298">このチュートリアルの YouTube バージョン (part2)</span><span class="sxs-lookup"><span data-stu-id="d3bb1-298">YouTube version of this tutorial (part2)</span></span>](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
-><span data-ttu-id="1a546-299">[前へ](xref:data/ef-rp/complex-data-model)
->[次へ](xref:data/ef-rp/update-related-data)</span><span class="sxs-lookup"><span data-stu-id="1a546-299">[Previous](xref:data/ef-rp/complex-data-model)
+><span data-ttu-id="d3bb1-299">[前へ](xref:data/ef-rp/complex-data-model)
+>[次へ](xref:data/ef-rp/update-related-data)</span><span class="sxs-lookup"><span data-stu-id="d3bb1-299">[Previous](xref:data/ef-rp/complex-data-model)
 [Next](xref:data/ef-rp/update-related-data)</span></span>
