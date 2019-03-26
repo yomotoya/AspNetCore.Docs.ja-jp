@@ -5,7 +5,7 @@ description: ASP.NET Core、Content Delivery Networks (CDN)、ファイル サ�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
 ---
 # <a name="host-and-deploy-razor-components"></a>Razor Components のホストと展開
@@ -284,7 +284,7 @@ URL の書き換えを処理するために、*404.html* ファイルを、要�
 
 [サーバー側のホスティング モデル](xref:razor-components/hosting-models#server-side-hosting-model)では、Razor Components はサーバー上で ASP.NET Core アプリ内から実行されます。 UI の更新、イベント処理、JavaScript の呼び出しは、SignalR 接続経由で処理されます。
 
-アプリは、発行された出力に ASP.NET Core アプリと共に含まれているため、2 つのアプリを一緒に展開することができます。 ASP.NET Core アプリをホストできる Web サーバーが必要です。 サーバー側の展開の場合、Visual Studio には **Blazor (ASP.NET Core 内でサーバー側)** プロジェクト テンプレートが含まれています ([dotnet new](/dotnet/core/tools/dotnet-new) コマンドを使用する場合は `blazorserver` テンプレート)。
+アプリは、発行された出力に ASP.NET Core アプリと共に含まれているため、2 つのアプリを一緒に展開することができます。 ASP.NET Core アプリをホストできる Web サーバーが必要です。 サーバー側の展開の場合、Visual Studio には **Blazor コンポーネント** プロジェクト テンプレートが含まれています ([dotnet new](/dotnet/core/tools/dotnet-new) コマンドを使用する場合は `razorcomponents` テンプレート)。
 
 <!--
 

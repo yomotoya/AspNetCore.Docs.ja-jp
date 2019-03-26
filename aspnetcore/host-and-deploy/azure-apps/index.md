@@ -5,7 +5,7 @@ description: この記事には、Azure のホストと展開リソースへの�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
@@ -78,7 +78,17 @@ Azure Portal でアプリの設定が作成または変更され、**[保存]** 
 
 ## <a name="monitoring-and-logging"></a>監視およびログ記録
 
-App Service にデプロイされる ASP.NET Core アプリは、App Service の拡張機能、**ASP.NET Core ログ記録の拡張機能**を自動的に受け取ります。 この拡張機能により、Azure のログ記録が有効になります。
+::: moniker range=">= aspnetcore-3.0"
+
+App Service にデプロイされる ASP.NET Core アプリは、App Service の拡張機能、**ASP.NET Core ログ記録の統合**を自動的に受け取ります。 拡張機能は、Azure App Service での ASP.NET Core アプリの統合のログ記録を有効にします。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+App Service にデプロイされる ASP.NET Core アプリは、App Service の拡張機能、**ASP.NET Core ログ記録の拡張機能**を自動的に受け取ります。 拡張機能は、Azure App Service での ASP.NET Core アプリの統合のログ記録を有効にします。
+
+::: moniker-end
 
 監視、ログ記録、トラブルシューティングに関する情報は、次の記事を参照してください。
 
