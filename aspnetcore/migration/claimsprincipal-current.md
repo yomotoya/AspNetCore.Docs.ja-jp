@@ -4,14 +4,14 @@ author: mjrousos
 description: 現在の認証済みユーザーの id と ASP.NET Core でのクレームを取得する ClaimsPrincipal.Current から移行する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/04/2018
+ms.date: 03/26/2019
 uid: migration/claimsprincipal-current
-ms.openlocfilehash: 35c3389798041e141c45bf0a76fa9d7285212768
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 526cc3cf3a58a656e2a1b162cfaccacc7694dc51
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828122"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488643"
 ---
 # <a name="migrate-from-claimsprincipalcurrent"></a>ClaimsPrincipal.Current からの移行します。
 
@@ -56,4 +56,4 @@ Console.WriteLine($"Current user: {Thread.CurrentPrincipal?.Identity.Name}");
   * インスタンスを取得`IHttpContextAccessor`スタートアップ中に静的変数に格納します。 インスタンスが行われたが、現在のユーザーが静的プロパティから取得することは以前のコードを使用できます。
   * 現在のユーザーの取得`ClaimsPrincipal`を使用して`HttpContextAccessor.HttpContext?.User`します。 このコードは、HTTP 要求のコンテキスト外で使用されている場合、`HttpContext`が null です。
 
-最後のオプションを使用して`IHttpContextAccessor`、ASP.NET Core の原則 (静的な依存関係に依存関係の挿入されたよりも優先されます) とは対照的です。 最終的に、静的な依存関係を削除する予定`IHttpContextAccessor`ヘルパー。 できます、ブリッジに便利ですが、以前を使用して既存の ASP.NET アプリが大きなを移行するときに`ClaimsPrincipal.Current`します。
+最終的なオプションを使用して、`IHttpContextAccessor`インスタンスの静的変数に格納されている、(静的な依存関係に挿入された依存関係を優先) ASP.NET Core の原則に反するです。 最終的に取得する`IHttpContextAccessor`インスタンス依存関係の挿入からの代わりにします。 静的ヘルパーできる便利なブリッジでは、ただし、以前使用していた既存の ASP.NET アプリが大きなを移行するときに`ClaimsPrincipal.Current`します。

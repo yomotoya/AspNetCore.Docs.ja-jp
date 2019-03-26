@@ -3,14 +3,14 @@ title: ASP.NET Core Identity の概要
 author: rick-anderson
 description: ASP.NET Core アプリでは、Id を使用します。 パスワードの要件 (RequireDigit、RequiredLength、RequiredUniqueChars など) を設定する方法について説明します。
 ms.author: riande
-ms.date: 08/08/2018
+ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: efe8119c2d18db50dce3df57fa0e300d0d0df2cd
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265467"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488674"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core Identity の概要
 
@@ -64,6 +64,24 @@ dotnet new webapp --auth Individual -o WebApp1
 * /ユーザー/アカウント/ログイン
 * /ユーザー/アカウント/ログアウト
 * /ユーザー/アカウント/管理
+
+### <a name="apply-migrations"></a>移行を適用する
+
+データベースを初期化するへの移行を適用します。
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+パッケージ マネージャー コンソール (PMC) で、次のコマンドを実行します。
+
+```PM> Update-Database```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```cli
+dotnet ef database update
+```
+
+---
 
 ### <a name="test-register-and-login"></a>テスト登録とログイン
 
