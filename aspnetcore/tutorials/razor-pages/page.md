@@ -52,8 +52,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 <a name="md"></a>
 
-### <a name="the-model-directive"></a>
-  @model ディレクティブ
+### <a name="the-model-directive"></a>@model ディレクティブ
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
