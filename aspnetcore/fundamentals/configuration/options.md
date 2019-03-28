@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 8d219658b7116ad7e1f2a73678ef76ea1ce69595
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 62da2504941be0c29ddb15aaab9c091f387ccdb2
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209188"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327288"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core のオプション パターン
 
@@ -38,22 +38,22 @@ ms.locfileid: "58209188"
 
 ## <a name="options-interfaces"></a>オプションのインターフェイス
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitor`1> を使用してオプションを取得し、`TOptions` インターフェイスのオプション通知を管理します。 <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> では次のシナリオがサポートされます。
+<xref:Microsoft.Extensions.Options.IOptionsMonitor%601> を使用してオプションを取得し、`TOptions` インターフェイスのオプション通知を管理します。 <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> では次のシナリオがサポートされます。
 
 * 変更通知
 * [名前付きオプション](#named-options-support-with-iconfigurenamedoptions)
 * [再読み込み可能な構成](#reload-configuration-data-with-ioptionssnapshot)
-* 選択的なオプションの無効化 (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1>)
+* 選択的なオプションの無効化 (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>)
 
-[ポスト構成](#options-post-configuration)のシナリオでは、すべての <xref:Microsoft.Extensions.Options.IConfigureOptions`1> 構成が行われた後で、オプションを設定または変更できます。
+[ポスト構成](#options-post-configuration)のシナリオでは、すべての <xref:Microsoft.Extensions.Options.IConfigureOptions%601> 構成が行われた後で、オプションを設定または変更できます。
 
-<xref:Microsoft.Extensions.Options.IOptionsFactory`1> は、新しいオプション インスタンスを作成します。 <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> メソッドが 1 つ含まれています。 既定の実装では、登録されている <xref:Microsoft.Extensions.Options.IConfigureOptions`1> と <xref:Microsoft.Extensions.Options.IPostConfigureOptions`1> がすべて受け取られ、先にすべての構成を実行し、その後、ポスト構成を実行します。 <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> と <xref:Microsoft.Extensions.Options.IConfigureOptions`1> が区別され、適切なインターフェイスのみが呼び出されます。
+<xref:Microsoft.Extensions.Options.IOptionsFactory%601> は、新しいオプション インスタンスを作成します。 <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*> メソッドが 1 つ含まれています。 既定の実装では、登録されている <xref:Microsoft.Extensions.Options.IConfigureOptions%601> と <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> がすべて受け取られ、先にすべての構成を実行し、その後、ポスト構成を実行します。 <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> と <xref:Microsoft.Extensions.Options.IConfigureOptions%601> が区別され、適切なインターフェイスのみが呼び出されます。
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1> は <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> によって使用され、`TOptions` インスタンスをキャッシュします。 <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1> は、値が再計算されるよう、モニターのオプション インスタンスを無効にします (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>)。 <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> を利用し、手動で値を入力できます。 <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> メソッドは、すべての名前付きインスタンスをオンデマンドで再作成するときに使用されます。
+<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> は <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> によって使用され、`TOptions` インスタンスをキャッシュします。 <xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> は、値が再計算されるよう、モニターのオプション インスタンスを無効にします (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>)。 <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*> を利用し、手動で値を入力できます。 <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> メソッドは、すべての名前付きインスタンスをオンデマンドで再作成するときに使用されます。
 
-<xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> は、要求ごとにオプションを再計算する必要があるシナリオで役立ちます。 詳しくは、「[IOptionsSnapshot で構成データを再読み込みする](#reload-configuration-data-with-ioptionssnapshot)」セクションをご覧ください。
+<xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> は、要求ごとにオプションを再計算する必要があるシナリオで役立ちます。 詳しくは、「[IOptionsSnapshot で構成データを再読み込みする](#reload-configuration-data-with-ioptionssnapshot)」セクションをご覧ください。
 
-<xref:Microsoft.Extensions.Options.IOptions`1> はオプションをサポートするために使用できます。 ただし、<xref:Microsoft.Extensions.Options.IOptions`1> では、上記の <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> のシナリオはサポートされません。 既に <xref:Microsoft.Extensions.Options.IOptions`1> インターフェイスを使用しており、<xref:Microsoft.Extensions.Options.IOptionsMonitor`1> によって提供されるシナリオが必要ない既存のフレームワークとライブラリでは、<xref:Microsoft.Extensions.Options.IOptions`1> を継続して使用できます。
+<xref:Microsoft.Extensions.Options.IOptions%601> はオプションをサポートするために使用できます。 ただし、<xref:Microsoft.Extensions.Options.IOptions%601> では、上記の <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> のシナリオはサポートされません。 既に <xref:Microsoft.Extensions.Options.IOptions%601> インターフェイスを使用しており、<xref:Microsoft.Extensions.Options.IOptionsMonitor%601> によって提供されるシナリオが必要ない既存のフレームワークとライブラリでは、<xref:Microsoft.Extensions.Options.IOptions%601> を継続して使用できます。
 
 ## <a name="general-options-configuration"></a>一般般的なオプションの構成
 
@@ -67,7 +67,7 @@ ms.locfileid: "58209188"
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example1)]
 
-次のページ モデルは[コンストラクターの依存関係挿入](xref:mvc/controllers/dependency-injection)と <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> を利用し、設定にアクセスします (*Pages/Index.cshtml.cs*)。
+次のページ モデルは[コンストラクターの依存関係挿入](xref:mvc/controllers/dependency-injection)と <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> を利用し、設定にアクセスします (*Pages/Index.cshtml.cs*)。
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -107,7 +107,7 @@ option1 = value1_from_json, option2 = -1
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
-次のコードでは、2 番目の <xref:Microsoft.Extensions.Options.IConfigureOptions`1> サービスがサービス コンテナーに追加されます。 デリゲートを利用し、`MyOptionsWithDelegateConfig` とのバインディングを構成します。
+次のコードでは、2 番目の <xref:Microsoft.Extensions.Options.IConfigureOptions%601> サービスがサービス コンテナーに追加されます。 デリゲートを利用し、`MyOptionsWithDelegateConfig` とのバインディングを構成します。
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example2)]
 
@@ -121,7 +121,7 @@ option1 = value1_from_json, option2 = -1
 
 複数の構成プロバイダーを追加できます。 構成プロバイダーは NuGet パッケージにあり、登録順に適用されます。 詳細については、「<xref:fundamentals/configuration/index>」を参照してください。
 
-<xref:Microsoft.Extensions.Options.IConfigureOptions`1.Configure*> を呼び出すたびに <xref:Microsoft.Extensions.Options.IConfigureOptions`1> サービスがサービス コンテナーに追加されます。 先の例では、値 `Option1` と `Option2` が両方とも *appsettings.json* で指定されていますが、構成されているデリゲートにより値 `Option1` と `Option2` がオーバーライドされます。
+<xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> を呼び出すたびに <xref:Microsoft.Extensions.Options.IConfigureOptions%601> サービスがサービス コンテナーに追加されます。 先の例では、値 `Option1` と `Option2` が両方とも *appsettings.json* で指定されていますが、構成されているデリゲートにより値 `Option1` と `Option2` がオーバーライドされます。
 
 複数の構成サービスが有効になっているとき、最後に指定された構成ソースが*優先*され、それにより構成値が設定されます。 アプリの実行時、ページ モデルの `OnGet` メソッドは文字列を返し、オプション クラス値を表示します。
 
@@ -137,7 +137,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 オプションを構成にバインドするとき、オプション タイプの各プロパティはフォーム `property[:sub-property:]` の構成キーにバインドされます。 たとえば、`MyOptions.Option1` プロパティはキー `Option1` にバインドされます。このキーは *appsettings.json* の `option1` プロパティから読み込まれます。
 
-次のコードでは、3 番目の <xref:Microsoft.Extensions.Options.IConfigureOptions`1> サービスがサービス コンテナーに追加されます。 `MySubOptions` を *appsettings.json* ファイルのセクション `subsection` にバインドします。
+次のコードでは、3 番目の <xref:Microsoft.Extensions.Options.IConfigureOptions%601> サービスがサービス コンテナーに追加されます。 `MySubOptions` を *appsettings.json* ファイルのセクション `subsection` にバインドします。
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example3)]
 
@@ -169,7 +169,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 サンプル アプリの例 &num;4 は、ビュー モデルまたは直接的なビュー挿入で与えられるオプションです。
 
-オプションはビュー モデルで提供するか、ビューに <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> を直接挿入することで提供できます (*Pages/Index.cshtml.cs*)。
+オプションはビュー モデルで提供するか、ビューに <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> を直接挿入することで提供できます (*Pages/Index.cshtml.cs*)。
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -187,13 +187,13 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>IOptionsSnapshot で構成データを再読み込みする
 
-サンプル アプリの例 &num;5 では、<xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> で構成データを再読み込みする方法を確認できます。
+サンプル アプリの例 &num;5 では、<xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> で構成データを再読み込みする方法を確認できます。
 
-<xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> では、最小の処理オーバーヘッドでオプションを再読み込みできます。
+<xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> では、最小の処理オーバーヘッドでオプションを再読み込みできます。
 
 オプションは、要求の有効期間中にアクセスされ、キャッシュされたとき、要求につき 1 回計算されます。
 
-次の例では、*appsettings.json* の変更後、新しい <xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> が作成されます (*Pages/Index.cshtml.cs*)。 サーバーに複数の要求が届くと、ファイルが変更され、構成が再読み込みされるまで、*appsettings.json* ファイルによって提供される定数値が返されます。
+次の例では、*appsettings.json* の変更後、新しい <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> が作成されます (*Pages/Index.cshtml.cs*)。 サーバーに複数の要求が届くと、ファイルが変更され、構成が再読み込みされるまで、*appsettings.json* ファイルによって提供される定数値が返されます。
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=12)]
 
@@ -215,7 +215,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IConfigureNamedOptions による名前付きオプションのサポート
 
-サンプル アプリの例 &num;6 は、<xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> による名前付きオプションのサポートです。
+サンプル アプリの例 &num;6 は、<xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> による名前付きオプションのサポートです。
 
 *名前付きオプション*をサポートすることで、アプリでは名前付きオプション構成が区別されます。 サンプル アプリでは、名前付きオプションは [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*) で宣言されます。これは、[ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) 拡張メソッドを呼び出します。
 
@@ -260,11 +260,11 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> すべてのオプションが名前付きインスタンスです。 既存の <xref:Microsoft.Extensions.Options.IConfigureOptions`1> インスタンスは、`string.Empty` である、`Options.DefaultName` インスタンスを対象とするものとして処理されます。 <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> はまた、<xref:Microsoft.Extensions.Options.IConfigureOptions`1> を実装します。 <xref:Microsoft.Extensions.Options.IOptionsFactory`1> の既定の実装には、それぞれを適切に使用するロジックがあります。 名前付きオプション `null` は、特定の名前付きオプションの代わりにすべての名前付きインスタンスを対象にするときに使用されます (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> と <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> ではこの規則が使用されます)。
+> すべてのオプションが名前付きインスタンスです。 既存の <xref:Microsoft.Extensions.Options.IConfigureOptions%601> インスタンスは、`string.Empty` である、`Options.DefaultName` インスタンスを対象とするものとして処理されます。 <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> はまた、<xref:Microsoft.Extensions.Options.IConfigureOptions%601> を実装します。 <xref:Microsoft.Extensions.Options.IOptionsFactory%601> の既定の実装には、それぞれを適切に使用するロジックがあります。 名前付きオプション `null` は、特定の名前付きオプションの代わりにすべての名前付きインスタンスを対象にするときに使用されます (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> と <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> ではこの規則が使用されます)。
 
 ## <a name="optionsbuilder-api"></a>OptionsBuilder API
 
-<xref:Microsoft.Extensions.Options.OptionsBuilder`1> は、`TOptions` インスタンスの構成に使用されます。 `OptionsBuilder` は名前付きオプションの作成を簡略化します。これは最初の `AddOptions<TOptions>(string optionsName)` の呼び出しに対する 1 つのパラメーターにすぎず、後続のすべての呼び出しが表示されなくなるためです。 サービスの依存関係を受け入れるオプションの検証と `ConfigureOptions` のオーバーロードは、`OptionsBuilder` を介してのみ可能です。
+<xref:Microsoft.Extensions.Options.OptionsBuilder%601> は、`TOptions` インスタンスの構成に使用されます。 `OptionsBuilder` は名前付きオプションの作成を簡略化します。これは最初の `AddOptions<TOptions>(string optionsName)` の呼び出しに対する 1 つのパラメーターにすぎず、後続のすべての呼び出しが表示されなくなるためです。 サービスの依存関係を受け入れるオプションの検証と `ConfigureOptions` のオーバーロードは、`OptionsBuilder` を介してのみ可能です。
 
 ```csharp
 // Options.DefaultName = "" is used.
@@ -287,9 +287,9 @@ services.AddOptions<MyOptions>("optionalName")
               o.Property = DoSomethingWith(s, s2, s3, s4, s5));
   ```
 
-* <xref:Microsoft.Extensions.Options.IConfigureOptions`1> または <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> を実装する独自の型を作成し、その型をサービスとして登録します。
+* <xref:Microsoft.Extensions.Options.IConfigureOptions%601> または <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> を実装する独自の型を作成し、その型をサービスとして登録します。
 
-サービスの作成は複雑なため、[Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) に構成デリゲートを渡す方法をおすすめします。 独自の型を作成することは、[Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) の使用時にフレームワークがユーザーの代わりに行うことと同じです。 [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) を呼び出すと、一時的な汎用の <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> が登録されます。これには、指定された汎用サービスの型を受け入れるコンストラクターが含まれています。 
+サービスの作成は複雑なため、[Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) に構成デリゲートを渡す方法をおすすめします。 独自の型を作成することは、[Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) の使用時にフレームワークがユーザーの代わりに行うことと同じです。 [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) を呼び出すと、一時的な汎用の <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> が登録されます。これには、指定された汎用サービスの型を受け入れるコンストラクターが含まれています。 
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -395,7 +395,7 @@ public void CanValidateDataAnnotations()
 
 ## <a name="options-post-configuration"></a>オプションのポスト構成
 
-ポスト構成を <xref:Microsoft.Extensions.Options.IPostConfigureOptions`1> を使用して設定します。 ポスト構成は、すべての <xref:Microsoft.Extensions.Options.IConfigureOptions`1> 構成が行われた後で実行されます。
+ポスト構成を <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601> を使用して設定します。 ポスト構成は、すべての <xref:Microsoft.Extensions.Options.IConfigureOptions%601> 構成が行われた後で実行されます。
 
 ```csharp
 services.PostConfigure<MyOptions>(myOptions =>
@@ -424,7 +424,7 @@ services.PostConfigureAll<MyOptions>(myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>スタートアップ時にオプションにアクセスする
 
-サービスは `Configure` メソッドの実行前に構築されるため、<xref:Microsoft.Extensions.Options.IOptions`1> および <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> は `Startup.Configure` で使用できます。
+サービスは `Configure` メソッドの実行前に構築されるため、<xref:Microsoft.Extensions.Options.IOptions%601> および <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> は `Startup.Configure` で使用できます。
 
 ```csharp
 public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> optionsAccessor)
@@ -433,7 +433,7 @@ public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> option
 }
 ```
 
-`Startup.ConfigureServices` では <xref:Microsoft.Extensions.Options.IOptions`1> または <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> は使用しないでください。 サービスの登録順序が原因で、オプションの状態が一貫しない場合があります。
+`Startup.ConfigureServices` では <xref:Microsoft.Extensions.Options.IOptions%601> または <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> は使用しないでください。 サービスの登録順序が原因で、オプションの状態が一貫しない場合があります。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

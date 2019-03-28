@@ -5,12 +5,12 @@ description: Web ページにサーバー ベースのコードを埋め込む�
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 53d4dc608fbfd45bcc015a3af83f5d87f86c7f15
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264755"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327366"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
@@ -534,7 +534,7 @@ Razor テンプレートを使用すると、次の形式で UI スニペット�
 @<tag>...</tag>
 ```
 
-次の例では、テンプレート化された Razor デリゲートを <xref:System.Func`2> として指定する方法を示します。 デリゲートによってカプセル化されるメソッドのパラメーターに対しては、[dynamic 型](/dotnet/csharp/programming-guide/types/using-type-dynamic)を指定します。 デリゲートの戻り値としては、[object 型](/dotnet/csharp/language-reference/keywords/object)を指定します。 テンプレートは、`Name` プロパティを持つ `Pet` の <xref:System.Collections.Generic.List`1> で使用されます。
+次の例では、テンプレート化された Razor デリゲートを <xref:System.Func%602> として指定する方法を示します。 デリゲートによってカプセル化されるメソッドのパラメーターに対しては、[dynamic 型](/dotnet/csharp/programming-guide/types/using-type-dynamic)を指定します。 デリゲートの戻り値としては、[object 型](/dotnet/csharp/language-reference/keywords/object)を指定します。 テンプレートは、`Name` プロパティを持つ `Pet` の <xref:System.Collections.Generic.List%601> で使用されます。
 
 ```csharp
 public class Pet
@@ -599,7 +599,7 @@ public class Pet
 
 前の例のペットのリストを使用して、次のように `Repeat` メソッドを呼び出します。
 
-* <xref:System.Collections.Generic.List`1> の `Pet`。
+* <xref:System.Collections.Generic.List%601> の `Pet`。
 * 各ペットを繰り返す回数。
 * 順不同のリストのリスト項目に対して使用するインライン テンプレート。
 

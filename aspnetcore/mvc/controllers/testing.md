@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: c8a374f3e3ecfdef1a02e685aecc4e2fcbfcbf48
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 429af1fb6d0388a5c57894851832969e1ef629e2
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410363"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327434"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
 
@@ -126,7 +126,7 @@ API の呼び出しでビジネス ドメイン エンティティを直接返�
 
 ## <a name="test-actionresultlttgt"></a>ActionResult&lt;T&gt; をテストする
 
-ASP.NET Core 2.1 以降、[ActionResult&lt;T&gt;](xref:web-api/action-return-types#actionresultt-type) (<xref:Microsoft.AspNetCore.Mvc.ActionResult`1>) で、`ActionResult` から派生する型または特定の型を返すことができます。
+ASP.NET Core 2.1 以降、[ActionResult&lt;T&gt;](xref:web-api/action-return-types#actionresultt-type) (<xref:Microsoft.AspNetCore.Mvc.ActionResult%601>) で、`ActionResult` から派生する型または特定の型を返すことができます。
 
 サンプル アプリには、特定のセッション `id` に対して `List<IdeaDTO>` を返すメソッドが含まれています。 セッションに `id` が存在しない場合、コントローラーは <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> を返します。
 
@@ -144,7 +144,7 @@ ASP.NET Core 2.1 以降、[ActionResult&lt;T&gt;](xref:web-api/action-return-typ
 有効なセッション `id` に対する 2 番目のテストでは、メソッドが以下を返すことを確認します。
 
 * `List<IdeaDTO>` 型の `ActionResult`。
-* [ActionResult&lt;T&gt;.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Value*) は `List<IdeaDTO>` 型。
+* [ActionResult&lt;T&gt;.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) は `List<IdeaDTO>` 型。
 * 一覧の最初の項目は、モック セッションに格納されているアイデアと一致する有効なアイデア (`GetTestSession` の呼び出しによって取得)。
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ForSessionActionResult_ReturnsIdeasForSession&highlight=7-8,15-18)]
@@ -170,8 +170,8 @@ ASP.NET Core 2.1 以降、[ActionResult&lt;T&gt;](xref:web-api/action-return-typ
 有効なセッション `id` に対しては、最後のテストで以下を確認します。
 
 * メソッドが `BrainstormSession` 型の `ActionResult` を返す。
-* [ActionResult&lt;T&gt;.Result](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Result*) は <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>。 `CreatedAtActionResult` は *201 Created* 応答に類似した `Location` ヘッダー付きの応答である。
-* [ActionResult&lt;T&gt;.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Value*) は `BrainstormSession` 型。
+* [ActionResult&lt;T&gt;.Result](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Result*) は <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>。 `CreatedAtActionResult` は *201 Created* 応答に類似した `Location` ヘッダー付きの応答である。
+* [ActionResult&lt;T&gt;.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) は `BrainstormSession` 型。
 * セッション `UpdateAsync(testSession)` を更新するモック 呼び出しが呼び出された。 `Verifiable` メソッド呼び出しは、アサーション内で `mockRepo.Verify()` を実行することでチェックされます。
 * セッションに対して 2 つの `Idea` オブジェクトが返された。
 * 最後の項目 (`UpdateAsync` へのモック呼び出しによって追加された `Idea`) が、テスト中にセッションに追加された `newIdea` と一致する。
