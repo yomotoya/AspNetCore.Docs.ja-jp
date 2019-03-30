@@ -319,7 +319,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 環境変数の構成をアクティブにするには、<xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> のインスタンスの <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> 拡張メソッドを呼び出します。
 
-環境変数内で階層キーを操作する場合、コロン区切り (`:`) がすべてのプラットフォームでは機能しない場合があります。 二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされ、コロンに置換されます。
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) を使用すると、環境変数構成プロバイダーを使用してアプリの構成をオーバーライドすることができる環境変数を、Azure Portal で設定できます。 詳細については、「[Azure アプリ: Azure Portal を使用してアプリの構成をオーバーライドする](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal)」を参照してください。
 
@@ -1127,8 +1127,7 @@ JSON 構成プロバイダーは、次のキーと値のペアに構成データ
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/EFConfigurationProvider/EFConfigurationContext.cs?name=snippet1)]
 
-
-  <xref:Microsoft.Extensions.Configuration.IConfigurationSource> を実装するクラスを作成します。
+<xref:Microsoft.Extensions.Configuration.IConfigurationSource> を実装するクラスを作成します。
 
 *EFConfigurationProvider/EFConfigurationSource.cs*:
 

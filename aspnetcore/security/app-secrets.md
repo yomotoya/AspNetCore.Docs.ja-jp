@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/13/2019
 uid: security/app-secrets
-ms.openlocfilehash: 1a10c4d035510c689e3eccadc5986df0cc06b71e
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 18313f8284e81d196cbe786f494a607ee97a299f
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841515"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750971"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>ASP.NET Core での開発中のアプリ シークレットの安全な格納
 
@@ -37,6 +37,8 @@ ASP.NET Core web アプリを検討してください**個々 のユーザー �
 
 > [!WARNING]
 > 環境変数は、暗号化されていないプレーン テキストで一般的に格納されます。 コンピューターまたはプロセスが侵害された場合、環境変数は、信頼されていないパーティによってアクセスできます。 ユーザーの機密情報の漏えいを防ぐためにその他の対策は、必要な可能性があります。
+
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 ## <a name="secret-manager"></a>Secret Manager
 
@@ -166,7 +168,7 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 
 前の例では、コロンのあることを示します`Movies`はオブジェクトのリテラルを`ServiceApiKey`プロパティ。
 
-Secret Manager ツールは、その他のディレクトリからも使用できます。 使用して、`--project`をファイル システム パスを指定するオプション、 *.csproj*ファイルが存在します。 例えば:
+Secret Manager ツールは、その他のディレクトリからも使用できます。 使用して、`--project`をファイル システム パスを指定するオプション、 *.csproj*ファイルが存在します。 例:
 
 ```console
 dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
@@ -174,7 +176,7 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp
 
 ### <a name="json-structure-flattening-in-visual-studio"></a>Visual Studio でのフラット化する JSON 構造体
 
-Visual Studio の**ユーザー シークレットの管理**ジェスチャが開き、 *secrets.json*テキスト エディターでファイル。 内容を置き換える*secrets.json*キーと値のペアを格納するとします。 例えば:
+Visual Studio の**ユーザー シークレットの管理**ジェスチャが開き、 *secrets.json*テキスト エディターでファイル。 内容を置き換える*secrets.json*キーと値のペアを格納するとします。 例:
 
 ```json
 {
@@ -291,13 +293,13 @@ POCO (単純な .NET クラスのプロパティを持つ) への全体のオブ
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
-安全なアプローチでは、パスワードをシークレットとして格納します。 例えば:
+安全なアプローチでは、パスワードをシークレットとして格納します。 例:
 
 ```console
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-削除、`Password`キー/値ペア内の接続文字列から*appsettings.json*します。 例えば:
+削除、`Password`キー/値ペア内の接続文字列から*appsettings.json*します。 例:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 

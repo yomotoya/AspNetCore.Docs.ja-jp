@@ -5,7 +5,7 @@ description: ASP.NET Core アプリ内に .NET を使った対話型のクライ
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 03/27/2019
 uid: razor-components/index
 ---
 # <a name="introduction-to-razor-components"></a>Razor Components の概要
@@ -42,7 +42,7 @@ Razor Components では、UI の更新を適用する方法からコンポーネ
 
 詳細については、「<xref:razor-components/hosting-models#server-side-hosting-model>」を参照してください。
 
-*Blazor* は、Razor Components の実験的なクライアント側のホスティング モデルです。 Blazor は、オープンな Web 標準を使ってブラウザー内の .NET 上で実行され、プラグインもコード トランスパイルも必要ありません。 詳細については、「<xref:razor-components/hosting-models#client-side-hosting-model>」を参照してください。
+*Blazor* は、Razor Components の実験的なクライアント側のホスティング モデルです。 Blazor は、オープンな Web 標準を使ってブラウザー内の .NET 上で実行され、プラグインもコード トランスパイルも必要ありません。 詳細については、次のトピックを参照してください。 <xref:spa/blazor/index> および <xref:razor-components/hosting-models#client-side-hosting-model>
 
 ## <a name="components"></a>コンポーネント
 

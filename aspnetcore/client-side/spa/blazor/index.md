@@ -5,7 +5,7 @@ description: WebAssembly を使ってブラウザー内で実行される対話�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 03/27/2019
 uid: spa/blazor/index
 ---
 # <a name="introduction-to-blazor"></a>Blazor の概要
@@ -50,7 +50,7 @@ Blazor は、ほとんどのアプリで必要となる次のコア機能をサ�
 
 ダウンロードされるアプリのサイズを小さくするため、アプリが[中間言語 (IL) リンカー](xref:host-and-deploy/razor-components/configure-linker)によって発行されるときに、アプリから未使用コードが除去されます。
 
-Blazor は、Razor Components 用のクライアント側のホスティング モデルです。 Razor Components ではコンポーネントのレンダリング ロジックが UI の更新の適用方法から切り離されているため、Razor Components をホストする方法には柔軟性があります。 ASP.NET Core Razor Component を使って、サーバー上の Razor Components を ASP.NET Core アプリでホストします。UI の更新は SignalR 接続を介して処理されます。 詳細については、「<xref:razor-components/hosting-models#server-side-hosting-model>」を参照してください。 
+Blazor は、Razor Components 用のクライアント側のホスティング モデルです。 Razor Components ではコンポーネントのレンダリング ロジックが UI の更新の適用方法から切り離されているため、Razor Components をホストする方法には柔軟性があります。 ASP.NET Core Razor Component を使って、サーバー上の Razor Components を ASP.NET Core アプリでホストします。UI の更新は SignalR 接続を介して処理されます。 詳細については、次のトピックを参照してください。 <xref:razor-components/index> および <xref:razor-components/hosting-models#server-side-hosting-model> 
 
 ## <a name="components"></a>コンポーネント
 
