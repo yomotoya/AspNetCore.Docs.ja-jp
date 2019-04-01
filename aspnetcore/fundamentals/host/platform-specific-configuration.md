@@ -5,14 +5,14 @@ description: IHostingStartup 実装を使用して、外部アセンブリから
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 03/10/2019
+ms.date: 03/23/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 25564ecebf48f65a209ac48e77856ef36d897959
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c174d658c84ada88eef17528c663735a91347ba7
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264982"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419447"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 
@@ -381,18 +381,7 @@ dotnet nuget locals all --clear
 **ランタイム ストア配置アセンブリからのアクティブ化**
 
 1. *StartupDiagnostics* プロジェクトでは、[PowerShell](/powershell/scripting/powershell-scripting) を使用して、その *StartupDiagnostics.deps.json* ファイルを変更します。 既定では、PowerShell は Windows 7 SP1 と Windows Server 2008 R2 SP1 以降の Windows 上にインストールされます。 他のプラットフォームで PowerShell を取得するには、「[Windows PowerShell のインストール](/powershell/scripting/setup/installing-powershell#powershell-core)」を参照してください。
-1. *StartupDiagnostics* プロジェクトをビルドします。 プロジェクトをビルドすると、プロジェクト ファイル内のビルド ターゲットによって自動的に次のことが行われます。
-   * PowerShell スクリプトをトリガーして、*StartupDiagnostics.deps.json* ファイルを変更する。
-   * *StartupDiagnostics.deps.json* ファイルをユーザー プロファイルの *additionalDeps* フォルダーに移動する。
-1. ホスティング スタートアップのディレクトリ内のコマンド プロンプトで `dotnet store` を実行して、アセンブリとその依存関係をユーザー プロファイルのランタイム ストアに格納します。
-
-   ```console
-   dotnet store --manifest StartupDiagnostics.csproj --runtime <RID>
-   ```
-
-   Windows の場合、そのコマンドでは `win7-x64` [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) が使用されます。 別のランタイムに対してホスティング スタートアップを指定する場合は、適切な RID に置き換えます。
-1. 環境変数を設定します。
-   * *StartupDiagnostics* のアセンブリ名を `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` 環境変数に追加します。
-   * Windows の場合は、`DOTNET_ADDITIONAL_DEPS` 環境変数を `%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\` に設定します。 macOS または Linux の場合は、`DOTNET_ADDITIONAL_DEPS` 環境変数を `/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/` に設定します。ここで、`<USER>` は、ホスティング スタートアップを含むユーザー プロファイルです。
+1. *RuntimeStore* フォルダーにある *build.ps1* スクリプトを実行します。 スクリプト内の `dotnet store` コマンドでは、Windows に展開されているホスティング スタートアップの `win7-x64` [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) が使用されます。 別のランタイムに対してホスティング スタートアップを指定する場合は、適切な RID に置き換えます。
+1. *deployment* フォルダーにある *deploy.ps1* スクリプトを実行します。
 1. サンプル アプリを実行します。
 1. `/services` エンドポイントを要求して、アプリの登録サービスを参照します。 `/diag` エンドポイントを要求して、診断情報を参照します。

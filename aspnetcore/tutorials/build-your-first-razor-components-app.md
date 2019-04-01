@@ -5,14 +5,14 @@ description: Razor Components アプリを段階的に構築し、Razor Componen
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 03/24/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: c0f7b27fdfc770f8001625ecb3bf8d50af517b99
-ms.sourcegitcommit: 10e14b85490f064395e9b2f423d21e3c2d39ed8b
+ms.openlocfilehash: 2a987b3f2e687cd9d4dffa2c573c938e68ea3cc8
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57978424"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419366"
 ---
 # <a name="build-your-first-razor-components-app"></a>最初の Razor Components アプリを構築する
 
@@ -67,7 +67,7 @@ Blazor を使ったエクスペリエンスの場合:
 
 HTML のような構文を使用して、別のコンポーネントにコンポーネントを含めます。
 
-1. Index コンポーネントに `<Counter />` 要素を追加することで、アプリの Index (ホーム ページ) コンポーネントにカウンター コンポーネントを追加します。
+1. Index コンポーネントに `<Counter />` 要素を追加することで、アプリの Index (ホーム) コンポーネントにカウンター コンポーネントを追加します。
 
    このエクスペリエンスのために Blazor を使っている場合は、Survey Prompt コンポーネント (`<SurveyPrompt>` 要素) が Index コンポーネントに含まれています。 `<SurveyPrompt>` 要素を `<Counter>` 要素に置き換えます。
 
@@ -101,7 +101,7 @@ HTML のような構文を使用して、別のコンポーネントにコンポ
 
    [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/Components/Pages/Index.razor?highlight=7)]
 
-1. ページを再度読み込みます。 ホーム ページのカウンターは、**[クリックしてください]** ボタンを選択するたびに 10 ずつインクリメントされます。 *Counter* ページ上のカウンターは 1 ずつインクリメントされます。
+1. ホーム ページを再度読み込みます。 カウンターは、**[クリックしてください]** ボタンを選択するたびに 10 ずつインクリメントされます。 Counter ページ上のカウンターは 1 ずつインクリメントされます。
 
 ## <a name="route-to-components"></a>コンポーネントにルーティングする
 
@@ -111,29 +111,38 @@ HTML のような構文を使用して、別のコンポーネントにコンポ
 
 アプリのサービス コンテナーに登録されたサービスは、[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) を介してコンポーネントから使用できます。 `@inject` ディレクティブを使ってサービスをコンポーネントに挿入します。
 
-FetchData コンポーネントのディレクティブを調べます。 コンポーネントに `WeatherForecastService` サービスのインスタンスを挿入するために、`@inject` ディレクティブが使われています。
+サンプル アプリで FetchData コンポーネントのディレクティブを調べます。
 
-*Components/Pages/FetchData.razor* (Blazor では *Pages/FetchData.cshtml*):
+Razor コンポーネントのサンプル アプリで、`WeatherForecastService` サービスは[シングルトン](xref:fundamentals/dependency-injection#service-lifetimes)として登録されているため、このサービスの 1 つのインスタンスをアプリ全体で使用できます。 コンポーネントに `WeatherForecastService` サービスのインスタンスを挿入するために、`@inject` ディレクティブが使われています。
+
+*Components/Pages/FetchData.razor*: 
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
-
-`WeatherForecastService` サービスは[シングルトン](xref:fundamentals/dependency-injection#service-lifetimes)として登録されているため、このサービスの 1 つのインスタンスをアプリ全体で使用できます。
 
 FetchData コンポーネントでは、`ForecastService` のような挿入されたサービスを使って、`WeatherForecast` オブジェクトの配列を取得します。
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-各 forecast 変数を気象データのテーブルの行としてレンダリングするために、[@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) ループが使われています。
+Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* フォルダー内の *weather.json* から天気予報データを取得するために、`HttpClient` が挿入されています。
+
+*Pages/FetchData.cshtml*: 
+
+[!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=7)]
+
+両方のサンプル アプリで、各 forecast 変数を気象データのテーブルの行としてレンダリングするために、[@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) ループが使われています。
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 
 ## <a name="build-a-todo-list"></a>Todo リストを構築する
 
-シンプルな ToDo リストを実装した新しいページをアプリに追加します。
+シンプルな ToDo リストを実装したアプリに新しいコンポーネントを追加します。
 
-1. 空のファイルを *Todo.razor* という名前の *Components/Pages* フォルダー (Blazor では *Pages* フォルダー) に追加します。
+1. サンプル アプリに空のファイルを追加します。
 
-1. ページの最初のマークアップを指定します。
+   * Razor コンポーネントのエクスペリエンスのために、*Todo.razor* ファイルを *Components/Pages* フォルダーに追加します。
+   * Blazor のエクスペリエンスのために、*Todo.cshtml* ファイルを *Pages* フォルダーに追加します。
+
+1. コンポーネントに最初のマークアップを指定します。
 
    ```cshtml
    @page "/todo"
@@ -141,11 +150,11 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
    <h1>Todo</h1>
    ```
 
-1. ナビゲーション バーに Todo ページを追加します。
+1. ナビゲーション バーに Todo コンポーネントを追加します。
 
    NavMenu コンポーネント (*Components/Shared/NavMenu.razor* または Blazor では *Shared/NavMenu.cshtml*) は、アプリのレイアウトで使用されます。 レイアウトは、アプリ内でのコンテンツの重複を回避するために使うコンポーネントです。 詳細については、「<xref:razor-components/layouts>」を参照してください。
 
-   *Components/Shared/NavMenu.razor* (Blazor では *Shared/NavMenu.cshtml*) ファイルで、以下のリスト アイテムのマークアップを既存のリスト アイテムの下に追加して、Todo ページ用の `<NavLink>` を追加します。
+   *Components/Shared/NavMenu.razor* (Blazor では *Shared/NavMenu.cshtml*) ファイルで、以下のリスト アイテムのマークアップを既存のリスト アイテムの下に追加して、Todo コンポーネント用の `<NavLink>` を追加します。
 
    ```cshtml
    <li class="nav-item px-3">
@@ -155,7 +164,7 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
    </li>
    ```
 
-1. アプリケーションをリビルドして実行します。 新しい Todo ページに移動して、Todo ページへのリンクが機能することを確認します。
+1. アプリケーションをリビルドして実行します。 新しい Todo ページに移動して、Todo コンポーネントへのリンクが機能することを確認します。
 
 1. Todo アイテムを表すクラスを保持するために、プロジェクトのルートに *TodoItem.cs* ファイルを追加します。 `TodoItem` クラス用に次の C# コードを使います。
 

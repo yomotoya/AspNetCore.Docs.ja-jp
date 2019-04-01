@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: ff4b99580990edbd768128d77214e664a1e29e56
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207226"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327379"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core の部分ビュー
 
@@ -136,7 +136,7 @@ MVC ビューのレンダリングとは異なり、部分ビューは *_ViewSta
 
 ### <a name="asynchronous-html-helper"></a>非同期の HTML ヘルパー
 
-HTML ヘルパーを使用している場合、ベスト プラクティスは <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*> を使用することです。 `PartialAsync` は、<xref:System.Threading.Tasks.Task`1> でラップされた <xref:Microsoft.AspNetCore.Html.IHtmlContent> 型を返します。 待機中の呼び出しの前に `@` 文字を付与することで、メソッドが参照されます。
+HTML ヘルパーを使用している場合、ベスト プラクティスは <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*> を使用することです。 `PartialAsync` は、<xref:System.Threading.Tasks.Task%601> でラップされた <xref:Microsoft.AspNetCore.Html.IHtmlContent> 型を返します。 待機中の呼び出しの前に `@` 文字を付与することで、メソッドが参照されます。
 
 ```cshtml
 @await Html.PartialAsync("_PartialName")

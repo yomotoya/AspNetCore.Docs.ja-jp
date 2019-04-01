@@ -5,12 +5,12 @@ description: このチュートリアルでは、ASP.NET Core MVC アプリで�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 5848e5e1e45708c3ab5c2a79614111662701aa77
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 1803c6d3956121e4e7091f4f951917425e87c335
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320161"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419473"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
 
@@ -133,7 +133,7 @@ remove migrations コマンドによって移行が削除され、スナップ�
 * 移行と共に使用することは*できません*。
 * データベースが頻繁に削除および再作成されるようなテストや迅速なプロトタイプのために設計されています。
 
-`DbInitializer` から次の行を削除します。
+`EnsureCreated` を削除します。
 
 ```csharp
 context.Database.EnsureCreated();
