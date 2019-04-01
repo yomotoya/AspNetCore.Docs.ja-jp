@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core で Razor ページに新しいファイルを追加する
+title: ASP.NET Core で Razor ページに新しいフィールドを追加する
 author: rick-anderson
 description: Entity Framework Core を使用した Razor ページへの新しいフィールドの追加方法
 ms.author: riande
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58264737"
 ---
-# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいファイルを追加する
+# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいフィールドを追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 

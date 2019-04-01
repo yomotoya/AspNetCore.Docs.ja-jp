@@ -5,7 +5,7 @@ description: この記事には、Azure のホストと展開リソースへの�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/23/2019
+ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
@@ -14,7 +14,7 @@ uid: host-and-deploy/azure-apps/index
 
 ## <a name="useful-resources"></a>役に立つリソース
 
-Azure の「[Web Apps のドキュメント](/azure/app-service/)」は、Azure アプリのドキュメント、チュートリアル、サンプル、ハウツー ガイド、その他のリソースのホームです。 ASP.NET Core アプリのホスティングに関連する次の 2 つのチュートリアルは特に重要です。
+「[App Service のドキュメント](/azure/app-service/)」は、Azure アプリのドキュメント、チュートリアル、サンプル、ハウツー ガイド、その他のリソースのホームです。 ASP.NET Core アプリのホスティングに関連する次の 2 つのチュートリアルは特に重要です。
 
 [Azure に ASP.NET Core Web アプリを作成する](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio を使用して ASP.NET Core Web アプリを作成し、Windows の Azure App Service に配置します。
@@ -30,7 +30,7 @@ Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発
 <xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。
 
-[Azure Pipelines による最初のパイプラインの作成](/azure/devops/pipelines/get-started-yaml)  
+[最初のパイプラインを作成する](/azure/devops/pipelines/get-started-yaml)  
 ASP.NET Core アプリ用に CI ビルドを設定し、Azure App Service に継続的配置リリースを作成します。
 
 [Azure Web アプリのサンドボックス](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
@@ -92,10 +92,10 @@ App Service にデプロイされる ASP.NET Core アプリは、App Service の
 
 監視、ログ記録、トラブルシューティングに関する情報は、次の記事を参照してください。
 
-[方法: Azure App Service でアプリを監視する](/azure/app-service/web-sites-monitor)  
+[Azure App Service でアプリを監視する](/azure/app-service/web-sites-monitor)  
 アプリと App Service プランに関するクォータとメトリックを確認する方法を説明します。
 
-[Azure App Service の Web アプリの診断ログの有効化](/azure/app-service/web-sites-enable-diagnostic-log)  
+[Azure App Service のアプリの診断ログの有効化](/azure/app-service/web-sites-enable-diagnostic-log)  
 HTTP 状態コード、失敗した要求、Web サーバー アクティビティの診断ログを有効にしてアクセスする方法を説明します。
 
 <xref:fundamentals/error-handling>  
@@ -220,7 +220,7 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 ## <a name="protocol-settings-https"></a>プロトコル設定 (HTTPS)
 
-セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 (*.pfx*) が必要です。 詳しくは、「[チュートリアル: 既存のカスタム SSL 証明書を Azure Web Apps にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
+セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 (*.pfx*) が必要です。 詳しくは、「[チュートリアル: 既存のカスタム SSL 証明書を Azure App Service にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
 
 ## <a name="transform-webconfig"></a>web.config を変換する
 
@@ -228,7 +228,7 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Web Apps の概要 (5 分間の概要ビデオ)](/azure/app-service/app-service-web-overview)
+* [App Service の概要](/azure/app-service/app-service-web-overview)
 * [Azure App Service: .NET アプリのホスティングに最適な場所 (55 分間の概要ビデオ)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
 * [Azure Friday: Azure App Service の診断とトラブルシューティング (12 分間のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Azure App Service の診断の概要](/azure/app-service/app-service-diagnostics)
@@ -239,4 +239,4 @@ Windows Server の Azure App Service では[インターネット インフォ�
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Microsoft TechNet ライブラリ: Windows Server](/windows-server/windows-server-versions)
+* [Windows Server - IT 管理者のコンテンツの現在と以前のリリース](/windows-server/windows-server-versions)
