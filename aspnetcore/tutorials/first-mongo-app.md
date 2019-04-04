@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 01/31/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 91d8be6cd9160eefe56731d23d5dc7ba18eb6a8f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 5b8a0c963940d65545579b7120edac3571e4ad2a
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665458"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750689"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>ASP.NET Core と MongoDB で Web API を作成する
 
@@ -242,6 +242,7 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
     * `BookService` クラスを使用して CRUD 操作を実行します。
     * GET、POST、PUT、DELETE HTTP 要求をサポートするアクション メソッドが含まれます。
+    * <xref:System.Web.Http.ApiController.CreatedAtRoute*> メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。
 1. アプリケーションをビルドし、実行します。
 1. ブラウザーで `http://localhost:<port>/api/books` にナビゲートします。 次の JSON 応答が示されます。
 

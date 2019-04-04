@@ -2,10 +2,17 @@
 title: ASP.NET Core の基礎
 author: rick-anderson
 description: ASP.NET Core アプリの構築に関する基本概念について学習します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 03/31/2019
 uid: fundamentals/index
+ms.openlocfilehash: a1fed574db0baab391ebb9cfc44664ceddbfa69b
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809290"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -21,31 +28,23 @@ uid: fundamentals/index
 * サービスを構成 (または*登録*) するコードが `Startup.ConfigureServices` メソッドに追加されています。 *サービス*とは、アプリが使用するコンポーネントです。 たとえば、Entity Framework Core コンテキスト オブジェクトはサービスです。
 * `Startup.Configure` メソッドには、要求を処理するパイプラインを構成するコードが追加されます。 このパイプラインは、一連の*ミドルウェア* コンポーネントとして構成されます。 たとえば、ミドルウェアは、静的ファイルに対する要求を処理したり、HTTPS に HTTP 要求をリダイレクトします。 各ミドルウェアは `HttpContext` に非同期操作を実行してから、パイプラインの次のミドルウェアを呼び出すか、要求を終了します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 `Startup` クラスの例を次に示します。
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
-::: moniker-end
-
-詳細については、[アプリの Startup](xref:fundamentals/startup)に関するページを参照してください。
+詳細については、「<xref:fundamentals/startup>」を参照してください。
 
 ## <a name="dependency-injection-services"></a>依存性の注入 (サービス)
 
 ASP.NET Core には、アプリのクラスが構成済みのサービスを利用できるようにする依存性の注入 (DI) フレームワークが組み込まれています。 クラスのサービスのインスタンスを取得する 1 つの方法は、必要な型のパラメーターを使用したコンストラクターを作成することです。 このパラメーターには、サービスの種類またはインターフェイスが可能です。 DI システムは、実行時にこのサービスを提供します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 Entity Framework Core コンテキスト オブジェクトを取得するために DI を使用するクラスを次に示します。 強調表示されている行は、コンストラクターの挿入の例です。
 
 [!code-csharp[](index/snapshots/2.x/Index.cshtml.cs?highlight=5)]
 
-::: moniker-end
-
 DI が組み込まれており、必要に応じてサードパーティ製の制御の反転 (IoC) コンテナーを組み込むことができるよう設計されています。
 
-詳細については、[依存性の注入](xref:fundamentals/dependency-injection)に関するページを参照してください。
+詳細については、「<xref:fundamentals/dependency-injection>」を参照してください。
 
 ## <a name="middleware"></a>ミドルウェア
 
@@ -53,17 +52,13 @@ DI が組み込まれており、必要に応じてサードパーティ製の�
 
 通常、ミドルウェア コンポーネントは、`Startup.Configure` メソッドのその `Use...` 拡張メソッドを呼び出してパイプラインに追加されます。 たとえば、静的ファイルのレンダリングを有効にするには、`UseStaticFiles` を呼び出します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 次の例の強調表示されているコードは、要求を処理するパイプラインを構成します。
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=14-16)]
 
-::: moniker-end
-
 ASP.NET Core にはミドルウェアのセットが豊富に組み込まれており、カスタム ミドルウェアをユーザーが記述できます。
 
-詳細については、[ミドルウェア](xref:fundamentals/middleware/index)に関するページをご覧ください。
+詳細については、「<xref:fundamentals/middleware/index>」を参照してください。
 
 <a id="host"/>
 
@@ -81,59 +76,55 @@ ASP.NET Core アプリは起動時に*ホスト*をビルドします。 ホス�
 
 ホストを作成するコードは、`Program.Main` にあり、[Builder パターン](https://wikipedia.org/wiki/Builder_pattern)に従っています。 メソッドは、ホストの一部である各リソースを構成するために呼び出されます。 ビルダー メソッドは、それをすべてまとめ、ホスト オブジェクトをインスタンス化するために呼び出されます。
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-ASP.NET Core 2.x では、Web アプリに Web Host (`WebHost` クラス) を使用します。 このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` を提供します。
-
-* Web サーバーとして [Kestrel](#servers) を使用し、IIS の統合を有効にします。
-* 構成を *appsettings.json*、環境変数、コマンド ライン引数およびその他のソースから読み込みます。
-* ログ出力をコンソールとデバッグ プロバイダーに送ります。
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
-
-ホストをビルドするサンプル コードは次のとおりです。
-
-[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
-
-詳細については、[Web ホスト](xref:fundamentals/host/web-host)に関するページを参照してください。
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.2"
-
-ASP.NET Core 3.0 では、Web ホスト (`WebHost` クラス) または汎用ホスト (`Host` クラス) を Web アプリで使用できます。 汎用ホストが推奨されますが、下位互換性のために Web ホストを使用することも可能です。
+ASP.NET Core 3.0 以降では、汎用ホスト (`Host` クラス) または Web ホスト (`WebHost` クラス) を Web アプリで使用できます。 汎用ホストが推奨されますが、下位互換性のために Web ホストを使用することも可能です。
 
 このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` メソッドと `ConfigureWebHostDefaults` メソッドを提供します。
 
 * Web サーバーとして [Kestrel](#servers) を使用し、IIS の統合を有効にします。
-* 構成を *appsettings.json*、*appsettings.[EnvironmentName].json*、環境変数、コマンド ライン引数から読み込みます。
+* *appsettings.json*、"*appsettings.{環境名}.json*"、環境変数、コマンド ライン引数、およびその他の構成ソースから構成を読み込みます。
 * ログ出力をコンソールとデバッグ プロバイダーに送ります。
 
 ホストをビルドするサンプル コードは次のとおりです。 ホストを設定するメソッドとよく使用されるオプションが強調表示されています。
 
 [!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
 
-詳細については、[汎用ホスト](xref:fundamentals/host/generic-host)と [Web ホスト](xref:fundamentals/host/web-host)に関するページを参照してください。
+詳細については、次のトピックを参照してください。 <xref:fundamentals/host/generic-host> および <xref:fundamentals/host/web-host>
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+ASP.NET Core 2.x では、Web アプリに Web ホスト (`WebHost` クラス) を使用します。 このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` を提供します。
+
+* Web サーバーとして [Kestrel](#servers) を使用し、IIS の統合を有効にします。
+* *appsettings.json*、"*appsettings.{環境名}.json*"、環境変数、コマンド ライン引数、およびその他の構成ソースから構成を読み込みます。
+* ログ出力をコンソールとデバッグ プロバイダーに送ります。
+
+ホストをビルドするサンプル コードは次のとおりです。
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
+
+詳細については、「<xref:fundamentals/host/web-host>」を参照してください。
 
 ::: moniker-end
 
 ### <a name="advanced-host-scenarios"></a>高度なホスト シナリオ
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-Web ホストは、他の種類の .NET アプリでは必要のない、HTTP サーバー実装を含めるよう設計されています。 2.1 以降では、汎用ホスト (`Host` クラス) は、ASP.NET Core アプリのみでなくすべての .NET Core アプリで使用できます。&mdash; 汎用ホストでは、他の種類のアプリのログ記録、DI、構成、および有効期間管理などの横断的な機能で使用できます。 詳細については、[汎用ホスト](xref:fundamentals/host/generic-host)に関するページを参照してください。
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.2"
-
-汎用ホストは、ASP.NET Core アプリのみでなくすべての .NET Core アプリで使用できます。 汎用ホストでは、他の種類のアプリのログ記録、DI、構成、および有効期間管理などの横断的な機能で使用できます。 詳細については、[汎用ホスト](xref:fundamentals/host/generic-host)に関するページを参照してください。
+汎用ホストは、ASP.NET Core アプリのみでなくすべての .NET Core アプリで使用できます。 汎用ホスト (`Host` クラス) により、他の種類のアプリで、ログ記録、DI、構成、およびアプリの有効期間管理などの横断的なフレームワーク拡張機能を使えるようになります。 詳細については、「<xref:fundamentals/host/generic-host>」を参照してください。
 
 ::: moniker-end
 
-ホストを使用して、バックグラウンド タスクを実行することも可能です。 詳細については、[バックグラウンド タスク](xref:fundamentals/host/hosted-services)に関するページを参照してください。
+::: moniker range="< aspnetcore-3.0"
+
+Web ホストは、他の種類の .NET アプリでは必要のない、HTTP サーバー実装を含めるよう設計されています。 ASP.NET Core 2.1 以降では、汎用ホスト (`Host` クラス) はすべての .NET Core アプリで使用できます&mdash;ASP.NET Core アプリのみではありません。 汎用ホストにより、他の種類のアプリで、ログ記録、DI、構成、およびアプリの有効期間管理などの横断的なフレームワーク拡張機能を使えるようになります。 詳細については、「<xref:fundamentals/host/generic-host>」を参照してください。
+
+::: moniker-end
+
+ホストを使用して、バックグラウンド タスクを実行することも可能です。 詳細については、「<xref:fundamentals/host/hosted-services>」を参照してください。
 
 ## <a name="servers"></a>サーバー
 
@@ -182,7 +173,7 @@ ASP.NET Core は、*Kestrel* クロスプラットフォーム サーバーの�
 
 ::: moniker-end
 
-詳細については、[サーバー](xref:fundamentals/servers/index)に関するページを参照してください。
+詳細については、「<xref:fundamentals/servers/index>」を参照してください。
 
 ## <a name="configuration"></a>構成
 
@@ -190,9 +181,9 @@ ASP.NET Core は、構成プロバイダーの順序付けされたセットか�
 
 たとえば、構成は *appsettings.json* と環境変数から取得したものであると指定できます。 このとき *ConnectionString* 値が要求されると、フレームワークはまず *appsettings.json* ファイルを参照します。 値がそこにあり、しかし環境変数にもある場合、環境変数の値が優先されます。
 
-ASP.NET Core には、パスワードなどの機密の構成データの管理に[シークレット マネージャー ツール](xref:security/app-secrets)が用意されています。 実稼働の機密情報には、[Azure Key Vault](/aspnet/core/security/key-vault-configuration) を使用することをお勧めします。
+ASP.NET Core には、パスワードなどの機密の構成データの管理に[シークレット マネージャー ツール](xref:security/app-secrets)が用意されています。 実稼働の機密情報には、[Azure Key Vault](xref:security/key-vault-configuration) を使用することをお勧めします。
 
-詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。
+詳細については、「<xref:fundamentals/configuration/index>」を参照してください。
 
 ## <a name="options"></a>オプション
 
@@ -209,21 +200,17 @@ var options = new WebSocketOptions
 app.UseWebSockets(options);
 ```
 
-詳細については、[オプション](xref:fundamentals/configuration/options)に関するページを参照してください。
+詳細については、「<xref:fundamentals/configuration/options>」を参照してください。
 
 ## <a name="environments"></a>環境
 
 *開発*、*ステージング*、および*実稼働*などの実行環境は ASP.NET Core の最上の概念です。 アプリが実行している環境は、`ASPNETCORE_ENVIRONMENT` 環境変数を設定することにより指定できます。 ASP.NET Core は、アプリの起動時にその環境変数を読み取り、その値を `IHostingEnvironment` 実装に格納します。 この環境オブジェクトは、DI を介しアプリの任意の場所で使用されます。
 
-::: moniker range=">= aspnetcore-2.0"
-
 `Startup` クラスの次のサンプル コードは、それが開発環境で実行された場合のみ、詳細なエラー情報を提供するようアプリを構成します。
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
-::: moniker-end
-
-詳細については、[環境](xref:fundamentals/environments)に関するページを参照してください。
+詳細については、「<xref:fundamentals/environments>」を参照してください。
 
 ## <a name="logging"></a>ログの記録
 
@@ -239,23 +226,19 @@ ASP.NET Core では、組み込みやサード パーティ製のさまざまな
 
 DI からの `ILogger` オブジェクトの取得およびログ メソッドの呼び出しによってアプリのコードの任意の場所からログを記述します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 コンストラクターの挿入とログ記録メソッドの呼び出しが強調表示されている `ILogger` オブジェクトを使用するサンプル コードを次に示します。
 
 [!code-csharp[](index/snapshots/2.x/TodoController.cs?highlight=5,13,17)]
 
-::: moniker-end
-
 `ILogger` インターフェイスは、ログ プロバイダーに任意の数のフィールドを渡すことができます。 このフィールドは、一般的にメッセージの文字列を構築するために使用しますが、プロバイダーがデータ ストアに別のフィールドとして送信することも可能です。 この機能は、[構造化ロギングとも呼ばれるセマンティック ロギング](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)をログ プロバイダーが実装するのを可能にします。
 
-詳細については、[ログ記録](xref:fundamentals/logging/index)に関するページを参照してください。
+詳細については、「<xref:fundamentals/logging/index>」を参照してください。
 
 ## <a name="routing"></a>ルーティング
 
 *ルート*とは、ハンドラーにマップされている URL のパターンです。 このハンドラーは一般的には Razor Pages、MVC コントローラーのアクション メソッドまたはミドルウェアです。 ASP.NET Core のルーティングでは、アプリで使用する URL を制御できます。
 
-詳細については、[ルーティング](xref:fundamentals/routing)に関するページを参照してください。
+詳細については、「<xref:fundamentals/routing>」を参照してください。
 
 ## <a name="error-handling"></a>エラー処理
 
@@ -266,9 +249,7 @@ ASP.NET Core には、次などのエラー処理用の機能が組み込まれ�
 * 静的状態コード ページ
 * 起動時の例外処理
 
-詳細については、[エラー処理](xref:fundamentals/error-handling)に関するページを参照してください。
-
-::: moniker range=">= aspnetcore-2.1"
+詳細については、「<xref:fundamentals/error-handling>」を参照してください。
 
 ## <a name="make-http-requests"></a>HTTP 要求を行う
 
@@ -278,32 +259,30 @@ ASP.NET Core には、次などのエラー処理用の機能が組み込まれ�
 * 複数のデリゲート ハンドラーを登録してチェーン化し、送信要求ミドルウェア パイプラインを構築するのをサポートしています。 このパターンは、ASP.NET Core での受信ミドルウェア パイプラインに似ています。 このパターンは、キャッシュ、エラー処理、シリアル化、ログ記録など、HTTP 要求に関する横断的関心事を管理するためのメカニズムを提供します。
 * 一時的な障害処理用の人気のサードパーティ製ライブラリ、*Polly* と統合できます。
 * 基になっている `HttpClientMessageHandler` インスタンスのプールと有効期間を管理し、`HttpClient` の有効期間を手動で管理するときに発生する一般的な DNS の問題を防ぎます。
-* ファクトリによって作成されたクライアントから送信されるすべての要求に対し、(*ILogger* によって) 構成可能なログ エクスペリエンスを追加します。
+* ファクトリによって作成されたクライアントから送信されるすべての要求に対し、(`ILogger` によって) 構成可能なログ エクスペリエンスを追加します。
 
-詳細については、[HTTP 要求の実行](xref:fundamentals/http-requests)に関するページを参照してください。
-
-::: moniker-end
+詳細については、「<xref:fundamentals/http-requests>」を参照してください。
 
 ## <a name="content-root"></a>コンテンツ ルート
 
 このコンテンツ ルートは、その Razor ファイルなど、アプリで使用されるすべてのプライベート コンテンツへの基本パスです。 既定では、コンテンツ ルートは、アプリをホストする実行可能ファイルの基本パスです。 [ホストの構築時](#host)には、別の場所を指定できます。
 
-::: moniker range="<= aspnetcore-2.2"
-
-詳細については、[コンテンツ ルート](xref:fundamentals/host/web-host#content-root)に関するページを参照してください。
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
 詳細については、[コンテンツ ルート](xref:fundamentals/host/generic-host#content-root)に関するページを参照してください。
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-3.0"
+
+詳細については、[コンテンツ ルート](xref:fundamentals/host/web-host#content-root)に関するページを参照してください。
+
+::: moniker-end
+
 ## <a name="web-root"></a>Web ルート
 
-(*webroot* としても知られている) Web ルートは、CSS、JavaScript、およびイメージ ファイルなど、パブリックな静的リソースへの基本パスです。 既定で、この静的ファイル ミドルウェアは、Web ルート ディレクトリ (とそのサブディレクトリ) のファイルにのみサービスを提供します。 web ルートのパスの既定は、*\<コンテンツ ルート>/wwwroot* です。ただし、[ホストの構築](#host)時に、別の場所を指定することも可能です。
+(*webroot* としても知られている) Web ルートは、CSS、JavaScript、およびイメージ ファイルなど、パブリックな静的リソースへの基本パスです。 既定で、この静的ファイル ミドルウェアは、Web ルート ディレクトリ (とそのサブディレクトリ) のファイルにのみサービスを提供します。 Web ルートのパスの既定値は、"*{コンテンツ ルート}/wwwroot*" ですが、[ホストの構築](#host)時に別の場所を指定することも可能です。
 
 Razor (*.cshtml*) のファイルの場合、チルダとスラッシュ `~/` が webroot を指します。 `~/` で始まるパスは仮想パスと呼ばれます。
 
-詳しくは、[静的ファイル](xref:fundamentals/static-files)に関するページをご覧ください。
+詳細については、「<xref:fundamentals/static-files>」を参照してください。
