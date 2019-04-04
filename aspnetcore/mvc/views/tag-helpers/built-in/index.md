@@ -6,8 +6,13 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
+ms.openlocfilehash: 9cca912f43159e778a4c9419e6171f06b4037b8b
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346016"
 ---
-
 # <a name="aspnet-core-built-in-tag-helpers"></a><span data-ttu-id="bf747-103">ASP.NET Core の組み込みタグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="bf747-103">ASP.NET Core built-in Tag Helpers</span></span>
 
 <span data-ttu-id="bf747-104">著者: [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="bf747-104">By [Peter Kellner](http://peterkellner.net)</span></span>

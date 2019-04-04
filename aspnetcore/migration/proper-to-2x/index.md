@@ -5,6 +5,12 @@ description: 既存の ASP.NET MVC または Web API アプリを ASP.NET Core.w
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
+ms.openlocfilehash: 7b6aec621efa5e1400fcfd4396a2322733113ec1
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209141"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a><span data-ttu-id="18456-103">ASP.NET から ASP.NET Core への移行</span><span class="sxs-lookup"><span data-stu-id="18456-103">Migrate from ASP.NET to ASP.NET Core</span></span>
 
