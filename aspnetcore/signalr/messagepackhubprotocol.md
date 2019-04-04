@@ -121,7 +121,7 @@ public class ChatMessage
 connection.invoke("SomeMethod", { Sender: "Sally", Message: "Hello!" });
 ```
 
-使用して`camelCased`名に正しくバインドされません、C#クラス。 使用して、これを回避することができますできます、 `Key` MessagePack プロパティに別の名前を指定する属性。 詳細については、次を参照してください。 [MessagePack CSharp ドキュメント](https://github.com/neuecc/MessagePack-CSharp#object-serialization)します。
+使用して`camelCased`名に正しくバインドされません、C#クラス。 使用して、これを回避することができますできます、 `Key` MessagePack プロパティに別の名前を指定する属性。 詳細については、[MessagePack CSharp ドキュメント](https://github.com/neuecc/MessagePack-CSharp#object-serialization)を参照してください。
 
 ### <a name="datetimekind-is-not-preserved-when-serializingdeserializing"></a>シリアル化/逆シリアル化時 DateTime.Kind は保持されません。
 
@@ -143,7 +143,7 @@ Uncaught Error: unable to find ext type 255 at decoder.js:427
 
 ### <a name="messagepack-support-in-ahead-of-time-compilation-environment"></a>"Ahead の time"コンパイル環境で MessagePack サポート
 
-[MessagePack CSharp](https://github.com/neuecc/MessagePack-CSharp) .NET クライアントおよびサーバーで使用されるライブラリでは、コードの生成を使用して、シリアル化を最適化します。 その結果、既定では"先読み-"コンパイル (Xamarin iOS、Unity など) を使用している環境でサポートされていません。 これらの環境で「事前コードを生成する」シリアライザー/デシリアライザーによって MessagePack を使用することになります。 詳細については、次を参照してください。 [MessagePack CSharp ドキュメント](https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports)します。 シリアライザーを事前生成した後に渡される構成デリゲートを使用してそれらを登録できます`AddMessagePackProtocol`:
+[MessagePack CSharp](https://github.com/neuecc/MessagePack-CSharp) .NET クライアントおよびサーバーで使用されるライブラリでは、コードの生成を使用して、シリアル化を最適化します。 その結果、既定では"先読み-"コンパイル (Xamarin iOS、Unity など) を使用している環境でサポートされていません。 これらの環境で「事前コードを生成する」シリアライザー/デシリアライザーによって MessagePack を使用することになります。 詳細については、[MessagePack CSharp ドキュメント](https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports)を参照してください。 シリアライザーを事前生成した後に渡される構成デリゲートを使用してそれらを登録できます`AddMessagePackProtocol`:
 
 ```csharp
 services.AddSignalR()

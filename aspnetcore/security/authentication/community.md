@@ -24,8 +24,8 @@ ms.locfileid: "56410285"
 | ---- | ----------- |
 | [AspNet.Security.OpenIdConnect.Server (ASOS)](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | ASOS は、低レベルでプロトコル最初 OpenID Connect サーバー フレームワークの ASP.NET Core と Owin/katana です。 |
 | [Cierge](https://github.com/pwdless/Cierge) | Cierge とは、OpenID Connect ユーザーのサインアップ、ログイン、プロファイル、管理、およびソーシャル ログインを処理するサーバーです。 |
-| [Gluu サーバー](https://gluu.org/) | エンタープライズ対応の場合、id、ソースのソフトウェアを開いて管理 (IAM)、およびシングル サインオン (SSO) にアクセスします。 詳細については、次を参照してください。、 [Gluu 製品ドキュメント](https://gluu.org/docs/)します。 |
-| [IdentityServer](https://identityserver.io/) | IdentityServer は、正式に認定 OpenID foundation と .NET Foundation の管理下で、ASP.NET Core 用 OpenID Connect と OAuth 2.0 フレームワークです。 詳細については、次を参照してください。 [IdentityServer4 へようこそ (ドキュメント)](https://identityserver4.readthedocs.io/en/latest/)します。 |
+| [Gluu サーバー](https://gluu.org/) | エンタープライズ対応の場合、id、ソースのソフトウェアを開いて管理 (IAM)、およびシングル サインオン (SSO) にアクセスします。 詳細については、、 [Gluu 製品ドキュメント](https://gluu.org/docs/)を参照してください。 |
+| [IdentityServer](https://identityserver.io/) | IdentityServer は、正式に認定 OpenID foundation と .NET Foundation の管理下で、ASP.NET Core 用 OpenID Connect と OAuth 2.0 フレームワークです。 詳細については、[IdentityServer4 へようこそ (ドキュメント)](https://identityserver4.readthedocs.io/en/latest/)を参照してください。 |
 | [OpenIddict](https://github.com/openiddict/openiddict-core) | OpenIddict とは、ASP.NET Core の使いやすい OpenID Connect サーバーです。 |
 
 プロバイダーを追加する[このページの編集](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md)します。

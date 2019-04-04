@@ -22,7 +22,7 @@ ms.locfileid: "57665545"
 
 個別のページにカスタムのページ ルートを構成する必要がある場合、このトピックで後述される「[AddPageRoute convention](#configure-a-page-route)」で、ページへのルーティングを構成します。
 
-ページ ルートを指定、ルート セグメントを追加またはルートにパラメーターを追加使用ページの`@page`ディレクティブ。 詳細については、次を参照してください。[カスタム ルート](xref:razor-pages/index#custom-routes)します。
+ページ ルートを指定、ルート セグメントを追加またはルートにパラメーターを追加使用ページの`@page`ディレクティブ。 詳細については、[カスタム ルート](xref:razor-pages/index#custom-routes)を参照してください。
 
 ルート セグメントまたはパラメーター名として使用できません。 予約語があります。 詳細については、次を参照してください。[ルーティング。ルーティングの名前を予約](xref:fundamentals/routing#reserved-routing-names)します。
 

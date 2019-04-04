@@ -30,8 +30,8 @@ Id がどのように機能するかを把握するのに役立ちますが、�
 
 追加して、移行を適用するには、次の方法のいずれかを使用します。
 
-* **パッケージ マネージャー コンソール**(PMC) ウィンドウの場合、Visual Studio を使用します。 詳細については、次を参照してください。 [EF Core の優れた PMC ツール](/ef/core/miscellaneous/cli/powershell)します。
-* .NET Core CLI のコマンドラインを使用する場合。 詳細については、次を参照してください。 [EF Core .NET コマンド ライン ツール](/ef/core/miscellaneous/cli/dotnet)します。
+* **パッケージ マネージャー コンソール**(PMC) ウィンドウの場合、Visual Studio を使用します。 詳細については、[EF Core の優れた PMC ツール](/ef/core/miscellaneous/cli/powershell)を参照してください。
+* .NET Core CLI のコマンドラインを使用する場合。 詳細については、[EF Core .NET コマンド ライン ツール](/ef/core/miscellaneous/cli/dotnet)を参照してください。
 * クリックすると、**適用移行**アプリの実行時にエラー ページ ボタンをします。
 
 ASP.NET Core では、開発時のエラー ページ ハンドラーがあります。 ハンドラーは、アプリの実行時に、移行を適用できます。 運用アプリの方が、移行で SQL スクリプトを生成し、管理されたアプリとデータベースの展開の一部としてデータベースに対する変更を配置する適切な。

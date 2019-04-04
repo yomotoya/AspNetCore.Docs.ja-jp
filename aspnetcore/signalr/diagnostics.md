@@ -142,7 +142,7 @@ SignalR など、Serilog、Seq、NLog、またはその他のログ記録シス�
 
 Fiddler は、HTTP トレースを収集するための非常に強力なツールです。 インストール[telerik.com/fiddler](https://www.telerik.com/fiddler)それを起動し、アプリを実行し、問題を再現します。 Fiddler は、Windows と macOS および Linux 用のベータ バージョンがあります。
 
-HTTPS を使用してを接続する場合は、Fiddler は HTTPS トラフィックを復号化できることを確認する特別な手順です。 詳細については、次を参照してください。、 [Fiddler のドキュメント](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)します。
+HTTPS を使用してを接続する場合は、Fiddler は HTTPS トラフィックを復号化できることを確認する特別な手順です。 詳細については、、 [Fiddler のドキュメント](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)を参照してください。
 
 選択して、トレースをエクスポートするには、トレースを収集したら、**ファイル** > **保存** > **すべてのセッション.** メニュー バーから。
 

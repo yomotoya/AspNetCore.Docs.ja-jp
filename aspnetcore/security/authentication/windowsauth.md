@@ -9,7 +9,7 @@ ms.date: 02/25/2019
 uid: security/authentication/windowsauth
 ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
 ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/26/2019
 ms.locfileid: "56833697"
@@ -76,7 +76,7 @@ IIS を使用して、 [ASP.NET Core モジュール](xref:host-and-deploy/aspne
 
 これをいない場合は、ASP.NET Core アプリをホストする IIS を有効にします。 詳細については、「 <xref:host-and-deploy/iis/index> 」を参照してください。
 
-Windows 認証の IIS の役割サービスを有効にします。 詳細については、次を参照してください。 [(手順 2 参照)、IIS の役割サービスで Windows 認証を有効にする](xref:host-and-deploy/iis/index#iis-configuration)します。
+Windows 認証の IIS の役割サービスを有効にします。 詳細については、[(手順 2 参照)、IIS の役割サービスで Windows 認証を有効にする](xref:host-and-deploy/iis/index#iis-configuration)を参照してください。
 
 IIS 統合ミドルウェアは、既定で自動的に要求の認証に構成されます。 詳細については、次を参照してください。 [ASP.NET Core の IIS と Windows ホスト。IIS のオプション (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options)します。
 
@@ -146,7 +146,7 @@ Windows 認証が動作していることを確認するアプリを起動しま
 > HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モード認証に処理が委任されます。 Kerberos および HTTP.sys ではユーザー モード認証がサポートされていません。 Active Directory から取得され、クライアントによって、ユーザーを認証するサーバーに転送される Kerberos トークン/チケットを暗号化解除するには、コンピューター アカウントを使用する必要があります。 アプリのユーザーではなく、ホストのサービス プリンシパル名 (SPN) を登録します。
 
 > [!NOTE]
-> HTTP.sys は、Nano Server バージョン 1709 以降でサポートされていません。 Nano Server の Windows 認証と HTTP.sys を使用する、 [(microsoft/windowsservercore) の Server Core コンテナー](https://hub.docker.com/r/microsoft/windowsservercore/)します。 Server Core の詳細については、次を参照してください。 [Windows Server の Server Core インストール オプションとは何ですか?](/windows-server/administration/server-core/what-is-server-core)します。
+> HTTP.sys は、Nano Server バージョン 1709 以降でサポートされていません。 Nano Server の Windows 認証と HTTP.sys を使用する、 [(microsoft/windowsservercore) の Server Core コンテナー](https://hub.docker.com/r/microsoft/windowsservercore/)します。 Server Core の詳細については、[Windows Server の Server Core インストール オプションとは何ですか?](/windows-server/administration/server-core/what-is-server-core)を参照してください。
 
 ## <a name="work-with-windows-authentication"></a>Windows 認証を使用します。
 

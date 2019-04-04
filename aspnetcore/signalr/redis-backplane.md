@@ -88,7 +88,7 @@ ms.locfileid: "54837443"
 
   上記のコードで`options.Configuration`接続文字列で指定された内容で初期化されます。
 
-  Redis のオプションについては、次を参照してください。、 [StackExchange Redis ドキュメント](https://stackexchange.github.io/StackExchange.Redis/Configuration.html)します。
+  Redis のオプションについては、、 [StackExchange Redis ドキュメント](https://stackexchange.github.io/StackExchange.Redis/Configuration.html)を参照してください。
 
 ::: moniker-end
 

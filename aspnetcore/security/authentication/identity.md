@@ -131,7 +131,7 @@ dotnet ef database update
 
 ::: moniker-end
 
-詳細については、次を参照してください。、 [IdentityOptions クラス](/dotnet/api/microsoft.aspnetcore.identity.identityoptions)と[アプリケーションの起動](xref:fundamentals/startup)します。
+詳細については、、 [IdentityOptions クラス](/dotnet/api/microsoft.aspnetcore.identity.identityoptions)と[アプリケーションの起動](xref:fundamentals/startup)を参照してください。
 
 ## <a name="scaffold-register-login-and-logout"></a>登録、ログイン、およびログアウトをスキャフォールディングします。
 
@@ -262,7 +262,7 @@ Identity をさらに詳しく調査。
 
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core Identity に移行します。
 
-詳細と、既存の Id ストアを移行のガイダンスについては、次を参照してください。[移行の認証と Id](xref:migration/identity)します。
+詳細と、既存の Id ストアを移行のガイダンスについては、[移行の認証と Id](xref:migration/identity)を参照してください。
 
 ## <a name="setting-password-strength"></a>パスワードの強度を設定
 

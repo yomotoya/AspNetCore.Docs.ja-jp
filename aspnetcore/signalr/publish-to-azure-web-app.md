@@ -49,7 +49,7 @@ Visual Studio では、次のタスクを実行します。
 
 アプリは、URL の形式に注意してください *{アプリ名} .azurewebsites.net .net*します。 たとえば、という名前のアプリ`SignalRChattR`が次のような URL `https://signalrchattr.azurewebsites.net`。
 
-HTTP 502.2 エラーが発生する場合は、次を参照してください。 [Azure App Service に ASP.NET Core の展開のプレビュー リリース](xref:host-and-deploy/azure-apps/index)問題を解決します。
+HTTP 502.2 エラーが発生する場合は、[Azure App Service に ASP.NET Core の展開のプレビュー リリース](xref:host-and-deploy/azure-apps/index)問題を解決を参照してください。
 
 ## <a name="configure-signalr-web-app"></a>SignalR web アプリを構成します。
 

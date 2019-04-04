@@ -60,7 +60,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 * プロセッサ時間の割合は、ガベージ コレクションに費やされました。
 * ガベージ コレクションの数とは、世代 0、1、および 2 です。
 
-詳細については、次を参照してください。[ガベージ コレクションとパフォーマンス](/dotnet/standard/garbage-collection/performance)します。
+詳細については、[ガベージ コレクションとパフォーマンス](/dotnet/standard/garbage-collection/performance)を参照してください。
 
 ## <a name="optimize-data-access"></a>データ アクセスを最適化します。
 
@@ -75,7 +75,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 * **行う** 使用[追跡なしのクエリ](/ef/core/querying/tracking#no-tracking-queries)読み取り専用の目的でデータにアクセスするときに、Entity Framework Core でします。 EF Core より効率的に追跡なしのクエリの結果を返すことができます。
 * **行う** フィルターと集計の LINQ クエリ (と`.Where`、 `.Select`、または`.Sum`ステートメントなどの) データベースをフィルター処理ができるようにします。
 * **行う** EF Core に、クライアントは、非効率的なクエリの実行につながる可能性のいくつかのクエリ演算子が解決されることを検討してください。 詳細については、次を参照してください[クライアント評価のパフォーマンスの問題。](/ef/core/querying/client-eval#client-evaluation-performance-issues)
-* **しない**プロジェクション クエリを使用して、"n+1"を実行するがこのコレクションは、上の SQL クエリ。 詳細については、次を参照してください。[相関サブクエリの最適化](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries)します。
+* **しない**プロジェクション クエリを使用して、"n+1"を実行するがこのコレクションは、上の SQL クエリ。 詳細については、[相関サブクエリの最適化](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries)を参照してください。
 
 参照してください[EF 高性能](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)のための手法を高スケールのアプリでのパフォーマンスを向上させる可能性があります。
 
@@ -93,7 +93,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 推奨事項:
 
 * **行う**の作成し、破棄の`HttpClient`直接インスタンス化します。
-* **行う** 使用[HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)を取得する`HttpClient`インスタンス。 詳細については、次を参照してください。[回復力のある HTTP 要求を実装するために使用 HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)します。
+* **行う** 使用[HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)を取得する`HttpClient`インスタンス。 詳細については、[回復力のある HTTP 要求を実装するために使用 HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)を参照してください。
 
 ## <a name="keep-common-code-paths-fast"></a>高速の一般的なコード パスを維持します。
 
@@ -131,7 +131,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 
 ## <a name="compress-responses"></a>応答を圧縮します。
 
- 通常、応答のサイズを小さく、アプリの応答性を多くの場合、大幅に増加します。 ペイロードのサイズを小さく 1 つの方法は、アプリの応答を圧縮します。 詳細については、次を参照してください。[応答圧縮](xref:performance/response-compression)します。
+ 通常、応答のサイズを小さく、アプリの応答性を多くの場合、大幅に増加します。 ペイロードのサイズを小さく 1 つの方法は、アプリの応答を圧縮します。 詳細については、[応答圧縮](xref:performance/response-compression)を参照してください。
 
 ## <a name="use-the-latest-aspnet-core-release"></a>ASP.NET Core の最新のリリースを使用します。
 

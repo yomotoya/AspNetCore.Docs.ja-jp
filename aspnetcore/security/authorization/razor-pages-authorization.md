@@ -39,7 +39,7 @@ options.Conventions.AuthorizePage("/Contact", "AtLeast21");
 ```
 
 > [!NOTE]
-> <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter>とページ モデル クラスに適用できる、`[Authorize]`フィルター属性。 詳細については、次を参照してください。 [Authorize フィルター属性](xref:razor-pages/filter#authorize-filter-attribute)します。
+> <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter>とページ モデル クラスに適用できる、`[Authorize]`フィルター属性。 詳細については、[Authorize フィルター属性](xref:razor-pages/filter#authorize-filter-attribute)を参照してください。
 
 ## <a name="require-authorization-to-access-a-folder-of-pages"></a>ページのフォルダーにアクセスするための承認が必要です。
 

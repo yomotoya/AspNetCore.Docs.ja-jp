@@ -105,7 +105,7 @@ Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*フ
 }
 ```
 
-詳細については、次を参照してください。、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)します。
+詳細については、、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)を参照してください。
 
 ### <a name="install-sendgrid"></a>SendGrid をインストールします。
 

@@ -34,7 +34,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-詳細については、次を参照してください。 [ASP.NET Core データ保護の構成: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault)します。
+詳細については、[ASP.NET Core データ保護の構成: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault)を参照してください。
 
 ::: moniker-end
 
@@ -86,7 +86,7 @@ public void ConfigureServices(IServiceCollection services)
 
 **このメカニズムは、Windows 8/Windows Server 2012 以降でのみ使用できます。**
 
-Windows 8 以降、Windows OS には、DPAPI NG (CNG DPAPI とも呼ばれます) がサポートしています。 詳細については、次を参照してください。 [CNG DPAPI について](/windows/desktop/SecCNG/cng-dpapi)します。
+Windows 8 以降、Windows OS には、DPAPI NG (CNG DPAPI とも呼ばれます) がサポートしています。 詳細については、[CNG DPAPI について](/windows/desktop/SecCNG/cng-dpapi)を参照してください。
 
 プリンシパルは、保護の記述子ルールとしてエンコードされます。 呼び出す次の例では[ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping)、のみ、指定された SID を持つドメインに参加しているユーザーには、キー リングが復号化できます。
 

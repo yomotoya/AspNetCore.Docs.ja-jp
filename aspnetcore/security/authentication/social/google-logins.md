@@ -17,7 +17,7 @@ ms.locfileid: "58750545"
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-2019 年 1 月で Google の開始を[シャット ダウン](https://developers.google.com/+/api-shutdown)Google + にサインインして、年 3 月でシステム内の開発者の新しい Google サインインを移動する必要があります。 ASP.NET Core 2.1 と Google 認証用の 2.2 のパッケージは、変化に対応する年 2 月に更新されます。 詳細と ASP.NET Core 用の一時的な軽減策は、次を参照してください。[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/6486)します。 このチュートリアルは、新しいセットアップ プロセスで更新されました。
+2019 年 1 月で Google の開始を[シャット ダウン](https://developers.google.com/+/api-shutdown)Google + にサインインして、年 3 月でシステム内の開発者の新しい Google サインインを移動する必要があります。 ASP.NET Core 2.1 と Google 認証用の 2.2 のパッケージは、変化に対応する年 2 月に更新されます。 詳細と ASP.NET Core 用の一時的な軽減策は、[この GitHub の問題](https://github.com/aspnet/AspNetCore/issues/6486)を参照してください。 このチュートリアルは、新しいセットアップ プロセスで更新されました。
 
 このチュートリアルでは、ASP.NET Core 2.2 プロジェクトが作成を使用して、Google アカウントでサインインするユーザーを有効にする方法、[前のページ](xref:security/authentication/social/index)します。
 

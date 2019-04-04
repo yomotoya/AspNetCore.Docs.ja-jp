@@ -134,7 +134,7 @@ HTML フォーム要素を偽造防止トークンの自動生成を無効にす
   ```
 
 > [!NOTE]
-> [Razor ページ](xref:razor-pages/index)XSRF/CSRF から自動的に保護されます。 詳細については、次を参照してください。 [XSRF/CSRF と Razor ページ](xref:razor-pages/index#xsrf)します。
+> [Razor ページ](xref:razor-pages/index)XSRF/CSRF から自動的に保護されます。 詳細については、[XSRF/CSRF と Razor ページ](xref:razor-pages/index#xsrf)を参照してください。
 
 CSRF 攻撃から保護する最も一般的なアプローチは、使用する、*シンクロナイザー トークン パターン*(STP)。 ユーザーがフォーム データを含むページを要求したときに、STP が使用されます。
 
@@ -230,7 +230,7 @@ services.AddAntiforgery(options =>
 
 ::: moniker-end
 
-詳細については、次を参照してください。 [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions)します。
+詳細については、[CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions)を参照してください。
 
 ## <a name="configure-antiforgery-features-with-iantiforgery"></a>IAntiforgery 偽造防止機能を構成します。
 

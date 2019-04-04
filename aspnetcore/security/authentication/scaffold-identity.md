@@ -61,7 +61,7 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
+Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、[IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)を参照してください。
 
 <a name="efm"></a>
 
@@ -100,7 +100,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
+いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、[IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)を参照してください。
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>MVC プロジェクトの既存の承認なしにスキャフォールディング identity
 

@@ -67,7 +67,7 @@ ms.locfileid: "56248044"
 
   [!code-csharp[](mvc/sample/Startup.cs?highlight=13,26-31)]
 
-`UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール式と、静的ファイルを処理するために明示的にオプトインする必要があります。 `UseMvc`拡張メソッドがルーティングを追加します。 詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)と[ルーティング](xref:fundamentals/routing)します。
+`UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール式と、静的ファイルを処理するために明示的にオプトインする必要があります。 `UseMvc`拡張メソッドがルーティングを追加します。 詳細については、[アプリケーションの起動](xref:fundamentals/startup)と[ルーティング](xref:fundamentals/routing)を参照してください。
 
 ## <a name="add-a-controller-and-view"></a>コント ローラーとビューを追加します。
 
@@ -192,7 +192,7 @@ JQuery と JavaScript のブートス トラップの包含の置換マークア
 
 ## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
-バンドルと縮小を構成する方法については、次を参照してください。[バンドルと縮小](../client-side/bundling-and-minification.md)します。
+バンドルと縮小を構成する方法については、[バンドルと縮小](../client-side/bundling-and-minification.md)を参照してください。
 
 ## <a name="solve-http-500-errors"></a>HTTP 500 エラーを解決します。
 

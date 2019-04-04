@@ -58,7 +58,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 ## <a name="map-user-data-keys-and-create-claims"></a>ユーザー データのキーをマップし、要求の作成
 
-プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id を内の各キー。 要求の種類の詳細については、次を参照してください。<xref:System.Security.Claims.ClaimTypes>します。
+プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id を内の各キー。 要求の種類の詳細については、<xref:System.Security.Claims.ClaimTypes>を参照してください。
 
 サンプル アプリを作成、<xref:System.Security.Claims.ClaimTypes.Gender>からの要求を`gender`Google ユーザーのデータ キー。
 

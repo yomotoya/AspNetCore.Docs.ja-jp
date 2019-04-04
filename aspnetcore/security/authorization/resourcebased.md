@@ -78,7 +78,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 ## <a name="write-a-resource-based-handler"></a>リソース ベースのハンドラーを記述します。
 
-リソース ベースの承認がかなり異なるハンドラーの記述[プレーンな要件ハンドラーの記述](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler)します。 カスタム要件クラスを作成し、要件のハンドラー クラスを実装します。 要件のクラスを作成する方法の詳細については、次を参照してください。[要件](xref:security/authorization/policies#requirements)します。
+リソース ベースの承認がかなり異なるハンドラーの記述[プレーンな要件ハンドラーの記述](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler)します。 カスタム要件クラスを作成し、要件のハンドラー クラスを実装します。 要件のクラスを作成する方法の詳細については、[要件](xref:security/authorization/policies#requirements)を参照してください。
 
 ハンドラー クラスには、要件とリソースの種類を指定します。 など、ハンドラー利用して、`SameAuthorRequirement`と`Document`リソース次のとおりです。
 

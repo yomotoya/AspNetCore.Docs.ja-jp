@@ -64,7 +64,7 @@ Azure SignalR サービスには、バック プレーンではなく、プロ�
 
 これらの理由から、App Service、Vm、およびコンテナーを含む、Azure でホストされているすべての ASP.NET Core SignalR アプリ Azure SignalR サービスはお勧めします。
 
-詳細については、次を参照してください。、 [Azure SignalR サービスのドキュメント](/azure/azure-signalr/signalr-overview)します。
+詳細については、、 [Azure SignalR サービスのドキュメント](/azure/azure-signalr/signalr-overview)を参照してください。
 
 ## <a name="redis-backplane"></a>Redis のバック プレーン
 

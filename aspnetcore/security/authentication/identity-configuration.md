@@ -173,7 +173,7 @@ ASP.NET Core Identity では、パスワード ポリシー、によってロッ
 
 ::: moniker-end
 
-詳細については、次を参照してください。 [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions)します。
+詳細については、[CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions)を参照してください。
 
 ## <a name="password-hasher-options"></a>パスワード Hasher オプション
 

@@ -132,7 +132,7 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 
 別のテストで、`BasicTests`クラスは、セキュリティで保護されたエンドポイントがアプリのログイン ページに未認証のユーザーをリダイレクトすることを確認します。
 
-SUT で、`/SecurePage`ページ使用して、 [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage)を適用する規則、 [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter)ページにします。 詳細については、次を参照してください。 [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page)します。
+SUT で、`/SecurePage`ページ使用して、 [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage)を適用する規則、 [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter)ページにします。 詳細については、[Razor ページの承認規則](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page)を参照してください。
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
 
@@ -175,7 +175,7 @@ SUT への POST 要求は、アプリのによって自動的に行われた偽�
 
 `SendAsync`ヘルパー拡張メソッド (*Helpers/HttpClientExtensions.cs*) および`GetDocumentAsync`ヘルパー メソッド (*Helpers/HtmlHelpers.cs*) で、 [のサンプルアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/)を使用して、 [AngleSharp](https://anglesharp.github.io/)偽造防止チェックを次の方法で処理するためにパーサー。
 
-* `GetDocumentAsync` &ndash; 受信、 [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage)を返します、`IHtmlDocument`します。 `GetDocumentAsync` 準備するファクトリを使用して、*仮想応答*元に基づいて`HttpResponseMessage`します。 詳細については、次を参照してください。、 [AngleSharp ドキュメント](https://github.com/AngleSharp/AngleSharp#documentation)します。
+* `GetDocumentAsync` &ndash; 受信、 [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage)を返します、`IHtmlDocument`します。 `GetDocumentAsync` 準備するファクトリを使用して、*仮想応答*元に基づいて`HttpResponseMessage`します。 詳細については、、 [AngleSharp ドキュメント](https://github.com/AngleSharp/AngleSharp#documentation)を参照してください。
 * `SendAsync` 拡張メソッド、 `HttpClient` compose、 [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage)を呼び出すと[SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) SUT に要求を送信します。 オーバー ロード`SendAsync`HTML フォームを受け入れる (`IHtmlFormElement`) および次。
   * フォームのボタンの送信 (`IHtmlElement`)
   * フォーム値のコレクション (`IEnumerable<KeyValuePair<string, string>>`)
@@ -311,7 +311,7 @@ SUT アプリの実行時に、次のマークアップが生成されます。
 
 ## <a name="disable-shadow-copying"></a>シャドウ コピーを無効にします。
 
-シャドウ コピーすると、出力フォルダーとは別のフォルダーで実行するテストが発生します。 正常に動作するテストでは、シャドウ コピーする必要があります無効になります。 [サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples)xUnit を使用し、シャドウ コピーを含めることで xunit を無効にする*xunit.runner.json*適切な構成設定ファイル。 詳細については、次を参照してください。 [JSON で xUnit を構成する](https://xunit.github.io/docs/configuring-with-json.html)します。
+シャドウ コピーすると、出力フォルダーとは別のフォルダーで実行するテストが発生します。 正常に動作するテストでは、シャドウ コピーする必要があります無効になります。 [サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples)xUnit を使用し、シャドウ コピーを含めることで xunit を無効にする*xunit.runner.json*適切な構成設定ファイル。 詳細については、[JSON で xUnit を構成する](https://xunit.github.io/docs/configuring-with-json.html)を参照してください。
 
 追加、 *xunit.runner.json*以下の内容のテスト プロジェクトのルートにファイル。
 
@@ -323,7 +323,7 @@ SUT アプリの実行時に、次のマークアップが生成されます。
 
 ## <a name="disposal-of-objects"></a>オブジェクトの破棄
 
-テストの後、`IClassFixture`実装は、実行される[TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)と[HttpClient](/dotnet/api/system.net.http.httpclient) xUnit 破棄時に破棄は、 [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1). 開発者によってインスタンス化されたオブジェクトは、破棄を必要とする場合での dispose、`IClassFixture`実装します。 詳細については、次を参照してください。 [Dispose メソッドの実装](/dotnet/standard/garbage-collection/implementing-dispose)します。
+テストの後、`IClassFixture`実装は、実行される[TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)と[HttpClient](/dotnet/api/system.net.http.httpclient) xUnit 破棄時に破棄は、 [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1). 開発者によってインスタンス化されたオブジェクトは、破棄を必要とする場合での dispose、`IClassFixture`実装します。 詳細については、[Dispose メソッドの実装](/dotnet/standard/garbage-collection/implementing-dispose)を参照してください。
 
 ## <a name="integration-tests-sample"></a>統合テストのサンプル
 

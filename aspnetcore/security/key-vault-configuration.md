@@ -84,7 +84,7 @@ dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
    * ブラウザーで Cloud Shell を開き、 **Cloud Shell の起動**ボタンをクリックします。
    * 選択、 **Cloud Shell** Azure portal の右上隅のメニュー ボタンをクリックします。
 
-   詳細については、次を参照してください。 [Azure コマンド ライン インターフェイス (CLI)](/cli/azure/)と[Azure Cloud Shell の概要](/azure/cloud-shell/overview)します。
+   詳細については、[Azure コマンド ライン インターフェイス (CLI)](/cli/azure/)と[Azure Cloud Shell の概要](/azure/cloud-shell/overview)を参照してください。
 
 1. 既に認証されていない場合でサインイン、`az login`コマンド。
 
@@ -259,7 +259,7 @@ Key vault 名、アプリケーション ID、およびパスワード (クラ�
 
 ## <a name="authenticate-to-azure-key-vault-with-an-x509-certificate"></a>Azure Key Vault に X.509 証明書認証します。
 
-証明書をサポートする環境での .NET Framework アプリを開発する場合は、X.509 証明書で、Azure Key Vault に認証できます。 X.509 証明書の秘密キーは、OS によって管理されます。 詳細については、次を参照してください。[クライアント シークレットの代わりに証明書による認証](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret)します。 使用して、`AddAzureKeyVault`を受け入れるオーバー ロードを`X509Certificate2`(`_env`次の例。
+証明書をサポートする環境での .NET Framework アプリを開発する場合は、X.509 証明書で、Azure Key Vault に認証できます。 X.509 証明書の秘密キーは、OS によって管理されます。 詳細については、[クライアント シークレットの代わりに証明書による認証](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret)を参照してください。 使用して、`AddAzureKeyVault`を受け入れるオーバー ロードを`X509Certificate2`(`_env`次の例。
 
 ```csharp
 var builtConfig = config.Build();

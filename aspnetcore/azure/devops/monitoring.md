@@ -78,7 +78,7 @@ App Service web apps が簡単にリアルタイムで監視されます。 Azur
 
 ![Application Insights の概要 タブ](./media/monitoring/app-insights-overview.png)
 
-Application Insights は、追加構成なしで有用なサーバー側の情報を提供します。 Application Insights から最大限の価値を取得する[Application Insights SDK を使用してアプリケーションをインストルメント化](/azure/application-insights/app-insights-asp-net-core)します。 適切に構成されたサービスは、web サーバーおよびクライアント側のパフォーマンスを含む、ブラウザー間でのエンド ツー エンド監視を提供します。 詳細については、次を参照してください。、 [Application Insights のドキュメント](/azure/application-insights/app-insights-overview)します。
+Application Insights は、追加構成なしで有用なサーバー側の情報を提供します。 Application Insights から最大限の価値を取得する[Application Insights SDK を使用してアプリケーションをインストルメント化](/azure/application-insights/app-insights-asp-net-core)します。 適切に構成されたサービスは、web サーバーおよびクライアント側のパフォーマンスを含む、ブラウザー間でのエンド ツー エンド監視を提供します。 詳細については、、 [Application Insights のドキュメント](/azure/application-insights/app-insights-overview)を参照してください。
 
 ## <a name="logging"></a>ログの記録
 

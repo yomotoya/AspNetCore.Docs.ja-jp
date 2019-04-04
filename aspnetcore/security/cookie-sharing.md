@@ -49,7 +49,7 @@ ASP.NET Core Identity を使用する: 場合
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.Core/Startup.cs?name=snippet1)]
 
-データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、次を参照してください。[データ保護を構成する](xref:security/data-protection/configuration/overview)します。
+データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、[データ保護を構成する](xref:security/data-protection/configuration/overview)を参照してください。
 
 サブドメインで cookie を共有するアプリをホストする場合での一般的なドメインを指定してください。、 [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain)プロパティ。 アプリ間で cookie を共有する`contoso.com`など`first_subdomain.contoso.com`と`second_subdomain.contoso.com`、指定、`Cookie.Domain`として`.contoso.com`:
 
@@ -97,7 +97,7 @@ app.AddIdentity<ApplicationUser, IdentityRole>(options =>
 
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
 
-データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、次を参照してください。[データ保護を構成する](xref:security/data-protection/configuration/overview)します。
+データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、[データ保護を構成する](xref:security/data-protection/configuration/overview)を参照してください。
 
 サブドメインで cookie を共有するアプリをホストする場合での一般的なドメインを指定してください。、 [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain)プロパティ。 アプリ間で cookie を共有する`contoso.com`など`first_subdomain.contoso.com`と`second_subdomain.contoso.com`、指定、`Cookie.Domain`として`.contoso.com`:
 

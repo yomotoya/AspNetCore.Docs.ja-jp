@@ -33,7 +33,7 @@ ms.locfileid: "55739671"
 
 上記の例では、`ClockHub`クラスが実装する、`Hub<T>`厳密に型指定されたハブを作成するクラス。 `ClockHub`で構成されている、`Startup`クラスは、エンドポイントで要求に応答する`/hubs/clock`します。
 
-厳密に型指定されたハブの詳細については、次を参照してください。 [for ASP.NET Core SignalR のハブを使用して、](xref:signalr/hubs#strongly-typed-hubs)します。
+厳密に型指定されたハブの詳細については、[for ASP.NET Core SignalR のハブを使用して、](xref:signalr/hubs#strongly-typed-hubs)を参照してください。
 
 > [!NOTE]
 > この機能に限定されません、[ハブ\<T >](xref:Microsoft.AspNetCore.SignalR.Hub`1)クラス。 任意のクラスから継承する[ハブ](xref:Microsoft.AspNetCore.SignalR.Hub)など[DynamicHub](xref:Microsoft.AspNetCore.SignalR.DynamicHub)も機能します。

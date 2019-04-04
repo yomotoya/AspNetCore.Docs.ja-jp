@@ -20,7 +20,7 @@ ms.locfileid: "58264732"
 この記事では、ASP.NET Core 2.0 identity メンバーシップ認証を使用して ASP.NET アプリ用のデータベース スキーマの移行を示します。
 
 > [!NOTE]
-> このドキュメントでは、ASP.NET Core Id に使用されるデータベース スキーマに ASP.NET メンバーシップ ベースのアプリのデータベース スキーマを移行するために必要な手順が説明します。 ASP.NET メンバーシップ ベースの認証から ASP.NET Identity に移行する詳細については、次を参照してください。 [SQL メンバーシップから ASP.NET Identity に既存のアプリを移行する](/aspnet/identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity)します。 詳細については、ASP.NET Core Identity は、次を参照してください。[の ASP.NET core Identity の概要](xref:security/authentication/identity)します。
+> このドキュメントでは、ASP.NET Core Id に使用されるデータベース スキーマに ASP.NET メンバーシップ ベースのアプリのデータベース スキーマを移行するために必要な手順が説明します。 ASP.NET メンバーシップ ベースの認証から ASP.NET Identity に移行する詳細については、[SQL メンバーシップから ASP.NET Identity に既存のアプリを移行する](/aspnet/identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity)を参照してください。 詳細については、ASP.NET Core Identity は、[の ASP.NET core Identity の概要](xref:security/authentication/identity)を参照してください。
 
 ## <a name="review-of-membership-schema"></a>メンバーシップ スキーマの確認
 
@@ -198,4 +198,4 @@ COMMIT TRANSACTION MigrateUsersAndRoles
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルでは、ユーザーが SQL メンバーシップから ASP.NET Core 2.0 の Id を移植する方法について説明しました。 ASP.NET Core Identity に関する詳細については、次を参照してください。 [Id の概要](xref:security/authentication/identity)します。
+このチュートリアルでは、ユーザーが SQL メンバーシップから ASP.NET Core 2.0 の Id を移植する方法について説明しました。 ASP.NET Core Identity に関する詳細については、[Id の概要](xref:security/authentication/identity)を参照してください。

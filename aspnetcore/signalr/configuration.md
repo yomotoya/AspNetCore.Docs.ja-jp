@@ -64,7 +64,7 @@ var connection = new HubConnectionBuilder()
 | オプション | 既定値 | 説明 |
 | ------ | ------------- | ----------- |
 | `ClientTimeoutInterval` | 30 秒 | サーバーは、クライアントを検討してください、この間隔で (キープ アライブを含む) メッセージを受信していない場合は切断されます。 実際にマーク済みであるため、これを実装する方法、切断されたクライアントの場合は、このタイムアウト間隔よりも長い時間がかかります。 推奨値は二重、`KeepAliveInterval`値。|
-| `HandshakeTimeout` | 15 秒 | クライアントがこの時間間隔内で最初のハンドシェイク メッセージを送信しない場合、接続は閉じられます。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
+| `HandshakeTimeout` | 15 秒 | クライアントがこの時間間隔内で最初のハンドシェイク メッセージを送信しない場合、接続は閉じられます。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)を参照してください。 |
 | `KeepAliveInterval` | 15 秒 | サーバーがこの間隔内でメッセージを送信していない場合、接続を開いたままに ping メッセージが自動的に送信されます。 変更するときに`KeepAliveInterval`、変更、 `ServerTimeout` / `serverTimeoutInMilliseconds`クライアントに設定します。 推奨される`ServerTimeout` / `serverTimeoutInMilliseconds`値が double、`KeepAliveInterval`値。  |
 | `SupportedProtocols` | インストールされているすべてのプロトコル | このハブでサポートされるプロトコル。 既定では、サーバーに登録されているプロトコルをすべて許可されますが、プロトコルは、個々 のハブに対する特定のプロトコルを無効にするには、この一覧から削除できます。 |
 | `EnableDetailedErrors` | `false` | 場合`true`詳細のハブ メソッドで例外がスローされたときに、例外メッセージがクライアントに返されます。 既定値は`false`、これらの例外メッセージは、機密情報を含めることができます。 |
@@ -171,7 +171,7 @@ let connection = new signalR.HubConnectionBuilder()
 > [!NOTE]
 > 完全ログ記録を無効にするには指定`signalR.LogLevel.None`で、`configureLogging`メソッド。
 
-ログ記録の詳細については、次を参照してください。、 [SignalR 診断のドキュメント](xref:signalr/diagnostics)します。
+ログ記録の詳細については、、 [SignalR 診断のドキュメント](xref:signalr/diagnostics)を参照してください。
 
 SignalR の Java クライアントを使用して、 [SLF4J](https://www.slf4j.org/)のログ記録ライブラリです。 ライブラリのユーザーは、特定のログ出力の依存関係に導入することで独自の特定のログ記録の実装を選択できるようにする高度なログ記録 API になります。 次のコード スニペットは、使用する方法を示します`java.util.logging`SignalR Java クライアントを使用します。
 
@@ -279,7 +279,7 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
 | オプション | 既定値 | 説明 |
 | ------ | ------------- | ----------- |
 | `ServerTimeout` | 30 秒 (30,000 ミリ秒) | サーバーの利用状況のタイムアウト。 サーバーは、この間隔でメッセージを送信していない、クライアントと見なされ、サーバーが切断されているトリガー、`Closed`イベント (`onclose` JavaScript で)。 この値は、サーバーから送信される ping メッセージに十分な大きさである必要があります**と**タイムアウト間隔内に、クライアントによって受信されます。 推奨値は数値、サーバーに少なくとも 2 倍の`KeepAliveInterval`の ping が到着するまでの値。 |
-| `HandshakeTimeout` | 15 秒 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`Closed`イベント (`onclose` JavaScript で)。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
+| `HandshakeTimeout` | 15 秒 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`Closed`イベント (`onclose` JavaScript で)。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)を参照してください。 |
 
 として、.NET クライアントでタイムアウト値が指定された`TimeSpan`値。
 
@@ -294,7 +294,7 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
 | オプション | 既定値 | 説明 |
 | ----------- | ------------- | ----------- |
 |`getServerTimeout` `setServerTimeout` | 30 秒 (30,000 ミリ秒) | サーバーの利用状況のタイムアウト。 サーバーは、この間隔でメッセージを送信していない、クライアントと見なされ、サーバーが切断されているトリガー、`onClose`イベント。 この値は、サーバーから送信される ping メッセージに十分な大きさである必要があります**と**タイムアウト間隔内に、クライアントによって受信されます。 推奨値は数値、サーバーに少なくとも 2 倍の`KeepAliveInterval`の ping が到着するまでの値。 |
-| `withHandshakeResponseTimeout` | 15 秒 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`onClose`イベント。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、次を参照してください。、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)します。 |
+| `withHandshakeResponseTimeout` | 15 秒 | サーバーの初期ハンドシェイクのタイムアウト。 サーバーは、この間隔でハンドシェイクの応答を送信しない場合、は、クライアントがキャンセル ハンドシェイクとトリガー、`onClose`イベント。 これは、重大なネットワーク待機時間が原因のハンドシェイクのタイムアウト エラーが発生している場合にのみ変更する高度な設定です。 ハンドシェイク プロセスの詳細については、、 [SignalR ハブ プロトコル仕様](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md)を参照してください。 |
 
 ---
 

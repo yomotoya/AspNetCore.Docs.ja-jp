@@ -26,9 +26,9 @@ ms.locfileid: "58419382"
 
 ストレス条件下でをアプリの障害から回復し、適切に想定される動作に戻りますか。 アプリは、ストレス条件下で*いない*通常の状況下で実行します。
 
-Visual Studio 2019 は、ロード テスト機能を備えた Visual Studio として最後のバージョンとなります。 ロード テスト ツールを必要とするお客様には、Apache JMeter、Akamai CloudTest、Blazemeter などの代替のロード テスト ツールの使用をお勧めします。 詳細については、次を参照してください。、 [Visual Studio 2019 Preview リリース ノート](/visualstudio/releases/2019/release-notes-preview#test-tools)します。
+Visual Studio 2019 は、ロード テスト機能を備えた Visual Studio として最後のバージョンとなります。 ロード テスト ツールを必要とするお客様には、Apache JMeter、Akamai CloudTest、Blazemeter などの代替のロード テスト ツールの使用をお勧めします。 詳細については、、 [Visual Studio 2019 Preview リリース ノート](/visualstudio/releases/2019/release-notes-preview#test-tools)を参照してください。
 
-ロード テスト サービスを Azure DevOps では、2020年で終了します。 詳細については、次を参照してください。[クラウド ベースのロード テスト サービス終了](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)します。
+ロード テスト サービスを Azure DevOps では、2020年で終了します。 詳細については、[クラウド ベースのロード テスト サービス終了](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)を参照してください。
 
 ## <a name="visual-studio-tools"></a>Visual Studio ツール
 

@@ -82,7 +82,7 @@ services.AddResponseCaching(options =>
 
 ## <a name="varybyquerykeys"></a>VaryByQueryKeys
 
-MVC または Web API コント ローラーまたは Razor ページのページ モデルを使用する場合、`ResponseCache`属性が応答のキャッシュ用の適切なヘッダーを設定するために必要なパラメーターを指定します。 唯一のパラメーター、`ResponseCache`ミドルウェアを厳密に必要な属性が`VaryByQueryKeys`、する実際の HTTP ヘッダーに対応していません。 詳細については、次を参照してください。 [ResponseCache 属性](xref:performance/caching/response#responsecache-attribute)します。
+MVC または Web API コント ローラーまたは Razor ページのページ モデルを使用する場合、`ResponseCache`属性が応答のキャッシュ用の適切なヘッダーを設定するために必要なパラメーターを指定します。 唯一のパラメーター、`ResponseCache`ミドルウェアを厳密に必要な属性が`VaryByQueryKeys`、する実際の HTTP ヘッダーに対応していません。 詳細については、[ResponseCache 属性](xref:performance/caching/response#responsecache-attribute)を参照してください。
 
 使用しない場合、`ResponseCache`属性と変化する応答のキャッシュ、`VaryByQueryKeys`機能します。 使用して、`ResponseCachingFeature`から直接、`IFeatureCollection`の`HttpContext`:
 
@@ -151,7 +151,7 @@ if (responseCachingFeature != null)
 * 応答はに従ってキャッシュ可能である必要があります、 [RFC 7234](https://tools.ietf.org/html/rfc7234)仕様。 たとえば、`no-store`ディレクティブが要求または応答のヘッダー フィールドに存在する必要があります。 参照してください*セクション 3。応答をキャッシュに格納する*の[RFC 7234](https://tools.ietf.org/html/rfc7234)詳細についてはします。
 
 > [!NOTE]
-> 偽造防止システムをクロスサイト リクエスト フォージェリ (CSRF) を防ぐためにセキュリティで保護されたトークンを生成するセットの攻撃、`Cache-Control`と`Pragma`ヘッダーを`no-cache`応答がキャッシュされないようにします。 HTML フォーム要素を偽造防止トークンを無効にする方法については、次を参照してください。 [ASP.NET Core の偽造防止構成](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration)します。
+> 偽造防止システムをクロスサイト リクエスト フォージェリ (CSRF) を防ぐためにセキュリティで保護されたトークンを生成するセットの攻撃、`Cache-Control`と`Pragma`ヘッダーを`no-cache`応答がキャッシュされないようにします。 HTML フォーム要素を偽造防止トークンを無効にする方法については、[ASP.NET Core の偽造防止構成](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration)を参照してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

@@ -82,7 +82,7 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 ホストとアプリケーションは切り離されており、将来別のプラットフォームに柔軟に移動できます。
 
-ASP.NET Core のスタートアップとミドルウェアについて詳しくは、次を参照してください。<xref:fundamentals/startup>します。
+ASP.NET Core のスタートアップとミドルウェアについて詳しくは、<xref:fundamentals/startup>を参照してください。
 
 ## <a name="storing-configurations"></a>保存の構成
 
@@ -113,7 +113,7 @@ ASP.NET Core では、アプリケーションの構成データを任意のフ�
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**注:** ASP.NET Core の構成について詳しくは、次を参照してください。<xref:fundamentals/configuration/index>します。
+**注:** ASP.NET Core の構成について詳しくは、<xref:fundamentals/configuration/index>を参照してください。
 
 ## <a name="native-dependency-injection"></a>ネイティブな依存性の注入
 
@@ -139,7 +139,7 @@ Unity で依存関係の注入を設定する例を実装する`IDependencyResol
 
 Unity でそうであったように、リポジトリは任意の場所に挿入できます。
 
-ASP.NET Core の依存関係挿入の詳細については、次を参照してください。<xref:fundamentals/dependency-injection>します。
+ASP.NET Core の依存関係挿入の詳細については、<xref:fundamentals/dependency-injection>を参照してください。
 
 ## <a name="serving-static-files"></a>静的ファイルの提供
 
@@ -155,7 +155,7 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 たとえば、*wwwroot/images* フォルダー内のイメージ アセットには、ブラウザーから `http://<app>/images/<imageFileName>` などの場所でアクセスできます。
 
-**注:** ASP.NET Core で静的ファイルの提供について詳しくは、次を参照してください。<xref:fundamentals/static-files>します。
+**注:** ASP.NET Core で静的ファイルの提供について詳しくは、<xref:fundamentals/static-files>を参照してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

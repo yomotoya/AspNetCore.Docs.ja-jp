@@ -58,11 +58,11 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 | モジュール名 | 説明 |
 | ----------- | ----------- |
-| Gulp        | Gulp のストリーミングはビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)します。 |
-| rimraf      | ノード削除のモジュール。 詳細については、次を参照してください。 [rimraf](https://www.npmjs.com/package/rimraf)します。 |
-| gulp concat | オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)します。 |
-| gulp cssmin | CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)します。 |
-| gulp uglify します。 | 縮小するモジュール *.js*ファイル。 詳細については、次を参照してください。 [gulp uglify](https://www.npmjs.com/package/gulp-uglify)します。 |
+| Gulp        | Gulp のストリーミングはビルド システムです。 詳細については、[gulp](https://www.npmjs.com/package/gulp)を参照してください。 |
+| rimraf      | ノード削除のモジュール。 詳細については、[rimraf](https://www.npmjs.com/package/rimraf)を参照してください。 |
+| gulp concat | オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、[gulp concat](https://www.npmjs.com/package/gulp-concat)を参照してください。 |
+| gulp cssmin | CSS ファイルを縮小するモジュール。 詳細については、[gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)を参照してください。 |
+| gulp uglify します。 | 縮小するモジュール *.js*ファイル。 詳細については、[gulp uglify](https://www.npmjs.com/package/gulp-uglify)を参照してください。 |
 
 必要なモジュールをインポートすると、タスクを指定できます。 ここで 6 つのタスクが登録されている、次のコードで表されます。
 
@@ -225,7 +225,7 @@ gulp.task("default", gulp.series(["min"]));
 
     ![最初のタスクを実行するタスク ランナー エクスプ ローラー](using-gulp/_static/06-TaskRunner-First.png)
 
-    出力テキストが表示されます。 一般的なシナリオに基づく例については、次を参照してください。 [Gulp レシピ](#gulp-recipes)します。
+    出力テキストが表示されます。 一般的なシナリオに基づく例については、[Gulp レシピ](#gulp-recipes)を参照してください。
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>定義して、一連のタスクを実行しています。
 
@@ -265,7 +265,7 @@ IntelliSense は、コード補完、パラメーターの説明、および生�
 
 ![gulp の IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-IntelliSense の詳細については、次を参照してください。 [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense)します。
+IntelliSense の詳細については、[JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense)を参照してください。
 
 ## <a name="development-staging-and-production-environments"></a>開発、ステージング、実稼働環境
 
@@ -324,7 +324,7 @@ Gulp を使用して、クライアント側ファイルのステージングと
 
     スタイル シートのリンクが指す unminified バージョンの CSS ファイルに注意してください。
 
-ASP.NET Core での環境に関連する詳細については、次を参照してください。[複数の環境を使用して、](../fundamentals/environments.md)します。
+ASP.NET Core での環境に関連する詳細については、[複数の環境を使用して、](../fundamentals/environments.md)を参照してください。
 
 ## <a name="task-and-module-details"></a>タスクとモジュールの詳細
 
@@ -337,7 +337,7 @@ Gulp タスクは、関数名で登録されます。 現在のタスクの前�
 |src   |`gulp.src(globs[, options]) { }`|`src`関数 glob 値に一致するファイルを提供します。 `glob`パラメーターは、`string`または`array`ファイルを読み取るかを決定します。 `options`パラメーターが追加のファイル オプションを提供します。|
 |追加先  |`gulp.dest(path[, options]) { }`|`dest`関数は、ファイルの書き込み先の場所を定義します。 `path`パラメーターは、文字列またはコピー先のフォルダーを決定する関数。 `options`パラメーターが出力フォルダーのオプションを指定するオブジェクト。|
 
-Gulp の API リファレンスの詳細は、次を参照してください。 [Gulp Docs API](https://gulpjs.org/API.html)します。
+Gulp の API リファレンスの詳細は、[Gulp Docs API](https://gulpjs.org/API.html)を参照してください。
 
 ## <a name="gulp-recipes"></a>Gulp のレシピ
 

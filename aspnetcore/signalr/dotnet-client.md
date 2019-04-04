@@ -19,7 +19,7 @@ ms.locfileid: "57978305"
 ASP.NET Core SignalR .NET クライアント ライブラリでは、.NET アプリからの SignalR ハブと通信できます。
 
 > [!NOTE]
-> Xamarin には、Visual Studio バージョンについての特別な要件があります。 詳細については、次を参照してください。 [Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)します。
+> Xamarin には、Visual Studio バージョンについての特別な要件があります。 詳細については、[Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)を参照してください。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
@@ -65,7 +65,7 @@ connection.Closed += (error) => {
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
 
 > [!NOTE]
-> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
+> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)を参照してください。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 

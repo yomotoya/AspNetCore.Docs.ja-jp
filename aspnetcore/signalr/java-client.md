@@ -26,7 +26,7 @@ Java クライアントでは、Java のコードは、Android アプリを含�
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR の Java クライアント パッケージをインストールします。
 
-*Signalr 1.0.0* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。 JAR ファイルの最新のバージョン番号を検索するには、次を参照してください。、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr)します。
+*Signalr 1.0.0* JAR ファイルは、SignalR ハブに接続するクライアントを使用できます。 JAR ファイルの最新のバージョン番号を検索するには、、 [Maven 検索結果](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr)を参照してください。
 
 Gradle を使用する場合に、次の行を追加、`dependencies`のセクション、 *build.gradle*ファイル。
 
@@ -51,7 +51,7 @@ implementation 'com.microsoft.signalr:signalr:1.0.0'
 [!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
 > [!NOTE]
-> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
+> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)を参照してください。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 

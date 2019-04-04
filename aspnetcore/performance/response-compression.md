@@ -70,7 +70,7 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 
 ::: moniker-end
 
-詳細については、次を参照してください。、 [IANA 公式コンテンツ コーディング リスト](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)します。
+詳細については、、 [IANA 公式コンテンツ コーディング リスト](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)を参照してください。
 
 カスタムの圧縮は追加のプロバイダーを追加することができます、ミドルウェア`Accept-Encoding`ヘッダー値。 詳細については、次を参照してください。[カスタム プロバイダー](#custom-providers)以下。
 

@@ -92,7 +92,7 @@ Razor ページと MVC プロジェクト テンプレートで作成したプ�
 メモ:
 
 * 生成する、`Account/Manage`コードは、「[スキャフォールディング Identity](xref:security/authentication/scaffold-identity)します。
-* **削除**と**ダウンロード**リンクは、既定の id データに対してのみ機能します。 カスタム ユーザー データを作成するアプリは、カスタム ユーザー データの削除/ダウンロードするように拡張する必要があります。 詳細については、次を参照してください。[追加、ダウンロード、および Id にカスタム ユーザー データの削除](xref:security/authentication/add-user-data)します。
+* **削除**と**ダウンロード**リンクは、既定の id データに対してのみ機能します。 カスタム ユーザー データを作成するアプリは、カスタム ユーザー データの削除/ダウンロードするように拡張する必要があります。 詳細については、[追加、ダウンロード、および Id にカスタム ユーザー データの削除](xref:security/authentication/add-user-data)を参照してください。
 * Id のデータベース テーブルに格納されているユーザーのトークンを保存`AspNetUserTokens`カスケード削除動作のために使用して、ユーザーが削除されたときに削除されます、[外部キー](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152)します。
 * [外部プロバイダー認証](xref:security/authentication/social/index)など、Facebook や Google を使用できない、cookie のポリシーが受け入れられる前に、します。
 
