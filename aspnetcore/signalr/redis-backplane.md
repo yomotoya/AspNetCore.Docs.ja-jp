@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: c02d8cd5fb3b6edbb21be4889da2e880099b731b
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 9d2a942dba6abe669126efee7f2b3cdd6560658e
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837443"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012644"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>ASP.NET Core SignalR スケール アウトの Redis のバック プレーンを設定します。
 
@@ -31,7 +31,7 @@ ms.locfileid: "54837443"
 
   * <xref:signalr/scale>
   * [Redis のドキュメント](https://redis.io/)
-  * [Azure Redis Cache のドキュメント](https://docs.microsoft.com/en-us/azure/redis-cache/)
+  * [Azure Redis Cache のドキュメント](https://docs.microsoft.com/azure/redis-cache/)
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -88,7 +88,7 @@ ms.locfileid: "54837443"
 
   上記のコードで`options.Configuration`接続文字列で指定された内容で初期化されます。
 
-  Redis のオプションについては、、 [StackExchange Redis ドキュメント](https://stackexchange.github.io/StackExchange.Redis/Configuration.html)を参照してください。
+  Redis のオプションについては、次を参照してください。、 [StackExchange Redis ドキュメント](https://stackexchange.github.io/StackExchange.Redis/Configuration.html)します。
 
 ::: moniker-end
 
@@ -195,4 +195,4 @@ services.AddSignalR()
 * <xref:signalr/scale>
 * [Redis のドキュメント](https://redis.io/documentation)
 * [StackExchange Redis ドキュメント](https://stackexchange.github.io/StackExchange.Redis/)
-* [Azure Redis Cache のドキュメント](https://docs.microsoft.com/en-us/azure/redis-cache/)
+* [Azure Redis Cache のドキュメント](https://docs.microsoft.com/azure/redis-cache/)

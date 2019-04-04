@@ -5,6 +5,12 @@ description: Visual Studio、ASP.NET Core、EF Core を使用して Windows で 
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
+ms.openlocfilehash: c3dcc18844f2a12a2a116b11cb007cb833203dc3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345601"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>チュートリアル: ASP.NET Core で Razor ページ Web アプリを作成する
 
