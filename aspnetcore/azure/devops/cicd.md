@@ -233,7 +233,7 @@ ms.locfileid: "58264884"
 
 1. **復元**&mdash;実行、`dotnet restore`アプリの NuGet パッケージを復元するコマンド。 既定のパッケージ フィードの使用は nuget.org します。
 1. **ビルド**&mdash;実行、`dotnet build --configuration release`アプリのコードをコンパイルするコマンド。 これは、`--configuration`オプションは、運用環境に展開に適していると、コードの最適化のバージョンを生成するために使用します。 変更、 *BuildConfiguration* 、ビルド定義の変数**変数** タブの場合、たとえば、デバッグ構成が必要です。
-1. **テスト**&mdash;実行、`dotnet test --configuration release --logger trx --results-directory <local_path_on_build_agent>`アプリの単体テストを実行するコマンド。 単体テストは、すべて c# プロジェクトに一致する内部で実行される、 `**/*Tests/*.csproj` glob パターン。 テスト結果が保存、 *.trx*によって指定された場所にファイル、`--results-directory`オプション。 すべてのテストが失敗した場合、ビルドは失敗しは展開されません。
+1. **テスト**&mdash;実行、`dotnet test --configuration release --logger trx --results-directory <local_path_on_build_agent>`アプリの単体テストを実行するコマンド。 単体テストは、すべて C# プロジェクトに一致する内部で実行される、 `**/*Tests/*.csproj` glob パターン。 テスト結果が保存、 *.trx*によって指定された場所にファイル、`--results-directory`オプション。 すべてのテストが失敗した場合、ビルドは失敗しは展開されません。
 
     > [!NOTE]
     > テスト作業の単位を確認するには、変更*SimpleFeedReader.Tests\Services\NewsServiceTests.cs*テストの 1 つを意図的に分割します。 たとえば、変更`Assert.True(result.Count > 0);`に`Assert.False(result.Count > 0);`で、`Returns_News_Stories_Given_Valid_Uri`メソッド。 コミットし、GitHub に変更をプッシュします。 ビルドがトリガーされ、失敗します。 ビルド パイプラインの状態に変わります**失敗**します。 変更、commit、およびプッシュを再び元に戻します。 ビルドは成功します。

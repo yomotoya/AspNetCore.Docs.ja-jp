@@ -1,24 +1,24 @@
 ---
-title: Razor Components の概要
+title: ASP.NET Core での Razor コンポーネントの概要
 author: guardrex
 description: ASP.NET Core アプリ内に .NET を使った対話型のクライアント側 Web UI を構築する方法である、ASP.NET Core Razor Components について調べます。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: seoapril2019
 ms.date: 03/27/2019
 uid: razor-components/index
-ms.openlocfilehash: 8b2e87fe856598a5ac231e3bc1d413957829b448
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 43d5cf1d752b66a531c8d974deeb5a5fc8e94b43
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751013"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012657"
 ---
 # <a name="introduction-to-razor-components"></a>Razor Components の概要
 
 作成者: [Daniel Roth](https://github.com/danroth27)、[Luke Latham](https://github.com/guardrex)
 
-*Razor Components* は、.NET を使った対話型のクライアント側 Web UI を構築するための方法です。
+ASP.NET Core 3.0 (プレビュー) で導入された *Razor コンポーネント*は、.NET を使った対話型のクライアント側 Web UI を構築する方法です。
 
 * JavaScript の代わりに C# を使って、多機能な対話型 UI を構築します。
 * すべて .NET で記述された、サーバー側とクライアント側アプリのロジックを共有します。
