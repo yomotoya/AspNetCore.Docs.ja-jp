@@ -5,14 +5,14 @@ description: 作成と Blazor プロジェクトを変更して Blazor を開始
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2019
+ms.date: 04/07/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: f46bd9af0f0762e794349d4e98de5c086a690d72
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: b3928c2812be6f34cdf2f17295a1251106f651e5
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327230"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068236"
 ---
 # <a name="get-started-with-blazor"></a>Blazor を概要します。
 
@@ -20,7 +20,7 @@ ms.locfileid: "58327230"
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 必要条件:
 
@@ -28,16 +28,22 @@ ms.locfileid: "58327230"
 
 Visual Studio で、最初の Blazor プロジェクトを作成するには
 
+1. 最新のインストール[.NET Core 3.0 プレビュー SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)リリースします。
+1. Visual Studio プレビュー Sdk の使用を有効にします。
+   1. 開いている**ツール** > **オプション**メニュー バーにします。
+   1. 開く、**プロジェクトおよびソリューション**ノード。 開く、 **.NET Core**タブ。
+   1. チェック ボックスをオン **、.NET Core SDK のプレビューを使用して、** します。 **[OK]** を選択します。
 1. 最新のインストール[Blazor 拡張子](https://go.microsoft.com/fwlink/?linkid=870389)Visual Studio Marketplace から。 この手順では、Visual Studio を使用可能な Blazor テンプレートをによりします。
 1. コマンド シェルで次のコマンドを実行して Blazor テンプレートを .NET Core CLI で使用できるようにするには。
 
    ```console
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
    ```
-
-1. 選択**ファイル** > **新しいプロジェクト** > **Web** > **ASP.NET Core Web アプリケーション**します。
+1. 新しいプロジェクトを作成します。
+1. **[ASP.NET Core Web アプリケーション]** を選択します。 **[次へ]** を選択します。
+1. 名前を入力、**プロジェクト名**フィールド。 確認、**場所**エントリが正しいか、プロジェクトの場所を指定します。 **[作成]** を選択します。
 1. 確認します **.NET Core**と**ASP.NET Core 3.0**上部にある選択されます。
-1. **[Blazor]** テンプレートを選択して **[OK]** を選択します。
+1. 選択、 **Blazor**テンプレートと選択**作成**です。
 1. **F5 キー**を押してアプリを実行します。
 
 おめでとうございます! 最初の Blazor アプリを実行しました。
@@ -88,7 +94,7 @@ To create your first project Blazor project in Visual Studio for Mac:
 Congratulations! You just ran your first Blazor app!
 -->
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# [<a name="net-core-cli"></a>.NET Core CLI](#tab/netcore-cli/)
 
 必要条件:
 

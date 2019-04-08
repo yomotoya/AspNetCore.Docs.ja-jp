@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR サポートされているプラットフォ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 04/06/2019
 uid: signalr/supported-platforms
-ms.openlocfilehash: e4e84baf0120036b473eac256107b46a4accfe37
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: fefaaf97de3f1fabf8f3154bf5b4ccb37195ccff
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837716"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068223"
 ---
 # <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR でサポートされているプラットフォーム
 
@@ -36,7 +36,7 @@ ASP.NET core SignalR は ASP.NET Core をサポートする任意のサーバー
 
 [.NET クライアント](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/)は ASP.NET Core でサポートされている任意のプラットフォームで実行されます。 たとえば、 [Xamarin 開発者は、SignalR を使用できます](https://github.com/aspnet/Announcements/issues/305)8.4.0.1 Xamarin.Android を使用して Android アプリを構築するためと後で、Xamarin.iOS 11.14.0.4 を使用して iOS アプリ以降。
 
-サーバーは、IIS を実行する場合、Websocket トランスポートには、IIS 8.0 または Windows Server 2012 で高い以上が必要です。 他のトランスポートは、すべてのプラットフォームでサポートされます。
+サーバーは、IIS を実行する場合、Websocket トランスポートには、IIS 8.0 または Windows Server 2012 以降、またはそれ以降が必要です。 他のトランスポートは、すべてのプラットフォームでサポートされます。
 
 ## <a name="java-client"></a>Java クライアント
 

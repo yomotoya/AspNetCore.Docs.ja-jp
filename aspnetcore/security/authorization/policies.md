@@ -4,14 +4,14 @@ author: rick-anderson
 description: 作成し、ASP.NET Core アプリでの承認要件を適用するための承認ポリシーのハンドラーを使用する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2017
+ms.date: 04/05/2019
 uid: security/authorization/policies
-ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: ea9d687d3810c104d5b3fa39033849c21569709b
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208322"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068171"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
 
@@ -27,7 +27,7 @@ ms.locfileid: "58208322"
 
 Razor ページを使用している場合は、次を参照してください。 [Razor ページにポリシーを適用する](#applying-policies-to-razor-pages)このドキュメントで。
 
-使用して、コント ローラーに適用されるポリシー、`[Authorize]`ポリシーの名前を持つ属性です。 例えば:
+使用して、コント ローラーに適用されるポリシー、`[Authorize]`ポリシーの名前を持つ属性です。 例:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
@@ -80,7 +80,7 @@ Razor ページを使用している場合は、次を参照してください�
 
 ### <a name="handler-registration"></a>ハンドラーの登録
 
-ハンドラーは、構成中にサービスのコレクションに登録されます。 例:
+ハンドラーは、構成中にサービスのコレクションに登録されます。 例えば:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 
@@ -96,7 +96,10 @@ Razor ページを使用している場合は、次を参照してください�
 
 * 場合でも、その他の要件ハンドラーで成功をエラーを確実に呼び出す`context.Fail`します。
 
-設定すると`false`、 [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure)プロパティ (ASP.NET Core 1.1 で利用可能な以降) を実行せずにハンドラーの実行時に`context.Fail`が呼び出されます。 `InvokeHandlersAfterFailure` 既定値は`true`、すべてのハンドラーが呼び出される場合。 これにより、常に実行される、ログ記録などの側効果を作成するための要件も`context.Fail`が別のハンドラーで呼び出されました。
+ハンドラーを呼び出す場合`context.Succeed`または`context.Fail`、他のすべてのハンドラーが呼び出されます。 これにより、別のハンドラーが正常に検証または要件の失敗した場合でも行われるログ記録などの副作用を生成するための要件です。 設定すると`false`、 [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure)プロパティ (ASP.NET Core 1.1 で利用可能な以降) を実行せずにハンドラーの実行時に`context.Fail`が呼び出されます。 `InvokeHandlersAfterFailure` 既定値は`true`、すべてのハンドラーが呼び出される場合。
+
+> [!NOTE]
+> 認証が失敗した場合でも、承認ハンドラーは呼び出されます。
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 

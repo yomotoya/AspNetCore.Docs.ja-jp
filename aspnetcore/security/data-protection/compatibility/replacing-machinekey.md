@@ -1,38 +1,38 @@
 ---
-title: ASP.NET Core で ASP.NET machineKey を置き換えます
+title: ASP.NET Core での ASP.NET machineKey を置き換えます
 author: rick-anderson
-description: 新しいデータとより安全なデータ保護システムの使用を許可する ASP.NET で machineKey を交換する方法を検出します。
+description: ASP.NET には、新しいより安全なデータ保護システムを使用できるように、machineKey を交換する方法を説明します。
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: 5f9e5cec02b66e1315548c4e7c18fe168ad161eb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ff36382d22a218a228b42a31ae4f8ad2eb2d5b5f
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278825"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068285"
 ---
-# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET Core で ASP.NET machineKey を置き換えます
+# <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET Core での ASP.NET machineKey を置き換えます
 
 <a name="compatibility-replacing-machinekey"></a>
 
-実装、 `<machineKey>` ASP.NET 内の要素[交換](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)です。 これにより、ほとんどの呼び出しを ASP.NET 暗号化ルーチン、新しいデータ保護システムを含む、交換用のデータ保護メカニズムを経由してルーティングされます。
+実装、 `<machineKey>` ASP.NET 内の要素[は置き換え可能](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)します。 これにより、新しいデータ保護システムを含む、交換用のデータ保護メカニズムを通じてルーティングされるようにする ASP.NET 暗号化ルーチンにほとんどの呼び出しができます。
 
 ## <a name="package-installation"></a>パッケージ インストール
 
 > [!NOTE]
-> 新しいデータ保護システムには、.NET 4.5.1 を対象とする既存の ASP.NET アプリケーションにインストールされている以上のみを指定できます。 インストールをアプリケーションが .NET 4.5 を対象とする場合は失敗または削減します。
+> 新しいデータ保護システムは、.NET 4.5.1 を対象とする既存の ASP.NET アプリケーションにインストールされている以降にのみできます。 インストールが失敗する場合は、アプリケーションが .NET 4.5 を対象とまたは削減します。
 
-既存の ASP.NET 4.5.1+ プロジェクトに新しいデータ保護システムをインストールするには、Microsoft.AspNetCore.DataProtection.SystemWeb パッケージをインストールします。 データ保護システムを使用して、これがインスタンス化され、[既定の構成](xref:security/data-protection/configuration/default-settings)設定します。
+既存の ASP.NET 4.5.1+ プロジェクトには、新しいデータ保護システムをインストールするには、Microsoft.AspNetCore.DataProtection.SystemWeb パッケージをインストールします。 データ保護システムを使用して、これはインスタンス化、[既定の構成](xref:security/data-protection/configuration/default-settings)設定します。
 
-行が挿入、パッケージをインストールするときに*Web.config*のために使用する ASP.NET に指示[暗号化操作を最も](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)(フォーム認証、ビューステートへの呼び出しなど)MachineKey.Protect です。 挿入される行は次のとおりです。
+パッケージをインストールするときに行を挿入します*Web.config*ことを示すために使用する ASP.NET[暗号化操作を最も](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)(フォーム認証、ビューステートへの呼び出しなど)。MachineKey.Protect します。 挿入される行は次のとおりです。
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />
 ```
 
 >[!TIP]
-> かどうか、新しいデータ保護システムはアクティブのようにフィールドを調べることによってわかります`__VIEWSTATE`、次の例のように"CfDJ8"から始まる必要があります。 "CfDJ8"は、データ保護システムによって保護されているペイロードを識別するマジック"09 F0 C9 F0"ヘッダーの base64 表現です。
+> などのフィールドを調べることによって、新しいデータ保護システムがアクティブなかどうかがわかる`__VIEWSTATE`、次の例のように"CfDJ8"から始まる必要があります。 "CfDJ8"は、データ保護システムによって保護されているペイロードを識別するマジック"09 F0 C9 F0"ヘッダーの base64 表現です。
 
 ```html
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk..." />
@@ -40,9 +40,9 @@ ms.locfileid: "36278825"
 
 ## <a name="package-configuration"></a>パッケージの構成
 
-データ保護システムは既定の 0 のセットアップの構成でインスタンス化されます。 ただし、既定では、キーは、ローカル ファイル システムに永続化、ために、ファームに配置するアプリケーションにとってこの機能しません。 これを解決するには、型にどのサブクラス DataProtectionStartup を作成して構成を指定でき、その ConfigureServices メソッドをオーバーライドします。
+データ保護システムは、既定のゼロ セットアップ構成でインスタンス化されます。 ただし、既定では、キーはローカル ファイル システムに永続化、ため、ファームにデプロイされているアプリケーションのこの機能しません。 これを解決するには、一種の DataProtectionStartup サブクラスを作成して構成を指定でき、その ConfigureServices メソッドをオーバーライドします。
 
-キーが永続化し、残りの部分で暗号化する方法の両方を構成するカスタム データ保護のスタートアップの種類の例を次に示します。 独自のアプリケーション名を提供することで、既定のアプリの分離ポリシーをオーバーライドします。
+キーが永続化し、保存時暗号化している方法の両方を構成するカスタム データ保護のスタートアップの種類の例を次に示します。 独自のアプリケーション名を指定して、アプリの既定の分離ポリシーもオーバーライドします。
 
 ```csharp
 using System;
@@ -67,9 +67,9 @@ namespace DataProtectionDemo
 ```
 
 >[!TIP]
-> 使用することも`<machineKey applicationName="my-app" ... />`SetApplicationName を明示的に呼び出す代わりにします。 これは、開発者はアプリケーション名の設定を構成したいすべてが場合 DataProtectionStartup 派生型を作成しないようにする便利なメカニズムです。
+> 使用することも`<machineKey applicationName="my-app" ... />`SetApplicationName を明示的に呼び出す代わりにします。 これは、開発者がアプリケーション名の設定を構成すると、すべてが場合 DataProtectionStartup 派生型を作成しないようにする便利なメカニズムです。
 
-このカスタム構成を有効にする Web.config に戻ってを探して、 `<appSettings>` config ファイルに追加されたパッケージをインストールする要素。 次のマークアップのようになります。
+このカスタム構成を有効にする Web.config に戻るし、探して、`<appSettings>`構成ファイルに追加するパッケージをインストールする要素。 次のマークアップのようになります。
 
 ```xml
 <appSettings>
@@ -82,7 +82,7 @@ namespace DataProtectionDemo
 </appSettings>
 ```
 
-作成した DataProtectionStartup から派生した型のアセンブリ修飾名を空白の値を入力します。 ようになりますこのアプリケーションの名前が DataProtectionDemo の場合はの下。
+作成した DataProtectionStartup から派生した型のアセンブリ修飾名を空白の値を入力します。 アプリケーションの名前が DataProtectionDemo の場合は、これのようになりますが、下。
 
 ```xml
 <add key="aspnet:dataProtectionStartupType"

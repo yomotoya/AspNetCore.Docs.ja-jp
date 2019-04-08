@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET 認証 cookie を共有する方法について説明します 4.x および ASP.NET Core アプリ。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/19/2017
+ms.date: 04/06/2019
 uid: security/cookie-sharing
-ms.openlocfilehash: 504d3369c908aabddeaa2fc3d1ef16a42b5cb771
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 7a049ed8787808e228859afc051b8697a6261c21
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208516"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068311"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET と ASP.NET Core でのアプリ間での cookie を共有します。
 
@@ -49,7 +49,7 @@ ASP.NET Core Identity を使用する: 場合
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.Core/Startup.cs?name=snippet1)]
 
-データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、[データ保護を構成する](xref:security/data-protection/configuration/overview)を参照してください。
+データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、次を参照してください。[データ保護を構成する](xref:security/data-protection/configuration/overview)します。
 
 サブドメインで cookie を共有するアプリをホストする場合での一般的なドメインを指定してください。、 [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain)プロパティ。 アプリ間で cookie を共有する`contoso.com`など`first_subdomain.contoso.com`と`second_subdomain.contoso.com`、指定、`Cookie.Domain`として`.contoso.com`:
 
@@ -97,7 +97,7 @@ app.AddIdentity<ApplicationUser, IdentityRole>(options =>
 
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
 
-データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、[データ保護を構成する](xref:security/data-protection/configuration/overview)を参照してください。
+データ保護キーと、アプリ名は、アプリ間で共有する必要があります。 サンプル アプリで`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッド。 使用[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、次を参照してください。[データ保護を構成する](xref:security/data-protection/configuration/overview)します。
 
 サブドメインで cookie を共有するアプリをホストする場合での一般的なドメインを指定してください。、 [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain)プロパティ。 アプリ間で cookie を共有する`contoso.com`など`first_subdomain.contoso.com`と`second_subdomain.contoso.com`、指定、`Cookie.Domain`として`.contoso.com`:
 

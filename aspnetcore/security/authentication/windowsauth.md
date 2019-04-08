@@ -5,14 +5,14 @@ description: ASP.NET core で IIS Express、IIS、および HTTP.sys を使用�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 02/25/2019
+ms.date: 04/03/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: HT
+ms.openlocfilehash: 9b53f523cf579aeb0e7dd37ccf5f161269a54913
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833697"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068262"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -26,15 +26,19 @@ Windows 認証は、ASP.NET Core アプリのユーザーを認証するオペ�
 
 **Web アプリケーション**Windows 認証をサポートする Visual Studio または .NET Core CLI を使用して利用可能なテンプレートを構成することができます。
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 ### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>新しいプロジェクトに Windows 認証アプリ テンプレートを使用
 
 Visual Studio:
 
-1. 新規作成**ASP.NET Core Web アプリケーション**します。
-1. 選択**Web アプリケーション**テンプレートの一覧から。
-1. 選択、**認証の変更**ボタンをクリックし、選択**Windows 認証**します。
+1. 新しいプロジェクトを作成します。
+1. **[ASP.NET Core Web アプリケーション]** を選択します。 **[次へ]** を選択します。
+1. 名前を入力、**プロジェクト名**フィールド。 確認、**場所**エントリが正しいか、プロジェクトの場所を指定します。 **[作成]** を選択します。
+1. 選択**変更****認証**します。
+1. **認証の変更**ウィンドウで、 **Windows 認証**します。 **[OK]** を選択します。
+1. **[Web アプリケーション]** を選択します。
+1. **[作成]** を選択します。
 
 アプリを実行します。 ユーザー名は、レンダリングされたアプリのユーザー インターフェイスに表示されます。
 
@@ -51,7 +55,7 @@ Visual Studio:
 
 [!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET Core CLI](#tab/netcore-cli)
 
 使用して、 **Windows 認証**アプリ テンプレート。
 
@@ -195,4 +199,4 @@ ASP.NET Core では、権限借用を実装しません。 アプリは、アプ
 
 ### <a name="claims-transformations"></a>要求の変換
 
-IIS のインプロセス モードでホストする場合<xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*>されていないユーザーを初期化するために内部的に呼び出されます。 そのため、<xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation>実装のすべての認証は既定でアクティブにした後、要求を変換するために使用します。 詳細については、インプロセスをホストする場合は、クレームの変換をアクティブにするためのコード例を参照してください。<xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>します。
+IIS のインプロセス モードでホストする場合<xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*>されていないユーザーを初期化するために内部的に呼び出されます。 そのため、認証のたびに要求を変換するための <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> 実装は既定で有効になっていません。 詳細については、インプロセスをホストする場合は、クレームの変換をアクティブにするためのコード例を参照してください。<xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>します。

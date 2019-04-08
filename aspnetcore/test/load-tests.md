@@ -4,41 +4,36 @@ author: Jeremy-Meng
 description: いくつかの注目すべきツールとロード テストとストレスの ASP.NET Core アプリをテストするための方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/05/2019
 uid: test/loadtests
-ms.openlocfilehash: 08c4251059b7d9f4549ad710054d8299c4943465
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 0a8449ea2c9df0f2ac93058f03af0a1a2aa66508
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419382"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068184"
 ---
-# <a name="load-and-stress-testing-aspnet-core"></a>ロード テストとストレス テストの ASP.NET Core
+# <a name="aspnet-core-loadstress-testing"></a>ASP.NET Core のロード/ストレス テスト
 
 ロード テストとストレス テストは、web アプリが高パフォーマンスであることを確認する重要な拡張性の高いです。 多くの場合、類似のテストを共有する場合でも、その目標が異なります。
 
-**ロード テスト**:アプリは、応答の目標を引き続き満たしながら特定のシナリオのユーザーの指定した負荷を処理できるかどうかをテストします。 アプリは、通常の状況で実行されます。
+**ロード テスト**&ndash;アプリは、応答の目標を引き続き満たしながら特定のシナリオのユーザーの指定した負荷を処理できるかどうかをテストします。 アプリは、通常の状況で実行されます。
 
-**ストレス テスト**:テスト アプリの安定性では、極端な場合は、多くの場合、長期間実行されている場合:
+**ストレス テスト**&ndash;極端な場合は、長期間の多くの場合、実行するときに、アプリの安定性をテストします。 テストは、アプリの高いユーザー負荷、スパイクや徐々 に増加のロードのいずれかを配置またはアプリのコンピューティング リソースを制限します。
 
-* 高度なユーザー ロード – スパイクまたは徐々 に増やしていきます。
-* コンピューティング リソースの制約。
+ストレス テストは、ストレス条件下でアプリがエラーを修復し、適切に想定される動作に戻るかどうかを決定します。 ストレス条件下でアプリを通常の条件下で実行されていません。
 
-ストレス条件下でをアプリの障害から回復し、適切に想定される動作に戻りますか。 アプリは、ストレス条件下で*いない*通常の状況下で実行します。
+Visual Studio 2019 は、ロード テスト機能を使用して、最新の Visual Studio のバージョンです。 お客様のロード テスト ツールは、今後必要とする場合は、Apache JMeter、Akamai の CloudTest BlazeMeter などの別のツールを勧めします。 詳細については、次を参照してください。、 [Visual Studio 2019 のリリース ノート](/visualstudio/releases/2019/release-notes#test-tools)します。
 
-Visual Studio 2019 は、ロード テスト機能を備えた Visual Studio として最後のバージョンとなります。 ロード テスト ツールを必要とするお客様には、Apache JMeter、Akamai CloudTest、Blazemeter などの代替のロード テスト ツールの使用をお勧めします。 詳細については、、 [Visual Studio 2019 Preview リリース ノート](/visualstudio/releases/2019/release-notes-preview#test-tools)を参照してください。
-
-ロード テスト サービスを Azure DevOps では、2020年で終了します。 詳細については、[クラウド ベースのロード テスト サービス終了](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)を参照してください。
+ロード テスト サービスを Azure DevOps では、2020年で終了します。 詳細については、次を参照してください。[クラウド ベースのロード テスト サービス終了](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/)します。
 
 ## <a name="visual-studio-tools"></a>Visual Studio ツール
 
-Visual Studio では、作成、開発、および web パフォーマンスとロード テストをデバッグすることができます。 Web ブラウザーでアクションを記録することによってテストを作成するオプションがあります。
+Visual Studio では、作成、開発、および web パフォーマンスとロード テストをデバッグすることができます。 オプションでは、web ブラウザーでアクションを記録することによってテストを作成します。
 
-[クイック スタート:ロード テスト プロジェクトを作成](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017)作成、構成、およびロード テストを Visual Studio 2017 を使用してプロジェクトを実行する方法を示します。
+作成、構成、およびロード テストを Visual Studio 2017 を使用してプロジェクトを実行する方法については、次を参照してください。[クイック スタート。ロード テスト プロジェクトを作成する](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017)」を参照してください。 詳細については、次を参照してください。、[資料](#additional-resources)セクション。
 
-詳しくは、「[その他の技術情報](#add)」をご覧ください。
-
-Azure DevOps を使用してクラウドで実行またはオンプレミスで実行するロード テストを構成することができます。
+Azure DevOps を使用してクラウドでオンプレミスまたは実行を実行するのには、ロード テストを構成できます。
 
 ## <a name="azure-devops"></a>Azure DevOps
 
@@ -46,24 +41,24 @@ Azure DevOps を使用してクラウドで実行またはオンプレミスで�
 
 ![Azure DevOps のロード テストのランディング ページ](./load-tests/_static/azure-devops-load-test.png)
 
-サービスには、次の種類のテストの形式がサポートされています。
+サービスには、次のテスト形式がサポートされています。
 
-* Visual Studio テスト – Visual Studio で作成した web テストします。
-* HTTP アーカイブ ベースのテスト – アーカイブ内にキャプチャされた HTTP トラフィックがテスト中に再生されます。
-* [URL ベースのテスト](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts)– テスト、要求の種類、ヘッダー、およびクエリ文字列を読み込む Url を指定できます。 実行時間などのパラメーターの設定を実行するには、ロード パターンでは、ユーザーなどの数を構成できます。
-* [Apache JMeter](https://jmeter.apache.org/)をテストします。
+* Visual Studio &ndash; Web テストを Visual Studio で作成します。
+* HTTP アーカイブ&ndash;アーカイブ内のキャプチャされた HTTP トラフィックがテスト中に再生されます。
+* [URL ベース](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts)&ndash;テスト、要求の種類、ヘッダー、およびクエリ文字列を読み込む Url を指定できます。 実行時間などのパラメーターの設定を実行するには、ロード パターン、およびユーザーの数を構成できます。
+* [Apache JMeter](https://jmeter.apache.org/)します。
 
 ## <a name="azure-portal"></a>Azure ポータル
 
-[Azure ポータルでは、設定して、Web アプリのロード テストを実行する](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts)Azure portal で App Service の [パフォーマンス] タブから直接します。
+[Azure ポータルでは、設定して web アプリのロード テストを実行する](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts)から直接、**パフォーマンス**Azure portal で App Service のタブ。
 
-![Azure Portal で azure App Service](./load-tests/_static/azure-appservice-perf-test.png)
+![Azure portal で azure App Service](./load-tests/_static/azure-appservice-perf-test.png)
 
-テストでは、指定した URL、または複数の Url をテストできる、Visual Studio Web テスト ファイルで手動テストを指定できます。
+テストでは、指定した URL または複数の Url をテストできる、Visual Studio Web テスト ファイルで手動テストを指定できます。
 
-![Azure Portal で新しいパフォーマンス テスト ページ](./load-tests/_static/azure-appservice-perf-test-config.png)
+![Azure portal で新しいパフォーマンス テスト ページ](./load-tests/_static/azure-appservice-perf-test-config.png)
 
-テストの最後に、アプリのパフォーマンス特性を表示するレポートを生成します。 統計の例は次のとおりです。
+テストの終わりは、生成されたレポートは、アプリのパフォーマンス特性を表示します。 統計の例は次のとおりです。
 
 * 平均応答時間
 * 最大スループット: 1 秒あたりの要求
@@ -73,13 +68,13 @@ Azure DevOps を使用してクラウドで実行またはオンプレミスで�
 
 次の一覧には、さまざまな機能セットとサード パーティの web パフォーマンス ツールが含まれています。
 
-* [Apache JMeter](https://jmeter.apache.org/) :ロード テスト ツールの完全なおすすめのスイートです。 スレッドに依存します。 には、ユーザーごとの 1 つのスレッドが必要があります。
-* [ab - Apache HTTP server がベンチマーク ツール](https://httpd.apache.org/docs/2.4/programs/ab.html)
-* [ガットリング](https://gatling.io/):GUI ツールとテスト レコーダーでデスクトップ ツールです。 JMeter よりパフォーマンスが向上します。
-* [Locust.io](https://locust.io/) :スレッドに制限されません。
+* [Apache JMeter](https://jmeter.apache.org/)
+* [ApacheBench (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [ガットリング](https://gatling.io/)
+* [上機嫌](https://locust.io/)
+* [West Wind WebSurge](http://websurge.west-wind.com/)
+* [Netling](https://github.com/hallatore/Netling)
 
-<a name="add"></a>
+## <a name="additional-resources"></a>その他の技術情報
 
-## <a name="additional-resources"></a>その他のリソース
-
-[ロード テストのブログ シリーズ](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/)作成者: Charles Sterling します。 日が指定されたが、ほとんどの項目は引き続き関連します。
+* [ロード テストのブログ シリーズ](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/)

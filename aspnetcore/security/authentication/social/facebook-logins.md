@@ -1,23 +1,23 @@
 ---
 title: ASP.NET Core での Facebook 外部ログインのセットアップ
 author: rick-anderson
-description: このチュートリアルでは、既存の ASP.NET Core アプリに Facebook アカウントのユーザー認証の統合について説明します。
+description: 既存の ASP.NET Core アプリに Facebook アカウントのユーザー認証の統合を示すコード例とチュートリアルです。
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 12/18/2018
+ms.date: 03/04/2019
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 5fd40e7b42b17d4a3b858de15c8ed03fb64ce690
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: b69a6f3955d59aaff273a965d8820862e187cd51
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751095"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068210"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core での Facebook 外部ログインのセットアップ
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、サンプルの ASP.NET Core 2.0 プロジェクトが作成を使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法、[前のページ](xref:security/authentication/social/index)します。 まず Facebook アプリケーションの ID の作成を[公式手順](https://developers.facebook.com)します。
+コード例で、このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示しています、[前のページ](xref:security/authentication/social/index)します。 まず Facebook アプリケーションの ID の作成を[公式手順](https://developers.facebook.com)します。
 
 ## <a name="create-the-app-in-facebook"></a>Facebook で、アプリを作成します。
 

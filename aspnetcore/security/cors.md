@@ -4,14 +4,14 @@ author: rick-anderson
 description: 学習方法として許可または ASP.NET Core アプリでのクロス オリジン要求を拒否するための標準 CORS します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: 2cad26d0f61519f63888a2bc399bb7e8a0f1ee04
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210133"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068298"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -19,12 +19,12 @@ ms.locfileid: "58210133"
 
 この記事では、ASP.NET Core アプリで CORS を有効にする方法を示します。
 
-ブラウザーのセキュリティは、web ページが web ページを提供するものとは異なるドメインに要求を行うことを防ぎます。 この制限と呼ばれる、*同一オリジン ポリシー*します。 同一オリジン ポリシーは、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 場合によっては、他のサイトでは、クロス オリジン要求を行うアプリに許可する可能性があります。 詳細については、、 [Mozilla CORS 記事](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)を参照してください。
+ブラウザーのセキュリティは、web ページが web ページを提供するものとは異なるドメインに要求を行うことを防ぎます。 この制限と呼ばれる、*同一オリジン ポリシー*します。 同一オリジン ポリシーは、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 場合によっては、他のサイトでは、クロス オリジン要求を行うアプリに許可する可能性があります。 詳細については、次を参照してください。、 [Mozilla CORS 記事](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)します。
 
 [クロス オリジン リソース共有](https://www.w3.org/TR/cors/)(CORS)。
 
 * W3C による同一オリジン ポリシーの緩和するようにサーバーを利用できる標準。
-* **いない**CORS、セキュリティ機能は、セキュリティを緩和します。 CORS を許可することで、API をより安全なすることはできません。 詳細については、[CORS ではどのように動作](#how-cors)を参照してください。
+* **いない**CORS、セキュリティ機能は、セキュリティを緩和します。 CORS を許可することで、API をより安全なすることはできません。 詳細については、次を参照してください。 [CORS ではどのように動作](#how-cors)します。
 * 他のユーザーを拒否しながら、いくつかのクロス オリジン要求を明示的に許可するサーバーを使用できます。
 * 安全性と以前の手法よりも柔軟性はなど、 [JSONP](/dotnet/framework/wcf/samples/jsonp)します。
 
@@ -57,7 +57,7 @@ CORS ミドルウェアは、クロス オリジン要求を処理します。 �
 上のコードでは以下の操作が行われます。
 
 * ポリシー名を設定"\_myAllowSpecificOrigins"。 ポリシーの名前は任意です。
-* 呼び出し、<xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*>拡張メソッドは、コアを使用します。
+* 呼び出し、<xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*>拡張メソッドは、CORS を使用します。
 * 呼び出し<xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*>で、[ラムダ式](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions)します。 ラムダは、<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> オブジェクトをとります。 [構成オプション](#cors-policy-options)など`WithOrigins`はこの記事の後半で説明します。
 
 <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*>メソッドの呼び出しは、アプリのサービス コンテナーにサービスの CORS を追加します。
@@ -426,7 +426,7 @@ Test message
 CORS をテストします。
 
 1. [API プロジェクトを作成](xref:tutorials/first-web-api)です。 または、[サンプルをダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cors/sample/Cors)します。
-1. このドキュメントで、アプローチの 1 つを使用して、CORS を有効にします。 例:
+1. このドキュメントで、アプローチの 1 つを使用して、CORS を有効にします。 例えば:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
 
