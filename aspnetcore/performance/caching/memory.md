@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core でメモリにデータをキャッシュする方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 04/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6433df36023b79bc679186bee8b0a92371661dbe
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208273"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425050"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core でメモリ内キャッシュします。
 
@@ -21,7 +21,7 @@ ms.locfileid: "58208273"
 
 ## <a name="caching-basics"></a>キャッシュの基礎
 
-キャッシュと、パフォーマンスとアプリケーションのスケーラビリティが大幅に、コンテンツの生成に必要な作業を減らすことで改善できます。 変更頻度の低いデータに最適なキャッシュのしくみです。 キャッシュで返すことができる多くのデータのコピー元のソースからよりも高速です。 書き込みし、キャッシュされたデータに依存しないアプリをテストする必要があります。
+キャッシュと、パフォーマンスとアプリケーションのスケーラビリティが大幅に、コンテンツの生成に必要な作業を減らすことで改善できます。 変更頻度の低いデータに最適なキャッシュのしくみです。 キャッシュで返すことができる多くのデータのコピー元のソースからよりも高速です。 アプリを記述およびテストする必要があります**決して**キャッシュされたデータに依存します。
 
 ASP.NET Core には、いくつかの異なるキャッシュがサポートしています。 最も単純なキャッシュがに基づいて、 [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache)、web サーバーのメモリに格納されているキャッシュを表します。 複数のサーバーのサーバー ファームで実行されるアプリでは、セッションをメモリ内キャッシュを使用する場合は固定ことを確認してください。 スティッキー セッションでは、すべてのクライアントからの後続の要求が同じサーバーに移動することを確認します。 たとえば、Azure Web アプリの使用[アプリケーション要求ルーティング処理](https://www.iis.net/learn/extensions/planning-for-arr)処理 (ARR) を同じサーバーにすべての後続の要求をルーティングします。
 
@@ -43,7 +43,7 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 * すべて[.NET 実装](/dotnet/standard/net-standard#net-implementation-support).NET Standard 2.0 以降をターゲットとします。 たとえば、ASP.NET Core 2.0 以降です。
 * .NET framework 4.5 またはそれ以降。
 
-[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (このトピックで説明) よりもお勧め`System.Runtime.Caching` / `MemoryCache`のため、これは、ASP.NET Core に統合して強化します。 たとえば、 `IMemoryCache` ASP.NET Core では、ネイティブ動作[依存関係の注入](xref:fundamentals/dependency-injection)します。
+[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (この記事で説明) よりもお勧め`System.Runtime.Caching` / `MemoryCache`のため、これは、ASP.NET Core に統合して強化します。 たとえば、 `IMemoryCache` ASP.NET Core では、ネイティブ動作[依存関係の注入](xref:fundamentals/dependency-injection)します。
 
 使用`System.Runtime.Caching` / `MemoryCache` ASP.NET からのコードを移植するときに互換性の仲介役としての ASP.NET core 4.x です。
 
@@ -53,7 +53,7 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 * キャッシュは、メモリ、不足しているリソースを使用します。 キャッシュ拡張を制限するには。
   * **いない**キャッシュ キーと外部入力を使用します。
   * 有効期限の設定を使用すると、キャッシュ増加を制限できます。
-  * [SetSize、サイズ、および SizeLimit を使用して、キャッシュ サイズを制限するには](#use-setsize-size-and-sizelimit-to-limit-cache-size)
+  * [SetSize、サイズ、および SizeLimit を使用して、キャッシュ サイズを制限する](#use-setsize-size-and-sizelimit-to-limit-cache-size)します。 ASP.NET Core ランタイムでは、メモリの負荷に基づいてキャッシュのサイズは制限されません。 キャッシュ サイズを制限する開発者です。
 
 ## <a name="using-imemorycache"></a>IMemoryCache を使用します。
 
@@ -93,7 +93,7 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 
 [!code-cshtml[](memory/sample/WebCache/Views/Home/Cache.cshtml)]
 
-キャッシュされた`DateTime`値は、要求がタイムアウト期間 (とメモリ不足のためのない削除) 内である間はキャッシュに残ります。 次の図は、現在の時刻と、キャッシュから取得した古い時刻を示します。
+キャッシュされた`DateTime`タイムアウト期間内に要求があるときに値をキャッシュに保持します。 次の図は、現在の時刻と、キャッシュから取得した古い時刻を示します。
 
 ![インデックス ビューに表示される 2 つの時刻](memory/_static/time.png)
 
@@ -122,7 +122,7 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 
 ## <a name="use-setsize-size-and-sizelimit-to-limit-cache-size"></a>SetSize、サイズ、および SizeLimit を使用して、キャッシュ サイズを制限するには
 
-A`MemoryCache`インスタンスが必要に応じて指定し、サイズ制限が適用されます。 メモリ サイズの制限は、キャッシュのエントリのサイズを測定するためのメカニズムがあるないために、メジャーの定義済みの単位がありません。 キャッシュ メモリ サイズの制限が設定されている場合、すべてのエントリはサイズを指定する必要があります。 指定されたサイズは、単位、開発者が選択ができます。
+A`MemoryCache`インスタンスが必要に応じて指定し、サイズ制限が適用されます。 メモリ サイズの制限は、キャッシュのエントリのサイズを測定するためのメカニズムがあるないために、メジャーの定義済みの単位がありません。 キャッシュ メモリ サイズの制限が設定されている場合、すべてのエントリはサイズを指定する必要があります。 ASP.NET Core ランタイムでは、メモリの負荷に基づいてキャッシュのサイズは制限されません。 キャッシュ サイズを制限する開発者です。 指定されたサイズは、単位、開発者が選択ができます。
 
 例:
 
