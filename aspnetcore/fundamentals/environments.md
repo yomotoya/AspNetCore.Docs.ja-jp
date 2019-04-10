@@ -2,15 +2,17 @@
 title: ASP.NET Core で複数の環境を使用する
 author: rick-anderson
 description: ASP.NET Core アプリで複数の環境にわたりアプリの動作を制御する方法について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 01/22/2019
+ms.custom: mvc
+ms.date: 03/30/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 4fc43935aa058efc4497d3d9eb607df6c0899443
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208456"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809238"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -22,7 +24,7 @@ ASP.NET Core は、環境変数を利用し、ランタイム環境に基づい�
 
 ## <a name="environments"></a>環境
 
-ASP.NET Core はアプリの起動時に環境変数 `ASPNETCORE_ENVIRONMENT` を読み込み、その値を [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname) に格納します。 `ASPNETCORE_ENVIRONMENT` は任意の値に設定できますが、このフレームワークでは [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)、[Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)、[Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production) という [3 つの値](/dotnet/api/microsoft.aspnetcore.hosting.environmentname)を指定できます。 `ASPNETCORE_ENVIRONMENT` が設定されていない場合、既定で `Production` になります。
+ASP.NET Core はアプリの起動時に環境変数 `ASPNETCORE_ENVIRONMENT` を読み込み、その値を [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname) に格納します。 `ASPNETCORE_ENVIRONMENT` は任意の値に設定できますが、このフレームワークでは [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)、[Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)、[Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production) という 3 つの値を指定できます。 `ASPNETCORE_ENVIRONMENT` が設定されていない場合、既定で `Production` になります。
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet)]
 
@@ -91,8 +93,6 @@ Windows と macOS では、環境変数と値で大文字と小文字が区別�
 }
 ```
 
-::: moniker range=">= aspnetcore-2.1"
-
 > [!NOTE]
 > *launchSettings.json* の `applicationUrl` プロパティでは、サーバー URL の一覧を指定できます。 一覧の URL 間には、セミコロンを次のように使用します。
 >
@@ -106,8 +106,6 @@ Windows と macOS では、環境変数と値で大文字と小文字が区別�
 >    }
 > }
 > ```
-
-::: moniker-end
 
 アプリが [dotnet run](/dotnet/core/tools/dotnet-run) で起動すると、`"commandName": "Project"` を含む最初のプロファイルが使用されます。 `commandName` の値により、起動する Web サーバーが指定されます。 `commandName` は次のいずれかになります。
 
@@ -349,8 +347,6 @@ public class Startup
 
 アセンブリ名を受け入れる [UseStartup(IWebHostBuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) オーバーロードを使用します。
 
-::: moniker range=">= aspnetcore-2.1"
-
 ```csharp
 public static void Main(string[] args)
 {
@@ -366,53 +362,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 }
 ```
 
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-```csharp
-public static void Main(string[] args)
-{
-    CreateWebHost(args).Run();
-}
-
-public static IWebHost CreateWebHost(string[] args)
-{
-    var assemblyName = typeof(Startup).GetTypeInfo().Assembly.FullName;
-
-    return WebHost.CreateDefaultBuilder(args)
-        .UseStartup(assemblyName)
-        .Build();
-}
-```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var assemblyName = typeof(Startup).GetTypeInfo().Assembly.FullName;
-
-        var host = new WebHostBuilder()
-            .UseStartup(assemblyName)
-            .Build();
-
-        host.Run();
-    }
-}
-```
-
-::: moniker-end
-
 ### <a name="startup-method-conventions"></a>Startup メソッドの規約
 
 [Configure](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) と [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) は、フォーム `Configure<EnvironmentName>` と `Configure<EnvironmentName>Services` の環境固有バージョンに対応しています。
 
-[!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,51)]
+[!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,42)]
 
 ## <a name="additional-resources"></a>その他の技術情報
 
