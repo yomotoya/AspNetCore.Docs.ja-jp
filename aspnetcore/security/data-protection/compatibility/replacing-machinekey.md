@@ -5,12 +5,12 @@ description: ASP.NET には、新しいより安全なデータ保護システ�
 ms.author: riande
 ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: ff36382d22a218a228b42a31ae4f8ad2eb2d5b5f
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 2317cb50cfe63226baf336ebfc5d681d1cebe5c6
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068285"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468567"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET Core での ASP.NET machineKey を置き換えます
 
@@ -35,7 +35,7 @@ ms.locfileid: "59068285"
 > などのフィールドを調べることによって、新しいデータ保護システムがアクティブなかどうかがわかる`__VIEWSTATE`、次の例のように"CfDJ8"から始まる必要があります。 "CfDJ8"は、データ保護システムによって保護されているペイロードを識別するマジック"09 F0 C9 F0"ヘッダーの base64 表現です。
 
 ```html
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk..." />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk...">
 ```
 
 ## <a name="package-configuration"></a>パッケージの構成

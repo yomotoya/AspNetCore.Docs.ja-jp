@@ -3,14 +3,14 @@ title: ASP.NET MVC から ASP.NET Core MVC への移行します。
 author: ardalis
 description: ASP.NET Core mvc、ASP.NET MVC プロジェクトの移行を開始する方法について説明します。
 ms.author: riande
-ms.date: 02/13/2019
+ms.date: 04/06/2019
 uid: migration/mvc
-ms.openlocfilehash: 2ca51a145243444722ad8081fd8cdbb65d72b53a
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: a85b9f15be8ad9ca66b20ef1f4422fe67806a797
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248044"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468541"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行します。
 
@@ -67,7 +67,7 @@ ms.locfileid: "56248044"
 
   [!code-csharp[](mvc/sample/Startup.cs?highlight=13,26-31)]
 
-`UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール式と、静的ファイルを処理するために明示的にオプトインする必要があります。 `UseMvc`拡張メソッドがルーティングを追加します。 詳細については、[アプリケーションの起動](xref:fundamentals/startup)と[ルーティング](xref:fundamentals/routing)を参照してください。
+`UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール式と、静的ファイルを処理するために明示的にオプトインする必要があります。 `UseMvc`拡張メソッドがルーティングを追加します。 詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)と[ルーティング](xref:fundamentals/routing)します。
 
 ## <a name="add-a-controller-and-view"></a>コント ローラーとビューを追加します。
 
@@ -192,7 +192,7 @@ JQuery と JavaScript のブートス トラップの包含の置換マークア
 
 ## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
-バンドルと縮小を構成する方法については、[バンドルと縮小](../client-side/bundling-and-minification.md)を参照してください。
+バンドルと縮小を構成する方法については、次を参照してください。[バンドルと縮小](../client-side/bundling-and-minification.md)します。
 
 ## <a name="solve-http-500-errors"></a>HTTP 500 エラーを解決します。
 
