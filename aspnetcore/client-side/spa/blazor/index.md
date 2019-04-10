@@ -5,14 +5,14 @@ description: WebAssembly を使ってブラウザー内で実行される対話�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/27/2019
+ms.date: 03/28/2019
 uid: spa/blazor/index
-ms.openlocfilehash: c42363b0ce70a1a8edc19b1c428ee802a6eff3dd
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 87e294a975e4168add046166a95e02e485db131d
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750482"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068249"
 ---
 # <a name="introduction-to-blazor"></a>Blazor の概要
 
@@ -54,7 +54,7 @@ Blazor は、ほとんどのアプリで必要となる次のコア機能をサ�
 * テンプレート
 * カスケード値
 
-ダウンロードされるアプリのサイズを小さくするため、アプリが[中間言語 (IL) リンカー](xref:host-and-deploy/razor-components/configure-linker)によって発行されるときに、アプリから未使用コードが除去されます。
+ダウンロードされるアプリのサイズを小さくするため、アプリが[中間言語 (IL) リンカー](xref:host-and-deploy/razor-components-blazor/configure-linker)によって発行されるときに、アプリから未使用コードが除去されます。
 
 Blazor は、Razor Components 用のクライアント側のホスティング モデルです。 Razor Components ではコンポーネントのレンダリング ロジックが UI の更新の適用方法から切り離されているため、Razor Components をホストする方法には柔軟性があります。 ASP.NET Core Razor Component を使って、サーバー上の Razor Components を ASP.NET Core アプリでホストします。UI の更新は SignalR 接続を介して処理されます。 詳細については、次のトピックを参照してください。 <xref:razor-components/index> および <xref:razor-components/hosting-models#server-side-hosting-model> 
 
@@ -92,7 +92,7 @@ Blazor は、Razor Components 用のクライアント側のホスティング �
 
 ## <a name="code-sharing-and-net-standard"></a>コードの共有と .NET Standard
 
-アプリでは、既存の [.NET Standard](/dotnet/standard/net-standard) ライブラリを参照および使用することができます。 .NET Standard は、.NET 実装全体で共通した .NET API の標準仕様です。 .NET Standard 2.0 以降がサポートされています。 Web ブラウザー内で適用できない API (たとえば、ファイル システムにアクセスする機能、ソケットを開く機能、スレッド機能など) からは、<xref:System.PlatformNotSupportedException> がスローされます。 .NET Standard クラス ライブラリは、サーバー コード全体で共有、およびブラウザー ベースのアプリ内で共有することができます。
+アプリでは、既存の [.NET Standard](/dotnet/standard/net-standard) ライブラリを参照および使用することができます。 .NET Standard は、.NET 実装全体で共通した .NET API の標準仕様です。 Blazor では .NET Standard 2.0 が実装されます。 Web ブラウザー内で適用できない API (たとえば、ファイル システムにアクセスする機能、ソケットを開く機能、スレッド機能など) からは、<xref:System.PlatformNotSupportedException> がスローされます。 .NET Standard のクラス ライブラリは、Blazor、.NET Framework、.NET Core、Xamarin、Mono、Unity など、さまざまな .NET プラットフォーム全体で共有することができます。
 
 ## <a name="optimization"></a>最適化
 
