@@ -4,15 +4,15 @@ description: このチュートリアルでは、複数のユーザーが同じ�
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103021"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750863"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>チュートリアル: コンカレンシーの処理 - ASP.NET MVC と EF Core
 
@@ -39,7 +39,7 @@ Department エンティティを使用する Web ページを作成し、コン�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリで EF Core を使って関連データを更新する](update-related-data.md)
+* [関連データの更新](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>コンカレンシーの競合
 
@@ -148,7 +148,7 @@ dotnet ef database update
 
 HttpGet `Edit` メソッドと `Details` メソッドの両方に `AsNoTracking` を追加します。 HttpGet `Edit` メソッドに Administrator の一括読み込みを追加します。
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading)]
 
 HttpPost `Edit` メソッドの既存コードを次のコードに変更します。
 
@@ -309,6 +309,7 @@ RowVersion 列を削除し、管理者の姓名を表示するように *Views/D
 > * Delete ページを更新した
 > * Details および Create ビューを更新した
 
-Instructor および Student エンティティの Table-Per-Hierarchy 継承を実装する方法について学習するには、次の記事に進んでください。
+Instructor および Student エンティティの Table-Per-Hierarchy 継承を実装する方法について学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
-> [Table-Per-Hierarchy 継承を実装する](inheritance.md)
+> [次へ: Table-Per-Hierarchy 継承を実装する](inheritance.md)

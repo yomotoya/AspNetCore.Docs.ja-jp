@@ -3,15 +3,15 @@ title: 'チュートリアル: 並べ替え、フィルター処理、ページ�
 description: このチュートリアルでは、Students インデックス ページに並べ替え、フィルター、およびページング機能を追加します。 単純なグループ化を実行するページも作成します。
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/04/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103060"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751035"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>チュートリアル: 並べ替え、フィルター処理、ページングを追加する - ASP.NET MVC と EF Core
 
@@ -33,7 +33,7 @@ ms.locfileid: "56103060"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリで EF Core を使って CRUD 機能を実装する](crud.md)
+* [CRUD 機能の実装](crud.md)
 
 ## <a name="add-column-sort-links"></a>列の並べ替えリンクを追加する
 
@@ -144,7 +144,7 @@ public async Task<IActionResult> Index(
     string sortOrder,
     string currentFilter,
     string searchString,
-    int? page)
+    int? pageNumber)
 ```
 
 最初にページが表示されるとき、またはユーザーがページングや並べ替えのリンクをクリックしていない場合、すべてのパラメーターは null になります。  ページングのリンクをクリックすると、ページ変数に表示するページ番号が含まれます。
@@ -158,7 +158,7 @@ CurrentFilter という名前の `ViewData` 要素が現在のフィルター文
 ```csharp
 if (searchString != null)
 {
-    page = 1;
+    pageNumber = 1;
 }
 else
 {
@@ -169,10 +169,10 @@ else
 `Index` メソッドの最後に、`PaginatedList.CreateAsync` メソッドが、ページングをサポートするコレクション型の受講者の 1 つのページに受講者クエリを変換します。 その 1 つの受講者のページがビューに渡されます。
 
 ```csharp
-return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
+return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
 ```
 
-`PaginatedList.CreateAsync` メソッドは、ページ番号を受け取ります。 2 つの疑問符は、null 合体演算子を表します。 null 合体演算子は null 許容型の既定値を定義します。式 `(page ?? 1)` は、値がある場合は `page` の値を返し、`page` が null の場合は 1 を返すことを意味します。
+`PaginatedList.CreateAsync` メソッドは、ページ番号を受け取ります。 2 つの疑問符は、null 合体演算子を表します。 null 合体演算子は null 許容型の既定値を定義します。式 `(pageNumber ?? 1)` は、値がある場合は `pageNumber` の値を返し、`pageNumber` が null の場合は 1 を返すことを意味します。
 
 ## <a name="add-paging-links"></a>ページング リンクを追加する
 
@@ -193,7 +193,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 ```html
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @prevDisabled">
    Previous
@@ -234,8 +234,7 @@ Contoso 大学の Web サイトの **[About]** ページに、登録日付ごと
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
-
-  `About` メソッドを次のコードで置き換えます。
+次のコードを含む `About` メソッドを追加します。
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
@@ -245,7 +244,7 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 ### <a name="modify-the-about-view"></a>About ビューを変更する
 
-*Views/Home/About.cshtml* ファイルのコードを次のコードに置き換えます。
+次のコードを含む *Views/Home/About.cshtml* ファイルを追加します。
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
@@ -267,6 +266,7 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 > * ページング リンクを追加した
 > * About ページを作成した
 
-移行を使ってデータ モデルの変更を処理する方法について学習するには、次の記事に進んでください。
+移行を使ってデータ モデルの変更を処理する方法について学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
-> [データ モデルの変更を処理する](migrations.md)
+> [次へ: データ モデルの変更を処理する](migrations.md)

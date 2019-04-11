@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: cee521eec3172c04b4d9d93c12076c42c9adff18
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264830"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750614"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>チュートリアル: CRUD 機能を実装する - ASP.NET MVC と EF Core
 
@@ -32,7 +32,7 @@ ms.locfileid: "58264830"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリでの EF Core の概要](intro.md)
+* [EF Core と ASP.NET Core MVC の概要](intro.md)
 
 ## <a name="customize-the-details-page"></a>Details ページをカスタマイズする
 
@@ -243,7 +243,7 @@ HttpGet の `Delete` アクション メソッドを、エラー報告を管理�
 
 HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`) を、次のコードに置き換えます。このコードは、実際の削除操作を実行して、データベース更新エラーをキャッチします。
 
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6-9,11-12,16-21)]
 
 このコードは、選択されたエンティティを取得した後、`Remove` メソッドを呼び出して、エンティティの状態を `Deleted` に設定します。 `SaveChanges` が呼び出されると、SQL DELETE コマンドが生成されます。
 
@@ -306,6 +306,7 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 > * Delete ページを更新した
 > * データベース接続を閉じた
 
-並べ替え、フィルター処理、ページングを追加して **Index** ページの機能を拡張する方法について学習するには、次の記事に進んでください。
+並べ替え、フィルター処理、ページングを追加して **Index** ページの機能を拡張する方法について学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
-> [並べ替え、フィルター処理、ページング](sort-filter-page.md)
+> [次へ: 並べ替え、フィルター処理、ページング](sort-filter-page.md)

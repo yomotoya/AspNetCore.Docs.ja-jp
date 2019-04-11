@@ -3,15 +3,15 @@ title: 'チュートリアル: 関連データを読み取る - ASP.NET MVC と 
 description: このチュートリアルでは、関連データ (Entity Framework がナビゲーション プロパティに読み込むデータ) の読み取りと表示を行います。
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: a2ae878fd861b68a17de19af1b33b6ffbf5a268c
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103047"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751078"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>チュートリアル: 関連データを読み取る - ASP.NET MVC と EF Core
 
@@ -33,7 +33,7 @@ ms.locfileid: "56103047"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリの EF Core を使ってより複雑なデータ モデルを作成する](complex-data-model.md)
+* [複合データ モデルの作成](complex-data-model.md)
 
 ## <a name="learn-how-to-load-related-data"></a>関連データを読み込む方法を学習する
 
@@ -257,6 +257,7 @@ Index メソッドを次のコードに置き換えて、関連データの一�
 > * Instructors ページを作成した
 > * 明示的読み込みについて学習した
 
-関連データを更新する方法について学習するには、次の記事に進んでください。
+関連データを更新する方法について学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
 > [関連データの更新](update-related-data.md)

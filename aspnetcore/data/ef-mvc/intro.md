@@ -7,25 +7,20 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 31fca1b32942f9246e099c01669f77824edf521e
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 282af56eb911aea53a6ce945e7c1177c158fc342
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264849"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750581"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>チュートリアル: ASP.NET MVC Web アプリでの EF Core の概要
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
-Contoso University のサンプル Web アプリケーションでは、Entity Framework (EF) Core 2.0 と Visual Studio 2017 を使用して ASP.NET Core 2.2 MVC Web アプリケーションを作成する方法を示します。
+Contoso University のサンプル Web アプリケーションでは、Entity Framework (EF) Core 2.2 と Visual Studio 2017 または 2019 を使用して ASP.NET Core 2.2 MVC Web アプリケーションを作成する方法を示します。
 
 サンプル アプリケーションは架空の Contoso University の Web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。 これは、Contoso University のサンプル アプリケーションを一から作成する方法を説明するチュートリアル シリーズの 1 回目です。
-
-EF Core 2.0 は EF の最新版ですが、EF 6.x の一部の機能にまだ対応していません。 EF 6.x と EF Core のどちらを選択するかについては、「[EF Core と EF 6.x を比較する](/ef/efcore-and-ef6/)」を参照してください。 EF 6.x を選択する場合、[このチュートリアル シリーズの以前のバージョン](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)を参照してください。
-
-> [!NOTE]
-> このチュートリアルの ASP.NET Core 1.1 バージョンについては、[このチュートリアルの VS 2017 Update 2 バージョン (PDF 形式)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/efmvc1.1.pdf) を参照してください。
 
 このチュートリアルでは、次の作業を行いました。
 
@@ -35,14 +30,17 @@ EF Core 2.0 は EF の最新版ですが、EF 6.x の一部の機能にまだ対
 > * EF Core の NuGet パッケージについて学習する
 > * データ モデルを作成する
 > * データベース コンテキストの作成
-> * SchoolContext を登録する
-> * テスト データで DB を初期化する
-> * コントローラーとビューを作成する
+> * 依存関係挿入にコンテキストを登録する
+> * テスト データでデータベースを初期化する
+> * コントローラーとビューの作成
 > * データベースを表示する
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+* [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
+* [Visual Studio 2017 または 2019](https://visualstudio.microsoft.com/downloads/) と次のワークロード:
+    * **ASP.NET および Web の開発**ワークロード
+    * **.NET Core クロスプラットフォームの開発**ワークロード
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -61,11 +59,9 @@ EF Core 2.0 は EF の最新版ですが、EF 6.x の一部の機能にまだ対
 
 ![Students 編集ページ](intro/_static/student-edit.png)
 
-このサイトの UI スタイルは、組み込みテンプレートで生成されるスタイルに近いものになっています。それにより、このチュートリアルでは主に、Entity Framework の使い方を取り上げることができます。
+## <a name="create-web-app"></a>Web アプリを作成する
 
-## <a name="create-aspnet-core-mvc-web-app"></a>ASP.NET Core MVC Web アプリを作成する
-
-Visual Studio を開き、新しい ASP.NET Core C# Web プロジェクトを作成します。プロジェクトの名前は "ContosoUniversity" です。
+* Visual Studio を開きます。
 
 * **[ファイル]** メニューで **[新規作成]、[プロジェクト]** の順に選択します。
 
@@ -77,17 +73,15 @@ Visual Studio を開き、新しい ASP.NET Core C# Web プロジェクトを作
 
   ![[新しいプロジェクト] ダイアログ](intro/_static/new-project2.png)
 
-* **[新しい ASP.NET Core Web アプリケーション (.NET Core)]** ダイアログが表示されるのを待ちます
+* **[新しい ASP.NET Core Web アプリケーション]** ダイアログが表示されるのを待ちます。
 
-  ![[新しい ASP.NET Core プロジェクト] ダイアログ](intro/_static/new-aspnet2.png)
-
-* **[ASP.NET Core 2.2]** と **[Web アプリケーション (モデル ビュー コントローラー)]** テンプレートを選択します。
-
-  **注:** このチュートリアルでは、ASP.NET Core 2.2 と EF Core 2.0 以降が必要です。
+* **[.NET Core]**、**[ASP.NET Core 2.2]**、および **[Web アプリケーション (モデル ビュー コントローラー)]** テンプレートを選択します。
 
 * **[認証]** に **[認証なし]** が設定されていることを確認してください。
 
-* **[OK]** をクリックします。
+* **[OK]** を選択します。
+
+  ![[新しい ASP.NET Core プロジェクト] ダイアログ](intro/_static/new-aspnet2.png)
 
 ## <a name="set-up-the-site-style"></a>サイトのスタイルを設定する
 
@@ -101,7 +95,7 @@ Visual Studio を開き、新しい ASP.NET Core C# Web プロジェクトを作
 
 変更が強調表示されます。
 
-[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,32-36,51)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,37-48,63)]
 
 *Views/Home/Index.cshtml* で、ファイルの中身を次のコードに変更し、ASP.NET と MVC に関するテキストをこのアプリケーションに関するテキストに変更します。
 
@@ -113,9 +107,9 @@ CTRL を押しながら F5 を押してプロジェクトを実行するか、�
 
 ## <a name="about-ef-core-nuget-packages"></a>EF Core の NuGet パッケージについて
 
-プロジェクトに EF Core サポートを追加するには、対象とするデータベース プロバイダーをインストールします。 このチュートリアルでは SQL Server を使用します。プロバイダー パッケージは [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) です。 このパッケージは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれているので、アプリに `Microsoft.AspNetCore.App` パッケージのパッケージ参照がある場合、パッケージを参照する必要はありません。
+プロジェクトに EF Core サポートを追加するには、対象とするデータベース プロバイダーをインストールします。 このチュートリアルでは SQL Server を使用します。プロバイダー パッケージは [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) です。 このパッケージは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれているので、パッケージを参照する必要はありません。
 
-このパッケージとその依存関係 (`Microsoft.EntityFrameworkCore` と `Microsoft.EntityFrameworkCore.Relational`) により、EF のランタイム サポートが与えられます。 後の[移行](migrations.md)チュートリアルでツール パッケージを追加します。
+EF SQL Server パッケージとその依存関係 (`Microsoft.EntityFrameworkCore` と `Microsoft.EntityFrameworkCore.Relational`) により、EF のランタイム サポートが提供されます。 後の[移行](migrations.md)チュートリアルでツール パッケージを追加します。
 
 Entity Framework Core で利用できるその他のデータベース プロバイダーに関しては、「[データベース プロバイダー](/ef/core/providers/)」を参照してください。
 
@@ -197,7 +191,7 @@ ASP.NET Core は既定で[依存関係の挿入](../../fundamentals/dependency-i
 
 `SchoolContext` をサービスとして登録するには、*Startup.cs* を開き、強調表示されている行を `ConfigureServices` メソッドに追加します。
 
-[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=9-10)]
 
 `DbContextOptionsBuilder` オブジェクトでメソッドが呼び出され、接続文字列の名前がコンテキストに渡されます。 ローカル開発の場合、[ASP.NET Core 構成システム](xref:fundamentals/configuration/index)が *appsettings.json* ファイルから接続文字列を読み取ります。
 
@@ -249,11 +243,6 @@ CRUD アクションのメソッドとビューの自動作成は、スキャフ
 
 * **ソリューション エクスプローラー**の **Controllers** フォルダーを右クリックし、**[追加]、[スキャフォールディングされた新しい項目]** の順に選択します。
 
-**[MVC 依存関係の追加]** ダイアログ ボックスが表示された場合は、次のようにします。
-
-* [Visual Studio を最新バージョンに更新します](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)。 15.5 より前のバージョンの Visual Studio の場合はこのダイアログが表示されます。
-* 更新できない場合は、**[追加]** を選択してから、もう一度コントローラーの追加手順に従ってください。
-
 * **[スキャフォールディングを追加]** ダイアログ ボックスで:
 
   * **[Entity Framework を使用したビューがある MVC コントローラー]** を選択します。
@@ -292,7 +281,7 @@ ASP.NET Core 依存関係挿入では、`SchoolContext` のインスタンスが
 
 CTRL を押しながら F5 を押してプロジェクトを実行するか、メニューで **[デバッグ]、[デバッグなしで開始]** の順に選択します。
 
-[Students] タブをクリックすると、`DbInitializer.Initialize` メソッドによって挿入されたテスト データが表示されます。 ブラウザーのウィンドウ幅によって決まることですが、`Student` タブ リンクはページの一番上に表示されるか、右上隅のナビゲーション アイコンをクリックしないと表示されません。
+[Students] タブをクリックすると、`DbInitializer.Initialize` メソッドによって挿入されたテスト データが表示されます。 ブラウザーのウィンドウ幅によって決まることですが、`Students` タブ リンクはページの一番上に表示されるか、右上隅のナビゲーション アイコンをクリックしないと表示されません。
 
 ![Contoso University のホーム ページ (ウィンドウ幅が狭いとき)](intro/_static/home-page-narrow.png)
 
@@ -385,6 +374,7 @@ Entity Framework を利用する非同期コードの記述で注意すべき点
 
 次のチュートリアルでは、基本的な CRUD (作成、読み取り、更新、削除) 操作を実行する方法について学習します。
 
-基本的な CRUD (作成、読み取り、更新、削除) 操作の実行方法を学習するには、次の記事に進んでください。
+基本的な CRUD (作成、読み取り、更新、削除) 操作の実行方法を学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
 > [基本 CRUD 機能を実装する](crud.md)

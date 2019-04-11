@@ -2,16 +2,17 @@
 title: ASP.NET Core でのファイル プロバイダー
 author: guardrex
 description: ASP.NET Core がファイル プロバイダーを使用してファイル システムへのアクセスを抽象化する方法について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/01/2018
+ms.date: 03/30/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 5d0d46ba82cd84e48e5a9b23d6d330d8888beb41
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 2ce40ea0d576d08a6b42c3eb6693754f2a0bddce
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570101"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809222"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET Core でのファイル プロバイダー
 
@@ -50,25 +51,11 @@ ASP.NET Core は、ファイル プロバイダーを使用してファイル �
 
 利用できる `IFileProvider` の実装は 3 つあります。
 
-::: moniker range=">= aspnetcore-2.0"
-
 | 実装 | 説明 |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | システムの物理ファイルにアクセスするために、物理プロバイダーが使用されます。 |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | アセンブリに埋め込まれているファイルにアクセスするために、マニフェストが埋め込まれたプロバイダーが使用されます。 |
 | [CompositeFileProvider](#compositefileprovider) | コンポジット プロパイダーは、その他の 1 つまたは複数のプロバイダーからのファイルおよびディレクトリに対するアクセスを結合する場合に使用されます。 |
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-| 実装 | 説明 |
-| -------------- | ----------- |
-| [PhysicalFileProvider](#physicalfileprovider) | システムの物理ファイルにアクセスするために、物理プロバイダーが使用されます。 |
-| [EmbeddedFileProvider](#embeddedfileprovider) | 埋め込みプロバイダーは、アセンブリに埋め込まれているファイルにアクセスする場合に使用します。 |
-| [CompositeFileProvider](#compositefileprovider) | コンポジット プロパイダーは、その他の 1 つまたは複数のプロバイダーからのファイルおよびディレクトリに対するアクセスを結合する場合に使用されます。 |
-
-::: moniker-end
 
 ### <a name="physicalfileprovider"></a>PhysicalFileProvider
 
@@ -102,8 +89,6 @@ var physicalProvider = _env.ContentRootFileProvider;
 
 プロバイダーを任意のクラスのコンストラクターに挿入し、それをローカル フィールドに割り当てます。 クラスのメソッド全体で、ファイルにアクセスするためにフィールドを使用します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 サンプル アプリでは、`IndexModel` クラスは `IFileProvider` インスタンスを受け取り、アプリのベース パスに対するディレクトリのコンテンツを取得します。
 
 *Pages/Index.cshtml.cs*:
@@ -116,32 +101,9 @@ var physicalProvider = _env.ContentRootFileProvider;
 
 [!code-cshtml[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml?name=snippet1)]
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-サンプル アプリでは、`HomeController` クラスは `IFileProvider` インスタンスを受け取り、アプリのベース パスに対するディレクトリのコンテンツを取得します。
-
-*Controllers/HomeController.cs*:
-
-[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Controllers/HomeController.cs?name=snippet1)]
-
-`IDirectoryContents` はビュー内で繰り返されます。
-
-*Views/Home/Index.cshtml*:
-
-[!code-cshtml[](file-providers/samples/1.x/FileProviderSample/Views/Home/Index.cshtml?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.0"
-
 ### <a name="manifestembeddedfileprovider"></a>ManifestEmbeddedFileProvider
 
 アセンブリ内に埋め込まれているファイルにアクセスするために、[ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) が使用されます。 `ManifestEmbeddedFileProvider` では、アセンブリにコンパイルされたマニフェストを使用して、埋め込まれたファイルの元のパスを再構築します。
-
-> [!NOTE]
-> `ManifestEmbeddedFileProvider` は、ASP.NET Core 2.1 以降で使用できます。 ASP.NET Core 2.0 以前のアセンブリに埋め込まれたファイルにアクセスする方法については、[このトピックの ASP.NET Core 1.x バージョン](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1)に関する記事をご覧ください。
 
 埋め込みファイルのマニフェストを生成するには、`<GenerateEmbeddedFilesManifest>` プロパティを `true` に設定します。 [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) を使用して埋め込むファイルを指定します。
 
@@ -170,76 +132,24 @@ var manifestEmbeddedProvider =
 | [ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | 必要に応じて、相対パスのパラメーター `root` と、`lastModified` 日付 ([DateTimeOffset](/dotnet/api/system.datetimeoffset)) パラメーターを指定できます。 `lastModified` の日付は、[IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) によって返される [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) インスタンスの最終更新日のスコープを設定します。 |
 | [ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_String_System_DateTimeOffset_) | 必要に応じて、相対パス `root`、日付 `lastModified`、`manifestName` パラメーターを指定できます。 `manifestName` は、マニフェストを含む埋め込みリソースの名前を表します。 |
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-### <a name="embeddedfileprovider"></a>EmbeddedFileProvider
-
-アセンブリ内に埋め込まれているファイルにアクセスするために、[EmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider) が使用されます。 プロジェクト ファイルの [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) プロパティを使用して、埋め込むファイルを指定します。
-
-```xml
-<ItemGroup>
-  <EmbeddedResource Include="Resource.txt" />
-</ItemGroup>
-```
-
-[glob パターン](#glob-patterns)を使用して、アセンブリに埋め込むファイルを 1 つまたは複数指定します。
-
-サンプル アプリでは `EmbeddedFileProvider` を作成して、現在実行しているアセンブリをそのコンストラクターに渡します。
-
-*Startup.cs*:
-
-```csharp
-var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
-```
-
-埋め込みリソースではディレクトリは公開されません。 その代わり、リソースへのパス (名前空間を経由する) は、`.` 区切り記号を使用して、リソースのファイル名に埋め込まれます。 サンプル アプリでは、`baseNamespace` は `FileProviderSample.` です。
-
-[EmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_EmbeddedFileProvider__ctor_System_Reflection_Assembly_) コンストラクターには、必要に応じて `baseNamespace` パラメーターを指定できます。 名前空間を指定して、[GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) の呼び出しのスコープを、指定した名前空間の下のリソースに設定します。
-
-::: moniker-end
-
 ### <a name="compositefileprovider"></a>CompositeFileProvider
 
 [CompositeFileProvider](/dotnet/api/microsoft.extensions.fileproviders.compositefileprovider) は、`IFileProvider` インスタンスを結合し、複数のプロバイダーからのファイルを操作するための 1 つのインターフェイスを公開します。 `CompositeFileProvider` を作成する場合、1 つまたは複数の `IFileProvider` インスタンスをそのコンストラクターに渡します。
-
-::: moniker range=">= aspnetcore-2.0"
 
 サンプル アプリでは、`PhysicalFileProvider` と `ManifestEmbeddedFileProvider` が、アプリのサービス コンテナーに登録されている `CompositeFileProvider` にファイルを提供します。
 
 [!code-csharp[](file-providers/samples/2.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-サンプル アプリでは、`PhysicalFileProvider` と `EmbeddedFileProvider` が、アプリのサービス コンテナーに登録されている `CompositeFileProvider` にファイルを提供します。
-
-[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Startup.cs?name=snippet1)]
-
-::: moniker-end
-
 ## <a name="watch-for-changes"></a>変更の監視
 
 [IFileProvider.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) メソッドによって、1 つまたは複数のファイルやディレクトリに変更がないかどうか監視するシナリオが提供されます。 `Watch` にはパス文字列を指定できます。ここでは、[glob パターン](#glob-patterns)を使用して複数のファイルを指定できます。 `Watch` によって [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) が返されます。 変更トークンでは次のものが公開されます。
 
-* [HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged): このプロパティを調べることで、変更があったかどうか判断できます。
+* [HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged): このプロパティを調べることで、変更があったかどうかを判断できます。
 * [RegisterChangeCallback](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback): 指定したパス文字列に対して変更が検出されたときに呼び出されます。 各変更トークンは、1 つの変更への応答として、関連付けられたコールバックを呼び出すのみです。 定数の監視を有効に使用するには、次に示すように [TaskCompletionSource](/dotnet/api/system.threading.tasks.taskcompletionsource-1) を使用するか、変更への応答として `IChangeToken` インスタンスを再作成します。
 
 サンプル アプリでは、*WatchConsole* コンソール アプリは、テキスト ファイルが変更されるたびにメッセージを表示するように構成されています。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](file-providers/samples/2.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](file-providers/samples/1.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
-
-::: moniker-end
 
 Docker コンテナーやネットワーク共有など、一部のファイル システムは、変更通知を確実に送信しない可能性があります。 `DOTNET_USE_POLLING_FILE_WATCHER` 環境変数を `1` または `true` に設定して、変更がないかどうか、4 秒ごとにファイル システムをポーリングして確認します (構成不可)。
 

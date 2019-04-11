@@ -4,15 +4,15 @@ description: このチュートリアルでは、ASP.NET Core アプリケーシ
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: ba688b259206f21045376b6a38a266ad7528aec1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103008"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750762"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>チュートリアル: 継承を実装する - ASP.NET MVC と EF Core
 
@@ -32,7 +32,7 @@ ms.locfileid: "56103008"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリで EF Core を使ってコンカレンシーを処理する](concurrency.md)
+* [コンカレンシーの処理](concurrency.md)
 
 ## <a name="map-inheritance-to-database"></a>継承をデータベースにマップする
 
@@ -168,6 +168,7 @@ Entity Framework Core での継承の詳細については、「[継承](/ef/cor
 > * 移行を作成および更新した
 > * 実装をテストした
 
-比較的高度な Entity Framework のさまざまなシナリオを処理する方法について学習するには、次の記事に進んでください。
+比較的高度な Entity Framework のさまざまなシナリオを処理する方法について学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
-> [高度なトピック](advanced.md)
+> [次へ: 詳細トピック](advanced.md)

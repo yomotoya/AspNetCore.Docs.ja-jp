@@ -4,15 +4,15 @@ description: このチュートリアルでは、Entity Framework Core を使用
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c6255e2b4fc67c6174bab4458ec82035b1886002
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264594"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750610"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>チュートリアル: 高度なシナリオについて学習する - ASP.NET MVC と EF Core
 
@@ -33,7 +33,7 @@ ms.locfileid: "58264594"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリで EF Core を使って継承を実装する](inheritance.md)
+* [継承の実装](inheritance.md)
 
 ## <a name="perform-raw-sql-queries"></a>生 SQL クエリを実行する
 
@@ -53,7 +53,7 @@ Web アプリケーションで SQL コマンドを実行する場合は常に�
 
 *DepartmentsController.cs* の `Details` メソッドで、次の強調表示されたコードに示されているように、部門を取得するコードを `FromSql` メソッドの呼び出しに置き換えます。
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
 新しいコードが正しく動作することを確認するには、**[Departments]\(部門\)** タブを選択し、いずれかの部門の **[Details]\(詳細\)** を選択します。
 
@@ -276,6 +276,7 @@ Web アプリの展開方法については、「<xref:host-and-deploy/index>」
 > * EF Core のソース コードと開発計画について学習した
 > * 動的な LINQ を使ってコードを簡略化する方法を学習した
 
-これで、ASP.NET Core MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。 ASP.NET Core と共に EF 6 を使う方法について学習する場合は、次の記事をご覧ください。
+これで、ASP.NET Core MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。 このシリーズでは新しいデータベースが使用されました。別の方法としては、既存のデータベースからモデルをリバース エンジニアリングします。
+
 > [!div class="nextstepaction"]
-> [ASP.NET Core による EF6](../entity-framework-6.md)
+> [チュートリアル: EF Core と MVC、既存のデータベース](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

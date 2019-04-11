@@ -4,15 +4,15 @@ description: このチュートリアルでは、外部キー フィールドと
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6add725430380f0855fe660a70b90a4546ef0637
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209415"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750912"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>チュートリアル: 関連データを更新する - ASP.NET MVC と EF Core
 
@@ -35,7 +35,7 @@ ms.locfileid: "58209415"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [ASP.NET Core MVC Web アプリの EF Core を使って関連データを読み取る](read-related-data.md)
+* [関連データの読み取り](read-related-data.md)
 
 ## <a name="customize-courses-pages"></a>Courses ページをカスタマイズする
 
@@ -123,7 +123,7 @@ Courses/Index ページのコースで **[Edit]** をクリックします。
 
 *InstructorsController.cs* で、HttpGet `Edit` メソッド内のコードを、Instructor エンティティの `OfficeAssignment` ナビゲーション プロパティを読み込んで `AsNoTracking` を呼び出すように変更します。
 
-[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=8-11&name=snippet_EditGetOA)]
 
 HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの割り当ての更新を処理します。
 
@@ -225,7 +225,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 <a id="notepad"></a>
 > [!NOTE]
-> Visual Studio にコードを貼り付けると、改行がコードを分割するように変更されます。 Ctrl キーを押しながら Z キーを 1 回押して、オート フォーマットを元に戻します。 これにより、改行がここに示されているように修正されます。 インデントは完璧である必要はありませんが、`@</tr><tr>`、`@:<td>`、`@:</td>`、および `@:</tr>` の行は、示されているようにそれぞれ 1 行にする必要があります。そうしないと、ランタイム エラーが発生します。 新しいコードのブロックを選択して、Tab キーを 3 回押して、新しいコードと既存のコードを並べます。 この問題の状態は、[ここ](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)で確認できます。
+> Visual Studio にコードを貼り付けると、改行がコードを分割するように変更される場合があります。 貼り付けた後でコードが変化している場合は、Ctrl + Z キーを 1 回押して、自動書式設定を元に戻してください。 これにより、改行がここに示されているように修正されます。 インデントは完璧である必要はありませんが、`@</tr><tr>`、`@:<td>`、`@:</td>`、および `@:</tr>` の行は、示されているようにそれぞれ 1 行にする必要があります。そうしないと、ランタイム エラーが発生します。 新しいコードのブロックを選択して、Tab キーを 3 回押して、新しいコードと既存のコードを並べます。 この問題は、Visual Studio 2019 で修正されます。
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -314,6 +314,7 @@ public ICollection<CourseAssignment> CourseAssignments
 > * Delete ページを更新した
 > * オフィスの場所とコースを Create ページに追加した
 
-コンカレンシーの競合を処理する方法について学習するには、次の記事に進んでください。
+コンカレンシーの競合を処理する方法について学習するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
 > [コンカレンシーの競合の処理](concurrency.md)
