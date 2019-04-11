@@ -4,14 +4,14 @@ author: rick-anderson
 description: インターネットに接続された最新のクラウド ベース アプリケーションを構築するための、クロス プラットフォームで高パフォーマンスのオープン ソース フレームワークである ASP.NET Core について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: baf8557b29c30f6dbeb6a4ff5d50c83d07160a51
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 944c8a93aff53b8d72fda03f5df9c5ba45990cbc
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320238"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068274"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -50,9 +50,9 @@ ASP.NET Core は、人気のあるクライアント側のフレームワーク�
 
 ## <a name="aspnet-core-targeting-net-framework"></a>.NET Framework を対象とする ASP.NET Core
 
-ASP.NET Core 2.x は、.NET Core または .NET Framework を対象にすることができます。 .NET Framework を対象とする ASP.NET Core アプリはクロスプラットフォームではありません&mdash;Windows でのみ実行されます。 一般に、ASP.NET Core 2.x は [.NET Standard](/dotnet/standard/net-standard) ライブラリで構成されています。 .NET Standard 2.0 で記述されたアプリは、.NET Standard 2.0 がサポートされていればどこでも実行できます。
+ASP.NET Core 2.x は、.NET Core または .NET Framework を対象にすることができます。 .NET Framework を対象とする ASP.NET Core アプリはクロスプラットフォームではありません&mdash;Windows でのみ実行されます。 一般に、ASP.NET Core 2.x は [.NET Standard](/dotnet/standard/net-standard) ライブラリで構成されています。 .NET Standard 2.0 を使って作成されたライブラリは、[.NET Standard 2.0 を実装しているすべての .NET プラットフォーム](/dotnet/standard/net-standard#net-implementation-support)上で動作します。
 
-ASP.NET Core 2.x は、.NET Standard 2.0 との互換性を持つ .NET Framework バージョンにおいてサポートされています。
+ASP.NET Core 2.x は、.NET Standard 2.0 を実装している .NET Framework バージョンにおいてサポートされています。
 
 * .NET framework 4.7.1 以降を強くお勧めします。
 * .NET Framework 4.6.1 以降。
@@ -77,7 +77,7 @@ ASP.NET Core アプリを開発する場合の概要として、次の順序で�
 
    |アプリの種類  |シナリオ  |チュートリアル  |
    |----------|----------|----------|
-   |Web アプリ       | 新規の開発        |[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start) |
+   |Web アプリ       | 新規の開発        |[Razor Pages の概要](xref:tutorials/razor-pages/razor-pages-start) |
    |Web アプリ       | MVC アプリの管理 |[MVC の概要](xref:tutorials/first-mvc-app/start-mvc)|
    |Web API       |                            |[Web API の作成](xref:tutorials/first-web-api)\*  |
    |リアルタイムのアプリ |                            |[SignalR の概要](xref:tutorials/signalr) |
@@ -91,7 +91,7 @@ ASP.NET Core アプリを開発する場合の概要として、次の順序で�
 
 1. すべての種類のアプリに該当する ASP.NET Core の機能の概要は、次を参照してください。
 
-   * [ASP.NET Core の基礎の概要](xref:fundamentals/index)
+   * [Fundamentals](xref:fundamentals/index)
 
 1. 興味のあるその他のトピックは、目次から参照してください。
 
