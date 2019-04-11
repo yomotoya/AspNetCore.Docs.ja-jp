@@ -5,14 +5,14 @@ description: Razor Components アプリを段階的に構築し、Razor Componen
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/24/2019
+ms.date: 04/06/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: 2a987b3f2e687cd9d4dffa2c573c938e68ea3cc8
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 697c4659bcc9952ffe9868fe9b3c0d28019bc369
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419366"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468777"
 ---
 # <a name="build-your-first-razor-components-app"></a>最初の Razor Components アプリを構築する
 
@@ -194,7 +194,7 @@ Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* �
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" bind="@newTodo">
    ```
 
 1. 指定したタイトルを備えた `TodoItem` をリストに追加するように、`AddTodo` メソッドを更新します。 `newTodo` を空の文字列に設定して、テキスト入力の値をクリアします。
@@ -221,4 +221,4 @@ Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* �
 
 ## <a name="publish-and-deploy-the-app"></a>アプリを発行および配置する
 
-アプリの発行方法については、<xref:host-and-deploy/razor-components/index#publish-the-app> をご覧ください。
+アプリの発行方法については、<xref:host-and-deploy/razor-components-blazor/index> をご覧ください。

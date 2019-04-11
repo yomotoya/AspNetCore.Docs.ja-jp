@@ -4,14 +4,14 @@ author: pkellner
 description: イメージ タグ ヘルパーを使用する方法を示します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325836"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468819"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>ASP.NET Core のイメージ タグ ヘルパー
 
@@ -43,13 +43,13 @@ ms.locfileid: "49325836"
 イメージ タグ ヘルパーを使用する例を次に示します。
 
 ```cshtml
-<img src="~/images/asplogo.png" asp-append-version="true" />
+<img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
 静的ファイルがディレクトリ */wwwroot/images/* に存在する場合、生成された HTML は次のようになります (ハッシュは異なります)。
 
 ```html
-<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
 パラメーター `v` に割り当てられた値は、ディスク上の *asplogo.png* ファイルのハッシュ値です。 Web サーバーが静的ファイルに対する読み取りアクセスを取得できない場合、`v` パラメーターは表示されるマークアップの `src` 属性に追加されません。
