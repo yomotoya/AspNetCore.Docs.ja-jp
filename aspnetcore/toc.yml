@@ -157,7 +157,7 @@ items:
     name: 依存性の注入 (サービス)
   - uid: fundamentals/middleware/index
     name: ミドルウェア
-  - name: ホスト
+  - name: Host
     items:
     - uid: fundamentals/host/web-host
       name: Web ホスト
@@ -561,10 +561,14 @@ items:
       name: 概要
     - uid: razor-components/get-started
       name: 作業開始
+    - uid: razor-components/hosting-models
+      name: ホスティング モデル
     - uid: tutorials/first-razor-components-app
       name: 最初のアプリをビルドする
     - uid: razor-components/components
       name: コンポーネント
+    - uid: razor-components/forms-validation
+      name: フォームと検証
     - uid: razor-components/class-libraries
       name: コンポーネント ライブラリ
     - uid: razor-components/layouts
@@ -577,14 +581,12 @@ items:
       name: JavaScript 相互運用
     - uid: razor-components/debug
       name: デバッグ
-    - uid: razor-components/hosting-models
-      name: ホスティング モデル
     - name: ホストと配置
       items:
-      - uid: host-and-deploy/razor-components/index
+      - uid: host-and-deploy/razor-components-blazor/index
         name: 概要
-      - uid: host-and-deploy/razor-components/configure-linker
-        name: リンカーを構成する
+      - uid: host-and-deploy/razor-components-blazor/razor-components
+        name: Razor Components
   - name: 単一ページのアプリ
     items:
     - name: Blazor
@@ -593,10 +595,14 @@ items:
         name: 概要
       - uid: spa/blazor/get-started
         name: 作業開始
+      - uid: razor-components/hosting-models
+        name: ホスティング モデル
       - uid: tutorials/first-razor-components-app
         name: 最初のアプリをビルドする
       - uid: razor-components/components
         name: コンポーネント
+      - uid: razor-components/forms-validation
+        name: フォームと検証
       - uid: razor-components/class-libraries
         name: コンポーネント ライブラリ
       - uid: razor-components/layouts
@@ -609,13 +615,13 @@ items:
         name: JavaScript 相互運用
       - uid: razor-components/debug
         name: デバッグ
-      - uid: razor-components/hosting-models
-        name: ホスティング モデル
       - name: ホストと配置
         items:
-        - uid: host-and-deploy/razor-components/index
+        - uid: host-and-deploy/razor-components-blazor/index
           name: 概要
-        - uid: host-and-deploy/razor-components/configure-linker
+        - uid: host-and-deploy/razor-components-blazor/blazor
+          name: Blazor
+        - uid: host-and-deploy/razor-components-blazor/configure-linker
           name: リンカーを構成する
     - uid: spa/angular
       name: Angular
@@ -774,11 +780,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: 正常性チェック
     displayName: deploy, publish
-  - name: Razor Components
+  - name: Razor Components/Blazor
     items:
-    - uid: host-and-deploy/razor-components/index
+    - uid: host-and-deploy/razor-components-blazor/index
       name: 概要
-    - uid: host-and-deploy/razor-components/configure-linker
+    - uid: host-and-deploy/razor-components-blazor/blazor
+      name: Blazor
+    - uid: host-and-deploy/razor-components-blazor/razor-components
+      name: Razor Components
+    - uid: host-and-deploy/razor-components-blazor/configure-linker
       name: リンカーを構成する
 - name: セキュリティと ID
   displayName: authentication, authorization
@@ -1083,9 +1093,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d9ab9beacab19a0e004878d2645b1106bf5dc0d6
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 0065707eeaf77327e553b3c43b65e11063edd7e0
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751107"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068392"
