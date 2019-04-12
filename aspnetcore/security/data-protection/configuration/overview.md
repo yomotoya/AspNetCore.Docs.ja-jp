@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core でのデータ保護を構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 36a06246513215ec29891df02688d113db11f914
-ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
+ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733496"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516249"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
 
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 設定キー リング記憶域の場所 (たとえば、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage))。 呼び出すために、場所を設定する必要があります`ProtectKeysWithAzureKeyVault`実装、 [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)キー リング記憶域の場所を含む、データの自動保護設定を無効にします。 前の例では、Azure Blob Storage を使用して、キー リングを保持します。 詳細については、次を参照してください。[キー記憶域プロバイダー。Azure と Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)します。 ローカルにキー リングを保存することもできます。 [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system)します。
 
-`keyIdentifier`はキーの暗号化に使用されるキー コンテナーのキー識別子です (たとえば、 `https://contosokeyvault.vault.azure.net/keys/dataprotection/`)。
+`keyIdentifier`はキーの暗号化に使用されるキー コンテナーのキー識別子です。 たとえば、という名前の key vault に作成されたキー`dataprotection`で、`contosokeyvault`したキー識別子を持つ`https://contosokeyvault.vault.azure.net/keys/dataprotection/`します。 使用してアプリを提供**Unwrap Key**と**Wrap Key** key vault へのアクセスを許可します。
 
 `ProtectKeysWithAzureKeyVault` オーバー ロードします。
 
@@ -154,7 +154,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="disableautomatickeygeneration"></a>DisableAutomaticKeyGeneration
 
-自動的に有効期限を実現するキー (新しいキーを作成する) を展開するアプリをたくないシナリオがあります。 この 1 つの例には、アプリでプライマリ アプリのみがキー管理の問題に責任を負います、セカンダリのアプリは、キー リングの読み取り専用ビューを単純にあるプライマリ/セカンダリの関係を設定する可能性があります。 使用してシステムを構成することによって、読み取り専用としてキー リングを処理するセカンダリのアプリを構成することができます[DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):
+自動的に有効期限を実現するキー (新しいキーを作成する) を展開するアプリをたくないシナリオがあります。 この 1 つの例には、アプリでプライマリ アプリのみがキー管理の問題に責任を負います、セカンダリのアプリは、キー リングの読み取り専用ビューを単純にあるプライマリ/セカンダリの関係を設定する可能性があります。 使用してシステムを構成することによって、読み取り専用としてキー リングを処理するセカンダリのアプリを構成することができます<xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.DisableAutomaticKeyGeneration*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -166,13 +166,12 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="per-application-isolation"></a>アプリケーションごとの分離
 
-データ保護システムを指定するには、ASP.NET Core のホストによって、自動的に分離され、そのアプリから、別場合でも、それらのアプリが同じワーカー プロセス アカウントで実行されていて、同じマスター キー生成情報を使用しています。 これは、System.Web から IsolateApps 修飾子に少し似ています **\<machineKey >** 要素。
+データ保護システムを指定するには、ASP.NET Core のホストによって、自動的に分離され、そのアプリから、別場合でも、それらのアプリが同じワーカー プロセス アカウントで実行されていて、同じマスター キー生成情報を使用しています。 これは、System.Web から IsolateApps 修飾子に少し似ています`<machineKey>`要素。
 
-したがって、一意のテナントとして、ローカル コンピューター上の各アプリを考慮して分離メカニズムの動作、 [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector)ルートの指定したアプリに自動的に識別子としてアプリ ID が含まれています。 アプリの一意の ID では、2 つの場所のいずれかのです。
+したがって、一意のテナントとして、ローカル コンピューター上の各アプリを考慮して分離メカニズムの動作、<xref:Microsoft.AspNetCore.DataProtection.IDataProtector>ルートの指定したアプリに自動的に識別子としてアプリ ID が含まれています。 アプリの一意の ID は、アプリの物理パスです。
 
-1. アプリが IIS でホストされる、一意の識別子は、アプリの構成パスです。 Web ファーム環境でアプリを展開する場合は、IIS 環境は web ファーム内のすべてのコンピューター間で同様に構成されていると仮定するとこの値が安定したなります。
-
-2. アプリは、IIS でホストされていない、一意の識別子は、アプリの物理パスです。
+* ホストされるアプリ[IIS](xref:fundamentals/servers/index#iis-http-server)、一意の ID は、アプリの IIS 物理パス。 場合は、web ファーム環境でアプリを展開すると、この値は、IIS 環境は web ファーム内のすべてのコンピューター間で同様に構成されていると仮定安定したは。
+* 実行される自己ホスト型アプリ、 [Kestrel サーバー](xref:fundamentals/servers/index#kestrel)、一意の ID は、ディスク上のアプリへの物理パス。
 
 一意の識別子がリセット後も存続するように設計&mdash;の個々 のアプリと、マシン自体の両方。
 

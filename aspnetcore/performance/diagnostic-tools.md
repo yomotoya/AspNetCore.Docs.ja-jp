@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core アプリのパフォーマンスの問題を診断するための便利なツールです。
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 04/11/2019
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 66676b5a2b95b87bfbbd50022e279e35a12b9793
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210003"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516223"
 ---
 # <a name="performance-diagnostic-tools"></a>パフォーマンスの診断ツール
 
@@ -32,7 +32,7 @@ ms.locfileid: "58210003"
 Azure Application Insights では、監視対象のアプリで洞察を提供する複数の方法を提供します。
 
 - [アプリケーション マップ](/azure/application-insights/app-insights-app-map)– 分散アプリのすべてのコンポーネント間でスポット パフォーマンスのボトルネックや障害ホット スポットに役立ちます。
-- [Application Insights ポータルの [メトリック] ブレード](/azure/application-insights/app-insights-metrics-explorer?toc=/azure/azure-monitor/toc.json)表示測定値とイベントをカウントします。
+- [Azure メトリックス エクスプ ローラー](/azure/azure-monitor/platform/metrics-getting-started)はプロット グラフ、傾向を視覚的に関連付けることができる Microsoft Azure ポータルのコンポーネントで急増し急減メトリック内の値を調査します。
 - [Application Insights ポータルの [パフォーマンス] ブレード](/azure/application-insights/app-insights-tutorial-performance):
 
   - 監視対象のアプリでは、さまざまな操作のパフォーマンスの詳細を示しています。
