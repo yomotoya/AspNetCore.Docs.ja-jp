@@ -4,33 +4,79 @@ author: rick-anderson
 description: このチュートリアルでは、OAuth 2.0 と外部の認証プロバイダーを使用して ASP.NET Core 2.x アプリを構築する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/19/2019
+ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396143"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516327"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、ユーザーが OAuth 2.0 と外部の認証プロバイダーの資格情報を使用してログインできる、ASP.NET Core 2.2 アプリケーションを構築する方法について説明します。
+このチュートリアルでは、ユーザーが OAuth 2.0 と外部の認証プロバイダーの資格情報を使用してサインインできる、ASP.NET Core 2.2 アプリケーションを構築する方法について説明します。
 
 ここでは、[Facebook](xref:security/authentication/facebook-logins)、[Twitter](xref:security/authentication/twitter-logins)、[Google](xref:security/authentication/google-logins)、および [Microsoft](xref:security/authentication/microsoft-logins) の各プロバイダーを対象に説明します。 他のプロバイダーは、[AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers)、[AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers) などのサードパーティ パッケージで利用できます。
 
 ![Facebook、Twitter、Google+、Windows のソーシャル メディア アイコン](index/_static/social.png)
 
-ユーザーが既存の資格情報でサインインできるようにすると、ユーザーにとって便利なだけでなく、サインイン プロセスを管理する複雑な処理の多くをサードパーティに移行できます。 ソーシャル ログインによってトラフィックとユーザーの変換を促進する方法の例については、[Facebook](https://www.facebook.com/unsupportedbrowser) と [Twitter](https://dev.twitter.com/resources/case-studies) によるケース スタディを参照してください。
+既存の資格情報でユーザーがサインインできるようになると: 
+* ユーザーにとって便利です。
+* サインイン プロセスの複雑な管理の多くが、サード パーティに移ります。 
+
+ソーシャル ログインによってトラフィックとユーザーの変換を促進する方法の例については、[Facebook](https://www.facebook.com/unsupportedbrowser) と [Twitter](https://dev.twitter.com/resources/case-studies) によるケース スタディを参照してください。
 
 ## <a name="create-a-new-aspnet-core-project"></a>新しい .NET Core プロジェクトを作成する
 
-* Visual Studio 2017 のスタート ページから、または **[ファイル]** > **[新規作成]** > **[プロジェクト]** の順に選択して、新しいプロジェクトを作成します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **[Visual C#]** > **[.NET Core]** カテゴリにある **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。
+* Visual Studio の **[ファイル]** メニューから、**[新規作成]** > **[プロジェクト]** の順に選択します。
+* 新しい ASP.NET Core Web アプリケーションを作成します。
+* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、**[Web アプリケーション]** を選択します。
 * **[認証の変更]** を選択し、認証を **[個人のユーザー アカウント]** に設定します。
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* [統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を開きます。
+
+* ディレクトリ (`cd`) を、プロジェクトを格納するフォルダーに変更します。
+
+* 次のコマンドを実行します。
+
+  ```console
+  dotnet new webapp -o WebApp1
+  code -r WebApp1
+  ```
+
+  * `dotnet new` コマンドでは、*WebApp1* フォルダーに新しい Razor Pages プロジェクトが作成されます。
+  * `code` コマンドでは、Visual Studio Code の新しいインスタンス内に *WebApp1* フォルダーが開かれます。
+
+  "**ビルドとデバッグに必要な資産が 'WebApp1' にありません。追加しますか?**" という内容のダイアログ ボックスが表示されたら、
+
+* **[はい]** を選択します
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+端末から、次のコマンドを実行します。
+
+<!-- TODO: update these instruction once mac support 2.2 projects -->
+
+```console
+dotnet new webapp -o WebApp1
+```
+
+上記のコマンドでは、[.NET Core CLI](/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトが作成されます。
+
+## <a name="open-the-project"></a>プロジェクトを開く
+
+Visual Studio から、**[ファイル]、[開く]** の順に選択し、*WebApp1.csproj* ファイルを選択します。
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="apply-migrations"></a>移行を適用する
 
@@ -63,7 +109,7 @@ ms.locfileid: "54396143"
 
 ## <a name="optionally-set-password"></a>必要に応じてパスワードを設定する
 
-外部ログイン プロバイダーに登録するときに、アプリケーションにパスワードは登録していません。 そのため、サイトのパスワードを作成し、記憶する作業は軽減されますが、外部ログイン プロバイダーに依存することにもなります。 外部ログイン プロバイダーを使用できない場合、Web サイトにログインすることができません。
+外部ログイン プロバイダーに登録するときに、アプリケーションにパスワードは登録していません。 そのため、サイトのパスワードを作成し、記憶する作業は軽減されますが、外部ログイン プロバイダーに依存することにもなります。 外部ログイン プロバイダーを使用できない場合、Web サイトにサインインすることができません。
 
 外部プロバイダーでのサインイン プロセス中に設定した電子メール アドレスを使用して、パスワードを作成し、サインインするには、次の手順を実行します。
 
