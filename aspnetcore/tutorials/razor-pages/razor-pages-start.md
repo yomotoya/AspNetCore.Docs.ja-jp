@@ -5,12 +5,12 @@ description: このチュートリアル シリーズでは、ASP.NET Core で R
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 88449a0064dad42d8d2bf9fbdd67078e4c2ba8de
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210055"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468848"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>チュートリアル: ASP.NET Core の Razor ページの概要
 
@@ -39,7 +39,7 @@ ms.locfileid: "58210055"
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor ページ Web アプリを作成する
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Visual Studio の **[ファイル]** メニューから、**[新規作成]** > **[プロジェクト]** の順に選択します。
 
@@ -55,7 +55,7 @@ ms.locfileid: "58210055"
 
   ![ソリューション エクスプローラー](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 * [統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を開きます。
 
@@ -75,7 +75,7 @@ ms.locfileid: "58210055"
 
 * **[はい]** を選択します
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
 
 端末から、次のコマンドを実行します。
 
@@ -83,7 +83,6 @@ ms.locfileid: "58210055"
 
 ```console
 dotnet new webapp -o RazorPagesMovie
-cd RazorPagesMovie
 ```
 
 上記のコマンドでは、[.NET Core CLI](/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトが作成されます。
@@ -98,31 +97,13 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
 ## <a name="run-the-app"></a>アプリを実行する
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Ctrl + F5 キーを押して、デバッガーなしで実行します。
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
   Visual Studio で [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。
-  
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* **Ctrl + F5** キーを押して、デバッガーなしで実行します。
-
-  [!INCLUDE[](~/includes/trustCertVSC.md)]
-
-  Visual Studio Code で [Kestrel](xref:fundamentals/servers/kestrel) が開始され、ブラウザーが起動して、`http://localhost:5001` に移動します。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。
-  
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
-
-**[実行]、[デバッグなしで開始]** の順に選択してアプリを起動します。 Visual Studio は [Kestrel](xref:fundamentals/servers/kestrel) を開始し、ブラウザーを起動して、`http://localhost:5001` に移動します。
-
-[!INCLUDE[](~/includes/trustCertMac.md)]
-
-<!-- End of VS tabs -->
-
----
 
 * アプリのホーム ページ上で、**[同意する]** を選択して、追跡に同意します。
 
@@ -133,6 +114,46 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
   次の図では、追跡に同意した後のアプリを示しています。
 
   ![ホームまたはインデックス ページ](razor-pages-start/_static/home2.2.png)
+  
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+
+  [!INCLUDE[](~/includes/trustCertVSC.md)]
+
+* **Ctrl + F5** キーを押して、デバッガーなしで実行します。
+
+  Visual Studio Code で [Kestrel](xref:fundamentals/servers/kestrel) が開始され、ブラウザーが起動して、`http://localhost:5001` に移動します。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。
+
+* アプリのホーム ページ上で、**[同意する]** を選択して、追跡に同意します。
+
+  このアプリによって個人情報は追跡されません。しかし、欧州連合の[一般データ保護規則 (GDPR)](xref:security/gdpr) に準拠するための同意機能が必要な場合は、プロジェクト テンプレートにその機能が含められます。
+
+  ![ホームまたはインデックス ページ](razor-pages-start/_static/homeGDPR2.2.png)
+
+  次の図では、追跡に同意した後のアプリを示しています。
+
+  ![ホームまたはインデックス ページ](razor-pages-start/_static/home2.2.png)
+  
+# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+
+  [!INCLUDE[](~/includes/trustCertMac.md)]
+
+* **Cmd - Opt - F5** キーを押して、デバッガーなしで実行します。
+
+  Visual Studio は [Kestrel](xref:fundamentals/servers/kestrel) を開始し、ブラウザーを起動して、`http://localhost:5001` に移動します。
+
+* アプリのホーム ページ上で、**[同意する]** を選択して、追跡に同意します。
+
+  このアプリによって個人情報は追跡されません。しかし、欧州連合の[一般データ保護規則 (GDPR)](xref:security/gdpr) に準拠するための同意機能が必要な場合は、プロジェクト テンプレートにその機能が含められます。
+
+  ![ホームまたはインデックス ページ](razor-pages-start/_static/homeGDPR2.2_safari.png)
+
+  次の図では、追跡に同意した後のアプリを示しています。
+
+  ![ホームまたはインデックス ページ](razor-pages-start/_static/home2.2_safari.png)
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="examine-the-project-files"></a>プロジェクト ファイルを確認する
 
@@ -179,4 +200,4 @@ cookie に対する同意が必要かどうかなど、アプリの動作を構�
 このシリーズの次のチュートリアルに進んでください。
 
 > [!div class="step-by-step"]
-> [モデルの追加](xref:tutorials/razor-pages/model)
+> [モデルを追加する](xref:tutorials/razor-pages/model)

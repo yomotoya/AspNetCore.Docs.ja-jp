@@ -4,14 +4,14 @@ author: ardalis
 description: 部分ビューを使用して大規模なマークアップ ファイルを分割し、ASP.NET Core アプリの Web ページ間で共通するマークアップの重複を減らす方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/11/2018
+ms.date: 04/06/2019
 uid: mvc/views/partial
-ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327379"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468709"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core の部分ビュー
 
@@ -136,7 +136,7 @@ MVC ビューのレンダリングとは異なり、部分ビューは *_ViewSta
 
 ### <a name="asynchronous-html-helper"></a>非同期の HTML ヘルパー
 
-HTML ヘルパーを使用している場合、ベスト プラクティスは <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*> を使用することです。 `PartialAsync` は、<xref:System.Threading.Tasks.Task%601> でラップされた <xref:Microsoft.AspNetCore.Html.IHtmlContent> 型を返します。 待機中の呼び出しの前に `@` 文字を付与することで、メソッドが参照されます。
+HTML ヘルパーを使用している場合、ベスト プラクティスは <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*> を使用することです。 `PartialAsync` からは、<xref:System.Threading.Tasks.Task%601> でラップされた <xref:Microsoft.AspNetCore.Html.IHtmlContent> 型が返されます。 待機中の呼び出しの前に `@` 文字を付与することで、メソッドが参照されます。
 
 ```cshtml
 @await Html.PartialAsync("_PartialName")
@@ -182,7 +182,7 @@ HTML ヘルパーを使用している場合、ベスト プラクティスは <
 
 ### <a name="synchronous-html-helper"></a>同期の HTML ヘルパー
 
-<xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.Partial*> と <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial*> はそれぞれ、`PartialAsync` と `RenderPartialAsync` の同期に相当します。 デッドロックが発生するシナリオがあるため、同期に相当する機能はお勧めしません。 同期メソッドは、将来のリリースでは削除対象になります。
+<xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.Partial*> と <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial*> はそれぞれ、`PartialAsync` と `RenderPartialAsync` の同期版です。 デッドロックが発生するシナリオがあるため、同期に相当する機能はお勧めしません。 同期メソッドは、将来のリリースでは削除対象になります。
 
 > [!IMPORTANT]
 > コードを実行する必要がある場合は、部分ビューの代わりに[ビュー コンポーネント](xref:mvc/views/view-components)を使用してください。
@@ -243,7 +243,7 @@ HTML ヘルパーを使用している場合、ベスト プラクティスは <
 
 ## <a name="access-data-from-partial-views"></a>部分ビューからデータにアクセスする
 
-部分ビューがインスタンス化されると、親の `ViewData` ディクショナリの*コピー*を取得します。 親ビュー内のデータに対して行われた更新は、親ビューでは保持されません。 部分ビューで変更された `ViewData` は、部分ビューから返されるときに失われます。
+部分ビューがインスタンス化されると、親の `ViewData` ディクショナリの*コピー*を取得します。 親ビュー内のデータに対して行われた更新は、親ビューでは保持されません。 `ViewData` が部分ビューで変更された場合、部分ビューから返されるときに変更は失われます。
 
 次の例に、[ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) のインスタンスを部分ビューに渡す方法を示します。
 

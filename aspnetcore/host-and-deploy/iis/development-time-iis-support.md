@@ -1,37 +1,36 @@
 ---
 title: Visual Studio for ASP.NET Core の開発時 IIS サポート
-author: shirhatti
-description: ASP.NET Core アプリが Windows Server の IIS の背後で実行されている場合に、そのデバッグのサポートを検出します。
+author: guardrex
+description: ASP.NET Core アプリが Windows Server 上の IIS で実行されている場合に、そのデバッグのサポートを検出します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 44570bb28451ce4c5fde12ec77e3856fb5bd3062
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 6f555858239b4432d252f8b3ac7add5c3e8bfe62
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637665"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425102"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
 
 著者: [Sourabh Shirhatti](https://twitter.com/sshirhatti)、[Luke Latham](https://github.com/guardrex)
 
-この記事では、 Windows Server の IIS の背後で実行されている ASP.NET Core アプリをデバッグするための、[Visual Studio](https://www.visualstudio.com/vs/) のサポートについて説明します。 このトピックでは、手順に従ってこの機能を有効にし、プロジェクトを設定します。
+この記事では、Windows Server 上の IIS で実行されている ASP.NET Core アプリをデバッグするための、[Visual Studio](https://www.visualstudio.com/vs/) のサポートについて説明します。 このトピックでは、このシナリオを有効にしてプロジェクトを設定する手順を示します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [Visual Studio (Windows 版)](https://www.microsoft.com/net/download/windows)。
+* [Windows 用 Visual Studio](https://visualstudio.microsoft.com/downloads/)
 * **ASP.NET および Web の開発**ワークロード
 * **.NET Core クロスプラットフォームの開発**ワークロード
-* X.509 セキュリティ証明書
+* X.509 セキュリティ証明書 (HTTPS のサポート用)
 
 ## <a name="enable-iis"></a>IIS を有効にする
 
-1. **[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。
-1. **[インターネット インフォメーション サービス]** チェック ボックスをオンにします。
-
-![[インターネット インフォメーション サービス] チェック ボックスが黒い四角 (チェックマークではない) で選択され、一部の IIS 機能が有効であることが表示されている [Windows の機能]](development-time-iis-support/_static/enable_iis.png)
+1. Windows で、**[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。
+1. **[インターネット インフォメーション サービス]** チェック ボックスをオンにします。 **[OK]** を選択します。
 
 IIS のインストールには、システムの再起動が必要になる場合があります。
 
@@ -39,70 +38,77 @@ IIS のインストールには、システムの再起動が必要になる場�
 
 IIS には、次のように構成された Web サイトが含まれている必要があります。
 
-* アプリの起動プロファイルの URL ホスト名と一致するホスト名。
-* 割り当てられた証明書でのポート 443 のバインド。
-
-たとえば、追加された Web サイトの **[ホスト名]** は "localhost" に設定されます (このトピックの後半では、起動プロファイルも "localhost" を使用します)。 ポートは "443" (HTTPS) に設定されます。 **IIS Express Development Certificate** が Web サイトに割り当てられていますが、すべての有効な証明書を使用できます。
-
-![証明書が割り当てられた、ポート 443 での localhost に対するバインド セットを表示する、IIS の [Web サイトの追加] ウィンドウ](development-time-iis-support/_static/add-website-window.png)
-
-ホスト名がアプリの起動プロファイルの URL ホスト名と一致する **[既定の Web サイト]** が、IIS のインストールに既に含まれている場合は、次の操作を行います。
-
-* ポート 443 (HTTPS) に対するポートのバインドを追加する。
-* Web サイトに有効な証明書を割り当てる。
+* **ホスト名** &ndash; 通常、`localhost` の**ホスト名**では**既定の Web サイト**が使用されます。 ただし、一意のホスト名を持つ任意の有効な IIS Web サイトが動作します。
+* **サイト バインド**
+  * HTTPS を必要とするアプリの場合は、証明書でポート 443 へのバインドを作成します。 通常は、**IIS Express 開発証明書**が使用されますが、任意の有効な証明書を使用できます。
+  * HTTP を使用するアプリの場合は、ポート 80 へのバインドが存在することを確認するか、または新しいサイト用にポート 80 へのバインドを作成します。
+  * HTTP または HTTPS のいずれかに対する 1 つのバインドを使用します。 **HTTP と HTTPS の両方のポートに同時にバインドすることはサポートされていません。**
 
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Visual Studio の開発時 IIS サポートを有効にする
 
 1. Visual Studio インストーラーを起動します。
-1. **[開発時 IIS サポート]** コンポーネントを選択します。 **[ASP.NET と Web 開発]** ワークロードの **[概要]** パネルに、このコンポーネントがオプションとして表示されます。 このコンポーネントにより、IIS を使用した ASP.NET Core アプリの実行に必要なネイティブの IIS モジュールである [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)がインストールされます。
+1. IIS 開発時のサポート用に使用する Visual Studio のインストールの **[変更]** を選択します。
+1. **ASP.NET と Web 開発**ワークロードで、**開発時 IIS サポート** コンポーネントを探してインストールします。
 
-![Visual Studio の機能を変更する: [ワークロード] タブが選択されます。 [Web & Cloud]\(Web とクラウド\) のセクションでは、[ASP.NET と Web 開発] パネルが選択されています。 右側の [概要] パネルの [省略可能] 領域には、[開発時 IIS サポート] のチェックボックスがあります。](development-time-iis-support/_static/development_time_support.png)
+   ワークロードの右側にある **[インストールの詳細]** パネルの**開発時 IIS サポート**の下の **[省略可能]** セクションの一覧に、コンポーネントが表示されます。 このコンポーネントにより、IIS を使用した ASP.NET Core アプリの実行に必要なネイティブの IIS モジュールである [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)がインストールされます。
 
 ## <a name="configure-the-project"></a>プロジェクトを構成する
 
 ### <a name="https-redirection"></a>HTTPS リダイレクト
 
-新しいプロジェクトの場合、**[新しい ASP.NET Core Web アプリケーション]** ウィンドウで、**[Configure for HTTPS]\(HTTPS 用に構成する\)** のチェック ボックスをオンにします。
+HTTPS が必要な新しいプロジェクトの場合は、**[新しい ASP.NET Core Web アプリケーションを作成する]** ウィンドウで、**[HTTPS 用の構成]** のチェック ボックスをオンにします。 チェック ボックスをオンにすると、アプリの作成時に [HTTPS リダイレクトと HSTS ミドルウェア](xref:security/enforcing-ssl)がアプリに追加されます。
 
-![HTTPS 用に構成するチェック ボックスが選択された新しい ASP.NET Core Web アプリケーション ウィンドウ](development-time-iis-support/_static/new-app.png)
+HTTPS が必要な既存のプロジェクトでは、`Startup.Configure` 内で HTTPS リダイレクトと HSTS ミドルウェアを使用します。 詳細については、「<xref:security/enforcing-ssl>」を参照してください。
 
-既存のプロジェクトで、[UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection) 拡張メソッドを呼び出すことで、`Startup.Configure` の HTTPS リダイレクト ミドルウェアを使用します。
-
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    if (env.IsDevelopment())
-    {
-        app.UseDeveloperExceptionPage();
-    }
-    else
-    {
-        app.UseExceptionHandler("/Error");
-        app.UseHsts();
-    }
-
-    app.UseHttpsRedirection();
-    app.UseStaticFiles();
-    app.UseCookiePolicy();
-
-    app.UseMvc();
-}
-```
+HTTP を使用するプロジェクトの場合は、[HTTPS リダイレクトと HSTS ミドルウェア](xref:security/enforcing-ssl)はアプリに追加されません。 アプリの構成は必要ありません。
 
 ### <a name="iis-launch-profile"></a>IIS 起動プロファイル
 
 新しい起動プロファイルを作成して、開発時 IIS サポートを追加します。
 
+::: moniker range=">= aspnetcore-3.0"
+
+1. **ソリューション エクスプローラー**で、プロジェクトを右クリックします。 **[プロパティ]** を選びます。 **[デバッグ]** タブを開きます。
 1. **[プロファイル]** で、**[新規]** ボタンを選択します。 ポップアップ ウィンドウで、プロファイルに "IIS" という名前を付けます。 **[OK]** をクリックして、プロファイルを作成します。
 1. **[起動]** の設定で、一覧から **[IIS]** を選択します。
-1. **[ブラウザーの起動]** チェック ボックスをオンにして、エンドポイント URL を指定します。 HTTPS プロトコルを使用します。 この例では `https://localhost/WebApplication1` を使用します。
-1. **[環境変数]** セクションで、**[追加]** ボタンを選択します。 キーを `ASPNETCORE_ENVIRONMENT`、値を `Development` として環境変数を指定します。
-1. **[Web サーバー設定]** で **[アプリ URL]** を設定します。 この例では `https://localhost/WebApplication1` を使用します。
+1. **[ブラウザーの起動]** チェック ボックスをオンにして、エンドポイント URL を指定します。
+
+   アプリで HTTPS が必要な場合は、HTTPS エンドポイント (`https://`) を使用します。 HTTP の場合は、HTTP エンドポイント (`http://`) を使用します。
+
+   [前に指定した IIS 構成で使用されている](#configure-iis)ものと同じホスト名とポートを指定します。通常は `localhost` です。
+
+   URL の最後でアプリの名前を指定します。
+
+   たとえば、`https://localhost/WebApplication1` (HTTPS) や `http://localhost/WebApplication1`(HTTP) は有効なエンドポイント URL です。
+1. **[環境変数]** セクションで、**[追加]** ボタンを選択します。 `ASPNETCORE_ENVIRONMENT` の **[名前]** および `Development` の **[値]** で環境変数を指定します。
+1. **[Web サーバーの設定]** 領域で、**[アプリの URL]** を **[ブラウザーの起動]** エンドポイント URL に使用したものと同じ値に設定します。
+1. Visual Studio 2019 以降の **[ホスティング モデル]** の設定では、**[既定]** を選択して、プロジェクトによって使用されるホスティング モデルを使用します。 プロジェクトのプロジェクト ファイルで `<AspNetCoreHostingModel>` プロパティが設定されている場合は、プロパティ (`InProcess` または `OutOfProcess`) の値が使用されます。 プロパティが存在しない場合は、アプリの既定のホスティング モデルが使用され、それはインプロセスです。 アプリの通常のホスティング モデルとは異なるホスティング モデルを明示的に設定する必要があるアプリの場合は、必要に応じて、**[ホスティング モデル]** を `In Process` または `Out Of Process` に設定します。
 1. プロファイルを保存します。
 
-![[デバッグ] タブが選択された、プロジェクト プロパティのウィンドウ。 [プロファイル] と [起動] の設定は [IIS] に設定されます。 [ブラウザーの起動] 機能は https://localhost/WebApplication1 のアドレスで有効になっています。 同じアドレスが、[Web サーバー設定] の [アプリ URL] フィールドにも入力されます。](development-time-iis-support/_static/project_properties.png)
+::: moniker-end
 
-または、起動プロファイルをアプリの [launchSettings.json](http://json.schemastore.org/launchsettings) ファイルに手動で追加します。
+::: moniker range="< aspnetcore-3.0"
+
+1. **ソリューション エクスプローラー**で、プロジェクトを右クリックします。 **[プロパティ]** を選びます。 **[デバッグ]** タブを開きます。
+1. **[プロファイル]** で、**[新規]** ボタンを選択します。 ポップアップ ウィンドウで、プロファイルに "IIS" という名前を付けます。 **[OK]** をクリックして、プロファイルを作成します。
+1. **[起動]** の設定で、一覧から **[IIS]** を選択します。
+1. **[ブラウザーの起動]** チェック ボックスをオンにして、エンドポイント URL を指定します。
+
+   アプリで HTTPS が必要な場合は、HTTPS エンドポイント (`https://`) を使用します。 HTTP の場合は、HTTP エンドポイント (`http://`) を使用します。
+
+   [前に指定した IIS 構成で使用されている](#configure-iis)ものと同じホスト名とポートを指定します。通常は `localhost` です。
+
+   URL の最後でアプリの名前を指定します。
+
+   たとえば、`https://localhost/WebApplication1` (HTTPS) や `http://localhost/WebApplication1`(HTTP) は有効なエンドポイント URL です。
+1. **[環境変数]** セクションで、**[追加]** ボタンを選択します。 `ASPNETCORE_ENVIRONMENT` の **[名前]** および `Development` の **[値]** で環境変数を指定します。
+1. **[Web サーバーの設定]** 領域で、**[アプリの URL]** を **[ブラウザーの起動]** エンドポイント URL に使用したものと同じ値に設定します。
+1. Visual Studio 2019 以降の **[ホスティング モデル]** の設定では、**[既定]** を選択して、プロジェクトによって使用されるホスティング モデルを使用します。 プロジェクトのプロジェクト ファイルで `<AspNetCoreHostingModel>` プロパティが設定されている場合は、プロパティ (`InProcess` または `OutOfProcess`) の値が使用されます。 プロパティが存在しない場合は、アプリの既定のホスティング モデルが使用され、それはアウトプロセスです。 アプリの通常のホスティング モデルとは異なるホスティング モデルを明示的に設定する必要があるアプリの場合は、必要に応じて、**[ホスティング モデル]** を `In Process` または `Out Of Process` に設定します。
+1. プロファイルを保存します。
+
+::: moniker-end
+
+Visual Studio を使用していない場合は、起動プロファイルを *Properties* フォルダーの [launchSettings.json](http://json.schemastore.org/launchsettings) ファイルに手動で追加します。 次の例では、HTTPS プロトコルを使用するようにプロファイルを構成しています。
 
 ```json
 {
@@ -127,14 +133,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
+`applicationUrl` エンドポイントと `launchUrl` エンドポイントが一致し、IIS バインド構成と同じプロトコル (HTTP または HTTPS) が使用されていることを確認してください。
+
 ## <a name="run-the-project"></a>プロジェクトを実行する
 
-Visual Studio:
+Visual Studio を管理者として実行します。
 
 * ビルド構成のドロップダウン リストが **[デバッグ]** に設定されていることを確認します。
 * [実行] ボタンを **[IIS]** プロファイルに設定し、ボタンを選択してアプリを起動します。
-
-![VS ツールバーの [実行] ボタンは [IIS] プロファイルに設定され、ビルド構成のドロップダウン リストは [リリース] に構成されます。](development-time-iis-support/_static/toolbar.png)
 
 管理者として実行していない場合、Visual Studio によって再起動を求められる場合があります。 その場合は、Visual Studio を再起動します。
 
@@ -145,6 +151,7 @@ Visual Studio:
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* [IIS での IIS マネージャーの概要](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
 * [IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index)
 * [ASP.NET Core モジュールの概要](xref:host-and-deploy/aspnet-core-module)
 * [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)

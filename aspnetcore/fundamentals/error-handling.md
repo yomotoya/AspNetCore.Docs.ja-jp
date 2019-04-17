@@ -5,14 +5,14 @@ description: ASP.NET Core アプリでエラーを処理する方法について
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 04/07/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: cbb9462a3c6010e074dc391aa128ac2cbb901456
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665364"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468751"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
@@ -20,41 +20,40 @@ ms.locfileid: "57665364"
 
 この記事では、ASP.NET Core アプリでエラーを処理するための一般的な手法について取り上げます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)します。 ([ダウンロード方法](xref:index#how-to-download-a-sample)。)この記事には、サンプル アプリでプリプロセッサ ディレクティブ (`#if`、`#endif`、`#define`) を設定して、異なるシナリオを有効にする方法についての説明が含まれます。
 
 ## <a name="developer-exception-page"></a>開発者例外ページ
 
-アプリを構成して要求の例外に関する詳細情報を示すページを表示させるには、"*開発者例外ページ*" を使用します。 このページは [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) 内で利用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。 アプリを開発[環境](xref:fundamentals/environments)で実行しているときに、`Startup.Configure` メソッドに次の行を追加します。
+"*開発者例外ページ*" には、要求の例外に関する詳細な情報が表示されます。 そのページは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内の [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。 アプリを開発[環境](xref:fundamentals/environments)で実行するときにページを有効にするには、`Startup.Configure` メソッドにコードを追加します。
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=1-4)]
 
-例外をキャッチしたい任意のミドルウェアの前に <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> への呼び出しを配置します。
+例外をキャッチしたいミドルウェアの前に、<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> の呼び出しを配置します。
 
 > [!WARNING]
 > **アプリを開発環境で実行するときにのみ**、開発者例外ページを有効にします。 アプリを実稼働環境で実行するときは、詳細な例外情報を公開しません。 環境の構成について詳しくは、「<xref:fundamentals/environments>」をご覧ください。
 
-開発者例外ページを表示するには、環境を `Development` に設定してサンプル アプリを実行し、アプリのベース URL に `?throw=true` を追加します。 このページには、例外と要求に関する次の情報が含まれています。
+このページには、例外と要求に関する次の情報が含まれています。
 
 * スタック トレース
 * クエリ文字列のパラメーター (ある場合)
 * Cookie (ある場合)
 * ヘッダー
 
-## <a name="configure-a-custom-exception-handling-page"></a>カスタム例外処理ページを構成する
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)で開発者例外ページを表示するには、`DevEnvironment` プリプロセッサ ディレクティブを使用して、ホーム ページで **[Trigger an exception]\(例外をトリガーする\)** を選択します。
 
-アプリを開発環境で実行していない場合は、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> 拡張メソッドを呼び出して例外処理ミドルウェアを追加します。 ミドルウェアでは次を行います。
+## <a name="exception-handler-page"></a>例外ハンドラー ページ
 
-* 例外をキャッチします。
-* 例外をログに記録します。
+運用環境用のカスタム エラー処理ページを構成するには、例外処理ミドルウェアを使用します。 ミドルウェアでは次を行います。
+
+* 例外をキャッチしてログに記録します。
 * ページ用の、またはコントローラーが指定した別のパイプラインで、要求を再実行します。 応答が始まっていた場合、要求は再実行されません。
 
-サンプル アプリの次の例では、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> により非開発環境に例外処理ミドルウェアを追加しています。 この拡張メソッドでは、例外がキャッチされてログに記録された後、再実行された要求用に `/Error` エンドポイントにあるエラー ページまたはコントローラーを指定します。
+次の例では、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> により非開発環境に例外処理ミドルウェアが追加されます。
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-Razor Pages アプリのテンプレートには、エラー ページ (*.cshtml*) と <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> クラス (`ErrorModel`) が Pages フォルダー内に用意されています。
-
-MVC アプリでは、次のエラー処理メソッドが MVC アプリ テンプレートに含まれ、ホーム コントローラーに表示されます。
+Razor Pages アプリのテンプレートには、エラー ページ (*.cshtml*) と <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> クラス (`ErrorModel`) が *Pages* フォルダー内に用意されています。 MVC アプリの場合、プロジェクト テンプレートにはエラー アクション メソッドとエラー ビューが含まれています。 アクション メソッドを次に示します。
 
 ```csharp
 [AllowAnonymous]
@@ -67,103 +66,107 @@ public IActionResult Error()
 
 `HttpGet` などの HTTP メソッド属性を使ってエラー ハンドラー アクション メソッドを修飾しないでください。 明示的な動詞を使用すると、要求がメソッドに届かないことがあります。 認証されていないユーザーがエラー ビューを受信できるように、メソッドへの匿名アクセスを許可します。
 
-## <a name="access-the-exception"></a>例外にアクセスする
+### <a name="access-the-exception"></a>例外にアクセスする
 
-<xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> を使って、例外や、コントローラーまたはページ内の元の要求パスにアクセスします。
+エラー ハンドラー コントローラーまたはページ内で例外や元の要求パスにアクセスするには、<xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> を使います。
 
-* このパスは <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> プロパティから取得できます。
-* 継承した [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) プロパティから <xref:System.Exception?displayProperty=fullName> を読み取ります。
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/Error.cshtml.cs?name=snippet_ExceptionHandlerPathFeature&3,7)]
 
-```csharp
-// using Microsoft.AspNetCore.Diagnostics;
+> [!WARNING]
+> 機密性の高いエラー情報をクライアントに提供**しないでください**。 エラーの提供はセキュリティ上のリスクです。
 
-var exceptionHandlerPathFeature = 
-    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
-var path = exceptionHandlerPathFeature?.Path;
-var error = exceptionHandlerPathFeature?.Error;
-```
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)で例外処理ページを表示するには、`ProdEnvironment` および `ErrorHandlerPage` プリプロセッサ ディレクティブを使用して、ホーム ページで **[Trigger an exception]\(例外をトリガーする\)** を選択します。
+
+## <a name="exception-handler-lambda"></a>例外ハンドラー ラムダ
+
+[カスタム例外ハンドラー ページ](#exception-handler-page)の代わりになるのは、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> にラムダを提供することです。 ラムダを使うと、応答を返す前にエラーにアクセスできます。
+
+例外処理にラムダを使う例を次に示します。
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
 > [!WARNING]
 > <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> または <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> からの機密性の高いエラー情報をクライアントに提供**しないでください**。 エラーの提供はセキュリティ上のリスクです。
 
-## <a name="configure-custom-exception-handling-code"></a>カスタム例外処理コードを構成する
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)で例外処理ラムダの結果を表示するには、`ProdEnvironment` および `ErrorHandlerLambda` プリプロセッサ ディレクティブを使用して、ホーム ページで **[Trigger an exception]\(例外をトリガーする\)** を選択します。
 
-[カスタム例外処理ページ](#configure-a-custom-exception-handling-page)を使ってエラー用にエンドポイントを提供する方法の代替手段は、<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> にラムダを指定することです。 <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> と共にラムダを使うと、応答を返す前にエラーにアクセスできます。
-
-サンプル アプリは、`Startup.Configure` のカスタム例外処理コードを示しています。 Index ページの **[例外のスロー]** リンクを使って例外をトリガーします。 次のラムダが実行されます。
-
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
-
-> [!WARNING]
-> <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> または <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> からの機密性の高いエラー情報をクライアントに提供**しないでください**。 エラーの提供はセキュリティ上のリスクです。
-
-## <a name="configure-status-code-pages"></a>状態コード ページを構成する
+## <a name="usestatuscodepages"></a>UseStatusCodePages
 
 ASP.NET Core アプリでは、既定で、"*404 - 見つかりません*" などの HTTP 状態コードの状態コード ページが表示されません。 アプリでは、状態コードと空の応答本文が返されます。 状態コード ページを提供するには、状態コード ページ ミドルウェアを使用します。
 
-このミドルウェアは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内で使用できる、[Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。
+そのミドルウェアは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)内にある [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) パッケージによって使用可能になります。
 
-`Startup.Configure` メソッドに次の行を追加します。
+一般的なエラー状態コード用に既定のテキスト専用ハンドラーを有効にするには、`Startup.Configure` メソッドで <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> を呼び出します。
 
-```csharp
-app.UseStatusCodePages();
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-要求処理ミドルウェア (たとえば、静的ファイル ミドルウェアや MVC ミドルウェア) の前に <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> メソッドを呼び出します。
+要求処理ミドルウェア (たとえば、静的ファイル ミドルウェアや MVC ミドルウェア) の前に `UseStatusCodePages` を呼び出します。
 
-既定では、状態コード ページ ミドルウェアにより、一般的な状態コード ("*404 - 見つかりません*" など) に対してテキストのみのハンドラーが追加されます。
+既定のハンドラーによって表示されるテキストの例を次に示します。
 
 ```
 Status Code: 404; Not Found
 ```
 
-ミドルウェアではいくつかの拡張メソッドがサポートされていて、それを使ってその動作をカスタマイズすることができます。
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)でさまざまな状態コード ページ形式のいずれかを表示するには、`StatusCodePages` で始まるプリプロセッサ ディレクティブのいずれかを使用して、ホーム ページの **[Trigger a 404]\(404 をトリガーする\)** を選択します。
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> のオーバーロードはラムダ式を受け取ります。これを使って、カスタム エラー処理ロジックを処理し、手動で応答を書き込むことができます。
+## <a name="usestatuscodepages-with-format-string"></a>書式設定文字列での UseStatusCodePages
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
+応答の内容の種類とテキストをカスタマイズするには、内容の種類と書式文字列を受け取る <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> のオーバーロードを使います。
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> のオーバーロードはコンテンツの種類と書式文字列を受け取ります。これを使って、コンテンツの種類と応答テキストをカスタマイズすることができます。
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesFormatString)]
 
-```csharp
-app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
-```
+## <a name="usestatuscodepages-with-lambda"></a>ラムダでの UseStatusCodePages
 
-### <a name="redirect-and-re-execute-extension-methods"></a>拡張メソッドをリダイレクトして再実行する
+カスタム エラー処理と応答書き込みコードを指定するには、ラムダ式を受け取る <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> のオーバーロードを使います。
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesLambda)]
+
+## <a name="usestatuscodepageswithredirect"></a>UseStatusCodePagesWithRedirect
+
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> 拡張メソッド:
 
 * クライアントに *302 - Found* 状態コードを送信します。
 * URL テンプレートで指定された場所にクライアントをリダイレクトします。
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-アプリが次の条件を満たす場合、<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> が一般的に使用されます。
+次の例で示すように、URL テンプレートには状態コード用の `{0}` プレースホルダーを含めることができます。 URL テンプレートがチルダ (~) で始まっている場合、チルダはアプリの `PathBase` に置き換えられます。 アプリ内でエンドポイントを指し示す場合は、そのエンドポイントの MVC ビューまたは Razor ページを作成します。 Razor ページの例については、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)の [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) をご覧ください。
+
+この方法は、次のようなアプリで一般的に使用されます。
 
 * クライアントを別のエンドポイントにリダイレクトする必要がある場合 (通常は、別のアプリがエラーを処理する場合)。 Web アプリの場合は、クライアントのブラウザーのアドレス バーにリダイレクトされたエンドポイントが反映されます。
 * 元の状態コードを保持し、初回のリダイレクト応答で返してはいけない場合。
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+## <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
+
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> 拡張メソッド:
 
 * 元の状態コードをクライアントに返します。
 * 代替パスを使用して要求パイプラインを再実行することで、応答本文を生成します。
 
-```csharp
-app.UseStatusCodePagesWithReExecute("/Error/{0}");
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithReExecute)]
 
-アプリで次を行う必要がある場合、<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> が一般的に使用されます。
+アプリ内でエンドポイントを指し示す場合は、そのエンドポイントの MVC ビューまたは Razor ページを作成します。 Razor ページの例については、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples)の [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) をご覧ください。
+
+この方法は、次のようなアプリで一般的に使用されます。
 
 * 別のエンドポイントにリダイレクトすることなく要求を処理する。 Web アプリの場合は、クライアントのブラウザーのアドレス バーに、初めに要求されていたエンドポイントが反映されます。
 * 元の状態コードを保持し、応答で返す。
 
-テンプレートには、状態コード用のプレースホルダー (`{0}`) が含まれる場合があります。 テンプレートには、最初にスラッシュ (`/`) を付ける必要があります。 プレースホルダーを使用する場合は、エンドポイント (ページまたはコントローラー) でパスのセグメントを処理できることを確認します。 たとえば、エラー用の Razor ページでは、`@page` ディレクティブの付いた省略可能なパスのセグメント値を受け入れる必要があります。
+URL とクエリ文字列のテンプレートには、状態コード用のプレースホルダー (`{0}`) を含めることができます。 URL テンプレートの先頭には、スラッシュ (`/`) を付ける必要があります。 パスでプレースホルダーを使う場合は、エンドポイント (ページまたはコントローラー) でパスのセグメントを処理できることを確認します。 たとえば、エラー用の Razor ページでは、`@page` ディレクティブの付いた省略可能なパスのセグメント値を受け入れる必要があります。
 
 ```cshtml
 @page "{code?}"
 ```
 
-状態コード ページは、Razor ページ ハンドラー メソッドまたは MVC コントローラー内の特定の要求に対して無効にすることができます。 状態コード ページを無効にするには、要求の [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features) コレクションから <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> を取得してみて、それが使用可能だった場合は機能を無効にします。
+次の例で示すように、エラーを処理するエンドポイントでは、エラーを生成した元の URL を取得できます。
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/StatusCode.cshtml.cs?name=snippet_StatusCodeReExecute)]
+
+## <a name="disable-status-code-pages"></a>状態コード ページを無効にする
+
+状態コード ページは、Razor ページ ハンドラー メソッドまたは MVC コントローラー内の特定の要求に対して無効にすることができます。 状態コード ページを無効にするには、<xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> を使用します。
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
@@ -174,157 +177,54 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-アプリ内のエンドポイントを指す <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> オーバーロードを使用するには、そのエンドポイントの MVC ビューまたは Razor ページを作成します。 たとえば、Razor Pages アプリのテンプレートでは、次のページとページ モデル クラスが生成されます。
-
-*Error.cshtml*:
-
-::: moniker range=">= aspnetcore-2.2"
-
-```cshtml
-@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
-
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to the <strong>Development</strong> environment displays 
-    detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed 
-    applications.</strong> It can result in displaying sensitive information 
-    from exceptions to end users. For local debugging, enable the 
-    <strong>Development</strong> environment by setting the 
-    <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to 
-    <strong>Development</strong> and restarting the app.
-</p>
-```
-
-*Error.cshtml.cs*:
-
-```csharp
-[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-public class ErrorModel : PageModel
-{
-    public string RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-    }
-}
-```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-```cshtml
-@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
-
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed 
-    information about the error that occurred.
-</p>
-<p>
-    <strong>Development environment should not be enabled in deployed applications
-    </strong>, as it can result in sensitive information from exceptions being 
-    displayed to end users. For local debugging, development environment can be 
-    enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment 
-    variable to <strong>Development</strong>, and restarting the application.
-</p>
-```
-
-*Error.cshtml.cs*:
-
-```csharp
-public class ErrorModel : PageModel
-{
-    public string RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, 
-        NoStore = true)]
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-    }
-}
-```
-
-::: moniker-end
-
 ## <a name="exception-handling-code"></a>例外処理コード
 
 例外処理ページのコードは例外をスローすることがあります。 実稼働のエラー ページは純粋に静的なコンテンツで構成することをお勧めします。
 
-また、応答のヘッダーが送信されたら、次のことに注意してください。
+### <a name="response-headers"></a>応答ヘッダー
+
+応答のヘッダーが送信された後は、次のようになります。
 
 * アプリで応答の状態コードを変更できません。
 * すべての例外ページやハンドラーを実行できません。 応答は完了している必要があります。あるいは、接続が中止となっている必要があります。
 
 ## <a name="server-exception-handling"></a>サーバー例外処理
 
-アプリ内の例外処理ロジックに加えて、[サーバー実装](xref:fundamentals/servers/index)でも一部の例外を処理できます。 応答ヘッダーの送信前にサーバーで例外がキャッチされると、サーバーによって "*500 - 内部サーバー エラーです*" 応答が応答本文なしで送信されます。 応答ヘッダーの送信後にサーバーで例外がキャッチされた場合、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 サーバーが要求を処理しているときに発生した例外は、すべてサーバーの例外処理によって処理されます。 この動作は、アプリのカスタム エラー ページ、例外処理ミドルウェア、およびフィルターから影響を受けません。
+アプリ内の例外処理ロジックに加えて、[HTTP サーバーの実装](xref:fundamentals/servers/index)でも一部の例外を処理できます。 応答ヘッダーの送信前にサーバーで例外がキャッチされると、サーバーによって "*500 - 内部サーバー エラーです*" 応答が応答本文なしで送信されます。 応答ヘッダーの送信後にサーバーで例外がキャッチされた場合、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 サーバーが要求を処理しているときに発生した例外は、すべてサーバーの例外処理によって処理されます。 この動作は、アプリのカスタム エラー ページ、例外処理ミドルウェア、およびフィルターから影響を受けません。
 
 ## <a name="startup-exception-handling"></a>起動時の例外処理
 
-アプリの起動中に起こる例外はホスティング層だけが処理できます。 [Web ホスト](xref:fundamentals/host/web-host)を使うと、`captureStartupErrors` と `detailedErrors` キーを使って、[起動中のエラーに対するホストの動作方法を構成する](xref:fundamentals/host/web-host#detailed-errors)ことができます。
+アプリの起動中に起こる例外はホスティング層だけが処理できます。 [起動時のエラーをキャプチャ](xref:fundamentals/host/web-host#capture-startup-errors)したり、[詳細なエラーをキャプチャ](xref:fundamentals/host/web-host#detailed-errors)したりするように、ホストを構成することができます。
 
-ホスティングでは、ホスト アドレス/ポート バインディング後にエラーが発生した場合のみ、キャプチャされた起動時エラーに対してエラー ページを表示できます。 なんらかの理由でいずれかのバインドが失敗した場合:
+ホスティング レイヤーでは、ホスト アドレス/ポート バインド後にエラーが発生した場合にのみ、キャプチャされた起動時エラーに対するエラー ページを表示できます。 バインドが失敗した場合は、次のようになります。
 
 * ホスティング レイヤーにより重大な例外がログに記録されます。
 * dotnet プロセスがクラッシュします。
-* アプリを [Kestrel](xref:fundamentals/servers/kestrel) サーバー上で実行している場合、エラー ページが表示されません。
+* HTTP サーバーが [Kestrel](xref:fundamentals/servers/kestrel) のときは、エラー ページは表示されません。
 
 [IIS](/iis) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) 上で実行している場合、プロセスを開始できなければ、[ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)から "*502.5 - 処理エラー*" が返されます。 詳細については、「<xref:host-and-deploy/iis/troubleshoot>」を参照してください。 Azure App Service での起動の問題のトラブルシューティングについては、<xref:host-and-deploy/azure-apps/troubleshoot> を参照してください。
 
-## <a name="aspnet-core-mvc-error-handling"></a>ASP.NET Core MVC エラー処理
+## <a name="database-error-page"></a>データベース エラー ページ
 
-[MVC](xref:mvc/overview) アプリには、エラー処理の追加オプションがいくつかあります。例外フィルターの構成やモデル検証の実行などです。
+[データベース エラー ページ](<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) ミドルウェアでは、Entity Framework の移行を使って解決できるデータベース関連の例外がキャプチャされます。 これらの例外が発生すると、問題が解決する可能性のあるアクションの詳細を含む HTML 応答が生成されます。 このページは、開発環境でのみ有効にする必要があります。 ページを有効にするには、コードを `Startup.Configure` に追加します。
 
-### <a name="exception-filters"></a>例外フィルター
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseDatabaseErrorPage();
+}
+```
 
-例外フィルターはグローバルに構成するか、MVC アプリのコントローラーまたはアクション単位で構成できます。 このようなフィルターはコントローラー アクションや別のフィルターの実行中に発生する未処理の例外を処理します。 これらのフィルターは、それ以外の場合には呼び出されません。 詳細については、「<xref:mvc/controllers/filters#exception-filters>」を参照してください。
+## <a name="exception-filters"></a>例外フィルター
+
+MVC アプリでは、例外フィルターをグローバルに、またはコントローラーやアクションの単位で構成できます。 Razor Pages アプリでは、グローバルに、またはページ モデルの単位で構成できます。 このようなフィルターはコントローラー アクションや別のフィルターの実行中に発生する未処理の例外を処理します。 詳細については、「<xref:mvc/controllers/filters#exception-filters>」を参照してください。
 
 > [!TIP]
-> 例外フィルターは、MVC アクション内で発生した例外をトラップする場合は便利ですが、例外処理ミドルウェアほど柔軟ではありません。 ミドルウェアの使用をお勧めします。 選択された MVC アクションに応じて "*異なる方法で*" エラー処理を実行する必要がある場合にのみ、フィルターを使用します。
+> 例外フィルターは、MVC アクション内で発生した例外をトラップする場合は便利ですが、例外処理ミドルウェアほど柔軟ではありません。 ミドルウェアの使用をお勧めします。 選択された MVC アクションに応じて異なる方法でエラー処理を実行する必要がある場合にのみ、フィルターを使用します。
 
-### <a name="handle-model-state-errors"></a>モデルの状態エラーを処理する
+## <a name="model-state-errors"></a>モデル状態エラー
 
-[モデル検証](xref:mvc/models/validation)は各コントローラー アクションを呼び出す前に発生します。[ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) を検査して適切に対処するのは、アクション メソッドの仕事です。
-
-一部のアプリでは、[モデル検証](xref:mvc/models/validation)エラーを処理するための標準的な規則に従うことを選択します。その場合、そのようなポリシーを実装する場所として[フィルター](xref:mvc/controllers/filters)が適していることがあります。 無効なモデル状態でアクションの動作をテストしてください。 詳細については、「<xref:mvc/controllers/testing>」を参照してください。
+モデル状態エラーを処理する方法については、[モデル バインド](xref:mvc/models/model-binding)および[モデルの検証](xref:mvc/models/validation)に関する記事をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

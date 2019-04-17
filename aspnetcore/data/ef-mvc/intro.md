@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 282af56eb911aea53a6ce945e7c1177c158fc342
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 5a2ec9a8d85925e55840962cc90b3092953e7920
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750581"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012852"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>チュートリアル: ASP.NET MVC Web アプリでの EF Core の概要
 
@@ -39,8 +39,8 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 * [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
 * [Visual Studio 2017 または 2019](https://visualstudio.microsoft.com/downloads/) と次のワークロード:
-    * **ASP.NET および Web の開発**ワークロード
-    * **.NET Core クロスプラットフォームの開発**ワークロード
+  * **ASP.NET および Web の開発**ワークロード
+  * **.NET Core クロスプラットフォームの開発**ワークロード
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -355,7 +355,7 @@ Entity Framework を利用する非同期コードの記述で注意すべき点
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[完成したアプリケーションをダウンロードまたは表示します。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>次の手順
 

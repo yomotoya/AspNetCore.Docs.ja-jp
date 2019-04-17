@@ -4,14 +4,14 @@ author: rick-anderson
 description: フォームで使用される組み込みのタグ ヘルパーについて説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209558"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468803"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
 
@@ -33,7 +33,7 @@ ms.locfileid: "58209558"
 
 * `asp-route-<Parameter Name>` 属性を提供します (`<Parameter Name>` がルート値に追加される場合)。 `Html.BeginForm` および `Html.BeginRouteForm` に `routeValues` パラメーターを指定すると、同様の機能が提供されます。
 
-* HTML ヘルパーの代替の `Html.BeginForm` と `Html.BeginRouteForm` があります
+* HTML ヘルパーの代替の `Html.BeginForm` と次のものがあります `Html.BeginRouteForm`
 
 サンプル:
 
@@ -44,7 +44,7 @@ ms.locfileid: "58209558"
 ```HTML
 <form method="post" action="/Demo/Register">
     <!-- Input and Submit elements -->
-    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -93,7 +93,7 @@ MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controll
 <form method="post">
     <button asp-controller="Home" asp-action="Index">Click Me</button>
     <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
-                                asp-action="Index" />
+                                asp-action="Index">
 </form>
 ```
 
@@ -102,7 +102,7 @@ MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controll
 ```html
 <form method="post">
     <button formaction="/Home">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home">
 </form>
 ```
 
@@ -113,7 +113,7 @@ MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controll
 ```cshtml
 <form method="post">
     <button asp-page="About">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+    <input type="image" src="..." alt="Or Click Me" asp-page="About">
 </form>
 ```
 
@@ -122,7 +122,7 @@ MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controll
 ```html
 <form method="post">
     <button formaction="/About">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/About">
 </form>
 ```
 
@@ -146,7 +146,7 @@ public class HomeController : Controller
 ```cshtml
 <form method="post">
     <button asp-route="Custom">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom">
 </form>
 ```
 
@@ -155,7 +155,7 @@ public class HomeController : Controller
 ```html
 <form method="post">
     <button formaction="/Home/Test">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test">
 </form>
 ```
 
@@ -166,7 +166,7 @@ public class HomeController : Controller
 構文:
 
 ```HTML
-<input asp-for="<Expression Name>" />
+<input asp-for="<Expression Name>">
 ```
 
 入力タグ ヘルパー:
@@ -227,17 +227,17 @@ Type expected
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
-       Email:
-       <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid email address."
-              data-val-required="The Email Address field is required."
-              id="Email" name="Email" value="" /> <br>
-       Password:
-       <input type="password" data-val="true"
-              data-val-required="The Password field is required."
-              id="Password" name="Password" /><br>
-       <button type="submit">Register</button>
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+      Email:
+      <input type="email" data-val="true"
+             data-val-email="The Email Address field is not a valid email address."
+             data-val-required="The Email Address field is required."
+             id="Email" name="Email" value=""><br>
+      Password:
+      <input type="password" data-val="true"
+             data-val-required="The Password field is required."
+             id="Password" name="Password"><br>
+      <button type="submit">Register</button>
+      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
    </form>
 ```
 
@@ -264,20 +264,20 @@ Type expected
 @{
        var joe = "Joe";
    }
-   <input asp-for="@joe" />
+   <input asp-for="@joe">
 ```
 
 以下が生成されます。
 
 ```HTML
-<input type="text" id="joe" name="joe" value="Joe" />
+<input type="text" id="joe" name="joe" value="Joe">
 ```
 
 `i` の値が `23` の場合、`asp-for="CollectionProperty[23].Member"` はコレクションのプロパティを使用して、`asp-for="CollectionProperty[i].Member"` と同じ名前を生成します。
 
-ASP.NET Core MVC で `ModelExpression` の値が計算されるとき、`ModelState` を含む、いくつかのソースが検査されます。 `<input type="text" asp-for="@Name" />` を検討します。 計算された `value` 属性は、次のうちの最初の非 null 値です。
+ASP.NET Core MVC で `ModelExpression` の値が計算されるとき、`ModelState` を含む、いくつかのソースが検査されます。 `<input type="text" asp-for="@Name">` を検討します。 計算された `value` 属性は、次のうちの最初の非 null 値です。
 
-* キー "Name" を持つ `ModelState` エントリ。
+* `ModelState` エントリ (キー "Name" 持ちます)。
 * 式 `Model.Name` の結果。
 
 ### <a name="navigating-child-properties"></a>子プロパティの移動
@@ -295,7 +295,7 @@ ASP.NET Core MVC で `ModelExpression` の値が計算されるとき、`ModelSt
 `Address.AddressLine1` に対して次の HTML が生成されます。
 
 ```HTML
-<input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
+<input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
 ### <a name="expression-names-and-collections"></a>式の名前とコレクション
@@ -334,7 +334,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
-値を `asp-for` または `Html.DisplayFor` と同じコンテキストで使用する場合は、可能であれば `foreach` を使用する必要があります。 一般に、反復子を割り当てる必要がないため、(使用可能なシナリオでは) `for` の方が `foreach` よりも優れています。ただし、LINQ 式内でのインデクサーの評価はコストが高くなる可能性があるため、最小限に抑える必要があります。
+`foreach` を、値を `asp-for` または `Html.DisplayFor` と同じコンテキストで使用する場合は、可能であれば使用する必要があります。 一般に、反復子を割り当てる必要がないため、(使用可能なシナリオでは) `for` の方が `foreach` よりも優れています。ただし、LINQ 式内でのインデクサーの評価はコストが高くなる可能性があるため、最小限に抑える必要があります。
 
 &nbsp;
 
@@ -349,7 +349,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * 厳密な型指定を提供します。
 
-* HTML ヘルパーの代替: `Html.TextAreaFor`
+* HTML ヘルパーの代替:  `Html.TextAreaFor`
 
 サンプル:
 
@@ -369,7 +369,7 @@ public IActionResult Edit(int id, int colorIndex)
    id="Description" name="Description">
   </textarea>
   <button type="submit">Test</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -411,7 +411,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * 検証はサーバー側でも実行されます。 クライアントで JavaScript が無効にされている場合や、一部の検証をサーバー側でのみ実行できる場合があります。
 
-* HTML ヘルパーの代替: `Html.ValidationMessageFor`
+* HTML ヘルパーの代替:  `Html.ValidationMessageFor`
 
 `Validation Message Tag Helper` は、HTML の [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) 要素で `asp-validation-for` 属性と共に使用されます。
 
@@ -445,7 +445,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * `asp-validation-summary` 属性を持つ `<div>` 要素をターゲットとします
 
-* HTML ヘルパーの代替: `@Html.ValidationSummary`
+* HTML ヘルパーの代替:  `@Html.ValidationSummary`
 
 `Validation Summary Tag Helper` は、検証メッセージの概要を表示するために使用されます。 `asp-validation-summary` 属性値には、次のいずれかを指定できます。
 
@@ -472,7 +472,7 @@ public IActionResult Edit(int id, int colorIndex)
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
    data-val-email="The Email field is not a valid email address."
-   data-val="true"> <br>
+   data-val="true"><br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
   Password: <input name="Password" id="Password" type="password"
@@ -480,7 +480,7 @@ public IActionResult Edit(int id, int colorIndex)
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Password"></span><br>
   <button type="submit">Register</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -488,7 +488,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * モデルのプロパティについて、[select](https://www.w3.org/wiki/HTML/Elements/select) 要素と、関連する [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を生成します。
 
-* HTML ヘルパーの代替の `Html.DropDownListFor` と `Html.ListBoxFor` があります
+* HTML ヘルパーの代替の `Html.DropDownListFor` と次のものがあります `Html.ListBoxFor`
 
 `Select Tag Helper` `asp-for` は [select](https://www.w3.org/wiki/HTML/Elements/select) 要素のモデル プロパティ名を指定し、`asp-items` は [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を指定します。  次に例を示します。
 
@@ -520,7 +520,7 @@ HTTP POST `Index` メソッドによって選択内容が表示されます。
        <option value="US">USA</option>
      </select>
        <br /><button type="submit">Register</button>
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
    </form>
 ```
 
@@ -563,7 +563,7 @@ HTTP POST `Index` メソッドによって選択内容が表示されます。
              <option selected="selected" value="5">Spain</option>
          </select>
          <br /><button type="submit">Register</button>
-         <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+         <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
     </form>
 ```
 
@@ -596,7 +596,7 @@ HTML の [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) 要素は
           </optgroup>
       </select>
       <br /><button type="submit">Register</button>
-      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
  </form>
 ```
 
@@ -624,7 +624,7 @@ HTML の [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) 要素は
 <option value="DE">Germany</option>
 </select>
     <br /><button type="submit">Register</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -655,7 +655,7 @@ HTML の [\<option>](https://www.w3.org/wiki/HTML/Elements/option) 要素の追�
           <option value="US">USA</option>
       </select>
       <br /><button type="submit">Register</button>
-   <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+   <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
  </form>
  ```
 

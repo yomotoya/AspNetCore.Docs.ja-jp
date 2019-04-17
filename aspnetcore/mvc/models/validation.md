@@ -4,14 +4,15 @@ author: tdykstra
 description: ASP.NET Core MVC および Razor Pages でのモデルの検証について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/01/2019
+ms.date: 04/06/2019
+monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: b766d47f296745ba4be6ea8cb6335db9c3e2d975
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809316"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468738"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>ASP.NET Core MVC および Razor Pages でのモデルの検証
 
@@ -23,23 +24,11 @@ ms.locfileid: "58809316"
 
 モデルの状態では、モデル バインドとモデル検証の 2 つのサブシステムで発生したエラーが表されます。 [モデル バインド](model-binding.md)で発生するエラーは、一般に、データ変換エラーです (たとえば、整数が必要なフィールドに "x" が入力された場合)。 モデル検証は、モデル バインドの後で行われて、データがビジネス ルールに従っていないエラーが報告されます (たとえば、1 から 5 までのレーティングが必要なフィールドに 0 が入力された場合)。
 
-::: moniker range=">= aspnetcore-2.1"
-
-モデル バインドとモデル検証はどちらも、コントローラー アクションまたは Razor Pages ハンドラー メソッドの実行前に行われます。 アプリでは、`ModelState.IsValid` を調べて適切に対処する必要があります。 通常、Web アプリではエラー メッセージを含むページを再表示します。
-
-[!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 モデル バインドとモデル検証はどちらも、コントローラー アクションまたは Razor Pages ハンドラー メソッドの実行前に行われます。 Web アプリでは、`ModelState.IsValid` を調べて適切に対処するのはアプリの責任です。 通常、Web アプリではエラー メッセージを含むページを再表示します。
 
 [!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
 
 Web API コントローラーでは、`[ApiController]` 属性が設定されている場合は、`ModelState.IsValid` を確認する必要はありません。 その場合、モデルが無効な状態のときは、問題の詳細を含む HTTP 400 応答が自動的に返されます。 詳細については、「[自動的な HTTP 400 応答](xref:web-api/index#automatic-http-400-responses)」を参照してください。
-
-::: moniker-end
 
 ## <a name="rerun-validation"></a>検証を再実行する
 
@@ -153,7 +142,7 @@ Web API コントローラーでは、`[ApiController]` 属性が設定されて
 public string MiddleName { get; set; }
 ```
 
-他の属性引数と同じように、`AdditionalFields` も定数式である必要があります。 したがって、[補間文字列](/dotnet/csharp/language-reference/keywords/interpolated-strings)を使用したり、<xref:System.String.Join*> を呼び出して `AdditionalFields` を初期化したりしないでください。
+`AdditionalFields`は、他の属性引数と同じように、定数式である必要があります。 したがって、[補間文字列](/dotnet/csharp/language-reference/keywords/interpolated-strings)を使用したり、<xref:System.String.Join*> を呼び出して `AdditionalFields` を初期化したりしないでください。
 
 ## <a name="alternatives-to-built-in-attributes"></a>組み込み属性に代わる方法
 
@@ -161,7 +150,6 @@ public string MiddleName { get; set; }
 
 * [カスタム属性を作成する](#custom-attributes)。
 * [IValidatableObject を実装する](#ivalidatableobject)。
-
 
 ## <a name="custom-attributes"></a>カスタム属性
 
@@ -180,8 +168,6 @@ public string MiddleName { get; set; }
 前の例は、`Movie` 型でのみ動作します。 クラス レベルの検証に対するもう 1 つのオプションは、次の例に示すように、`IValidatableObject` をモデル クラスに実装することです。
 
 [!code-csharp[](validation/sample/Models/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="top-level-node-validation"></a>最上位ノードの検証
 
@@ -210,15 +196,11 @@ public string MiddleName { get; set; }
 
 [!code-csharp[](validation/sample_snapshot/Startup.cs?name=snippet_AddMvc&highlight=4)]
 
-::: moniker-end
-
 ## <a name="maximum-errors"></a>最大エラー数
 
 エラーの最大数 (既定では 200) に達すると、検証は停止します。 この数は、`Startup.ConfigureServices` の次のコードを使用して構成します。
 
 [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=3)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="maximum-recursion"></a>最大再帰
 
@@ -227,8 +209,6 @@ public string MiddleName { get; set; }
 ## <a name="automatic-short-circuit"></a>自動省略
 
 モデル グラフの検証が必要ない場合、検証は自動的に省略 (スキップ) されます。 ランタイムで検証がスキップされるオブジェクトとしては、プリミティブのコレクション (`byte[]`、`string[]`、`Dictionary<string, string>` など) や、検証コントロールを何も持たない複雑なオブジェクト グラフなどがあります。
-
-::: moniker-end
 
 ## <a name="disable-validation"></a>検証を無効にする
 
@@ -270,7 +250,7 @@ public string MiddleName { get; set; }
             <div class="col-md-10">
                 <input class="form-control" type="datetime"
                 data-val="true" data-val-required="The ReleaseDate field is required."
-                id="ReleaseDate" name="ReleaseDate" value="" />
+                id="ReleaseDate" name="ReleaseDate" value="">
                 <span class="text-danger field-validation-valid"
                 data-valmsg-for="ReleaseDate" data-valmsg-replace="true"></span>
             </div>
@@ -308,7 +288,7 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>動的なコントロールに検証を追加する
 
-`$.validator.unobtrusive.parse()` メソッドは、`<input/>` や `<select/>` などの動的に生成される個々のコントロールではなく、フォーム全体に対して動作します。 フォームを再解析するには、次の例に示すように、フォームが前に解析されたときに追加された検証データを削除します。
+`$.validator.unobtrusive.parse()` メソッドは、`<input>` や `<select/>` などの動的に生成される個々のコントロールではなく、フォーム全体に対して動作します。 フォームを再解析するには、次の例に示すように、フォームが前に解析されたときに追加された検証データを削除します。
 
 ```js
 $.get({
@@ -349,7 +329,7 @@ $.get({
     data-val-classicmovie1="Classic movies must have a release year earlier than 1960."
     data-val-classicmovie1-year="1960"
     data-val-required="The ReleaseDate field is required."
-    id="ReleaseDate" name="ReleaseDate" value="" />
+    id="ReleaseDate" name="ReleaseDate" value="">
 ```
 
 前に説明したように、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)と [HTML ヘルパー](xref:mvc/views/overview)では、検証属性からの情報を使用して `data-` 属性がレンダリングされます。 カスタム `data-` HTML 属性が作成されるようになるコードを記述するには、2 つのオプションがあります。

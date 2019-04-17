@@ -5,14 +5,14 @@ description: IHostingStartup 実装を使用して、外部アセンブリから
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 03/23/2019
+ms.date: 04/06/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: c174d658c84ada88eef17528c663735a91347ba7
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: c2a2e1fbd288ff292c6759d03fae51876cdb5704
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419447"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425076"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core でホスティング スタートアップ アセンブリを使用する
 
@@ -124,7 +124,7 @@ ms.locfileid: "58419447"
 
 [!code-csharp[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement.cs?name=snippet1)]
 
-クラスは `IHostingStartup` を実装しています。 クラスの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドでは、[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) を使用してアプリに拡張機能を追加します。 ホスティング スタートアップ アセンブリ内の `IHostingStartup.Configure` は、ユーザー コード内の `Startup.Configure` よりも前にランタイムによって呼び出されます。このため、ホスティング スタートアップ アセンブリによって提供されるすべての構成をユーザー コードで上書きすることができます。
+クラスは `IHostingStartup` を実装しています。 クラスの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドでは、[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) を使用してアプリに拡張機能を追加します。 `IHostingStartup.Configure` はホスティング スタートアップ アセンブリ内にあり、ユーザー コード内の `Startup.Configure` より前にランタイムによって呼び出されます。このため、ホスティング スタートアップ アセンブリによって提供されるすべての構成をユーザー コードで上書きすることができます。
 
 [!code-csharp[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement.cs?name=snippet2&highlight=3,5)]
 
@@ -381,7 +381,14 @@ dotnet nuget locals all --clear
 **ランタイム ストア配置アセンブリからのアクティブ化**
 
 1. *StartupDiagnostics* プロジェクトでは、[PowerShell](/powershell/scripting/powershell-scripting) を使用して、その *StartupDiagnostics.deps.json* ファイルを変更します。 既定では、PowerShell は Windows 7 SP1 と Windows Server 2008 R2 SP1 以降の Windows 上にインストールされます。 他のプラットフォームで PowerShell を取得するには、「[Windows PowerShell のインストール](/powershell/scripting/setup/installing-powershell#powershell-core)」を参照してください。
-1. *RuntimeStore* フォルダーにある *build.ps1* スクリプトを実行します。 スクリプト内の `dotnet store` コマンドでは、Windows に展開されているホスティング スタートアップの `win7-x64` [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) が使用されます。 別のランタイムに対してホスティング スタートアップを指定する場合は、適切な RID に置き換えます。
-1. *deployment* フォルダーにある *deploy.ps1* スクリプトを実行します。
+1. *RuntimeStore* フォルダーにある *build.ps1* スクリプトを実行します。 スクリプトでは次のことが行われます。
+   * `StartupDiagnostics` パッケージが生成されます。
+   * *store* フォルダー内に `StartupDiagnostics` 用のランタイム ストアが生成されます。 スクリプト内の `dotnet store` コマンドでは、Windows に展開されているホスティング スタートアップの `win7-x64` [ランタイム識別子 (RID)](/dotnet/core/rid-catalog) が使用されます。 別のランタイムに対してホスティング スタートアップを指定する場合は、スクリプトの 37 行目を適切な RID に置き換えます。
+   * *additionalDeps/shared/Microsoft.AspNetCore.App/<共有フレームワークのバージョン>* フォルダーに `StartupDiagnostics` 用の `additionalDeps` が生成されます。
+   * *deploy.ps1* ファイルが *deployment* フォルダーに配置されます。
+1. *deployment* フォルダーにある *deploy.ps1* スクリプトを実行します。 スクリプトでは以下のものが追加されます。
+   * `StartupDiagnostics` が `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` 環境変数に。
+   * ホスティング スタートアップの依存関係のパスが `DOTNET_ADDITIONAL_DEPS` 環境変数に。
+   * ランタイム ストアのパスが `DOTNET_SHARED_STORE` 環境変数に。
 1. サンプル アプリを実行します。
 1. `/services` エンドポイントを要求して、アプリの登録サービスを参照します。 `/diag` エンドポイントを要求して、診断情報を参照します。

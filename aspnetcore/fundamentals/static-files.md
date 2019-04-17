@@ -4,14 +4,14 @@ author: rick-anderson
 description: 静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 04/08/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 114fee0795977043f3a74a81a15923a8bf5faf6b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208636"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425063"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイル
 
@@ -154,7 +154,7 @@ HTML、CSS、画像、JavaScript などの静的ファイルは、ASP.NET Core �
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> 既定のファイルを提供するには、`UseStaticFiles` の前に `UseDefaultFiles` が呼び出される必要があります。 `UseDefaultFiles` は、ファイルを実際には提供しない URL リライターです。 ファイルを提供するには、`UseStaticFiles` を使用して静的ファイル ミドルウェアを有効にします。
+> `UseDefaultFiles` を `UseStaticFiles` の前に呼び出して、既定のファイルを提供する必要があります。 `UseDefaultFiles` は、ファイルを実際には提供しない URL リライターです。 ファイルを提供するには、`UseStaticFiles` を使用して静的ファイル ミドルウェアを有効にします。
 
 `UseDefaultFiles` を使用し、以下のフォルダーを検索します。
 
@@ -200,7 +200,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`EnableDirectoryBrowsing` プロパティの値が `true` であるとき、`AddDirectoryBrowser` を呼び出す必要があります。
+`AddDirectoryBrowser` を、`EnableDirectoryBrowsing` プロパティの値が `true` であるときは呼び出す必要があります。
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -216,7 +216,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 ![静的ファイルの一覧](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles` および `UseDirectoryBrowser` は、末尾のスラッシュのない URL *http://\<server_address>/StaticFiles* を使用し、クライアント側の *http://\<server_address>/StaticFiles/* へのリダイレクトをトリガーします。 末尾のスラッシュが追加されたことを確認してください。 ドキュメント内の相対 URL は、末尾のスラッシュがない場合、無効と見なされます。
+> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> および <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> では、`http://{SERVER ADDRESS}/StaticFiles` (末尾のスラッシュなし) から `http://{SERVER ADDRESS}/StaticFiles/` (末尾のスラッシュあり) へのクライアント側リダイレクトが実行されます。 *StaticFiles* ディレクトリ内の相対 URL は、末尾のスラッシュがないと無効です。
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
@@ -242,7 +242,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 ### <a name="considerations"></a>注意事項
 
 > [!WARNING]
-> `UseDirectoryBrowser` と `UseStaticFiles` では、機密データが漏洩することがあります。 本番では、ディレクトリ参照を無効にすることが、強く推奨されます。 `UseStaticFiles` や `UseDirectoryBrowser` でどのディレクトリが有効になっているか、慎重にご確認ください。 ディレクトリ全体とそのサブディレクトリが、パブリックにアクセス可能になります。 ファイルは、パブリックに提供するのに適した、*\<content_root>/wwwroot* などの専用ディレクトリに格納します。 これらのファイルは、MVC ビュー、Razor ページ (2.x のみ)、構成ファイルなどとは別にします。
+> `UseDirectoryBrowser` と `UseStaticFiles` では、シークレットがリークする可能性があります。 本番では、ディレクトリ参照を無効にすることが、強く推奨されます。 `UseStaticFiles` や `UseDirectoryBrowser` でどのディレクトリが有効になっているか、慎重にご確認ください。 ディレクトリ全体とそのサブディレクトリが、パブリックにアクセス可能になります。 ファイルは、パブリックに提供するのに適した、*\<content_root>/wwwroot* などの専用ディレクトリに格納します。 これらのファイルは、MVC ビュー、Razor ページ (2.x のみ)、構成ファイルなどとは別にします。
 
 * `UseDirectoryBrowser` と `UseStaticFiles` で公開されるコンテンツの URL では、大文字と小文字が区別され、基になるファイル システムの文字制限の影響を受けます。 たとえば、Windows では大文字小文字は区別されますが、macOS と Linux ではされません。
 

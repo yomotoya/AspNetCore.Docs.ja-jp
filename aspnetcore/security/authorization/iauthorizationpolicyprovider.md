@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core アプリでカスタム IAuthorizationPolicyProvider を使用して、承認ポリシーを動的に生成する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: ca57a9fd8e3c11f15fe14bbe4538bc748c4c84b6
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: e17372bb0ec9091c385a70b1e907eaa3cff24003
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444156"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614410"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>ASP.NET Core で IAuthorizationPolicyProvider を使用してカスタム承認ポリシー プロバイダー 
 
@@ -119,12 +119,32 @@ internal class MinimumAgePolicyProvider : IAuthorizationPolicyProvider
 
 ## <a name="multiple-authorization-policy-providers"></a>複数の承認ポリシー プロバイダー
 
-カスタムの使用時に`IAuthorizationPolicyProvider`、実装は、ASP.NET Core は 1 つのインスタンスだけを使用することに留意してください`IAuthorizationPolicyProvider`します。 カスタム プロバイダーがすべてのポリシー名の承認ポリシーを指定することがない場合は、バックアップのプロバイダーにフォールバックする必要があります。 既定のポリシーからポリシーの名前が含まれます`[Authorize]`名前のない属性です。
+カスタムの使用時に`IAuthorizationPolicyProvider`、実装は、ASP.NET Core は 1 つのインスタンスだけを使用することに留意してください`IAuthorizationPolicyProvider`します。 カスタム プロバイダーが使用されるすべてのポリシー名の承認ポリシーを指定することがない場合は、バックアップのプロバイダーにフォールバックする必要があります。 
 
-たとえば、カスタムの経過期間ポリシーとは、従来のロール ベースのポリシーの取得の両方に必要なアプリケーションを検討してください。 このようなアプリは、カスタム承認ポリシー プロバイダーを使用できますです。
+たとえば、カスタムの経過期間ポリシーとは、従来のロール ベースのポリシーの取得の両方が必要なアプリケーションを検討してください。 このようなアプリは、カスタム承認ポリシー プロバイダーを使用できますです。
 
 * ポリシー名を解析しようとします。 
 * 別のポリシー プロバイダーを呼び出す (など`DefaultAuthorizationPolicyProvider`) ポリシーの名前には、年齢が含まれていない場合。
+
+例では、`IAuthorizationPolicyProvider`に上記の実装を更新することができます、 `DefaultAuthorizationPolicyProvider` (ポリシー名が 'MinimumAge' + 年齢の想定されるパターンと一致しない場合に使用) をそのコンス トラクターでフォールバック ポリシー プロバイダーを作成しています。
+
+```csharp
+private DefaultAuthorizationPolicyProvider FallbackPolicyProvider { get; }
+
+public MinimumAgePolicyProvider(IOptions<AuthorizationOptions> options)
+{
+    // ASP.NET Core only uses one authorization policy provider, so if the custom implementation
+    // doesn't handle all policies it should fall back to an alternate provider.
+    FallbackPolicyProvider = new DefaultAuthorizationPolicyProvider(options);
+}
+```
+
+次に、`GetPolicyAsync`を使用するメソッドを更新することができます、 `FallbackPolicyProvider` null を返す代わりにします。
+
+```csharp
+...
+return FallbackPolicyProvider.GetPolicyAsync(policyName);
+```
 
 ## <a name="default-policy"></a>既定のポリシー
 
@@ -137,10 +157,18 @@ public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
     Task.FromResult(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
 ```
 
-カスタムのすべての側面と同様`IAuthorizationPolicyProvider`、必要に応じて、これをカスタマイズできます。 場合によっては：
+カスタムのすべての側面と同様`IAuthorizationPolicyProvider`、必要に応じて、これをカスタマイズできます。 場合によっては、フォールバックから既定のポリシーを取得することが望ましい場合があります`IAuthorizationPolicyProvider`します。
 
-* 既定の承認ポリシーを使用しない場合があります。
-* フォールバックに既定のポリシーの取得を委任できます`IAuthorizationPolicyProvider`します。
+## <a name="required-policy"></a>必要なポリシー
+
+カスタム`IAuthorizationPolicyProvider`を実装する必要がある`GetRequiredPolicyAsync`に、必要に応じて、常に必要なポリシーを指定します。 場合`GetRequiredPolicyAsync`null 以外のポリシーを返します (既定または名前付き) で、他と組み合わせて、ポリシーが要求されたポリシー。
+
+必要なポリシーが不要な場合、プロバイダーできますだけは null を返すまたはフォールバック プロバイダーに延期します。
+
+```csharp
+public Task<AuthorizationPolicy> GetRequiredPolicyAsync() => 
+    Task.FromResult<AuthorizationPolicy>(null);
+```
 
 ## <a name="use-a-custom-iauthorizationpolicyprovider"></a>カスタム IAuthorizationPolicyProvider を使用します。
 

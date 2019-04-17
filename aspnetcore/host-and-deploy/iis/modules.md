@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 9770801b527829b131257da7c6e670bd33c23634
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265479"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468874"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core での IIS モジュール
 
@@ -30,7 +30,7 @@ ms.locfileid: "58265479"
 | **クライアント証明書マッピング認証**<br>`CertificateMappingAuthenticationModule`      | はい | |
 | **CGI**<br>`CgiModule`                                                                           | いいえ  | |
 | **構成検証**<br>`ConfigurationValidationModule`                                  | はい | |
-| **HTTP エラー**<br>`CustomErrorModule`                                                           | いいえ  | [状態コード ページ ミドルウェア](xref:fundamentals/error-handling#configure-status-code-pages) |
+| **HTTP エラー**<br>`CustomErrorModule`                                                           | いいえ  | [状態コード ページ ミドルウェア](xref:fundamentals/error-handling#usestatuscodepages) |
 | **カスタム ログ**<br>`CustomLoggingModule`                                                      | はい | |
 | **既定のドキュメント**<br>`DefaultDocumentModule`                                                  | いいえ  | [既定のファイル ミドルウェア](xref:fundamentals/static-files#serve-a-default-document) |
 | **ダイジェスト認証**<br>`DigestAuthenticationModule`                                        | はい | |
@@ -47,7 +47,7 @@ ms.locfileid: "58265479"
 | **ISAPI フィルター**<br>`IsapiFilterModule`                                                         | はい | [ミドルウェア](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule`                                                                       | はい | [ミドルウェア](xref:fundamentals/middleware/index) |
 | **プロトコル サポート**<br>`ProtocolSupportModule`                                                  | はい | |
-| **要求のフィルタリング**<br>`RequestFilteringModule`                                                | はい | [URL リライト ミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **要求のフィルタリング**<br>`RequestFilteringModule`                                                | はい | [URL リライト ミドルウェア `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **要求監視**<br>`RequestMonitorModule`                                                    | はい | |
 | **URL リライト**&#8224;<br>`RewriteModule`                                                      | はい | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
 | **サーバー側インクルード**<br>`ServerSideIncludeModule`                                            | いいえ  | |
