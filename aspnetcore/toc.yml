@@ -261,10 +261,82 @@ items:
       name: 依存関係の注入 - ビュー
     - uid: mvc/controllers/testing
       name: 単体テスト
-  - uid: razor-components/index
-    name: Razor Components
+  - name: Blazor
+    items:
+    - uid: blazor/index
+      name: 概要
+    - uid: blazor/get-started
+      name: 作業開始
+    - uid: blazor/hosting-models
+      name: ホスティング モデル
+    - uid: tutorials/first-blazor-app
+      name: 最初のアプリをビルドする
+    - uid: blazor/components
+      name: コンポーネント
+    - uid: blazor/forms-validation
+      name: フォームと検証
+    - uid: blazor/class-libraries
+      name: コンポーネント ライブラリ
+    - uid: blazor/layouts
+      name: レイアウト
+    - uid: blazor/dependency-injection
+      name: 依存関係の挿入
+    - uid: blazor/routing
+      name: ルーティング
+    - uid: blazor/javascript-interop
+      name: JavaScript 相互運用
+    - uid: blazor/debug
+      name: デバッグ
+    - name: ホストと配置
+      items:
+      - uid: host-and-deploy/blazor/index
+        name: 概要
+      - uid: host-and-deploy/blazor/client-side
+        name: クライアント側
+      - uid: host-and-deploy/blazor/server-side
+        name: サーバー側
+      - uid: host-and-deploy/blazor/configure-linker
+        name: リンカーを構成する
+  - name: クライアント側の開発
+    items:
+    - name: 単一ページのアプリ
+      items:
+      - uid: spa/angular
+        name: Angular
+      - uid: spa/react
+        name: React
+      - uid: spa/react-with-redux
+        name: Redux による反応
+      - uid: client-side/spa-services
+        name: JavaScriptServices
+    - name: LibMan
+      items:
+      - uid: client-side/libman/index
+        name: 概要
+      - uid: client-side/libman/libman-cli
+        name: CLI
+      - uid: client-side/libman/libman-vs
+        name: Visual Studio
+    - uid: client-side/using-gulp
+      name: Gulp
+    - uid: client-side/using-grunt
+      name: Grunt
+    - uid: client-side/bower
+      name: Bower
+    - uid: client-side/bundling-and-minification
+      name: バンドルと縮小
+    - uid: client-side/using-browserlink
+      name: ブラウザー リンク
   - uid: fundamentals/app-state
     name: セッションとアプリの状態
+  - uid: mvc/views/layout
+    name: レイアウト
+  - uid: mvc/models/model-binding
+    name: モデル バインド
+  - uid: mvc/models/validation
+    name: モデルの検証
+  - uid: mvc/views/razor
+    name: Razor の構文
   - name: タグ ヘルパー
     items:
     - uid: mvc/views/tag-helpers/intro
@@ -303,14 +375,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
       - name: 検証の概要
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
-  - uid: mvc/views/layout
-    name: レイアウト
-  - uid: mvc/models/model-binding
-    name: モデル バインド
-  - uid: mvc/models/validation
-    name: モデルの検証
-  - uid: mvc/views/razor
-    name: Razor の構文
   - name: 詳細設定
     items:
     - uid: mvc/views/view-components
@@ -553,102 +617,6 @@ items:
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Table ストレージ
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: クライアント側の開発
-  items:
-  - name: Razor Components
-    items:
-    - uid: razor-components/index
-      name: 概要
-    - uid: razor-components/get-started
-      name: 作業開始
-    - uid: razor-components/hosting-models
-      name: ホスティング モデル
-    - uid: tutorials/first-razor-components-app
-      name: 最初のアプリをビルドする
-    - uid: razor-components/components
-      name: コンポーネント
-    - uid: razor-components/forms-validation
-      name: フォームと検証
-    - uid: razor-components/class-libraries
-      name: コンポーネント ライブラリ
-    - uid: razor-components/layouts
-      name: レイアウト
-    - uid: razor-components/dependency-injection
-      name: 依存関係の挿入
-    - uid: razor-components/routing
-      name: ルーティング
-    - uid: razor-components/javascript-interop
-      name: JavaScript 相互運用
-    - uid: razor-components/debug
-      name: デバッグ
-    - name: ホストと配置
-      items:
-      - uid: host-and-deploy/razor-components-blazor/index
-        name: 概要
-      - uid: host-and-deploy/razor-components-blazor/razor-components
-        name: Razor Components
-  - name: 単一ページのアプリ
-    items:
-    - name: Blazor
-      items:
-      - uid: spa/blazor/index
-        name: 概要
-      - uid: spa/blazor/get-started
-        name: 作業開始
-      - uid: razor-components/hosting-models
-        name: ホスティング モデル
-      - uid: tutorials/first-razor-components-app
-        name: 最初のアプリをビルドする
-      - uid: razor-components/components
-        name: コンポーネント
-      - uid: razor-components/forms-validation
-        name: フォームと検証
-      - uid: razor-components/class-libraries
-        name: コンポーネント ライブラリ
-      - uid: razor-components/layouts
-        name: レイアウト
-      - uid: razor-components/dependency-injection
-        name: 依存関係の挿入
-      - uid: razor-components/routing
-        name: ルーティング
-      - uid: razor-components/javascript-interop
-        name: JavaScript 相互運用
-      - uid: razor-components/debug
-        name: デバッグ
-      - name: ホストと配置
-        items:
-        - uid: host-and-deploy/razor-components-blazor/index
-          name: 概要
-        - uid: host-and-deploy/razor-components-blazor/blazor
-          name: Blazor
-        - uid: host-and-deploy/razor-components-blazor/configure-linker
-          name: リンカーを構成する
-    - uid: spa/angular
-      name: Angular
-    - uid: spa/react
-      name: React
-    - uid: spa/react-with-redux
-      name: Redux による反応
-    - uid: client-side/spa-services
-      name: JavaScriptServices
-  - name: LibMan
-    items:
-    - uid: client-side/libman/index
-      name: 概要
-    - uid: client-side/libman/libman-cli
-      name: CLI
-    - uid: client-side/libman/libman-vs
-      name: Visual Studio
-  - uid: client-side/using-gulp
-    name: Gulp
-  - uid: client-side/using-grunt
-    name: Grunt
-  - uid: client-side/bower
-    name: Bower
-  - uid: client-side/bundling-and-minification
-    name: バンドルと縮小
-  - uid: client-side/using-browserlink
-    name: ブラウザー リンク
 - name: ホスティングと配置
   displayName: publish
   items:
@@ -777,15 +745,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: 正常性チェック
     displayName: deploy, publish
-  - name: Razor Components/Blazor
+  - name: Blazor
     items:
-    - uid: host-and-deploy/razor-components-blazor/index
+    - uid: host-and-deploy/blazor/index
       name: 概要
-    - uid: host-and-deploy/razor-components-blazor/blazor
-      name: Blazor
-    - uid: host-and-deploy/razor-components-blazor/razor-components
-      name: Razor Components
-    - uid: host-and-deploy/razor-components-blazor/configure-linker
+    - uid: host-and-deploy/blazor/client-side
+      name: クライアント側
+    - uid: host-and-deploy/blazor/server-side
+      name: サーバー側
+    - uid: host-and-deploy/blazor/configure-linker
       name: リンカーを構成する
 - name: セキュリティと ID
   displayName: authentication, authorization
@@ -1090,9 +1058,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: e788460a2de31aa570907b4561d30ad0da2ca854
-ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
+ms.openlocfilehash: 1863125cec772262c41884af343f66ec8fcb53ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59516275"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614299"

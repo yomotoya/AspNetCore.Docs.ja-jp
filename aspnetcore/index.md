@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: 944c8a93aff53b8d72fda03f5df9c5ba45990cbc
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 9cb598c4068586e4e960ec40743c4f54f09995ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068274"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614373"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -44,7 +44,7 @@ ASP.NET Core MVC は、[Web API](xref:tutorials/first-web-api) と [Web アプ�
 
 ## <a name="client-side-development"></a>クライアント側の開発
 
-ASP.NET Core は、人気のあるクライアント側のフレームワークとライブラリ ([Razor Components](xref:razor-components/index)、[Angular](xref:spa/angular)、[React](xref:spa/react)、[Bootstrap](https://getbootstrap.com/) など) をシームレスに統合します。 詳細については、[Razor Components](xref:razor-components/index) に関する記事と*クライアント側の開発*の関連トピックを参照してください。
+ASP.NET Core は、人気のあるクライアント側のフレームワークとライブラリ ([Blazor](xref:blazor/index)、[Angular](xref:spa/angular)、[React](xref:spa/react)、[Bootstrap](https://getbootstrap.com/) など) をシームレスに統合します。 詳細については、<xref:blazor/index> と "*クライアント側の開発*" の関連トピックを参照してください。
 
 <a name="target-framework"></a>
 
@@ -77,7 +77,7 @@ ASP.NET Core アプリを開発する場合の概要として、次の順序で�
 
    |アプリの種類  |シナリオ  |チュートリアル  |
    |----------|----------|----------|
-   |Web アプリ       | 新規の開発        |[Razor Pages の概要](xref:tutorials/razor-pages/razor-pages-start) |
+   |Web アプリ       | 新規の開発        |[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start) |
    |Web アプリ       | MVC アプリの管理 |[MVC の概要](xref:tutorials/first-mvc-app/start-mvc)|
    |Web API       |                            |[Web API の作成](xref:tutorials/first-web-api)\*  |
    |リアルタイムのアプリ |                            |[SignalR の概要](xref:tutorials/signalr) |
@@ -91,7 +91,7 @@ ASP.NET Core アプリを開発する場合の概要として、次の順序で�
 
 1. すべての種類のアプリに該当する ASP.NET Core の機能の概要は、次を参照してください。
 
-   * [Fundamentals](xref:fundamentals/index)
+   * [ASP.NET Core の基礎の概要](xref:fundamentals/index)
 
 1. 興味のあるその他のトピックは、目次から参照してください。
 

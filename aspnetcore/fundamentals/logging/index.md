@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f0e4dbb6fda4f676ad8e769c71cc9548a4d61d66
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068405"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614436"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -148,7 +148,7 @@ DI から <xref:Microsoft.Extensions.Logging.ILogger%601> オブジェクトを�
 
 `Logging` の下の `LogLevel` プロパティでは、選択したカテゴリに対するログの最小の[レベル](#log-level)が指定されます。 この例では、`System` と `Microsoft` カテゴリが `Information` レベルで、その他はすべて `Debug` レベルでログに記録します。
 
-`Logging` の下のその他のプロパティではログ プロバイダーが指定されます。 この例では、Console プロバイダーです。 プロバイダーで[ログのスコープ](#log-scopes)がサポートされている場合、`IncludeScopes` によってそれを有効にするかどうかが指定されます。 プロバイダーのプロパティ (例の `Console` など) では、`LogLevel` プロパティが指定される場合があります。 `LogLevel` (プロバイダーの下) では、そのプロバイダーのログのレベルが指定されます。
+`Logging` の下のその他のプロパティではログ プロバイダーが指定されます。 この例では、Console プロバイダーです。 プロバイダーで[ログのスコープ](#log-scopes)がサポートされている場合、`IncludeScopes` によってそれを有効にするかどうかが指定されます。 プロバイダーのプロパティ (例の `Console` など) では、`LogLevel` プロパティが指定される場合があります。 プロバイダーの下の `LogLevel` では、そのプロバイダーのログのレベルが指定されます。
 
 `Logging.{providername}.LogLevel` でレベルが指定される場合、それによって `Logging.LogLevel` で設定されたものはすべてオーバーライドされます。
 
@@ -285,11 +285,11 @@ ASP.NET Core には、次のログ レベルが定義されています (重大�
 
 * Information = 2
 
-  アプリの一般的なフローを追跡する場合。 通常、これらのログには、長期的な値があります。 例: `Request received for path /api/todo`
+  アプリの一般的なフローを追跡する場合。 通常、これらのログには、長期的な値があります。 例 : `Request received for path /api/todo`
 
 * Warning = 3
 
-  アプリのフローで異常なイベントや予期しないイベントが発生した場合。 アプリの停止の原因にはならないが、調査する必要があるエラーやその他の状態がここに含まれる場合があります。 `Warning` ログ レベルが使用される一般的な場所として、例外の処理があります。 例: `FileNotFoundException for file quotes.txt.`
+  アプリのフローで異常なイベントや予期しないイベントが発生した場合。 アプリの停止の原因にはならないが、調査する必要があるエラーやその他の状態がここに含まれる場合があります。 `Warning` ログ レベルが使用される一般的な場所として、例外の処理があります。 例 : `FileNotFoundException for file quotes.txt.`
 
 * Error = 4
 
@@ -497,7 +497,8 @@ System.Exception: Item not found exception.
 * コンソール
 * デバッグ
 * EventLog
-* AzureAppServices
+* AzureAppServicesFile
+* AzureAppServicesBlob
 * TraceSource
 * EventSource
 
