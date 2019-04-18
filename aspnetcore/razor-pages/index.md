@@ -7,10 +7,10 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
 ms.openlocfilehash: e79ce1e2ddfc0e1a4d72e3f67f702d6eb938b8d3
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468696"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
@@ -31,11 +31,11 @@ Razor ページは、ページ コーディングに重点を置いたシナリ�
 
 ## <a name="create-a-razor-pages-project"></a>Razor ページ プロジェクトを作成する
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Razor ページ プロジェクトを作成する詳細な手順については、「[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)」を参照してください。
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Razor ページ プロジェクトを作成する詳細な手順については�
 
 Visual Studio for Mac から生成された *.csproj* ファイルを開きます。
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -77,7 +77,7 @@ Razor ページは *Startup.cs* で有効になっています。
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-上記のコードは、コントローラーとビューを含んだ ASP.NET Core アプリで使われる [Razor ビュー ファイル](xref:tutorials/first-mvc-app/adding-view)によく似ています。 違いは、`@page` ディレクティブにあります。 `@page` はファイルを MVC アクションにします。つまり、コントローラーを経由せずに要求を直接処理します。 `@page` はページ上で最初の Razor ディレクティブである必要があります。 `@page` はその他の Razor コンストラクトの動作に影響します。
+上記のコードは、コントローラーとビューを含んだ ASP.NET Core アプリで使われる [Razor ビュー ファイル](xref:tutorials/first-mvc-app/adding-view)によく似ています。 違いは、`@page` ディレクティブにあります。 `@page` はファイルを MVC アクションにします。つまり、コントローラーを経由せずに要求を直接処理します。 `@page` はページで最初の Razor ディレクティブである必要があります。 `@page` はその他の Razor コンストラクトの動作に影響します。
 
 `PageModel` クラスを使用している類似したページが、次の 2 つのファイルにあります。 *Pages/Index2.cshtml* ファイル:
 
@@ -101,7 +101,7 @@ URL パスのページへの関連付けは、ファイル システム内のペ
 メモ:
 
 * 既定では、ランタイムが *Pages* フォルダー内で Razor ページ ファイルを検索します。
-* `Index` は URL にページが含まれない場合の既定のページです。
+* `Index` は、URL にページが含まれない場合の既定のページになります。
 
 ## <a name="write-a-basic-form"></a>基本フォームを作成する
 
@@ -133,8 +133,8 @@ db コンテキスト:
 
 このページには、(ユーザーがフォームを投稿したときに) `POST` 要求で実行される `OnPostAsync` *ハンドラー メソッド*があります。 任意の HTTP 動詞のハンドラー メソッドを追加できます。 最も一般的なハンドラーは次のとおりです。
 
-* `OnGet` はページに必要な状態を初期化します。 [OnGet](#OnGet) サンプル。
-* `OnPost` はフォームの送信を処理します。
+* ページに必要な状態を初期化するための `OnGet`。 [OnGet](#OnGet) サンプル。
+* フォームの送信を処理するための `OnPost`。
 
 `Async` 名前付けサフィックスは省略可能ですが、非同期関数の規則でよく使用されます。 上記の例の `OnPostAsync` コードは、コントローラーで通常に記述するものに似ています。 上記のコードは、Razor ページでは一般的です。 [モデル バインド](xref:mvc/models/model-binding)、[検証](xref:mvc/models/validation)、およびアクションの結果などのほとんどの MVC プリミティブは共有されます。  <!-- Review: Ryan, can we get a list of what is shared and what isn't? -->
 
@@ -151,7 +151,7 @@ db コンテキスト:
 
 データが正常に入力されると、`OnPostAsync` ハンドラー メソッドが `RedirectToPage` ヘルパー メソッドを呼び出して `RedirectToPageResult` のインスタンスを返します。 `RedirectToPage` は、`RedirectToAction` や `RedirectToRoute` と同じような新しいアクション結果ですが、ページ用にカスタマイズされています。 上記のサンプルでは、ルート インデックス ページ (`/Index`) にリダイレクトします。 `RedirectToPage` については、「[ページの URL の生成](#url_gen)」セクションで詳しく説明されています。
 
-送信されたフォームに検証エラー (サーバーに渡される) があると、`OnPostAsync` ハンドラー メソッドが `Page` ヘルパー メソッドを呼び出します。 `Page` は `PageResult` のインスタンスを返します。 `Page` を返すのは、コントローラーのアクションが `View` を返す方法に似ています。 `PageResult` が既定です <!-- Review  --> ハンドラー メソッドの戻り値の型です。 `void` を返すハンドラー メソッドがページをレンダリングします。
+送信されたフォームに検証エラー (サーバーに渡される) があると、`OnPostAsync` ハンドラー メソッドが `Page` ヘルパー メソッドを呼び出します。 `Page` は `PageResult` のインスタンスを返します。 `Page` を返すのは、コントローラーのアクションが `View` を返す方法に似ています。 `PageResult` が既定 <!-- Review  --> ハンドラー メソッドの戻り値の型です。 `void` を返すハンドラー メソッドがページをレンダリングします。
 
 `Customer` プロパティは `[BindProperty]` 属性を使用してモデル バインドにオプトインします。
 
@@ -346,7 +346,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 
 *Pages/Customers/Edit.cshtml* Razor ページの生成された名前空間は、`PageModel` クラスと同じです。
 
-`@namespace` *は従来の Razor ビューでも機能します。*
+`@namespace`  *は従来の Razor ビューでも機能します。*
 
 元の *Pages/Create.cshtml* ビュー ファイル:
 
@@ -396,7 +396,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 | RedirectToPage("../Index") | *Pages/Index* |
 | RedirectToPage("Index")  | *Pages/Customers/Index* |
 
-`RedirectToPage("Index")`、`RedirectToPage("./Index")`、`RedirectToPage("../Index")` は "*相対名*" です。 `RedirectToPage` パラメーターは現在のページのパスと*組み合わされて*、ターゲット ページの名前を計算します。  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
+`RedirectToPage("Index")`、`RedirectToPage("./Index")`、および `RedirectToPage("../Index")` は*相対名*です。 `RedirectToPage` パラメーターは現在のページのパスと*組み合わされて*、ターゲット ページの名前を計算します。  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 相対名のリンクは、複雑な構造を持つサイトを構築する際に役立ちます。 相対名を使用してフォルダー内のページ間をリンクする場合、そのフォルダー名を変更することができます。 すべてのリンクは引き続き機能します (リンクにはフォルダー名が含まれていないため)。
 
@@ -448,7 +448,7 @@ public class AboutModel : PageModel
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core は [コントローラー](/dotnet/api/microsoft.aspnetcore.mvc.controller)上で [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は、複数の要求に対してデータが必要な場合のリダイレクトに役立ちます。
+ASP.NET Core は [コントローラー](/dotnet/api/microsoft.aspnetcore.mvc.controller)上で [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は、複数の要求にデータが必要な場合のリダイレクトに役立ちます。
 
 `[TempData]` は ASP.NET Core 2.0 の新しい属性で、コントローラーとページでサポートされています。
 
@@ -481,7 +481,7 @@ public string Message { get; set; }
 
 <!-- Review: the FormActionTagHelper applies to all <form /> elements on a Razor page, even when there's no `asp-` attribute   -->
 
-前の例のフォームには、それぞれが `FormActionTagHelper` を使用して異なる URL に送信する 2 つの送信ボタンがあります。 `asp-page-handler` 属性は、`asp-page` のコンパニオンです。 `asp-page-handler` はページごとに定義されている各ハンドラー メソッドに送信する URL を生成します。 `asp-page` は指定されません。サンプルは現在のページにリンクしているためです。
+前の例のフォームには、それぞれが `FormActionTagHelper` を使用して異なる URL に送信する 2 つの送信ボタンがあります。 `asp-page-handler` 属性は、`asp-page` のコンパニオンです。 `asp-page-handler` はページごとに定義されている各ハンドラー メソッドに送信する URL を生成します。 サンプルは現在のページにリンクしているため、`asp-page` は指定されません。
 
 ページ モデル: 
 

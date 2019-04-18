@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
 ms.openlocfilehash: 009ee97d954a21f5fca1713b2b45218cac235e33
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012839"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
@@ -236,8 +236,8 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [App Service の概要](/azure/app-service/app-service-web-overview)
-* [Azure App Service:.NET アプリのホスティングに最適な場所 (55 分間の概要ビデオ)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
-* [Azure Friday:Azure App Service の診断とトラブルシューティング (12 分間のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Azure App Service: .NET アプリのホスティングに最適な場所 (55 分間の概要ビデオ)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
+* [Azure Friday: Azure App Service の診断とトラブルシューティング (12 分間のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Azure App Service の診断の概要](/azure/app-service/app-service-diagnostics)
 * <xref:host-and-deploy/web-farm>
 
