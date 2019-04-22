@@ -5,21 +5,21 @@ description: ASP.NET Core SignalR .NET クライアントに関する情報
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 04/17/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: a03abef53aa44f0a1016b8f72d8e3a7af2f9bed1
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 640d75157e42ffa6d78235c5be03e4846e8dcde9
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978305"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982947"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET クライアント
 
 ASP.NET Core SignalR .NET クライアント ライブラリでは、.NET アプリからの SignalR ハブと通信できます。
 
 > [!NOTE]
-> Xamarin には、Visual Studio バージョンについての特別な要件があります。 詳細については、[Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)を参照してください。
+> Xamarin には、Visual Studio バージョンについての特別な要件があります。 詳細については、次を参照してください。 [Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
@@ -64,8 +64,12 @@ connection.Closed += (error) => {
 
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
 
+`InvokeAsync`メソッドを返します。 を`Task`サーバー メソッドが戻るときに完了します。 戻り値は、存在する場合の結果として提供されます、`Task`します。 サーバー上のメソッドによってスローされた例外を生成するエラーが発生した`Task`します。 使用`await`サーバー メソッドが完了するまで待機するための構文と`try...catch`構文エラーを処理します。
+
+`SendAsync`メソッドを返します。 を`Task`メッセージがサーバーに送信されたときにこれが完了するとします。 この戻り値が指定されていない`Task`サーバー メソッドが完了するまで待機しません。 メッセージの送信中に、クライアントでスローされた例外を生成、エラーが発生した`Task`します。 使用`await`と`try...catch`処理するために構文エラーを送信します。
+
 > [!NOTE]
-> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)を参照してください。
+> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 

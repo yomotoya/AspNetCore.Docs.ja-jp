@@ -3,14 +3,14 @@ title: ASP.NET Core での id モデルのカスタマイズ
 author: ajcvickers
 description: この記事では、ASP.NET Core Identity の基になる Entity Framework Core のデータ モデルをカスタマイズする方法について説明します。
 ms.author: avickers
-ms.date: 09/24/2018
+ms.date: 04/24/2019
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 0aa7448ac37a97a4d09a04caf365f641f22f5997
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: ae5f4567a8921ce277cd6153f37a5558bcf4e261
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327302"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982786"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET Core での id モデルのカスタマイズ
 
@@ -30,11 +30,11 @@ Id がどのように機能するかを把握するのに役立ちますが、�
 
 追加して、移行を適用するには、次の方法のいずれかを使用します。
 
-* **パッケージ マネージャー コンソール**(PMC) ウィンドウの場合、Visual Studio を使用します。 詳細については、[EF Core の優れた PMC ツール](/ef/core/miscellaneous/cli/powershell)を参照してください。
-* .NET Core CLI のコマンドラインを使用する場合。 詳細については、[EF Core .NET コマンド ライン ツール](/ef/core/miscellaneous/cli/dotnet)を参照してください。
+* **パッケージ マネージャー コンソール**(PMC) ウィンドウの場合、Visual Studio を使用します。 詳細については、次を参照してください。 [EF Core の優れた PMC ツール](/ef/core/miscellaneous/cli/powershell)します。
+* .NET Core CLI のコマンドラインを使用する場合。 詳細については、次を参照してください。 [EF Core .NET コマンド ライン ツール](/ef/core/miscellaneous/cli/dotnet)します。
 * クリックすると、**適用移行**アプリの実行時にエラー ページ ボタンをします。
 
-ASP.NET Core では、開発時のエラー ページ ハンドラーがあります。 ハンドラーは、アプリの実行時に、移行を適用できます。 運用アプリの方が、移行で SQL スクリプトを生成し、管理されたアプリとデータベースの展開の一部としてデータベースに対する変更を配置する適切な。
+ASP.NET Core では、開発時のエラー ページ ハンドラーがあります。 ハンドラーは、アプリの実行時に、移行を適用できます。 通常、実稼働アプリは、移行からの SQL スクリプトを生成し、管理されたアプリとデータベースの配置の一部としてデータベースの変更をデプロイします。
 
 Id を使用して新しいアプリが作成されると、手順 1. と上記の 2 が完了しました既に。 つまり、初期のデータ モデルが既に存在して、最初の移行がプロジェクトに追加されました。 最初の移行は、データベースに適用する必要があります。 次の方法のいずれかでは、最初の移行を適用できます。
 
@@ -300,6 +300,16 @@ public abstract class IdentityUserContext<
 
 ### <a name="custom-user-data"></a>カスタム ユーザー データ
 
+<!--
+set projNam=WebApp1
+dotnet new webapp -o %projNam%
+cd %projNam%
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design 
+dotnet aspnet-codegenerator identity  -dc ApplicationDbContext --useDefaultUI 
+dotnet ef migrations add CreateIdentitySchema
+dotnet ef database update
+ -->
+
 [カスタム ユーザー データ](xref:security/authentication/add-user-data)から継承することではサポートされて`IdentityUser`します。 この型名前を指定するが通例`ApplicationUser`:
 
 ```csharp
@@ -318,14 +328,26 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
 }
 ```
 
 オーバーライドする必要はありません`OnModelCreating`で、`ApplicationDbContext`クラス。 EF Core のマップ、`CustomTag`慣例プロパティ。 データベースを新たに作成する更新が必要、`CustomTag`列。 列を作成するには、移行を追加および」の説明に従って、データベースを更新[Id と EF Core の移行](#identity-and-ef-core-migrations)します。
 
-Update `Startup.ConfigureServices` 、新しい`ApplicationUser`クラス。
+Update *Pages/Shared/_LoginPartial.cshtml*と置換`IdentityUser`で`ApplicationUser`:
 
-::: moniker range=">= aspnetcore-2.1"
+```
+@using Microsoft.AspNetCore.Identity
+@using WebApp1.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+```
+
+Update *Areas/Identity/IdentityHostingStartup.cs*または`Startup.ConfigureServices`と置換`IdentityUser`で`ApplicationUser`します。
 
 ```csharp
 services.AddDefaultIdentity<ApplicationUser>()
@@ -337,28 +359,6 @@ ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリ�
 
 * [Identity のスキャフォールディング](xref:security/authentication/scaffold-identity)
 * [追加、ダウンロード、および Id にカスタム ユーザー データの削除](xref:security/authentication/add-user-data)
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
-```
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-1.1"
-
-```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext, Guid>()
-        .AddDefaultTokenProviders();
-```
-
-::: moniker-end
 
 ### <a name="change-the-primary-key-type"></a>主キーの型を変更します。
 
@@ -942,7 +942,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 ### <a name="map-to-a-different-schema"></a>別のスキーマにマップします。
 
-スキーマは、データベース プロバイダーにわたる動作が異なることができます。 既定値は、SQL Server のすべてのテーブルを作成する、 *dbo*スキーマ。 別のスキーマ内のテーブルを作成できます。 例:
+スキーマは、データベース プロバイダーにわたる動作が異なることができます。 既定値は、SQL Server のすべてのテーブルを作成する、 *dbo*スキーマ。 別のスキーマ内のテーブルを作成できます。 例えば:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)

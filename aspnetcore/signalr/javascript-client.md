@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: f1f072e63928502fa1bad62e808ff035e57f2fd3
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705605"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983014"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -66,6 +66,13 @@ JavaScript クライアントは、ハブ経由でのパブリック メソッ�
 
 > [!NOTE]
 > Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
+
+`invoke`メソッドは、JavaScript を返します[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)します。 `Promise`解決戻り値 (ある場合) サーバー上のメソッドが返されます。 サーバー上のメソッドが、エラーをスローした場合、`Promise`と、エラー メッセージは拒否されます。 使用して、`then`と`catch`メソッド、`Promise`自体と、このような場合を処理するために (または`await`構文)。
+
+`send`メソッドは、JavaScript を返します`Promise`します。 `Promise`サーバーに、メッセージが送信されたときに解決されます。 メッセージを送信中にエラーがある場合、`Promise`と、エラー メッセージは拒否されます。 使用して、`then`と`catch`メソッド、`Promise`自体と、このような場合を処理するために (または`await`構文)。
+
+> [!NOTE]
+> 使用して`send`サーバーがメッセージを受信するまで待機しません。 その結果、サーバーからデータまたはエラーを返すことはできません。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 
