@@ -529,8 +529,12 @@ items:
     name: HTTP API を使用した gRPC サービスの比較
   - name: チュートリアル
     items:
-    - uid: tutorials/grpc/grpc-start
+    - uid: tutorials/grpc/index
       name: ASP.NET Core の gRPC サービスの概要
+    - uid: tutorials/grpc/grpc-start
+      name: ASP.NET Core gRPC あいさつサービスを作成する
+    - uid: tutorials/grpc/grpc-client
+      name: .NET Core gRPC クライアントを作成する
 - name: テスト、デバッグ、およびトラブルシューティング
   items:
   - name: 単体テスト
@@ -930,12 +934,12 @@ items:
   - uid: security/app-secrets
     name: 開発時のシークレットの保護
     displayName: password
+  - uid: security/key-vault-configuration
+    name: Azure Key Vault 構成プロバイダー
   - uid: security/enforcing-ssl
     name: HTTPS の適用
   - uid: security/gdpr
     name: EU の一般データ保護規制 (GDPR) のサポート
-  - uid: security/key-vault-configuration
-    name: Azure Key Vault 構成プロバイダー
   - uid: security/anti-request-forgery
     name: リクエスト フォージェリの対策
   - uid: security/preventing-open-redirects
@@ -1058,9 +1062,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 1863125cec772262c41884af343f66ec8fcb53ad
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 721fb2d1042307c23e0858a7a1bf71a0b24d57ab
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614299"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705563"
