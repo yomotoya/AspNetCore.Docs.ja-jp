@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: b2b5a155d0dff28e471af449731da787f19d1faf
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 98dea9cfbafb53de8ba82ef06f4885d9fbf50123
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208359"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705618"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio を使用して Azure に ASP.NET Core アプリを発行する
 
@@ -186,6 +186,7 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* Visual Studio Code については、「[発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles)」をご覧ください。
 * [Azure App Service](/azure/app-service/app-service-web-overview)
 * [Azure リソース グループ](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Database](/azure/sql-database/)

@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/05/2019
 uid: security/authorization/policies
 ms.openlocfilehash: ea9d687d3810c104d5b3fa39033849c21569709b
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068171"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
@@ -27,13 +27,13 @@ ms.locfileid: "59068171"
 
 Razor ページを使用している場合は、次を参照してください。 [Razor ページにポリシーを適用する](#applying-policies-to-razor-pages)このドキュメントで。
 
-使用して、コント ローラーに適用されるポリシー、`[Authorize]`ポリシーの名前を持つ属性です。 例:
+使用して、コント ローラーに適用されるポリシー、`[Authorize]`ポリシーの名前を持つ属性です。 例えば:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
 ## <a name="applying-policies-to-razor-pages"></a>Razor ページにポリシーを適用します。
 
-使用して Razor ページにポリシーが適用されます、`[Authorize]`ポリシーの名前を持つ属性です。 例:
+使用して Razor ページにポリシーが適用されます、`[Authorize]`ポリシーの名前を持つ属性です。 例えば:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
 
@@ -80,7 +80,7 @@ Razor ページを使用している場合は、次を参照してください�
 
 ### <a name="handler-registration"></a>ハンドラーの登録
 
-ハンドラーは、構成中にサービスのコレクションに登録されます。 例えば:
+ハンドラーは、構成中にサービスのコレクションに登録されます。 例:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 

@@ -7,10 +7,10 @@ ms.author: scaddie
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/th-components
 ms.openlocfilehash: fdad4ae367245cd3beabaf90587c1fe5e9162afe
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468596"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー コンポーネント
@@ -27,8 +27,8 @@ ASP.NET Core には、組み込みのタグ ヘルパー コンポーネント�
 
 タグ ヘルパー コンポーネントの 2 つの一般的なユース ケースは、次のとおりです。
 
-1. [`<link>` を `<head>` に挿入する。](#inject-into-html-head-element)
-1. [`<script>` を `<body>` に挿入する。](#inject-into-html-body-element)
+1. [`<link>` を `<head>` に挿入する](#inject-into-html-head-element)
+1. [`<script>` を `<body>` に挿入する](#inject-into-html-body-element)
 
 次のセクションでは、これらのユース ケースについて説明します。
 
@@ -40,11 +40,11 @@ HTML `<head>` 要素内で、CSS ファイルは HTML `<link>` 要素でよく�
 
 上のコードでは以下の操作が行われます。
 
-* `AddressStyleTagHelperComponent` では、<xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent> が実装されます。 抽象化では次のことを行います。
+* `AddressStyleTagHelperComponent` は、<xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent> を実装します。 抽象化では次のことを行います。
   * <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext> を使ってクラスの初期化を許可。
   * タグ ヘルパー コンポーネントの使用を有効にして、HTML 要素を追加または変更。
-* <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> プロパティでは、コンポーネントがレンダリングされる順序を定義します。 `Order` が、アプリでタグ ヘルパー コンポーネントが複数使用されているときは必要です。
-* <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.ProcessAsync*> では、実行コンテキストの <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext.TagName*> プロパティの値が `head` と比較されます。 比較評価の結果が true の場合は、`_style` フィールドのコンテンツが HTML `<head>` 要素に挿入されます。
+* <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> プロパティでは、コンポーネントがレンダリングされる順序を定義します。 アプリでタグ ヘルパー コンポーネントが複数使用されている場合、`Order` が必要です。
+* <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.ProcessAsync*> では、実行コンテキストの <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext.TagName*> プロパティ値が `head` と比較されます。 比較評価の結果が true の場合は、`_style` フィールドのコンテンツが HTML `<head>` 要素に挿入されます。
 
 ### <a name="inject-into-html-body-element"></a>HTML の body 要素に挿入
 
@@ -85,7 +85,7 @@ HTML `<head>` 要素内で、CSS ファイルは HTML `<link>` 要素でよく�
 * `@inject` ディレクティブでは、`ITagHelperComponentManager` のインスタンスが提供されます。 インスタンスは、Razor ファイルでダウンストリームのアクセスを行うために、`manager` という名前の変数に割り当てられます。
 * `AddressTagHelperComponent` のインスタンスは、アプリのタグ ヘルパー コンポーネント コレクションに追加されます。
 
-`AddressTagHelperComponent` は、`markup` および `order` パラメーターを受け入れるコンストラクターに対応するために変更されます。
+`AddressTagHelperComponent` は、`markup` と `order` パラメーターを受け入れるコンストラクターに反映するために変更されます。
 
 [!code-csharp[](th-components/samples/RazorPagesSample/TagHelpers/AddressTagHelperComponent.cs?name=snippet_Constructor)]
 

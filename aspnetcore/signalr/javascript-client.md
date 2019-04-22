@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript クライアントの概要です�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: a0980dca2eb8d483a9d9f1c5667fb74ee06364f0
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978343"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705605"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -65,7 +65,7 @@ JavaScript クライアントは、ハブ経由でのパブリック メソッ�
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 
 > [!NOTE]
-> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)を参照してください。
+> Azure SignalR サービスを使用している場合*サーバーレス モード*、クライアントからハブ メソッドを呼び出すことはできません。 詳細については、次を参照してください。、 [SignalR サービスのドキュメント](/azure/azure-signalr/signalr-concept-serverless-development-config)します。
 
 ## <a name="call-client-methods-from-hub"></a>ハブからのクライアント メソッドを呼び出す
 
@@ -104,7 +104,140 @@ SignalR を呼び出すメソッド名を照合することによってクライ
 
 ## <a name="reconnect-clients"></a>クライアントを再接続します。
 
-SignalR JavaScript クライアントは自動的に再接続しません。 クライアントを手動で再接続するコードを記述する必要があります。 次のコードでは、再接続の一般的なアプローチを示します。
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="automatically-reconnect"></a>自動的に再接続します。
+
+使用して再接続が自動的に SignalR JavaScript クライアントを構成することができます、`withAutomaticReconnect`メソッド[HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder)します。 既定では、自動的に再接続しません。
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect()
+    .build();
+```
+
+任意のパラメーターを指定せず`withAutomaticReconnect()`後、4 つの失敗した試行を停止する各再接続の試行を試す前に、それぞれ 0、2、10、および 30 秒間待機するクライアントを構成します。
+
+再接続しようとすると、開始する前に、`HubConnection`への移行には、`HubConnectionState.Reconnecting`起動状態にあり、その`onreconnecting`コールバックへの移行ではなく、`Disconnected`状態とトリガーの`onclose`コールバックなどの`HubConnection`せず、自動再接続を構成します。 これは、UI 要素を無効にして、接続が失われたことをユーザーに警告する機会を提供します。
+
+```javascript
+connection.onreconnecting((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+内の最初の 4 つの試行で、クライアントが再接続に成功した場合、`HubConnection`から戻るへの移行、`Connected`起動状態にあり、その`onreconnected`コールバック。 これは、接続が再確立されたユーザーに通知する機会を提供します。
+
+接続は、サーバーから完全に新規に見えるため、新しい`connectionId`に提供される、`onreconnected`コールバック。
+
+> [!WARNING]
+> `onreconnected`コールバックの`connectionId`パラメーターは不確定になる場合、`HubConnection`するように構成された[ネゴシエーションをスキップ](xref:signalr/configuration#configure-client-options)します。
+
+```javascript
+connection.onreconnected((connectionId) => {
+  console.assert(connection.state === signalR.HubConnectionState.Connected);
+
+  document.getElementById("messageInput").disabled = false;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+`withAutomaticReconnect()` 構成はありません、`HubConnection`起動障害を手動で処理する必要があるために、初回起動時の障害を再試行します。
+
+```javascript
+async function start() {
+    try {
+        await connection.start();
+        console.assert(connection.state === signalR.HubConnectionState.Connected);
+        console.log("connected");
+    } catch (err) {
+        console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+        console.log(err);
+        setTimeout(() => start(), 5000);
+    }
+};
+```
+
+内の最初の 4 つの試行で、クライアントが再接続が正常に場合、`HubConnection`への移行には、`Disconnected`起動状態にあり、その[onclose](/javascript/api/%40aspnet/signalr/hubconnection#onclose)コールバック。 これは、接続が完全に失われ、ページの更新をお勧めします。 ユーザーに通知する機会を提供します。
+
+```javascript
+connection.onclose((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
+  document.getElementById("messagesList").appendChild(li);
+})
+```
+
+切断する前に再接続試行のカスタムの数を構成または再接続のタイミングを変更するには`withAutomaticReconnect`再接続が試みられるたびに開始する前に待機するミリ秒の遅延を表す数値の配列を受け入れます。
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect([0, 0, 10000])
+    .build();
+
+    // .withAutomaticReconnect([0, 2000, 10000, 30000]) yields the default behavior
+```
+
+上記の例では、`HubConnection`接続が失われた後にすぐに再接続しようとすると開始します。 またこれは、既定の構成に当てはまります。
+
+既定の構成でこれと同じように、2 秒待機しているのではなく、最初の再接続試行が失敗すると、2 回目の再接続試行がすぐに開始もは。
+
+2 回目の再接続の試行が失敗した場合、これは、既定の構成と同様にもう一度、10 秒後に、3 番目の再接続の試行が開始されます。
+
+カスタム動作し、もう一度ブロックから分化既定の動作を停止して 3 番目の再接続試行のいずれかの代わりに失敗した後は別の 30 秒後、既定の構成のように試行を再接続します。
+
+タイミングと自動の数をさらに多くのコントロールの接続試行、なら`withAutomaticReconnect`実装するオブジェクトを受け入れる、`IReconnectPolicy`インターフェイスという単一のメソッドを`nextRetryDelayInMilliseconds`します。
+
+`nextRetryDelayInMilliseconds` 2 つの引数を受け取り`previousRetryCount`と`elapsedMilliseconds`、両方の数値であります。 最初の再接続試行する前に両方`previousRetryCount`と`elapsedMilliseconds`は 0 になります。 各障害が発生した再試行後`previousRetryCount`1 つずつ増えますと`elapsedMilliseconds`はこれまでに再接続するミリ秒単位で費やされた時間数を反映するように更新されます。
+
+`nextRetryDelayInMilliseconds` いずれかを表す数値ミリ秒数、[次へ] の再接続の試行までの待機を返す必要がありますまたは`null`場合、`HubConnection`再接続を停止する必要があります。
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect({
+        nextRetryDelayInMilliseconds: (previousRetryCount, elapsedMilliseconds) => {
+          if (elapsedMilliseconds < 60000) {
+            // If we've been reconnecting for less than 60 seconds so far,
+            // wait between 0 and 10 seconds before the next reconnect attempt.
+            return Math.random() * 10000;
+          } else {
+            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+            return null;
+          }
+        })
+    .build();
+```
+
+再接続で示すように手動で、クライアント コードを記述する代わりに、[手動で再接続](#manually-reconnect)します。
+
+::: moniker-end
+
+### <a name="manually-reconnect"></a>手動での再接続します。
+
+::: moniker range="< aspnetcore-3.0"
+
+> [!WARNING]
+> 3.0 では、前に SignalR JavaScript クライアントは自動的に再接続しません。 クライアントを手動で再接続するコードを記述する必要があります。
+
+::: moniker-end
+
+次のコードでは、手動による再接続の一般的なアプローチを示します。
 
 1. 関数 (ここで、`start`関数)、接続を開始するが作成されます。
 1. 呼び出す、`start`関数で、接続の`onclose`イベント ハンドラー。

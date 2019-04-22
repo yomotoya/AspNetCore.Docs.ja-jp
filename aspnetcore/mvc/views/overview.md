@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
 ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012800"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
@@ -192,7 +192,7 @@ viewmodel 型とビジネス モデル型の両方に同じクラスを使用す
 
 ### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>弱く型指定されたデータ (ViewData、ViewData 属性、ViewBag)
 
-`ViewBag` *は Razor Pages では使用できません。*
+`ViewBag`  *は Razor ページでは使用できません。*
 
 厳密に型指定されたビューに加え、ビューはデータの*弱く型指定された* (*緩く型指定された*ともいう) コレクションにもアクセスできます。 厳密な型とは異なり、*弱い型* (または*緩い型*) は、使用するデータの型を明示的に宣言しないことを意味します。 弱く型指定されたデータのコレクションを使用して、少量のデータをコントローラーとビュー間でやり取りすることができます。
 
@@ -292,7 +292,7 @@ About ビューでは、モデル プロパティとして `Title` プロパテ�
 
 **ViewBag**
 
-`ViewBag` *は Razor Pages では使用できません。*
+`ViewBag`  *は Razor ページでは使用できません。*
 
 `ViewBag` は、`ViewData` に格納されているオブジェクトへの動的アクセスを提供する [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) オブジェクトです。 `ViewBag` はキャストを必要としないため、より簡単に使用できます。 次の例は、上記の `ViewData` を使用した時と同じ結果になるように、`ViewBag` を使用する方法を示しています。
 
@@ -325,7 +325,7 @@ public IActionResult SomeAction()
 
 **ViewBag、ViewData を同時に使用する**
 
-`ViewBag` *は Razor Pages では使用できません。*
+`ViewBag`  *は Razor ページでは使用できません。*
 
 `ViewData` と `ViewBag` は基になる同じ `ViewData` コレクションを参照しているため、値を読み書きするときに、`ViewData` と `ViewBag` の両方を使用して、それらを組み合わせることができます。
 
@@ -365,15 +365,15 @@ public IActionResult SomeAction()
 
 **ViewData と ViewBag の相違点の概要**
 
- `ViewBag` は Razor Pages では使用できません。
+ `ViewBag` は Razor ページでは使用できません。
 
 * `ViewData`
   * [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) から派生するため、`ContainsKey`、`Add`、`Remove`、`Clear` などの役に立つディクショナリ プロパティがあります。
-  * ディクショナリ内のキーは文字列なので、空白が許可されます。 例: `ViewData["Some Key With Whitespace"]`
+  * ディクショナリ内のキーは文字列なので、空白が許可されます。 例 : `ViewData["Some Key With Whitespace"]`
   * `ViewData` を使用するには、ビューで `string` 以外のすべての型をキャストする必要があります。
 * `ViewBag`
   * [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) から派生するため、ドット表記 (`@ViewBag.SomeKey = <value or object>`) を使用して動的プロパティを作成できます。キャストは必要ありません。 `ViewBag` の構文は、コントローラーとビューへの追加を高速化します。
-  * null 値のチェックを簡素化します。 例: `@ViewBag.Person?.Name`
+  * null 値のチェックを簡素化します。 例 : `@ViewBag.Person?.Name`
 
 **ViewData または ViewBag を使用する場合**
 

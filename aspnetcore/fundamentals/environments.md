@@ -5,14 +5,14 @@ description: ASP.NET Core アプリで複数の環境にわたりアプリの動
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 04/10/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 4fc43935aa058efc4497d3d9eb607df6c0899443
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: f14c29030d96b530ea4af054cfa195d44db43679
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809238"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59516353"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core で複数の環境を使用する
 
@@ -234,7 +234,7 @@ Windows でグローバルな値を設定するには、次の方法のいずれ
 
 **web.config**
 
-`ASPNETCORE_ENVIRONMENT` 環境変数を *web.config* で設定するには、<xref:host-and-deploy/aspnet-core-module#setting-environment-variables>の「*環境変数の設定*」のセクションを参照してください。 `ASPNETCORE_ENVIRONMENT` 環境変数が *web.config* で設定されている場合、その値は、システム レベルの設定をオーバーライドします。
+`ASPNETCORE_ENVIRONMENT` 環境変数を *web.config* で設定するには、<xref:host-and-deploy/aspnet-core-module#setting-environment-variables>の「*環境変数の設定*」のセクションを参照してください。
 
 ::: moniker range=">= aspnetcore-2.2"
 

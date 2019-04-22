@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
 ms.openlocfilehash: 9770801b527829b131257da7c6e670bd33c23634
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468874"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core での IIS モジュール
@@ -47,7 +47,7 @@ ms.locfileid: "59468874"
 | **ISAPI フィルター**<br>`IsapiFilterModule`                                                         | はい | [ミドルウェア](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule`                                                                       | はい | [ミドルウェア](xref:fundamentals/middleware/index) |
 | **プロトコル サポート**<br>`ProtocolSupportModule`                                                  | はい | |
-| **要求のフィルタリング**<br>`RequestFilteringModule`                                                | はい | [URL リライト ミドルウェア `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **要求のフィルタリング**<br>`RequestFilteringModule`                                                | はい | [URL リライト ミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **要求監視**<br>`RequestMonitorModule`                                                    | はい | |
 | **URL リライト**&#8224;<br>`RewriteModule`                                                      | はい | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
 | **サーバー側インクルード**<br>`ServerSideIncludeModule`                                            | いいえ  | |

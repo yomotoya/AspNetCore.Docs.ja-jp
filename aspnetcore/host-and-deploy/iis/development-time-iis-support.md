@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
 ms.openlocfilehash: 6f555858239b4432d252f8b3ac7add5c3e8bfe62
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425102"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
@@ -22,7 +22,7 @@ ms.locfileid: "59425102"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [Windows 用 Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio (Windows 版)](https://visualstudio.microsoft.com/downloads/)。
 * **ASP.NET および Web の開発**ワークロード
 * **.NET Core クロスプラットフォームの開発**ワークロード
 * X.509 セキュリティ証明書 (HTTPS のサポート用)

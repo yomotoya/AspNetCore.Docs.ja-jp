@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468848"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>チュートリアル: ASP.NET Core の Razor ページの概要
@@ -39,7 +39,7 @@ ms.locfileid: "59468848"
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor ページ Web アプリを作成する
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Visual Studio の **[ファイル]** メニューから、**[新規作成]** > **[プロジェクト]** の順に選択します。
 
@@ -55,7 +55,7 @@ ms.locfileid: "59468848"
 
   ![ソリューション エクスプローラー](razor-pages-start/_static/se2.2.png)
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)を開きます。
 
@@ -75,7 +75,7 @@ ms.locfileid: "59468848"
 
 * **[はい]** を選択します
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 端末から、次のコマンドを実行します。
 
@@ -97,7 +97,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
 ## <a name="run-the-app"></a>アプリを実行する
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Ctrl + F5 キーを押して、デバッガーなしで実行します。
 
@@ -115,7 +115,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
   ![ホームまたはインデックス ページ](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
@@ -133,7 +133,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
   ![ホームまたはインデックス ページ](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-for-mac"></a>Visual Studio for Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
@@ -200,4 +200,4 @@ cookie に対する同意が必要かどうかなど、アプリの動作を構�
 このシリーズの次のチュートリアルに進んでください。
 
 > [!div class="step-by-step"]
-> [モデルを追加する](xref:tutorials/razor-pages/model)
+> [モデルの追加](xref:tutorials/razor-pages/model)

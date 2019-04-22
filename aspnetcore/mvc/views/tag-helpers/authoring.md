@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core でのタグ ヘルパーの作成方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 04/12/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: ddfd7cb8c67e28709b8ce75d5a4d0a8c0c0cc43c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210081"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614423"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
@@ -51,8 +51,7 @@ ms.locfileid: "58210081"
 
    * タグ ヘルパーは、ルート クラス名の要素 (クラス名部分から *TagHelper* 部分を引いたもの) をターゲットとする名前付け規則です。 この例では、**EmailTagHelper** のルート名は *email* となるため、`<email>` タグがターゲットとなります。 この命名規則は、ほとんどのタグ ヘルパーで機能します。オーバーライドの方法については、後述します。
 
-   * 
-  `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper` クラスはタグ ヘルパーを記述するためのメソッドとプロパティを提供します。
+   * `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper` クラスはタグ ヘルパーを記述するためのメソッドとプロパティを提供します。
 
    * オーバーライドされた `Process` メソッドは、実行時のタグ ヘルパーの動作を制御します。 `TagHelper` クラスには、同じパラメーターを使用する非同期バージョン (`ProcessAsync`) も用意されています。
 
@@ -66,7 +65,9 @@ ms.locfileid: "58210081"
    public class Email : TagHelper
    ```
 
-1. すべての Razor ビューで `EmailTagHelper` クラスを使用可能にするには、`addTagHelper` ディレクティブを *Views/_ViewImports.cshtml* ファイルに追加します。[!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+1. すべての Razor ビューで `EmailTagHelper` クラスを使用可能にするには、`addTagHelper` ディレクティブを *Views/_ViewImports.cshtml* ファイルに追加します。
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
    上記のコードでは、ワイルドカードの構文を使用して、アセンブリ内のすべてのタグ ヘルパーが使用可能になるように指定しています。 `@addTagHelper` の後の最初の文字列は、読み込むタグ ヘルパーを指定します (すべてのタグ ヘルパーを指定するには、"*" を使用します)。2 番目の文字列 "AuthoringTagHelpers" は、タグ ヘルパーが存在するアセンブリを指定します。 また、2 行目で、ワイルドカードの構文を使用して ASP.NET Core MVC タグ ヘルパーを取り込むことに注目してください (これらのヘルパーについては、[タグ ヘルパーの概要](intro.md)に関するページで説明されています)。Razor ビューでタグ ヘルパーを使用可能にするのが、`@addTagHelper` ディレクティブです。 または、次に示すように、タグ ヘルパーの完全修飾名 (FQN) を指定することもできます。
 

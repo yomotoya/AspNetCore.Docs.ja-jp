@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: d794058f533c4b617f641fa3cb3e6d63fd807c2d
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615391"
+---
 ASP.NET Core の利点は次のとおりです。
 
 * Web UI と Web API を構築するプロセスの統一。
@@ -5,7 +13,7 @@ ASP.NET Core の利点は次のとおりです。
 * [Razor Pages](xref:razor-pages/index)により、ページ コーディングに重点を置いたシナリオがより簡略化され、その生産性が高められます。
 * Windows、macOS、Linux 上で開発および実行できること。
 * オープン ソースで[コミュニティ重視](https://live.asp.net/)。
-* [最新のクライアント側フレームワーク](xref:razor-components/index)と開発ワークフローの統合。
+* [最新のクライアント側フレームワーク](xref:blazor/index)と開発ワークフローの統合。
 * クラウド対応で環境ベースの[構成システム](xref:fundamentals/configuration/index)。
 * 組み込まれている[依存性の注入](xref:fundamentals/dependency-injection)。
 * 軽量で[高パフォーマンス](https://github.com/aspnet/benchmarks)のモジュール化された HTTP 要求パイプライン。

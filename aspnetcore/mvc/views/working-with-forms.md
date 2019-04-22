@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468803"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
@@ -33,7 +33,7 @@ ms.locfileid: "59468803"
 
 * `asp-route-<Parameter Name>` 属性を提供します (`<Parameter Name>` がルート値に追加される場合)。 `Html.BeginForm` および `Html.BeginRouteForm` に `routeValues` パラメーターを指定すると、同様の機能が提供されます。
 
-* HTML ヘルパーの代替の `Html.BeginForm` と次のものがあります `Html.BeginRouteForm`
+* HTML ヘルパーの代替の `Html.BeginForm` と `Html.BeginRouteForm` があります
 
 サンプル:
 
@@ -277,7 +277,7 @@ Type expected
 
 ASP.NET Core MVC で `ModelExpression` の値が計算されるとき、`ModelState` を含む、いくつかのソースが検査されます。 `<input type="text" asp-for="@Name">` を検討します。 計算された `value` 属性は、次のうちの最初の非 null 値です。
 
-* `ModelState` エントリ (キー "Name" 持ちます)。
+* キー "Name" を持つ `ModelState` エントリ。
 * 式 `Model.Name` の結果。
 
 ### <a name="navigating-child-properties"></a>子プロパティの移動
@@ -334,7 +334,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
-`foreach` を、値を `asp-for` または `Html.DisplayFor` と同じコンテキストで使用する場合は、可能であれば使用する必要があります。 一般に、反復子を割り当てる必要がないため、(使用可能なシナリオでは) `for` の方が `foreach` よりも優れています。ただし、LINQ 式内でのインデクサーの評価はコストが高くなる可能性があるため、最小限に抑える必要があります。
+値を `asp-for` または `Html.DisplayFor` と同じコンテキストで使用する場合は、可能であれば `foreach` を使用する必要があります。 一般に、反復子を割り当てる必要がないため、(使用可能なシナリオでは) `for` の方が `foreach` よりも優れています。ただし、LINQ 式内でのインデクサーの評価はコストが高くなる可能性があるため、最小限に抑える必要があります。
 
 &nbsp;
 
@@ -349,7 +349,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * 厳密な型指定を提供します。
 
-* HTML ヘルパーの代替:  `Html.TextAreaFor`
+* HTML ヘルパーの代替: `Html.TextAreaFor`
 
 サンプル:
 
@@ -411,7 +411,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * 検証はサーバー側でも実行されます。 クライアントで JavaScript が無効にされている場合や、一部の検証をサーバー側でのみ実行できる場合があります。
 
-* HTML ヘルパーの代替:  `Html.ValidationMessageFor`
+* HTML ヘルパーの代替: `Html.ValidationMessageFor`
 
 `Validation Message Tag Helper` は、HTML の [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) 要素で `asp-validation-for` 属性と共に使用されます。
 
@@ -445,7 +445,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * `asp-validation-summary` 属性を持つ `<div>` 要素をターゲットとします
 
-* HTML ヘルパーの代替:  `@Html.ValidationSummary`
+* HTML ヘルパーの代替: `@Html.ValidationSummary`
 
 `Validation Summary Tag Helper` は、検証メッセージの概要を表示するために使用されます。 `asp-validation-summary` 属性値には、次のいずれかを指定できます。
 
@@ -488,7 +488,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 * モデルのプロパティについて、[select](https://www.w3.org/wiki/HTML/Elements/select) 要素と、関連する [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を生成します。
 
-* HTML ヘルパーの代替の `Html.DropDownListFor` と次のものがあります `Html.ListBoxFor`
+* HTML ヘルパーの代替の `Html.DropDownListFor` と `Html.ListBoxFor` があります
 
 `Select Tag Helper` `asp-for` は [select](https://www.w3.org/wiki/HTML/Elements/select) 要素のモデル プロパティ名を指定し、`asp-items` は [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を指定します。  次に例を示します。
 

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 64be4984779724eb60af3b70d4f52b22eae32213
-ms.sourcegitcommit: 10e14b85490f064395e9b2f423d21e3c2d39ed8b
+ms.openlocfilehash: 25e8d5209f02683c533ef7c316b91d447f1b20ba
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58142313"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705459"
 ---
 # <a name="use-web-api-conventions"></a>Web API 規約を使用する
 
@@ -45,9 +45,9 @@ ASP.NET Core MVC 2.2 以降には、一連の既定の規約 <xref:Microsoft.Asp
 
     ```csharp
     [ProducesDefaultResponseType]
-    [ProducesResponseType(204)]
-    [ProducesResponseType(404)]
-    [ProducesResponseType(400)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     ```
 
 `[ProducesDefaultResponseType]` の詳細については、[既定の応答](https://swagger.io/docs/specification/describing-responses/#default)に関する記事をご覧ください。
@@ -78,8 +78,8 @@ ASP.NET Core MVC 2.2 以降には、一連の既定の規約 <xref:Microsoft.Asp
 ```csharp
 public static class MyAppConventions
 {
-    [ProducesResponseType(200)]
-    [ProducesResponseType(404)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public static void Find(int id)
     {
     }
@@ -96,8 +96,8 @@ public static class MyAppConventions
 `[ApiConventionNameMatch]` 属性と `[ApiConventionTypeMatch]` 属性は、適用されるアクションを決定する規約のメソッドに適用することができます。 次に例を示します。
 
 ```csharp
-[ProducesResponseType(200)]
-[ProducesResponseType(404)]
+[ProducesResponseType(StatusCodes.Status200OK)]
+[ProducesResponseType(StatusCodes.Status404NotFound)]
 [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Prefix)]
 public static void Find(
     [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Suffix)]

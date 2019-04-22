@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
 ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068197"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>ファイル ウォッチャーを使用した ASP.NET Core アプリの開発
@@ -114,7 +114,7 @@ public static int Product(int a, int b)
 
 1. 積を返すように `Product` メソッドのコードを修正します。 ファイルを保存します。
 
-`dotnet watch` でファイルの変更が検出されて、テストが再実行されます。 コンソール出力にテストの合格が示されます。
+`dotnet watch` はファイル変更を検出し、テストを再実行します。 コンソール出力にテストの合格が示されます。
 
 ## <a name="customize-files-list-to-watch"></a>監視するファイル リストのカスタマイズ
 
@@ -135,7 +135,7 @@ public static int Product(int a, int b)
 
 ## <a name="opt-out-of-files-to-be-watched"></a>ウォッチするファイルのオプトアウト
 
-`dotnet-watch` は、既定の設定を無視するように構成することができます。 特定のファイルを無視するには、*.csproj* ファイルで項目の定義に `Watch="false"` 属性を追加します。
+既定の設定を無視するように `dotnet-watch` を構成することができます。 特定のファイルを無視するには、*.csproj* ファイルで項目の定義に `Watch="false"` 属性を追加します。
 
 ```xml
 <ItemGroup>

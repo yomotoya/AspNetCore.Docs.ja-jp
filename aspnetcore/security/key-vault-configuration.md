@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 02/25/2019
 uid: security/key-vault-configuration
 ms.openlocfilehash: 8fd1cca1803d3f1d44d80ec63c5cfc259cbdaf55
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012696"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault 構成プロバイダー
@@ -304,7 +304,7 @@ WebHost.CreateDefaultBuilder(args)
 
 プロバイダーは、配列、POCO 配列にバインドするために構成値を読み取ることができます。
 
-キーをコロンを含めることができる構成ソースから読み取るときに (`:`) 配列を構成するキーを区別するために、数値キー セグメントの区切り記号が使用される (`:0:`、 `:1:`,… `:{n}:`) を使用して、格納される値にアクセスすることができます。 詳細については、次を参照してください。[構成。クラスに配列をバインド](xref:fundamentals/configuration/index#bind-an-array-to-a-class)します。
+キーをコロンを含めることができる構成ソースから読み取るときに (`:`) 配列を構成するキーを区別するために、数値キー セグメントの区切り記号が使用される (`:0:`、 `:1:`,… `:{n}:`) 詳細については、次を参照してください。[構成。クラスに配列をバインド](xref:fundamentals/configuration/index#bind-an-array-to-a-class)します。
 
 Azure Key Vault のキーは、区切り記号としてコロンを使用することはできません。 このトピックで説明されているアプローチは、二重ハイフンを使用 (`--`) (セクション) の階層値の区切り記号として。 ダッシュと数字キー セグメント倍精度浮動小数点で配列のキーが Azure Key Vault に格納されている (`--0--`、 `--1--`、 &hellip; `--{n}--`)。
 
@@ -374,5 +374,5 @@ Configuration.Reload();
 * [Microsoft Azure:Key Vault のドキュメント](/azure/key-vault/)
 * [Azure Key Vault のキーを生成し、HSM で保護された転送する方法](/azure/key-vault/key-vault-hsm-protected-keys)
 * [KeyVaultClient クラス](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
-* [クイック スタート: 設定して、.NET web アプリを使用して Azure Key Vault からシークレットを取得](/azure/key-vault/quick-create-net)
+* [クイック スタート:設定して、.NET web アプリを使用して Azure Key Vault からシークレットを取得](/azure/key-vault/quick-create-net)
 * [チュートリアル: Azure Windows 仮想マシンを使用した .NET で Azure Key Vault を使用する方法](/azure/key-vault/tutorial-net-windows-virtual-machine)

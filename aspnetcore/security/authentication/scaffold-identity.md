@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: d86d3cab91e8f927db30767097a89a08cf358f06
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 7445db31e461bf61e8a91af7239187a6ece9d011
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410168"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705472"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core プロジェクトでスキャフォールディング Id
 
@@ -47,7 +47,7 @@ Identity scaffolder が実行される、 *ScaffoldingReadme.txt*プロジェク
 
 <!--
 set projNam=RPnoAuth
-set projType=razor
+set projType=webapp
 set version=2.1.0
 
 dotnet new %projType% -o %projNam%
@@ -61,7 +61,7 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、[IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)を参照してください。
+Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
 
 <a name="efm"></a>
 
@@ -100,7 +100,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、[IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)を参照してください。
+いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>MVC プロジェクトの既存の承認なしにスキャフォールディング identity
 
