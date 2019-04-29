@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/12/2019
 uid: signalr/streaming
-ms.openlocfilehash: 83bbb231482d9c1606be3c5bbbeb1cc3b8efcf7d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: d185056d3bdda089eaa46ae9b8e13ab7a4354f93
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165077"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用して、
 
@@ -36,13 +36,13 @@ ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリ�
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、 <xref:System.Threading.Channels.ChannelReader`1>、 `IAsyncEnumerable<T>`、 `Task<ChannelReader<T>>`、または`Task<IAsyncEnumerable<T>>`します。
+ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、 <xref:System.Threading.Channels.ChannelReader%601>、 `IAsyncEnumerable<T>`、 `Task<ChannelReader<T>>`、または`Task<IAsyncEnumerable<T>>`します。
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、<xref:System.Threading.Channels.ChannelReader`1>または`Task<ChannelReader<T>>`します。
+ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、<xref:System.Threading.Channels.ChannelReader%601>または`Task<ChannelReader<T>>`します。
 
 ::: moniker-end
 
@@ -58,7 +58,7 @@ ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリ�
 
 ::: moniker-end
 
-次の例では、ストリーミング チャネルを使用してクライアントにデータの基本を示します。 オブジェクトが書き込まれるたびに、<xref:System.Threading.Channels.ChannelWriter`1>オブジェクトがすぐに、クライアントに送信します。 最後に、`ChannelWriter`ストリームが閉じていることをクライアントに指示するのには完了します。
+次の例では、ストリーミング チャネルを使用してクライアントにデータの基本を示します。 オブジェクトが書き込まれるたびに、<xref:System.Threading.Channels.ChannelWriter%601>オブジェクトがすぐに、クライアントに送信します。 最後に、`ChannelWriter`ストリームが閉じていることをクライアントに指示するのには完了します。
 
 > [!NOTE]
 > 書き込み、`ChannelWriter<T>`バック グラウンド スレッドと返された場合に、`ChannelReader`できるだけ早くします。 その他のハブ呼び出しがまでブロックされます、`ChannelReader`が返されます。

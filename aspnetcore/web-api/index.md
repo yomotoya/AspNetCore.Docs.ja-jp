@@ -1,223 +1,229 @@
 ---
-title: ASP.NET Core で Web API を構築する
+title: ASP.NET Core を使って Web API を作成する
 author: scottaddie
-description: ASP.NET Core で Web API を構築するために使用できる機能、および各機能を使用する適切なタイミングについて説明します。
+description: ASP.NET Core での Web API の作成の基本について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 04/11/2019
 uid: web-api/index
-ms.openlocfilehash: bc8be67957a56a818a88e0496d45db1e7b7aed0e
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 334e5732269921a62356e7854824deccc051c291
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165177"
 ---
-# <a name="build-web-apis-with-aspnet-core"></a>ASP.NET Core で Web API を構築する
+# <a name="create-web-apis-with-aspnet-core"></a>ASP.NET Core を使って Web API を作成する
 
-作成者: [Scott Addie](https://github.com/scottaddie)
+作成者: [Scott Addie](https://github.com/scottaddie)、[Tom Dykstra](https://github.com/tdykstra)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+ASP.NET Core では、C# を使った RESTful サービス (別名: Web API) の作成がサポートされています。 要求を処理するために、Web API ではコントローラーを使用します。 Web API の "*コントローラー*" は `ControllerBase` から派生するクラスです。 この記事では、コントローラーを使って API 要求を処理する方法について説明します。
 
-このドキュメントでは、ASP.NET Core での各機能を使用する最も適切な web API をビルドする方法について説明します。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/index/samples)します。 ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
-## <a name="derive-class-from-controllerbase"></a>ControllerBase からクラスを派生する
+## <a name="controllerbase-class"></a>ControllerBase クラス
 
-Web API として機能することを目的としたコント ローラー内の <xref:Microsoft.AspNetCore.Mvc.ControllerBase> クラスから継承します。 次に例を示します。
+Web API には、<xref:Microsoft.AspNetCore.Mvc.ControllerBase> から派生したコントローラー クラスが 1 つ以上含まれます。 たとえば、Web API のプロジェクト テンプレートでは Values コントローラーを作成します。
 
-::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=3)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+<xref:Microsoft.AspNetCore.Mvc.Controller> 基底クラスから派生させて Web API のコントローラーを作成しないでください。 `ControllerBase` から派生した `Controller` にはビューのサポートが追加されるため、これは Web API 要求ではなく Web ページを処理するためのものです。  このルールには例外があります。ビューと API の両方で同じコントローラーを使うことを計画している場合は、`Controller` から派生させます。
 
-::: moniker-end
+`ControllerBase` クラスには、HTTP 要求の処理に役立つプロパティとメソッドが多数用意されています。 たとえば、`ControllerBase.CreatedAtAction` では状態コード 201 が返されます。
 
-::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_400And201&highlight=8-9)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+ 次に、`ControllerBase` に用意されているメソッドの例をさらにいくつか示します。
 
-::: moniker-end
+|メソッド  |メモ  |
+|---------|---------|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>| 400 状態コードを返します。|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> |404 状態コードを返します。|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile*>|ファイルを返します。|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>|[モデル バインド](xref:mvc/models/model-binding)を呼び出します。|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryValidateModel*>|[モデル検証](xref:mvc/models/validation)を呼び出します。|
 
-`ControllerBase` クラスを使用すると、いくつかのプロパティとメソッドにアクセスできます。 上のコードでは、例に <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)> と <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(System.String,System.Object,System.Object)> が含まれています。 これらのメソッドはアクション メソッド内で呼び出され、HTTP 400 および 201 のステータス コードをそれぞれ返します。 <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState> プロパティ (これも `ControllerBase` によって提供される) は、要求モデル検証を処理する場合にアクセスされます。
+使用可能なすべてのメソッドとプロパティの一覧については、「<xref:Microsoft.AspNetCore.Mvc.ControllerBase>」を参照してください。
 
-::: moniker range=">= aspnetcore-2.1"
+## <a name="attributes"></a>属性
 
-## <a name="annotation-with-apicontroller-attribute"></a>ApiController 属性を使用した注釈
+<xref:Microsoft.AspNetCore.Mvc> 名前空間には、Web API のコントローラーとアクション メソッドの動作の構成に使用できる属性が用意されています。 次の例では、属性を使って、受け取る HTTP メソッドと返す状態コードを指定しています。
 
-ASP.NET Core 2.1 では、Web API コントローラー クラスを表す [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性が導入されました。 次に例を示します。
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_400And201&highlight=1-3)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
+次に、使用できる属性の例をさらにいくつか示します。
 
-この属性をコントローラー レベルで使用するには、2.1 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。 たとえば、`Startup.ConfigureServices` の強調表示されているコードでは、2.1 の互換性フラグが設定されます。
+|属性|メモ|
+|---------|-----|
+|[[Route]](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)      |コントローラーまたはアクションの URL パターンを指定します。|
+|[[Bind]](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)        |モデル バインドのために含めるプレフィックスとプロパティを指定します。|
+|[[HttpGet]](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)  |HTTP GET メソッドをサポートするアクションを特定します。|
+|[[Consumes]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)|アクションが受け取るデータ型を指定します。|
+|[[Produces]](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)|アクションによって返すデータ型を指定します。|
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
+使用可能な属性を含む一覧については、<xref:Microsoft.AspNetCore.Mvc> 名前空間をご覧ください。
 
-詳細については、「<xref:mvc/compatibility-version>」を参照してください。
+## <a name="apicontroller-attribute"></a>ApiController 属性
 
-::: moniker-end
+[[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性をコントローラー クラスに適用して、API に固有の動作を有効にできます。
 
-::: moniker range=">= aspnetcore-2.2"
+* [属性ルーティング要件](#attribute-routing-requirement)
+* [自動的な HTTP 400 応答](#automatic-http-400-responses)
+* [バインディング ソース パラメーター推論](#binding-source-parameter-inference)
+* [マルチパート/フォーム データ要求の推論](#multipartform-data-request-inference)
+* [エラー状態コードに関する問題の詳細](#problem-details-for-error-status-codes)
 
-ASP.NET Core 2.2 以降では、`[ApiController]` 属性をアセンブリに適用できます。 この方法での注釈では、アセンブリ内のすべてのコントローラーに Web API の動作が適用されます。 個々のコントローラーを有効にする方法はありません。 推奨事項として、アセンブリ レベルの属性を `Startup` クラスに適用する必要があります。
+これらの機能では[互換性バージョン](<xref:mvc/compatibility-version>) 2.1 以降が必要です。
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ApiControllerAttributeOnAssembly&highlight=1)]
+### <a name="apicontroller-on-specific-controllers"></a>特定のコントローラーでの ApiController
 
-この属性をアセンブリ レベルで使用するには、2.2 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。
+プロジェクト テンプレートからの次の例のように、`[ApiController]` 属性は特定のコントローラーに適用できます。
 
-::: moniker-end
+[!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=2)]
 
-::: moniker range=">= aspnetcore-2.1"
+### <a name="apicontroller-on-multiple-controllers"></a>複数のコントローラーでの ApiController
 
-コントローラーの REST 固有の動作を有効にする場合、通常、`[ApiController]` 属性は `ControllerBase` と組み合わせて使用されます。 `ControllerBase` では、<xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> や <xref:Microsoft.AspNetCore.Mvc.ControllerBase.File*> などのメソッドにアクセスできます。
+複数のコントローラーでこの属性を使う方法の 1 つは、`[ApiController]` 属性で注釈を付けたカスタム基本コントローラー クラスを作成することです。 次は、カスタム基底クラスとそこから派生したコントローラーを示す例です。
 
-その他に、`[ApiController]` 属性で注釈が付けられたユーザー定義の基本コントローラー クラスを作成するという方法があります。
+[!code-csharp[](index/samples/2.x/Controllers/MyControllerBase.cs?name=snippet_MyControllerBase)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_Inherit)]
 
-次のセクションでは、属性によって追加される便利な機能について説明します。
+### <a name="apicontroller-on-an-assembly"></a>アセンブリでの ApiController
 
-### <a name="automatic-http-400-responses"></a>自動的な HTTP 400 応答
-
-モデル検証エラーが発生すると、HTTP 400 応答が自動的にトリガーされます。 その結果、次のコードは実際のアクションでは不要になります。
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
-
-結果として発生する応答の出力をカスタマイズするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> を使用します。
-
-アクションがモデル検証エラーから回復できる場合は、既定の動作を無効にすると便利です。 <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=7)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.1"
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-2.2 以降の互換性フラグを設定した場合の、HTTP 400 応答に対する既定の応答の種類は、<xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> です。 `ValidationProblemDetails` 型は [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に準拠しています。 代わりに ASP.NET Core 2.1 エラー形式の <xref:Microsoft.AspNetCore.Mvc.SerializableError> を返すようにするには、`SuppressUseValidationProblemDetailsForInvalidModelStateResponses` プロパティを `true` に設定します。 `Startup.ConfigureServices` に次のコードを追加します。
+[互換性バージョン](<xref:mvc/compatibility-version>)が 2.2 以降に設定されている場合は、`[ApiController]` 属性をアセンブリに適用できます。 この方法での注釈では、アセンブリ内のすべてのコントローラーに Web API の動作が適用されます。 個別のコントローラーを除外する方法はありません。 次の例に示すように、アセンブリ レベルの属性を `Startup` クラスに適用します。
 
 ```csharp
-services.AddMvc()
-    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-    .ConfigureApiBehaviorOptions(options =>
+[assembly: ApiController]
+namespace WebApiSample
+{
+    public class Startup
     {
-        options
-          .SuppressUseValidationProblemDetailsForInvalidModelStateResponses = true;
-    });
+        ...
+    }
+}
 ```
 
-::: moniker-end
+## <a name="attribute-routing-requirement"></a>属性ルーティング要件
 
-::: moniker range=">= aspnetcore-2.1"
+`ApiController` 属性では、属性ルーティング要件が作成されます。 次に例を示します。
 
-### <a name="binding-source-parameter-inference"></a>バインディング ソース パラメーター推論
+[!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=1)]
+
+`Startup.Configure` の <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> または <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> で定義された[規則ルート](xref:mvc/controllers/routing#conventional-routing)経由でアクションにアクセスすることはできません。
+
+## <a name="automatic-http-400-responses"></a>自動的な HTTP 400 応答
+
+`ApiController` 属性により、モデル検証エラーが発生すると HTTP 400 応答が自動的にトリガーされます。 その結果、アクション メソッド内の次のコードは不要になります。
+
+```csharp
+if (!ModelState.IsValid)
+{
+    return BadRequest(ModelState);
+}
+```
+
+### <a name="default-badrequest-response"></a>既定の BadRequest 応答 
+
+2.2 以降の互換性バージョンを使う場合、HTTP 400 応答に対する既定の応答の種類は <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> です。 `ValidationProblemDetails` 型は [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に準拠しています。
+
+<xref:Microsoft.AspNetCore.Mvc.SerializableError> に対する既定の応答を変更するには、次の例のように、`Startup.ConfigureServices` で `SuppressUseValidationProblemDetailsForInvalidModelStateResponses` プロパティを `true` に設定します。
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,9)]
+
+### <a name="customize-badrequest-response"></a>BadRequest 応答をカスタマイズする
+
+検証エラーに起因する応答をカスタマイズするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> を使います。 `services.AddMvc().SetCompatibilityVersion` の後に、次の強調表示されたコードを追加します。
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=3-20)]
+
+### <a name="disable-automatic-400"></a>自動的な 400 を無効にする
+
+自動的な 400 の動作を無効にするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティを `true` に設定します。 次の強調表示されたコードを、`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion` の後に追加します。
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,7)]
+
+## <a name="binding-source-parameter-inference"></a>バインディング ソース パラメーター推論
 
 バインディング ソース属性では、アクション パラメーターの値が存在する場所が定義されます。 次のバインディング ソース属性が存在します。
 
 |属性|バインド ソース |
 |---------|---------|
-|**[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)**     | 要求本文 |
-|**[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)**     | 要求本文内のフォーム データ |
-|**[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute)** | 要求ヘッダー |
-|**[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)**   | 要求のクエリ文字列パラメーター |
-|**[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)**   | 現在の要求からのルート データ |
-|**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)** | アクション パラメーターとして挿入される要求サービス |
+|[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | 要求本文 |
+|[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)     | 要求本文内のフォーム データ |
+|[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) | 要求ヘッダー |
+|[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)   | 要求のクエリ文字列パラメーター |
+|[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)   | 現在の要求からのルート データ |
+|[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) | アクション パラメーターとして挿入される要求サービス |
 
 > [!WARNING]
 > 値に `%2f` (つまり、`/`) が含まれる可能性がある場合は、`[FromRoute]` を使用しないでください。 `%2f` は `/` にエスケープ解除されません。 値に `%2f` が含まれる可能性がある場合は、`[FromQuery]` を使用してください。
 
-`[ApiController]` 属性がない場合は、バインディング ソース属性を明示的に定義します。 `[ApiController]` がない場合または `[FromQuery]` などのバインディング ソース属性がない場合は、ASP.NET Core ランタイムにより複合オブジェクト モデル バインダーの使用が試行されます。 複合オブジェクト モデル バインダーは、(順序が定義された) 値プロバイダーからデータを取得します。 たとえば、"本文のモデル バインダー" は常にオプトインです。
+`[ApiController]` 属性や `[FromQuery]` などのバインディング ソース属性がない場合は、ASP.NET Core ランタイムにより複合オブジェクト モデル バインダーの使用が試行されます。 複合オブジェクト モデル バインダーでは、値プロバイダーから定義された順序でデータを取得します。
 
 次の例では、`discontinuedOnly` パラメーター値が要求 URL のクエリ文字列に指定されていることが `[FromQuery]` によって示されています。
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
+[!code-csharp[](index/samples/2.x/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
-アクション パラメーターの既定のデータ ソースには推論規則が適用されます。 これらの規則によって、アクション パラメーターに、通常、手動で適用する可能性の高いバインディング ソースが構成されます。 バインディング ソースの属性は、次のように動作します。
+`[ApiController]` 属性により、アクション パラメーターの既定のデータ ソースに対する推論規則が適用されます。 これらの規則により、アクション パラメーターに属性を適用することで手動でバインディング ソースを特定する必要がなくなります。 バインディング ソースの推論規則は、次のように動作します。
 
-* **[FromBody]** は複合型のパラメーターに対して推論されます。 この規則には例外があり、<xref:Microsoft.AspNetCore.Http.IFormCollection> や <xref:System.Threading.CancellationToken> などの、特殊な意味を持つ複雑な組み込み型が該当します。 バインディング ソース推論コードでは、そのような特殊な型は無視されます。 `[FromBody]` は、`string` や `int` などの単純型に対しては推論されません。 そのため、その機能が必要な場合、単純型に対しては `[FromBody]` 属性を使用する必要があります。 アクションの複数のパラメーターが明示的に指定されている場合 (`[FromBody]` によって) または要求本文からバインドとして推論される場合は、例外がスローされます。 たとえば、次のアクション シグネチャは例外の原因となります。
+* `[FromBody]` は複合型パラメーターに対して推論されます。 `[FromBody]` 推論規則に対する例外は、<xref:Microsoft.AspNetCore.Http.IFormCollection> や <xref:System.Threading.CancellationToken> など、特殊な意味を持つ組み込みの複合型です。 バインディング ソース推論コードでは、そのような特殊な型は無視されます。 
+* `[FromForm]` は <xref:Microsoft.AspNetCore.Http.IFormFile> および <xref:Microsoft.AspNetCore.Http.IFormFileCollection> 型のアクション パラメーターに対して推論されます。 簡易型またはユーザー定義型に対しては推論されません。
+* `[FromRoute]` は、ルート テンプレート内のパラメーターと一致する任意のアクション パラメーター名に対して推論されます。 複数のルートがアクション パラメーターと一致する場合、ルート値はいずれも `[FromRoute]` と見なされます。
+* `[FromQuery]` は他の任意のアクション パラメーターに対して推論されます。
 
-    [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
+### <a name="frombody-inference-notes"></a>FromBody 推論に関するメモ
 
-    > [!NOTE]
-    > ASP.NET Core 2.1 では、リストや配列などのコレクション型パラメーターが誤って [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) と推論されています。 これらのパラメーターを要求本文からバインドする場合は、[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) を使用する必要があります。 このビヘイビアーは、ASP.NET Core 2.2 以降で修正されており、既定ではコレクション型パラメーターが本文からバインドされることが推論されます。
+`[FromBody]` は、`string` や `int` などの単純型に対しては推論されません。 そのため、その機能が必要な場合、単純型に対しては `[FromBody]` 属性を使用する必要があります。
 
-* **[FromForm]** は <xref:Microsoft.AspNetCore.Http.IFormFile> および <xref:Microsoft.AspNetCore.Http.IFormFileCollection> 型のアクション パラメーターに対して推論されます。 簡易型またはユーザー定義型に対しては推論されません。
-* **[FromRoute]** は、ルート テンプレート内のパラメーターと一致する任意のアクション パラメーター名に対して推論されます。 複数のルートがアクション パラメーターと一致する場合、ルート値はいずれも `[FromRoute]` と見なされます。
-* **[FromQuery]** は他の任意のアクション パラメーターに対して推論されます。
+要求本文からバインドされるパラメーターがアクションに複数ある場合は、例外がスローされます。 たとえば、次のアクション メソッドのシグネチャはすべて例外の原因となります。
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> プロパティが `true` に設定されている場合、既定の推論規則は無効になります。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。
+* 複合型であるため、両方に対して `[FromBody]` が推論されます。
 
-::: moniker-end
+  ```csharp
+  [HttpPost]
+  public IActionResult Action1(Product product, Order order)
+  ```
 
-::: moniker range=">= aspnetcore-2.2"
+* 1 つには `[FromBody]` 属性が使われ、もう 1 つは複合型なので推論されます。
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=6)]
+  ```csharp
+  [HttpPost]
+  public IActionResult Action2(Product product, [FromBody] Order order)
+  ```
 
-::: moniker-end
+* 両方で `[FromBody]` 属性が使われます。
 
-::: moniker range="= aspnetcore-2.1"
+  ```csharp
+  [HttpPost]
+  public IActionResult Action3([FromBody] Product product, [FromBody] Order order)
+  ```
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
+> [!NOTE]
+> ASP.NET Core 2.1 では、リストや配列などのコレクション型パラメーターが誤って `[FromQuery]` と推論されます。 これらのパラメーターを要求本文からバインドする場合は、`[FromBody]` 属性を使用する必要があります。 この動作は ASP.NET Core 2.2 以降で修正されており、既定でコレクション型パラメーターが本文からバインドされることが推論されます。
 
-::: moniker-end
+### <a name="disable-inference-rules"></a>推論規則を無効にする
 
-::: moniker range=">= aspnetcore-2.1"
+バインディング ソースの推論を無効にするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> を `true` に設定します。 `Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion` の後ろに次のコードを追加します。
 
-### <a name="multipartform-data-request-inference"></a>マルチパート/フォーム データ要求の推論
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,6)]
 
-[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) 属性を使用してアクション パラメーターに注釈を付けた場合は、`multipart/form-data` 要求コンテンツ型が推論されます。
+## <a name="multipartform-data-request-inference"></a>マルチパート/フォーム データ要求の推論
 
-<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> プロパティが `true` に設定されている場合、既定の動作は無効になります。
+[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) 属性を使用してアクション パラメーターに注釈を付けた場合、`[ApiController]` 属性が推論規則に適用されます。つまり、`multipart/form-data` 要求コンテンツ型が推論されます。
 
-::: moniker-end
+既定の動作を無効にするには、次の例のように、`Startup.ConfigureServices` で <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> を `true` に設定します。
 
-::: moniker range=">= aspnetcore-2.2"
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,5)]
 
-`Startup.ConfigureServices` に次のコードを追加します。
+## <a name="problem-details-for-error-status-codes"></a>エラー状態コードに関する問題の詳細
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.1"
-
-`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);` の後ろに次のコードを追加します。
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-### <a name="attribute-routing-requirement"></a>属性ルーティング要件
-
-属性ルーティングは要件になります。 次に例を示します。
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
-
-<xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> 内で定義されているか、または `Startup.Configure` 内の <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> によって定義されている[従来のルート](xref:mvc/controllers/routing#conventional-routing)を通してアクションにアクセスすることはできません。
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-### <a name="problem-details-responses-for-error-status-codes"></a>エラー状態コードに対する問題の詳細の応答
-
-ASP.NET Core 2.2 以降では、MVC によってエラー結果 (状態コードが 400 以降の結果) が <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> による結果に変換されます。 `ProblemDetails` は次のようになります。
-
-* [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に基づいた型。
-* HTTP 応答でコンピューターが判読できるエラーの詳細を指定するための標準化された形式。
+互換性バージョンが 2.2 以上である場合、MVC によってエラー結果 (状態コードが 400 以上の結果) が <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> を含む結果に変換されます。 `ProblemDetails` 型は、HTTP 応答でコンピューターが判読できるエラーの詳細を提供するための [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に基づきます。
 
 コントローラー アクションで次のコードがあるとします。
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Controllers/ProductsController.cs?name=snippet_ProblemDetailsStatusCode)]
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_ProblemDetailsStatusCode)]
 
 `NotFound` の HTTP 応答には 404 状態コードと `ProblemDetails` の本文が含まれています。 次に例を示します。
 
@@ -230,17 +236,19 @@ ASP.NET Core 2.2 以降では、MVC によってエラー結果 (状態コード
 }
 ```
 
-問題の詳細機能には、2.2 以降の互換性フラグが必要です。 `SuppressMapClientErrors` プロパティが `true` に設定されている場合、既定の動作は無効になります。 `Startup.ConfigureServices` に次のコードを追加します。
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8)]
+### <a name="customize-problemdetails-response"></a>ProblemDetails 応答をカスタマイズする
 
 `ProblemDetails` の応答の内容を構成するには、`ClientErrorMapping` プロパティを使用します。 たとえば、次のコードにより、404 応答の `type` プロパティが更新されます。
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
 
-::: moniker-end
+### <a name="disable-problemdetails-response"></a>ProblemDetails 応答を無効にする
 
-## <a name="additional-resources"></a>その他の技術情報
+`SuppressMapClientErrors` プロパティが `true` に設定されている場合、`ProblemDetails` の自動作成は無効になります。 `Startup.ConfigureServices` に次のコードを追加します。
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,8)]
+
+## <a name="additional-resources"></a>その他の技術情報 
 
 * <xref:web-api/action-return-types>
 * <xref:web-api/advanced/custom-formatters>

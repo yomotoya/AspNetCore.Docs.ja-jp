@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2018
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: e56f90ec7272ce0411651ee6f8e7c754ae44b78d
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 9189e1fbb21abcc8c8bdea947e672ee53b59bc4f
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59516262"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982628"
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Docker コンテナーで ASP.NET Core をホストする
 
@@ -28,6 +28,8 @@ Docker 技術の用語と定義について学習します。
 
 [Docker のコンテナー、イメージ、およびレジストリ](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
 環境全体での一貫性のある展開のため、Docker コンテナー イメージがイメージ レジストリに保存されるしくみを確認します。
+
+<xref:host-and-deploy/docker/building-net-docker-images> ASP.NET Core アプリをビルドし、Docker で動作させる方法について学習します。 Microsoft によって管理される Docker イメージを確認し、ユース ケースを調査します。
 
 [Visual Studio Tools for Docker](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
 Visual Studio 2017 が、Docker for Windows で .NET Framework または .NET Core をターゲットとする ASP.NET Core アプリのビルド、デバッグ、実行をどのようにサポートするかについて説明します。 Windows と Linux の両方のコンテナーがサポートされます。
