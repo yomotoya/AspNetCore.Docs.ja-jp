@@ -1,225 +1,231 @@
 ---
-title: ASP.NET Core で Web API を構築する
+title: ASP.NET Core を使って Web API を作成する
 author: scottaddie
-description: ASP.NET Core で Web API を構築するために使用できる機能、および各機能を使用する適切なタイミングについて説明します。
+description: ASP.NET Core での Web API の作成の基本について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 04/11/2019
 uid: web-api/index
-ms.openlocfilehash: bc8be67957a56a818a88e0496d45db1e7b7aed0e
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 334e5732269921a62356e7854824deccc051c291
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165177"
 ---
-# <a name="build-web-apis-with-aspnet-core"></a><span data-ttu-id="88ed1-103">ASP.NET Core で Web API を構築する</span><span class="sxs-lookup"><span data-stu-id="88ed1-103">Build web APIs with ASP.NET Core</span></span>
+# <a name="create-web-apis-with-aspnet-core"></a><span data-ttu-id="dad06-103">ASP.NET Core を使って Web API を作成する</span><span class="sxs-lookup"><span data-stu-id="dad06-103">Create web APIs with ASP.NET Core</span></span>
 
-<span data-ttu-id="88ed1-104">作成者: [Scott Addie](https://github.com/scottaddie)</span><span class="sxs-lookup"><span data-stu-id="88ed1-104">By [Scott Addie](https://github.com/scottaddie)</span></span>
+<span data-ttu-id="dad06-104">作成者: [Scott Addie](https://github.com/scottaddie)、[Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="dad06-104">By [Scott Addie](https://github.com/scottaddie) and [Tom Dykstra](https://github.com/tdykstra)</span></span>
 
-<span data-ttu-id="88ed1-105">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="88ed1-105">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="dad06-105">ASP.NET Core では、C# を使った RESTful サービス (別名: Web API) の作成がサポートされています。</span><span class="sxs-lookup"><span data-stu-id="dad06-105">ASP.NET Core supports creating RESTful services, also known as web APIs, using C#.</span></span> <span data-ttu-id="dad06-106">要求を処理するために、Web API ではコントローラーを使用します。</span><span class="sxs-lookup"><span data-stu-id="dad06-106">To handle requests, a web API uses controllers.</span></span> <span data-ttu-id="dad06-107">Web API の "*コントローラー*" は `ControllerBase` から派生するクラスです。</span><span class="sxs-lookup"><span data-stu-id="dad06-107">*Controllers* in a web API are classes that derive from `ControllerBase`.</span></span> <span data-ttu-id="dad06-108">この記事では、コントローラーを使って API 要求を処理する方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="dad06-108">This article shows how to use controllers for handling API requests.</span></span>
 
-<span data-ttu-id="88ed1-106">このドキュメントでは、ASP.NET Core での各機能を使用する最も適切な web API をビルドする方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-106">This document explains how to build a web API in ASP.NET Core and when it's most appropriate to use each feature.</span></span>
+<span data-ttu-id="dad06-109">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/index/samples)します。</span><span class="sxs-lookup"><span data-stu-id="dad06-109">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/index/samples).</span></span> <span data-ttu-id="dad06-110">([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="dad06-110">([How to download](xref:index#how-to-download-a-sample)).</span></span>
 
-## <a name="derive-class-from-controllerbase"></a><span data-ttu-id="88ed1-107">ControllerBase からクラスを派生する</span><span class="sxs-lookup"><span data-stu-id="88ed1-107">Derive class from ControllerBase</span></span>
+## <a name="controllerbase-class"></a><span data-ttu-id="dad06-111">ControllerBase クラス</span><span class="sxs-lookup"><span data-stu-id="dad06-111">ControllerBase class</span></span>
 
-<span data-ttu-id="88ed1-108">Web API として機能することを目的としたコント ローラー内の <xref:Microsoft.AspNetCore.Mvc.ControllerBase> クラスから継承します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-108">Inherit from the <xref:Microsoft.AspNetCore.Mvc.ControllerBase> class in a controller that's intended to serve as a web API.</span></span> <span data-ttu-id="88ed1-109">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-109">For example:</span></span>
+<span data-ttu-id="dad06-112">Web API には、<xref:Microsoft.AspNetCore.Mvc.ControllerBase> から派生したコントローラー クラスが 1 つ以上含まれます。</span><span class="sxs-lookup"><span data-stu-id="dad06-112">A web API has one or more controller classes that derive from <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.</span></span> <span data-ttu-id="dad06-113">たとえば、Web API のプロジェクト テンプレートでは Values コントローラーを作成します。</span><span class="sxs-lookup"><span data-stu-id="dad06-113">For example, the web API project template creates a Values controller:</span></span>
 
-::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=3)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+<span data-ttu-id="dad06-114"><xref:Microsoft.AspNetCore.Mvc.Controller> 基底クラスから派生させて Web API のコントローラーを作成しないでください。</span><span class="sxs-lookup"><span data-stu-id="dad06-114">Don't create a web API controller by deriving from the <xref:Microsoft.AspNetCore.Mvc.Controller> base class.</span></span> <span data-ttu-id="dad06-115">`ControllerBase` から派生した `Controller` にはビューのサポートが追加されるため、これは Web API 要求ではなく Web ページを処理するためのものです。</span><span class="sxs-lookup"><span data-stu-id="dad06-115">`Controller` derives from `ControllerBase` and adds support for views, so it's for handling web pages, not web API requests.</span></span>  <span data-ttu-id="dad06-116">このルールには例外があります。ビューと API の両方で同じコントローラーを使うことを計画している場合は、`Controller` から派生させます。</span><span class="sxs-lookup"><span data-stu-id="dad06-116">There's an exception to this rule: if you plan to use the same controller for both views and APIs, derive it from `Controller`.</span></span>
 
-::: moniker-end
+<span data-ttu-id="dad06-117">`ControllerBase` クラスには、HTTP 要求の処理に役立つプロパティとメソッドが多数用意されています。</span><span class="sxs-lookup"><span data-stu-id="dad06-117">The `ControllerBase` class provides many properties and methods that are useful for handling HTTP requests.</span></span> <span data-ttu-id="dad06-118">たとえば、`ControllerBase.CreatedAtAction` では状態コード 201 が返されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-118">For example, `ControllerBase.CreatedAtAction` returns a 201 status code:</span></span>
 
-::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_400And201&highlight=8-9)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+ <span data-ttu-id="dad06-119">次に、`ControllerBase` に用意されているメソッドの例をさらにいくつか示します。</span><span class="sxs-lookup"><span data-stu-id="dad06-119">Here are some more examples of methods that `ControllerBase` provides.</span></span>
 
-::: moniker-end
+|<span data-ttu-id="dad06-120">メソッド</span><span class="sxs-lookup"><span data-stu-id="dad06-120">Method</span></span>  |<span data-ttu-id="dad06-121">メモ</span><span class="sxs-lookup"><span data-stu-id="dad06-121">Notes</span></span>  |
+|---------|---------|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>| <span data-ttu-id="dad06-122">400 状態コードを返します。</span><span class="sxs-lookup"><span data-stu-id="dad06-122">Returns 400 status code.</span></span>|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> |<span data-ttu-id="dad06-123">404 状態コードを返します。</span><span class="sxs-lookup"><span data-stu-id="dad06-123">Returns 404 status code.</span></span>|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile*>|<span data-ttu-id="dad06-124">ファイルを返します。</span><span class="sxs-lookup"><span data-stu-id="dad06-124">Returns a file.</span></span>|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>|<span data-ttu-id="dad06-125">[モデル バインド](xref:mvc/models/model-binding)を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="dad06-125">Invokes [model binding](xref:mvc/models/model-binding).</span></span>|
+|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryValidateModel*>|<span data-ttu-id="dad06-126">[モデル検証](xref:mvc/models/validation)を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="dad06-126">Invokes [model validation](xref:mvc/models/validation).</span></span>|
 
-<span data-ttu-id="88ed1-110">`ControllerBase` クラスを使用すると、いくつかのプロパティとメソッドにアクセスできます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-110">The `ControllerBase` class provides access to several properties and methods.</span></span> <span data-ttu-id="88ed1-111">上のコードでは、例に <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)> と <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(System.String,System.Object,System.Object)> が含まれています。</span><span class="sxs-lookup"><span data-stu-id="88ed1-111">In the preceding code, examples include <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)> and <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(System.String,System.Object,System.Object)>.</span></span> <span data-ttu-id="88ed1-112">これらのメソッドはアクション メソッド内で呼び出され、HTTP 400 および 201 のステータス コードをそれぞれ返します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-112">These methods are called within action methods to return HTTP 400 and 201 status codes, respectively.</span></span> <span data-ttu-id="88ed1-113"><xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState> プロパティ (これも `ControllerBase` によって提供される) は、要求モデル検証を処理する場合にアクセスされます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-113">The <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState> property, also provided by `ControllerBase`, is accessed to handle request model validation.</span></span>
+<span data-ttu-id="dad06-127">使用可能なすべてのメソッドとプロパティの一覧については、「<xref:Microsoft.AspNetCore.Mvc.ControllerBase>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="dad06-127">For a list of all available methods and properties, see <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.</span></span>
 
-::: moniker range=">= aspnetcore-2.1"
+## <a name="attributes"></a><span data-ttu-id="dad06-128">属性</span><span class="sxs-lookup"><span data-stu-id="dad06-128">Attributes</span></span>
 
-## <a name="annotation-with-apicontroller-attribute"></a><span data-ttu-id="88ed1-114">ApiController 属性を使用した注釈</span><span class="sxs-lookup"><span data-stu-id="88ed1-114">Annotation with ApiController attribute</span></span>
+<span data-ttu-id="dad06-129"><xref:Microsoft.AspNetCore.Mvc> 名前空間には、Web API のコントローラーとアクション メソッドの動作の構成に使用できる属性が用意されています。</span><span class="sxs-lookup"><span data-stu-id="dad06-129">The <xref:Microsoft.AspNetCore.Mvc> namespace provides attributes that can be used to configure the behavior of web API controllers and action methods.</span></span> <span data-ttu-id="dad06-130">次の例では、属性を使って、受け取る HTTP メソッドと返す状態コードを指定しています。</span><span class="sxs-lookup"><span data-stu-id="dad06-130">The following example uses attributes to specify the HTTP method accepted and the status codes returned:</span></span>
 
-<span data-ttu-id="88ed1-115">ASP.NET Core 2.1 では、Web API コントローラー クラスを表す [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性が導入されました。</span><span class="sxs-lookup"><span data-stu-id="88ed1-115">ASP.NET Core 2.1 introduces the [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) attribute to denote a web API controller class.</span></span> <span data-ttu-id="88ed1-116">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-116">For example:</span></span>
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_400And201&highlight=1-3)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
+<span data-ttu-id="dad06-131">次に、使用できる属性の例をさらにいくつか示します。</span><span class="sxs-lookup"><span data-stu-id="dad06-131">Here are some more examples of attributes that are available.</span></span>
 
-<span data-ttu-id="88ed1-117">この属性をコントローラー レベルで使用するには、2.1 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。</span><span class="sxs-lookup"><span data-stu-id="88ed1-117">A compatibility version of 2.1 or later, set via <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>, is required to use this attribute at the controller level.</span></span> <span data-ttu-id="88ed1-118">たとえば、`Startup.ConfigureServices` の強調表示されているコードでは、2.1 の互換性フラグが設定されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-118">For example, the highlighted code in `Startup.ConfigureServices` sets the 2.1 compatibility flag:</span></span>
+|<span data-ttu-id="dad06-132">属性</span><span class="sxs-lookup"><span data-stu-id="dad06-132">Attribute</span></span>|<span data-ttu-id="dad06-133">メモ</span><span class="sxs-lookup"><span data-stu-id="dad06-133">Notes</span></span>|
+|---------|-----|
+|<span data-ttu-id="dad06-134">[[Route]](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)</span><span class="sxs-lookup"><span data-stu-id="dad06-134">[[Route]](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)</span></span>      |<span data-ttu-id="dad06-135">コントローラーまたはアクションの URL パターンを指定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-135">Specifies URL pattern for a controller or action.</span></span>|
+|<span data-ttu-id="dad06-136">[[Bind]](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)</span><span class="sxs-lookup"><span data-stu-id="dad06-136">[[Bind]](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)</span></span>        |<span data-ttu-id="dad06-137">モデル バインドのために含めるプレフィックスとプロパティを指定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-137">Specifies prefix and properties to include for model binding.</span></span>|
+|<span data-ttu-id="dad06-138">[[HttpGet]](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)</span><span class="sxs-lookup"><span data-stu-id="dad06-138">[[HttpGet]](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)</span></span>  |<span data-ttu-id="dad06-139">HTTP GET メソッドをサポートするアクションを特定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-139">Identifies an action that supports the HTTP GET method.</span></span>|
+|<span data-ttu-id="dad06-140">[[Consumes]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)</span><span class="sxs-lookup"><span data-stu-id="dad06-140">[[Consumes]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)</span></span>|<span data-ttu-id="dad06-141">アクションが受け取るデータ型を指定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-141">Specifies data types that an action accepts.</span></span>|
+|<span data-ttu-id="dad06-142">[[Produces]](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)</span><span class="sxs-lookup"><span data-stu-id="dad06-142">[[Produces]](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)</span></span>|<span data-ttu-id="dad06-143">アクションによって返すデータ型を指定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-143">Specifies data types that an action returns.</span></span>|
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
+<span data-ttu-id="dad06-144">使用可能な属性を含む一覧については、<xref:Microsoft.AspNetCore.Mvc> 名前空間をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="dad06-144">For a list that includes the available attributes, see the <xref:Microsoft.AspNetCore.Mvc> namespace.</span></span>
 
-<span data-ttu-id="88ed1-119">詳細については、「<xref:mvc/compatibility-version>」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="88ed1-119">For more information, see <xref:mvc/compatibility-version>.</span></span>
+## <a name="apicontroller-attribute"></a><span data-ttu-id="dad06-145">ApiController 属性</span><span class="sxs-lookup"><span data-stu-id="dad06-145">ApiController attribute</span></span>
 
-::: moniker-end
+<span data-ttu-id="dad06-146">[[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) 属性をコントローラー クラスに適用して、API に固有の動作を有効にできます。</span><span class="sxs-lookup"><span data-stu-id="dad06-146">The [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) attribute can be applied to a controller class to enable API-specific behaviors:</span></span>
 
-::: moniker range=">= aspnetcore-2.2"
+* [<span data-ttu-id="dad06-147">属性ルーティング要件</span><span class="sxs-lookup"><span data-stu-id="dad06-147">Attribute routing requirement</span></span>](#attribute-routing-requirement)
+* [<span data-ttu-id="dad06-148">自動的な HTTP 400 応答</span><span class="sxs-lookup"><span data-stu-id="dad06-148">Automatic HTTP 400 responses</span></span>](#automatic-http-400-responses)
+* [<span data-ttu-id="dad06-149">バインディング ソース パラメーター推論</span><span class="sxs-lookup"><span data-stu-id="dad06-149">Binding source parameter inference</span></span>](#binding-source-parameter-inference)
+* [<span data-ttu-id="dad06-150">マルチパート/フォーム データ要求の推論</span><span class="sxs-lookup"><span data-stu-id="dad06-150">Multipart/form-data request inference</span></span>](#multipartform-data-request-inference)
+* [<span data-ttu-id="dad06-151">エラー状態コードに関する問題の詳細</span><span class="sxs-lookup"><span data-stu-id="dad06-151">Problem details for error status codes</span></span>](#problem-details-for-error-status-codes)
 
-<span data-ttu-id="88ed1-120">ASP.NET Core 2.2 以降では、`[ApiController]` 属性をアセンブリに適用できます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-120">In ASP.NET Core 2.2 or later, the `[ApiController]` attribute can be applied to an assembly.</span></span> <span data-ttu-id="88ed1-121">この方法での注釈では、アセンブリ内のすべてのコントローラーに Web API の動作が適用されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-121">Annotation in this manner applies web API behavior to all controllers in the assembly.</span></span> <span data-ttu-id="88ed1-122">個々のコントローラーを有効にする方法はありません。</span><span class="sxs-lookup"><span data-stu-id="88ed1-122">Beware that there's no way to opt out for individual controllers.</span></span> <span data-ttu-id="88ed1-123">推奨事項として、アセンブリ レベルの属性を `Startup` クラスに適用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-123">As a recommendation, assembly-level attributes should be applied to the `Startup` class:</span></span>
+<span data-ttu-id="dad06-152">これらの機能では[互換性バージョン](<xref:mvc/compatibility-version>) 2.1 以降が必要です。</span><span class="sxs-lookup"><span data-stu-id="dad06-152">These features require a [compatibility version](<xref:mvc/compatibility-version>) of 2.1 or later.</span></span>
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ApiControllerAttributeOnAssembly&highlight=1)]
+### <a name="apicontroller-on-specific-controllers"></a><span data-ttu-id="dad06-153">特定のコントローラーでの ApiController</span><span class="sxs-lookup"><span data-stu-id="dad06-153">ApiController on specific controllers</span></span>
 
-<span data-ttu-id="88ed1-124">この属性をアセンブリ レベルで使用するには、2.2 以降の互換性バージョン (<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> で設定) が必須です。</span><span class="sxs-lookup"><span data-stu-id="88ed1-124">A compatibility version of 2.2 or later, set via <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>, is required to use this attribute at the assembly level.</span></span>
+<span data-ttu-id="dad06-154">プロジェクト テンプレートからの次の例のように、`[ApiController]` 属性は特定のコントローラーに適用できます。</span><span class="sxs-lookup"><span data-stu-id="dad06-154">The `[ApiController]` attribute can be applied to specific controllers, as in the following example from the project template:</span></span>
 
-::: moniker-end
+[!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=2)]
 
-::: moniker range=">= aspnetcore-2.1"
+### <a name="apicontroller-on-multiple-controllers"></a><span data-ttu-id="dad06-155">複数のコントローラーでの ApiController</span><span class="sxs-lookup"><span data-stu-id="dad06-155">ApiController on multiple controllers</span></span>
 
-<span data-ttu-id="88ed1-125">コントローラーの REST 固有の動作を有効にする場合、通常、`[ApiController]` 属性は `ControllerBase` と組み合わせて使用されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-125">The `[ApiController]` attribute is commonly coupled with `ControllerBase` to enable REST-specific behavior for controllers.</span></span> <span data-ttu-id="88ed1-126">`ControllerBase` では、<xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> や <xref:Microsoft.AspNetCore.Mvc.ControllerBase.File*> などのメソッドにアクセスできます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-126">`ControllerBase` provides access to methods such as <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> and <xref:Microsoft.AspNetCore.Mvc.ControllerBase.File*>.</span></span>
+<span data-ttu-id="dad06-156">複数のコントローラーでこの属性を使う方法の 1 つは、`[ApiController]` 属性で注釈を付けたカスタム基本コントローラー クラスを作成することです。</span><span class="sxs-lookup"><span data-stu-id="dad06-156">One approach to using the attribute on more than one controller is to create a custom base controller class annotated with the `[ApiController]` attribute.</span></span> <span data-ttu-id="dad06-157">次は、カスタム基底クラスとそこから派生したコントローラーを示す例です。</span><span class="sxs-lookup"><span data-stu-id="dad06-157">Here's an example showing a custom base class and a controller that derives from it:</span></span>
 
-<span data-ttu-id="88ed1-127">その他に、`[ApiController]` 属性で注釈が付けられたユーザー定義の基本コントローラー クラスを作成するという方法があります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-127">Another approach is to create a custom base controller class annotated with the `[ApiController]` attribute:</span></span>
+[!code-csharp[](index/samples/2.x/Controllers/MyControllerBase.cs?name=snippet_MyControllerBase)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_Inherit)]
 
-<span data-ttu-id="88ed1-128">次のセクションでは、属性によって追加される便利な機能について説明します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-128">The following sections describe convenience features added by the attribute.</span></span>
+### <a name="apicontroller-on-an-assembly"></a><span data-ttu-id="dad06-158">アセンブリでの ApiController</span><span class="sxs-lookup"><span data-stu-id="dad06-158">ApiController on an assembly</span></span>
 
-### <a name="automatic-http-400-responses"></a><span data-ttu-id="88ed1-129">自動的な HTTP 400 応答</span><span class="sxs-lookup"><span data-stu-id="88ed1-129">Automatic HTTP 400 responses</span></span>
-
-<span data-ttu-id="88ed1-130">モデル検証エラーが発生すると、HTTP 400 応答が自動的にトリガーされます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-130">Model validation errors automatically trigger an HTTP 400 response.</span></span> <span data-ttu-id="88ed1-131">その結果、次のコードは実際のアクションでは不要になります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-131">Consequently, the following code becomes unnecessary in your actions:</span></span>
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
-
-<span data-ttu-id="88ed1-132">結果として発生する応答の出力をカスタマイズするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> を使用します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-132">Use <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> to customize the output of the resulting response.</span></span>
-
-<span data-ttu-id="88ed1-133">アクションがモデル検証エラーから回復できる場合は、既定の動作を無効にすると便利です。</span><span class="sxs-lookup"><span data-stu-id="88ed1-133">Disabling the default behavior is useful when your action can recover from a model validation error.</span></span> <span data-ttu-id="88ed1-134"><xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティが `true` に設定されている場合、既定の動作は無効になります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-134">The default behavior is disabled when the <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> property is set to `true`.</span></span> <span data-ttu-id="88ed1-135">`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-135">Add the following code in `Startup.ConfigureServices` after `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);`:</span></span>
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=7)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.1"
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-<span data-ttu-id="88ed1-136">2.2 以降の互換性フラグを設定した場合の、HTTP 400 応答に対する既定の応答の種類は、<xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> です。</span><span class="sxs-lookup"><span data-stu-id="88ed1-136">With a compatibility flag of 2.2 or later, the default response type for HTTP 400 responses is <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>.</span></span> <span data-ttu-id="88ed1-137">`ValidationProblemDetails` 型は [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に準拠しています。</span><span class="sxs-lookup"><span data-stu-id="88ed1-137">The `ValidationProblemDetails` type complies with the [RFC 7807 specification](https://tools.ietf.org/html/rfc7807).</span></span> <span data-ttu-id="88ed1-138">代わりに ASP.NET Core 2.1 エラー形式の <xref:Microsoft.AspNetCore.Mvc.SerializableError> を返すようにするには、`SuppressUseValidationProblemDetailsForInvalidModelStateResponses` プロパティを `true` に設定します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-138">Set the `SuppressUseValidationProblemDetailsForInvalidModelStateResponses` property to `true` to instead return the ASP.NET Core 2.1 error format of <xref:Microsoft.AspNetCore.Mvc.SerializableError>.</span></span> <span data-ttu-id="88ed1-139">`Startup.ConfigureServices` に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-139">Add the following code in `Startup.ConfigureServices`:</span></span>
+<span data-ttu-id="dad06-159">[互換性バージョン](<xref:mvc/compatibility-version>)が 2.2 以降に設定されている場合は、`[ApiController]` 属性をアセンブリに適用できます。</span><span class="sxs-lookup"><span data-stu-id="dad06-159">If [compatibility version](<xref:mvc/compatibility-version>) is set to 2.2 or later, the `[ApiController]` attribute can be applied to an assembly.</span></span> <span data-ttu-id="dad06-160">この方法での注釈では、アセンブリ内のすべてのコントローラーに Web API の動作が適用されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-160">Annotation in this manner applies web API behavior to all controllers in the assembly.</span></span> <span data-ttu-id="dad06-161">個別のコントローラーを除外する方法はありません。</span><span class="sxs-lookup"><span data-stu-id="dad06-161">There's no way to opt out for individual controllers.</span></span> <span data-ttu-id="dad06-162">次の例に示すように、アセンブリ レベルの属性を `Startup` クラスに適用します。</span><span class="sxs-lookup"><span data-stu-id="dad06-162">Apply the assembly-level attribute to the `Startup` class as shown in the following example:</span></span>
 
 ```csharp
-services.AddMvc()
-    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-    .ConfigureApiBehaviorOptions(options =>
+[assembly: ApiController]
+namespace WebApiSample
+{
+    public class Startup
     {
-        options
-          .SuppressUseValidationProblemDetailsForInvalidModelStateResponses = true;
-    });
+        ...
+    }
+}
 ```
 
-::: moniker-end
+## <a name="attribute-routing-requirement"></a><span data-ttu-id="dad06-163">属性ルーティング要件</span><span class="sxs-lookup"><span data-stu-id="dad06-163">Attribute routing requirement</span></span>
 
-::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="dad06-164">`ApiController` 属性では、属性ルーティング要件が作成されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-164">The `ApiController` attribute makes attribute routing a requirement.</span></span> <span data-ttu-id="dad06-165">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="dad06-165">For example:</span></span>
 
-### <a name="binding-source-parameter-inference"></a><span data-ttu-id="88ed1-140">バインディング ソース パラメーター推論</span><span class="sxs-lookup"><span data-stu-id="88ed1-140">Binding source parameter inference</span></span>
+[!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=1)]
 
-<span data-ttu-id="88ed1-141">バインディング ソース属性では、アクション パラメーターの値が存在する場所が定義されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-141">A binding source attribute defines the location at which an action parameter's value is found.</span></span> <span data-ttu-id="88ed1-142">次のバインディング ソース属性が存在します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-142">The following binding source attributes exist:</span></span>
+<span data-ttu-id="dad06-166">`Startup.Configure` の <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> または <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> で定義された[規則ルート](xref:mvc/controllers/routing#conventional-routing)経由でアクションにアクセスすることはできません。</span><span class="sxs-lookup"><span data-stu-id="dad06-166">Actions are inaccessible via [conventional routes](xref:mvc/controllers/routing#conventional-routing) defined by <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> or <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> in `Startup.Configure`.</span></span>
 
-|<span data-ttu-id="88ed1-143">属性</span><span class="sxs-lookup"><span data-stu-id="88ed1-143">Attribute</span></span>|<span data-ttu-id="88ed1-144">バインド ソース</span><span class="sxs-lookup"><span data-stu-id="88ed1-144">Binding source</span></span> |
+## <a name="automatic-http-400-responses"></a><span data-ttu-id="dad06-167">自動的な HTTP 400 応答</span><span class="sxs-lookup"><span data-stu-id="dad06-167">Automatic HTTP 400 responses</span></span>
+
+<span data-ttu-id="dad06-168">`ApiController` 属性により、モデル検証エラーが発生すると HTTP 400 応答が自動的にトリガーされます。</span><span class="sxs-lookup"><span data-stu-id="dad06-168">The `ApiController` attribute makes model validation errors automatically trigger an HTTP 400 response.</span></span> <span data-ttu-id="dad06-169">その結果、アクション メソッド内の次のコードは不要になります。</span><span class="sxs-lookup"><span data-stu-id="dad06-169">Consequently, the following code is unnecessary in an action method:</span></span>
+
+```csharp
+if (!ModelState.IsValid)
+{
+    return BadRequest(ModelState);
+}
+```
+
+### <a name="default-badrequest-response"></a><span data-ttu-id="dad06-170">既定の BadRequest 応答</span><span class="sxs-lookup"><span data-stu-id="dad06-170">Default BadRequest response</span></span> 
+
+<span data-ttu-id="dad06-171">2.2 以降の互換性バージョンを使う場合、HTTP 400 応答に対する既定の応答の種類は <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> です。</span><span class="sxs-lookup"><span data-stu-id="dad06-171">With a compatibility version of 2.2 or later, the default response type for HTTP 400 responses is <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>.</span></span> <span data-ttu-id="dad06-172">`ValidationProblemDetails` 型は [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に準拠しています。</span><span class="sxs-lookup"><span data-stu-id="dad06-172">The `ValidationProblemDetails` type complies with the [RFC 7807 specification](https://tools.ietf.org/html/rfc7807).</span></span>
+
+<span data-ttu-id="dad06-173"><xref:Microsoft.AspNetCore.Mvc.SerializableError> に対する既定の応答を変更するには、次の例のように、`Startup.ConfigureServices` で `SuppressUseValidationProblemDetailsForInvalidModelStateResponses` プロパティを `true` に設定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-173">To change the default response to <xref:Microsoft.AspNetCore.Mvc.SerializableError>, set the `SuppressUseValidationProblemDetailsForInvalidModelStateResponses` property to `true` in `Startup.ConfigureServices`, as shown in the following example:</span></span>
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,9)]
+
+### <a name="customize-badrequest-response"></a><span data-ttu-id="dad06-174">BadRequest 応答をカスタマイズする</span><span class="sxs-lookup"><span data-stu-id="dad06-174">Customize BadRequest response</span></span>
+
+<span data-ttu-id="dad06-175">検証エラーに起因する応答をカスタマイズするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> を使います。</span><span class="sxs-lookup"><span data-stu-id="dad06-175">To customize the response that results from a validation error, use <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory>.</span></span> <span data-ttu-id="dad06-176">`services.AddMvc().SetCompatibilityVersion` の後に、次の強調表示されたコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="dad06-176">Add the following highlighted code after `services.AddMvc().SetCompatibilityVersion`:</span></span>
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=3-20)]
+
+### <a name="disable-automatic-400"></a><span data-ttu-id="dad06-177">自動的な 400 を無効にする</span><span class="sxs-lookup"><span data-stu-id="dad06-177">Disable automatic 400</span></span>
+
+<span data-ttu-id="dad06-178">自動的な 400 の動作を無効にするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> プロパティを `true` に設定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-178">To disable the automatic 400 behavior, set the <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> property to `true`.</span></span> <span data-ttu-id="dad06-179">次の強調表示されたコードを、`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion` の後に追加します。</span><span class="sxs-lookup"><span data-stu-id="dad06-179">Add the following highlighted code in `Startup.ConfigureServices` after `services.AddMvc().SetCompatibilityVersion`:</span></span>
+
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,7)]
+
+## <a name="binding-source-parameter-inference"></a><span data-ttu-id="dad06-180">バインディング ソース パラメーター推論</span><span class="sxs-lookup"><span data-stu-id="dad06-180">Binding source parameter inference</span></span>
+
+<span data-ttu-id="dad06-181">バインディング ソース属性では、アクション パラメーターの値が存在する場所が定義されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-181">A binding source attribute defines the location at which an action parameter's value is found.</span></span> <span data-ttu-id="dad06-182">次のバインディング ソース属性が存在します。</span><span class="sxs-lookup"><span data-stu-id="dad06-182">The following binding source attributes exist:</span></span>
+
+|<span data-ttu-id="dad06-183">属性</span><span class="sxs-lookup"><span data-stu-id="dad06-183">Attribute</span></span>|<span data-ttu-id="dad06-184">バインド ソース</span><span class="sxs-lookup"><span data-stu-id="dad06-184">Binding source</span></span> |
 |---------|---------|
-|<span data-ttu-id="88ed1-145">**[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)**</span><span class="sxs-lookup"><span data-stu-id="88ed1-145">**[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)**</span></span>     | <span data-ttu-id="88ed1-146">要求本文</span><span class="sxs-lookup"><span data-stu-id="88ed1-146">Request body</span></span> |
-|<span data-ttu-id="88ed1-147">**[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)**</span><span class="sxs-lookup"><span data-stu-id="88ed1-147">**[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)**</span></span>     | <span data-ttu-id="88ed1-148">要求本文内のフォーム データ</span><span class="sxs-lookup"><span data-stu-id="88ed1-148">Form data in the request body</span></span> |
-|<span data-ttu-id="88ed1-149">**[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute)**</span><span class="sxs-lookup"><span data-stu-id="88ed1-149">**[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute)**</span></span> | <span data-ttu-id="88ed1-150">要求ヘッダー</span><span class="sxs-lookup"><span data-stu-id="88ed1-150">Request header</span></span> |
-|<span data-ttu-id="88ed1-151">**[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)**</span><span class="sxs-lookup"><span data-stu-id="88ed1-151">**[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)**</span></span>   | <span data-ttu-id="88ed1-152">要求のクエリ文字列パラメーター</span><span class="sxs-lookup"><span data-stu-id="88ed1-152">Request query string parameter</span></span> |
-|<span data-ttu-id="88ed1-153">**[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)**</span><span class="sxs-lookup"><span data-stu-id="88ed1-153">**[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)**</span></span>   | <span data-ttu-id="88ed1-154">現在の要求からのルート データ</span><span class="sxs-lookup"><span data-stu-id="88ed1-154">Route data from the current request</span></span> |
-|<span data-ttu-id="88ed1-155">**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)**</span><span class="sxs-lookup"><span data-stu-id="88ed1-155">**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)**</span></span> | <span data-ttu-id="88ed1-156">アクション パラメーターとして挿入される要求サービス</span><span class="sxs-lookup"><span data-stu-id="88ed1-156">The request service injected as an action parameter</span></span> |
+|<span data-ttu-id="dad06-185">[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)</span><span class="sxs-lookup"><span data-stu-id="dad06-185">[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)</span></span>     | <span data-ttu-id="dad06-186">要求本文</span><span class="sxs-lookup"><span data-stu-id="dad06-186">Request body</span></span> |
+|<span data-ttu-id="dad06-187">[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)</span><span class="sxs-lookup"><span data-stu-id="dad06-187">[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)</span></span>     | <span data-ttu-id="dad06-188">要求本文内のフォーム データ</span><span class="sxs-lookup"><span data-stu-id="dad06-188">Form data in the request body</span></span> |
+|<span data-ttu-id="dad06-189">[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute)</span><span class="sxs-lookup"><span data-stu-id="dad06-189">[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute)</span></span> | <span data-ttu-id="dad06-190">要求ヘッダー</span><span class="sxs-lookup"><span data-stu-id="dad06-190">Request header</span></span> |
+|<span data-ttu-id="dad06-191">[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)</span><span class="sxs-lookup"><span data-stu-id="dad06-191">[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)</span></span>   | <span data-ttu-id="dad06-192">要求のクエリ文字列パラメーター</span><span class="sxs-lookup"><span data-stu-id="dad06-192">Request query string parameter</span></span> |
+|<span data-ttu-id="dad06-193">[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)</span><span class="sxs-lookup"><span data-stu-id="dad06-193">[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)</span></span>   | <span data-ttu-id="dad06-194">現在の要求からのルート データ</span><span class="sxs-lookup"><span data-stu-id="dad06-194">Route data from the current request</span></span> |
+|<span data-ttu-id="dad06-195">[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)</span><span class="sxs-lookup"><span data-stu-id="dad06-195">[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)</span></span> | <span data-ttu-id="dad06-196">アクション パラメーターとして挿入される要求サービス</span><span class="sxs-lookup"><span data-stu-id="dad06-196">The request service injected as an action parameter</span></span> |
 
 > [!WARNING]
-> <span data-ttu-id="88ed1-157">値に `%2f` (つまり、`/`) が含まれる可能性がある場合は、`[FromRoute]` を使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="88ed1-157">Don't use `[FromRoute]` when values might contain `%2f` (that is `/`).</span></span> <span data-ttu-id="88ed1-158">`%2f` は `/` にエスケープ解除されません。</span><span class="sxs-lookup"><span data-stu-id="88ed1-158">`%2f` won't be unescaped to `/`.</span></span> <span data-ttu-id="88ed1-159">値に `%2f` が含まれる可能性がある場合は、`[FromQuery]` を使用してください。</span><span class="sxs-lookup"><span data-stu-id="88ed1-159">Use `[FromQuery]` if the value might contain `%2f`.</span></span>
+> <span data-ttu-id="dad06-197">値に `%2f` (つまり、`/`) が含まれる可能性がある場合は、`[FromRoute]` を使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="dad06-197">Don't use `[FromRoute]` when values might contain `%2f` (that is `/`).</span></span> <span data-ttu-id="dad06-198">`%2f` は `/` にエスケープ解除されません。</span><span class="sxs-lookup"><span data-stu-id="dad06-198">`%2f` won't be unescaped to `/`.</span></span> <span data-ttu-id="dad06-199">値に `%2f` が含まれる可能性がある場合は、`[FromQuery]` を使用してください。</span><span class="sxs-lookup"><span data-stu-id="dad06-199">Use `[FromQuery]` if the value might contain `%2f`.</span></span>
 
-<span data-ttu-id="88ed1-160">`[ApiController]` 属性がない場合は、バインディング ソース属性を明示的に定義します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-160">Without the `[ApiController]` attribute, binding source attributes are explicitly defined.</span></span> <span data-ttu-id="88ed1-161">`[ApiController]` がない場合または `[FromQuery]` などのバインディング ソース属性がない場合は、ASP.NET Core ランタイムにより複合オブジェクト モデル バインダーの使用が試行されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-161">Without `[ApiController]` or other binding source attributes like `[FromQuery]`, the ASP.NET Core runtime attempts to use the complex object model binder.</span></span> <span data-ttu-id="88ed1-162">複合オブジェクト モデル バインダーは、(順序が定義された) 値プロバイダーからデータを取得します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-162">The complex object model binder pulls data from value providers (which have a defined order).</span></span> <span data-ttu-id="88ed1-163">たとえば、"本文のモデル バインダー" は常にオプトインです。</span><span class="sxs-lookup"><span data-stu-id="88ed1-163">For instance, the 'body model binder' is always opt in.</span></span>
+<span data-ttu-id="dad06-200">`[ApiController]` 属性や `[FromQuery]` などのバインディング ソース属性がない場合は、ASP.NET Core ランタイムにより複合オブジェクト モデル バインダーの使用が試行されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-200">Without the `[ApiController]` attribute or binding source attributes like `[FromQuery]`, the ASP.NET Core runtime attempts to use the complex object model binder.</span></span> <span data-ttu-id="dad06-201">複合オブジェクト モデル バインダーでは、値プロバイダーから定義された順序でデータを取得します。</span><span class="sxs-lookup"><span data-stu-id="dad06-201">The complex object model binder pulls data from value providers in a defined order.</span></span>
 
-<span data-ttu-id="88ed1-164">次の例では、`discontinuedOnly` パラメーター値が要求 URL のクエリ文字列に指定されていることが `[FromQuery]` によって示されています。</span><span class="sxs-lookup"><span data-stu-id="88ed1-164">In the following example, the `[FromQuery]` attribute indicates that the `discontinuedOnly` parameter value is provided in the request URL's query string:</span></span>
+<span data-ttu-id="dad06-202">次の例では、`discontinuedOnly` パラメーター値が要求 URL のクエリ文字列に指定されていることが `[FromQuery]` によって示されています。</span><span class="sxs-lookup"><span data-stu-id="dad06-202">In the following example, the `[FromQuery]` attribute indicates that the `discontinuedOnly` parameter value is provided in the request URL's query string:</span></span>
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
+[!code-csharp[](index/samples/2.x/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
-<span data-ttu-id="88ed1-165">アクション パラメーターの既定のデータ ソースには推論規則が適用されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-165">Inference rules are applied for the default data sources of action parameters.</span></span> <span data-ttu-id="88ed1-166">これらの規則によって、アクション パラメーターに、通常、手動で適用する可能性の高いバインディング ソースが構成されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-166">These rules configure the binding sources you're otherwise likely to manually apply to the action parameters.</span></span> <span data-ttu-id="88ed1-167">バインディング ソースの属性は、次のように動作します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-167">The binding source attributes behave as follows:</span></span>
+<span data-ttu-id="dad06-203">`[ApiController]` 属性により、アクション パラメーターの既定のデータ ソースに対する推論規則が適用されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-203">The `[ApiController]` attribute applies inference rules for the default data sources of action parameters.</span></span> <span data-ttu-id="dad06-204">これらの規則により、アクション パラメーターに属性を適用することで手動でバインディング ソースを特定する必要がなくなります。</span><span class="sxs-lookup"><span data-stu-id="dad06-204">These rules save you from having to identify binding sources manually by applying attributes to the action parameters.</span></span> <span data-ttu-id="dad06-205">バインディング ソースの推論規則は、次のように動作します。</span><span class="sxs-lookup"><span data-stu-id="dad06-205">The binding source inference rules behave as follows:</span></span>
 
-* <span data-ttu-id="88ed1-168">**[FromBody]** は複合型のパラメーターに対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-168">**[FromBody]** is inferred for complex type parameters.</span></span> <span data-ttu-id="88ed1-169">この規則には例外があり、<xref:Microsoft.AspNetCore.Http.IFormCollection> や <xref:System.Threading.CancellationToken> などの、特殊な意味を持つ複雑な組み込み型が該当します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-169">An exception to this rule is any complex, built-in type with a special meaning, such as <xref:Microsoft.AspNetCore.Http.IFormCollection> and <xref:System.Threading.CancellationToken>.</span></span> <span data-ttu-id="88ed1-170">バインディング ソース推論コードでは、そのような特殊な型は無視されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-170">The binding source inference code ignores those special types.</span></span> <span data-ttu-id="88ed1-171">`[FromBody]` は、`string` や `int` などの単純型に対しては推論されません。</span><span class="sxs-lookup"><span data-stu-id="88ed1-171">`[FromBody]` isn't inferred for simple types such as `string` or `int`.</span></span> <span data-ttu-id="88ed1-172">そのため、その機能が必要な場合、単純型に対しては `[FromBody]` 属性を使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-172">Therefore, the `[FromBody]` attribute should be used for simple types when that functionality is needed.</span></span> <span data-ttu-id="88ed1-173">アクションの複数のパラメーターが明示的に指定されている場合 (`[FromBody]` によって) または要求本文からバインドとして推論される場合は、例外がスローされます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-173">When an action has more than one parameter explicitly specified (via `[FromBody]`) or inferred as bound from the request body, an exception is thrown.</span></span> <span data-ttu-id="88ed1-174">たとえば、次のアクション シグネチャは例外の原因となります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-174">For example, the following action signatures cause an exception:</span></span>
+* <span data-ttu-id="dad06-206">`[FromBody]` は複合型パラメーターに対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-206">`[FromBody]` is inferred for complex type parameters.</span></span> <span data-ttu-id="dad06-207">`[FromBody]` 推論規則に対する例外は、<xref:Microsoft.AspNetCore.Http.IFormCollection> や <xref:System.Threading.CancellationToken> など、特殊な意味を持つ組み込みの複合型です。</span><span class="sxs-lookup"><span data-stu-id="dad06-207">An exception to the `[FromBody]` inference rule is any complex, built-in type with a special meaning, such as <xref:Microsoft.AspNetCore.Http.IFormCollection> and <xref:System.Threading.CancellationToken>.</span></span> <span data-ttu-id="dad06-208">バインディング ソース推論コードでは、そのような特殊な型は無視されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-208">The binding source inference code ignores those special types.</span></span> 
+* <span data-ttu-id="dad06-209">`[FromForm]` は <xref:Microsoft.AspNetCore.Http.IFormFile> および <xref:Microsoft.AspNetCore.Http.IFormFileCollection> 型のアクション パラメーターに対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-209">`[FromForm]` is inferred for action parameters of type <xref:Microsoft.AspNetCore.Http.IFormFile> and <xref:Microsoft.AspNetCore.Http.IFormFileCollection>.</span></span> <span data-ttu-id="dad06-210">簡易型またはユーザー定義型に対しては推論されません。</span><span class="sxs-lookup"><span data-stu-id="dad06-210">It's not inferred for any simple or user-defined types.</span></span>
+* <span data-ttu-id="dad06-211">`[FromRoute]` は、ルート テンプレート内のパラメーターと一致する任意のアクション パラメーター名に対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-211">`[FromRoute]` is inferred for any action parameter name matching a parameter in the route template.</span></span> <span data-ttu-id="dad06-212">複数のルートがアクション パラメーターと一致する場合、ルート値はいずれも `[FromRoute]` と見なされます。</span><span class="sxs-lookup"><span data-stu-id="dad06-212">When more than one route matches an action parameter, any route value is considered `[FromRoute]`.</span></span>
+* <span data-ttu-id="dad06-213">`[FromQuery]` は他の任意のアクション パラメーターに対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-213">`[FromQuery]` is inferred for any other action parameters.</span></span>
 
-    [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
+### <a name="frombody-inference-notes"></a><span data-ttu-id="dad06-214">FromBody 推論に関するメモ</span><span class="sxs-lookup"><span data-stu-id="dad06-214">FromBody inference notes</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="88ed1-175">ASP.NET Core 2.1 では、リストや配列などのコレクション型パラメーターが誤って [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) と推論されています。</span><span class="sxs-lookup"><span data-stu-id="88ed1-175">In ASP.NET Core 2.1, collection type parameters such as lists and arrays are incorrectly inferred as [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute).</span></span> <span data-ttu-id="88ed1-176">これらのパラメーターを要求本文からバインドする場合は、[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) を使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-176">[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) should be used for these parameters if they are to be bound from the request body.</span></span> <span data-ttu-id="88ed1-177">このビヘイビアーは、ASP.NET Core 2.2 以降で修正されており、既定ではコレクション型パラメーターが本文からバインドされることが推論されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-177">This behavior is fixed in ASP.NET Core 2.2 or later, where collection type parameters are inferred to be bound from the body by default.</span></span>
+<span data-ttu-id="dad06-215">`[FromBody]` は、`string` や `int` などの単純型に対しては推論されません。</span><span class="sxs-lookup"><span data-stu-id="dad06-215">`[FromBody]` isn't inferred for simple types such as `string` or `int`.</span></span> <span data-ttu-id="dad06-216">そのため、その機能が必要な場合、単純型に対しては `[FromBody]` 属性を使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dad06-216">Therefore, the `[FromBody]` attribute should be used for simple types when that functionality is needed.</span></span>
 
-* <span data-ttu-id="88ed1-178">**[FromForm]** は <xref:Microsoft.AspNetCore.Http.IFormFile> および <xref:Microsoft.AspNetCore.Http.IFormFileCollection> 型のアクション パラメーターに対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-178">**[FromForm]** is inferred for action parameters of type <xref:Microsoft.AspNetCore.Http.IFormFile> and <xref:Microsoft.AspNetCore.Http.IFormFileCollection>.</span></span> <span data-ttu-id="88ed1-179">簡易型またはユーザー定義型に対しては推論されません。</span><span class="sxs-lookup"><span data-stu-id="88ed1-179">It's not inferred for any simple or user-defined types.</span></span>
-* <span data-ttu-id="88ed1-180">**[FromRoute]** は、ルート テンプレート内のパラメーターと一致する任意のアクション パラメーター名に対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-180">**[FromRoute]** is inferred for any action parameter name matching a parameter in the route template.</span></span> <span data-ttu-id="88ed1-181">複数のルートがアクション パラメーターと一致する場合、ルート値はいずれも `[FromRoute]` と見なされます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-181">When more than one route matches an action parameter, any route value is considered `[FromRoute]`.</span></span>
-* <span data-ttu-id="88ed1-182">**[FromQuery]** は他の任意のアクション パラメーターに対して推論されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-182">**[FromQuery]** is inferred for any other action parameters.</span></span>
+<span data-ttu-id="dad06-217">要求本文からバインドされるパラメーターがアクションに複数ある場合は、例外がスローされます。</span><span class="sxs-lookup"><span data-stu-id="dad06-217">When an action has more than one parameter bound from the request body, an exception is thrown.</span></span> <span data-ttu-id="dad06-218">たとえば、次のアクション メソッドのシグネチャはすべて例外の原因となります。</span><span class="sxs-lookup"><span data-stu-id="dad06-218">For example, all of the following action method signatures cause an exception:</span></span>
 
-<span data-ttu-id="88ed1-183"><xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> プロパティが `true` に設定されている場合、既定の推論規則は無効になります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-183">The default inference rules are disabled when the <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> property is set to `true`.</span></span> <span data-ttu-id="88ed1-184">`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);` の後ろに次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-184">Add the following code in `Startup.ConfigureServices` after `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);`:</span></span>
+* <span data-ttu-id="dad06-219">複合型であるため、両方に対して `[FromBody]` が推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-219">`[FromBody]` inferred on both because they're complex types.</span></span>
 
-::: moniker-end
+  ```csharp
+  [HttpPost]
+  public IActionResult Action1(Product product, Order order)
+  ```
 
-::: moniker range=">= aspnetcore-2.2"
+* <span data-ttu-id="dad06-220">1 つには `[FromBody]` 属性が使われ、もう 1 つは複合型なので推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-220">`[FromBody]` attribute on one, inferred on the other because it's a complex type.</span></span>
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=6)]
+  ```csharp
+  [HttpPost]
+  public IActionResult Action2(Product product, [FromBody] Order order)
+  ```
 
-::: moniker-end
+* <span data-ttu-id="dad06-221">両方で `[FromBody]` 属性が使われます。</span><span class="sxs-lookup"><span data-stu-id="dad06-221">`[FromBody]` attribute on both.</span></span>
 
-::: moniker range="= aspnetcore-2.1"
+  ```csharp
+  [HttpPost]
+  public IActionResult Action3([FromBody] Product product, [FromBody] Order order)
+  ```
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
+> [!NOTE]
+> <span data-ttu-id="dad06-222">ASP.NET Core 2.1 では、リストや配列などのコレクション型パラメーターが誤って `[FromQuery]` と推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-222">In ASP.NET Core 2.1, collection type parameters such as lists and arrays are incorrectly inferred as `[FromQuery]`.</span></span> <span data-ttu-id="dad06-223">これらのパラメーターを要求本文からバインドする場合は、`[FromBody]` 属性を使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dad06-223">The `[FromBody]` attribute should be used for these parameters if they are to be bound from the request body.</span></span> <span data-ttu-id="dad06-224">この動作は ASP.NET Core 2.2 以降で修正されており、既定でコレクション型パラメーターが本文からバインドされることが推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-224">This behavior is corrected in ASP.NET Core 2.2 or later, where collection type parameters are inferred to be bound from the body by default.</span></span>
 
-::: moniker-end
+### <a name="disable-inference-rules"></a><span data-ttu-id="dad06-225">推論規則を無効にする</span><span class="sxs-lookup"><span data-stu-id="dad06-225">Disable inference rules</span></span>
 
-::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="dad06-226">バインディング ソースの推論を無効にするには、<xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> を `true` に設定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-226">To disable binding source inference, set <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> to `true`.</span></span> <span data-ttu-id="dad06-227">`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion` の後ろに次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="dad06-227">Add the following code in `Startup.ConfigureServices` after `services.AddMvc().SetCompatibilityVersion`:</span></span>
 
-### <a name="multipartform-data-request-inference"></a><span data-ttu-id="88ed1-185">マルチパート/フォーム データ要求の推論</span><span class="sxs-lookup"><span data-stu-id="88ed1-185">Multipart/form-data request inference</span></span>
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,6)]
 
-<span data-ttu-id="88ed1-186">[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) 属性を使用してアクション パラメーターに注釈を付けた場合は、`multipart/form-data` 要求コンテンツ型が推論されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-186">When an action parameter is annotated with the [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) attribute, the `multipart/form-data` request content type is inferred.</span></span>
+## <a name="multipartform-data-request-inference"></a><span data-ttu-id="dad06-228">マルチパート/フォーム データ要求の推論</span><span class="sxs-lookup"><span data-stu-id="dad06-228">Multipart/form-data request inference</span></span>
 
-<span data-ttu-id="88ed1-187"><xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> プロパティが `true` に設定されている場合、既定の動作は無効になります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-187">The default behavior is disabled when the <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> property is set to `true`.</span></span>
+<span data-ttu-id="dad06-229">[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) 属性を使用してアクション パラメーターに注釈を付けた場合、`[ApiController]` 属性が推論規則に適用されます。つまり、`multipart/form-data` 要求コンテンツ型が推論されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-229">The `[ApiController]` attribute applies an inference rule when an action parameter is annotated with the [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) attribute: the `multipart/form-data` request content type is inferred.</span></span>
 
-::: moniker-end
+<span data-ttu-id="dad06-230">既定の動作を無効にするには、次の例のように、`Startup.ConfigureServices` で <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> を `true` に設定します。</span><span class="sxs-lookup"><span data-stu-id="dad06-230">To disable the default behavior, set <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters>  to `true` in `Startup.ConfigureServices`, as shown in the following example:</span></span>
 
-::: moniker range=">= aspnetcore-2.2"
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,5)]
 
-<span data-ttu-id="88ed1-188">`Startup.ConfigureServices` に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-188">Add the following code in `Startup.ConfigureServices`:</span></span>
+## <a name="problem-details-for-error-status-codes"></a><span data-ttu-id="dad06-231">エラー状態コードに関する問題の詳細</span><span class="sxs-lookup"><span data-stu-id="dad06-231">Problem details for error status codes</span></span>
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+<span data-ttu-id="dad06-232">互換性バージョンが 2.2 以上である場合、MVC によってエラー結果 (状態コードが 400 以上の結果) が <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> を含む結果に変換されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-232">When the compatibility version is 2.2 or later, MVC transforms an error result (a result with status code 400 or higher) to a result with <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.</span></span> <span data-ttu-id="dad06-233">`ProblemDetails` 型は、HTTP 応答でコンピューターが判読できるエラーの詳細を提供するための [RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に基づきます。</span><span class="sxs-lookup"><span data-stu-id="dad06-233">The `ProblemDetails` type is based on the [RFC 7807 specification](https://tools.ietf.org/html/rfc7807) for providing machine-readable error details in an HTTP response.</span></span>
 
-::: moniker-end
+<span data-ttu-id="dad06-234">コントローラー アクションで次のコードがあるとします。</span><span class="sxs-lookup"><span data-stu-id="dad06-234">Consider the following code in a controller action:</span></span>
 
-::: moniker range="= aspnetcore-2.1"
+[!code-csharp[](index/samples/2.x/Controllers/PetsController.cs?name=snippet_ProblemDetailsStatusCode)]
 
-<span data-ttu-id="88ed1-189">`Startup.ConfigureServices` の `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);` の後ろに次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-189">Add the following code in `Startup.ConfigureServices` after `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:</span></span>
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-### <a name="attribute-routing-requirement"></a><span data-ttu-id="88ed1-190">属性ルーティング要件</span><span class="sxs-lookup"><span data-stu-id="88ed1-190">Attribute routing requirement</span></span>
-
-<span data-ttu-id="88ed1-191">属性ルーティングは要件になります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-191">Attribute routing becomes a requirement.</span></span> <span data-ttu-id="88ed1-192">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-192">For example:</span></span>
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
-
-<span data-ttu-id="88ed1-193"><xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> 内で定義されているか、または `Startup.Configure` 内の <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> によって定義されている[従来のルート](xref:mvc/controllers/routing#conventional-routing)を通してアクションにアクセスすることはできません。</span><span class="sxs-lookup"><span data-stu-id="88ed1-193">Actions are inaccessible via [conventional routes](xref:mvc/controllers/routing#conventional-routing) defined in <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> or by <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> in `Startup.Configure`.</span></span>
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-### <a name="problem-details-responses-for-error-status-codes"></a><span data-ttu-id="88ed1-194">エラー状態コードに対する問題の詳細の応答</span><span class="sxs-lookup"><span data-stu-id="88ed1-194">Problem details responses for error status codes</span></span>
-
-<span data-ttu-id="88ed1-195">ASP.NET Core 2.2 以降では、MVC によってエラー結果 (状態コードが 400 以降の結果) が <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> による結果に変換されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-195">In ASP.NET Core 2.2 or later, MVC transforms an error result (a result with status code 400 or higher) to a result with <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.</span></span> <span data-ttu-id="88ed1-196">`ProblemDetails` は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-196">`ProblemDetails` is:</span></span>
-
-* <span data-ttu-id="88ed1-197">[RFC 7807 仕様](https://tools.ietf.org/html/rfc7807)に基づいた型。</span><span class="sxs-lookup"><span data-stu-id="88ed1-197">A type based on the [RFC 7807 specification](https://tools.ietf.org/html/rfc7807).</span></span>
-* <span data-ttu-id="88ed1-198">HTTP 応答でコンピューターが判読できるエラーの詳細を指定するための標準化された形式。</span><span class="sxs-lookup"><span data-stu-id="88ed1-198">A standardized format for specifying machine-readable error details in an HTTP response.</span></span>
-
-<span data-ttu-id="88ed1-199">コントローラー アクションで次のコードがあるとします。</span><span class="sxs-lookup"><span data-stu-id="88ed1-199">Consider the following code in a controller action:</span></span>
-
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Controllers/ProductsController.cs?name=snippet_ProblemDetailsStatusCode)]
-
-<span data-ttu-id="88ed1-200">`NotFound` の HTTP 応答には 404 状態コードと `ProblemDetails` の本文が含まれています。</span><span class="sxs-lookup"><span data-stu-id="88ed1-200">The HTTP response for `NotFound` has a 404 status code with a `ProblemDetails` body.</span></span> <span data-ttu-id="88ed1-201">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-201">For example:</span></span>
+<span data-ttu-id="dad06-235">`NotFound` の HTTP 応答には 404 状態コードと `ProblemDetails` の本文が含まれています。</span><span class="sxs-lookup"><span data-stu-id="dad06-235">The HTTP response for `NotFound` has a 404 status code with a `ProblemDetails` body.</span></span> <span data-ttu-id="dad06-236">次に例を示します。</span><span class="sxs-lookup"><span data-stu-id="dad06-236">For example:</span></span>
 
 ```json
 {
@@ -230,17 +236,19 @@ services.AddMvc()
 }
 ```
 
-<span data-ttu-id="88ed1-202">問題の詳細機能には、2.2 以降の互換性フラグが必要です。</span><span class="sxs-lookup"><span data-stu-id="88ed1-202">The problem details feature requires a compatibility flag of 2.2 or later.</span></span> <span data-ttu-id="88ed1-203">`SuppressMapClientErrors` プロパティが `true` に設定されている場合、既定の動作は無効になります。</span><span class="sxs-lookup"><span data-stu-id="88ed1-203">The default behavior is disabled when the `SuppressMapClientErrors` property is set to `true`.</span></span> <span data-ttu-id="88ed1-204">`Startup.ConfigureServices` に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-204">Add the following code in `Startup.ConfigureServices`:</span></span>
+### <a name="customize-problemdetails-response"></a><span data-ttu-id="dad06-237">ProblemDetails 応答をカスタマイズする</span><span class="sxs-lookup"><span data-stu-id="dad06-237">Customize ProblemDetails response</span></span>
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8)]
+<span data-ttu-id="dad06-238">`ProblemDetails` の応答の内容を構成するには、`ClientErrorMapping` プロパティを使用します。</span><span class="sxs-lookup"><span data-stu-id="dad06-238">Use the `ClientErrorMapping` property to configure the contents of the `ProblemDetails` response.</span></span> <span data-ttu-id="dad06-239">たとえば、次のコードにより、404 応答の `type` プロパティが更新されます。</span><span class="sxs-lookup"><span data-stu-id="dad06-239">For example, the following code updates the `type` property for 404 responses:</span></span>
 
-<span data-ttu-id="88ed1-205">`ProblemDetails` の応答の内容を構成するには、`ClientErrorMapping` プロパティを使用します。</span><span class="sxs-lookup"><span data-stu-id="88ed1-205">Use the `ClientErrorMapping` property to configure the contents of the `ProblemDetails` response.</span></span> <span data-ttu-id="88ed1-206">たとえば、次のコードにより、404 応答の `type` プロパティが更新されます。</span><span class="sxs-lookup"><span data-stu-id="88ed1-206">For example, the following code updates the `type` property for 404 responses:</span></span>
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
 
-[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
+### <a name="disable-problemdetails-response"></a><span data-ttu-id="dad06-240">ProblemDetails 応答を無効にする</span><span class="sxs-lookup"><span data-stu-id="dad06-240">Disable ProblemDetails response</span></span>
 
-::: moniker-end
+<span data-ttu-id="dad06-241">`SuppressMapClientErrors` プロパティが `true` に設定されている場合、`ProblemDetails` の自動作成は無効になります。</span><span class="sxs-lookup"><span data-stu-id="dad06-241">The automatic creation of `ProblemDetails` is disabled when the `SuppressMapClientErrors` property is set to `true`.</span></span> <span data-ttu-id="dad06-242">`Startup.ConfigureServices` に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="dad06-242">Add the following code in `Startup.ConfigureServices`:</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="88ed1-207">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="88ed1-207">Additional resources</span></span>
+[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,8)]
+
+## <a name="additional-resources"></a><span data-ttu-id="dad06-243">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="dad06-243">Additional resources</span></span> 
 
 * <xref:web-api/action-return-types>
 * <xref:web-api/advanced/custom-formatters>
