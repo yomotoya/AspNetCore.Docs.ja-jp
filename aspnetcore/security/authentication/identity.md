@@ -61,9 +61,9 @@ dotnet new webapp --auth Individual -o WebApp1
 
 生成されたプロジェクトは、 [ASP.NET Core Identity](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)します。 Id の Razor クラス ライブラリでエンドポイントを公開する、`Identity`領域。 例:
 
-* /ユーザー/アカウント/ログイン
-* /ユーザー/アカウント/ログアウト
-* /ユーザー/アカウント/管理
+* /Identity/Account/Login
+* /Identity/Account/Logout
+* /Identity/Account/Manage
 
 ### <a name="apply-migrations"></a>移行を適用する
 
