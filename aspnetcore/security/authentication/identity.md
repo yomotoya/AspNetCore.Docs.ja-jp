@@ -42,14 +42,14 @@ Id は、ユーザー名、パスワード、およびプロファイル デー�
 
 ## <a name="create-a-web-app-with-authentication"></a>認証を使用した Web アプリを作成します。
 
-個々 のユーザー アカウントを使って、ASP.NET Core Web アプリケーション プロジェクトを作成します。
+個別 のユーザー アカウントを使って、ASP.NET Core Web アプリケーション プロジェクトを作成します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。
 * **[ASP.NET Core Web アプリケーション]** を選択します。 プロジェクトに名前を**WebApp1**にプロジェクトのダウンロードとして同じ名前空間。 **[OK]** をクリックします。
 * ASP.NET Core を選択します。 **Web アプリケーション**を選択し、**認証の変更**します。
-* 選択**個々 のユーザー アカウント** をクリック**OK**します。
+* 選択**個別 のユーザー アカウント** をクリック**OK**します。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
