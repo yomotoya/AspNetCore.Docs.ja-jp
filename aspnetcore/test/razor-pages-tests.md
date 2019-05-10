@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 5116ec3c3d6c27f9b0e098f82c82dd7b7337b8f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207499"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893719"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core で razor ページの単体テスト
 
@@ -30,16 +30,16 @@ ASP.NET Core では、Razor Pages のアプリの単体テストをサポート�
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [単体テスト c# dotnet テストと xUnit を使用して .NET Core](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル プロジェクトは、2 つのアプリで構成されます。
 
 | アプリ         | プロジェクト フォルダー                        | 説明 |
 | ----------- | ------------------------------------- | ----------- |
 | メッセージ アプリ | *src/RazorPagesTestSample*            | により、ユーザーの追加、削除のいずれか、すべてを削除、およびメッセージを分析できます。 |
-| テスト アプリ    | *tests/RazorPagesTestSample.Tests*    | メッセージ アプリの単体テストに使用されます。 データ アクセス層 (DAL) およびインデックス ページのモデル。 |
+| テスト アプリ    | *tests/RazorPagesTestSample.Tests*    | メッセージ アプリの単体テストに使用されます。データ アクセス層 (DAL) とインデックス ページのモデル。 |
 
-などの IDE、組み込みのテスト機能を使用して、テストを実行できる[Visual Studio](https://www.visualstudio.com/vs/)します。 使用して場合[Visual Studio Code](https://code.visualstudio.com/)またはコマンド プロンプトで次のコマンドを実行するコマンドライン、 *tests/RazorPagesTestSample.Tests*フォルダー。
+などの IDE、組み込みのテスト機能を使用して、テストを実行できる[Visual Studio](https://visualstudio.microsoft.com)します。 使用して場合[Visual Studio Code](https://code.visualstudio.com/)またはコマンド プロンプトで次のコマンドを実行するコマンドライン、 *tests/RazorPagesTestSample.Tests*フォルダー。
 
 ```console
 dotnet test
@@ -108,9 +108,9 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 内の各テスト メソッド、`DataAccessLayerTest`クラス (*UnitTests/DataAccessLayerTest.cs*) 配置 Act アサートと同様のパターンに従います。
 
-1. 配置: データベースを構成、テスト用や、予想される結果が定義されています。
-1. Act: テストを実行します。
-1. アサート: テスト結果が成功したかどうかを決定アサーションは行われます。
+1. 配置します。データベースがテストの構成や、予想される結果が定義されています。
+1. Act:テストを実行します。
+1. アサートします。アサーションは、テスト結果が成功したかどうかを決定されます。
 
 たとえば、`DeleteMessageAsync`で識別される 1 つのメッセージを削除するため、メソッドはその`Id`(*src/RazorPagesTestSample/Data/AppDbContext.cs*)。
 
@@ -124,7 +124,7 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-メソッドの動作:`DeleteMessageAsync`を渡すメソッドが実行される、`recId`の`1`:
+メソッドは機能します。`DeleteMessageAsync`を渡すメソッドが実行される、`recId`の`1`:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 

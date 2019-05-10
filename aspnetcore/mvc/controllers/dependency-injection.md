@@ -5,12 +5,12 @@ description: ASP.NET Core の MVC コントローラーが、ASP.NET Core でそ
 ms.author: riande
 ms.date: 02/24/2019
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 898e98f4c5d472ca96c6a8ad07dddd1a4ef54fe9
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 6b08c321f4cae1f4efd8ea40300eaf4dfc2f63a1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743830"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890937"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET Core でのコントローラーへの依存関係の挿入
 
@@ -20,7 +20,7 @@ ms.locfileid: "56743830"
 
 ASP.NET Core の MVC コントローラーは、コンストラクターを使用して明示的に依存関係を要求します。 ASP.NET Core には、[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) の組み込みのサポートがあります。 DI を利用すれば、アプリのテストと保守管理が簡単になります。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="constructor-injection"></a>コンストラクターの挿入
 

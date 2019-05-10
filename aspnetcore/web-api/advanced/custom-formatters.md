@@ -5,12 +5,12 @@ description: ASP.NET Core で Web API のカスタム フォーマッタを作�
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 611840defd1da3b57b365c99deaf1c67f1568227
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: ece60b47f345235a084faacf8e59b792856614d2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264634"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887057"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API のカスタム フォーマッタ
 
@@ -18,7 +18,7 @@ ms.locfileid: "58264634"
 
 ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを交換するためのサポートが組み込まれています。 この記事では、カスタム フォーマッタを作成して、追加形式のサポートを追加する方法を示します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="when-to-use-custom-formatters"></a>カスタム フォーマッタを使用するタイミング
 
@@ -51,7 +51,7 @@ ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを�
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 種類がバイナリである場合は、[InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) または [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) 基底クラスから派生させます。
 
@@ -61,7 +61,7 @@ ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを�
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
-入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 > [!NOTE]
 > フォーマッタ クラスでコンストラクターの依存関係の挿入を行うことはできません。 たとえば、コンストラクターにロガー パラメーターを追加して、ロガーを取得することはできません。 サービスにアクセスするには、メソッドに渡されるコンテキスト オブジェクトを使用する必要があります。 [以下](#read-write)のコード例でこの方法を示します。
@@ -72,7 +72,7 @@ ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを�
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
-入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 #### <a name="the-canwriteresult-method"></a>CanWriteResult メソッド
 
@@ -92,7 +92,7 @@ ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを�
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
-入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
+入力フォーマッタの例として、「[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)」を参照してください。
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>カスタム フォーマッタを使用するように MVC を構成する方法
 
@@ -105,7 +105,7 @@ ASP.NET Core MVC には、JSON、XML を使用して、Web API でデータを�
 ## <a name="next-steps"></a>次の手順
 
 * [GitHub のプレーンテキスト フォーマッタのサンプル コード](https://github.com/aspnet/Entropy/tree/master/samples/Mvc.Formatters)
-* [このドキュメント用のサンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)。このアプリを使用して、シンプルな vCard の入力と出力フォーマッタを実装します。 アプリでは、次の例のように vCard の読み取りと書き込みを行います。
+* [このドキュメント用のサンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample)。このアプリを使用して、シンプルな vCard の入力と出力フォーマッタを実装します。 アプリでは、次の例のように vCard の読み取りと書き込みを行います。
 
 ```
 BEGIN:VCARD

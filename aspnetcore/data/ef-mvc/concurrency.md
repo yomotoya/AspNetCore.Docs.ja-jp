@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750863"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886657"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>チュートリアル: コンカレンシーの処理 - ASP.NET MVC と EF Core
 
@@ -288,7 +288,7 @@ RowVersion 列を削除し、管理者の姓名を表示するように *Views/D
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>その他の技術情報
 

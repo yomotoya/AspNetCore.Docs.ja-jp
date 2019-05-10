@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
 ms.openlocfilehash: 6e9f849ed856cf1cbf989b8b16cab5209c465471
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743788"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64892049"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core SignalR でのセキュリティに関する考慮事項
 
@@ -29,7 +29,7 @@ ms.locfileid: "56743788"
 
 のみ、配信元を許可する SignalR アプリで CORS を構成する必要があります`www.example.com`します。
 
-CORS の構成の詳細については、[を有効にするクロス オリジン要求 (CORS)](xref:security/cors)を参照してください。 SignalR**必要**以下の CORS ポリシー。
+CORS の構成の詳細については、次を参照してください。[を有効にするクロス オリジン要求 (CORS)](xref:security/cors)します。 SignalR**必要**以下の CORS ポリシー。
 
 * 特定の想定されるオリジンを許可します。 任意のオリジンを許可することができますが、**いない**セキュリティで保護されたかをお勧めします。
 * HTTP メソッド`GET`と`POST`許可する必要があります。

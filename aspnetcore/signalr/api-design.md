@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/api-design
 ms.openlocfilehash: 3f17bf055b793e8fc91fbcc15f668928ca261f77
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571554"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897809"
 ---
 # <a name="signalr-api-design-considerations"></a>SignalR の API の設計に関する考慮事項
 
@@ -32,7 +32,7 @@ JavaScript クライアントは、このメソッドを使用してを呼び出
 
 [!code-typescript[CallWithOneParameter](api-design/sample/Samples.ts?name=CallWithOneParameter)]
 
-後でサーバー メソッドに 2 番目のパラメーターを追加する場合、古いクライアントは、このパラメーターの値を指定しません。 例えば:
+後でサーバー メソッドに 2 番目のパラメーターを追加する場合、古いクライアントは、このパラメーターの値を指定しません。 例:
 
 [!code-csharp[ParameterBasedNewVersion](api-design/sample/Samples.cs?name=ParameterBasedNewVersion)]
 

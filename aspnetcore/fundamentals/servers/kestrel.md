@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/28/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 8967f87da58e7386bc1dd84e7b3e0f5daaecf9cb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5b05dbd553124cecac2ec7ddb55c939cb91c8ad
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884717"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450992"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
@@ -1132,5 +1132,5 @@ Host Filtering Middleware は既定では無効です。 このミドルウェ�
 * <xref:test/troubleshoot>
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>
-* [Kestrel ソース コード](https://github.com/aspnet/KestrelHttpServer)
+* [Kestrel ソース コード](https://github.com/aspnet/AspNetCore/tree/master/src/Servers/Kestrel)
 * [RFC 7230: メッセージの構文と経路制御 (セクション 5.4: ホスト)](https://tools.ietf.org/html/rfc7230#section-5.4)

@@ -5,12 +5,12 @@ description: ASP.NET MVC プロジェクトから ASP.NET Core MVC プロジェ�
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/configuration
-ms.openlocfilehash: 5a1c4d0cbbdf74a00073c654e78a05f44948caae
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c379f1f64dc5ab8aeb48055124e86e4e60d93785
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205913"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894929"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>ASP.NET Core 構成を移行します。
 
@@ -18,7 +18,7 @@ ms.locfileid: "50205913"
 
 前の記事では[ASP.NET MVCプロジェクトからASP.NET Core MVCへの移行](xref:migration/mvc)を開始しました。 この記事では、構成を移行します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="setup-configuration"></a>セットアップの構成
 

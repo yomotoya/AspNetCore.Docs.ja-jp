@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
 ms.openlocfilehash: ee772e67ef14608bcc6e3498ade00424ff6090e5
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121377"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893949"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core でのシングル ページ アプリケーションを作成するのに JavaScriptServices を使用します。
 
@@ -67,7 +67,7 @@ SpaServices を使用するには、次のようにインストールします�
     node -v && npm -v
     ```
 
-注: Azure の web サイトにデプロイする場合不要ここで何もする&mdash;Node.js がインストールされ、サーバー環境で使用できます。
+メモ:ここで何もする必要がありますしない Azure の web サイトにデプロイする場合&mdash;Node.js がインストールされ、サーバー環境で使用できます。
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
@@ -123,7 +123,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
-注: タグ ヘルパーで渡されたプロパティの名前を付けて表されます**PascalCase**表記します。 同じプロパティ名で表現は JavaScript とは異なり**camelCase**します。 既定の JSON シリアル化の構成では、この違いを担当します。
+メモ:タグ ヘルパーで渡されたプロパティの名前を付けて表されます**PascalCase**表記します。 同じプロパティ名で表現は JavaScript とは異なり**camelCase**します。 既定の JSON シリアル化の構成では、この違いを担当します。
 
 展開すると、上記のコード例に、データ渡し可能サーバーからビューに hydrating、`globals`プロパティに提供される、`resolve`関数。
 
@@ -225,7 +225,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=snippet_MvcRoutingTable&highlight=7-9)]
 
-ヒント: ルートは、構成されている順序で評価されます。 その結果、`default`パターン一致の前のコード例ではルートが最初に使用します。
+ヒント :ルートは、構成されている順序で評価されます。 その結果、`default`パターン一致の前のコード例ではルートが最初に使用します。
 
 <a name="new-project-creation"></a>
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9b01aca0cb2b33f5561193ffdce4aa4950485fce
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 7013a88aac26426d1f84d1f52e35e319b3764cdb
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165239"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894449"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>承認によって保護されたユーザー データと ASP.NET Core アプリを作成します。
 
@@ -19,7 +19,7 @@ ms.locfileid: "60165239"
 
 ::: moniker range="<= aspnetcore-1.1"
 
-参照してください[この PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) ASP.NET Core MVC のバージョン。 このチュートリアルの ASP.NET Core 1.1 バージョンは[この](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data)フォルダー。 ASP.NET Core サンプルについては、1.1、[サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)します。
+参照してください[この PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) ASP.NET Core MVC のバージョン。 このチュートリアルの ASP.NET Core 1.1 バージョンは[この](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data)フォルダー。 ASP.NET Core サンプルについては、1.1、[サンプル](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)します。
 
 ::: moniker-end
 
@@ -89,11 +89,11 @@ ASP.NET Core 2.1 で`User.IsInRole`を使用する場合は失敗`AddDefaultIden
 
 ## <a name="the-starter-and-completed-app"></a>Starter および完成したアプリ
 
-[ダウンロード](xref:index#how-to-download-a-sample)、[完了](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples)アプリ。 [テスト](#test-the-completed-app)完成したアプリのセキュリティ機能を理解するようにします。
+[ダウンロード](xref:index#how-to-download-a-sample)、[完了](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples)アプリ。 [テスト](#test-the-completed-app)完成したアプリのセキュリティ機能を理解するようにします。
 
 ### <a name="the-starter-app"></a>スターター アプリ
 
-[ダウンロード](xref:index#how-to-download-a-sample)、[スターター](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2)アプリ。
+[ダウンロード](xref:index#how-to-download-a-sample)、[スターター](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2)アプリ。
 
 アプリを実行し、タップ、 **ContactManager**リンク、および作成、編集、および連絡先を削除することを確認します。
 
@@ -217,7 +217,7 @@ Entity Framework Core を使用してサービスを登録する必要があり�
 
 ### <a name="update-the-createmodel"></a>CreateModel の更新します。
 
-作成のページ モデルを使用するコンス トラクターを更新、`DI_BasePageModel`基本クラス。
+作成のページ モデルを使用するコンストラクターを更新、`DI_BasePageModel`基本クラス。
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
@@ -275,7 +275,7 @@ Entity Framework Core を使用してサービスを登録する必要があり�
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>追加またはロールにユーザーを削除します。
 
-参照してください[今月](https://github.com/aspnet/Docs/issues/8502)について。
+参照してください[今月](https://github.com/aspnet/AspNetCore.Docs/issues/8502)について。
 
 * ユーザーから権限を削除しています。 たとえばのチャット アプリケーションのユーザーをミュートします。
 * ユーザーに特権を追加します。
@@ -346,7 +346,7 @@ Entity Framework Core を使用してサービスを登録する必要があり�
 
 ### <a name="seed-the-database"></a>データベースのシード
 
-追加、 [SeedData](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs)クラスを*データ*フォルダー。
+追加、 [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs)クラスを*データ*フォルダー。
 
 呼び出す`SeedData.Initialize`から`Main`:
 
