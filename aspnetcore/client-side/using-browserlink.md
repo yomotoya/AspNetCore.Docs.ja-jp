@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
 ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837178"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894709"
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET Core でのブラウザー リンク
 
@@ -83,7 +83,7 @@ Visual Studio がブラウザー リンクのツール バー コントロール
 
 * 複数のブラウザーで web アプリケーションを一度にを更新します。
 * 開く、**ブラウザー リンク ダッシュ ボード**します。
-* 有効または無効に**Browser Link**します。 注: ブラウザー リンクは Visual Studio 2017 (15.3) で既定で無効になります。
+* 有効または無効に**Browser Link**します。 メモ:Visual Studio 2017 (15.3) で既定では、ブラウザー リンクが無効です。
 * 有効または無効に[CSS 自動同期](#enable-or-disable-css-auto-sync)します。
 
 > [!NOTE]

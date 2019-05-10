@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/03/2019
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: 040d33eba7eaf7a3aece2eedcdef7343e52972af
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: ff061f96f30cd893b903403de760a172c924cf06
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345503"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64895419"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>ASP.NET Core で razor ページの承認規則
 
@@ -20,7 +20,7 @@ ms.locfileid: "57345503"
 
 Razor ページ アプリでのアクセスを制御する方法の 1 つでは、起動時に承認規則を使用します。 これらの規則を使用すると、ユーザーを承認して、匿名ユーザーが個々 のページまたはページのフォルダーにアクセスできるようにできます。 自動的にこのトピックで説明されている規則が適用されます[承認フィルター](xref:mvc/controllers/filters#authorization-filters)のアクセスを制御します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル アプリでは[ASP.NET Core Identity なしでの cookie 認証](xref:security/authentication/cookie)します。 概念とこのトピックで示す例については、ASP.NET Core Identity を使用するアプリに等しく適用されます。 ASP.NET Core Identity を使用するのガイダンスに従って<xref:security/authentication/identity>します。
 
@@ -39,7 +39,7 @@ options.Conventions.AuthorizePage("/Contact", "AtLeast21");
 ```
 
 > [!NOTE]
-> <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter>とページ モデル クラスに適用できる、`[Authorize]`フィルター属性。 詳細については、[Authorize フィルター属性](xref:razor-pages/filter#authorize-filter-attribute)を参照してください。
+> <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter>とページ モデル クラスに適用できる、`[Authorize]`フィルター属性。 詳細については、次を参照してください。 [Authorize フィルター属性](xref:razor-pages/filter#authorize-filter-attribute)します。
 
 ## <a name="require-authorization-to-access-a-folder-of-pages"></a>ページのフォルダーにアクセスするための承認が必要です。
 

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 6a163caa26b277fbee6b9d61f8f1d16a60c75b03
-ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
+ms.openlocfilehash: afc152ea677cab42d57bd642b4821159f125117e
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818370"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891739"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>ASP.NET Core でリソース ベースの承認
 
@@ -19,7 +19,7 @@ ms.locfileid: "51818370"
 
 属性の評価では、データ バインディングの前に、ページ ハンドラーまたはドキュメントを読み込みますアクションの実行前に発生します。 これらの理由、宣言型を使用した承認からを`[Authorize]`属性が十分でないです。 代わりに、カスタム承認メソッドを呼び出すことができます&mdash;と呼ばれるスタイル*命令型の承認*します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 [承認によって保護されたユーザー データと ASP.NET Core アプリを作成する](xref:security/authorization/secure-data)リソース ベースの承認を使用するサンプル アプリが含まれています。
 
@@ -78,7 +78,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 ## <a name="write-a-resource-based-handler"></a>リソース ベースのハンドラーを記述します。
 
-リソース ベースの承認がかなり異なるハンドラーの記述[プレーンな要件ハンドラーの記述](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler)します。 カスタム要件クラスを作成し、要件のハンドラー クラスを実装します。 要件のクラスを作成する方法の詳細については、[要件](xref:security/authorization/policies#requirements)を参照してください。
+リソース ベースの承認がかなり異なるハンドラーの記述[プレーンな要件ハンドラーの記述](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler)します。 カスタム要件クラスを作成し、要件のハンドラー クラスを実装します。 要件のクラスを作成する方法の詳細については、次を参照してください。[要件](xref:security/authorization/policies#requirements)します。
 
 ハンドラー クラスには、要件とリソースの種類を指定します。 など、ハンドラー利用して、`SameAuthorRequirement`と`Document`リソース次のとおりです。
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-encryption-at-rest
 ms.openlocfilehash: 52c3137dbe467096364b42430c92aecc7c15e313
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219291"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64892309"
 ---
 # <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET Core での保存時のキーの暗号化
 
@@ -34,7 +34,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-詳細については、[ASP.NET Core データ保護の構成: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault)を参照してください。
+詳細については、次を参照してください。 [ASP.NET Core データ保護の構成。ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault)します。
 
 ::: moniker-end
 
@@ -86,7 +86,7 @@ public void ConfigureServices(IServiceCollection services)
 
 **このメカニズムは、Windows 8/Windows Server 2012 以降でのみ使用できます。**
 
-Windows 8 以降、Windows OS には、DPAPI NG (CNG DPAPI とも呼ばれます) がサポートしています。 詳細については、[CNG DPAPI について](/windows/desktop/SecCNG/cng-dpapi)を参照してください。
+Windows 8 以降、Windows OS には、DPAPI NG (CNG DPAPI とも呼ばれます) がサポートしています。 詳細については、次を参照してください。 [CNG DPAPI について](/windows/desktop/SecCNG/cng-dpapi)します。
 
 プリンシパルは、保護の記述子ルールとしてエンコードされます。 呼び出す次の例では[ProtectKeysWithDpapiNG](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithdpaping)、のみ、指定された SID を持つドメインに参加しているユーザーには、キー リングが復号化できます。
 

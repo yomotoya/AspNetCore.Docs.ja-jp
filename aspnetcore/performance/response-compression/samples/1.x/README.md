@@ -1,14 +1,6 @@
----
-ms.openlocfilehash: 4add1c40387073f35711b2c8db27e48657a18192
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
-ms.translationtype: MT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028129"
----
 # <a name="response-compression-sample-application-aspnet-core-1x"></a>応答の圧縮サンプル アプリケーション (ASP.NET Core 1.x)
 
-このサンプルは、ASP.NET Core の使用を示しています。 1.x の HTTP 応答を圧縮する応答圧縮ミドルウェア。 サンプルでは、Gzip とテキストおよびイメージ応答の圧縮のカスタム プロバイダーについて説明し、圧縮する MIME の種類を追加する方法を示しています。 ASP.NET Core 2.x サンプルでは、[応答の圧縮サンプル アプリケーション (ASP.NET Core 2.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples/2.x)を参照してください。
+このサンプルは、ASP.NET Core の使用を示しています。 1.x の HTTP 応答を圧縮する応答圧縮ミドルウェア。 サンプルでは、Gzip とテキストおよびイメージ応答の圧縮のカスタム プロバイダーについて説明し、圧縮する MIME の種類を追加する方法を示しています。 ASP.NET Core 2.x サンプルでは、次を参照してください。[応答の圧縮サンプル アプリケーション (ASP.NET Core 2.x)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples/2.x)します。
 
 ## <a name="examples-in-this-sample"></a>このサンプルの例
 

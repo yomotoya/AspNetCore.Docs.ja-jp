@@ -7,18 +7,18 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: f037c1f6fd7ef773b8e7b2fd4fdf6e28222c441a
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: eb87aab2b7f3a58c6cec80f48f7616749f0809e2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327262"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897079"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET core SignalR のハブの使用
 
 によって[Rachel Appel](https://twitter.com/rachelappel)と[Kevin Griffin](https://twitter.com/1kevgriff)
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
 
 ## <a name="what-is-a-signalr-hub"></a>SignalR ハブとは
 
@@ -48,7 +48,7 @@ public class ChatHub : Hub
 }
 ```
 
-戻り値の型と複合型と配列を含む C# メソッドの場合と、パラメーターを指定できます。 SignalR では、複雑なオブジェクトと、パラメーターと戻り値の配列の逆シリアル化とシリアル化を処理します。
+戻り値の型と複合型と配列を含む c# メソッドの場合と、パラメーターを指定できます。 SignalR では、複雑なオブジェクトと、パラメーターと戻り値の配列の逆シリアル化とシリアル化を処理します。
 
 > [!NOTE]
 > ハブは、一時的なものです。
@@ -126,7 +126,7 @@ public class ChatHub : Hub
 
 使用して`Hub<IChatClient>`クライアント メソッドのコンパイル時にチェックできるようにします。 これにより、問題のため、マジック文字列を使用することで`Hub<T>`のみ、インターフェイスで定義されたメソッドへのアクセスを提供できます。
 
-厳密に型指定を使用して`Hub<T>`を使用する機能を無効にします。`SendAsync`します。 インターフェイスで定義されたメソッドを非同期と定義できますはまだ。 実際には、これらの各メソッドを返す必要があります、`Task`します。 インターフェイスであるために使用しないでください、`async`キーワード。 例えば:
+厳密に型指定を使用して`Hub<T>`を使用する機能を無効にします。`SendAsync`します。 インターフェイスで定義されたメソッドを非同期と定義できますはまだ。 実際には、これらの各メソッドを返す必要があります、`Task`します。 インターフェイスであるために使用しないでください、`async`キーワード。 例:
 
 ```csharp
 public interface IClient
@@ -160,7 +160,7 @@ SignalR ハブ API は、提供、`OnConnectedAsync`と`OnDisconnectedAsync`接�
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-ハブは、例外をスローする場合、接続は閉じられます。 既定では、SignalR は、クライアントに一般的なエラー メッセージを返します。 例:
+ハブは、例外をスローする場合、接続は閉じられます。 既定では、SignalR は、クライアントに一般的なエラー メッセージを返します。 例えば:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.

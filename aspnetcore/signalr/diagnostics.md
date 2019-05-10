@@ -8,11 +8,11 @@ ms.custom: signalr
 ms.date: 02/27/2019
 uid: signalr/diagnostics
 ms.openlocfilehash: b6bd21314ed183488999bcff3553e53493537a11
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400943"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64896889"
 ---
 # <a name="logging-and-diagnostics-in-aspnet-core-signalr"></a>ログ記録と ASP.NET Core SignalR での診断
 
@@ -142,7 +142,7 @@ SignalR など、Serilog、Seq、NLog、またはその他のログ記録シス�
 
 Fiddler は、HTTP トレースを収集するための非常に強力なツールです。 インストール[telerik.com/fiddler](https://www.telerik.com/fiddler)それを起動し、アプリを実行し、問題を再現します。 Fiddler は、Windows と macOS および Linux 用のベータ バージョンがあります。
 
-HTTPS を使用してを接続する場合は、Fiddler は HTTPS トラフィックを復号化できることを確認する特別な手順です。 詳細については、、 [Fiddler のドキュメント](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)を参照してください。
+HTTPS を使用してを接続する場合は、Fiddler は HTTPS トラフィックを復号化できることを確認する特別な手順です。 詳細については、次を参照してください。、 [Fiddler のドキュメント](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS)します。
 
 選択して、トレースをエクスポートするには、トレースを収集したら、**ファイル** > **保存** > **すべてのセッション.** メニュー バーから。
 

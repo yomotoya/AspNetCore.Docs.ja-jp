@@ -5,12 +5,12 @@ description: ASP.NET Core アプリでは、Identity を使用します。 パ�
 ms.author: riande
 ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: efe8119c2d18db50dce3df57fa0e300d0d0df2cd
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: d813fa364bb733185baa7b2cd2d95f8b4ff570e2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488674"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894329"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core Identity の概要
 
@@ -30,26 +30,26 @@ Identity は、ユーザー名、パスワード、およびプロファイル �
 
 ## <a name="adddefaultidentity-and-addidentity"></a>AddDefaultIdentity と AddIdentity
 
-[AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__)は ASP.NET Core 2.1 で導入されました。 呼び出す`AddDefaultIdentity`は、次の呼び出しに似ています。
+[AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__)は ASP.NET Core 2.1 で導入されました。 `AddDefaultIdentity`の呼び出しは、次の呼び出しに似ています。
 
 * [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionExtensions_AddIdentity__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__)
 * [AddDefaultUI](/dotnet/api/microsoft.aspnetcore.identity.identitybuilderuiextensions.adddefaultui?view=aspnetcore-2.1#Microsoft_AspNetCore_Identity_IdentityBuilderUIExtensions_AddDefaultUI_Microsoft_AspNetCore_Identity_IdentityBuilder_)
 * [AddDefaultTokenProviders](/dotnet/api/microsoft.aspnetcore.identity.identitybuilderextensions.adddefaulttokenproviders?view=aspnetcore-2.1#Microsoft_AspNetCore_Identity_IdentityBuilderExtensions_AddDefaultTokenProviders_Microsoft_AspNetCore_Identity_IdentityBuilder_)
 
-参照してください[AddDefaultIdentity ソース](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63)詳細についてはします。
+詳細については[AddDefaultIdentity のソース](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63)を参照してください。
 
 ::: moniker-end
 
 ## <a name="create-a-web-app-with-authentication"></a>認証を使用した Web アプリを作成します。
 
-個々 のユーザー アカウントを使って、ASP.NET Core Web アプリケーション プロジェクトを作成します。
+個別のユーザー アカウントを使って、ASP.NET Core Web アプリケーション プロジェクトを作成します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。
 * **[ASP.NET Core Web アプリケーション]** を選択します。 プロジェクトに名前を**WebApp1**にプロジェクトのダウンロードとして同じ名前空間。 **[OK]** をクリックします。
 * ASP.NET Core を選択します。 **Web アプリケーション**を選択し、**認証の変更**します。
-* 選択**個々 のユーザー アカウント** をクリック**OK**します。
+* 個別のユーザー アカウントを **選択** して **OK** をクリックします。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -61,9 +61,9 @@ dotnet new webapp --auth Individual -o WebApp1
 
 生成されたプロジェクトは、 [ASP.NET Core Identity](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)します。 Id の Razor クラス ライブラリでエンドポイントを公開する、`Identity`領域。 例:
 
-* /ユーザー/アカウント/ログイン
-* /ユーザー/アカウント/ログアウト
-* /ユーザー/アカウント/管理
+* /Identity/Account/Login
+* /Identity/Account/Logout
+* /Identity/Account/Manage
 
 ### <a name="apply-migrations"></a>移行を適用する
 
@@ -131,7 +131,7 @@ dotnet ef database update
 
 ::: moniker-end
 
-詳細については、、 [IdentityOptions クラス](/dotnet/api/microsoft.aspnetcore.identity.identityoptions)と[アプリケーションの起動](xref:fundamentals/startup)を参照してください。
+詳細については、次を参照してください。、 [IdentityOptions クラス](/dotnet/api/microsoft.aspnetcore.identity.identityoptions)と[アプリケーションの起動](xref:fundamentals/startup)します。
 
 ## <a name="scaffold-register-login-and-logout"></a>登録、ログイン、およびログアウトをスキャフォールディングします。
 
@@ -262,7 +262,7 @@ Identity をさらに詳しく調査。
 
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core Identity に移行します。
 
-詳細と、既存の Id ストアを移行のガイダンスについては、[移行の認証と Id](xref:migration/identity)を参照してください。
+詳細と、既存の Id ストアを移行のガイダンスについては、次を参照してください。[移行の認証と Id](xref:migration/identity)します。
 
 ## <a name="setting-password-strength"></a>パスワードの強度を設定
 

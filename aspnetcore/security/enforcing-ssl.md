@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 16cfa672fe4a81d9e8f09fc3dd1e6c036edd4c4e
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: ab407436afb16687fa285a836b608ad2e6a4802f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208977"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894559"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -41,7 +41,7 @@ Web アプリの呼び出しを実稼働 ASP.NET Core を推奨します。
 * HSTS ミドルウェア ([UseHsts](#http-strict-transport-security-protocol-hsts)) HTTP Strict Transport Security プロトコル (HSTS) ヘッダーをクライアントに送信します。
 
 > [!NOTE]
-> リバース プロキシ構成でデプロイされたアプリは、接続のセキュリティ (HTTPS) を処理するためにプロキシを使用できます。 プロキシでは、HTTPS へのリダイレクトも処理する場合、HTTPS のリダイレクトのミドルウェアを使用する必要はありません。 HSTS ヘッダーを書き込み、プロキシ サーバーにも処理する場合 (たとえば、[ネイティブ HSTS IIS 10.0 (1709) またはそれ以降のサポート](/iis/get-started/whats-new-in-iis-10-version-1709/iis-10-version-1709-hsts#iis-100-version-1709-native-hsts-support))、HSTS ミドルウェアは、アプリによって要求はありません。 詳細については、[プロジェクトの作成での HTTPS/HSTS オプトイン アウト](#opt-out-of-httpshsts-on-project-creation)を参照してください。
+> リバース プロキシ構成でデプロイされたアプリは、接続のセキュリティ (HTTPS) を処理するためにプロキシを使用できます。 プロキシでは、HTTPS へのリダイレクトも処理する場合、HTTPS のリダイレクトのミドルウェアを使用する必要はありません。 HSTS ヘッダーを書き込み、プロキシ サーバーにも処理する場合 (たとえば、[ネイティブ HSTS IIS 10.0 (1709) またはそれ以降のサポート](/iis/get-started/whats-new-in-iis-10-version-1709/iis-10-version-1709-hsts#iis-100-version-1709-native-hsts-support))、HSTS ミドルウェアは、アプリによって要求はありません。 詳細については、次を参照してください。[プロジェクトの作成での HTTPS/HSTS オプトイン アウト](#opt-out-of-httpshsts-on-project-creation)します。
 
 ### <a name="usehttpsredirection"></a>UseHttpsRedirection
 
@@ -91,7 +91,7 @@ Web アプリの呼び出しを実稼働 ASP.NET Core を推奨します。
 
 安全でないポートは、安全でない要求を受信し、セキュリティで保護されたポートにクライアントをリダイレクトする、アプリのために、クライアントによってアクセス可能である必要があります。
 
-詳細については、[Kestrel エンドポイント構成](xref:fundamentals/servers/kestrel#endpoint-configuration)または<xref:fundamentals/servers/httpsys>を参照してください。
+詳細については、次を参照してください。 [Kestrel エンドポイント構成](xref:fundamentals/servers/kestrel#endpoint-configuration)または<xref:fundamentals/servers/httpsys>します。
 
 ### <a name="deployment-scenarios"></a>展開シナリオ
 
@@ -215,8 +215,7 @@ ASP.NET Core 2.1 以降で HSTS を実装する、`UseHsts`拡張メソッド。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
-
-  `--no-https` オプションを使用します。 次に例を示します。
+`--no-https` オプションを使用します。 次に例を示します。
 
 ```console
 dotnet new webapp --no-https
@@ -247,7 +246,7 @@ For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?l
 dotnet dev-certs https --trust
 ```
 
-次のコマンドに関するヘルプを提供する、`dev-certs`ツール。
+次のコマンドにより、`dev-certs` ツールに関するヘルプが表示されます。
 
 ```console
 dotnet dev-certs https --help
@@ -255,7 +254,7 @@ dotnet dev-certs https --help
 
 ## <a name="how-to-set-up-a-developer-certificate-for-docker"></a>Docker の開発者の証明書を設定する方法
 
-参照してください[この GitHub の問題](https://github.com/aspnet/Docs/issues/6199)します。
+参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore.Docs/issues/6199)します。
 
 ::: moniker-end
 

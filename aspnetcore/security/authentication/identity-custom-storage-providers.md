@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: ccd56d0c15639e1ad29094e947f8055702ee2264
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 5a0797fcfe93d49b941b61688ae8f58a1b5d7614
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086345"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Identity 用のカスタム ストレージ プロバイダー
 
@@ -19,7 +19,7 @@ ms.locfileid: "56833671"
 
 ASP.NET Core Identity は、拡張可能なシステム カスタム ストレージ プロバイダーを作成し、アプリに接続することができます。 このトピックでは、ASP.NET Core Identity 用のカスタマイズされた記憶域プロバイダーを作成する方法について説明します。 独自の記憶域プロバイダーを作成するための重要な概念について説明しますが、詳細なチュートリアルはありません。
 
-[GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample)。
+[GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample)。
 
 ## <a name="introduction"></a>はじめに
 
@@ -139,7 +139,7 @@ Web サイトの登録済みユーザー。 [IdentityUser](/dotnet/api/microsoft
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [IUserLockoutStore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-省略可能なインターフェイスを継承`IUserStore<TUser>`します。 格納部分的に実装されているサンプル ユーザーを確認できます、[サンプル アプリ](https://github.com/aspnet/Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)します。
+省略可能なインターフェイスを継承`IUserStore<TUser>`します。 格納部分的に実装されているサンプル ユーザーを確認できます、[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)します。
 
 内で、`UserStore`クラス、操作を実行するために作成したデータ アクセス クラスを使用します。 依存関係の挿入を使用して渡されます。 たとえば、Dapper の実装を含む SQL Server で、`UserStore`クラスには、`CreateAsync`メソッドのインスタンスを使用している`DapperUsersTable`新しいレコードを挿入します。
 
@@ -236,7 +236,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="references"></a>関連項目
+## <a name="references"></a>参照
 
 * [ASP.NET 4.x Identity 用のカスタム ストレージ プロバイダー](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
 * [ASP.NET Core Identity](https://github.com/aspnet/identity) &ndash;このリポジトリには、ストア プロバイダーを管理するコミュニティへのリンクが含まれています。

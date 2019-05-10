@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 6433df36023b79bc679186bee8b0a92371661dbe
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 1474dd397f2a8f83c7a1b0ead511b7f5751865bb
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59425050"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894349"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>ASP.NET Core でメモリ内キャッシュします。
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [John Luo](https://github.com/JunTaoLuo)、および[Steve Smith](https://ardalis.com/)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="caching-basics"></a>キャッシュの基礎
 
@@ -124,7 +124,7 @@ Web ファーム内の非スティッキー セッションが必要です、[�
 
 A`MemoryCache`インスタンスが必要に応じて指定し、サイズ制限が適用されます。 メモリ サイズの制限は、キャッシュのエントリのサイズを測定するためのメカニズムがあるないために、メジャーの定義済みの単位がありません。 キャッシュ メモリ サイズの制限が設定されている場合、すべてのエントリはサイズを指定する必要があります。 ASP.NET Core ランタイムでは、メモリの負荷に基づいてキャッシュのサイズは制限されません。 キャッシュ サイズを制限する開発者です。 指定されたサイズは、単位、開発者が選択ができます。
 
-例えば:
+例:
 
 * Web アプリでは、文字列をキャッシュが主に、各キャッシュ エントリのサイズが文字列の長さになります。
 * アプリは、1 とすべてのエントリのサイズを指定できます、サイズ制限はエントリの数。

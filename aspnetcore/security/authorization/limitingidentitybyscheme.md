@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/22/2018
 uid: security/authorization/limitingidentitybyscheme
 ms.openlocfilehash: 778bb61f472ab2e76f85da5999d3c79238188f19
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248200"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897339"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET Core での特定のスキームで承認します。
 
@@ -43,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-認証方式は、認証ミドルウェアが認証時に構成されている場合に名前です。 例:
+認証方式は、認証ミドルウェアが認証時に構成されている場合に名前です。 例えば:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -182,7 +182,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!NOTE]
 > 既定の認証スキームは 1 つだけの JWT ベアラー認証に登録されて`JwtBearerDefaults.AuthenticationScheme`します。 追加の認証は、一意の認証スキームを登録することができます。
 
-次の手順では、両方の認証方式を受け入れるように既定の承認ポリシーを更新します。 例:
+次の手順では、両方の認証方式を受け入れるように既定の承認ポリシーを更新します。 例えば:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089549"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897989"
 ---
 # <a name="aspnet-core-data-protection"></a>ASP.NET Core データ保護
 
@@ -21,7 +21,7 @@ ASP.NET Core データ保護スタックが長期にわたって置き換えと�
 
 ## <a name="problem-statement"></a>問題の説明
 
-全体的な問題ステートメントは 1 つの文で簡潔に記述できます。 後で取得は、信頼できる情報を保持する必要がありますが、永続化メカニズムを信頼しません。 Web には、これが書き込む「必要な信頼されていないクライアント経由でのラウンドト リップの信頼された状態にします」
+全体的な問題ステートメントは、1 つの文で簡潔に記述できます。後で取得は、信頼できる情報を保持する必要がありますが、永続化メカニズムを信頼しません。 Web には、これが書き込む「必要な信頼されていないクライアント経由でのラウンドト リップの信頼された状態にします」
 
 この標準的な例は、認証 cookie またはベアラー トークンです。 サーバーを生成、"Groot いて、xyz のアクセス許可がある"トークンし、クライアントに渡すことです。 いくつかの将来の日付で、クライアントが、サーバーにそのトークンを提示しますが、サーバーがある種のクライアントがトークンを偽造されていないことを保証する必要があります。 したがって、最初の要件: 信頼性 (別名。 整合性、改ざんから)。
 

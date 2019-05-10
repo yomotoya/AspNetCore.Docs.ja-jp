@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/14/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 4fa32fb4fe1d482f1000cd803cd2d26cd9ff2341
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: da5be57fa728a4bc075a580cb9b57301046b4132
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410535"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64882497"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
@@ -210,9 +210,9 @@ HTTP.sys の構成のガイダンスについては、「<xref:fundamentals/serv
 
 統合開発環境 (IDE) またはエディターでアプリが開始されると、サーバーが起動されます。
 
-* [Visual Studio](https://www.visualstudio.com/vs/) &ndash; 起動プロファイルを使用して、[IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)またはコンソールで、アプリとサーバーを開始できます。
+* [Visual Studio](https://visualstudio.microsoft.com) &ndash; 起動プロファイルを使用して、[IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)またはコンソールで、アプリとサーバーを開始できます。
 * [Visual Studio Code](https://code.visualstudio.com/) &ndash; CoreCLR デバッガーをアクティブ化する [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode) によって、アプリとサーバーが開始されます。
-* [Visual Studio for Mac](https://www.visualstudio.com/vs/mac/) &ndash; アプリとサーバーは、[Mono Soft-Mode Debugger](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/) によって開始されます。
+* [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; アプリとサーバーは、[Mono Soft-Mode Debugger](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/) によって開始されます。
 
 コマンド プロンプトからプロジェクトのフォルダーでアプリを起動すると、[dotnet run](/dotnet/core/tools/dotnet-run) によってアプリとサーバーが起動されます (Kestrel および HTTP.sys のみ)。 この構成は、`Debug` (既定) または `Release` のどちらかに設定された `-c|--configuration` オプションによって指定されます。 起動プロファイルが *launchSettings.json* ファイルに存在する場合は、`--launch-profile <NAME>` オプションを使用して起動プロファイルを設定します (`Development`、`Production` など)。 詳しくは、「[dotnet run](/dotnet/core/tools/dotnet-run)」および「[.NET Core の配布パッケージ](/dotnet/core/build/distribution-packaging)」をご覧ください。
 
@@ -230,14 +230,14 @@ HTTP.sys の構成のガイダンスについては、「<xref:fundamentals/serv
   * ターゲット フレームワーク: .NET Core 2.2 以降
 * [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
   * Windows Server 2016/Windows 10 以降
-  * 対象のフレームワーク:HTTP.sys の展開には適用できません。
+  * ターゲット フレームワーク:HTTP.sys の展開には適用できません。
 * [IIS (インプロセス)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016/Windows 10 以降、IIS 10 以降
   * ターゲット フレームワーク: .NET Core 2.2 以降
 * [IIS (アウトプロセス)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016/Windows 10 以降、IIS 10 以降
   * 一般向けのエッジ サーバーでは HTTP/2 を使用しますが、Kestrel へのリバース プロキシ接続では HTTP/1.1 を使用します。
-  * 対象のフレームワーク:IIS アウトプロセスの展開には適用できません。
+  * ターゲット フレームワーク:IIS アウトプロセスの展開には適用できません。
 
 &dagger;Kestrel では、Windows Server 2012 R2 および Windows 8.1 上での HTTP/2 のサポートは制限されています。 サポートが制限されている理由は、これらのオペレーティング システムで使用できる TLS 暗号のスイートのリストが制限されているためです。 TLS 接続をセキュリティで保護するためには、楕円曲線デジタル署名アルゴリズム (ECDSA) を使用して生成した証明書が必要になる場合があります。
 
@@ -247,11 +247,11 @@ HTTP.sys の構成のガイダンスについては、「<xref:fundamentals/serv
 
 * [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
   * Windows Server 2016/Windows 10 以降
-  * 対象のフレームワーク:HTTP.sys の展開には適用できません。
+  * ターゲット フレームワーク:HTTP.sys の展開には適用できません。
 * [IIS (アウトプロセス)](xref:host-and-deploy/iis/index#http2-support)
   * Windows Server 2016/Windows 10 以降、IIS 10 以降
   * 一般向けのエッジ サーバーでは HTTP/2 を使用しますが、Kestrel へのリバース プロキシ接続では HTTP/1.1 を使用します。
-  * 対象のフレームワーク:IIS アウトプロセスの展開には適用できません。
+  * ターゲット フレームワーク:IIS アウトプロセスの展開には適用できません。
 
 ::: moniker-end
 

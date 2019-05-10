@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: ddbd547ec0fdd09da1f3e3ce30f8fa35a34870c2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647916"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897369"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答キャッシュ ミドルウェアで ASP.NET Core
 
 によって[Luke Latham](https://github.com/guardrex)と[John ルオ語](https://github.com/JunTaoLuo)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 この記事では、ASP.NET Core アプリの応答キャッシュ ミドルウェアを構成する方法について説明します。 応答がキャッシュ可能な場合、ストアの応答、およびキャッシュから応答を返す役割を果たし、ミドルウェアを決定します。 HTTP キャッシュの概要について、`ResponseCache`属性は、「[応答のキャッシュ](xref:performance/caching/response)します。
 
@@ -82,7 +82,7 @@ services.AddResponseCaching(options =>
 
 ## <a name="varybyquerykeys"></a>VaryByQueryKeys
 
-MVC または Web API コント ローラーまたは Razor ページのページ モデルを使用する場合、`ResponseCache`属性が応答のキャッシュ用の適切なヘッダーを設定するために必要なパラメーターを指定します。 唯一のパラメーター、`ResponseCache`ミドルウェアを厳密に必要な属性が`VaryByQueryKeys`、する実際の HTTP ヘッダーに対応していません。 詳細については、[ResponseCache 属性](xref:performance/caching/response#responsecache-attribute)を参照してください。
+MVC または Web API コント ローラーまたは Razor ページのページ モデルを使用する場合、`ResponseCache`属性が応答のキャッシュ用の適切なヘッダーを設定するために必要なパラメーターを指定します。 唯一のパラメーター、`ResponseCache`ミドルウェアを厳密に必要な属性が`VaryByQueryKeys`、する実際の HTTP ヘッダーに対応していません。 詳細については、次を参照してください。 [ResponseCache 属性](xref:performance/caching/response#responsecache-attribute)します。
 
 使用しない場合、`ResponseCache`属性と変化する応答のキャッシュ、`VaryByQueryKeys`機能します。 使用して、`ResponseCachingFeature`から直接、`IFeatureCollection`の`HttpContext`:
 
@@ -109,10 +109,10 @@ if (responseCachingFeature != null)
 | 異なる | `Vary`別ヘッダーによってヘッダーが、キャッシュされた応答の変更に使用されます。 などを含めることによってエンコードすることによって応答をキャッシュ、`Vary: Accept-Encoding`ヘッダーの要求の応答をキャッシュするヘッダー`Accept-Encoding: gzip`と`Accept-Encoding: text/plain`とは別にします。 応答のヘッダー値が`*`は保存されません。 |
 | 有効期限が切れます | このヘッダーが古いと見なされる応答はありません格納、またはその他によってオーバーライドされない限りを取得`Cache-Control`ヘッダー。 |
 | None-If-match | 値がない場合、完全な応答がキャッシュから提供された`*`、`ETag`の応答と一致しない指定された値のいずれか。 それ以外の場合、304 (変更なし) の応答が提供されます。 |
-| 場合の変更-以降 | 場合、`If-None-Match`ヘッダーが含まれていない、キャッシュされた応答の日付が指定された値よりも新しい場合は、完全な応答がキャッシュから提供されます。 それ以外の場合、304 (変更なし) の応答が提供されます。 |
+| If-Modified-Since | 場合、`If-None-Match`ヘッダーが含まれていない、キャッシュされた応答の日付が指定された値よりも新しい場合は、完全な応答がキャッシュから提供されます。 それ以外の場合、304 (変更なし) の応答が提供されます。 |
 | 日付 | キャッシュから提供するときに、`Date`元からの応答で指定されなかった場合、ミドルウェアによってヘッダーが設定されます。 |
-| コンテンツの長さ | キャッシュから提供するときに、`Content-Length`元からの応答で指定されなかった場合、ミドルウェアによってヘッダーが設定されます。 |
-| 経過時間 | `Age`元の応答で送信されたヘッダーは無視されます。 ミドルウェアは、キャッシュされた応答を提供するときに、新しい値を計算します。 |
+| ContentLength | キャッシュから提供するときに、`Content-Length`元からの応答で指定されなかった場合、ミドルウェアによってヘッダーが設定されます。 |
+| Age | `Age`元の応答で送信されたヘッダーは無視されます。 ミドルウェアは、キャッシュされた応答を提供するときに、新しい値を計算します。 |
 
 ## <a name="caching-respects-request-cache-control-directives"></a>要求キャッシュ コントロール ディレクティブを尊重キャッシュ
 
@@ -151,7 +151,7 @@ if (responseCachingFeature != null)
 * 応答はに従ってキャッシュ可能である必要があります、 [RFC 7234](https://tools.ietf.org/html/rfc7234)仕様。 たとえば、`no-store`ディレクティブが要求または応答のヘッダー フィールドに存在する必要があります。 参照してください*セクション 3。応答をキャッシュに格納する*の[RFC 7234](https://tools.ietf.org/html/rfc7234)詳細についてはします。
 
 > [!NOTE]
-> 偽造防止システムをクロスサイト リクエスト フォージェリ (CSRF) を防ぐためにセキュリティで保護されたトークンを生成するセットの攻撃、`Cache-Control`と`Pragma`ヘッダーを`no-cache`応答がキャッシュされないようにします。 HTML フォーム要素を偽造防止トークンを無効にする方法については、[ASP.NET Core の偽造防止構成](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration)を参照してください。
+> 偽造防止システムをクロスサイト リクエスト フォージェリ (CSRF) を防ぐためにセキュリティで保護されたトークンを生成するセットの攻撃、`Cache-Control`と`Pragma`ヘッダーを`no-cache`応答がキャッシュされないようにします。 HTML フォーム要素を偽造防止トークンを無効にする方法については、次を参照してください。 [ASP.NET Core の偽造防止構成](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration)します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
