@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 162586059e3115bc15efaa63a9a0652e09872f1b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 228722ecdc0fb19e024b7154393390fe6d34c5ff
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209966"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887307"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
@@ -29,7 +29,7 @@ ms.locfileid: "58209966"
 
 ![Students インデックス ページ](sort-filter-page/_static/paging.png)
 
-解決できない問題が発生した場合は、[完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
+解決できない問題が発生した場合は、[完成したアプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
 
 ## <a name="add-sorting-to-the-index-page"></a>インデックス ページに並べ替えを追加する
 
@@ -275,13 +275,13 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 アプリを実行して [About] ページに移動します。 登録の日付ごとの学生の数が、テーブルに表示されます。
 
-解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting)をダウンロードしてください。
+解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting)をダウンロードしてください。
 
 ![About ページ](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ASP.NET Core 2.x ソースのデバッグ](https://github.com/aspnet/Docs/issues/4155)
+* [ASP.NET Core 2.x ソースのデバッグ](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
 * [このチュートリアルの YouTube バージョン](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 次のチュートリアルでは、アプリは移行を使用してデータ モデルを更新します。

@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 02/04/2019
 uid: signalr/background-services
-ms.openlocfilehash: b359bd7f6b0667aeb8d9c8f5eb450637b1347b19
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: dcd62f0c7056a3f987291b6c8bb8b87f94160865
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55739671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087752"
 ---
 # <a name="host-aspnet-core-signalr-in-background-services"></a>ホストの ASP.NET Core SignalR のバック グラウンド サービス
 
@@ -23,7 +23,7 @@ ms.locfileid: "55739671"
 * ASP.NET Core でホストされているバック グラウンド ワーカー プロセスを使用して、SignalR ハブをホストします。
 * .NET Core 内からクライアントにメッセージを送信接続されている[BackgroundService](xref:Microsoft.Extensions.Hosting.BackgroundService)します。
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
 
 ## <a name="wire-up-signalr-during-startup"></a>スタートアップ中に SignalR を接続します。
 
@@ -33,7 +33,7 @@ ms.locfileid: "55739671"
 
 上記の例では、`ClockHub`クラスが実装する、`Hub<T>`厳密に型指定されたハブを作成するクラス。 `ClockHub`で構成されている、`Startup`クラスは、エンドポイントで要求に応答する`/hubs/clock`します。
 
-厳密に型指定されたハブの詳細については、[for ASP.NET Core SignalR のハブを使用して、](xref:signalr/hubs#strongly-typed-hubs)を参照してください。
+厳密に型指定されたハブの詳細については、次を参照してください。 [for ASP.NET Core SignalR のハブを使用して、](xref:signalr/hubs#strongly-typed-hubs)します。
 
 > [!NOTE]
 > この機能に限定されません、[ハブ\<T >](xref:Microsoft.AspNetCore.SignalR.Hub`1)クラス。 任意のクラスから継承する[ハブ](xref:Microsoft.AspNetCore.SignalR.Hub)など[DynamicHub](xref:Microsoft.AspNetCore.SignalR.DynamicHub)も機能します。

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: f357df0bbc51e881132e36ccb20f4ffdc3035032
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209295"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883467"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -27,7 +27,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 横断的な問題を処理するカスタム フィルターを作成できます。 フィルターでは、アクション間のコード重複を回避できます。 たとえば、エラー処理例外フィルターではエラー処理を統合できます。
 
-[GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)。
+[GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)。
 
 ## <a name="how-filters-work"></a>フィルターのしくみ
 
@@ -425,4 +425,4 @@ ASP.NET Core 1.1 では、フィルター パイプラインでミドルウェ�
 ## <a name="next-actions"></a>次の操作
 
 * [Razor Pages のフィルター メソッド](xref:razor-pages/filter)に関するページをご覧ください
-* フィルターを試すには、[Github のサンプルをダウンロードして、テストおよび変更を行います](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)。
+* フィルターを試すには、[Github のサンプルをダウンロードして、テストおよび変更を行います](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample)。

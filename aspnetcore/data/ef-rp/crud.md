@@ -5,18 +5,14 @@ description: EF Core で作成、読み取り、更新、削除を行う方法�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: c104498a4411ac36672ffbb9660948d4e96bf1ee
-ms.sourcegitcommit: 10e14b85490f064395e9b2f423d21e3c2d39ed8b
+ms.openlocfilehash: 43d133c61c0387ebcb4bcb2d22c800588d8534c3
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58142390"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516918"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -161,7 +157,7 @@ Students インデックス ページのスキャフォールディング コー
 
 [SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) メソッドでは、このオブジェクトの値を設定するために、別の [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) オブジェクトから値を読み取ります。 `SetValues` では一致するプロパティ名が使用されます。 ビュー モデルの型はモデルの型に関連している必要はなく、プロパティが一致している必要があるだけです。
 
-`StudentVM` を使用するには、`Student` ではなく `StudentVM` を使用するように [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) を更新する必要があります。
+`StudentVM` を使用するには、`Student` ではなく `StudentVM` を使用するように [CreateVM.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) を更新する必要があります。
 
 Razor ページで、`PageModel` 派生クラスはビュー モデルです。
 
@@ -207,8 +203,7 @@ Web アプリにおいて、エンティティを読み取り、データを表�
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
-
-  `OnGetAsync` メソッドを次のコードで置き換えます。
+`OnGetAsync` メソッドを次のコードで置き換えます。
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 
@@ -247,7 +242,7 @@ Razor ページに正しい `@page` ディレクティブが含まれている�
 
 各 Razor ページには、`@page` ディレクティブを含める必要があります。
 
-::: moniker-end
+
 
 ## <a name="additional-resources"></a>その他の技術情報
 

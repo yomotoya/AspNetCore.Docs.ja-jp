@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 8eabb8262deda4dc56b8da4f148ec8168a85ca52
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: cf5a1da78f3918bc4a49209157b9aa4bc7ed8458
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208951"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886867"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET Core でのセッションとアプリの状態
 
@@ -20,7 +20,7 @@ ms.locfileid: "58208951"
 
 HTTP はステートレス プロトコルです。 手順を追加しないと、HTTP 要求は独立したメッセージであり、ユーザーの値やアプリの状態は保持されません。 この記事では、要求と要求の間でユーザー データとアプリの状態を保持するための複数の方法について説明します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/app-state/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="state-management"></a>状態管理
 

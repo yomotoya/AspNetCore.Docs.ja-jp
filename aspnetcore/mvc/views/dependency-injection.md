@@ -5,12 +5,12 @@ description: ASP.NET Core で MVC ビューへの依存関係の挿入をサポ�
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: dfadafe9ebb5799b45ef68653f20c5fc1a2506b5
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 940e237fd73a864d9fd59f5447fe486f93648f62
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087466"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core でのビューへの依存関係の挿入
 
@@ -18,7 +18,7 @@ ms.locfileid: "56410561"
 
 ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/dependency-injection)をサポートしています。 この機能は、ビュー要素を作成するためだけに必要なローカライズやデータなど、ビュー固有のサービスに役立ちます。 コントローラーとビューの間で[関心の分離](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns)を保持する必要があります。 ビューに表示されるデータのほとんどは、コントローラーから渡されます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="a-simple-example"></a>簡単な例
 
@@ -79,6 +79,6 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 既存のサービスを拡張する場合、独自に既存の実装から継承したり、ラップしたりするときに、この技術を使用できます。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 * Simon Timms のブログ:[ルックアップ データをビューに取り込む](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

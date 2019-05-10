@@ -3,15 +3,15 @@ title: ASP.NET Core での Entity Framework Core を使用した Razor ページ
 author: rick-anderson
 description: Entity Framework Core を使用して Razor ページ アプリを作成する方法について説明します
 ms.author: riande
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: aff62d760cf0899983cf841f6715f2658b113f82
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: b16d1b67b3b501811ab34330851e6cacc76f2ed0
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012683"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886407"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
@@ -25,7 +25,7 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 
 このサンプル アプリは架空の Contoso University の Web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。 このページは、Contoso University のサンプル アプリを作成する方法を説明するチュートリアル シリーズの 1 回目です。
 
-[完成したアプリをダウンロードまたは表示します。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
+[完成したアプリをダウンロードまたは表示します。](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -43,7 +43,7 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-解決できない問題に遭遇した場合、通常、[完成済みのプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)と自分のコードを比較することで解決策がわかります。 ヘルプが必要なときは、[StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) について質問を投稿することをお勧めします。
+解決できない問題に遭遇した場合、通常、[完成済みのプロジェクト](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)と自分のコードを比較することで解決策がわかります。 ヘルプが必要なときは、[StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) について質問を投稿することをお勧めします。
 
 ## <a name="the-contoso-university-web-app"></a>Contoso University Web アプリ
 

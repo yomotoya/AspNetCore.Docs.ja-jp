@@ -5,12 +5,12 @@ description: ASP.NET Core MVC でルーティング ミドルウェアを使っ�
 ms.author: riande
 ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: b4d5cd3add3fda6b70873eb5cce1dcee651f9185
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065010"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087503"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core でのコントローラー アクションへのルーティング
 
@@ -559,7 +559,7 @@ MVC アプリケーションでは、規則ルーティングと属性ルーテ�
 
 ## <a name="complex-segments"></a>複雑なセグメント
 
-複雑なセグメント (たとえば、`[Route("/dog{token}cat")]`) は、右から左にリテラルを最短の方法で照合することによって処理されます。 説明については、[ソース コード](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296)をご覧ください。 詳しくは、[こちらの懸案事項](https://github.com/aspnet/Docs/issues/8197)をご覧ください。
+複雑なセグメント (たとえば、`[Route("/dog{token}cat")]`) は、右から左にリテラルを最短の方法で照合することによって処理されます。 説明については、[ソース コード](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296)をご覧ください。 詳しくは、[こちらの懸案事項](https://github.com/aspnet/AspNetCore.Docs/issues/8197)をご覧ください。
 
 <a name="routing-url-gen-ref-label"></a>
 

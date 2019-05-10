@@ -5,12 +5,12 @@ description: このチュートリアルでは、ASP.NET Core MVC アプリで�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 1803c6d3956121e4e7091f4f951917425e87c335
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 5b8228130378059aebe21c9c3ea1eb72e4c6aad9
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419473"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086166"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
 
@@ -25,7 +25,7 @@ ms.locfileid: "58419473"
 このチュートリアルでは、データ モデルの変更を管理するための EF Core の移行機能を使用します。
 
 解決できない問題が発生した場合は、[完成したアプリ](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
 
 新しいアプリを開発するときには、頻繁にデータ モデルを変更します。 モデルを変更するたびに、モデルはデータベースと同期されなくなります。 このチュートリアルでは、最初にデータベースが存在しない場合にデータベースを作成するように Entity Framework を構成します。 データ モデルが変更されるたびに次の処理を実行します。
 
@@ -161,7 +161,7 @@ EF Core は、`__MigrationsHistory` テーブルを使用して、移行を実�
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 [完成したアプリ](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations)をダウンロードします。
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations)をダウンロードします。
 
 アプリは次の例外を生成します。
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 4/10/2019
 uid: tutorials/grpc/grpc-client
-ms.openlocfilehash: 031afbfaf097c518a85400b0b6abbc135c1bc611
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: ec6bf5072c76de640a78b2c3f13dd1fc552b9d04
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59674164"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212640"
 ---
 # <a name="tutorial-create-a-net-core-grpc-client"></a>チュートリアル: .NET Core gRPC クライアントを作成する
 
@@ -36,15 +36,15 @@ ms.locfileid: "59674164"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[こちら](https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio)の指示に従い、*GrpcGreeterClient* という名前でコンソール アプリを作成します。
+[こちら](/dotnet/core/tutorials/with-visual-studio)の指示に従い、*GrpcGreeterClient* という名前でコンソール アプリを作成します。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[こちら](https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code)の指示に従い、*GrpcGreeterClient* という名前でコンソール アプリを作成します。
+[こちら](/dotnet/core/tutorials/with-visual-studio-code)の指示に従い、*GrpcGreeterClient* という名前でコンソール アプリを作成します。
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-[こちら](https://docs.microsoft.com/en-us/dotnet/core/tutorials/using-on-mac-vs-full-solution)の指示に従い、*GrpcGreeterClient* という名前でコンソール アプリを作成します。
+[こちら](/dotnet/core/tutorials/using-on-mac-vs-full-solution)の指示に従い、*GrpcGreeterClient* という名前でコンソール アプリを作成します。
 
 <!-- End of VS tabs -->
 
@@ -89,7 +89,7 @@ ms.locfileid: "59674164"
 **統合端末**からから次のコマンドを実行します。
 
 ```console
-dotnet add TodoApi.csproj package Grpc.Core
+dotnet add GrpcGreeterClient.csproj package Grpc.Core
 ```
 
 Google.Protobuf と Grpc.Tools に対して繰り返します

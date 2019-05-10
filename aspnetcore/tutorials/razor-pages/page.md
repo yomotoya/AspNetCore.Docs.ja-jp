@@ -5,12 +5,12 @@ description: スキャフォールディングによって生成された Razor 
 ms.author: riande
 ms.date: 04/06/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 2b8b9cde5a37a0754ca177cfc80163e2ffd2925b
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: fcda567eb99ca5e32e7bebe5dd9e16ac134369b1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468790"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887637"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core でスキャフォールディングされた Razor ページ
 
@@ -18,7 +18,7 @@ ms.locfileid: "59468790"
 
 このチュートリアルでは、前のチュートリアルでスキャフォールディングによって作成された Razor ページについて説明します。
 
-サンプルを[表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22)します。
+サンプルを[表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22)します。
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>[作成]、[削除]、[詳細]、および [編集] ページ
 
@@ -105,12 +105,12 @@ changing in in the next step.
 
 上のアンカー要素は[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 この場合は、[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)です。 `asp-page="/Movies/Index"` タグ ヘルパー属性と値で、`/Movies/Index` Razor ページへのリンクが作成されます。 `asp-area` 属性の値が空なので、リンクではこの区分が使用されていません。 詳細については、[区分](xref:mvc/controllers/areas)に関する記事を参照してください。
 
-変更内容を保存し、**RpMovie** リンクをクリックしてアプリをテストします。 問題がある場合は、GitHub の [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) ファイルを参照してください。
+変更内容を保存し、**RpMovie** リンクをクリックしてアプリをテストします。 問題がある場合は、GitHub の [_Layout.cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) ファイルを参照してください。
 
 その他のリンク (**[Home]**、**[RpMovie]**、**[Create]**、**[Edit]**、および **[Delete]**) をテストします。 各ページで、ブラウザー タブで表示できるタイトルを設定します。ページをブックマークすると、ブックマークでタイトルが使用されます。
 
 > [!NOTE]
-> `Price` フィールドに小数点のコンマを入力できない場合があります。 小数点にコンマ (",") を使い、英語 (米国) 以外の日付形式を使う英語以外のロケールの [jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 小数点のコンマの追加方法については、[こちらの GitHub issue 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) を参照してください。
+> `Price` フィールドに小数点のコンマを入力できない場合があります。 小数点にコンマ (",") を使い、英語 (米国) 以外の日付形式を使う英語以外のロケールの [jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 小数点のコンマの追加方法については、[こちらの GitHub issue 4076](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) を参照してください。
 
 `Layout` プロパティは *Pages/_ViewStart.cshtml* ファイルで設定されています。
 

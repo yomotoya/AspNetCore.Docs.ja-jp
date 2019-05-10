@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: web-api/advanced/formatting
-ms.openlocfilehash: b0fce0632fd2d885cb8e9a056923ec365d2f327d
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 04f5b3c544cf3fc47c8321c8233535400fcf55f4
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209987"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890767"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API の応答データの書式設定
 
@@ -19,7 +19,7 @@ ms.locfileid: "58209987"
 
 ASP.NET Core MVC には、応答データを書式設定するためのサポートが組み込まれています。固定の書式を利用するか、クライアントの仕様に合わせます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/formatting/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="format-specific-action-results"></a>書式固有アクションの結果
 
