@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core Identity の概要
 author: rick-anderson
-description: ASP.NET Core アプリでは、Id を使用します。 パスワードの要件 (RequireDigit、RequiredLength、RequiredUniqueChars など) を設定する方法について説明します。
+description: ASP.NET Core アプリでは、Identity を使用します。 パスワードの要件 (RequireDigit、RequiredLength、RequiredUniqueChars など) を設定する方法について説明します。
 ms.author: riande
 ms.date: 03/26/2019
 uid: security/authentication/identity
@@ -16,13 +16,13 @@ ms.locfileid: "64894329"
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core Identity は、ASP.NET Core アプリにログイン機能を追加するメンバーシップ システムです。 Id に格納されているログイン情報で、ユーザーがアカウントの作成または外部ログイン プロバイダーを使用することができます。 サポートされている外部ログイン プロバイダーには、 [Facebook、Google、Microsoft アカウント、および Twitter](xref:security/authentication/social/index)します。
+ASP.NET Core Identity は、ASP.NET Core アプリにログイン機能を追加するメンバーシップ システムです。 ユーザーがIdentity にログイン情報を格納するようにアカウントを作成することもできますし、外部のログインプロバイダーを利用することもできます。サポートされている外部ログイン プロバイダーには、 [Facebook、Google、Microsoft アカウント、および Twitter](xref:security/authentication/social/index)があります。
 
-Id は、ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用して構成できます。 または、別の永続ストア使用できます、たとえば、Azure Table Storage。
+Identity は、ユーザー名、パスワード、およびプロファイル データを格納するために SQL Server データベースを使用するように構成できます。 そのほかにも、たとえば Azure Table Storage のような別の永続的なストアを使用することもできます。
 
-[表示またはダウンロード、サンプル コード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/)([をダウンロードする方法)](xref:index#how-to-download-a-sample))。
+[サンプルコードの表示とダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/)([ダウンロードする方法)](xref:index#how-to-download-a-sample))。
 
-このトピックを登録するには、ログイン Id を使用する方法について説明し、ユーザーをログアウトします。 Id を使用するアプリの作成について詳細な手順については、この記事の最後に次の手順を参照してください。
+このトピックでは、Identityを使って登録、ログイン、ログアウトする方法について説明します。 Identity を使用するアプリを作成する詳細な手順については、この記事の最後の「次の手順」を参照してください。
 
 ::: moniker range=">= aspnetcore-2.1"
 
