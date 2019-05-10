@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
 ms.openlocfilehash: 59041bcf11f7deb351a2f0bb075ed80c8af5e12b
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320221"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891679"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -105,7 +105,7 @@ Secret Manager、Windows 上のキー/値のペアが格納、 *secrets.json*フ
 }
 ```
 
-詳細については、、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)を参照してください。
+詳細については、次を参照してください。、[オプション パターン](xref:fundamentals/configuration/options)と[構成](xref:fundamentals/configuration/index)します。
 
 ### <a name="install-sendgrid"></a>SendGrid をインストールします。
 

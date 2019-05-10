@@ -1,4 +1,5 @@
-<!-- THIS INCLUDE USED BY MVC AND RP --> `Movie` クラスに次のプロパティを追加します。
+<!-- THIS INCLUDE USED BY MVC AND RP -->
+`Movie` クラスに次のプロパティを追加します。
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/Movie.cs?name=snippet1)]
 

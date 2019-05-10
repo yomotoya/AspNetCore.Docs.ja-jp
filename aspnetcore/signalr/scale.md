@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
 ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836923"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64895079"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR ホスティングとスケーリング
 
@@ -46,7 +46,7 @@ SignalR を使用するアプリは、サーバー ファームの問題を作�
 
 この問題を解決するためのオプションは、 [Azure SignalR サービス](#azure-signalr-service)と[バック プレーンの Redis](#redis-backplane)します。
 
-## <a name="azure-signalr-service"></a>Azure SignalR サービス
+## <a name="azure-signalr-service"></a>Azure SignalR Service
 
 Azure SignalR サービスには、バック プレーンではなく、プロキシです。 クライアントが、サーバーへの接続を開始するたびに、クライアントは、サービスへの接続にリダイレクトされます。 そのプロセスは、次の図に示します。
 
@@ -64,9 +64,9 @@ Azure SignalR サービスには、バック プレーンではなく、プロ�
 
 これらの理由から、App Service、Vm、およびコンテナーを含む、Azure でホストされているすべての ASP.NET Core SignalR アプリ Azure SignalR サービスはお勧めします。
 
-詳細については、、 [Azure SignalR サービスのドキュメント](/azure/azure-signalr/signalr-overview)を参照してください。
+詳細については、次を参照してください。、 [Azure SignalR サービスのドキュメント](/azure/azure-signalr/signalr-overview)します。
 
-## <a name="redis-backplane"></a>Redis のバック プレーン
+## <a name="redis-backplane"></a>Redis バックプレーン
 
 [Redis](https://redis.io/)はパブリッシュ/サブスクライブ モデルでのメッセージング システムをサポートするメモリ内キー値ストアです。 SignalR で Redis バック プレーンでは、パブリッシュ/サブスクライブ機能を使用して、他のサーバーにメッセージを転送します。 クライアントが接続した場合、接続情報は、バック プレーンに渡されます。 サーバーは、すべてのクライアントにメッセージを送信する場合、バック プレーンに送信します。 接続されているすべてのクライアントとのバック プレーンを知っているサーバー上にいます。 それぞれのサーバーを経由してすべてのクライアントにメッセージを送信します。 このプロセスは、次の図に示します。
 

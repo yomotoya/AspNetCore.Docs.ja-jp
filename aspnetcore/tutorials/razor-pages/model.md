@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) を利用し、データベース�
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9f12b9e9e35a81becd6a6da7ef4ca6d551d45938
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 44e6f53d517b0470c5e6fa785a4061e59cda9ce6
+ms.sourcegitcommit: 20ca93d72cb0b3998637724b44523e57b089c8fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888747"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473604"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -210,7 +210,11 @@ ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injectio
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
+`Up` メソッドを調べます。
+
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
+
+`Up` メソッドを調べます。
 
 ---
 
