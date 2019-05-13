@@ -4,14 +4,14 @@ author: scottaddie
 description: バンドルと縮小の手法を適用することで、ASP.NET Core web アプリケーションで静的なリソースを最適化する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/20/2018
+ms.date: 05/10/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
+ms.openlocfilehash: ba01d365a25dfbd13fed89263d7489b2ce2a8771
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282143"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535929"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>バンドルし、縮小の ASP.NET Core で静的なアセット
 
@@ -63,7 +63,7 @@ ms.locfileid: "52282143"
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>バンドルと縮小の戦略を選択します。
 
-MVC と Razor ページ プロジェクト テンプレートは、バンドルと縮小の JSON 構成ファイルで構成されるため、ボックスのソリューションを提供します。 サード パーティ製ツールなど、 [Gulp](xref:client-side/using-gulp)と[Grunt](xref:client-side/using-grunt)ランナーをタスクで、もう少し複雑さで同じタスクを実行します。 開発ワークフローにはバンドルと縮小を超える処理が必要な場合、サード パーティのツールは非常によく適合&mdash;lint 処理と画像の最適化など。 デザイン時のバンドルと縮小を使用すると、縮小されたファイルは、アプリのデプロイの前に作成されます。 バンドルと縮小を展開する前に、サーバー負荷の軽減の利点を提供します。 ただし、そのデザイン時のバンドルを認識することが重要と縮小はビルド複雑さも増すし、静的ファイルでのみ動作します。
+MVC と Razor ページ プロジェクト テンプレートは、バンドルと縮小の JSON 構成ファイルで構成されるため、ボックスのソリューションを提供します。 サード パーティ製ツールなど、 [Grunt](xref:client-side/using-grunt)ランナーをタスクで、もう少し複雑さで同じタスクを実行します。 開発ワークフローにはバンドルと縮小を超える処理が必要な場合、サード パーティのツールは非常によく適合&mdash;lint 処理と画像の最適化など。 デザイン時のバンドルと縮小を使用すると、縮小されたファイルは、アプリのデプロイの前に作成されます。 バンドルと縮小を展開する前に、サーバー負荷の軽減の利点を提供します。 ただし、そのデザイン時のバンドルを認識することが重要と縮小はビルド複雑さも増すし、静的ファイルでのみ動作します。
 
 ## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
@@ -85,16 +85,16 @@ ASP.NET Core 2.1 以降では、追加、という名前の新しい JSON ファ
 
 構成オプションは次のとおりです。
 
-* `outputFileName`: 出力するバンドル ファイルの名前。 相対パスを含めることができます、 *bundleconfig.json*ファイル。 **必須**
-* `inputFiles`: 一緒にバンドルするファイルの配列。 これらは、構成ファイルへの相対パスです。 **省略可能な**、* が空の出力ファイルに空の値の結果します。 [グロビング](http://www.tldp.org/LDP/abs/html/globbingref.html)パターンがサポートされています。
-* `minify`: 出力の場合は、縮小オプションを入力します。 **省略可能な**、*既定 - `minify: { enabled: true }`*
+* `outputFileName`:出力するバンドル ファイルの名前。 相対パスを含めることができます、 *bundleconfig.json*ファイル。 **必須**
+* `inputFiles`:一緒にバンドルするファイルの配列。 これらは、構成ファイルへの相対パスです。 **省略可能な**、* が空の出力ファイルに空の値の結果します。 [グロビング](http://www.tldp.org/LDP/abs/html/globbingref.html)パターンがサポートされています。
+* `minify`:出力の種類を縮小するオプション。 **省略可能な**、*既定 - `minify: { enabled: true }`*
   * 構成オプションは、出力ファイルの種類ごとに使用できます。
     * [CSS の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [HTML の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: プロジェクト ファイルに生成されたファイルを追加するかどうかを示すフラグです。 **省略可能な**、*既定値: false*
-* `sourceMap`:、バンドルしたファイルのソース マップを生成するかどうかを示すフラグです。 **省略可能な**、*既定値: false*
-* `sourceMapRootPath`: 生成されたソース マップ ファイルを保存するルート パス。
+* `includeInProject`:プロジェクト ファイルに生成されたファイルを追加するかどうかを示すフラグします。 **省略可能な**、*既定値: false*
+* `sourceMap`:バンドルされているファイルのソース マップを生成するかどうかを示すフラグします。 **省略可能な**、*既定値: false*
+* `sourceMapRootPath`:生成されたソース マップ ファイルを保存するルート パス。
 
 ## <a name="build-time-execution-of-bundling-and-minification"></a>バンドルと縮小のビルド時の実行
 
@@ -325,11 +325,9 @@ Visual Studio でプロジェクトをビルドする前に、Gulp 縮小タス�
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-または、Visual Studio のタスク ランナー エクスプ ローラーを使用して、Gulp タスクを特定の Visual Studio イベントにバインドすることがあります。 参照してください[既定のタスクを実行している](xref:client-side/using-gulp#running-default-tasks)手順については、その作業をします。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Gulp の使用](xref:client-side/using-gulp)
 * [Grunt の使用](xref:client-side/using-grunt)
 * [複数の環境の使用](xref:fundamentals/environments)
 * [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)

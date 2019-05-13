@@ -3,20 +3,20 @@ title: ASP.NET Core で Grunt を使用します。
 author: rick-anderson
 description: ''
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: fc912974fb6ed3c65bb46a7d616d9e531587d946
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 73b7704726db9d93588dddd3f3b05a23fb3425b3
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208880"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535936"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>ASP.NET Core で Grunt を使用します。
 
 によって[Noel Rice](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt は、スクリプトの縮小、TypeScript コンパイル、コード品質"lint"ツール、CSS プリプロセッサ クライアント開発をサポートするために行う必要がある繰り返し、作業だけを自動化する JavaScript タスク ランナーです。 ASP.NET プロジェクトのテンプレートでは、Gulp を使用して、既定では、grunt が Visual Studio でサポートされている完全 (を参照してください[Gulp を使用して、](using-gulp.md))。
+Grunt は、スクリプトの縮小、TypeScript コンパイル、コード品質"lint"ツール、CSS プリプロセッサ クライアント開発をサポートするために行う必要がある繰り返し、作業だけを自動化する JavaScript タスク ランナーです。 Grunt は、Visual Studio で完全にサポートします。
 
 この例では、開始位置として空の ASP.NET Core プロジェクトを使用して、最初からクライアントのビルド プロセスを自動化する方法について説明します。
 
@@ -286,7 +286,3 @@ Task Runner Explorer で監視タスクを右クリックし、コンテキス�
 ## <a name="summary"></a>まとめ
 
 Grunt は、ほとんどのクライアント ビルド タスクの自動化に使用できる強力なタスク ランナーです。 Grunt は、そのパッケージ、およびツールの Visual Studio との統合機能を提供する NPM を活用します。 Visual Studio のタスク ランナー エクスプ ローラーでは、構成ファイルへの変更を検出し、タスクの実行、実行中のタスクを表示、および Visual Studio のイベントにタスクを関連付けるに便利なインターフェイスを提供します。
-
-## <a name="additional-resources"></a>その他の技術情報
-
-* [Gulp の使用](using-gulp.md)

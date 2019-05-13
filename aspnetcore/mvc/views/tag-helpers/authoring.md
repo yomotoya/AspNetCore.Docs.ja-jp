@@ -4,20 +4,20 @@ author: rick-anderson
 description: ASP.NET Core でのタグ ヘルパーの作成方法を説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/12/2019
+ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 37e39ac93e7b67184dfc238d58e12c2be8d84f91
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614423"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087355"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="get-started-with-tag-helpers"></a>タグ ヘルパーの概要
 
@@ -108,7 +108,9 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
 
 この方法は、属性 "href" が属性コレクションに現存していない場合に限り、属性 "href" に対して有効です。 `output.Attributes.Add` メソッドを使用してタグ ヘルパー属性をタグ属性のコレクションの末尾に追加することもできます。
 
-1. これらの変更を加えて *Views/Home/Contact.cshtml* ファイル内のマークアップを更新します。[!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1. これらの変更を加えて、*Views/Home/Contact.cshtml* ファイル内のマークアップを更新します。
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 1. アプリを実行し、適切なリンクが生成されることを確認します。
 

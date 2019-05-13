@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 0e9ef0e7ca8fb6d847b45f6dd7bd0aaa35fd149f
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 8f4cefe1dedcf4cfd9650e73e6a1ba30dbbfeffa
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59515674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087409"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>HTTP API を使用した gRPC サービスの比較
 
 によって[James ニュートンのキング](https://twitter.com/jamesnk)
 
-この記事の説明方法[gRPC サービス](https://grpc.io/docs/guides/)HTTP Api と比較 (ASP.NET Core を含む[Web Api](xref: web-api/index))。 アプリの API を提供するために使用するテクノロジは、重要な選択と gRPC は HTTP Api と比較した独自のメリットを提供します。 この記事では、長所と gRPC の短所について説明し、gRPC を他のテクノロジを使用するシナリオをお勧めします。
+この記事の説明方法[gRPC サービス](https://grpc.io/docs/guides/)HTTP Api と比較 (ASP.NET Core を含む[Web Api](xref:web-api/index))。 アプリの API を提供するために使用するテクノロジは、重要な選択と gRPC は HTTP Api と比較した独自のメリットを提供します。 この記事では、長所と gRPC の短所について説明し、gRPC を他のテクノロジを使用するシナリオをお勧めします。
 
 #### <a name="overview"></a>概要
 
@@ -28,7 +28,7 @@ ms.locfileid: "59515674"
 |    Payload             |    [Protobuf (小さな、バイナリ)](#performance)             |    JSON (大規模な場合は、人間が判読できる)              |
 |    Prescriptiveness    |    [厳密な仕様](#strict-specification)        |    失われます。 任意の HTTP が有効                  |
 |    ストリーム           |    [クライアント、サーバー、双方向](#streaming)         |    クライアント、サーバー                            |
-|    ブラウザー サポート     |    [いいえ (grpc web が必要)](#limited-browser-support)   |    [はい]                                       |
+|    ブラウザー サポート     |    [いいえ (grpc web が必要)](#limited-browser-support)   |    はい                                       |
 |    セキュリティ            |    トランスポート (HTTPS)                                    |    トランスポート (HTTPS)                         |
 |    クライアントのコード生成     |    [はい](#code-generation)                              |    OpenAPI + サード パーティ製のツール             |
 

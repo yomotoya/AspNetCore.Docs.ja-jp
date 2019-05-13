@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 62da2504941be0c29ddb15aaab9c091f387ccdb2
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 5cf84cd601fb3559da559d2bd633391841fe8a19
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327288"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64888647"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core のオプション パターン
 
@@ -30,7 +30,7 @@ ms.locfileid: "58327288"
 
 構成データを検証するメカニズムもオプションによって提供されます。 詳しくは、「[オプションの検証](#options-validation)」セクションをご覧ください。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 88a2d127407378b9e83df7f48b1938ed081f9bb2
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 4498bd88e7188ea6c0063aeec054bc20e13ed5f1
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208529"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086441"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core で防ぐクロスサイト リクエスト フォージェリ (XSRF または CSRF) 攻撃
 
@@ -134,7 +134,7 @@ HTML フォーム要素を偽造防止トークンの自動生成を無効にす
   ```
 
 > [!NOTE]
-> [Razor ページ](xref:razor-pages/index)XSRF/CSRF から自動的に保護されます。 詳細については、[XSRF/CSRF と Razor ページ](xref:razor-pages/index#xsrf)を参照してください。
+> [Razor ページ](xref:razor-pages/index)XSRF/CSRF から自動的に保護されます。 詳細については、次を参照してください。 [XSRF/CSRF と Razor ページ](xref:razor-pages/index#xsrf)します。
 
 CSRF 攻撃から保護する最も一般的なアプローチは、使用する、*シンクロナイザー トークン パターン*(STP)。 ユーザーがフォーム データを含むページを要求したときに、STP が使用されます。
 
@@ -230,7 +230,7 @@ services.AddAntiforgery(options =>
 
 ::: moniker-end
 
-詳細については、[CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions)を参照してください。
+詳細については、次を参照してください。 [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions)します。
 
 ## <a name="configure-antiforgery-features-with-iantiforgery"></a>IAntiforgery 偽造防止機能を構成します。
 
@@ -448,7 +448,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="extend-antiforgery"></a>偽造防止を拡張します。
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 9398cd3bb81eab7b427b19bbd5497630f4dc0838
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 96b4cc98f191d7c24637b8f352acbed3f46806f8
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165197"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893429"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core での SMS で 2 要素認証
 
@@ -23,7 +23,7 @@ ms.locfileid: "60165197"
 
 このチュートリアルでは、SMS を使用して 2 要素認証 (2 fa) を設定する方法を示します。 手順が示されて[twilio](https://www.twilio.com/)と[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)、他の SMS プロバイダーを使用することができます。 完了したことをお勧めします。[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)このチュートリアルを開始する前にします。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA)します。 [ダウンロードする方法](xref:index#how-to-download-a-sample)します。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA)します。 [ダウンロードする方法](xref:index#how-to-download-a-sample)します。
 
 ## <a name="create-a-new-aspnet-core-project"></a>新しい ASP.NET Core プロジェクトを作成する
 

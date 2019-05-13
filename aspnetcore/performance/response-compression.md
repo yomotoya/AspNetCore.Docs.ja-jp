@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: e87480ebb81791ed233f3e2308e35e21e081824f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e312d43fb62106f6ecb98367c29daa377bb227c9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248369"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893349"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET Core で応答の圧縮
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ネットワーク帯域幅は、限られたリソースです。 通常、応答のサイズを小さく、アプリの応答性を多くの場合、大幅に増加します。 ペイロードのサイズを小さく 1 つの方法は、アプリの応答を圧縮します。
 
@@ -70,7 +70,7 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 
 ::: moniker-end
 
-詳細については、、 [IANA 公式コンテンツ コーディング リスト](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)を参照してください。
+詳細については、次を参照してください。、 [IANA 公式コンテンツ コーディング リスト](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)します。
 
 カスタムの圧縮は追加のプロバイダーを追加することができます、ミドルウェア`Accept-Encoding`ヘッダー値。 詳細については、次を参照してください。[カスタム プロバイダー](#custom-providers)以下。
 
@@ -89,7 +89,7 @@ IIS、Apache、Nginx でサーバー ベースの応答の圧縮テクノロジ�
 | `Content-Type`     | コンテンツの MIME の種類を指定します。 すべての応答を指定する必要があります、`Content-Type`します。 ミドルウェアは、応答を圧縮するかどうかを判断するには、この値を確認します。 ミドルウェアのセットを指定する[既定の MIME の種類](#mime-types)をエンコードできますが、置き換えるか、MIME の種類を追加することができます。 |
 | `Vary`             | 値を使用して、サーバーによって送信されると`Accept-Encoding`クライアントと、プロキシ、`Vary`ヘッダーは、クライアントまたはキャッシュするプロキシすることを示します (異なる) の値に基づいて応答、`Accept-Encoding`要求のヘッダー。 コンテンツを返すことの結果、`Vary: Accept-Encoding`ヘッダーが両方の圧縮を個別に圧縮されていない応答がキャッシュされます。 |
 
-応答圧縮ミドルウェアの機能を試し、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)します。 このサンプルを示しています。
+応答圧縮ミドルウェアの機能を試し、[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples)します。 このサンプルを示しています。
 
 * Gzip とカスタム圧縮プロバイダーを使用してアプリの応答の圧縮。
 * MIME の種類を圧縮する MIME の種類の既定の一覧に追加する方法。
@@ -350,7 +350,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Nginx のリバース プロキシの背後にあるときにミドルウェアの問題
 
-要求が、Nginx によってプロキシの場合、`Accept-Encoding`ヘッダーを削除します。 削除、`Accept-Encoding`ヘッダーが応答を圧縮すると、ミドルウェアを防止します。 詳細については、次を参照してください[NGINX:。圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)します。 この問題を追跡する[Nginx のパススルー圧縮図 (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123)します。
+要求が、Nginx によってプロキシの場合、`Accept-Encoding`ヘッダーを削除します。 削除、`Accept-Encoding`ヘッダーが応答を圧縮すると、ミドルウェアを防止します。 詳細については、「[NGINX:圧縮と圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)します。 この問題を追跡する[Nginx のパススルー圧縮図 (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123)します。
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS 動的圧縮を使用します。
 

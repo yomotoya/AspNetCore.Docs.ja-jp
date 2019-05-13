@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/04/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 31d45eaa684118ab78d1b3ecac594e95712f631f
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: ebbdfa4cfeb3013cd961167439dd261f2e058a4b
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087612"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle と ASP.NET Core の概要
 
 [Shayne Boyer](https://twitter.com/spboyer) および [Scott Addie](https://twitter.com/Scott_Addie) 著
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 Swashbuckle には 3 つの主要なコンポーネントがあります。
 
@@ -75,6 +75,10 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 
 ## <a name="add-and-configure-swagger-middleware"></a>Swagger ミドルウェアを追加して構成する
 
+次の名前空間をインポートし、`Info` クラスを使用します。
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
+
 `Startup.ConfigureServices` メソッドで Swagger ジェネレーターをサービス コレクションに追加します。
 
 ::: moniker range="<= aspnetcore-2.0"
@@ -88,10 +92,6 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=9-12)]
 
 ::: moniker-end
-
-次の名前空間をインポートし、`Info` クラスを使用します。
-
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
 `Startup.Configure` メソッドで、生成された JSON ドキュメントと Swagger UI 対応のミドルウェアを有効にします。
 

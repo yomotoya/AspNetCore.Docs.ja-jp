@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: 49c323fab64bd4ea52dd1d8cf2e43a79d4d0d0dc
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 37c7a51217576669bcaed79d4a212e6412aa8945
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327353"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897669"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>その他の要求と ASP.NET Core での外部プロバイダーからのトークンを保存します。
 
@@ -20,7 +20,7 @@ ms.locfileid: "58327353"
 
 ASP.NET Core アプリは、追加の要求および Facebook、Google、Microsoft、Twitter などの外部認証プロバイダーからのトークンを確立できます。 各プロバイダーが、そのプラットフォームでユーザーに関するさまざまな情報が表示されますが、受信し、その他の要求にユーザー データを変換するためのパターンは同じです。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -58,7 +58,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 ## <a name="map-user-data-keys-and-create-claims"></a>ユーザー データのキーをマップし、要求の作成
 
-プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id を内の各キー。 要求の種類の詳細については、<xref:System.Security.Claims.ClaimTypes>を参照してください。
+プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id を内の各キー。 要求の種類の詳細については、次を参照してください。<xref:System.Security.Claims.ClaimTypes>します。
 
 サンプル アプリを作成、<xref:System.Security.Claims.ClaimTypes.Gender>からの要求を`gender`Google ユーザーのデータ キー。
 

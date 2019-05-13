@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 02/28/2019
 uid: performance/caching/response
-ms.openlocfilehash: efcf443b1487827fe6cf4d43b6dda69adf4d61fb
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 2e247dcff2cbaa3711a9206d7237a061ae351e1d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345747"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64892469"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
 によって[John Luo](https://github.com/JunTaoLuo)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Steve Smith](https://ardalis.com/)、および[Luke Latham](https://github.com/guardrex)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 応答のキャッシュ クライアントまたはプロキシは、web サーバーに要求の数が減少します。 応答のキャッシュ量が減少も、応答を生成する作業の web サーバーを実行します。 応答のキャッシュは、クライアント、プロキシ、およびミドルウェアが応答をキャッシュする方法を指定するヘッダーによって制御されます。
 

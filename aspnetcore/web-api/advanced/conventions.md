@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 25e8d5209f02683c533ef7c316b91d447f1b20ba
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 671e39ded50e50bbfe6d12879895bee74367f754
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705459"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890777"
 ---
 # <a name="use-web-api-conventions"></a>Web API 規約を使用する
 
@@ -29,7 +29,7 @@ ASP.NET Core MVC 2.2 以降には、一連の既定の規約 <xref:Microsoft.Asp
 
 実行時に、<xref:Microsoft.AspNetCore.Mvc.ApiExplorer> は規約を理解します。 `ApiExplorer` は [OpenAPI](https://www.openapis.org/) (Swagger とも呼ばれている) ドキュメントのジェネレーターと通信するために MVC を抽象化したものです。 適用された規約の属性はアクションと関連付けられており、アクションの OpenAPI ドキュメントに含まれます。 [API アナライザー](xref:web-api/advanced/analyzers)でも、規約を理解します。 従来とは異なるアクションである場合 (適用されている規約で文書化されていない状態コードを返す場合など)、警告で状態コードの文書化が促されます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="apply-web-api-conventions"></a>Web API 規約を適用する
 

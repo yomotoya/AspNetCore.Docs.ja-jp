@@ -5,12 +5,12 @@ description: モデル バインドにより ASP.NET Core のモデルの型を�
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 33551c9fc22561b992b4a09a4c7187ade136c09c
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 3623a29976a2e2a7b1bdb22d35716b8a3b448958
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410246"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891227"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core でのカスタム モデル バインド
 
@@ -18,7 +18,7 @@ ms.locfileid: "56410246"
 
 モデル バインドにより、コントローラー アクションが HTTP 要求ではなく (メソッド引数として渡される) モデルの型を直接操作できるようになります。 受信要求データとアプリケーション モデルのマッピングは、モデル バインダーによって処理されます。 開発者は、カスタム モデル バインダーを実装することで組み込みのモデル バインド機能を拡張することができます (ただし、通常は自分のプロバイダーを記述する必要はありません)。
 
-[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
 
 ## <a name="default-model-binder-limitations"></a>既定のモデル バインダーの制限事項
 
@@ -40,7 +40,7 @@ Base64 でエンコードされた文字列を使用してバイナリ データ
 
 ![エンコードされた dotnet bot](custom-model-binding/images/encoded-bot.png "エンコードされた dotnet bot")
 
-[サンプルの README](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) の指示に従って、Base64 でエンコードされた文字列をファイルに変換します。
+[サンプルの README](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) の指示に従って、Base64 でエンコードされた文字列をファイルに変換します。
 
 ASP.NET Core MVC では Base64 でエンコードされた文字列を取得し、`ByteArrayModelBinder` を使用してこれをバイト配列に変換できます。 [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) を実装する [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) は、次のようにして `byte[]` 引数を `ByteArrayModelBinder` にマップします。
 

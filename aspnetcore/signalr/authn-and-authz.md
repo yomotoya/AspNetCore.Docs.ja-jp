@@ -5,24 +5,50 @@ description: ASP.NET Core SignalR での認証と承認を使用する方法に�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 01/31/2019
+ms.date: 05/09/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 5d4574775606b4354ec099b6b32e05294d9f0e45
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: e8f9dc48be780fb91bdec6ea4d579f5e4f16197b
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667311"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516951"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>ASP.NET Core SignalR で認証と承認
 
 によって[Andrew Stanton-nurse](https://twitter.com/anurse)
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
 
 ## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>SignalR ハブに接続するユーザーを認証します。
 
 SignalR で使用できる[ASP.NET Core 認証](xref:security/authentication/identity)接続ごとにユーザーを関連付ける。 ハブの認証データをからアクセスできる、 [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user)プロパティ。 認証で許可されるユーザーに関連付けられているすべての接続でメソッドを呼び出すハブ (を参照してください[ユーザーと SignalR でグループ管理](xref:signalr/groups)詳細については)。 複数の接続は、1 人のユーザーを関連付けることができます。
+
+次の例に示します`Startup.Configure`SignalR と ASP.NET Core の認証を使用します。
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    ...
+
+    app.UseStaticFiles();
+    
+    app.UseAuthentication();
+
+    app.UseSignalR(hubs =>
+    {
+        hubs.MapHub<ChatHub>("/chat");
+    });
+
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+    });
+}
+```
+
+> [!NOTE]
+> SignalR と ASP.NET Core 認証ミドルウェアを登録する順序は重要です。 常に呼び出す`UseAuthentication`する前に`UseSignalR`SignalR のユーザーがあるできるように、`HttpContext`します。
 
 ### <a name="cookie-authentication"></a>Cookie 認証
 

@@ -5,12 +5,12 @@ description: ビューがアプリのデータ表示と、ASP.NET Core MVC で�
 ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012800"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891347"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
@@ -135,7 +135,7 @@ return View("./About");
 
 viewmodel を使用してデータをビューに渡すことで、ビューで*厳密な*型チェックを利用できるようになります。 *厳密な型指定* (または*厳密に型指定された*) は、すべての変数および定数に明示的に定義された型 (`string`、`int`、`DateTime` など) があることを意味します。 ビューで使用される型の妥当性は、コンパイル時にチェックされます。
 
-[Visual Studio](https://www.visualstudio.com/vs/) と [Visual Studio Code](https://code.visualstudio.com/) では、[IntelliSense](/visualstudio/ide/using-intellisense) と呼ばれる機能を使用して、厳密に型指定されたクラス メンバーを一覧表示します。 viewmodel のプロパティを表示する場合は、viewmodel の変数名に続けてピリオド (`.`) を入力します。 これにより、エラーの少ないコードをより早く記述できます。
+[Visual Studio](https://visualstudio.microsoft.com) と [Visual Studio Code](https://code.visualstudio.com/) では、[IntelliSense](/visualstudio/ide/using-intellisense) と呼ばれる機能を使用して、厳密に型指定されたクラス メンバーを一覧表示します。 viewmodel のプロパティを表示する場合は、viewmodel の変数名に続けてピリオド (`.`) を入力します。 これにより、エラーの少ないコードをより早く記述できます。
 
 `@model` ディレクティブを使用してモデルを指定します。 `@Model` を使用してモデルを使用します。
 

@@ -4,14 +4,14 @@ author: isaac2004
 description: ASP.NET Core 2.1 の新機能について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 04/30/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248174"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086405"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2.1 の新機能
 
@@ -28,7 +28,7 @@ ASP.NET Core 2.1 用に SignalR を書き直しました。 ASP.NET Core SignalR
 * 新しいストリーミング応答モデル。
 * ベア WebSocket に基づいたクライアントのサポート。
 
-詳細については、「[ASP.NET Core SignalR](xref:signalr/index)」を参照してください。
+詳細については、「[ASP.NET Core SignalR](xref:signalr/introduction)」を参照してください。
 
 ## <a name="razor-class-libraries"></a>Razor クラス ライブラリ
 
@@ -75,7 +75,7 @@ ASP.NET Core 2.1 では、[ASP.NET Core Identity](xref:security/authentication/i
 
 ## <a name="gdpr"></a>GDPR
 
-ASP.NET Core では、[EU の一般データ保護規制 (GDPR) ](https://www.eugdpr.org/)の要件の一部を満たすのに役立つ API とテンプレートが用意されています。 詳細については、[ASP.NET Core での GDPR のサポート](xref:security/gdpr)に関するページを参照してください。 [サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)では、ASP.NET Core 2.1 テンプレートに追加された GDPR 拡張ポイントと API の大部分について、使用方法を示し、テストできるようにしています。
+ASP.NET Core では、[EU の一般データ保護規制 (GDPR) ](https://www.eugdpr.org/)の要件の一部を満たすのに役立つ API とテンプレートが用意されています。 詳細については、[ASP.NET Core での GDPR のサポート](xref:security/gdpr)に関するページを参照してください。 [サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample)では、ASP.NET Core 2.1 テンプレートに追加された GDPR 拡張ポイントと API の大部分について、使用方法を示し、テストできるようにしています。
 
 ## <a name="integration-tests"></a>統合テスト
 

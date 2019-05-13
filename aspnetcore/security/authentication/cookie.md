@@ -5,12 +5,12 @@ description: ASP.NET Core Identity なしでの cookie 認証を使用しての�
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: c6cba588abb003ee677d8f1753b73a1ced1414b0
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 2bc3e16b1b32816b14ad5bb4ca905ae5ed51ab87
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209376"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897749"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしでの cookie 認証を使用します。
 
@@ -18,7 +18,7 @@ ms.locfileid: "58209376"
 
 以前の認証に関するトピックで説明したように[ASP.NET Core Identity](xref:security/authentication/identity)の作成とログインの管理、フル機能の完全な認証プロバイダーは、します。 ただし、cookie ベースの認証時に、独自のカスタム認証ロジックを使用する場合があります。 ASP.NET Core Identity なしのスタンドアロンの認証プロバイダーとしては、cookie ベースの認証を使用できます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル アプリでは、デモンストレーションのための Maria Rodriguez、架空のユーザーのユーザー アカウント、アプリにハードコードしています。 電子メールのユーザー名を使用して、"maria.rodriguez@contoso.com"と、ユーザーがサインインするすべてのパスワード。 における、ユーザーの認証、`AuthenticateUser`メソッドで、 *Pages/Account/Login.cshtml.cs*ファイル。 実際の例では、ユーザーは、データベースに対して認証は。
 
@@ -58,7 +58,7 @@ ASP.NET Core Identity を使用する、次を参照してください。、 [Id
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly?view=aspnetcore-2.0) | クッキーをサーバーにのみアクセスできる必要があるかどうかを示すフラグです。 この値を変更する`false`クッキーにアクセスするクライアント側スクリプトを許可し、アプリが必要 cookie の盗難に、アプリを開くことがあります、[クロス サイト スクリプティング (XSS)](xref:security/cross-site-scripting)脆弱性。 既定値は `true` です。 |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name?view=aspnetcore-2.0) | クッキーの名前を設定します。 |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path?view=aspnetcore-2.0) | 同じホスト名で実行されているアプリを分離するために使用します。 実行中のアプリがあれば`/app1`cookie をそのアプリに制限を設定して、`CookiePath`プロパティを`/app1`します。 これにより、クッキーが要求に使用可能なだけ`/app1`とその下にあるすべてのアプリ。 |
-| [Cookie.SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite?view=aspnetcore-2.0) | ブラウザーが同じサイトの要求のみに接続する cookie を許可するかどうかを指定 (`SameSiteMode.Strict`) または安全な HTTP メソッドと同じサイトの要求を使用してサイト間の要求 (`SameSiteMode.Lax`)。 設定すると`SameSiteMode.None`cookie のヘッダーの値が設定されていません。 なお[Cookie ポリシー ミドルウェア](#cookie-policy-middleware)指定した値を上書きする可能性があります。 既定値は、OAuth 認証をサポートする`SameSiteMode.Lax`します。 詳細については、[SameSite cookie のポリシーにより分割 OAuth 認証](https://github.com/aspnet/Security/issues/1231)を参照してください。 |
+| [Cookie.SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite?view=aspnetcore-2.0) | ブラウザーが同じサイトの要求のみに接続する cookie を許可するかどうかを指定 (`SameSiteMode.Strict`) または安全な HTTP メソッドと同じサイトの要求を使用してサイト間の要求 (`SameSiteMode.Lax`)。 設定すると`SameSiteMode.None`cookie のヘッダーの値が設定されていません。 なお[Cookie ポリシー ミドルウェア](#cookie-policy-middleware)指定した値を上書きする可能性があります。 既定値は、OAuth 認証をサポートする`SameSiteMode.Lax`します。 詳細については、次を参照してください。 [SameSite cookie のポリシーにより分割 OAuth 認証](https://github.com/aspnet/Security/issues/1231)します。 |
 | [Cookie.SecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.securepolicy?view=aspnetcore-2.0) | 作成された cookie を HTTPS に制限するかどうかを示すフラグ (`CookieSecurePolicy.Always`)、HTTP または HTTPS (`CookieSecurePolicy.None`)、または、要求と同じプロトコル (`CookieSecurePolicy.SameAsRequest`)。 既定値は `CookieSecurePolicy.SameAsRequest` です。 |
 | [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider?view=aspnetcore-2.0) | セット、`DataProtectionProvider`の既定の作成に使用される`TicketDataFormat`します。 場合、`TicketDataFormat`プロパティが設定されて、`DataProtectionProvider`オプションは使用されません。 指定されていない場合は、アプリの既定のデータ保護プロバイダーが使用されます。 |
 | [イベント](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.events?view=aspnetcore-2.0) | ハンドラーは、特定の処理ポイントでアプリの制御を提供するプロバイダーのメソッドを呼び出します。 場合`Events`メソッドが呼び出されたときに何もしない既定のインスタンスが指定されて、指定されていません。 |

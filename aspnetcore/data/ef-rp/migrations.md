@@ -5,18 +5,14 @@ description: このチュートリアルでは、ASP.NET Core MVC アプリで�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 1803c6d3956121e4e7091f4f951917425e87c335
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 406b94d74a99dcec3b2ce01a5eb3313c48819148
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419473"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517013"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -25,7 +21,7 @@ ms.locfileid: "58419473"
 このチュートリアルでは、データ モデルの変更を管理するための EF Core の移行機能を使用します。
 
 解決できない問題が発生した場合は、[完成したアプリ](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
 
 新しいアプリを開発するときには、頻繁にデータ モデルを変更します。 モデルを変更するたびに、モデルはデータベースと同期されなくなります。 このチュートリアルでは、最初にデータベースが存在しない場合にデータベースを作成するように Entity Framework を構成します。 データ モデルが変更されるたびに次の処理を実行します。
 
@@ -161,7 +157,7 @@ EF Core は、`__MigrationsHistory` テーブルを使用して、移行を実�
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 [完成したアプリ](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations)をダウンロードします。
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations)をダウンロードします。
 
 アプリは次の例外を生成します。
 
@@ -179,7 +175,7 @@ Login failed for user 'user name'.
 * [.NET Core CLI](/ef/core/miscellaneous/cli/dotnet)。
 * [パッケージ マネージャー コンソール (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/sort-filter-page)

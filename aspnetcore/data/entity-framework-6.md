@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: b7679afbe4c364386fe8f16d22d7e9797a3e0c27
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 50f51a72341cbad017872df581da214211b9920a
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090060"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886937"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core と Entity Framework 6 の概要
 
@@ -23,7 +23,7 @@ ms.locfileid: "50090060"
 
 Entity Framework 6 は .NET Core をサポートしていないので、Entity Framework 6 を使用するには、プロジェクトが .NET Framework に対してコンパイルする必要があります。 クロスプラットフォーム機能が必要な場合は、[Entity Framework Core](/ef/) にアップグレードする必要があります。
 
-ASP.NET Core アプリケーションで Entity Framework 6 を使用するための推奨方法は、EF6 コンテキストとモデル クラスを、完全なフレームワークをターゲットとするクラス ライブラリ プロジェクト内に配置することです。 ASP.NET Core プロジェクトから、クラス ライブラリに参照を追加します。 [EF6 と ASP.NET Core プロジェクトを使用した Visual Studio ソリューション](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)のサンプルを参照してください。
+ASP.NET Core アプリケーションで Entity Framework 6 を使用するための推奨方法は、EF6 コンテキストとモデル クラスを、完全なフレームワークをターゲットとするクラス ライブラリ プロジェクト内に配置することです。 ASP.NET Core プロジェクトから、クラス ライブラリに参照を追加します。 [EF6 と ASP.NET Core プロジェクトを使用した Visual Studio ソリューション](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)のサンプルを参照してください。
 
 .NET Core プロジェクトは、*Enable-Migrations* などの EF6 コマンドが必要とするすべての機能をサポートしていないため、EF6 コンテキストを ASP.NET Core プロジェクトに配置することはできません。
 
@@ -61,7 +61,7 @@ Core プロジェクトの *Startup.cs* ファイルで、`ConfigureServices` �
 
 ## <a name="sample-application"></a>サンプル アプリケーション
 
-実際に動作するサンプル アプリケーションについては、この記事に付属している[Visual Studio のサンプル ソリューション](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)を参照してください。
+実際に動作するサンプル アプリケーションについては、この記事に付属している[Visual Studio のサンプル ソリューション](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)を参照してください。
 
 このサンプルは、次の手順に従って、Visual Studio でゼロから作成することができます。
 

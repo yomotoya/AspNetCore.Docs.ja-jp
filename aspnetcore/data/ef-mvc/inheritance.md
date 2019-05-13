@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: ba688b259206f21045376b6a38a266ad7528aec1
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: f80de595fd23cc9c1065e5257ad1d2376ea40cf3
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750762"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886297"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>チュートリアル: 継承を実装する - ASP.NET MVC と EF Core
 
@@ -150,7 +150,7 @@ Person テーブルを右クリックし、**[テーブル データの表示]**
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>その他の技術情報
 

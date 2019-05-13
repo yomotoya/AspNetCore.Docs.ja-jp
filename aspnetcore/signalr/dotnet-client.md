@@ -7,21 +7,18 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: 640d75157e42ffa6d78235c5be03e4846e8dcde9
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: b59af0f9c84a008f778709970dba2273abdfcd4f
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982947"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087719"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET クライアント
 
 ASP.NET Core SignalR .NET クライアント ライブラリでは、.NET アプリからの SignalR ハブと通信できます。
 
-> [!NOTE]
-> Xamarin には、Visual Studio バージョンについての特別な要件があります。 詳細については、次を参照してください。 [Xamarin で SignalR クライアント 2.1.1](https://github.com/aspnet/Announcements/issues/305)します。
-
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/dotnet-client/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 この記事のサンプル コードは、ASP.NET Core SignalR .NET クライアントを使用する WPF アプリです。
 

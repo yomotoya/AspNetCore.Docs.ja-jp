@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2018
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: 6af775c66a1de7f1a4f06a4a639ade20c6493b2a
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9e4d4c6c0232ebc51ad08923e10164262b652280
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206810"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64888077"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>ASP.NET Core でのサードパーティ コンテナーによるミドルウェアのアクティブ化
 
@@ -19,7 +19,7 @@ ms.locfileid: "50206810"
 
 この記事では、[IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) と [IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) を、サードパーティ コンテナーによる[ミドルウェア](xref:fundamentals/middleware/index)のアクティブ化の拡張ポイントとして使用する方法について説明します。 `IMiddlewareFactory` と `IMiddleware` の概要については、[ファクトリ ベースのミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility)に関するトピックを参照してください。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 このサンプル アプリでは、`IMiddlewareFactory` の実装である `SimpleInjectorMiddlewareFactory` によるミドルウェアのアクティブ化を示します。 このサンプルでは、[Simple Injector](https://simpleinjector.org) 依存関係の挿入 (DI) コンテナーを使用しています。
 

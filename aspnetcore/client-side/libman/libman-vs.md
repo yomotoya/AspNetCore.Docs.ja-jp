@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: 727bd80b7f37f6ebd9d37b7aab1aa6c33b85678c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 41a5a41c8921b04290784d26441ecb46aea753e7
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206728"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894969"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>LibMan を Visual Studio で ASP.NET Core を使用します。
 
@@ -24,7 +24,7 @@ Visual Studio はの組み込みサポート[LibMan](xref:client-side/libman/ind
 * ライブラリを検索して、ファイルをプロジェクトに追加する検索ダイアログ。
 * 編集のサポート*libman.json*&mdash;LibMan マニフェスト ファイル。
 
-[サンプル コードのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/libman/samples/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
+[サンプル コードのダウンロードを表示または](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(ダウンロードする方法)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -64,12 +64,12 @@ Visual Studio はの組み込みサポート[LibMan](xref:client-side/libman/ind
   
   |場所を起動します。                           |推奨されるフォルダー      |
   |------------------------------------------|----------------------|
-  |プロジェクトのルート (場合*wwwroot*が存在する)        |*wwwroot/ライブラリ/jquery/* |
+  |プロジェクトのルート (場合*wwwroot*が存在する)        |*wwwroot/lib/jquery/* |
   |プロジェクトのルート (場合*wwwroot*が存在しない) |*lib/jquery/*         |
-  |*ページ*プロジェクト フォルダー                 |*ページ/jquery/*       |
+  |*ページ*プロジェクト フォルダー                 |*Pages/jquery/*       |
 
 * をクリックして、**インストール**ボタンで構成ごとのファイルをダウンロードする*libman.json*します。
-* レビュー、**ライブラリ マネージャー**のフィード、**出力**インストールの詳細についてはウィンドウ。 例えば:
+* レビュー、**ライブラリ マネージャー**のフィード、**出力**インストールの詳細についてはウィンドウ。 例:
 
   ```console
   Restore operation started...
@@ -144,7 +144,7 @@ LibMan は、ビルド プロセスの一部として定義されているライ
 
 ビルド時の復元動作が有効にすると、 *libman.json*コンテキスト メニューが表示されます、**復元クライアント側のライブラリでビルドを無効にする**オプション。 このオプションを選択すると削除、`Microsoft.Web.LibraryManager.Build`パッケージ、プロジェクト ファイルから参照します。 その結果、クライアント側ライブラリは不要になった各ビルドで復元されます。
 
-ビルド時の復元の設定に関係なく手動で復元できますから、いつでも、 *libman.json*コンテキスト メニュー。 詳細については、[ファイルを手動で復元](#restore-files-manually)を参照してください。
+ビルド時の復元の設定に関係なく手動で復元できますから、いつでも、 *libman.json*コンテキスト メニュー。 詳細については、次を参照してください。[ファイルを手動で復元](#restore-files-manually)します。
 
 ### <a name="restore-files-manually"></a>ファイルを手動で復元します。
 
@@ -160,7 +160,7 @@ LibMan は、ビルド プロセスの一部として定義されているライ
 復元操作の実行: 中
 
 * Visual Studio のステータス バーにタスク ステータス センター (TSC) アイコンがアニメーション化して、読み取りは*復元操作が開始された*します。 アイコンをクリックすると、既知のバック グラウンド タスクを一覧表示するツールヒントが開きます。
-* メッセージは、ステータス バーに送信して、**ライブラリ マネージャー**のフィード、**出力**ウィンドウ。 例えば:
+* メッセージは、ステータス バーに送信して、**ライブラリ マネージャー**のフィード、**出力**ウィンドウ。 例:
 
   ```console
   Restore operation started...

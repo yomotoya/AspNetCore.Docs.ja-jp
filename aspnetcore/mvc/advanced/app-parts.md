@@ -5,16 +5,16 @@ description: アプリのリソースで抽象化されたものである、ア�
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 67bd40adef4cdb0bd781f70114d3954cd9a8ed09
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 5d5e79d3afe0eee6d0b126d4642ccd5f61bff409
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320096"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64888137"
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core のアプリケーション パーツ
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 *アプリケーション パーツ*とは、コントローラー、ビュー コンポーネント、タグ ヘルパーなどの MVC 機能が検出される可能性のある、アプリケーションのリソースで抽象化されたものです。 アプリケーション パーツの一例として、AssemblyPart があります。これは、アセンブリ参照をカプセル化し、型とコンパイル参照を公開します。 *機能プロバイダー*はアプリケーション パーツを操作し、ASP.NET Core MVC アプリの機能を取り込みます。 アプリケーション パーツの主なユース ケースは、アセンブリから MVC 機能を検出 (または読み込みを回避) するようにアプリを構成できることです。
 

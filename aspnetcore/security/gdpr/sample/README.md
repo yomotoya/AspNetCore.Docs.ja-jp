@@ -1,6 +1,6 @@
-# <a name="gdpr-sample"></a>GDPR サンプル
+# <a name="gdpr-sample"></a>GDPR のサンプル
 
-* *される appsettings.json*設定、`CheckNotConsentNeeded`に`false`; の同意を要求するようにそれ以外の場合省略または場合に true に設定します。 使用してアプリをテスト`CheckNotConsentNeeded`'éý'`false`に設定および`true`です。
-* 各バリエーションの重要なと不要なクッキーを作成`CheckConsentNeeded`条項に同意を許可します。
+* *Appsettings.json*設定`CheckNotConsentNeeded`に`false`; の同意を要求するそれ以外の場合または省略を true に設定します。 使用してアプリをテスト`CheckNotConsentNeeded`に設定`false`に設定し、`true`します。
+* 各バリエーションの重要なと不要なクッキーを作成`CheckConsentNeeded`と同意を付与します。
 * ユーザーを登録します。
 * Cookie を削除します。

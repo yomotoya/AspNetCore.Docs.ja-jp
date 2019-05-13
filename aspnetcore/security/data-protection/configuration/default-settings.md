@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
 ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159212"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897279"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>データ保護キーの管理と ASP.NET Core での有効期間
 
@@ -27,12 +27,12 @@ ms.locfileid: "56159212"
 
 1. キーに保存されるユーザー プロファイルを使用できる場合、 *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys*フォルダー。 オペレーティング システムが Windows の場合は、キーは DPAPI を使用して暗号化します。
 
-   アプリ プールの[setProfileEnvironment 属性](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)も有効にする必要があります。 `setProfileEnvironment` の既定値は `true` です。 一部のシナリオ (たとえば、Windows OS) で`setProfileEnvironment`に設定されている`false`します。 ユーザー プロファイル ディレクトリに保存されていないキーが必要です。
+   アプリ プールの [setProfileEnvironment 属性](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)も有効にする必要があります。 `setProfileEnvironment` の既定値は `true` です。 一部のシナリオ (たとえば、Windows OS) では、`setProfileEnvironment` は `false` に設定されます。 キーが期待どおりにユーザー プロファイル ディレクトリに格納されていない場合:
 
-   1. 移動し、 *%windir%/system32/inetsrv/config*フォルダー。
-   1. 開く、 *applicationHost.config*ファイル。
+   1. *%windir%/system32/inetsrv/config* フォルダーに移動します。
+   1. *applicationHost.config* ファイルを開きます。
    1. `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` 要素を探します。
-   1. 確認します、`setProfileEnvironment`属性が含まれていない、既定値、値を`true`明示的に属性の値を設定または`true`します。
+   1. `setProfileEnvironment` 属性 (その規定値は `true` です) が存在しないことを確認するか、属性の値を明示的に `true` に設定します。
 
 1. 場合は、アプリが IIS でホストされる、キーでは、ワーカー プロセス アカウントのみに対して特別なレジストリ キー HKLM レジストリに保存されます。 キーは DPAPI を使用して保存時に暗号化されます。
 

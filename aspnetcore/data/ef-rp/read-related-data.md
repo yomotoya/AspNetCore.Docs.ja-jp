@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 4b564e9e407dcb6b7fd71d0a6c41596269ed5e09
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: e98f6dddc727bb78a411fbd0a5014bcee87c7aeb
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320122"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887807"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの読み込み - 6/8
 
@@ -21,7 +21,7 @@ ms.locfileid: "58320122"
 
 このチュートリアルでは、関連データが読み取られ、表示されます。 関連データとは、EF Core がナビゲーション プロパティに読み込むデータのことです。
 
-解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
+解決できない問題が発生した場合は、[完成したアプリをダウンロードまたは表示](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)してください。 [ダウンロードの方法はこちらをご覧ください。](xref:index#how-to-download-a-sample)
 
 以下の図は、このチュートリアルの完成したページを示しています。
 
@@ -133,7 +133,7 @@ Course エンティティには、`Department` エンティティを含むナビ
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-完全な例については、[IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) と [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) を参照してください。
+完全な例については、[IndexSelect.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) と [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) を参照してください。
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>コース登録を示す Instructors ページを作成する
 

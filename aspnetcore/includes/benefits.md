@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: d794058f533c4b617f641fa3cb3e6d63fd807c2d
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615391"
----
 ASP.NET Core の利点は次のとおりです。
 
 * Web UI と Web API を構築するプロセスの統一。

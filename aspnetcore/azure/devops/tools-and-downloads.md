@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 0c64e723f1b912323103f201a66c1edaeccdcc2d
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: ae4827f735274405021e5ee539d1029b7ddb9553
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284352"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891989"
 ---
 # <a name="tools-and-downloads"></a>ツールとダウンロード
 
@@ -38,7 +38,7 @@ Azure では、いくつかのインターフェイスのプロビジョニン�
 
 ## <a name="recommended-tools-windows-only"></a>推奨されるツール (Windows のみ)
 
-* [Visual Studio](https://www.visualstudio.com/)堅牢な Azure ツール説明 GUI このガイドで説明されている機能のほとんどの。 無料の Visual Studio Community Edition を含む、Visual Studio の任意のエディションは機能します。 チュートリアルは、Visual Studio の有無にかかわらず、開発、デプロイ、DevOps のデモンストレーションに書き込まれます。
+* [Visual Studio](https://visualstudio.microsoft.com)堅牢な Azure ツール説明 GUI このガイドで説明されている機能のほとんどの。 無料の Visual Studio Community Edition を含む、Visual Studio の任意のエディションは機能します。 チュートリアルは、Visual Studio の有無にかかわらず、開発、デプロイ、DevOps のデモンストレーションに書き込まれます。
 
   Visual Studio が、次のことを確認します。[ワークロード](/visualstudio/install/modify-visual-studio)インストール。
 

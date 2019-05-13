@@ -2,14 +2,15 @@
 title: ASP.NET Core のローカライズに関するトラブルシューティング
 author: hishamco
 description: ASP.NET Core アプリのローカライズに関する問題を診断する方法について説明します。
+ms.author: riande
 ms.date: 01/24/2019
 uid: fundamentals/troubleshoot-aspnet-core-localization
-ms.openlocfilehash: 73405f539c89d79096e7b536407cd9730679d478
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: c76732c1a0389818f8f9efae8fe384ca0f9ca308
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488995"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087391"
 ---
 # <a name="troubleshoot-aspnet-core-localization"></a>ASP.NET Core のローカライズに関するトラブルシューティング
 

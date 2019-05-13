@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 655d9be894c677f8adf0fecc2b465d5ae7af2b61
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068298"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897469"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -28,7 +28,7 @@ ms.locfileid: "59068298"
 * 他のユーザーを拒否しながら、いくつかのクロス オリジン要求を明示的に許可するサーバーを使用できます。
 * 安全性と以前の手法よりも柔軟性はなど、 [JSONP](/dotnet/framework/wcf/samples/jsonp)します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/2.2-stage-samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="same-origin"></a>同じ生成元
 
@@ -425,13 +425,13 @@ Test message
 
 CORS をテストします。
 
-1. [API プロジェクトを作成](xref:tutorials/first-web-api)です。 または、[サンプルをダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cors/sample/Cors)します。
+1. [API プロジェクトを作成](xref:tutorials/first-web-api)です。 または、[サンプルをダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample/Cors)します。
 1. このドキュメントで、アプローチの 1 つを使用して、CORS を有効にします。 例:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
 
   > [!WARNING]
-  > `WithOrigins("https://localhost:<port>");` ようなサンプル アプリをテストするためにのみ使用する必要があります、[サンプル コードをダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors)します。
+  > `WithOrigins("https://localhost:<port>");` ようなサンプル アプリをテストするためにのみ使用する必要があります、[サンプル コードをダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/cors/sample/Cors)します。
 
 1. (Razor ページまたは MVC) web アプリ プロジェクトを作成します。 このサンプルでは、Razor ページを使用します。 API プロジェクトと同じソリューションでは、web アプリを作成することができます。
 1. 次の強調表示されたコードを追加、 *Index.cshtml*ファイル。
