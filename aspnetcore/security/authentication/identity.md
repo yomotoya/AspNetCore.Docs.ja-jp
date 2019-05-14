@@ -65,9 +65,9 @@ dotnet new webapp --auth Individual -o WebApp1
 * /Identity/Account/Logout
 * /Identity/Account/Manage
 
-### <a name="apply-migrations"></a>移行を適用する
+### <a name="apply-migrations"></a>マイグレーションの適用
 
-データベースを初期化するへの移行を適用します。
+データベースを初期化するためのマイグレーションを適用します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
