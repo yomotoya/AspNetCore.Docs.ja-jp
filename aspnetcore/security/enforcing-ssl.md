@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: ab407436afb16687fa285a836b608ad2e6a4802f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: e27e0c31b128cbd7d71bf7b83a2d33cc89ea3ab1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894559"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610427"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -257,6 +257,17 @@ dotnet dev-certs https --help
 参照してください[この GitHub の問題](https://github.com/aspnet/AspNetCore.Docs/issues/6199)します。
 
 ::: moniker-end
+
+<a name="wsl"></a>
+
+## <a name="trust-https-certificate-from-windows-subsystem-for-linux"></a>Linux 用 Windows サブシステムからの HTTPS 証明書を信頼します。
+
+Windows Subsystem for Linux (WSL) は、HTTPS の自己署名証明書を生成します。WSL 証明書を信頼する Windows 証明書ストアを構成するには。
+
+* WSL が生成された証明書をエクスポートするには、次のコマンドを実行します。 `dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p <cryptic-password>`
+* WSL のウィンドウで、次のコマンドを実行します。 `ASPNETCORE_Kestrel__Certificates__Default__Password="<cryptic-password>" ASPNETCORE_Kestrel__Certificates__Default__Path=/mnt/c/Users/user-name/.aspnet/https/aspnetapp.pfx dotnet watch run`
+
+  上記のコマンドは、Linux、Windows の信頼された証明書を使用するように環境変数を設定します。
 
 ## <a name="additional-information"></a>追加情報
 

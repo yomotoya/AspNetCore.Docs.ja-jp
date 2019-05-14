@@ -5,12 +5,12 @@ description: ASP.NET Core での Azure Active Directory B2C の認証を設定�
 ms.date: 02/27/2019
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 86be999e02cfe34193bd594dcf89e8872590cca5
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 46654e38c780cfc9c44e7ba479419320ee684b76
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898019"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610689"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>ASP.NET Core での Azure Active Directory B2C でのクラウド認証
 
@@ -34,7 +34,7 @@ ms.locfileid: "64898019"
 次に、このチュートリアルでは必須です。
 
 * [Microsoft Azure サブスクリプション](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (任意のエディション)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C テナントを作成します。
 
@@ -62,7 +62,7 @@ Azure Active Directory B2C テナントの作成[ドキュメント」の説明�
 
 Nothing の詳細はこの時点で Azure AD B2C テナントで構成できますが、ブラウザー ウィンドウを開いたままにしておきます。 ASP.NET Core アプリを作成した後の構成の詳細は。
 
-## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Visual Studio 2017 での ASP.NET Core アプリを作成します。
+## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Visual Studio で ASP.NET Core アプリを作成します。
 
 認証に Azure AD B2C テナントを使用する Visual Studio Web アプリケーション テンプレートを構成できます。
 

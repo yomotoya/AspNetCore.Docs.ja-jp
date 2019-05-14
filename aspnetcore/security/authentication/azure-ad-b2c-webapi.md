@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 00e7c9a438260ef8e12e567e521fc44b2ffa9cca
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 0eb8b533f44a1f72cfc3c4ec5ec060adb37eed6c
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086341"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610361"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api ASP.NET Core での Azure Active Directory B2C での認証
 
@@ -37,7 +37,7 @@ Web Api にユーザー インターフェイスがあるないため、中、Az
 次に、このチュートリアルでは必須です。
 
 * [Microsoft Azure サブスクリプション](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (任意のエディション)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 * [Postman](https://www.getpostman.com/postman)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C テナントを作成します。
@@ -65,7 +65,7 @@ Azure AD B2C テナントを作成[ドキュメント」の説明に従って](/
 
 API は、登録後、テナント内のアプリと Api の一覧が表示されます。 既に登録済みの API を選択します。 選択、**コピー**アイコンの右側に、**アプリケーション ID**フィールドをクリップボードにコピーします。 選択**公開済みスコープ**の既定の確認と*user_impersonation*スコープが存在します。
 
-## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Visual Studio 2017 での ASP.NET Core アプリを作成します。
+## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Visual Studio で ASP.NET Core アプリを作成します。
 
 認証に Azure AD B2C テナントを使用する Visual Studio Web アプリケーション テンプレートを構成できます。
 

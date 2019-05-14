@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core アプリでのパフォーマンスが向上し、一般的なパフォーマンスの問題を回避するためのヒント。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 04/13/2019
+ms.date: 05/10/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 28dc7fb40c1b60f643108dcb44593a08942a1650
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 7651dff18f98c60057660c8946c3daa66d272f6a
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087501"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536080"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core のパフォーマンスに関するベスト プラクティス
 
@@ -130,7 +130,7 @@ ASP.NET Core アプリで一般的なパフォーマンスの問題は、非同�
 推奨事項:
 
 * **行う** で ASP.NET Core の使用[組み込みサポート](xref:client-side/bundling-and-minification)バンドルと縮小クライアント資産。
-* **行う**などその他のサード パーティ製ツールを検討してください[Gulp](xref:client-side/using-gulp)または[Webpack](https://webpack.js.org/)の複雑なクライアント資産管理します。
+* **行う**などその他のサード パーティ製ツールを検討してください[Webpack](https://webpack.js.org/)、複雑なクライアント資産管理のためです。
 
 ## <a name="compress-responses"></a>応答を圧縮します。
 
