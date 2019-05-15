@@ -231,13 +231,13 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ::: moniker-end
 
-## <a name="test-identity"></a>テスト Id
+## <a name="test-identity"></a>Identityのテスト
 
-既定の web プロジェクト テンプレートは、ホーム ページへの匿名アクセスを許可します。 Id をテストするには追加[ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute)プライバシー ページにします。
+既定の web プロジェクト テンプレートは、ホーム ページへの匿名アクセスを許可しています。 Identity をテストするために、[ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute)をPrivacy ページに追加します。
 
 [!code-csharp[](identity/sample/WebApp1/Pages/Privacy.cshtml.cs?highlight=6)]
 
-サインイン場合、サインアウトします。アプリを実行し、選択、**プライバシー**リンク。 ログイン ページにリダイレクトされます。
+サインイン済みの場合、サインアウトします。アプリを実行し、**プライバシー**リンクを選択します。 ログイン ページにリダイレクトされます。
 
 ::: moniker range=">= aspnetcore-2.1"
 
