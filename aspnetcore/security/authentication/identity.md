@@ -135,15 +135,15 @@ dotnet ef database update
 
 ## <a name="scaffold-register-login-and-logout"></a>登録、ログイン、およびログアウトをスキャフォールディングします。
 
-に従って、[の id の権限を持つ Razor プロジェクトにスキャフォールディング](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization)手順については、このセクションで示すコードを生成します。
+[の id の権限を持つ Razor プロジェクトにスキャフォールディング](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization)の手順に従って、このセクションで示すコードを生成してください。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-登録、ログイン、ログアウト ファイルを追加します。
+Register、Login、LogOut のファイルを追加します。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-名前のプロジェクトを作成する場合**WebApp1**、次のコマンドを実行します。 それ以外の場合、正しい名前空間を使用して、 `ApplicationDbContext`:
+**WebApp1**という名前のプロジェクトを作成した場合、次のコマンドを実行します。 それ以外の場合は、`ApplicationDbContext`に正しい名前空間を適用してください :
 
 ```cli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
