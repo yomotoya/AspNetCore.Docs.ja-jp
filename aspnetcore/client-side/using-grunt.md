@@ -3,14 +3,14 @@ title: ASP.NET Core で Grunt を使用します。
 author: rick-anderson
 description: ASP.NET Core で Grunt を使用します。
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 05/14/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: 718a1358c0474711b05bb2c90dc86ec9edacbf1e
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 4d9b6cf6f9a0007e9722bc054f0d9a7608f1473b
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610223"
+ms.locfileid: "65621002"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>ASP.NET Core で Grunt を使用します。
 
@@ -113,12 +113,12 @@ Grunt は、スクリプトの縮小、TypeScript コンパイル、コード品
 
 4. 保存、 *package.json*ファイル。
 
-DevDependencies の項目ごとに、パッケージは、各パッケージに必要なすべてのファイルと共にダウンロードされます。 内のパッケージ ファイルを見つけることができます、`node_modules`を有効にするディレクトリ、 **すべてのファイル**ソリューション エクスプ ローラーでボタンをクリックします。
+各パッケージ`devDependencies`項目は、各パッケージに必要なすべてのファイルと共にダウンロードされます。 内のパッケージ ファイルを見つけることができます、 *node_modules*を有効にするディレクトリ、 **すべてのファイル**ボタン**ソリューション エクスプ ローラー**します。
 
 ![grunt node_modules](using-grunt/_static/node-modules.png)
 
 > [!NOTE]
-> 右クリックしてソリューション エクスプ ローラーで依存関係を手動で復元する場合は、`Dependencies\NPM`を選択して、**パッケージの復元**メニュー オプション。
+> 内の依存関係を手動で復元する場合は、**ソリューション エクスプ ローラー**を右クリックして`Dependencies\NPM`を選択して、**パッケージの復元**メニュー オプション。
 
 ![パッケージを復元します。](using-grunt/_static/restore-packages.png)
 
@@ -126,9 +126,9 @@ DevDependencies の項目ごとに、パッケージは、各パッケージに�
 
 Grunt がという名前のマニフェストで構成されている*Gruntfile.js*定義の読み込みし、登録を手動で実行または Visual Studio でのイベントに基づいて自動的に実行するように構成できるタスクです。
 
-1. プロジェクトを右クリックして**追加 > 新しい項目の**します。 選択、 **Grunt 構成ファイル**オプションで、既定の名前をそのまま使用*Gruntfile.js*、 をクリックし、**追加**ボタンをクリックします。
+1. プロジェクトを右クリックして**追加** > **新しい項目の**します。 選択、 **JavaScript ファイル**項目テンプレート、名を変更して*Gruntfile.js*、 をクリックし、**追加**ボタンをクリックします。
 
-   最初のコードには、モジュールの定義が含まれています。 および`grunt.initConfig()`メソッド。 `initConfig()`パッケージごとにオプションの設定に使用されると、モジュールの残りの部分は読み込みし、タスクを登録します。
+1. 次のコードを追加*Gruntfile.js*します。 `initConfig`関数は、各パッケージのオプションを設定し、残りの部分が読み込みをタスクを登録します。
 
    ```javascript
    module.exports = function (grunt) {
@@ -137,7 +137,7 @@ Grunt がという名前のマニフェストで構成されている*Gruntfile.
    };
    ```
 
-2. 内で、`initConfig()`メソッド、オプションを追加、`clean`タスクの例で示すように*Gruntfile.js*以下。 Clean タスクでは、ディレクトリの文字列の配列を受け入れます。 このタスクは、wwwroot/ライブラリからファイルを削除し、全体/一時ディレクトリを削除します。
+1. 内で、`initConfig`関数を追加するためのオプション、`clean`タスクの例で示すように*Gruntfile.js*以下。 `clean`タスクは、ディレクトリの文字列の配列を受け取ります。 このタスクからファイルを削除します。 *wwwroot/lib*全体を削除します。 *temp/* ディレクトリ。
 
     ```javascript
     module.exports = function (grunt) {
@@ -147,32 +147,32 @@ Grunt がという名前のマニフェストで構成されている*Gruntfile.
     };
     ```
 
-3. InitConfig() メソッドの呼び出しを追加`grunt.loadNpmTasks()`します。 これにより、タスク実行可能な Visual Studio から。
+1. 以下、`initConfig`関数を呼び出しを追加して`grunt.loadNpmTasks`します。 これにより、タスク実行可能な Visual Studio から。
 
     ```javascript
     grunt.loadNpmTasks("grunt-contrib-clean");
     ```
 
-4. 保存*Gruntfile.js*します。 ファイルの内容は次のスクリーン ショットのようになります。
+1. 保存*Gruntfile.js*します。 ファイルの内容は次のスクリーン ショットのようになります。
 
     ![初期の gruntfile](using-grunt/_static/gruntfile-js-initial.png)
 
-5. 右クリック*Gruntfile.js*選択**Task Runner Explorer**コンテキスト メニュー。 Task Runner Explorer ウィンドウが開きます。
+1. 右クリック*Gruntfile.js*選択**Task Runner Explorer**コンテキスト メニュー。 **Task Runner Explorer**ウィンドウが開きます。
 
     ![タスク ランナー エクスプ ローラーのメニュー](using-grunt/_static/task-runner-explorer-menu.png)
 
-6. いることを確認`clean`下に表示される**タスク**タスク ランナー エクスプ ローラーでします。
+1. いることを確認`clean`下に表示される**タスク**で、 **Task Runner Explorer**します。
 
     ![タスク ランナー エクスプ ローラーのタスク一覧](using-grunt/_static/task-runner-explorer-tasks.png)
 
-7. Clean タスクを右クリックして**実行**コンテキスト メニュー。 コマンド ウィンドウには、タスクの進行状況が表示されます。
+1. Clean タスクを右クリックして**実行**コンテキスト メニュー。 コマンド ウィンドウには、タスクの進行状況が表示されます。
 
     ![タスク ランナー エクスプ ローラーの実行クリーン タスク](using-grunt/_static/task-runner-explorer-run-clean.png)
 
     > [!NOTE]
     > まだをクリーンアップするファイルまたはディレクトリはありません。 必要に応じて、ソリューション エクスプ ローラーでそれらを手動で作成し、テストとして clean タスクを実行できます。
 
-8. InitConfig() メソッドでのエントリを追加`concat`次のコードを使用します。
+1. `initConfig`のエントリを追加、関数`concat`次のコードを使用します。
 
     `src`プロパティ配列を組み合わせる必要がありますの順序で結合します。 ファイルを一覧表示します。 `dest`プロパティが生成される結合されたファイルにパスを割り当てます。
 
@@ -186,11 +186,11 @@ Grunt がという名前のマニフェストで構成されている*Gruntfile.
     ```
 
     > [!NOTE]
-    > `all`上記のコードでプロパティは、ターゲットの名前。 ターゲットは、複数のビルド環境を許可するいくつかの Grunt タスクで使用されます。 Intellisense を使用して組み込みのターゲットを表示または独自に割り当てることができます。
+    > `all`上記のコードでプロパティは、ターゲットの名前。 ターゲットは、複数のビルド環境を許可するいくつかの Grunt タスクで使用されます。 IntelliSense を使用して組み込みのターゲットを表示または独自に割り当てることができます。
 
-9. 追加、`jshint`タスクの次のコードを使用します。
+1. 追加、`jshint`タスクの次のコードを使用します。
 
-    一時ディレクトリにあるすべての JavaScript ファイルに対して jshint コード品質のユーティリティを実行するとします。
+    Jshint`code-quality`で見つかったすべての JavaScript ファイルに対してユーティリティを実行、 *temp*ディレクトリ。
 
     ```javascript
     jshint: {
@@ -204,7 +204,7 @@ Grunt がという名前のマニフェストで構成されている*Gruntfile.
     > [!NOTE]
     > オプション"-W069"がエラー時に生成される jshint JavaScript はつまり、ドット表記ではなくプロパティを割り当てるの構文を角かっこ`Tastes["Sweet"]`の代わりに`Tastes.Sweet`します。 オプションは、他のプロセスの続行を許可する警告をオフにします。
 
-10. 追加、`uglify`タスクの次のコードを使用します。
+1. 追加、`uglify`タスクの次のコードを使用します。
 
     タスクの縮小、 *combined.js* ファイルが、一時ディレクトリにあるし、標準の命名規則に従った wwwroot/lib で結果ファイルを作成 *\<ファイル名\>min.js* 。
 
@@ -217,7 +217,7 @@ Grunt がという名前のマニフェストで構成されている*Gruntfile.
     },
     ```
 
-11. Grunt contrib クリーンアップが読み込まれる呼び出し grunt.loadNpmTasks() では、jshint、concat の同じ呼び出しを含めるし、uglify の次のコードを使用してください。
+1. 呼び出しの下`grunt.loadNpmTasks`を読み込む`grunt-contrib-clean`uglify の次のコードを使用して、jshint、concat の同じ呼び出しが含まれています。
 
     ```javascript
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -225,15 +225,15 @@ Grunt がという名前のマニフェストで構成されている*Gruntfile.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     ```
 
-12. 保存*Gruntfile.js*します。 ファイルの内容は次の例のようになります。
+1. 保存*Gruntfile.js*します。 ファイルの内容は次の例のようになります。
 
     ![grunt の完全なファイルの例](using-grunt/_static/gruntfile-js-complete.png)
 
-13. タスク ランナー エクスプ ローラーのタスクの一覧を含む通知`clean`、 `concat`、`jshint`と`uglify`タスク。 順序で各タスクを実行し、ソリューション エクスプ ローラーで結果を確認します。 各タスクは、エラーなく実行する必要があります。
+1. 注意、 **Task Runner Explorer**タスクの一覧が含まれます`clean`、 `concat`、`jshint`と`uglify`タスク。 順序で各タスクを実行してで結果を観察**ソリューション エクスプ ローラー**します。 各タスクは、エラーなく実行する必要があります。
 
     ![タスク ランナー エクスプ ローラーの各タスクの実行](using-grunt/_static/task-runner-explorer-run-each-task.png)
 
-    Concat タスクを作成、新しい*combined.js*ファイルし、temp ディレクトリに配置します。 Jshint タスクは単純に実行され、出力は生成されません。 新しい uglify のタスクを作成*combined.min.js*ファイルし、wwwroot/lib に配置します。 完了時に次のスクリーン ショットのようなもの、ソリューションはなります。
+    Concat タスクを作成、新しい*combined.js*ファイルし、temp ディレクトリに配置します。 `jshint`単純にタスクを実行して出力を生成しません。 `uglify`タスクを作成する新しい*combined.min.js*ファイルおよび配置に*wwwroot/lib*します。 完了時に次のスクリーン ショットのようなもの、ソリューションはなります。
 
     ![ソリューション エクスプ ローラーのすべてのタスクします。](using-grunt/_static/solution-explorer-after-all-tasks.png)
 

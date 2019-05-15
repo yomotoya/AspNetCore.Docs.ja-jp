@@ -5,14 +5,14 @@ description: Azure Key Vault 構成プロバイダーを使用して、実行時
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 45eca05b5eb41815924ca48f60c3b00046c6bdaf
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894989"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621029"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault 構成プロバイダー
 
@@ -111,7 +111,7 @@ dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>アプリケーション ID とクライアント シークレットを使用して、Azure でホストされているアプリ
+## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>アプリケーション ID と X.509 証明書を使用して、Azure でホストされているアプリ
 
 Azure AD を構成、キー コンテナーへの認証に証明書を Azure Active Directory アプリケーション ID と X.509 を使用するには、Azure Key Vault とアプリ **、アプリが Azure の外部でホストされている**します。 詳細については、次を参照してください。[キー、シークレット、および証明書に関する](/azure/key-vault/about-keys-secrets-and-certificates)します。
 
@@ -120,12 +120,15 @@ Azure AD を構成、キー コンテナーへの認証に証明書を Azure Act
 
 アプリケーション ID と X.509 証明書の場合にサンプル アプリでは、`#define`の上部にあるステートメント、 *Program.cs*に設定されているファイル`Certificate`します。
 
+1. PKCS #12 アーカイブを作成 (*.pfx*) 証明書。 証明書を作成するためのオプションがあります。 [Windows で MakeCert](/windows/desktop/seccrypto/makecert)と[OpenSSL](https://www.openssl.org/)します。
+1. 現在のユーザーの個人証明書ストアに証明書をインストールします。 キーをマークするエクスポート可能とは省略可能です。 このプロセスの後半で使用される証明書の拇印に注意してください。
+1. PKCS #12 アーカイブのエクスポート (*.pfx*) DER でエンコードされた証明書として証明書 (*.cer*)。
 1. Azure AD にアプリを登録 (**アプリの登録**)。
-1. 公開キーをアップロードします。
+1. DER でエンコードされた証明書のアップロード (*.cer*) Azure AD に。
    1. Azure AD でアプリを選択します。
-   1. 移動します**設定** > **キー**します。
-   1. 選択**公開キーのアップロード**パブリック キーを含む証明書をアップロードします。 使用しただけでなく、 *.cer*、 *.pem*、または *.crt*証明書を *.pfx*証明書をアップロードすることができます。
-1. アプリのアプリケーション ID とキー コンテナーの名前を格納する*appsettings.json*ファイル。 または、アプリの証明書ストアにアプリのルートにある証明書を配置&dagger;します。
+   1. 移動します**証明書およびシークレット**します。
+   1. 選択**証明書のアップロード**パブリック キーを含む証明書をアップロードします。 A *.cer*、 *.pem*、または *.crt*証明書は許容されます。
+1. アプリの key vault 名、アプリケーション ID、および証明書の拇印を格納する*appsettings.json*ファイル。
 1. 移動します**キー コンテナー** Azure portal でします。
 1. 作成した key vault の選択、 [Azure Key Vault の実稼働環境でのシークレット ストレージ](#secret-storage-in-the-production-environment-with-azure-key-vault)セクション。
 1. 選択**アクセス ポリシー**します。
@@ -136,8 +139,6 @@ Azure AD を構成、キー コンテナーへの認証に証明書を Azure Act
 1. **[保存]** を選択します。
 1. アプリをデプロイします。
 
-&dagger;サンプル アプリでは、アプリのルートにある物理証明書ファイルから直接、証明書を使用して新しいを作成する`X509Certificate2`を呼び出すときに`AddAzureKeyVault`します。 その他の方法では、証明書を管理する OS の許可です。 詳細については、次を参照してください。、 [X.509 証明書を管理する OS を許可する](#allow-the-os-to-manage-the-x509-certificate)セクション。
-
 `Certificate`サンプル アプリからその構成値を取得する`IConfigurationRoot`シークレットの名前と同じ名前で。
 
 * 非階層型の値:値は、`SecretName`では、行わ`config["SecretName"]`します。
@@ -145,14 +146,15 @@ Azure AD を構成、キー コンテナーへの認証に証明書を Azure Act
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
-アプリによる呼び出し`AddAzureKeyVault`によって提供される値を持つ、 *appsettings.json*ファイル。
+X.509 証明書は、OS によって管理されます。 アプリによる呼び出し`AddAzureKeyVault`によって提供される値を持つ、 *appsettings.json*ファイル。
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=12-15)]
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=20-23)]
 
 値の例:
 
 * Key vault 名: `contosovault`
 * アプリケーション ID: `627e911e-43cc-61d4-992e-12db9c81b413`
+* 証明書の拇印: `fe14593dd66b2406c5269d742d04b6e1ab03adb1`
 
 *appsettings.json*:
 
@@ -203,17 +205,7 @@ az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secre
 
 `AddAzureKeyVault` カスタムを使用して呼び出した`IKeyVaultSecretManager`:
 
-[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?name=snippet1&highlight=22)]
-
-Key vault 名、アプリケーション ID、およびパスワード (クライアント シークレット) の値がによって提供される、 *appsettings.json*ファイル。
-
-[!code-json[](key-vault-configuration/sample/appsettings.json)]
-
-値の例:
-
-* Key vault 名: `contosovault`
-* アプリケーション ID: `627e911e-43cc-61d4-992e-12db9c81b413`
-* パスワード: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
+[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
 
 `IKeyVaultSecretManager`実装が構成に適切なシークレットを読み込むのシークレットのバージョンのプレフィックスに反応します。
 
@@ -261,44 +253,6 @@ Key vault 名、アプリケーション ID、およびパスワード (クラ�
 
 > [!NOTE]
 > 独自に提供することも`KeyVaultClient`実装`AddAzureKeyVault`します。 カスタムのクライアントでは、アプリ間でのクライアントの 1 つのインスタンスの共有を許可します。
-
-## <a name="allow-the-os-to-manage-the-x509-certificate"></a>X.509 証明書を管理する OS を許可します。
-
-OS によっては、X.509 証明書を管理できます。 次の例では、`AddAzureKeyVault`を受け入れるオーバー ロードを`X509Certificate2`マシンの現在のユーザー証明書ストアの構成で指定された証明書の拇印から。
-
-```csharp
-// using System.Linq;
-// using System.Security.Cryptography.X509Certificates;
-// using Microsoft.Extensions.Configuration;
-
-WebHost.CreateDefaultBuilder(args)
-    .ConfigureAppConfiguration((context, config) =>
-    {
-        if (context.HostingEnvironment.IsProduction())
-        {
-            var builtConfig = config.Build();
-
-            using (var store = new X509Store(StoreName.My, 
-                StoreLocation.CurrentUser))
-            {
-                store.Open(OpenFlags.ReadOnly);
-                var certs = store.Certificates
-                    .Find(X509FindType.FindByThumbprint, 
-                        builtConfig["CertificateThumbprint"], false);
-
-                config.AddAzureKeyVault(
-                    builtConfig["KeyVaultName"], 
-                    builtConfig["AzureADApplicationId"], 
-                    certs.OfType<X509Certificate2>().Single());
-
-                store.Close();
-            }
-        }
-    })
-    .UseStartup<Startup>();
-```
-
-詳細については、次を参照してください。[クライアント シークレットの代わりに証明書による認証](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret)します。
 
 ## <a name="bind-an-array-to-a-class"></a>配列をクラスにバインドする
 
@@ -358,13 +312,12 @@ Configuration.Reload();
 
 アプリは、プロバイダーを使用して構成の読み込みに失敗した場合、エラー メッセージが書き込む、 [ASP.NET Core のログ記録インフラストラクチャ](xref:fundamentals/logging/index)します。 次の条件は、読み込みを構成できないようにします。
 
-* アプリは、Azure Active Directory で正しく構成されていません。
+* アプリまたは証明書は Azure Active Directory で正しく構成されていません。
 * Key vault は、Azure Key Vault に存在しません。
 * アプリは、キー コンテナーにアクセスする権限はありません。
 * アクセス ポリシーが含まれていない`Get`と`List`アクセス許可。
 * Key vault で構成データ (名前と値のペア) が正しくという名前のないがない、有効期限が切れたか、無効にします。
-* アプリが正しくない key vault の名前 (`KeyVaultName`)、Azure AD アプリケーション Id (`AzureADApplicationId`)、または Azure AD のパスワード (クライアント シークレット) (`AzureADPassword`)。
-* Azure AD のパスワード (クライアント シークレット) (`AzureADPassword`) 期限が切れています。
+* アプリが正しくない key vault の名前 (`KeyVaultName`)、Azure AD アプリケーション Id (`AzureADApplicationId`)、または Azure AD 証明書の拇印 (`AzureADCertThumbprint`)。
 * 構成キー (名) は、ロードしようとしている値用のアプリで正しくないです。
 
 ## <a name="additional-resources"></a>その他の技術情報
