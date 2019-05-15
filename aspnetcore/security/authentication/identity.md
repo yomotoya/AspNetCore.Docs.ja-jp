@@ -180,28 +180,28 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ::: moniker range=">= aspnetcore-2.1"
 
-ログイン フォームが表示されるとき。
+ログイン フォームは次の時に表示されます :
 
-* **ログイン** リンクを選択します。
-* ユーザーに権限がありませんが制限されているページにアクセスしようとしました。 アクセス**または**ときに、システムによって認証されていません。
+* **ログイン** リンクが選択されたとき。
+* ユーザーがまだシステムに認証されていない**または**アクセスする権限がない状態で、制限されているページにアクセスしようとしたとき。
 
-ログイン ページのフォームが送信されたときに、`OnPostAsync`アクションが呼び出されます。 `PasswordSignInAsync` 呼び出される、 `_signInManager` (依存関係の挿入によって提供される) オブジェクト。
+ログイン ページのフォームが送信されたとき、`OnPostAsync`アクションが呼び出されます。 `_signInManager`オブジェクト(依存関係の挿入によって提供されます)の`PasswordSignInAsync`が呼び出されます。
 
    [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-   基本`Controller`クラスでは、`User`コント ローラー メソッドからアクセスできるプロパティです。 たとえば、列挙することができます`User.Claims`承認決定を行うとします。 詳細については、「 <xref:security/authorization/introduction> 」を参照してください。
+ベース`Controller`クラスでは、コントローラー メソッドからアクセスできる`User`プロパティを公開します。 たとえば`User.Claims`を列挙して承認の決定を行うことができます。 詳細については「 <xref:security/authorization/introduction> 」を参照してください。
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-ユーザー選択すると、ログイン フォームが表示されます、**ログイン**リンクまたは認証が必要なページにアクセスするときにリダイレクトされます。 ユーザーがログイン ページで、フォームを送信するときに、 `AccountController` `Login`アクションが呼び出されます。
+ログイン フォームは、ユーザーが**ログイン**リンク選択したとき表示されます。また認証が必要なページにアクセスしたときにリダイレクトされます。 ユーザーがログイン ページでフォームを送信すると、`AccountController`の`Login`アクションが呼び出されます。
 
-`Login`アクション呼び出し`PasswordSignInAsync`上、`_signInManager`オブジェクト (に提供される`AccountController`依存関係の挿入によって)。
+`Login`アクションは`_signInManager`オブジェクト (依存関係の挿入によって`AccountController`に提供されます)の`PasswordSignInAsync`を呼び出します。
 
 [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
 
-基本 (`Controller`または`PageModel`) クラスでは、`User`プロパティ。 たとえば、`User.Claims`承認決定を行うために列挙できることができます。
+ベース (`Controller`または`PageModel`) クラスは、`User`プロパティを公開します。 たとえば、`User.Claims`を列挙して承認決定を行うことができます。
 
 ::: moniker-end
 
