@@ -250,23 +250,23 @@ Identity をさらに詳しく調査。
 
 ::: moniker-end
 
-## <a name="identity-components"></a>Id コンポーネント
+## <a name="identity-components"></a>Identity コンポーネント
 
 ::: moniker range=">= aspnetcore-2.1"
 
-すべての Id 依存の NuGet パッケージが含まれている、 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)します。
+すべての Identity依存のNuGetパッケージは[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれます。
 
 ::: moniker-end
 
-プライマリ パッケージの Id が[Microsoft.AspNetCore.Identity](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/)します。 このパッケージは、ASP.NET Core Identity のインターフェイスのコア セットが含まれていてに含まれている`Microsoft.AspNetCore.Identity.EntityFrameworkCore`します。
+Identityのプライマリパッケージは[Microsoft.AspNetCore.Identity](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/)です。 このパッケージは ASP.NET Core Identity のインターフェイスのコアセットを含んでいて、また`Microsoft.AspNetCore.Identity.EntityFrameworkCore`に含まれています。
 
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core Identity に移行します。
 
-詳細と、既存の Id ストアを移行のガイダンスについては、次を参照してください。[移行の認証と Id](xref:migration/identity)します。
+既存の Identity ストアの移行についての詳細とガイダンスについては、次を参照してください : [移行の認証と Id](xref:migration/identity)
 
 ## <a name="setting-password-strength"></a>パスワードの強度を設定
 
-参照してください[構成](#pw)のパスワードの最小要件を設定するサンプルです。
+パスワードの最小要件を設定するサンプルについては[構成](#pw)を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 
