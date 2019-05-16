@@ -59,7 +59,7 @@ dotnet new webapp --auth Individual -o WebApp1
 
 ---
 
-生成されたプロジェクトは、 [ASP.NET Core Identity](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)します。 Id の Razor クラス ライブラリでエンドポイントを公開する、`Identity`領域。 例:
+生成されたプロジェクトは、 [ASP.NET Core Identity](xref:security/authentication/identity)を [Razor クラス ライブラリ](xref:razor-pages/ui-class)として提供します。 Identity の Razor クラス ライブラリは`Identity`エリアでエンドポイントを公開します。 例:
 
 * /Identity/Account/Login
 * /Identity/Account/Logout
