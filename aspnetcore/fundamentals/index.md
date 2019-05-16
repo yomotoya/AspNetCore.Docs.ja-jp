@@ -5,14 +5,14 @@ description: ASP.NET Core アプリの構築に関する基本概念について
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: a1fed574db0baab391ebb9cfc44664ceddbfa69b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882627"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610321"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -78,6 +78,8 @@ ASP.NET Core アプリは起動時に*ホスト*をビルドします。 ホス�
 
 ::: moniker range=">= aspnetcore-3.0"
 
+`CreateHostBuilder` は、[Entity Framework](/ef/core/) などの外部コンポーネントに対するビルダー メソッドを識別するための特別な名前です。
+
 ASP.NET Core 3.0 以降では、汎用ホスト (`Host` クラス) または Web ホスト (`WebHost` クラス) を Web アプリで使用できます。 汎用ホストが推奨されますが、下位互換性のために Web ホストを使用することも可能です。
 
 このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` メソッドと `ConfigureWebHostDefaults` メソッドを提供します。
@@ -95,6 +97,8 @@ ASP.NET Core 3.0 以降では、汎用ホスト (`Host` クラス) または Web
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
+
+`CreateWebHostBuilder` は、[Entity Framework](/ef/core/) などの外部コンポーネントに対するビルダー メソッドを識別するための特別な名前です。
 
 ASP.NET Core 2.x では、Web アプリに Web ホスト (`WebHost` クラス) を使用します。 このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` を提供します。
 

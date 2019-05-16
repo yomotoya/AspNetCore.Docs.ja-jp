@@ -1,27 +1,27 @@
 ---
 title: ASP.NET Core の概要
 author: rick-anderson
-description: ASP.NET Core を使用して単純な Hello World アプリを作成し、実行する簡単なチュートリアルです。
+description: ASP.NET Core を使用して基本的な Hello World アプリを作成し、実行する簡単なチュートリアルです。
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 5/15/2019
 uid: getting-started
-ms.openlocfilehash: 76728c484368a8b63130c259a9663473970846d3
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 9227dcfbc84376d9d73bc6fc0dd76085779acae1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209477"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610313"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>チュートリアル: ASP.NET Core の概要
 
-このチュートリアルでは、.NET Core コマンド ライン インターフェイスを使用して ASP.NET Core Web アプリを作成する方法について説明します。
+このチュートリアルでは、.NET Core コマンド ライン インターフェイスを使用して ASP.NET Core Web アプリを作成して実行する方法について説明します。
 
 以下の方法について説明します。
 
 > [!div class="checklist"]
 > * Web アプリ プロジェクトを作成する。
-> * ローカル HTTPS を有効にする。
+> * 開発証明書を信頼します。
 > * アプリを実行します。
 > * Razor ページを編集する。
 
@@ -41,7 +41,7 @@ ms.locfileid: "58209477"
 dotnet new webapp -o aspnetcoreapp
 ```
 
-## <a name="enable-local-https"></a>ローカル HTTPS を有効にする
+### <a name="trust-the-development-certificate"></a>開発証明書を信頼する
 
 HTTPS 開発証明書を信頼します。
 
@@ -70,6 +70,8 @@ dotnet dev-certs https --trust
 このコマンドでは、システム キーチェーン上に証明書をインストールするためにご自分のパスワードを入力するよう求められる場合があります。 開発証明書を信頼することに同意する場合は、パスワードを入力します。
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Windows Subsystem for Linux については、「[Trust HTTPS certificate from Windows Subsystem for Linux (Windows Subsystem for Linux からの HTTPS 証明書を信頼する)](xref:security/enforcing-ssl#wsl)」をご覧ください。
 
 HTTPS 開発証明書を信頼する方法については、Linux ディストリビューションのドキュメントを参照してください。
 
@@ -102,7 +104,7 @@ dotnet run
 
 > [!div class="checklist"]
 > * Web アプリ プロジェクトを作成する。
-> * ローカル HTTPS を有効にする。
+> * 開発証明書を信頼します。
 > * プロジェクトを実行します。
 > * 変更を加えます。
 
