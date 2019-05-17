@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core プロジェクトでスキャフォールディング Id
+title: ASP.NET Core プロジェクトにおけるIdentityのスキャフォールディング
 author: rick-anderson
 description: ASP.NET Core プロジェクトでの Id をスキャフォールディングする方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
@@ -14,7 +14,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/27/2019
 ms.locfileid: "64897359"
 ---
-# <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core プロジェクトでスキャフォールディング Id
+# <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core プロジェクトにおけるIdentityのスキャフォールディング
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -31,7 +31,7 @@ Identity scaffolder が実行される、 *ScaffoldingReadme.txt*プロジェク
 > [!NOTE]
 > 使用する場合に必要なサービス[2 要素認証](xref:security/authentication/identity-enable-qrcodes)、[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)、および Id を持つその他のセキュリティ機能。 Identity をスキャフォールディングするときにサービスまたはサービスのスタブは生成されません。 これらの機能を有効にするサービスを手動で追加する必要があります。 たとえばを参照してください[確認の電子メールを必要と](xref:security/authentication/accconfirm#require-email-confirmation)します。
 
-## <a name="scaffold-identity-into-an-empty-project"></a>空のプロジェクトにスキャフォールディング identity
+## <a name="scaffold-identity-into-an-empty-project"></a>空のプロジェクトに対するidentityのスキャフォールディング
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
@@ -43,7 +43,7 @@ Identity scaffolder が実行される、 *ScaffoldingReadme.txt*プロジェク
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a>既存の承認なし Razor プロジェクトにスキャフォールディング identity
+## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a>既存の承認なしのRazorプロジェクトに対するidentityのスキャフォールディング
 
 <!--
 set projNam=RPnoAuth
@@ -65,13 +65,13 @@ Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳�
 
 <a name="efm"></a>
 
-### <a name="migrations-useauthentication-and-layout"></a>移行、UseAuthentication、およびレイアウト
+### <a name="migrations-useauthentication-and-layout"></a>マイグレーション、UseAuthentication、およびレイアウト
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
 <a name="useauthentication"></a>
 
-### <a name="enable-authentication"></a>認証を有効にします。
+### <a name="enable-authentication"></a>認証の有効化
 
 `Configure`のメソッド、`Startup`クラスを呼び出す[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)後`UseStaticFiles`:
 
@@ -85,7 +85,7 @@ Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳�
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>権限を持つ Razor プロジェクトにスキャフォールディング identity
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>承認ありのRazorプロジェクトに対するidentityのスキャフォールディング
 
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
@@ -102,7 +102,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
 
-## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>MVC プロジェクトの既存の承認なしにスキャフォールディング identity
+## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>既存の承認なしのMVCプロジェクトに対するidentityのスキャフォールディング
 
 <!--
 set projNam=MvcNoAuth
@@ -136,7 +136,7 @@ Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳�
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>MVC プロジェクトの承認にスキャフォールディング identity
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>承認ありのMVCプロジェクトに対するidentityのスキャフォールディング
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
@@ -152,7 +152,7 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 
 <a name="full"></a>
 
-## <a name="create-full-identity-ui-source"></a>完全な id の UI のソースを作成します。
+## <a name="create-full-identity-ui-source"></a>identityの全てのUIのソースの作成
 
 Identity UI を完全に制御を維持するために、Identity scaffolder を実行して選択して**すべてのファイルを上書き**します。
 
