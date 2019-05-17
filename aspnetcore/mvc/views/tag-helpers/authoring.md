@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 37e39ac93e7b67184dfc238d58e12c2be8d84f91
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: d7a5656131189ffafb60a7b1db0b8d93a3787ae2
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087355"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621049"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
@@ -313,3 +313,12 @@ FQN を使用してタグ ヘルパーをビューに追加するには、最初
 [!code-csharp[](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
 * `GetChildContentAsync` を複数回呼び出すと、同じ値が返され、キャッシュされた結果を使用しないことを示す false パラメーターを渡さない限り、`TagHelper` ボディは再実行されません。
+
+## <a name="load-minified-partial-view-taghelper"></a>縮小された部分ビュー TagHelper を読み込む
+
+運用環境では、縮小された部分ビューを読み込むことでパフォーマンスを向上できます。 運用環境で縮小された部分ビューを活用するには:
+
+* 部分ビューを縮小するビルド前プロセスを作成/設定します。
+* 次のコードを使って、非開発環境に縮小された部分ビューを読み込みます。
+
+[!code-csharp[](authoring/sample/AuthoringTagHelpers/src/MinifiedVersionTagHelper.cs?name=snippet)]

@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core アプリの Web ホスト (アプリの起動と有効期間の管理を担当する) について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 05/11/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: b391b5e514e750f64f30d33cf4eb91e489242eba
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 48f3b664d901bdfb27cdf9e798fa60c0587d1def
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888977"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610282"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core の Web ホスト
 
@@ -39,7 +39,9 @@ ASP.NET Core アプリは*ホスト*を構成して起動します。 ホスト�
 
 ## <a name="set-up-a-host"></a>ホストを設定する
 
-[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) のインスタンスを使用して、ホストを作成します。 通常、これはアプリのエントリ ポイントの `Main` メソッドで実行されます。 プロジェクト テンプレートでは、`Main` は *Program.cs* にあります。 一般的な *Program.cs* では、次のように [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を呼び出してホストの設定を開始します。
+[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) のインスタンスを使用して、ホストを作成します。 通常、これはアプリのエントリ ポイントの `Main` メソッドで実行されます。 ビルダー メソッド名 (`CreateWebHostBuilder`) は、[Entity Framework](/ef/core/) などの外部コンポーネントに対するビルダー メソッドを識別するための特別な名前です。
+
+プロジェクト テンプレートでは、`Main` は *Program.cs* にあります。 一般的なアプリでは、[CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を呼び出してホストの設定を開始します。
 
 ```csharp
 public class Program
