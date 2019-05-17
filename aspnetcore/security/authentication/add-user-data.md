@@ -1,7 +1,7 @@
 ---
-title: 追加、ダウンロード、および Id に、ASP.NET Core プロジェクト内のユーザー データの削除
+title: ASP.NET Core プロジェクトにおけるIdentityへのカスタムユーザーデータの追加、ダウンロードおよび削除
 author: rick-anderson
-description: ASP.NET Core プロジェクトでのユーザーにカスタム ユーザー データを追加する方法について説明します。 GDPR ごとのデータを削除します。
+description: ASP.NET Core プロジェクトにおいてIdentityにカスタムユーザーデータを追加する方法について説明します。 GDPR ごとのデータを削除します。
 ms.author: riande
 ms.date: 6/16/2018
 ms.custom: mvc, seodec18
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65086489"
 ---
-# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>追加、ダウンロード、および Id に、ASP.NET Core プロジェクトでのカスタム ユーザー データの削除
+# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>ASP.NET Core プロジェクトにおけるIdentityへのカスタムユーザーデータの追加、ダウンロードおよび削除
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -48,7 +48,7 @@ dotnet new webapp -o WebApp1
 
 ---
 
-## <a name="run-the-identity-scaffolder"></a>Identity scaffolder を実行します。
+## <a name="run-the-identity-scaffolder"></a>Identityのスキャフォールディングの実行
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -104,7 +104,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
   * 選択、**ダウンロード**ボタンをクリックし、調査、 *PersonalData.json*ファイル。
   * テスト、**削除**ボタンで、ユーザーのログオンを削除します。
 
-## <a name="add-custom-user-data-to-the-identity-db"></a>Identity DB へのカスタム ユーザー データを追加します。
+## <a name="add-custom-user-data-to-the-identity-db"></a>Identity DB へのカスタムユーザーデータの追加
 
 更新プログラム、`IdentityUser`カスタム プロパティを持つクラスを派生します。 ファイルの名前は WebApp1 プロジェクトの名前を付けた場合*Areas/Identity/Data/WebApp1User.cs*します。 次のコード ファイルを更新します。
 
@@ -115,7 +115,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 * 削除されたときに、 *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor ページを呼び出して`UserManager.Delete`します。
 * によってデータのダウンロードに含まれる、 *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* Razor ページ。
 
-### <a name="update-the-accountmanageindexcshtml-page"></a>Account/Manage/Index.cshtml ページを更新します。
+### <a name="update-the-accountmanageindexcshtml-page"></a>Account/Manage/Index.cshtml ページの更新
 
 更新プログラム、`InputModel`で*Areas/Identity/Pages/Account/Manage/Index.cshtml.cs*次のようにコードを強調表示されます。
 
@@ -125,7 +125,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 [!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=35-42)]
 
-### <a name="update-the-accountregistercshtml-page"></a>Account/Register.cshtml ページを更新します。
+### <a name="update-the-accountregistercshtml-page"></a>Account/Register.cshtml ページの更新
 
 更新プログラム、`InputModel`で*Areas/Identity/Pages/Account/Register.cshtml.cs*次のようにコードを強調表示されます。
 
@@ -137,7 +137,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 プロジェクトをビルドします。
 
-### <a name="add-a-migration-for-the-custom-user-data"></a>カスタム ユーザー データの移行を追加します。
+### <a name="add-a-migration-for-the-custom-user-data"></a>カスタムユーザーデータのマイグレーションの追加
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -157,7 +157,7 @@ dotnet ef database update
 
 ---
 
-## <a name="test-create-view-download-delete-custom-user-data"></a>テストを作成、表示、ダウンロード、カスタム ユーザー データの削除
+## <a name="test-create-view-download-delete-custom-user-data"></a>カスタムユーザーデータの作成、表示、ダウンロード、削除のテスト
 
 アプリをテストします。
 
