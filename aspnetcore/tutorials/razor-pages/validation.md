@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e9214139c0e6e958445feb13b6350bad376a0152
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884167"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874984"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
@@ -28,22 +28,7 @@ ms.locfileid: "64884167"
 
 Razor ページと Entity Framework が提供している検証のサポートは、DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に規定され、アプリの任意の場所で適用されます。
 
-### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルに追加する
-
-*Models/Movie.cs* ファイルを開きます。 [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、書式設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
-
-`Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-検証属性で、モデルのプロパティに適用されている動作を指定します。
-
-* `Required` と `MinimumLength` の属性は、プロパティに値が必要なことを示します。 ただし、ユーザーがnull 許容型の妥当性制約を満たすために空白を入力することを防ぐことはできません。 null 非許容の[値の型](/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`Required` 属性を必要としません。
-* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 前のコードでは、`Genre` は 1 文字以上の大文字で始まり、0 文字以上の英字、一重引用符または二重引用符、空白文字、またはダッシュを続ける必要があります。 `Rating` は 1 文字以上の大文字で始まり、0 文字以上の英字、数字、一重引用符または二重引用符、空白文字、またはダッシュを続ける必要があります。
-* `Range` 属性は、指定した範囲に値を制限します。
-* `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 
-
-ASP.NET Core で検証規則を自動的に適用すると、アプリをより堅牢にすることができます。 モデルに自動検証を適用すると、新しいコードを追加したときに適用を思い出す必要がないので、アプリの保護に役立ちます。
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
 ### <a name="validation-error-ui-in-razor-pages"></a>Razor ページの検証エラー UI
 

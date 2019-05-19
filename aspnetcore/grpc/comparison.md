@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 8f4cefe1dedcf4cfd9650e73e6a1ba30dbbfeffa
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 655c921788deb30f3c0f3b47f4440dc8701c0f59
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087409"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874933"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>HTTP API を使用した gRPC サービスの比較
 
@@ -28,7 +28,7 @@ ms.locfileid: "65087409"
 |    Payload             |    [Protobuf (小さな、バイナリ)](#performance)             |    JSON (大規模な場合は、人間が判読できる)              |
 |    Prescriptiveness    |    [厳密な仕様](#strict-specification)        |    失われます。 任意の HTTP が有効                  |
 |    ストリーム           |    [クライアント、サーバー、双方向](#streaming)         |    クライアント、サーバー                            |
-|    ブラウザー サポート     |    [いいえ (grpc web が必要)](#limited-browser-support)   |    はい                                       |
+|    ブラウザー サポート     |    [いいえ (grpc web が必要)](#limited-browser-support)   |    [はい]                                       |
 |    セキュリティ            |    トランスポート (HTTPS)                                    |    トランスポート (HTTPS)                         |
 |    クライアントのコード生成     |    [はい](#code-generation)                              |    OpenAPI + サード パーティ製のツール             |
 
@@ -76,7 +76,7 @@ gRPC は、クライアントがどのくらいの時間は、RPC を完了す�
 
 gRPC は、次のシナリオに適してします。
 
-* **マイクロ サービス** &ndash; gRPC は設計の低待機時間とスループットが高い通信します。 gRPC は効率が重要な軽量のマイクロ サービスに最適です。
+* **マイクロ サービス** &ndash; gRPC が低待機時間とスループットが高い通信用に設計されています。 gRPC は効率が重要な軽量のマイクロ サービスに最適です。
 * **ポイント ツー ポイントのリアルタイム通信** &ndash; gRPC は双方向のストリーミング用の優れたサポートしています。 gRPC サービスは、メッセージをプッシュ配信、ポーリングせずにリアルタイムできます。
 * **Polygot 環境** &ndash; gRPC ツールは、gRPC の多言語環境の適切な選択を行うすべての一般的な開発言語をサポートしています。
 * **ネットワーク環境の制約付き** &ndash; gRPC メッセージは、Protobuf、軽量メッセージ形式にシリアル化されます。 GRPC メッセージは、同等の JSON メッセージよりも小さいは常にします。

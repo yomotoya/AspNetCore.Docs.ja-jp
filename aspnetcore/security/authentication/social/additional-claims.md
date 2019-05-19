@@ -2,17 +2,17 @@
 title: その他の要求と ASP.NET Core での外部プロバイダーからのトークンを保存します。
 author: guardrex
 description: その他の要求と外部プロバイダーからトークンを確立する方法について説明します。
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 05/14/2019
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: 37c7a51217576669bcaed79d4a212e6412aa8945
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: e18287e5a4171b3f7a6daa122111448b8447c1da
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897669"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874846"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>その他の要求と ASP.NET Core での外部プロバイダーからのトークンを保存します。
 
@@ -24,7 +24,7 @@ ASP.NET Core アプリは、追加の要求および Facebook、Google、Microso
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-アプリでサポートするには、どの外部認証プロバイダーを決定します。 プロバイダーごとにアプリを登録して、クライアント ID とクライアント シークレットを取得します。 詳細については、「 <xref:security/authentication/social/index> 」を参照してください。 [サンプル アプリ](#sample-app-instructions)を使用して、 [Google の認証プロバイダー](xref:security/authentication/google-logins)します。
+アプリでサポートするには、どの外部認証プロバイダーを決定します。 プロバイダーごとにアプリを登録して、クライアント ID とクライアント シークレットを取得します。 詳細については、「 <xref:security/authentication/social/index> 」を参照してください。 サンプル アプリでは、 [Google の認証プロバイダー](xref:security/authentication/google-logins)します。
 
 ## <a name="set-the-client-id-and-client-secret"></a>クライアント ID とクライアント シークレットを設定します。
 
@@ -39,7 +39,7 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 サンプル アプリは、クライアント ID とクライアント シークレットが Google から提供されると、Google の認証プロバイダーを構成します。
 
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=4,6)]
+[!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=4,9)]
 
 ## <a name="establish-the-authentication-scope"></a>認証のスコープを確立します。
 
@@ -48,27 +48,39 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 | プロバイダー  | スコープ                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
-| Google    | `https://www.googleapis.com/auth/plus.login`                     |
+| Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
 | Microsoft | `https://login.microsoftonline.com/common/oauth2/v2.0/authorize` |
 | Twitter   | `https://api.twitter.com/oauth/authenticate`                     |
 
-サンプル アプリの追加、Google`plus.login`スコープ アクセス許可で Google + 記号を要求します。
+サンプル アプリで、Google の`userinfo.profile`スコープは、フレームワークによって自動的に追加時に<xref:Microsoft.Extensions.DependencyInjection.GoogleExtensions.AddGoogle*>で呼び出される、<xref:Microsoft.AspNetCore.Authentication.AuthenticationBuilder>します。 アプリは、追加のスコープを必要とする場合は、オプションを追加します。 次の例では、Google`https://www.googleapis.com/auth/user.birthday.read`スコープは、ユーザーの誕生日を取得するために追加されます。
 
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=7)]
+```csharp
+options.Scope.Add("https://www.googleapis.com/auth/user.birthday.read");
+```
 
 ## <a name="map-user-data-keys-and-create-claims"></a>ユーザー データのキーをマップし、要求の作成
 
-プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id を内の各キー。 要求の種類の詳細については、次を参照してください。<xref:System.Security.Claims.ClaimTypes>します。
+プロバイダーのオプションでは、指定、<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*>または<xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonSubKey*>の外部プロバイダーのユーザー データを JSON のサインイン時の読み取りをアプリ id の各キー サブキー/。 要求の種類の詳細については、次を参照してください。<xref:System.Security.Claims.ClaimTypes>します。
 
-サンプル アプリを作成、<xref:System.Security.Claims.ClaimTypes.Gender>からの要求を`gender`Google ユーザーのデータ キー。
+サンプル アプリは、ロケールを作成します (`urn:google:locale`) と画像 (`urn:google:picture`) からの要求、`locale`と`picture`Google ユーザー データ内のキー。
 
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=8)]
+[!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=13-14)]
 
 <xref:Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync*>、 <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) が使用して、アプリにサインイン<xref:Microsoft.AspNetCore.Identity.SignInManager%601.SignInAsync*>します。 プロセスでは、サインアップ時に、<xref:Microsoft.AspNetCore.Identity.UserManager%601>格納できる、`ApplicationUser`から使用可能なユーザー データの要求、<xref:Microsoft.AspNetCore.Identity.ExternalLoginInfo.Principal*>します。
 
-サンプル アプリで`OnPostConfirmationAsync`(*Account/ExternalLogin.cshtml.cs*) を確立、 <xref:System.Security.Claims.ClaimTypes.Gender> 、符号付きの要求で`ApplicationUser`:
+サンプル アプリで`OnPostConfirmationAsync`(*Account/ExternalLogin.cshtml.cs*)、ロケールの確立 (`urn:google:locale`) と画像 (`urn:google:picture`)、署名付きの要求で`ApplicationUser`、クレームを含む<xref:System.Security.Claims.ClaimTypes.GivenName>:
 
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=30-31)]
+[!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Areas/Identity/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=35-51)]
+
+既定では、ユーザーの要求は認証 cookie に格納されます。 認証 cookie が大きすぎる場合、アプリケーションのために失敗する可能性します。
+
+* ブラウザーでは、cookie のヘッダーが長すぎることを検出します。
+* 要求の全体的なサイズが大きすぎます。
+
+大量のユーザー データがユーザーの要求を処理するために必要な場合。
+
+* 要求にのみ、アプリが必要な処理のユーザー要求のサイズと数を制限します。
+* 使用して、カスタム<xref:Microsoft.AspNetCore.Authentication.Cookies.ITicketStore>の Cookie 認証ミドルウェアの<xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions.SessionStore>要求間で id を格納します。 大量ののみ、小規模のセッション識別子のキーをクライアントに送信中に、サーバー上の id 情報が保持されます。
 
 ## <a name="save-the-access-token"></a>アクセス トークンを保存します。
 
@@ -76,70 +88,72 @@ OAuth 認証プロバイダーは、クライアント ID とクライアント 
 
 サンプル アプリの値を設定する`SaveTokens`に`true`で<xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions>:
 
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=9)]
+[!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=15)]
 
 ときに`OnPostConfirmationAsync`を実行するアクセス トークンを保存 ([ExternalLoginInfo.AuthenticationTokens](xref:Microsoft.AspNetCore.Identity.ExternalLoginInfo.AuthenticationTokens*)) で外部プロバイダーから、`ApplicationUser`の`AuthenticationProperties`します。
 
-サンプル アプリでアクセス トークンを保存します。
+サンプル アプリでアクセス トークンを保存します`OnPostConfirmationAsync`(新しいユーザーの登録) と`OnGetCallbackAsync`(以前に登録したユーザー) で*Account/ExternalLogin.cshtml.cs*:
 
-* `OnPostConfirmationAsync` &ndash; 新規ユーザー登録を実行します。
-* `OnGetCallbackAsync` &ndash; 以前に登録されたユーザーがアプリにサインインを実行します。
-
-*Account/ExternalLogin.cshtml.cs*:
-
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=34-35)]
-
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnGetCallbackAsync&highlight=31-32)]
+[!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Areas/Identity/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=54-56)]
 
 ## <a name="how-to-add-additional-custom-tokens"></a>追加のカスタム トークンを追加する方法
 
 一部として格納されているカスタムのトークンを追加する方法を説明するために`SaveTokens`、サンプル アプリを追加、<xref:Microsoft.AspNetCore.Authentication.AuthenticationToken>を現在<xref:System.DateTime>の[AuthenticationToken.Name](xref:Microsoft.AspNetCore.Authentication.AuthenticationToken.Name*)の`TicketCreated`:
 
-[!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=10-21)]
+[!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=17-28)]
 
-## <a name="sample-app-instructions"></a>サンプル アプリの手順
+## <a name="creating-and-adding-claims"></a>作成して、要求の追加
 
-サンプル アプリについて説明する方法。
+フレームワークは、一般的な操作と、コレクションにクレームを追加する拡張メソッドを提供します。 詳細については、「 <xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions> 」および「 <xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionUniqueExtensions>」を参照してください。
 
-* Google からユーザーの性別を取得し、値は、性別のクレームを格納します。
-* ユーザーの Google アクセス トークンは保存`AuthenticationProperties`します。
+派生することによって、ユーザーがカスタム アクションを定義できます<xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction>抽象の実装と<xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>メソッド。
 
-サンプル アプリを使用します。
+詳細については、「 <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims> 」を参照してください。
 
-1. アプリを登録し、有効なクライアント ID と Google 認証用のクライアント シークレットを取得します。 詳細については、「 <xref:security/authentication/google-logins> 」を参照してください。
-1. クライアント ID とクライアント シークレットをアプリに提供、<xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions>の`Startup.ConfigureServices`します。
-1. アプリを実行し、My 要求ページを要求します。 ユーザーが署名されていないときに、アプリを Google にリダイレクトします。 Google でサインインします。 Google は、アプリにユーザーをリダイレクト (`/Home/MyClaims`)。 ユーザーが認証されると、および My 要求ページが読み込まれます。 性別の要求は下**ユーザーの信頼性情報**Google から取得した値を使用します。 表示されます、アクセス トークン、**認証プロパティ**します。
+## <a name="removal-of-claim-actions-and-claims"></a>要求アクションと要求の削除
+
+[ClaimActionCollection.Remove(String)](xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimActionCollection.Remove*)すべて削除要求のアクションを指定された<xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.ClaimType>コレクションから。 [ClaimActionCollectionMapExtensions.DeleteClaim (ClaimActionCollection, String)](xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.DeleteClaim*)のクレームを削除する、指定された<xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.ClaimType>id からです。 <xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.DeleteClaim*> 主に併用[OpenID Connect (OIDC)](/azure/active-directory/develop/v2-protocols-oidc)プロトコルによって生成されたクレームを削除します。
+
+## <a name="sample-app-output"></a>アプリのサンプル出力
 
 ```
 User Claims
 
 http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier
-    b36a7b09-9135-4810-b7a5-78697ff23e99
+    9b342344f-7aab-43c2-1ac1-ba75912ca999
 http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name
-    username@gmail.com
+    someone@gmail.com
 AspNet.Identity.SecurityStamp
-    29G2TB881ATCUQFJSRFG1S0QJ0OOAWVT
-http://schemas.xmlsoap.org/ws/2005/05/identity/claims/gender
-    female
-http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod
-    Google
+    7D4312MOWRYYBFI1KXRPHGOSTBVWSFDE
+http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    Judy
+urn:google:locale
+    en
+urn:google:picture
+    https://lh4.googleusercontent.com/-XXXXXX/XXXXXX/XXXXXX/XXXXXX/photo.jpg
 
 Authentication Properties
 
 .Token.access_token
-    bv42.Dgw...GQMv9ArLPs
+    yc23.AlvoZqz56...1lxltXV7D-ZWP9
 .Token.token_type
     Bearer
 .Token.expires_at
-    2018-08-27T19:08:00.0000000+00:00
+    2019-04-11T22:14:51.0000000+00:00
 .Token.TicketCreated
-    8/27/2018 6:08:00 PM
+    4/11/2019 9:14:52 PM
 .TokenNames
     access_token;token_type;expires_at;TicketCreated
+.persistent
 .issued
-    Mon, 27 Aug 2018 18:08:05 GMT
+    Thu, 11 Apr 2019 20:51:06 GMT
 .expires
-    Mon, 10 Sep 2018 18:08:05 GMT
+    Thu, 25 Apr 2019 20:51:06 GMT
+
 ```
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [aspnet/AspNetCore エンジニア リング SocialSample アプリ](https://github.com/aspnet/AspNetCore/tree/master/src/Security/Authentication/samples/SocialSample)&ndash;リンクされているサンプル アプリが上に、 [aspnet/AspNetCore GitHub リポジトリの](https://github.com/aspnet/AspNetCore)`master`エンジニア リングの分岐。 `master`ブランチには、次のリリースの ASP.NET Core の開発中のコードが含まれています。 ASP.NET Core のリリース バージョンのサンプル アプリのバージョンを表示する、**ブランチ**ドロップダウン リストをリリース ブランチを選択します (たとえば`release/2.2`)。
