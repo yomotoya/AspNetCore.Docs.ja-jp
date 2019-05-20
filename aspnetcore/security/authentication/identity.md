@@ -189,7 +189,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
    [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-ベース`Controller`クラスでは、コントローラー メソッドからアクセスできる`User`プロパティを公開します。 たとえば`User.Claims`を列挙して承認の決定を行うことができます。 詳細については「 <xref:security/authorization/introduction> 」を参照してください。
+ベース`Controller`クラスでは、コントローラー メソッドからアクセスできる`User`プロパティを公開します。 たとえば`User.Claims`を列挙して承認の決定を行うことができます。 詳細については「ASP.NET Core での承認の概要<xref:security/authorization/introduction> 」を参照してください。
 
 ::: moniker-end
 
