@@ -209,13 +209,13 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**ログアウト**リンクを呼び出す、`LogoutModel.OnPost`アクション。 
+**ログアウト**リンクから`LogoutModel.OnPost`アクションが呼び出されます。 
 
 [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Logout.cshtml.cs)]
 
-[SignOutAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.signoutasync#Microsoft_AspNetCore_Identity_SignInManager_1_SignOutAsync) cookie に格納されているユーザーの要求をクリアします。 呼び出した後にリダイレクトしない`SignOutAsync`ユーザーまたは**いない**サインアウトします。
+[SignOutAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.signoutasync#Microsoft_AspNetCore_Identity_SignInManager_1_SignOutAsync) はcookie に格納されているユーザー要求をクリアします。 `SignOutAsync`を呼び出した後にリダイレクトしないでください、ユーザーはサインアウト**されません**。
 
-投稿がで指定された、 *Pages/Shared/_LoginPartial.cshtml*:
+Postは *Pages/Shared/_LoginPartial.cshtml* で指定されています :
 
 [!code-csharp[](identity/sample/WebApp1/Pages/Shared/_LoginPartial.cshtml?highlight=16)]
 
@@ -223,11 +223,11 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ::: moniker range="= aspnetcore-2.0"
 
-   クリックすると、**ログアウト**呼び出しのリンク、`LogOut`アクション。
+   **ログアウト**リンクをクリックすると、`LogOut`アクションが呼び出されます。
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
 
-   上記のコードの呼び出し、`_signInManager.SignOutAsync`メソッド。 `SignOutAsync`メソッドは、cookie に格納されているユーザーの要求をクリアします。
+   上記のコードは`_signInManager.SignOutAsync`メソッドを呼び出しています。 `SignOutAsync`メソッドは、cookie に格納されているユーザーの要求をクリアします。
 
 ::: moniker-end
 
