@@ -231,7 +231,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ::: moniker-end
 
-## <a name="test-identity"></a>Identityのテスト
+## <a name="test-identity"></a>Identity のテスト
 
 既定の web プロジェクト テンプレートは、ホーム ページへの匿名アクセスを許可しています。 Identity をテストするために、[ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute)をPrivacy ページに追加します。
 
