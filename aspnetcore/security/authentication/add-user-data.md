@@ -1,7 +1,7 @@
 ---
-title: ASP.NET Core プロジェクトにおけるIdentityへのカスタムユーザーデータの追加、ダウンロードおよび削除
+title: ASP.NET Core プロジェクトにおける Identity へのカスタムユーザーデータの追加、ダウンロードおよび削除
 author: rick-anderson
-description: ASP.NET Core プロジェクトにおいてIdentityにカスタムユーザーデータを追加する方法について説明します。 GDPR ごとのデータを削除します。
+description: ASP.NET Core プロジェクトにおいて Identity にカスタム ユーザーデータを追加する方法について説明します。 GDPR ごとのデータを削除します。
 ms.author: riande
 ms.date: 6/16/2018
 ms.custom: mvc, seodec18
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65086489"
 ---
-# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>ASP.NET Core プロジェクトにおけるIdentityへのカスタムユーザーデータの追加、ダウンロードおよび削除
+# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>ASP.NET Core プロジェクトにおける Identity へのカスタム ユーザーデータの追加、ダウンロードおよび削除
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -48,7 +48,7 @@ dotnet new webapp -o WebApp1
 
 ---
 
-## <a name="run-the-identity-scaffolder"></a>Identityのスキャフォールディングの実行
+## <a name="run-the-identity-scaffolder"></a>Identity のスキャフォールディングの実行
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -104,7 +104,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
   * 選択、**ダウンロード**ボタンをクリックし、調査、 *PersonalData.json*ファイル。
   * テスト、**削除**ボタンで、ユーザーのログオンを削除します。
 
-## <a name="add-custom-user-data-to-the-identity-db"></a>Identity DB へのカスタムユーザーデータの追加
+## <a name="add-custom-user-data-to-the-identity-db"></a>Identity DB へのカスタム ユーザーデータの追加
 
 更新プログラム、`IdentityUser`カスタム プロパティを持つクラスを派生します。 ファイルの名前は WebApp1 プロジェクトの名前を付けた場合*Areas/Identity/Data/WebApp1User.cs*します。 次のコード ファイルを更新します。
 
@@ -137,7 +137,7 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 プロジェクトをビルドします。
 
-### <a name="add-a-migration-for-the-custom-user-data"></a>カスタムユーザーデータのマイグレーションの追加
+### <a name="add-a-migration-for-the-custom-user-data"></a>カスタム ユーザー データのマイグレーションの追加
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -157,7 +157,7 @@ dotnet ef database update
 
 ---
 
-## <a name="test-create-view-download-delete-custom-user-data"></a>カスタムユーザーデータの作成、表示、ダウンロード、削除のテスト
+## <a name="test-create-view-download-delete-custom-user-data"></a>カスタム ユーザー データの作成、表示、ダウンロード、削除のテスト
 
 アプリをテストします。
 
