@@ -5,12 +5,12 @@ description: ASP.NET Core アプリに検証を追加する方法
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665445"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65875030"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの検証の追加
 
@@ -27,25 +27,9 @@ MVC の設計の基本思想の 1 つは [DRY](https://wikipedia.org/wiki/Don%27
 
 MVC と Entity Framework Core Code First が提供している検証のサポートは、動作している DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に指定でき、アプリのすべての場所で適用されます。
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルを追加する
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
-*Movie.cs* ファイルを開きます。 DataAnnotations には、クラスまたはプロパティに宣言的に適用する組み込みの検証属性セットがあります  (また、検証設定を支援し、検証を行わない `DataType` のような書式設定属性もあります)。
-
-組み込みの `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように、`Movie` クラスを更新します。
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-検証属性では、適用対象のモデル プロパティに適用する動作が指定されます。
-
-* `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、この検証を満たすためにユーザーが空白を入力することは禁止されていません。 
-* `RegularExpression` 属性は、入力できる文字を制限するために使用されます。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (先頭の文字に大文字、空白、数字、特殊文字は使用できません)。
-* `Range` 属性は、指定した範囲内に値を制限します。 
-* `StringLength` 属性では、文字列プロパティの最大長を設定でき、オプションとして最小長も設定できます。 
-* 値の型 (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`[Required]` 属性を必要としません。
-
-ASP.NET Core によって検証規則が自動的に適用されるようにすると、アプリをより堅牢にできます。 また、ユーザーが何かを検証することを忘れてしまい、データベースに不適切なデータが誤って格納されることもなくなります。
-
-## <a name="validation-error-ui-in-mvc"></a>MVC の検証エラー UI
+## <a name="validation-error-ui"></a>検証エラー UI
 
 アプリを実行し、Movies コントローラーに移動します。
 

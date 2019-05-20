@@ -5,24 +5,22 @@ description: ASP.NET Core、Content Delivery Networks (CDN)、ファイル サ�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 01a612029f415f583908c3bf2adc2e6d35167acb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614719"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874972"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>クライアント側 Blazor をホストおよび展開する
 
 作成者: [Luke Latham](https://github.com/guardrex)、[Rainer Stropek](https://www.timecockpit.com)、[Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 ## <a name="host-configuration-values"></a>ホストの構成値
 
-[クライアント側のホスティング モデル](xref:blazor/hosting-models#client-side-hosting-model) を使用する Blazor アプリでは、開発環境での実行時に以下のホスト構成値をコマンドライン引数として受け入れることができます。
+[クライアント側のホスティング モデル](xref:blazor/hosting-models#client-side) を使用する Blazor アプリでは、開発環境での実行時に以下のホスト構成値をコマンドライン引数として受け入れることができます。
 
 ### <a name="content-root"></a>コンテンツ ルート
 
@@ -95,7 +93,7 @@ ms.locfileid: "59614719"
 
 ## <a name="deployment"></a>配置
 
-[クライアント側のホスティング モデルは次のとおりです](xref:blazor/hosting-models#client-side-hosting-model)。
+[クライアント側のホスティング モデルは次のとおりです](xref:blazor/hosting-models#client-side)。
 
 * Blazor アプリ、その依存関係、.NET ランタイムがブラウザーにダウンロードされます。
 * アプリがブラウザー UI スレッド上で直接実行されます。 次の方法のいずれかがサポートされています。
@@ -110,15 +108,15 @@ Blazor では、出力アセンブリから不要な中間言語 (IL) を削除�
 
 クライアント側のアプリ内のページ コンポーネントに対するルーティング要求は、サーバー側のホストされているアプリに対するルーティング要求のようにシンプルなものではありません。 次の 2 つのページがあるクライアント側のアプリについて考えてみます。
 
-* **_Main.cshtml_** &ndash; アプリのルートで読み込まれ、About ページ (`href="About"`) へのリンクが含まれています。
-* **_About.cshtml_** &ndash; About ページ。
+* **_Main.razor** &ndash; アプリのルートで読み込まれ、About ページ (`href="About"`) へのリンクが含まれています。
+* **_About.razor** &ndash; About ページ。
 
 アプリの既定のドキュメントがブラウザーのアドレス バー (例: `https://www.contoso.com/`) を使用して要求された場合:
 
 1. ブラウザーにより要求が送信されます。
 1. 既定のページ (通常は *index.html*) が返されます。
 1. *index.html* によりアプリがブートストラップされます。
-1. Blazor のルーターが読み込まれて、Razor Main ページ (*Main.cshtml*) が表示されます。
+1. Blazor のルーターが読み込まれて、Razor Main ページ (*Main.razor*) が表示されます。
 
 Main ページで About ページへのリンクを選択すると、About ページが読み込まれます。 Blazor のルーターにより、ブラウザーからのインターネット上での `www.contoso.com` に対する `About` の要求が停止され、About ページ自体が提供されるため、クライアント上での About ページへのリンクの選択が機能します。 *クライアント側のアプリ内*の内部ページの要求もすべて、同じように動作します。要求によって、サーバーにホストされているインターネット上のリソースに対するブラウザーベースの要求がトリガーされることはありません。 要求は、ルーターによって内部的に処理されます。
 
@@ -128,13 +126,19 @@ Main ページで About ページへのリンクを選択すると、About ペ�
 
 ## <a name="app-base-path"></a>アプリのベース パス
 
-"*アプリのベース パス*" は、サーバー上の仮想アプリ ルート パスです。 例えば、`/CoolApp/` の仮想フォルダー内の Contoso サーバー上に存在するアプリの場合、そのアプリは `https://www.contoso.com/CoolApp` で到達可能であり、仮想ベース パスは `/CoolApp/` となります。 アプリのベース パスを `CoolApp/` に設定することで、アプリのサーバー上の仮想位置がわかります。 アプリでは、アプリのベース パスを使用して、ルート ディレクトリに存在しないコンポーネントからのアプリのルートへの相対 URL を構築することができます。 これにより、ディレクトリ構造の別のレベルに存在するコンポーネントでは、アプリ内のさまざまな場所にある他のリソースに対するリンクを構築することができます。 リンクの `href` ターゲットがアプリのベース パス URI 空間内の場合に、そのハイパーリンクのクリックを阻止するためにも使用できます。つまり、Blazor のルーターにより内部ナビゲーションが処理されます。
+"*アプリのベース パス*" は、サーバー上の仮想アプリ ルート パスです。 例えば、`/CoolApp/` の仮想フォルダー内の Contoso サーバー上に存在するアプリの場合、そのアプリは `https://www.contoso.com/CoolApp` で到達可能であり、仮想ベース パスは `/CoolApp/` となります。 アプリのベース パスを仮想パス (`<base href="/CoolApp/">`) に設定することで、アプリのサーバー上の仮想位置がわかります。 アプリでは、アプリのベース パスを使用して、ルート ディレクトリに存在しないコンポーネントからのアプリのルートへの相対 URL を構築することができます。 これにより、ディレクトリ構造の別のレベルに存在するコンポーネントでは、アプリ内のさまざまな場所にある他のリソースに対するリンクを構築することができます。 リンクの `href` ターゲットがアプリのベース パス URI 空間内の場合に、そのハイパーリンクのクリックを阻止するためにも使用できます。つまり、Blazor のルーターにより内部ナビゲーションが処理されます。
 
-多くのホスティング シナリオでは、サーバーのアプリへの仮想パスは、アプリのルートです。 このような場合、アプリのベース パスは最初にスラッシュ (`<base href="/" />`) が付きます。これは、アプリの既定の構成です。 GitHub ページと IIS 仮想ディレクトリまたはサブアプリケーションなど、その他のホスティング シナリオの場合、サーバーのアプリへの仮想パスを、アプリのベース パスとして設定する必要があります。 アプリのベース パスを設定するには、`<head>`タグ要素内で見つかった *index.html* 内の `<base>` タグを追加または更新します。 `href` 属性値として `virtual-path/` (末尾にスラッシュが必要) を設定します。ここで、`virtual-path/` は、アプリに対するサーバー上の完全仮想アプリ ルート パスです。 前の例では、仮想パスには `CoolApp/`: `<base href="CoolApp/">` が設定されていました。
+多くのホスティング シナリオでは、サーバーのアプリへの仮想パスは、アプリのルートです。 このような場合、アプリのベース パスは最初にスラッシュ (`<base href="/" />`) が付きます。これは、アプリの既定の構成です。 GitHub ページと IIS 仮想ディレクトリまたはサブアプリケーションなど、その他のホスティング シナリオの場合、サーバーのアプリへの仮想パスを、アプリのベース パスとして設定する必要があります。 アプリのベース パスを設定するには、*wwwroot/index.html* ファイルの `<head>` タグ要素内の `<base>` タグを更新します。 `href` 属性値として `/virtual-path/` (末尾にスラッシュが必要) を設定します。ここで、`/virtual-path/` は、アプリに対するサーバー上の完全仮想アプリ ルート パスです。 前の例では、仮想パスには `/CoolApp/`: `<base href="/CoolApp/">` が設定されていました。
 
-ルート以外の仮想パスが構成されているアプリの場合 (例: `<base href="CoolApp/">`)、そのアプリは*ローカルで実行*されていると自身のリソースを見つけることができません。 ローカルでの開発およびテスト中は、実行時の `<base>` タグの `href` 値と一致する*パス ベース*引数を指定することで、この問題を克服することができます。
+ルート以外の仮想パスが構成されているアプリの場合 (例: `<base href="/CoolApp/">`)、そのアプリは*ローカルで実行*されていると自身のリソースを見つけることができません。 ローカルでの開発およびテスト中は、実行時の `<base>` タグの `href` 値と一致する*パス ベース*引数を指定することで、この問題を克服することができます。
 
-アプリをローカルで実行しているときにパス ベース引数をルート パス (`/`) と共に渡すには、アプリのディレクトリから次のコマンドを実行します。
+アプリをローカルで実行しているときにパス ベース引数をルート パス (`/`) と共に渡すには、アプリのディレクトリから `--pathbase` オプションを指定して `dotnet run` コマンドを実行します。
+
+```console
+dotnet run --pathbase=/{Virtual Path (no trailing slash)}
+```
+
+仮想ベース パスが `/CoolApp/` (`<base href="/CoolApp/">`) のアプリについては、コマンドは次のようになります。
 
 ```console
 dotnet run --pathbase=/CoolApp
@@ -144,7 +148,7 @@ dotnet run --pathbase=/CoolApp
 
 詳しくは、[パス ベースのホスト構成値](#path-base)に関するセクションをご覧ください。
 
-アプリが[クライアント側のホスティング モデル](xref:blazor/hosting-models#client-side-hosting-model) (**Blazor** プロジェクト テンプレートに基づく) を使用し、ASP.NET Core アプリ内で IIS サブアプリケーションとしてホストされている場合、継承された ASP.NET Core モジュール ハンドラーを無効とするか、*web.config*ファイル内のルート (親) アプリの `<handlers>` セクションがサブアプリに継承されていないことを確認することが必要となります。
+アプリが[クライアント側のホスティング モデル](xref:blazor/hosting-models#client-side) (**Blazor** プロジェクト テンプレートに基づくが、[dotnet new](/dotnet/core/tools/dotnet-new) コマンドの使用時は `blazor` テンプレート) を使用し、ASP.NET Core アプリ内で IIS サブアプリケーションとしてホストされている場合、継承された ASP.NET Core モジュール ハンドラーを無効とするか、*web.config* ファイル内のルート (親) アプリの `<handlers>` セクションがサブアプリに継承されていないことを確認することが必要となります。
 
 アプリの発行された *web.config* ファイル内のハンドラーを、`<handlers>` セクションをファイルに追加することで削除します。
 
