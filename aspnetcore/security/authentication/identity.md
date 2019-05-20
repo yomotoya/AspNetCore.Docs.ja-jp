@@ -241,12 +241,12 @@ Postは *Pages/Shared/_LoginPartial.cshtml* で指定されています :
 
 ::: moniker range=">= aspnetcore-2.1"
 
-### <a name="explore-identity"></a>Id を調べる
+### <a name="explore-identity"></a>Identity を調べる
 
-Identity をさらに詳しく調査。
+Identity についてさらに詳しく調べるには :
 
-* [完全な id の UI のソースを作成します。](xref:security/authentication/scaffold-identity#create-full-identity-ui-source)
-* 各ページと、デバッガーをステップのソースを確認します。
+* [完全な Identity の UI のソースを作成します。](xref:security/authentication/scaffold-identity#create-full-identity-ui-source)
+* 各ページのソースを確認し、デバッガーでステップ実行します。
 
 ::: moniker-end
 
