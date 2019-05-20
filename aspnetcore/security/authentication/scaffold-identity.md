@@ -85,7 +85,7 @@ Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳�
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>承認ありのRazorプロジェクトに対するidentityのスキャフォールディング
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>承認ありの Razor プロジェクトに対する identity のスキャフォールディング
 
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
@@ -102,7 +102,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。 詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。
 
-## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>既存の承認なしのMVCプロジェクトに対するidentityのスキャフォールディング
+## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>既存の承認なしの MVC プロジェクトに対する identity のスキャフォールディング
 
 <!--
 set projNam=MvcNoAuth
@@ -136,7 +136,7 @@ Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。 詳�
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>承認ありのMVCプロジェクトに対するidentityのスキャフォールディング
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>承認ありの MVC プロジェクトに対する identity のスキャフォールディング
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
@@ -152,7 +152,7 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 
 <a name="full"></a>
 
-## <a name="create-full-identity-ui-source"></a>identityの全てのUIのソースの作成
+## <a name="create-full-identity-ui-source"></a>identity の全ての UI のソースの作成
 
 Identity UI を完全に制御を維持するために、Identity scaffolder を実行して選択して**すべてのファイルを上書き**します。
 
