@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core での id モデルのカスタマイズ
+title: ASP.NET Core での Identity モデルのカスタマイズ
 author: ajcvickers
 description: この記事では、ASP.NET Core Identity の基になる Entity Framework Core のデータ モデルをカスタマイズする方法について説明します。
 ms.author: avickers
@@ -12,13 +12,13 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/11/2019
 ms.locfileid: "65536020"
 ---
-# <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET Core での id モデルのカスタマイズ
+# <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET Core での Identity モデルのカスタマイズ
 
 によって[Arthur Vickers](https://github.com/ajcvickers)
 
 ASP.NET Core Identity は、管理および ASP.NET Core アプリでユーザー アカウントを格納するためのフレームワークを提供します。 Id が、プロジェクトに追加時に**個々 のユーザー アカウント**認証メカニズムとして選択されます。 既定では、Id はなりますの Entity Framework (EF) を使用して、コア データ モデル。 この記事では、Id モデルをカスタマイズする方法について説明します。
 
-## <a name="identity-and-ef-core-migrations"></a>Id と EF Core の移行
+## <a name="identity-and-ef-core-migrations"></a>Identity と EF Core のマイグレーション
 
 Id がどのように機能するかを把握するのに役立ちますが、モデルを調べる前に、 [EF コア移行](/ef/core/managing-schemas/migrations/)を作成してデータベースを更新します。 最上位のレベルでは、手順は次のとおりです。
 
@@ -44,7 +44,7 @@ Id を使用して新しいアプリが作成されると、手順 1. と上記�
 
 モデルに変更が加えられるとは、上記の手順を繰り返します。
 
-## <a name="the-identity-model"></a>Id モデル
+## <a name="the-identity-model"></a>Identity モデル
 
 ### <a name="entity-types"></a>エンティティ型
 
@@ -60,7 +60,7 @@ Id モデルは、次のエンティティ型で構成されます。
 |`RoleClaim`|ロール内のすべてのユーザーに付与されるクレームを表します。|
 |`UserRole` |ユーザーとロールを関連付ける結合エンティティを指定します。               |
 
-### <a name="entity-type-relationships"></a>エンティティ型の関係
+### <a name="entity-type-relationships"></a>エンティティ型のリレーションシップ
 
 [エンティティ型](#entity-types)次の方法で相互に関連します。
 
@@ -287,7 +287,7 @@ public abstract class IdentityUserContext<
 }
 ```
 
-## <a name="customize-the-model"></a>モデルをカスタマイズします。
+## <a name="customize-the-model"></a>モデルのカスタマイズ
 
 モデルのカスタマイズの開始点では、適切なコンテキストの型から派生します。 参照してください、[ジェネリック型をモデル化](#model-generic-types)セクション。 このコンテキスト型が慣例的に呼び出される`ApplicationDbContext`と ASP.NET Core テンプレートによって作成されます。
 
@@ -360,7 +360,7 @@ ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリ�
 * [Identity のスキャフォールディング](xref:security/authentication/scaffold-identity)
 * [追加、ダウンロード、および Id にカスタム ユーザー データの削除](xref:security/authentication/add-user-data)
 
-### <a name="change-the-primary-key-type"></a>主キーの型を変更します。
+### <a name="change-the-primary-key-type"></a>主キーの型の変更
 
 データベースが作成された後に、PK 列のデータ型への変更は多くのデータベース システムで問題が発生します。 通常、主キーを変更するには、削除して、テーブルを再作成する必要があります。 そのため、データベースが作成されたときに、最初の移行でキーの種類を指定してください。
 
@@ -537,7 +537,7 @@ ASP.NET Core 2.1 以降では、Identity は、Razor クラス ライブラリ�
 
     ::: moniker-end
 
-### <a name="add-navigation-properties"></a>ナビゲーション プロパティを追加します。
+### <a name="add-navigation-properties"></a>ナビゲーション プロパティの追加
 
 リレーションシップのモデルの構成を変更すると、その他の変更よりも難しくことができます。 新しい追加のリレーションシップを作成するのではなく、既存のリレーションシップを置き換えるに注意する必要があります。 具体的には、変更されたリレーションシップでは、既存のリレーションシップとして同じ外部キー (FK) プロパティを指定する必要があります。 間のリレーションシップなど`Users`と`UserClaims`、次のように、既定では。
 
@@ -595,7 +595,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
 ナビゲーション プロパティは、データベースではなく、EF モデルにのみ存在します。 リレーションシップの外部キーが変更されていないため、この種のモデルの変更は更新するデータベースを必要としません。 これは、変更を行った後の移行を追加することで確認できます。 `Up`と`Down`メソッドは空です。
 
-### <a name="add-all-user-navigation-properties"></a>すべてのユーザー ナビゲーション プロパティを追加します。
+### <a name="add-all-user-navigation-properties"></a>すべてのユーザー ナビゲーション プロパティの追加
 
 次の例では、ガイダンスとして、上のセクションを使用して、ユーザーのすべてのリレーションシップの一方向のナビゲーション プロパティを構成します。
 
@@ -651,7 +651,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 }
 ```
 
-### <a name="add-user-and-role-navigation-properties"></a>ユーザーおよびロールのナビゲーション プロパティを追加します。
+### <a name="add-user-and-role-navigation-properties"></a>ユーザーおよびロールのナビゲーション プロパティの追加
 
 次の例では、ガイダンスとして、上のセクションを使用して、ユーザーおよびロールのすべての関係のナビゲーション プロパティを構成します。
 
@@ -738,7 +738,7 @@ public class ApplicationDbContext
 * 反映するようにナビゲーション プロパティの型を変更して`ApplicationXxx`型は、の代わりに使用されているようになりました`IdentityXxx`型。
 * 使用してください、`ApplicationXxx`ジェネリック`ApplicationContext`定義します。
 
-### <a name="add-all-navigation-properties"></a>すべてのナビゲーション プロパティを追加します。
+### <a name="add-all-navigation-properties"></a>すべてのナビゲーション プロパティの追加
 
 次の例では、ガイダンスとして、上のセクションを使用して、すべてのエンティティ型ですべての関係のナビゲーション プロパティを構成します。
 
@@ -845,11 +845,11 @@ public class ApplicationDbContext
 }
 ```
 
-### <a name="use-composite-keys"></a>複合キーを使用します。
+### <a name="use-composite-keys"></a>複合キーの使用
 
 前のセクションでは、Id モデルで使用されるキーの型の変更が示されています。 複合キーを使用するキーの Id モデルを変更すると、サポートされていないかお勧めします。 Id を持つ複合キーを使用するには、Identity manager のコードが、モデルと対話する方法を変更する必要があります。 このカスタマイズでは、このドキュメントの範囲外です。
 
-### <a name="change-tablecolumn-names-and-facets"></a>テーブル/列名とファセットを変更します。
+### <a name="change-tablecolumn-names-and-facets"></a>テーブル名/列名とファセットの変更
 
 テーブルと列の名前を変更するには、呼び出す`base.OnModelCreating`します。 次に、既定値のいずれかを上書きする構成を追加します。 たとえば、Identity のすべてのテーブルの名前を変更します。
 
@@ -940,7 +940,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-### <a name="map-to-a-different-schema"></a>別のスキーマにマップします。
+### <a name="map-to-a-different-schema"></a>別のスキーマへのマップ
 
 スキーマは、データベース プロバイダーにわたる動作が異なることができます。 既定値は、SQL Server のすべてのテーブルを作成する、 *dbo*スキーマ。 別のスキーマ内のテーブルを作成できます。 例えば:
 
