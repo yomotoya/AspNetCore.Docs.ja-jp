@@ -2,26 +2,21 @@
 title: ASP.NET Core アプリを配置するための Visual Studio 発行プロファイル
 author: rick-anderson
 description: Visual Studio で発行プロファイルを作成し、それらを使用してさまざまなターゲットへの ASP.NET Core アプリの配置を管理する方法を説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: e1e8f99be18d6f395a146bda805f71c46cd0346d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: be5d1a79b7f4437d04586ae4ce24df94547d8a3c
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889457"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969975"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>ASP.NET Core アプリを配置するための Visual Studio 発行プロファイル
 
 作成者: [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi)、[Rick Anderson](https://twitter.com/RickAndMSFT)
-
-::: moniker range="<= aspnetcore-1.1"
-
-このトピックのバージョン 1.1 については、[ASP.NET Core アプリを配置するための Visual Studio 発行プロファイル (バージョン 1.1、PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/VS_Publish_Profiles_1.1.pdf) をダウンロードします。
-
-::: moniker-end
 
 このドキュメントでは、Visual Studio 2017 以降を使用して、発行プロファイルを作成および使用する方法に焦点を当てます。 Visual Studio を使用して作成した発行プロファイルは、MSBuild および Visual Studio から実行することができます。 Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」を参照してください。
 
@@ -128,11 +123,11 @@ C:\Webs\Web1>dotnet publish
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\Web1.dll
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\publish\
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\publish\
 ```
 
-既定の発行フォルダーは `bin\$(Configuration)\netcoreapp<version>\publish` です。 `$(Configuration)` の既定値は *Debug* です。 上記のサンプルでは、`<TargetFramework>` は `netcoreapp2.0`です。
+既定の発行フォルダーは `bin\$(Configuration)\netcoreapp<version>\publish` です。 `$(Configuration)` の既定値は *Debug* です。 上記のサンプルでは、`<TargetFramework>` は `netcoreapp{X.Y}`です。
 
 `dotnet publish -h` では、発行のヘルプ情報が表示されます。
 

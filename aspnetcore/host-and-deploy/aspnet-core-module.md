@@ -2,16 +2,17 @@
 title: ASP.NET Core モジュール
 author: guardrex
 description: ASP.NET Core アプリをホストするための ASP.NET Core モジュールを構成する方法について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: a33606bce6c78a19e3d380f7440e5892778806c3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ff0b4c01f5ac661236b739e89559142d89b3b5dc
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889397"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970079"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 
@@ -272,7 +273,7 @@ IIS サブアプリケーション構成について詳しくは、「<xref:host
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.2"
 
 | 属性 | 説明 | 既定値 |
 | --------- | ----------- | :-----: |
@@ -285,24 +286,6 @@ IIS サブアプリケーション構成について詳しくは、「<xref:host
 | `requestTimeout` | <p>省略可能な期間属性。</p><p>%ASPNETCORE_PORT% でリッスンしているプロセスからの応答を ASP.NET Core モジュールが待機する期間を指定します。</p><p>ASP.NET Core 2.1 以降のリリースに付属する ASP.NET Core モジュールのバージョンでは、`requestTimeout` は時間、分、および秒単位で指定します。</p> | 既定値: `00:02:00`<br>最小値: `00:00:00`<br>最大値: `360:00:00` |
 | `shutdownTimeLimit` | <p>省略可能な整数属性</p><p>*app_offline.htm* ファイルが検出されたときに、モジュールが実行可能ファイルの正常なシャットダウンを待機する秒単位の期間です。</p> | 既定値: `10`<br>最小値: `0`<br>最大値: `600` |
 | `startupTimeLimit` | <p>省略可能な整数属性</p><p>ポートでリッスンするプロセスを実行可能ファイルが開始するのをモジュールが待機する秒単位の期間です。 この制限時間を超えた場合、モジュールはプロセスを強制終了します。 最後のローリング分においてアプリが **rapidFailsPerMinute** 回だけ開始を失敗しているのでないかぎり、モジュールは、新しい要求を受け取るとプロセスの再起動を試み、それ以降に受信した要求に対してプロセスの再起動を試み続けます。</p><p>値 0 (ゼロ) は無限のタイムアウトと見なされ**ません**。</p> | 既定値: `120`<br>最小値: `0`<br>最大値: `3600` |
-| `stdoutLogEnabled` | <p>省略可能な Boolean 属性です。</p><p>true の場合、**processPath** で指定されているプロセスの **stdout** と **stderr** は、**stdoutLogFile** で指定されているファイルにリダイレクトされます。</p> | `false` |
-| `stdoutLogFile` | <p>省略可能な文字列属性。</p><p>**processPath** で指定されているプロセスからの **stdout** と **stderr** がログに記録される相対ファイル パスまたは絶対ファイル パスを指定します。 相対パスの基準はサイトのルートです。 `.` で始まっているパスはすべてサイト ルートに対する相対パスであり、他のすべてのパスは絶対パスとして扱われます。 モジュールがログ ファイルを作成するためには、パスで指定されているすべてのフォルダーが存在する必要があります。 アンダースコアの区切り記号を使って、タイムスタンプ、プロセス ID、およびファイル拡張子 (*.log*) が、**stdoutLogFile** パスの最後のセグメントに追加されます。 たとえば、値として `.\logs\stdout` を指定し、2018 年 2 月 5 日の 19:41:32 にプロセス ID 1934 で保存すると、stdout ログは *logs* フォルダーに *stdout_20180205194132_1934.log* として保存されます。</p> | `aspnetcore-stdout` |
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-| 属性 | 説明 | 既定値 |
-| --------- | ----------- | :-----: |
-| `arguments` | <p>省略可能な文字列属性。</p><p>**processPath** において指定されている実行可能ファイルへの引数です。</p>| |
-| `disableStartUpErrorPage` | <p>省略可能な Boolean 属性です。</p><p>true の場合、**502.5 - 処理エラー** ページは抑制され、*web.config* で構成されている 502 状態コード ページが優先されます。</p> | `false` |
-| `forwardWindowsAuthToken` | <p>省略可能な Boolean 属性です。</p><p>true の場合、トークンは、%ASPNETCORE_PORT% でリッスンしている子プロセスに、要求ごとの 'MS-ASPNETCORE-WINAUTHTOKEN' ヘッダーとして転送されます。 要求ごとのこのトークンで CloseHandle を呼び出すのは、そのプロセスの役割です。</p> | `true` |
-| `processesPerApplication` | <p>省略可能な整数属性</p><p>アプリごとにスピンアップすることができる **processPath** 設定内で指定したプロセスのインスタンス数が指定されます。</p><p>設定 `processesPerApplication` は推奨されません。 この属性は将来のリリースで削除されます。</p> | 既定値: `1`<br>最小値: `1`<br>最大値: `100` |
-| `processPath` | <p>必須の文字列属性です。</p><p>HTTP 要求をリッスンするプロセスを起動する実行可能ファイルへのパスです。 相対パスがサポートされています。 パスが `.` で始まる場合、パスはサイトのルートを基準とする相対パスであると見なされます。</p> | |
-| `rapidFailsPerMinute` | <p>省略可能な整数属性</p><p>**processPath** で指定されているプロセスが 1 分間にクラッシュできる回数を指定します。 この制限を超えた場合、モジュールは、1 分間の残りの間、プロセスの起動を停止します。</p> | 既定値: `10`<br>最小値: `0`<br>最大値: `100` |
-| `requestTimeout` | <p>省略可能な期間属性。</p><p>%ASPNETCORE_PORT% でリッスンしているプロセスからの応答を ASP.NET Core モジュールが待機する期間を指定します。</p><p>ASP.NET Core 2.0 以前のリリースに付属する ASP.NET Core モジュールのバージョンでは、`requestTimeout` は整数でのみ指定する必要があります。そうしないと、既定値の 2 分に設定されます。</p> | 既定値: `00:02:00`<br>最小値: `00:00:00`<br>最大値: `360:00:00` |
-| `shutdownTimeLimit` | <p>省略可能な整数属性</p><p>*app_offline.htm* ファイルが検出されたときに、モジュールが実行可能ファイルの正常なシャットダウンを待機する秒単位の期間です。</p> | 既定値: `10`<br>最小値: `0`<br>最大値: `600` |
-| `startupTimeLimit` | <p>省略可能な整数属性</p><p>ポートでリッスンするプロセスを実行可能ファイルが開始するのをモジュールが待機する秒単位の期間です。 この制限時間を超えた場合、モジュールはプロセスを強制終了します。 最後のローリング分においてアプリが **rapidFailsPerMinute** 回だけ開始を失敗しているのでないかぎり、モジュールは、新しい要求を受け取るとプロセスの再起動を試み、それ以降に受信した要求に対してプロセスの再起動を試み続けます。</p> | 既定値: `120`<br>最小値: `0`<br>最大値: `3600` |
 | `stdoutLogEnabled` | <p>省略可能な Boolean 属性です。</p><p>true の場合、**processPath** で指定されているプロセスの **stdout** と **stderr** は、**stdoutLogFile** で指定されているファイルにリダイレクトされます。</p> | `false` |
 | `stdoutLogFile` | <p>省略可能な文字列属性。</p><p>**processPath** で指定されているプロセスからの **stdout** と **stderr** がログに記録される相対ファイル パスまたは絶対ファイル パスを指定します。 相対パスの基準はサイトのルートです。 `.` で始まっているパスはすべてサイト ルートに対する相対パスであり、他のすべてのパスは絶対パスとして扱われます。 モジュールがログ ファイルを作成するためには、パスで指定されているすべてのフォルダーが存在する必要があります。 アンダースコアの区切り記号を使って、タイムスタンプ、プロセス ID、およびファイル拡張子 (*.log*) が、**stdoutLogFile** パスの最後のセグメントに追加されます。 たとえば、値として `.\logs\stdout` を指定し、2018 年 2 月 5 日の 19:41:32 にプロセス ID 1934 で保存すると、stdout ログは *logs* フォルダーに *stdout_20180205194132_1934.log* として保存されます。</p> | `aspnetcore-stdout` |
 
@@ -542,32 +525,6 @@ IIS 共有構成を使うときは、次の手順で行います。
 1. インストーラーを実行します。
 1. 更新された *applicationHost.config* ファイルを共有にエクスポートします。
 1. IIS 共有構成を再び有効にします。
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
-## <a name="application-initialization"></a>Application Initialization
-
-[IIS Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) は、アプリ プールが開始するときまたはリサイクルされるときに、アプリに HTTP 要求を送信する IIS 機能です。 要求によってアプリの起動がトリガーされます。 Application Initialization は、ASP.NET Core モジュール バージョン 2 を備えた[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)、[アウトプロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)の両方で使えます。
-
-Application Initialization を有効にするには:
-
-1. IIS Application Initialization 役割の機能が有効になっていることを確認します。
-   * Windows 7 以降の場合:**[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。 **[インターネット インフォメーション サービス]** > **[World Wide Web サービス]** > **[アプリケーション開発機能]** を開きます。 **[Application Initialization]** のチェック ボックスをオンにします。
-   * Windows Server 2008 R2 以降の場合は、**[役割と機能の追加ウィザード]** を開きます。 **[役割サービスの選択]** パネルに移動したら、**[アプリケーション開発]** ノードを開いて、**[Application Initialization]** チェック ボックスをオンにします。
-1. IIS マネージャーで、**[接続]** パネルの **[アプリケーション プール]** を選択します。
-1. 一覧からそのアプリのアプリ プールを選択します。
-1. **[アクション]** パネルの **[アプリケーション プールの編集]** で **[詳細設定]** を選択します。
-1. **[開始モード]** を **[常時実行]** に設定します。
-1. **[接続]** パネルの **[サイト]** ノードを開きます。
-1. アプリを選択します。
-1. **[アクション]** パネルの **[Web サイトの管理]** の下で **[詳細設定]** を選択します。
-1. **[有効化されたプリロード]** を **True** に設定します。
-
-詳細については、「[IIS 8.0 Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)」をご覧ください。
-
-[アウトプロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)を使うアプリでは、外部サービスを使い、アプリに定期的に ping を送信して、それを実行させ続ける必要があります。
 
 ::: moniker-end
 
