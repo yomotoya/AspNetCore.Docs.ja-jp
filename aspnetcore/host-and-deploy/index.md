@@ -2,16 +2,17 @@
 title: ASP.NET Core のホストと展開
 author: guardrex
 description: ホスティング環境を設定し、ASP.NET Core アプリを展開する方法を学習します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 05/12/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 068c5f357b8010d78493a78a10c353e3317f3867
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882107"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969882"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>ASP.NET Core のホストと展開
 
@@ -46,19 +47,9 @@ ASP.NET Core アプリは、サーバーの起動時に起動し、クラッシ�
 
 ## <a name="set-up-a-reverse-proxy"></a>リバース プロキシを設定する
 
-::: moniker range=">= aspnetcore-2.0"
-
 アプリで [Kestrel](xref:fundamentals/servers/kestrel) サーバーを使用する場合は、リバース プロキシ サーバーとして、[Nginx](xref:host-and-deploy/linux-nginx)、[Apache](xref:host-and-deploy/linux-apache)、または [IIS](xref:host-and-deploy/iis/index) を使用できます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。
 
-いずれの構成でも&mdash;リバース プロキシ サーバーの有無に関わらず&mdash;ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされています。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-アプリを [Kestrel](xref:fundamentals/servers/kestrel) サーバーを使用してインターネットに公開する場合は、リバース プロキシ サーバーとして、[Nginx](xref:host-and-deploy/linux-nginx)、[Apache](xref:host-and-deploy/linux-apache)、または [IIS](xref:host-and-deploy/iis/index) を使用します。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。 リバース プロキシを使用する主な理由はセキュリティです。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
-
-::: moniker-end
+いずれの構成でも、&mdash;リバース プロキシ サーバーの有無に関わらず&mdash;、ホスティング構成がサポートされています。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
 
