@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core Identity の概要
 author: rick-anderson
-description: ASP.NET Core アプリでは、Identity を使用します。 パスワードの要件 (RequireDigit、RequiredLength、RequiredUniqueChars など) を設定する方法について説明します。
+description: ASP.NET Core アプリでは、Id を使用します。 パスワードの要件 (RequireDigit、RequiredLength、RequiredUniqueChars など) を設定する方法について説明します。
 ms.author: riande
 ms.date: 03/26/2019
 uid: security/authentication/identity
@@ -16,13 +16,13 @@ ms.locfileid: "64894329"
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core Identity は、ASP.NET Core アプリにログイン機能を追加するメンバーシップ システムです。 ユーザーがIdentity にログイン情報を格納するようにアカウントを作成することもできますし、外部のログインプロバイダーを利用することもできます。サポートされている外部ログイン プロバイダーには、 [Facebook、Google、Microsoft アカウント、および Twitter](xref:security/authentication/social/index)があります。
+ASP.NET Core Identity は、ASP.NET Core アプリにログイン機能を追加するメンバーシップ システムです。 Id に格納されているログイン情報で、ユーザーがアカウントの作成または外部ログイン プロバイダーを使用することができます。 サポートされている外部ログイン プロバイダーには、 [Facebook、Google、Microsoft アカウント、および Twitter](xref:security/authentication/social/index)します。
 
-Identity は、ユーザー名、パスワード、およびプロファイル データを格納するために SQL Server データベースを使用するように構成できます。 そのほかにも、たとえば Azure Table Storage のような別の永続的なストアを使用することもできます。
+Id は、ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用して構成できます。 または、別の永続ストア使用できます、たとえば、Azure Table Storage。
 
-[サンプルコードの表示とダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/)([ダウンロードする方法)](xref:index#how-to-download-a-sample))。
+[表示またはダウンロード、サンプル コード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/)([をダウンロードする方法)](xref:index#how-to-download-a-sample))。
 
-このトピックでは、Identityを使って登録、ログイン、ログアウトする方法について説明します。 Identity を使用するアプリを作成する詳細な手順については、この記事の最後の「次の手順」を参照してください。
+このトピックを登録するには、ログイン Id を使用する方法について説明し、ユーザーをログアウトします。 Id を使用するアプリの作成について詳細な手順については、この記事の最後に次の手順を参照してください。
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -49,7 +49,7 @@ Identity は、ユーザー名、パスワード、およびプロファイル �
 * **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。
 * **[ASP.NET Core Web アプリケーション]** を選択します。 プロジェクトに名前を**WebApp1**にプロジェクトのダウンロードとして同じ名前空間。 **[OK]** をクリックします。
 * ASP.NET Core を選択します。 **Web アプリケーション**を選択し、**認証の変更**します。
-個別のユーザー アカウントを **選択** して **OK** をクリックします。
+* 個別のユーザー アカウントを **選択** して **OK** をクリックします。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -65,9 +65,9 @@ dotnet new webapp --auth Individual -o WebApp1
 * /Identity/Account/Logout
 * /Identity/Account/Manage
 
-### <a name="apply-migrations"></a>マイグレーションの適用
+### <a name="apply-migrations"></a>移行を適用する
 
-データベースを初期化するためのマイグレーションを適用します。
+データベースを初期化するへの移行を適用します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -158,7 +158,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
 ::: moniker range=">= aspnetcore-2.1"
 
-   ユーザーが**登録**リンクをクリックすると、`RegisterModel.OnPostAsync`アクションが呼び出されます。 ユーザーは`_userManager`オブジェクトの[CreateAsync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_)によって作成されます。`_userManager` は依存関係の挿入によってよって提供されます :
+   ユーザーが**登録**リンクをクリックすると、`RegisterModel.OnPostAsync`アクションが呼び出されます。 ユーザーは`_userManager`オブジェクトの[CreateAsync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_)によって作成されます。 `_userManager` は依存関係の挿入によってよって提供されます :
 
    [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=7,22)]
 
@@ -189,7 +189,7 @@ PowerShell では、コマンドの区切り記号としてセミコロンを使
 
    [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-ベース`Controller`クラスでは、コントローラー メソッドからアクセスできる`User`プロパティを公開します。 たとえば`User.Claims`を列挙して承認の決定を行うことができます。 詳細については「ASP.NET Core での承認の概要<xref:security/authorization/introduction> 」を参照してください。
+   ベース`Controller`クラスでは、コントローラー メソッドからアクセスできる`User`プロパティを公開します。 たとえば`User.Claims`を列挙して承認の決定を行うことができます。 詳細については「ASP.NET Core での承認の概要<xref:security/authorization/introduction> 」を参照してください。
 
 ::: moniker-end
 
@@ -262,7 +262,7 @@ Identity のプライマリパッケージは[Microsoft.AspNetCore.Identity](htt
 
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core Identity に移行します。
 
-既存の Identity ストアの移行についての詳細とガイダンスについては、次を参照してください : [移行の認証と Id](xref:migration/identity)
+既存の Identity ストアの移行についての詳細とガイダンスについては、次を参照してください : [移行の認証と Id](xref:migration/identity)。
 
 ## <a name="setting-password-strength"></a>パスワードの強度を設定
 
