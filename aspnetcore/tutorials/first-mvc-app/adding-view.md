@@ -85,7 +85,7 @@ ms.locfileid: "64890917"
 ## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>レイアウト ファイルでのタイトル、フッター、およびメニュー リンクの変更
 
 * タイトル要素とフッター要素で、`MvcMovie` を `Movie App` に変更します。
-* アンカー要素を `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` に `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>` 変更します。
+* アンカー要素 `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` を `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>` に変更します。
 
 次のマークアップには、強調表示された変更点が示されています。
 
