@@ -5,14 +5,14 @@ description: ASP.NET Core、Content Delivery Networks (CDN)、ファイル サ�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874972"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223186"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>クライアント側 Blazor をホストおよび展開する
 
@@ -38,7 +38,7 @@ ms.locfileid: "65874972"
   "commandLineArgs": "--contentroot=/content-root-path"
   ```
 
-* Visual Studio の **[プロパティ]** > **[デバッグ]** > **[アプリケーションの引数]** で、引数を指定します。 Visual Studio のプロパティ ページで引数を設定すると、その引数が *launchSettings.json* ファイルに追加されます。
+* Visual Studio の **[プロパティ]**  >  **[デバッグ]**  >  **[アプリケーションの引数]** で、引数を指定します。 Visual Studio のプロパティ ページで引数を設定すると、その引数が *launchSettings.json* ファイルに追加されます。
 
   ```console
   --contentroot=/content-root-path
@@ -63,7 +63,7 @@ ms.locfileid: "65874972"
   "commandLineArgs": "--pathbase=/virtual-path"
   ```
 
-* Visual Studio の **[プロパティ]** > **[デバッグ]** > **[アプリケーションの引数]** で、引数を指定します。 Visual Studio のプロパティ ページで引数を設定すると、その引数が *launchSettings.json* ファイルに追加されます。
+* Visual Studio の **[プロパティ]**  >  **[デバッグ]**  >  **[アプリケーションの引数]** で、引数を指定します。 Visual Studio のプロパティ ページで引数を設定すると、その引数が *launchSettings.json* ファイルに追加されます。
 
   ```console
   --pathbase=/virtual-path
@@ -85,7 +85,7 @@ ms.locfileid: "65874972"
   "commandLineArgs": "--urls=http://127.0.0.1:0"
   ```
 
-* Visual Studio の **[プロパティ]** > **[デバッグ]** > **[アプリケーションの引数]** で、引数を指定します。 Visual Studio のプロパティ ページで引数を設定すると、その引数が *launchSettings.json* ファイルに追加されます。
+* Visual Studio の **[プロパティ]**  >  **[デバッグ]**  >  **[アプリケーションの引数]** で、引数を指定します。 Visual Studio のプロパティ ページで引数を設定すると、その引数が *launchSettings.json* ファイルに追加されます。
 
   ```console
   --urls=http://127.0.0.1:0
@@ -194,7 +194,7 @@ Azure App Service の展開については、「<xref:tutorials/publish-to-azure
 
 IIS は、Blazor アプリ対応の静的ファイル サーバーです。 Blazor をホストするよう IIS を構成する方法については、「[Build a Static Website on IIS](/iis/manage/creating-websites/scenario-build-a-static-website-on-iis)」 (IIS で静的 Web サイトを構築する) を参照してください。
 
-発行された資産は、*/bin/Release/<ターゲット フレームワーク>/publish* フォルダーに作成されます。 *publish*フォルダーのコンテンツを、Web サーバーまたはホスティング サービス上でホストします。
+発行された資産は、 */bin/Release/<ターゲット フレームワーク>/publish* フォルダーに作成されます。 *publish*フォルダーのコンテンツを、Web サーバーまたはホスティング サービス上でホストします。
 
 #### <a name="webconfig"></a>web.config
 
@@ -210,8 +210,8 @@ Blazor プロジェクトが発行されると、*web.config* ファイルが以
   * `application/octet-stream`
   * `application/wasm`
 * URL Rewrite Module のルールが確立されます。
-  * アプリの静的なアセットが存在するサブディレクトリ (*<アセンブリ名>/dist/<要求されたパス>*) が提供されます。
-  * ファイル以外のアセットの要求が、アプリの静的アセット フォルダー内の既定のドキュメント (*<アセンブリ名>/dist/index.html*) にリダイレクトされるように、SPA フォールバック ルーティングが作成されます。
+  * アプリの静的なアセットが存在するサブディレクトリ ( *<アセンブリ名>/dist/<要求されたパス>* ) が提供されます。
+  * ファイル以外のアセットの要求が、アプリの静的アセット フォルダー内の既定のドキュメント ( *<アセンブリ名>/dist/index.html*) にリダイレクトされるように、SPA フォールバック ルーティングが作成されます。
 
 #### <a name="install-the-url-rewrite-module"></a>URL リライト モジュールをインストールする
 
@@ -232,6 +232,17 @@ Web サイトの**物理パス**をアプリのフォルダーに設定します
 Web サイトの構成にアクセスしようとしたときに、"*500 - 内部サーバー エラー*" という応答が返され、IIS マネージャーによりエラーがスローされた場合は、URL リライト モジュールがインストールされていることを確認します。 モジュールがインストールされていない場合、IIS では *web.config* ファイルを解析できません。 これは、IIS マネージャーによる Web サイトの構成の読み込み、そして Web サイトによる Blazor の静的ファイルの提供を阻止するためのものです。
 
 IIS への展開に関するトラブルシューティングの詳細については、「<xref:host-and-deploy/iis/troubleshoot>」を参照してください。
+
+### <a name="azure-storage"></a>Azure ストレージ
+
+Azure ストレージの静的ファイル ホスティングにより、サーバーレス Blazor アプリ ホスティングが可能になります。 カスタム ドメイン名の Azure Content Delivery Network (CDN) と HTTPS がサポートされています。
+
+ストレージ アカウントでホスティングされている静的 Web サイトに Blob service サービスが有効になっているとき:
+
+* **インデックス ドキュメント名**を `index.html` に設定します。
+* **エラー ドキュメント パス**を `index.html` に設定します。 Razor Components とその他の非ファイル エンドポイントは、Blob service で保管される静的コンテンツの物理パスに置かれません。 このようなリソースの 1 つに対して受け取った要求を Blazor ルーターで処理しなければならないとき、Blob service によって生成された *404 - Not Found* エラーにより、要求が**エラー ドキュメント パス**に転送されます。 *index.html* BLOB が返され、Blazor ルーターでパスが読み込まれ、処理されます。
+
+詳細については、「[Azure Storage での静的 Web サイト ホスティング](/azure/storage/blobs/storage-blob-static-website)」を参照してください。
 
 ### <a name="nginx"></a>Nginx
 

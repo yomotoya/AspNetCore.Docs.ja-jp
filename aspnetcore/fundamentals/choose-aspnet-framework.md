@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core とASP.NET 4.x の違いと、どちらかを選択する方法について説明します。
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 09/11/2018
+ms.date: 05/02/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 454f1021520f8f22eb2b0417a958b78690f89cef
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a51d9946c9e65bd1665c610153f724c6087c9f7f
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886967"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251377"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>ASP.NET 4.x と ASP.NET Core の選択
 
@@ -44,7 +44,6 @@ ASP.NET 4.x は成熟したフレームワークであり、Windows 上でエン
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core のシナリオ
 
-* [Razor ページ](xref:razor-pages/index)は、ASP.NET Core 2.x の時点で Web UI を作成する場合に推奨される方法です。
 * [Web サイト](xref:tutorials/first-mvc-app/index)
 * [API](xref:tutorials/first-web-api)
 * [リアルタイム](xref:signalr/index)

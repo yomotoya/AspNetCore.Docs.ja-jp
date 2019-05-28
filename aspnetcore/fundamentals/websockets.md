@@ -5,14 +5,14 @@ description: ASP.NET Core で Websocket の使用を開始する方法を説明�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 1b62dc91453437518e4b8f6f8dd0915977130766
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bba9cf051deaf57efdd82ca2fb1318fce79bd6cc
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888247"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223217"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core での Websocket のサポート
 
@@ -123,6 +123,15 @@ Websocket を使用して、ソケット接続を直接使用します。 たと
 
 WebSocket 要求はどの URL からも受け取る場合がありますが、このサンプル コードでは `/ws` の要求のみを受け取ります。
 
+WebSocket を使用するとき、接続中、ミドルウェア パイプラインの実行を維持する**必要があります**。 ミドルウェア パイプラインの修了後に WebSocket メッセージを送信するか、受信する場合、次のような例外を受け取ることがあります。
+
+```
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake. ---> System.ObjectDisposedException: Cannot write to the response body, the response has completed.
+Object name: 'HttpResponseStream'.
+```
+
+バックグラウンド サービスを利用してデータを WebSocket に書き込む場合、ミドルウェア パイプラインの実行を維持します。 これは <xref:System.Threading.Tasks.TaskCompletionSource%601> を使用して行います。 `TaskCompletionSource` をバックグラウンド サービスに渡し、WebSocket が終わったとき、それに <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> を呼び出させます。 次に、要求中、<xref:System.Threading.Tasks.TaskCompletionSource%601.Task> プロパティを `await` します。
+
 ### <a name="send-and-receive-messages"></a>メッセージの送受信
 
 `AcceptWebSocketAsync` メソッドは、TCP 接続を WebSocket 接続にアップグレードし、[WebSocket](/dotnet/core/api/system.net.websockets.websocket) オブジェクトを提供します。 メッセージの送受信に、`WebSocket` オブジェクトを使用します。
@@ -186,19 +195,19 @@ Windows Server 2012 以降で WebSocket プロトコルのサポートを有効�
 1. **[管理]** メニューから**役割と機能の追加**ウィザードを使用するか、**サーバー マネージャー**にあるリンクを使用します。
 1. **[役割ベースまたは機能ベースのインストール]** を選択します。 **[次へ]** を選択します。
 1. 適切なサーバーを選択します (既定では、ローカル サーバーが選択されます)。 **[次へ]** を選択します。
-1. **[役割]** ツリーで **[Web サーバー (IIS)]** を展開し、**[Web サーバー]**、**[アプリケーション開発]** の順に展開します。
+1. **[役割]** ツリーで **[Web サーバー (IIS)]** を展開し、 **[Web サーバー]** 、 **[アプリケーション開発]** の順に展開します。
 1. **[WebSocket プロトコル]** を選択します。 **[次へ]** を選択します。
-1. 追加機能が不要な場合は、**[次へ]** を選択します。
+1. 追加機能が不要な場合は、 **[次へ]** を選択します。
 1. **[インストール]** を選択します。
-1. インストールが完了したら、**[閉じる]** を選択してウィザードを終了します。
+1. インストールが完了したら、 **[閉じる]** を選択してウィザードを終了します。
 
 Windows 8 以降で WebSocket プロトコルのサポートを有効にするには
 
 > [!NOTE]
 > これらの手順は、IIS Express を使用する場合は必要ありません
 
-1. **[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。
-1. 次のノード: **[インターネット インフォメーション サービス]** > **[World Wide Web サービス]** > **[アプリケーション開発機能]** を開きます。
+1. **[コントロール パネル]**  >  **[プログラム]**  >  **[プログラムと機能]**  >  **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。
+1. 次のノード: **[インターネット インフォメーション サービス]**  >  **[World Wide Web サービス]**  >  **[アプリケーション開発機能]** を開きます。
 1. **[WebSocket プロトコル]** 機能を選択します。 **[OK]** を選択します。
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Node.js で socket.io を使用する場合に WebSocket を無効にする
@@ -217,6 +226,6 @@ Windows 8 以降で WebSocket プロトコルのサポートを有効にする�
 
 ![Web ページの初期状態](websockets/_static/start.png)
 
-**[接続]** を選択し、表示されている URL に WebSocket 要求を送信します。 テスト メッセージを入力し、**[送信]** を選択します。 完了したら、**[Close Socket]\(ソケットを閉じる\)** を選択します。 **[Communication Log]\(コミュニケーション ログ\)** セクションに、発生した各オープン、送信、クローズのアクションが表示されます。
+**[接続]** を選択し、表示されている URL に WebSocket 要求を送信します。 テスト メッセージを入力し、 **[送信]** を選択します。 完了したら、 **[Close Socket]\(ソケットを閉じる\)** を選択します。 **[Communication Log]\(コミュニケーション ログ\)** セクションに、発生した各オープン、送信、クローズのアクションが表示されます。
 
 ![Web ページの初期状態](websockets/_static/end.png)

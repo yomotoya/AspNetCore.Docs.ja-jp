@@ -2,26 +2,21 @@
 title: ASP.NET Core への Kestrel Web サーバーの実装
 author: guardrex
 description: ASP.NET Core 用のクロスプラットフォーム Web サーバーである Kestrel について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 05/17/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: b5b05dbd553124cecac2ec7ddb55c939cb91c8ad
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 6f9eee1ed46f02232bed977f8f60a3d77db48784
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450992"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223152"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Chris Ross](https://github.com/Tratcher)、[Stephen Halter](https://twitter.com/halter73)
-
-::: moniker range="<= aspnetcore-1.1"
-
-このトピックのバージョン 1.1 では、[ASP.NET Core の Kestrel Web サーバー実装 (バージョン 1.1、PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Kestrel_1.1.pdf) をダウンロードします。
-
-::: moniker-end
 
 Kestrel は、[ASP.NET Core 向けのクロスプラットフォーム Web サーバー](xref:fundamentals/servers/index)です。 Kestrel は、ASP.NET Core のプロジェクト テンプレートに既定で含まれる Web サーバーです。
 
@@ -166,6 +161,32 @@ Kestrel Web サーバーには、インターネットに接続する展開で�
 
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> クラスの <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Limits> プロパティで制約を設定します。 `Limits` プロパティは、<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits> クラスのインスタンスを保持します。
 
+### <a name="keep-alive-timeout"></a>Keep-Alive タイムアウト
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.KeepAliveTimeout>
+
+[Keep-Alive タイムアウト](https://tools.ietf.org/html/rfc7230#section-6.5)を取得するか、設定します。 既定値は 2 分です。
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=15)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
+        });
+```
+
+::: moniker-end
+
 ### <a name="maximum-client-connections"></a>クライアントの最大接続数
 
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MaxConcurrentConnections>  
@@ -258,6 +279,8 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 アプリが要求の読み取りを開始した後で、要求に対する制限を構成しようとすると、例外がスローされます。 `MaxRequestBodySize` プロパティが読み取り専用状態にある (制限を構成するには遅すぎる) かどうかを示す `IsReadOnly` プロパティがあります。
 
+[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) の背後でアプリが[アウト プロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)で実行されるとき、Kestrel の要求本文サイズ上限が無効になります。IIS により既に上限が設定されているためです。
+
 ### <a name="minimum-request-body-data-rate"></a>要求本文の最小レート
 
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MinRequestBodyDataRate>  
@@ -301,6 +324,32 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 ::: moniker range=">= aspnetcore-2.2"
 
 前のサンプルで参照したどのレート機能も HTTP/2 要求の `HttpContext.Features` には存在しません。これはプロトコルで要求の多重化に対応するために、要求ごとのレート制限の変更が HTTP/2 でサポートされていないからです。 `KestrelServerOptions.Limits` で構成したサーバー全体のレート制限は、引き続き HTTP/1.x と HTTP/2 の両方の接続に適用されます。
+
+::: moniker-end
+
+### <a name="request-headers-timeout"></a>要求ヘッダー タイムアウト
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.RequestHeadersTimeout>
+
+サーバーで要求ヘッダーの受信にかかる時間の最大値を取得または設定します。 既定値は 30 秒です。
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=16)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(1);
+        });
+```
 
 ::: moniker-end
 
@@ -579,7 +628,7 @@ Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証
 以下の *appsettings.json* の例では、次のことが行われています。
 
 * **AllowInvalid** を `true` に設定し、の無効な証明書 (自己署名証明書など) の使用を許可します。
-* 証明書 (後の例では **HttpsDefaultCert**) が指定されていないすべての HTTPS エンドポイントは、**[証明書]** >  **[既定]** または開発証明書で定義されている証明書にフォールバックします。
+* 証明書 (後の例では **HttpsDefaultCert**) が指定されていないすべての HTTPS エンドポイントは、 **[証明書]**  >  **[既定]** または開発証明書で定義されている証明書にフォールバックします。
 
 ```json
 {
@@ -629,7 +678,7 @@ Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証
 }
 ```
 
-証明書ノードの **Path** と **Password** を使用する代わりの方法は、証明書ストアのフィールドを使って証明書を指定することです。 たとえば、**[証明書]** > **[既定]** の証明書は次のように指定できます。
+証明書ノードの **Path** と **Password** を使用する代わりの方法は、証明書ストアのフィールドを使って証明書を指定することです。 たとえば、 **[証明書]**  >  **[既定]** の証明書は次のように指定できます。
 
 ```json
 "Default": {
