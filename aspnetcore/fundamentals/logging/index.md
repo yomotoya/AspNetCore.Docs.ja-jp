@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core でのログ記録フレームワークについて説明します。 組み込みのログ プロバイダーと、サードパーティ製の一般的なプロバイダーについて説明します。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8a2e310b47e32e9015b0c127ed79d8f6bdf2e44d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982854"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085668"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -19,7 +19,7 @@ ms.locfileid: "59982854"
 
 ASP.NET Core では、組み込みやサード パーティ製のさまざまなログ プロバイダーと連携するログ API がサポートされています。 この記事では、組み込みプロバイダーと共にログ API を使用する方法について説明します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="add-providers"></a>プロバイダーを追加する
 
@@ -54,7 +54,7 @@ ASP.NET Core では、組み込みやサード パーティ製のさまざまな
 ASP.NET Core の[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) には、`ILoggerFactory` インスタンスが用意されています。 `AddConsole` および `AddDebug` 拡張メソッドは、[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) パッケージと [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) パッケージで定義されています。 各拡張メソッドで `ILoggerFactory.AddProvider` メソッドを呼び出し、プロバイダーのインスタンスで渡します。
 
 > [!NOTE]
-> [サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x)では、`Startup.Configure` メソッドにログ プロバイダーを追加しています。 前の手順で実行したコードのログ出力を取得するには、`Startup` クラス コンストラクターにログ プロバイダーを追加します。
+> [サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x)では、`Startup.Configure` メソッドにログ プロバイダーを追加しています。 前の手順で実行したコードのログ出力を取得するには、`Startup` クラス コンストラクターにログ プロバイダーを追加します。
 
 ::: moniker-end
 
@@ -496,11 +496,12 @@ System.Exception: Item not found exception.
 
 * コンソール
 * デバッグ
+* EventSource
 * EventLog
+* TraceSource
 * AzureAppServicesFile
 * AzureAppServicesBlob
-* TraceSource
-* EventSource
+* ApplicationInsights
 
 ### <a name="default-minimum-level"></a>既定の最小レベル
 
@@ -616,8 +617,9 @@ ASP.NET Core には次のプロバイダーが付属しています。
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
-
-[Azure でのログ記録](#logging-in-azure)用のオプションについては、この記事で後ほど説明します。
+* [AzureAppServicesFile](#azure-app-service-provider)
+* [AzureAppServicesBlob](#azure-app-service-provider)
+* [ApplicationInsights](#azure-application-insights-trace-logging)
 
 stdout ログについては、<xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> と <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log> をご覧ください。
 
@@ -709,7 +711,7 @@ loggerFactory.AddEventSourceLogger();
 
 ログの収集と表示には、[PerfView utility](https://github.com/Microsoft/perfview) を使用することをお勧めします。 ETW ログを表示できる他のツールはありますが、ASP.NET から出力される ETW イベントを操作する場合、PerfView は最適なエクスペリエンスを提供します。
 
-このプロバイダーでログに記録されるイベントを収集するように PerfView を構成するには、**[追加プロバイダー]** の一覧に文字列 `*Microsoft-Extensions-Logging` を追加します  (文字列の先頭に忘れずにアスタリスクを付けてください)。
+このプロバイダーでログに記録されるイベントを収集するように PerfView を構成するには、 **[追加プロバイダー]** の一覧に文字列 `*Microsoft-Extensions-Logging` を追加します  (文字列の先頭に忘れずにアスタリスクを付けてください)。
 
 ![Perfview の追加プロバイダー](index/_static/perfview-additional-providers.png)
 
@@ -764,19 +766,6 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 次の例では、`Warning` 以上のメッセージのログをコンソール ウィンドウに出力する `TraceSource` プロバイダーを構成します。
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
-
-::: moniker-end
-
-## <a name="logging-in-azure"></a>Azure でのログ記録
-
-Azure でのログ記録については、次のセクションを参照してください。
-
-* [Azure App Service プロバイダー](#azure-app-service-provider)
-* [Azure ログのストリーミング](#azure-log-streaming)
-
-::: moniker range=">= aspnetcore-1.1"
-
-* [Azure Application Insights のトレース ログ](#azure-application-insights-trace-logging)
 
 ::: moniker-end
 
@@ -842,7 +831,7 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 このプロバイダーは、プロジェクトが Azure 環境で実行される場合にのみ機能します。 プロジェクトをローカルで実行しても、効果はありません&mdash;BLOB のローカル ファイルまたはローカル開発ストレージへの書き込みは行われません。
 
-### <a name="azure-log-streaming"></a>Azure ログのストリーミング
+#### <a name="azure-log-streaming"></a>Azure ログのストリーミング
 
 Azure ログのストリーミングを使用すると、以下からリアル タイムでログ アクティビティを確認できます。
 
@@ -865,14 +854,23 @@ Azure ログのストリーミングを構成するには
 
 ### <a name="azure-application-insights-trace-logging"></a>Azure Application Insights のトレース ログ
 
-Application Insights SDK では、ASP.NET Core のログ インフラストラクチャによって生成されるログを収集およびレポートすることができます。 詳細については、次のリソースを参照してください。
+[Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) プロバイダー パッケージでは、Azure Application Insights にログを書き込みます。 Application Insights は、Web アプリを監視するサービスであり、クエリを実行してテレメトリ データを分析するためのツールを提供します。 このプロバイダーを使用する場合は、Application Insights ツールを使ってクエリを実行し、ログを分析できます。
+
+ログ プロバイダーは、[Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) の依存関係として組み込まれており、ASP.NET Core で利用可能なすべてのテレメトリを提供するパッケージです。 このパッケージを使用する場合は、プロバイダー パッケージをインストールする必要はありません。
+
+ASP.NET 4.x. に対応している [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) パッケージを使用しないでください。
+
+詳細については、次のリソースを参照してください。
 
 * [Application Insights の概要](/azure/application-insights/app-insights-overview)
-* [ASP.NET Core 用 Application Insights](/azure/application-insights/app-insights-asp-net-core)
+* [Application Insights for ASP.NET Core アプリケーション](/azure/azure-monitor/app/asp-net-core-no-visualstudio) - ログ記録と共に完全な Application Insights テレメトリを実装する場合は、ここから開始します。
+* [ApplicationInsightsLoggerProvider for .NET Core ILogger ログ](/azure/azure-monitor/app/ilogger) - ログ プロバイダーを実装し、Application Insights テレメトリのそれ以外の部分は除く場合は、ここから開始します。
 * [Application Insights のログ アダプター](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md)。
-* [Application Insights ILogger の実装のサンプル](/azure/azure-monitor/app/ilogger)
-
+* [Application Insights SDK のインストール、構成、および初期化](/learn/modules/instrument-web-app-code-with-application-insights) - Microsoft Learn サイト上にある対話型のチュートリアルです。
 ::: moniker-end
+
+> [!NOTE]
+> 2019 年 5 月 1 日の時点で、「[Application Insights for ASP.NET Core](/azure/azure-monitor/app/asp-net-core)」というタイトルの記事は最新ではなく、チュートリアルの手順は有効ではありません。 代わりに、[Application Insights for ASP.NET Core のアプリケーション](/azure/azure-monitor/app/asp-net-core-no-visualstudio)に関する記事を参照してください。 マイクロソフトでは問題を認識して、その修正に取り組んでいます。
 
 ## <a name="third-party-logging-providers"></a>サードパーティ製のログ プロバイダー
 
@@ -885,7 +883,7 @@ ASP.NET Core で使用できるサードパーティ製のログ記録フレー�
 * [Loggr](http://loggr.net/) ([GitHub リポジトリ](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([GitHub リポジトリ](https://github.com/NLog/NLog.Extensions.Logging))
 * [Sentry](https://sentry.io/welcome/) ([GitHub リポジトリ](https://github.com/getsentry/sentry-dotnet))
-* [Serilog](https://serilog.net/) ([GitHub リポジトリ](https://github.com/serilog/serilog-extensions-logging))
+* [Serilog](https://serilog.net/) ([GitHub リポジトリ](https://github.com/serilog/serilog-aspnetcore))
 * [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([Github リポジトリ](https://github.com/googleapis/google-cloud-dotnet))
 
 一部のサードパーティ製フレームワークは、[セマンティック ログ記録 (構造化ログ記録とも呼ばれます)](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging) を実行できます。

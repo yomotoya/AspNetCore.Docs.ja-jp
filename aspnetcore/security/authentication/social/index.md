@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882007"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451047"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
@@ -33,9 +33,9 @@ ms.locfileid: "64882007"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio の **[ファイル]** メニューから、**[新規作成]** > **[プロジェクト]** の順に選択します。
+* Visual Studio の **[ファイル]** メニューから、 **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 * 新しい ASP.NET Core Web アプリケーションを作成します。
-* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、**[Web アプリケーション]** を選択します。
+* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、 **[Web アプリケーション]** を選択します。
 * **[認証の変更]** を選択し、認証を **[個人のユーザー アカウント]** に設定します。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -47,14 +47,16 @@ ms.locfileid: "64882007"
 * 次のコマンドを実行します。
 
   ```console
-  dotnet new webapp -o WebApp1
+  dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
 
   * `dotnet new` コマンドでは、*WebApp1* フォルダーに新しい Razor Pages プロジェクトが作成されます。
+  * `-uld` では、SQLite ではなく LocalDB を使用します。 `-uld` を省略して SQLite を使用します。
+  * `-au Individual` によって、個々の認証に対するコードを作成します。
   * `code` コマンドでは、Visual Studio Code の新しいインスタンス内に *WebApp1* フォルダーが開かれます。
 
-  "**ビルドとデバッグに必要な資産が 'WebApp1' にありません。追加しますか?**" という内容のダイアログ ボックスが表示されたら、
+  "**ビルドとデバッグに必要な資産が 'WebApp1' にありません。追加しますか?** " という内容のダイアログ ボックスが表示されたら、
 
 * **[はい]** を選択します
 
@@ -65,14 +67,14 @@ ms.locfileid: "64882007"
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
-dotnet new webapp -o WebApp1
+dotnet new webapp -o WebApp1 -au Individual
 ```
 
 上記のコマンドでは、[.NET Core CLI](/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトが作成されます。
 
 ## <a name="open-the-project"></a>プロジェクトを開く
 
-Visual Studio から、**[ファイル]、[開く]** の順に選択し、*WebApp1.csproj* ファイルを選択します。
+Visual Studio から、 **[ファイル]、[開く]** の順に選択し、*WebApp1.csproj* ファイルを選択します。
 
 <!-- End of VS tabs -->
 
@@ -80,8 +82,8 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*WebAp
 
 ## <a name="apply-migrations"></a>移行を適用する
 
-* アプリを実行し、**[登録]** リンクを選択します。
-* 新しいアカウントの電子メール アドレスとパスワードを入力し、**[登録]** を選択します。
+* アプリを実行し、 **[登録]** リンクを選択します。
+* 新しいアカウントの電子メール アドレスとパスワードを入力し、 **[登録]** を選択します。
 * 指示に従って移行を適用します。
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

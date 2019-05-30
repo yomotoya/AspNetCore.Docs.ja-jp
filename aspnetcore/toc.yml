@@ -92,7 +92,11 @@
     - name: リモート プロシージャ コール アプリ
       items:
         - name: ASP.NET Core の gRPC サービスの概要
+          uid: tutorials/grpc/index
+        - name: ASP.NET Core gRPC あいさつサービスを作成する
           uid: tutorials/grpc/grpc-start
+        - name: .NET Core gRPC クライアントを作成する
+          uid: tutorials/grpc/grpc-client
     - name: データ アクセス
       items:
         - name: EF Core と Razor Pages
@@ -230,8 +234,9 @@
         - name: 概要
           uid: mvc/overview
         - name: チュートリアル
-          uid: tutorials/first-mvc-app/index
           items:
+            - name: 概要
+              uid: tutorials/first-mvc-app/index
             - name: 作業開始
               uid: tutorials/first-mvc-app/start-mvc
             - name: コントローラーの追加
@@ -324,8 +329,6 @@
               uid: client-side/libman/libman-cli
             - name: Visual Studio
               uid: client-side/libman/libman-vs
-        - name: Gulp
-          uid: client-side/using-gulp
         - name: Grunt
           uid: client-side/using-grunt
         - name: Bower
@@ -338,13 +341,10 @@
       uid: fundamentals/app-state
     - name: レイアウト
       uid: mvc/views/layout
-    - name: モデル バインド
-      uid: mvc/models/model-binding
-    - name: モデルの検証
-      uid: mvc/models/validation
     - name: Razor の構文
       uid: mvc/views/razor
     - name: タグ ヘルパー
+      uid: mvc/views/tag-helpers/builtin-th/Index
       items:
         - name: 概要
           uid: mvc/views/tag-helpers/intro
@@ -396,10 +396,6 @@
           uid: mvc/controllers/areas
         - name: アプリのパーツ
           uid: mvc/extensibility/app-parts
-        - name: カスタム モデル バインド
-          uid: mvc/advanced/custom-model-binding
-        - name: 互換バージョン
-          uid: mvc/compatibility-version
 - name: Web API アプリ
   items:
     - name: 概要
@@ -1000,6 +996,14 @@
       uid: fundamentals/troubleshoot-aspnet-core-localization
 - name: 詳細設定
   items:
+    - name: モデル バインド
+      uid: mvc/models/model-binding
+    - name: カスタム モデル バインド
+      uid: mvc/advanced/custom-model-binding
+    - name: モデルの検証
+      uid: mvc/models/validation
+    - name: 互換バージョン
+      uid: mvc/compatibility-version
     - name: ミドルウェアの作成
       uid: fundamentals/middleware/write
     - name: 要求と応答の操作
@@ -1076,4 +1080,4 @@
 - name: API リファレンス
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: 投稿
-  href: 'https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md'
+  href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'

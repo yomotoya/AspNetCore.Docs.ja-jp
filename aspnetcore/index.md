@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: 9cb598c4068586e4e960ec40743c4f54f09995ad
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 6dd722b3b78d2af81497bde9e0519feb9af84748
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614373"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086141"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -24,7 +24,7 @@ ASP.NET Core は、インターネットに接続された最新のクラウド 
 * クラウドまたはオンプレミスに展開する。
 * [.NET Core または .NET Framework](/dotnet/articles/standard/choosing-core-framework-server) 上で実行する。
 
-## <a name="why-to-use-aspnet-core"></a>ASP.NET Core を使用する理由
+## <a name="why-choose-aspnet-core"></a>ASP.NET Core を選ぶ理由
 
 何百万人もの開発者が、これまで、そして現在も、Web アプリの作成に [ASP.NET 4.x](/aspnet/overview) を使っています。 ASP.NET Core は ASP.NET 4.x を設計し直したものであり、無駄のないモジュール形式のフレームワークになるようにアーキテクチャが変更されています。
 
@@ -101,7 +101,7 @@ ASP.NET Core アプリを開発する場合の概要として、次の順序で�
 
 多くの記事やチュートリアルにサンプル コードへのリンクが含まれています。
 
-1. [ASP.NET リポジトリの zip ファイルをダウンロード](https://codeload.github.com/aspnet/Docs/zip/master)します。
+1. [ASP.NET リポジトリの zip ファイルをダウンロード](https://codeload.github.com/aspnet/AspNetCore.Docs/zip/master)します。
 1. *Docs-master.zip* ファイルを解凍します。
 1. サンプル リンクの URL を使って、サンプル ディレクトリに移動します。
 
@@ -148,7 +148,7 @@ WebHost.CreateDefaultBuilder(args)
 
 コードを囲む `#region` と `#endregion` のステートメントは安全に無視 (または削除) することができます。 トピックで説明されているサンプル シナリオを実行する予定がある場合は、これらのステートメント内のコードを変更しないでください。 他のシナリオを試す場合は、自由にコードを変更できます。
 
-詳細については、「[Contribute to the ASP.NET documentation: Code snippets (ASP.NET に貢献する: コード スニペット)](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets)」を参照してください。
+詳細については、「[Contribute to the ASP.NET documentation: Code snippets (ASP.NET に貢献する: コード スニペット)](https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md#code-snippets)」を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

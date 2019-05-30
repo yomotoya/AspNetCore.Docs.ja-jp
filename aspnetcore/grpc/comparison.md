@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 655c921788deb30f3c0f3b47f4440dc8701c0f59
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 712010f62b418fc8964b48648e35698c7bd3b395
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874933"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376422"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>HTTP API を使用した gRPC サービスの比較
 
@@ -78,7 +78,7 @@ gRPC は、次のシナリオに適してします。
 
 * **マイクロ サービス** &ndash; gRPC が低待機時間とスループットが高い通信用に設計されています。 gRPC は効率が重要な軽量のマイクロ サービスに最適です。
 * **ポイント ツー ポイントのリアルタイム通信** &ndash; gRPC は双方向のストリーミング用の優れたサポートしています。 gRPC サービスは、メッセージをプッシュ配信、ポーリングせずにリアルタイムできます。
-* **Polygot 環境** &ndash; gRPC ツールは、gRPC の多言語環境の適切な選択を行うすべての一般的な開発言語をサポートしています。
+* **多言語環境** &ndash; gRPC ツールは、gRPC の多言語環境の適切な選択を行うすべての一般的な開発言語をサポートしています。
 * **ネットワーク環境の制約付き** &ndash; gRPC メッセージは、Protobuf、軽量メッセージ形式にシリアル化されます。 GRPC メッセージは、同等の JSON メッセージよりも小さいは常にします。
 
 ## <a name="grpc-weaknesses"></a>gRPC の短所
