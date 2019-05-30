@@ -5,14 +5,14 @@ description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys 
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 05/27/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 7ba27b404cd10752ff9e304cd0a272eff7fa627a
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: d91a0f7b83fb073147978319edfbed0bda9a1c44
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087058"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395950"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -184,7 +184,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
    netsh http add urlacl url=<URL> user=<USER>
    ```
 
-   * `<URL>` &ndash; 完全修飾 URL (Uniform Resource Locator)。 ワイルドカードのバインドは使用しないでください。 有効なホスト名かローカル IP アドレスを使用してください。 "*URL の末尾にはスラッシュが必要です。*"
+   * `<URL>` &ndash; 完全修飾 URL (Uniform Resource Locator)。 ワイルドカードのバインドは使用しないでください。 有効なホスト名かローカル IP アドレスを使用してください。 "*URL の末尾にはスラッシュが必要です。* "
    * `<USER>` &ndash; ユーザーまたはユーザー グループの名前を指定します。
 
    次の例では、サーバーのローカル IP アドレスは `10.0.0.4` です。
@@ -217,7 +217,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
    参照用に、この GUID をパッケージ タグとしてアプリに格納します。
 
    * Visual Studio:
-     * **ソリューション エクスプローラー**内でアプリを右クリックし、**[プロパティ]** をクリックして、アプリのプロジェクト プロパティを開きます。
+     * **ソリューション エクスプローラー**内でアプリを右クリックし、 **[プロパティ]** をクリックして、アプリのプロジェクト プロパティを開きます。
      * **[パッケージ]** タブを選択します。
      * 作成した GUID を **[タグ]** フィールドに入力します。
    * Visual Studio を使用しない場合:
@@ -271,7 +271,7 @@ HTTP.sys では、Kerberos 認証プロトコルを使用したカーネル モ�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [HTTP.sys を使用して Windows 認証を有効にする](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
+* [HTTP.sys を使用して Windows 認証を有効にする](xref:security/authentication/windowsauth#httpsys)
 * [HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [aspnet/HttpSysServer GitHub リポジトリ (ソース コード)](https://github.com/aspnet/HttpSysServer/)
 * [ホスト](xref:fundamentals/index#host)
