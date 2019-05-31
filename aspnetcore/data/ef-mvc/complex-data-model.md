@@ -4,15 +4,15 @@ description: このチュートリアルでは、エンティティとリレー�
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2776e3357941d0e7932882c39af121f85d037d62
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264859"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887247"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>チュートリアル: 複合データ モデルを作成する - ASP.NET MVC と EF Core
 
@@ -40,7 +40,7 @@ ms.locfileid: "58264859"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [MVC Web アプリの ASP.NET Core に対する EF Core の移行機能の使用](migrations.md)
+* [EF Core 移行を使用する](migrations.md)
 
 ## <a name="customize-the-data-model"></a>データ モデルをカスタマイズする
 
@@ -64,7 +64,7 @@ ms.locfileid: "58264859"
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-`ApplyFormatInEditMode` の設定では、編集用にテキスト ボックスに値を表示するときにも適用する必要がある書式設定を指定します  (フィールドによっては適用したくないこともあります。たとえば、通貨値では、編集用テキスト ボックスには通貨記号が必要でない場合があります)。
+`ApplyFormatInEditMode` の設定では、編集用にテキスト ボックスに値を表示するときにも適用する必要がある書式設定を指定します (フィールドによっては適用したくないこともあります。たとえば、通貨値では、編集用テキスト ボックスには通貨記号が必要でない場合があります)。
 
 `DisplayFormat` 属性を単独で使用できますが、一般的に、`DataType` 属性も使用することをお勧めします。 `DataType` 属性は、画面でのレンダリング方法とは異なり、データのセマンティクスを伝達します。また、`DisplayFormat` にはない、次の利点があります。
 
@@ -110,7 +110,7 @@ dotnet ef database update
 
 移行ファイル名の前に付けられる timestamp は、移行を並べ替えるために Entity Framework によって使用されます。 update-database コマンドを実行する前に複数の移行を作成できます。その後、すべての移行は作成順に適用されます。
 
-アプリを実行し、**[Students]** タブを選択して、**[新規作成]** をクリックし、50 文字を超えるいずれかの名前を入力してみます。 アプリケーションにより、この操作が防止されます。 
+アプリを実行し、 **[Students]** タブを選択して、 **[新規作成]** をクリックし、50 文字を超えるいずれかの名前を入力してみます。 アプリケーションにより、この操作が防止されます。 
 
 ### <a name="the-column-attribute"></a>Column 属性
 
@@ -320,7 +320,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> 規則により、Entity Framework では null 非許容の外部キーと多対多リレーションシップに対して連鎖削除が有効になります。 これにより、循環連鎖削除規則が適用される可能性があり、移行を追加しようとすると例外が発生します。 たとえば、Department.InstructorID プロパティを null 許容として定義しなかった場合、EF は、学科を削除したときに講師を削除するように連鎖削除規則を構成します。これは起こってほしくない動作です。 ビジネス ルールで `InstructorID` プロパティを null 非許容にすることが求められた場合、以下の fluent API ステートメントを使用して、リレーションシップで連鎖削除を無効にする必要がありました。
+> 規則により、Entity Framework では null 非許容の外部キーと多対多リレーションシップに対して連鎖削除が有効になります。 これにより、循環連鎖削除規則が適用される可能性があり、移行を追加しようとすると例外が発生します。 たとえば、Department.InstructorID プロパティを null 許容として定義しなかった場合、EF では、講師を削除したときに学科を削除するように連鎖削除規則が構成されます。これは、発生してほしくない動作です。 ビジネス ルールで `InstructorID` プロパティを null 非許容にすることが求められた場合、以下の fluent API ステートメントを使用して、リレーションシップで連鎖削除を無効にする必要がありました。
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -359,13 +359,13 @@ public Student Student { get; set; }
 
 Student エンティティと Course エンティティの間には多対多リレーションシップがあり、Enrollment エンティティはデータベースで*ペイロードがある*多対多の結合テーブルとして機能します。 "ペイロードがある" とは、Enrollment テーブルに統合テーブルの外部キー以外に追加データが含まれていることを意味します (この例では、主キーと Grade プロパティ)。
 
-次の図は、エンティティ図でこれらのリレーションシップがどのようになるかを示しています  (この図は、EF 6.x 用の Entity Framework Power Tools を使用して生成されたものです。このチュートリアルでは図は作成しません。ここでは例として使用するだけです)。
+次の図は、エンティティ図でこれらのリレーションシップがどのようになるかを示しています (この図は、EF 6.x 用の Entity Framework Power Tools を使用して生成されたものです。このチュートリアルでは図は作成しません。ここでは例として使用するだけです)。
 
 ![Student と Course の多対多リレーションシップ](complex-data-model/_static/student-course.png)
 
 各リレーションシップ線の一方の端に 1 が、もう一方の端にアスタリスク (*) があり、1 対多リレーションシップであることを示しています。
 
-Enrollment テーブルに成績情報が含まれていなかった場合、含める必要があるのは 2 つの外部キー (CourseID と StudentID) のみです。 その場合、データベースにはペイロードがない多対多結合テーブル (純粋結合テーブル) が存在することになります。 Instructor および Course エンティティにはその種の多対多リレーションシップがあり、次の手順では、ペイロードがない結合テーブルとして機能するエンティティ クラスを作成します 
+Enrollment テーブルに成績情報が含まれていなかった場合、含める必要があるのは 2 つの外部キー (CourseID と StudentID) のみです。 その場合、データベースにはペイロードがない多対多結合テーブル (純粋結合テーブル) が存在することになります。 Instructor および Course エンティティにはその種の多対多リレーションシップがあり、次の手順では、ペイロードがない結合テーブルとして機能するエンティティ クラスを作成します
 
 (EF 6.x では多対多リレーションシップの暗黙の結合テーブルがサポートされますが、EF Core ではサポートされません。 詳細については、[GitHub リポジトリの EF Core に関する記述](https://github.com/aspnet/EntityFramework/issues/1368)を参照してください)。
 
@@ -497,19 +497,19 @@ dotnet ef database update
 
 アプリを実行すると、`DbInitializer.Initialize` メソッドが実行され、新しいデータベースが設定されます。
 
-前の手順で行ったように SSOX でデータベースを開き、**Tables** ノードを展開して、テーブルがすべて作成されたことを確認します  (前に開いた SSOX がそのままの状態の場合は、**[更新]** ボタンをクリックします)。
+前の手順で行ったように SSOX でデータベースを開き、**Tables** ノードを展開して、テーブルがすべて作成されたことを確認します (前に開いた SSOX がそのままの状態の場合は、 **[更新]** ボタンをクリックします)。
 
 ![SSOX のテーブル](complex-data-model/_static/ssox-tables.png)
 
 アプリを実行して、データベースをシードする初期化子コードをトリガーします。
 
-**CourseAssignment** テーブルを右クリックして、**[データの表示]** を選択し、テーブルにデータがあることを確認します。
+**CourseAssignment** テーブルを右クリックして、 **[データの表示]** を選択し、テーブルにデータがあることを確認します。
 
 ![SSOX の CourseAssignment データ](complex-data-model/_static/ssox-ci-data.png)
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>次の手順
 
@@ -529,6 +529,7 @@ dotnet ef database update
 > * 接続文字列を変更した
 > * データベースを更新した
 
-関連データにアクセスする方法について学習するには、次の記事に進んでください。
+関連データにアクセスする方法について確認するには、次のチュートリアルに進んでください。
+
 > [!div class="nextstepaction"]
-> [関連データにアクセスする](read-related-data.md)
+> [次へ: 関連データにアクセスする](read-related-data.md)

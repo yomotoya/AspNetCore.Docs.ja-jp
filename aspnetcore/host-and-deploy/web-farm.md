@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
 ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450672"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64884157"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Web ファームでの ASP.NET Core のホスト
 
@@ -60,9 +60,9 @@ Web ファーム環境におけるキャッシュのメカニズムでは、Web 
 | シナリオ | 依存先 &hellip; |
 | -------- | ------------------- |
 | 認証 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、次のトピックを参照してください。 <xref:security/authentication/cookie> および <xref:security/cookie-sharing> |
-| 同一。 | 認証とデータベースの構成。<br><br>詳細については、「<xref:security/authentication/identity>」を参照してください。 |
-| セッション | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) とキャッシュ (<xref:performance/caching/distributed> を参照)。<br><br>詳細については、[セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)をご覧ください。 |
-| TempData | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) またはセッション ([セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)を参照)。<br><br>詳細については、[セッションとアプリの状態に関する記事の「TempData」](xref:fundamentals/app-state#tempdata)をご覧ください。 |
+| Identity | 認証とデータベースの構成。<br><br>詳細については、「<xref:security/authentication/identity>」を参照してください。 |
+| セッション | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) とキャッシュ (<xref:performance/caching/distributed> を参照)。<br><br>詳細については、[セッションとアプリの状態に関するページの「セッション状態」](xref:fundamentals/app-state#session-state)を参照してください。 |
+| TempData | データ保護 (暗号化された Cookie) (<xref:security/data-protection/configuration/overview> を参照) またはセッション ([セッションとアプリの状態に関する記事の「セッション状態」](xref:fundamentals/app-state#session-state)を参照)。<br><br>詳細については、[セッションとアプリの状態に関するページの「TempData」](xref:fundamentals/app-state#tempdata)を参照してください。 |
 | 偽造防止 | データ保護 (<xref:security/data-protection/configuration/overview> を参照)。<br><br>詳細については、「<xref:security/anti-request-forgery>」を参照してください。 |
 
 ## <a name="troubleshoot"></a>トラブルシューティング

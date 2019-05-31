@@ -3,14 +3,14 @@ title: ASP.NET Core の区分
 author: rick-anderson
 description: 区分は ASP.NET MVC の機能であり、関連する機能を別の名前空間 (ルーティングの場合) およびフォルダー構造 (ビューの場合) としてグループにまとめるために使用する方法を説明します。
 ms.author: riande
-ms.date: 02/14/2019
+ms.date: 05/10/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: f3a75bc307a206e43241b421f448b09011868d08
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264763"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535968"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core の区分
 
@@ -25,7 +25,7 @@ ms.locfileid: "58264763"
 * 論理的に大まかに区切れる複数の機能コンポーネントでアプリが構成されている。
 * 各機能区分を個別に使用できるようにアプリを分割したい。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 ダウンロード サンプルからは、区分をテストするための基本的なアプリが与えられます。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 ダウンロード サンプルからは、区分をテストするための基本的なアプリが与えられます。
 
 Razor Pages を使用している場合は、このドキュメントの「[Razor Pages を使った区分](#areas-with-razor-pages)」をご覧ください。
 
@@ -34,8 +34,13 @@ Razor Pages を使用している場合は、このドキュメントの「[Razo
 区分、コントローラー、ビューを使用する一般的な ASP.NET Core Web アプリに含まれる内容:
 
 * [区分フォルダーの構造](#area-folder-structure)。
-* コントローラーと区分を関連付ける目的で [&lbrack;Area&rbrack;](#attribute) 属性で装飾されたコントローラー: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
-* [スタートアップに追加された区分ルート](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
+* コントローラーと区分を関連付ける目的で [&lbrack;Area&rbrack;](#attribute) 属性で装飾されたコントローラー:
+
+  [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
+
+* [スタートアップに追加された区分ルート](#add-area-route):
+
+  [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>区分フォルダーの構造
 
@@ -99,7 +104,7 @@ ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub �
 
 ### <a name="link-generation-with-mvc-areas"></a>MVC 区分を使ったリンクの生成
 
-[サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)に含まれる次のコードでは、区分が指定された上でリンクが生成されます。
+[サンプル ダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)に含まれる次のコードでは、区分が指定された上でリンクが生成されます。
 
 [!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
@@ -127,7 +132,7 @@ ASP.NET Core 2.2 で `MapAreaRoute` を使用するときは、[この GitHub �
 
 ## <a name="areas-with-razor-pages"></a>Razor Pages を使った区分
 
-Razor Pages を使った区分を使うには、アプリのルートに *Areas/&lt;区分名&gt;/Pages* フォルダーが必要です。 [サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)では次のフォルダー構造が使われます
+Razor Pages を使った区分を使うには、アプリのルートに *Areas/&lt;区分名&gt;/Pages* フォルダーが必要です。 [サンプル ダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)では次のフォルダー構造が使われます
 
 * Project name
   * Areas
@@ -144,7 +149,7 @@ Razor Pages を使った区分を使うには、アプリのルートに *Areas/
 
 ### <a name="link-generation-with-razor-pages-and-areas"></a>Razor Pages と区分を使ったリンクの生成
 
-[サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas)の次のコードでは、区分を指定したリンクの生成を示しています (例: `asp-area="Products"`)。
+[サンプル ダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas)の次のコードでは、区分を指定したリンクの生成を示しています (例: `asp-area="Products"`)。
 
 [!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet)]
 
@@ -160,13 +165,13 @@ Razor Pages を使った区分を使うには、アプリのルートに *Areas/
 
 * `<a asp-page="/Manage/About">` から生成されるリンクは、前回の要求が `Services` 区分内のページに向けられていた場合にのみ正しくなります。 たとえば、`/Services/Manage/`、`/Services/Manage/Index`、または `/Services/Manage/About` です。
 * `<a asp-page="/About">` から生成されるリンクは、前回の要求が `/Home` 内のページに向けられていた場合にのみ正しくなります。
-* コードは、[サンプル ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas)からのものです。
+* コードは、[サンプル ダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas)からのものです。
 
 ### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>_ViewImports ファイルを使って名前空間とタグ ヘルパーをインポートする
 
-*_ViewImports* ファイルを各区分の *Pages* フォルダーに追加して、フォルダー内の各 Razor ページに名前空間とタグ ヘルパーをインポートすることができます。
+*_ViewImports.cshtml* ファイルを各区分の *Pages* フォルダーに追加して、フォルダー内の各 Razor ページに名前空間とタグ ヘルパーをインポートすることができます。
 
-サンプル コードの *Services* 区分について検討します。これには *_ViewImports* ファイルが含まれていません。 次のマークアップは */Services/Manage/About* Razor ページを表示します。
+サンプル コードの *Services* 区分について検討します。これには *_ViewImports.cshtml* ファイルが含まれていません。 次のマークアップは */Services/Manage/About* Razor ページを表示します。
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Services/Pages/Manage/About.cshtml)]
 
@@ -175,11 +180,13 @@ Razor Pages を使った区分を使うには、アプリのルートに *Areas/
 * 完全修飾ドメイン名を使ってモデルを指定する必要があります (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`)。
 * [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)は `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` によって有効になります
 
-サンプル ダウンロードでは、Products 区分に次の *_ViewImports* ファイルが含まれています。
+サンプル ダウンロードでは、Products 区分に次の *_ViewImports.cshtml* ファイルが含まれています。
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
 
-次のマークアップは */Products/About* Razor ページを表示します: [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
+次のマークアップは */Products/About* Razor ページを表示します。
+
+[!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
 
 上のファイルでは、*Areas/Products/Pages/_ViewImports.cshtml* ファイルによって、名前空間と `@addTagHelper` ディレクティブがファイルにインポートされています。
 
@@ -191,4 +198,4 @@ Razor Pages を使った区分を使うには、アプリのルートに *Areas/
 
 ### <a name="publishing-areas"></a>区分の発行
 
-`<Project Sdk="Microsoft.NET.Sdk.Web">` が the.csproj* ファイルに含まれている場合、すべての `*.cshtml` および `wwwroot/**` ファイルが発行され、出力されます。
+*.csproj ファイルに `<Project Sdk="Microsoft.NET.Sdk.Web">` が含まれているときは、すべての *.cshtml ファイル、および *wwwroot* ディレクトリ内のファイルが出力に発行されます。

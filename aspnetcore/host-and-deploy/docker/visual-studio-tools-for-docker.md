@@ -6,27 +6,27 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 42f8071eadabba3eb8cb738be1720f4c6195808c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207239"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64888367"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker と ASP.NET Core
 
 Visual Studio 2017 は、.NET Core をターゲットとするコンテナー化された ASP.NET Core アプリのビルド、デバッグ、実行をサポートします。 Windows と Linux の両方のコンテナーがサポートされます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-* [Visual Studio 2017](https://www.visualstudio.com/) と **[.NET Core クロスプラットフォームの開発]** ワークロード
+* [Visual Studio 2017](https://visualstudio.microsoft.com) と **[.NET Core クロスプラットフォームの開発]** ワークロード
 
 ## <a name="installation-and-setup"></a>インストールとセットアップ
 
-Docker をインストールする場合は、まず、「[Docker for Windows: What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)」 (Docker for Windows: インストール前に知っておくべきこと) の情報を確認します。 次に、[Docker for Windows](https://docs.docker.com/docker-for-windows/install/) をインストールします。
+Docker をインストールするには、まず、「[Docker for Windows:What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)」 (Docker Desktop for Windows: インストール前に知っておくべきこと) の情報を確認します。 次に、[Docker for Windows](https://docs.docker.com/docker-for-windows/install/) をインストールします。
 
 ボリュームのマッピングとデバッグをサポートするように、Docker for Windows で **[共有ドライブ](https://docs.docker.com/docker-for-windows/#shared-drives)**  を構成する必要があります。 システム トレイの Docker アイコンを右クリックし、**[設定]**、**[Shared Drives]\(共有ドライブ\)** の順に選択します。 Docker がファイルを保存するドライブを選択します。 **[適用]** をクリックします。
 
@@ -84,7 +84,7 @@ Visual Studio Tools for Docker では、.NET Framework をターゲットとす�
 
 Visual Studio 2017 バージョン 15.7 以前では、唯一のコンテナー オーケストレーション ソリューションとして、[Docker Compose](https://docs.docker.com/compose/overview/) がサポートされています。 Docker Compose の成果物は、**[追加]** > **[Docker サポート]** を使用して追加されます。
 
-Visual Studio 2017 バージョン 15.8 以降では、指示された場合にのみ、オーケストレーション ソリューションが追加されます。 **ソリューション エクスプローラー**でプロジェクトを右クリックして、**[追加]** > **[Container Orchestrator Support]\(コンテナー オーケストレーター サポート)** の順に選択します。 [Docker Compose](#docker-compose) と [Service Fabric](#service-fabric) という 2 つの異なる選択肢が提供されています。
+Visual Studio 2017 バージョン 15.8 以降では、指示された場合にのみ、オーケストレーション ソリューションが追加されます。 **ソリューション エクスプローラー**でプロジェクトを右クリックして、**[追加]** > **[Container Orchestrator Support]\(コンテナー オーケストレーター サポート)** の順に選択します。 2 つの異なる選択肢が提示されます。[Docker Compose](#docker-compose) と [Service Fabric](#service-fabric) です。
 
 ### <a name="docker-compose"></a>Docker Compose
 
@@ -232,7 +232,7 @@ microsoft/aspnetcore        2.0     c69d39472da9  13 days ago     347MB
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [Visual Studio によるコンテナー開発](/visualstudio/containers)
-* [Azure Service Fabric: 開発環境を準備する](/azure/service-fabric/service-fabric-get-started)
+* [Azure Service Fabric:開発環境を準備する](/azure/service-fabric/service-fabric-get-started)
 * [Windows コンテナー内の .NET アプリケーションを Azure Service Fabric にデプロイする](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Docker を使用した Visual Studio 2017 開発のトラブルシューティング](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
 * [Visual Studio Tools for Docker の GitHub リポジトリ](https://github.com/Microsoft/DockerTools)

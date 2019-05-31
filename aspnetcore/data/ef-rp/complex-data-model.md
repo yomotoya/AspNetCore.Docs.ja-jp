@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 311f72699b6291996a43d56247bd3d2bfab596e6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320249"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516901"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,7 +29,7 @@ ms.locfileid: "58320249"
 ![エンティティ図](complex-data-model/_static/diagram.png)
 
 解決できない問題が発生した場合は、[完成したアプリ](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
 
 ## <a name="customize-the-data-model-with-attributes"></a>属性を使用してデータ モデルをカスタマイズする
 
@@ -387,17 +383,16 @@ public ICollection<Course> Courses { get; set; }
 
 たとえば、`Department.InstructorID` プロパティが null 許容として定義されなかった場合、次のようになります。
 
-* EF Core は、学科が削除されたときに講師を削除するように連鎖削除規則を構成します。
-* 学科が削除されたときに講師を削除するのは、意図した動作ではありません。
+* EF Core は、講師が削除されたときに学科を削除するように連鎖削除規則を構成します。
+* 講師が削除されたときに学科を削除するのは、意図した動作ではありません。
+* 次の fluent API で、連鎖の代わりに制限規則を設定します。
 
-ビジネス ルールで `InstructorID` プロパティが null 非許容であることが求められている場合、以下の fluent API ステートメントを使用します。
-
- ```csharp
- modelBuilder.Entity<Department>()
-    .HasOne(d => d.Administrator)
-    .WithMany()
-    .OnDelete(DeleteBehavior.Restrict)
- ```
+   ```csharp
+   modelBuilder.Entity<Department>()
+      .HasOne(d => d.Administrator)
+      .WithMany()
+      .OnDelete(DeleteBehavior.Restrict)
+  ```
 
 上のコードでは、学科と講師のリレーションシップの連鎖削除が無効になります。
 
@@ -433,7 +428,7 @@ public Student Student { get; set; }
 
 `Student` エンティティと `Course` エンティティの間には多対多リレーションシップがあります。 `Enrollment` エンティティは、データベースで*ペイロードがある*多対多結合テーブルとして機能します。 "ペイロードがある" とは、`Enrollment` テーブルに、結合テーブルの FK 以外に追加データが含まれていることを意味します (ここでは PK と `Grade`)。
 
-次の図は、エンティティ図でこれらのリレーションシップがどのようになるかを示しています  (この図は、EF 6.x 用の [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) を使用して生成されたものです。 このチュートリアルでは図は作成しません)。
+次の図は、エンティティ図でこれらのリレーションシップがどのようになるかを示しています (この図は、EF 6.x 用の [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) を使用して生成されたものです。 このチュートリアルでは図は作成しません)。
 
 ![Student と Course の多対多リレーションシップ](complex-data-model/_static/student-course.png)
 
@@ -613,14 +608,14 @@ dotnet ef database update
 
 SSOX で DB を開きます。
 
-* SSOX が既に開いている場合は、**[更新]** ボタンをクリックします。
+* SSOX が既に開いている場合は、 **[更新]** ボタンをクリックします。
 * **[Tables]\(テーブル\)** ノードを展開します。 作成されたテーブルが表示されます。
 
 ![SSOX のテーブル](complex-data-model/_static/ssox-tables.png)
 
 **CourseAssignment** テーブルを確認します。
 
-* **CourseAssignment** テーブルを右クリックして、**[データの表示]** を選択します。
+* **CourseAssignment** テーブルを右クリックして、 **[データの表示]** を選択します。
 * **CourseAssignment** テーブルにデータが含まれていることを確認します。
 
 ![SSOX の CourseAssignment データ](complex-data-model/_static/ssox-ci-data.png)
@@ -671,7 +666,7 @@ SSOX で DB を開きます。
 * [このチュートリアルの YouTube バージョン (パート 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [このチュートリアルの YouTube バージョン (パート 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/migrations)

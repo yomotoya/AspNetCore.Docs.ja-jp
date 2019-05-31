@@ -5,14 +5,14 @@ description: アプリやデータベースなど、ASP.NET Core インフラス
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/11/2019
+ms.date: 04/23/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 0bb80a5fccc8240c6f1fb8e59b379766bfd90d9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488716"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887927"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core の正常性チェック
 
@@ -26,7 +26,7 @@ ASP.NET Core からは、アプリ インフラストラクチャ コンポー�
 * メモリ、ディスク、その他の物理サーバー リソースの使用を監視し、正常性の状態を確認できます。
 * 正常性チェックでは、データベースや外部サービス エンドポイントなど、アプリの依存関係をテストし、それらが利用できることと正常に機能していることを確認できます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 サンプル アプリには、このトピックで説明されているシナリオの例が含まれています。 所与のシナリオに対してサンプル アプリを実行するには、コマンド シェルでプロジェクトのフォルダーから [dotnet run](/dotnet/core/tools/dotnet-run) コマンドを使用します。 サンプル アプリの詳しい使用方法については、サンプル アプリの *README.md* ファイルと本トピックのシナリオ説明をご覧ください。
 
@@ -36,15 +36,15 @@ ASP.NET Core からは、アプリ インフラストラクチャ コンポー�
 
 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)を参照するか、[Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) パッケージへのパッケージ参照を追加します。
 
-サンプル アプリからは、いくつかのシナリオで正常性チェックを実演するスタートアップ コードが提供されます。 [データベース プローブ](#database-probe) シナリオでは、[BeatPulse](https://github.com/Xabaril/BeatPulse) を使用して、データベース接続の正常性がチェックされます。 [DbContext プローブ](#entity-framework-core-dbcontext-probe) シナリオでは、EF Core `DbContext` を使用して、データベースがチェックされます。 データベース シナリオを探索するために、サンプル アプリでは次のことが行われます:
+サンプル アプリからは、いくつかのシナリオで正常性チェックを実演するスタートアップ コードが提供されます。 [データベース プローブ](#database-probe) シナリオでは、[AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) を使用して、データベース接続の正常性がチェックされます。 [DbContext プローブ](#entity-framework-core-dbcontext-probe) シナリオでは、EF Core `DbContext` を使用して、データベースがチェックされます。 データベース シナリオを探索するために、サンプル アプリでは次のことが行われます:
 
 * データベースを作成して、*appsettings.json* ファイルにその接続文字列を指定します。
-* そのプロジェクト ファイルに次のパッケージ参照が含まれています: 
+* そのプロジェクト ファイルに次のパッケージ参照が含まれています:
   * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
   * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
-> Microsoft は [BeatPulse](https://github.com/Xabaril/BeatPulse) に対して保守管理もサポートも行っていません。
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) は [BeatPulse](https://github.com/xabaril/beatpulse) の 1 つのポートであり、マイクロソフトによる保守やサポートは行われません。
 
 もう 1 つの正常性チェックのシナリオでは、1 つの管理ポートに正常性チェックを絞り込む方法が実演されます。 このサンプル アプリでは、管理 URL と管理ポートを含む *Properties/launchSettings.json* ファイルを作成する必要があります。 詳細については、「[ポート別のフィルター処理](#filter-by-port)」セクションを参照してください。
 
@@ -286,18 +286,18 @@ private static Task WriteResponse(HttpContext httpContext,
 
 正常性チェックでは、データベースが通常どおり応答しているかどうかを示すブール値テストとして実行されるよう、データベース クエリを指定できます。
 
-このサンプル アプリでは、ASP.NET Core アプリの正常性チェック ライブラリである [BeatPulse](https://github.com/Xabaril/BeatPulse) が使用され、SQL Server データベースで正常性が確認されます。 BeatPulse によってデータベースに対して `SELECT 1` クエリが実行され、データベースの正常に問題がないことが確認されます。
+サンプル アプリでは、SQL Server データベース上で正常性のチェックを実行するために、ASP.NET Core アプリの正常性チェック ライブラリの [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) 使用します。 `AspNetCore.Diagnostics.HealthChecks` によってデータベースに対して `SELECT 1` クエリが実行され、データベースへの接続が正常であることが確認されます。
 
 > [!WARNING]
 > クエリでデータベース接続を確認するとき、すぐに返されるクエリを選択します。 このクエリ手法には、データベースをオーバーロードし、そのパフォーマンスを低下させるというリスクがあります。 ほとんどの場合、テスト クエリは実行する必要がありません。 データベースに正常に接続できれば十分です。 クエリを実行する必要があれば、`SELECT 1` など、単純な SELECT クエリを選択してください。
 
-BeatPulse ライブラリを使用するには、[AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/) へのパッケージ参照を追加します。
+[AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/) へのパッケージ参照を含めます。
 
 サンプル アプリの *appsettings.json* ファイルに有効なデータベース接続文字列を指定します。 このアプリでは `HealthCheckSample` という名前の SQL Server データベースが使用されます。
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-正常性チェック サービスを `Startup.ConfigureServices` の <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> に登録します。 サンプル アプリによって、データベースの接続文字列 (*DbHealthStartup.cs*) で BeatPulse の `AddSqlServer` メソッドが呼び出されます。
+正常性チェック サービスを `Startup.ConfigureServices` の <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> に登録します。 サンプル アプリでは、データベースの接続文字列 (*DbHealthStartup.cs*) を利用して `AddSqlServer` メソッドを呼び出します。
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
@@ -312,7 +312,7 @@ dotnet run --scenario db
 ```
 
 > [!NOTE]
-> Microsoft は [BeatPulse](https://github.com/Xabaril/BeatPulse) に対して保守管理もサポートも行っていません。
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) は [BeatPulse](https://github.com/xabaril/beatpulse) の 1 つのポートであり、マイクロソフトによる保守やサポートは行われません。
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext プローブ
 
@@ -323,7 +323,7 @@ dotnet run --scenario db
 
 `AddDbContextCheck<TContext>` によって `DbContext` の正常性チェックが登録されます。 `DbContext` は `TContext` としてメソッドに指定されます。 オーバーロードはエラー状態、タグ、カスタム テスト クエリの設定に利用できます。
 
-既定では: 
+既定では:
 
 * `DbContextHealthCheck` によって EF Core の `CanConnectAsync` メソッドが呼び出されます。 `AddDbContextCheck` メソッドのオーバーロードを使用して正常性を確認するときに実行される操作をカスタマイズできます。
 * 正常性チェックの名前は `TContext` 型の名前になります。
@@ -469,9 +469,9 @@ dotnet run --scenario writer
 ```
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) には、ディスク ストレージや最大値活動性のチェックなど、メトリックベースの正常性チェック シナリオが含まれます。
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) には、ディスク ストレージや最大値活動性のチェックなど、メトリックベースの正常性チェック シナリオが含まれます。
 >
-> Microsoft は [BeatPulse](https://github.com/Xabaril/BeatPulse) に対して保守管理もサポートも行っていません。
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) は [BeatPulse](https://github.com/xabaril/beatpulse) の 1 つのポートであり、マイクロソフトによる保守やサポートは行われません。
 
 ## <a name="filter-by-port"></a>ポート別のフィルター処理
 
@@ -681,6 +681,6 @@ Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ::: moniker-end
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) には、[Application Insights](/azure/application-insights/app-insights-overview) など、いくつかのシステムのパブリッシャーが含まれます。
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) には、[Application Insights](/azure/application-insights/app-insights-overview) など、いくつかのシステムのパブリッシャーが含まれます。
 >
-> Microsoft は [BeatPulse](https://github.com/Xabaril/BeatPulse) に対して保守管理もサポートも行っていません。
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) は [BeatPulse](https://github.com/xabaril/beatpulse) の 1 つのポートであり、マイクロソフトによる保守やサポートは行われません。

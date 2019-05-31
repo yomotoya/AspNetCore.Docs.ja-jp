@@ -5,44 +5,32 @@ description: Blazor アプリを段階的に構築します。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 310eb211f68076d6f52d6427940e07736d833e5b
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614711"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087766"
 ---
 # <a name="build-your-first-blazor-app"></a>最初の Blazor アプリを構築する
 
 作成者: [Daniel Roth](https://github.com/danroth27)、[Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
+このチュートリアルでは、Blazor アプリをビルドして変更する方法を示します。
 
-このチュートリアルでは、サーバー側の Razor Components またはクライアント側の Blazor でアプリを構築する方法について紹介します。
-
-サーバー側 ASP.NET Core Razor Components を使ったエクスペリエンスの場合 (*推奨*):
-
-* <xref:blazor/get-started#server-side-razor-components-experience> にある *Razor Components エクスペリエンス*のガイダンスに従って Razor Components ベースのプロジェクトを作成します。
-* プロジェクトに `RazorComponents` という名前を付けます。
-
-Blazor を使ったエクスペリエンスの場合:
-
-* <xref:blazor/get-started#client-side-blazor-experience> にある *Blazor エクスペリエンス*のガイダンスに従って Blazor ベースのプロジェクトを作成します。
-* プロジェクトに `Blazor` という名前を付けます。
-
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-blazor-app/samples/)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 前提条件については、次のトピックをご覧ください。
+<xref:blazor/get-started> の記事にあるガイダンスに従って、このチュートリアルの Blazor プロジェクトを作成します。
 
 ## <a name="build-components"></a>コンポーネントを構築する
 
-1. *Components/Pages* フォルダー (Blazor では *Pages* ) 内のアプリの 3 つのページをそれぞれ閲覧します。ホーム、カウンター、データのフェッチです。 これらのページは、次の Razor Component ファイル(*Index.razor*、*Counter.razor*、*FetchData.razor*) によって実装されています。 (Blazor は引き続き *.cshtml* ファイル拡張子(*Index.cshtml*、*Counter.cshtml*、*FetchData.cshtml*) を使用します。)
+1. *Pages* フォルダー内にあるアプリの 3 つのページそれぞれを参照します。ホーム、カウンター、データのフェッチです。 これらのページは Razor コンポーネント ファイル *Index.razor*、*Counter.razor*、および *FetchData.razor* によって実装されています。
 
 1. Counter ページ上で **[クリックしてください]** ボタンを選択し、ページを更新することなくカウンターをインクリメントします。 Web ページでカウンターをインクリメントする場合、通常は JavaScript を記述することが必要ですが、Blazor には C# を使ったより優れた方法が用意されています。
 
 1. Counter コンポーネントの実装を、*Counter.razor* ファイルで調べます。
 
-   *Components/Pages/Counter.razor* (Blazor では *Pages/Counter.cshtml*):
+   *Pages/Counter.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
 
@@ -61,21 +49,21 @@ Blazor を使ったエクスペリエンスの場合:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
 
-1. アプリをリビルドして実行し、変更を確認します。 **[クリックしてください]** ボタンを選択すると、カウンターは 2 ずつインクリメントされます。
+1. アプリをリビルドして実行し、変更を確認します。 **[クリックしてください]** ボタンを選択します。 カウンターは、2 ずつインクリメントされます。
 
 ## <a name="use-components"></a>コンポーネントを使う
 
-HTML のような構文を使用して、別のコンポーネントにコンポーネントを含めます。
+HTML 構文を使用して、別のコンポーネント内にコンポーネントを含めます。
 
-1. Index コンポーネントに `<Counter />` 要素を追加することで、アプリの Index (ホーム) コンポーネントにカウンター コンポーネントを追加します。
+1. Index コンポーネント (*Index.razor*) に `<Counter />` 要素を追加することで、アプリの Index コンポーネントに Counter コンポーネントを追加します。
 
-   このエクスペリエンスのために Blazor を使っている場合は、Survey Prompt コンポーネント (`<SurveyPrompt>` 要素) が Index コンポーネントに含まれています。 `<SurveyPrompt>` 要素を `<Counter>` 要素に置き換えます。
+   このエクスペリエンスのためにクライアント側 Blazor を使っている場合は、Survey Prompt コンポーネント (`<SurveyPrompt>` 要素) が Index コンポーネント内にあります。 `<SurveyPrompt>` 要素を `<Counter>` 要素に置き換えます。 このエクスペリエンスに Blazor サーバー側アプリを使用している場合は、`<Counter>` 要素を Index コンポーネントに追加します。
 
-   *Components/Pages/Index.razor* (Blazor では *Pages/Index.cshtml*):
+   *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index.razor?highlight=7)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-1. アプリケーションをリビルドして実行します。 ホーム ページに、独自のカウンターがあります。
+1. アプリケーションをリビルドして実行します。 Index コンポーネントには、固有のカウンターがあります。
 
 ## <a name="component-parameters"></a>コンポーネントのパラメーター
 
@@ -86,36 +74,36 @@ HTML のような構文を使用して、別のコンポーネントにコンポ
    * `[Parameter]` 属性で修飾された `IncrementAmount` プロパティを追加します。
    * `currentCount` の値を増やすときに `IncrementAmount` を使うように `IncrementCount` メソッドを変更します。
 
-   *Components/Pages/Counter.razor* (Blazor では *Pages/Counter.cshtml*):
+   *Pages/Counter.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Counter.razor?highlight=12,16)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
 <!-- Add back when supported.
    > [!NOTE]
    > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
 -->
 
-1. 属性を使って、Home コンポーネントの `<Counter>` 要素に `IncrementAmount` パラメーターを指定します。 カウンターを 10 ずつインクリメントするように値を設定します。
+1. 属性を使って Index コンポーネントの `<Counter>` 要素に `IncrementAmount` パラメーターを指定します。 カウンターを 10 ずつインクリメントするように値を設定します。
 
-   *Components/Pages/Index.razor* (Blazor では *Pages/Index.cshtml*):
+   *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Index.razor?highlight=7)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-1. ホーム ページを再度読み込みます。 カウンターは、**[クリックしてください]** ボタンを選択するたびに 10 ずつインクリメントされます。 Counter ページ上のカウンターは 1 ずつインクリメントされます。
+1. Index コンポーネントを再読み込みします。 カウンターは、**[クリックしてください]** ボタンを選択するたびに 10 ずつインクリメントされます。 Counter コンポーネントにあるカウンターは、継続して 1 ずつインクリメントされます。
 
 ## <a name="route-to-components"></a>コンポーネントにルーティングする
 
-*Counter.razor* ファイルの上部にある `@page` ディレクティブは、このコンポーネントがルーティング エンドポイントであることを指定しています。 Counter コンポーネントによって `/Counter` に送信された要求が処理されます。 `@page` ディレクティブがない場合、ルーティングされた要求はコンポーネントで処理されませんが、このコンポーネントは引き続き他のコンポーネントで使えます。
+*Counter.razor* ファイルの上部にある `@page` ディレクティブは、Counter コンポーネントがルーティング エンドポイントであることを指定しています。 Counter コンポーネントによって `/counter` に送信された要求が処理されます。 `@page` ディレクティブがない場合、ルーティングされた要求はコンポーネントでは処理されませんが、そのコンポーネントは他のコンポーネントから引き続き使用できます。
 
 ## <a name="dependency-injection"></a>依存関係の挿入
 
 アプリのサービス コンテナーに登録されたサービスは、[依存関係の挿入 (DI)](xref:fundamentals/dependency-injection) を介してコンポーネントから使用できます。 `@inject` ディレクティブを使ってサービスをコンポーネントに挿入します。
 
-サンプル アプリで FetchData コンポーネントのディレクティブを調べます。
+FetchData コンポーネントのディレクティブを調べます。
 
-Razor コンポーネントのサンプル アプリで、`WeatherForecastService` サービスは[シングルトン](xref:fundamentals/dependency-injection#service-lifetimes)として登録されているため、このサービスの 1 つのインスタンスをアプリ全体で使用できます。 コンポーネントに `WeatherForecastService` サービスのインスタンスを挿入するために、`@inject` ディレクティブが使われています。
+サーバー側 Razor アプリを使用する場合、`WeatherForecastService` サービスは[シングルトン](xref:fundamentals/dependency-injection#service-lifetimes)として登録されているため、サービスの 1 つのインスタンスをアプリ全体で使用できます。 コンポーネントに `WeatherForecastService` サービスのインスタンスを挿入するために、`@inject` ディレクティブが使われています。
 
-*Components/Pages/FetchData.razor*: 
+*Pages/FetchData.razor*:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
 
@@ -123,24 +111,22 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* フォルダー内の *weather.json* から天気予報データを取得するために、`HttpClient` が挿入されています。
+クライアント側 Blazor アプリを使用する場合、*wwwroot/sample-data* フォルダー内の *weather.json* ファイルから天気予報データを取得するために、`HttpClient` が挿入されます。
 
-*Pages/FetchData.cshtml*: 
+*Pages/FetchData.razor*:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=7)]
+[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
-両方のサンプル アプリで、各 forecast 変数を気象データのテーブルの行としてレンダリングするために、[@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) ループが使われています。
+各 forecast インスタンスを気象データのテーブルの行としてレンダリングするために、[\@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) ループが使われています。
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
+
 
 ## <a name="build-a-todo-list"></a>Todo リストを構築する
 
 シンプルな ToDo リストを実装したアプリに新しいコンポーネントを追加します。
 
-1. サンプル アプリに空のファイルを追加します。
-
-   * Razor コンポーネントのエクスペリエンスのために、*Todo.razor* ファイルを *Components/Pages* フォルダーに追加します。
-   * Blazor のエクスペリエンスのために、*Todo.cshtml* ファイルを *Pages* フォルダーに追加します。
+1. *Pages* フォルダー内のアプリに、*Todo.razor* という名前の空のファイルを追加します。
 
 1. コンポーネントに最初のマークアップを指定します。
 
@@ -152,9 +138,9 @@ Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* �
 
 1. ナビゲーション バーに Todo コンポーネントを追加します。
 
-   NavMenu コンポーネント (*Components/Shared/NavMenu.razor* または Blazor では *Shared/NavMenu.cshtml*) は、アプリのレイアウトで使用されます。 レイアウトは、アプリ内でのコンテンツの重複を回避するために使うコンポーネントです。 詳細については、「<xref:blazor/layouts>」を参照してください。
+   アプリのレイアウトでは、NavMenu コンポーネント (*Shared/NavMenu.csthml*) が使用されます。 レイアウトは、アプリ内でのコンテンツの重複を回避するために使うコンポーネントです。 詳細については、「<xref:blazor/layouts>」を参照してください。
 
-   *Components/Shared/NavMenu.razor* (Blazor では *Shared/NavMenu.cshtml*) ファイルで、以下のリスト アイテムのマークアップを既存のリスト アイテムの下に追加して、Todo コンポーネント用の `<NavLink>` を追加します。
+   *Shared/NavMenu.csthml* ファイル内で、以下のリスト アイテムのマークアップを既存のリスト アイテムの下に追加して、Todo コンポーネント用の `<NavLink>` を追加します。
 
    ```cshtml
    <li class="nav-item px-3">
@@ -168,16 +154,16 @@ Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* �
 
 1. Todo アイテムを表すクラスを保持するために、プロジェクトのルートに *TodoItem.cs* ファイルを追加します。 `TodoItem` クラス用に次の C# コードを使います。
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/TodoItem.cs)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
-1. Todo コンポーネント (*Components/Pages/Todo.razor* または Blazor では *Pages/Todo.cshtml*) に戻ります。
+1. Todo コンポーネントに戻ります (*Pages/Todo.razor*)。
 
-   * Todo 用のフィールドを `@functions` ブロックに追加します。 Todo コンポーネントでは、このフィールドを使って Todo リストの状態を維持します。
+   * Todo 項目用のフィールドを `@functions` ブロックに追加します。 Todo コンポーネントでは、このフィールドを使って Todo リストの状態を維持します。
    * 各 ToDo アイテムをリスト アイテムとしてレンダリングするために、順序のないリストのマークアップと `foreach` ループを追加します。
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
 
-1. アプリには、リストに ToDo を追加するための UI 要素が必要です。 リストの下に、テキスト入力とボタンを追加します。
+1. アプリには、リストに Todo 項目を追加するための UI 要素が必要です。 リストの下に、テキスト入力とボタンを追加します。
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
 
@@ -201,7 +187,7 @@ Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* �
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
 
-1. アプリケーションをリビルドして実行します。 Todo リストに Todo をいくつか追加して、新しいコードをテストします。
+1. アプリケーションをリビルドして実行します。 Todo リストに Todo 項目をいくつか追加して、新しいコードをテストします。
 
 1. 各 Todo アイテムのタイトルのテキストは編集可能にすることができます。また、チェック ボックスはユーザーが完了したアイテムを追跡するのに役立ちます。 各 Todo アイテムにチェック ボックス入力を追加し、その値を `IsDone` プロパティにバインドします。 `@todo.Title` を、`@todo.Title` にバインドされた `<input>` 要素に変更します。
 
@@ -213,9 +199,9 @@ Blazor バージョンのサンプル アプリでは、*wwwroot/sample-data* �
    <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
    ```
 
-1. 完了した Todo コンポーネント (*Components/Pages/Todo.razor* または Blazor では *Pages/Todo.cshtml*):
+1. 完成した Todo コンポーネント (*Pages/Todo.razor*):
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Todo.razor)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
 
 1. アプリケーションをリビルドして実行します。 Todo アイテムを追加して新しいコードをテストします。
 

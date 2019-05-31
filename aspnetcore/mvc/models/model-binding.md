@@ -7,11 +7,11 @@ ms.author: tdykstra
 ms.date: 11/13/2018
 uid: mvc/models/model-binding
 ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597785"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883147"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core でのモデル バインド
 
@@ -33,15 +33,15 @@ MVC は HTTP 要求を受信すると、それをコントローラーの特定�
 public IActionResult Edit(int? id)
    ```
 
-注: URL ルート内の文字列は大文字小文字が区別されません。
+メモ:URL ルート内の文字列では、大文字小文字が区別されません。
 
 MVC は、名前を使用して要求データをアクション パラメーターにバインドしようとします。 MVC は、パラメーター名とパブリックに設定可能なプロパティの名前を使用して、各パラメーターの値を探します。 上記の例では、アクション パラメーターのみに `id` という名前が付いています。したがって、MVC はルート値の同じ名前を使用して値にバインドします。 ルート値に加え、MVC は要求のさまざまな部分のデータをバインドします。これはセット順に行われます。 以下に、モデル バインドでの検索順にデータ ソースをリストします。
 
-1. `Form values`: これらは、POST メソッドを使用して HTTP 要求に追加するフォーム値です  (jQuery POST 要求を含む)。
+1. `Form values`:これらは、POST メソッドを使用して HTTP 要求に追加するフォーム値です (jQuery POST 要求を含む)。
 
-2. `Route values`: [ルーティング](xref:fundamentals/routing)で指定される一連のルート値
+2. `Route values`:[ルーティング](xref:fundamentals/routing)で指定される一連のルート値
 
-3. `Query strings`: URI のクエリ文字列の部分。
+3. `Query strings`:URI のクエリ文字列の部分。
 
 <!-- DocFX BUG
 The link works but generates an error when building with DocFX
@@ -49,7 +49,7 @@ The link works but generates an error when building with DocFX
 [Routing](xref:fundamentals/routing)
 -->
 
-注: フォーム値、ルート データ、クエリ文字列はすべて名前と値のペアとして格納されます。
+メモ:フォーム値、ルート データ、クエリ文字列はすべて、名前と値のペアとして格納されます。
 
 モデル バインドでは `id` という名前のキーが求められましたが、フォーム値に `id` という名前のものがないため、ルート値に移動してそのキーを探しました。 この例では、一致するものがあります。 バインドが行われ、値は整数の 2 に変換されます。 Edit(string id) を使用する同じ要求では、文字列 "2" に変換されます。
 
@@ -59,23 +59,23 @@ The link works but generates an error when building with DocFX
 
 パラメーターがバインドされると、モデル バインドではその名前を使用する値の検索を停止し、次のパラメーターのバインドに移ります。 それ以外の場合、既定のモデル バインドの動作では、パラメーターがその型に応じて既定値に設定されます。
 
-* `T[]`: `byte[]` 型の配列を除き、バインドでは `T[]` 型のパラメーターが `Array.Empty<T>()` に設定されます。 `byte[]` 型の配列は `null` に設定されます。
+* `T[]`:`byte[]` 型の配列を除き、バインドでは `T[]` 型のパラメーターが `Array.Empty<T>()` に設定されます。 `byte[]` 型の配列は `null` に設定されます。
 
-* 参照型: バインドでは、プロパティを設定せずに既定のコンストラクターを使用して、クラスのインスタンスが作成されます。 ただし、このモデル バインドでは `string` パラメーターが `null` に設定されます。
+* 参照型:バインドでは、プロパティを設定せずに既定のコンストラクターを使用して、クラスのインスタンスが作成されます。 ただし、このモデル バインドでは `string` パラメーターが `null` に設定されます。
 
-* null 許容型: null 許容型は `null` に設定されます。 上記の例では、`int?` 型であるため、モデル バインドで `id` が `null` に設定されます。
+* null 許容型:null 許容型は `null` に設定されます。 上記の例では、`int?` 型であるため、モデル バインドで `id` が `null` に設定されます。
 
 * 値型: `T` 型の null 非許容値型は `default(T)` に設定されます。 たとえば、モデル バインドではパラメーター `int id` が 0 に設定されます。 既定値に依存するのではなく、モデルの検証または null 許容型を使用することを検討してください。
 
 バインドが失敗した場合、MVC はエラーをスローしません。 ユーザー入力を受け入れるすべてのアクションで `ModelState.IsValid` プロパティを確認する必要があります。
 
-注: コントローラーの `ModelState` プロパティの各エントリは、`Errors` プロパティを含む `ModelStateEntry` です。 ユーザーが自分でこのコレクションに対してクエリを実行する必要はほとんどありません。 代わりに、`ModelState.IsValid` を使用してください。
+メモ:コントローラーの `ModelState` プロパティにある各エントリは、`Errors` プロパティを含む `ModelStateEntry` です。 ユーザーが自分でこのコレクションに対してクエリを実行する必要はほとんどありません。 代わりに、`ModelState.IsValid` を使用してください。
 
 また、モデル バインドを実行する際に、MVC で考慮する必要がある特別なデータ型がいくつかあります。
 
-* `IFormFile`、`IEnumerable<IFormFile>`: HTTP 要求の一部である 1 つ以上のアップロードされたファイル。
+* `IFormFile`、`IEnumerable<IFormFile>`:HTTP 要求の一部である 1 つ以上のアップロードされたファイル。
 
-* `CancellationToken`: 非同期コントローラーでアクティビティをキャンセルするために使用されます。
+* `CancellationToken`:非同期コントローラーでアクティビティをキャンセルするために使用されます。
 
 これらの型をクラス型のプロパティまたはアクション パラメーターにバインドすることができます。
 
@@ -85,17 +85,17 @@ The link works but generates an error when building with DocFX
 
 MVC にはいくつかの属性が含まれています。これらを使用して、その既定のモデル バインドの動作を別のソースに指示することができます。 たとえば、プロパティでバインドが必要かどうかや、`[BindRequired]` または `[BindNever]` 属性を使用してまったくバインドしないようにするかを指定できます。 あるいは、既定のデータ ソースをオーバーライドし、モデル バインダーのデータ ソースを指定することもできます。 モデル バインド属性のリストを以下に示します。
 
-* `[BindRequired]`: この属性は、バインドできない場合のモデル状態エラーを追加します。
+* `[BindRequired]`:この属性は、バインドできない場合のモデル状態エラーを追加します。
 
-* `[BindNever]`: このパラメーターにバインドしないようモデル バインダーに指示します。
+* `[BindNever]`:このパラメーターにバインドしないようモデル バインダーに指示します。
 
-* `[FromHeader]`、`[FromQuery]`、`[FromRoute]`、`[FromForm]`: 適用する適切なバインディング ソースを指定する場合は、これらを使用します。
+* `[FromHeader]`、`[FromQuery]`、`[FromRoute]`、`[FromForm]`:適用する適切なバインディング ソースを指定する場合は、これらを使用します。
 
-* `[FromServices]`: この属性では[依存関係の注入](../../fundamentals/dependency-injection.md)を使用して、サービスからパラメーターをバインドします。
+* `[FromServices]`:この属性では[依存関係の注入](../../fundamentals/dependency-injection.md)を使用して、サービスからパラメーターをバインドします。
 
-* `[FromBody]`: 構成済みのフォーマッタを使用して、要求本文からデータをバインドします。 フォーマッタは、要求のコンテンツの種類に基づいて選択されます。
+* `[FromBody]`:構成済みのフォーマッタを使用して、要求本文からデータをバインドします。 フォーマッタは、要求のコンテンツの種類に基づいて選択されます。
 
-* `[ModelBinder]`: 既定のモデル バインダー、バインディング ソースと名前をオーバーライドする場合に使用します。
+* `[ModelBinder]`:既定のモデル バインダー、バインディング ソース、および名前をオーバーライドする場合に使用します。
 
 属性は、モデル バインドの既定の動作をオーバーライドする必要がある場合にとても便利なツールです。
 

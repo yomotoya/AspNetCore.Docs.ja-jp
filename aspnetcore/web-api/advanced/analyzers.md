@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: bcc89f856e0aeef80c46a44f76f86b4c09ac6746
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425095"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890827"
 ---
 # <a name="use-web-api-analyzers"></a>Web API アナライザーを使用する
 
@@ -25,7 +25,7 @@ ASP.NET Core 2.2 以降に、Web API のアナライザーを含む [Microsoft.A
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * **[パッケージ マネージャー コンソール]** ウィンドウから:
-  * **[ビュー]** > **[Other Windows]** \(その他の Windows\) > **[パッケージ マネージャー コンソール]** に移動します。
+  * **[ビュー]**  >  **[Other Windows]** \(その他の Windows\) >  **[パッケージ マネージャー コンソール]** に移動します。
   * *ApiConventions.csproj* ファイルが存在するディレクトリに移動します。
   * 次のコマンドを実行します。
 
@@ -34,17 +34,17 @@ ASP.NET Core 2.2 以降に、Web API のアナライザーを含む [Microsoft.A
     ```
 
 * **[NuGet パッケージの管理]** ダイアログ ボックスから:
-  * **[ソリューション エクスプローラー]** > **[NuGet パッケージの管理]** でプロジェクトを右クリックします。
+  * **[ソリューション エクスプローラー]**  >  **[NuGet パッケージの管理]** でプロジェクトを右クリックします。
   * **パッケージ ソース**を "nuget.org" に設定します。
   * 検索ボックスに「Microsoft.AspNetCore.Mvc.Api.Analyzers」と入力します。
-  * **[参照]** タブから "Microsoft.AspNetCore.Mvc.Api.Analyzers" パッケージを選択して、**[インストール]** をクリックします。
+  * **[参照]** タブから "Microsoft.AspNetCore.Mvc.Api.Analyzers" パッケージを選択して、 **[インストール]** をクリックします。
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* **[Solution Pad]** > **[パッケージを追加...]** で [*パッケージ*] フォルダーを右クリックします。
+* **[Solution Pad]**  >  **[パッケージを追加...]** で [*パッケージ*] フォルダーを右クリックします。
 * **[パッケージを追加]** ウィンドウの **[ソース]** ドロップダウンを "nuget.org" に設定します。
 * 検索ボックスに「Microsoft.AspNetCore.Mvc.Api.Analyzers」と入力します。
-* 結果ウィンドウから "Microsoft.AspNetCore.Mvc.Api.Analyzers" パッケージを選択して、**[パッケージを追加]** をクリックします。
+* 結果ウィンドウから "Microsoft.AspNetCore.Mvc.Api.Analyzers" パッケージを選択して、 **[パッケージを追加]** をクリックします。
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -74,8 +74,10 @@ OpenAPI ドキュメントには、アクションによって返される可能
 
 前のアクションでは、HTTP 200 の成功の戻り値の型は文書化していますが、HTTP 404 のエラー状態コードは文書化していません。 アナライザーは、HTTP 404 状態コードの文書化の不備を警告として報告します。 問題を解決するためのオプションが提供されます。
 
+![警告を報告するアナライザー](conventions/_static/Analyzer.gif)
+
 ## <a name="additional-resources"></a>その他の技術情報
 
 * <xref:web-api/advanced/conventions>
 * <xref:tutorials/web-api-help-pages-using-swagger>
-* [ApiController 属性を使用した注釈](xref:web-api/index#annotation-with-apicontroller-attribute)
+* <xref:web-api/index>

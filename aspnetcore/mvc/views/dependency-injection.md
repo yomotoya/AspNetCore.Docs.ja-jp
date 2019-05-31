@@ -5,12 +5,12 @@ description: ASP.NET Core で MVC ビューへの依存関係の挿入をサポ�
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 940e237fd73a864d9fd59f5447fe486f93648f62
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: b411b164bfea81f82c5c9fc1052e0ecfe65f0bc2
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087466"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517049"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core でのビューへの依存関係の挿入
 
@@ -20,13 +20,38 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
-## <a name="a-simple-example"></a>簡単な例
+## <a name="configuration-injection"></a>構成の挿入
 
-`@inject` ディレクティブを使用して、サービスをビューに挿入することができます。 `@inject` は、ビューにプロパティを追加したり、DI を使用してプロパティを作成したりすると考えることができます。
+*appsettings.json* 値は、ビューに直接挿入できます。
+
+*appsettings.json* ファイルの例:
+
+```json
+{
+   "root": {
+      "parent": {
+         "child": "myvalue"
+      }
+   }
+}
+```
 
 `@inject`: `@inject <type> <name>` の構文
 
-アクションの `@inject` の例:
+`@inject` を使用した例:
+
+```csharp
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+   string myValue = Configuration["root:parent:child"];
+   ...
+}
+```
+
+## <a name="service-injection"></a>サービスの挿入
+
+`@inject` ディレクティブを使用して、サービスをビューに挿入することができます。 `@inject` は、ビューにプロパティを追加したり、DI を使用してプロパティを設定したりするものと考えることができます。
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 

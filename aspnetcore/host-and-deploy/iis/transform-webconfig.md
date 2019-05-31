@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 02/07/2019
 uid: host-and-deploy/iis/transform-webconfig
 ms.openlocfilehash: bd8cf7d8515e874eefd2c326727f56d0a4b502a7
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248604"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087078"
 ---
 # <a name="transform-webconfig"></a>web.config を変換する
 
@@ -30,7 +30,7 @@ ms.locfileid: "56248604"
 * `Microsoft.NET.Sdk.Web` SDK によって自動的に生成された。
 * 開発者によってアプリのコンテンツのルートに提供された。
 
-## <a name="build-configuration"></a>[ビルド構成]
+## <a name="build-configuration"></a>ビルド構成
 
 ビルド構成の変換は、最初に実行されます。
 
@@ -142,7 +142,7 @@ Visual Studio から発行プロファイルを使って発行する場合は、
 
 カスタム変換は、[ビルド構成](#build-configuration)、[プロファイル](#profile)、および[環境](#environment)の変換の後、最後に実行されます。
 
-*web.config* の変換を必要とするカスタム構成ごとに、*{CUSTOM_NAME}.transform* ファイルを含めます。
+*web.config* の変換を必要とするカスタム構成ごとに、 *{CUSTOM_NAME}.transform* ファイルを含めます。
 
 次の例では、カスタム変換の環境変数が *custom.transform* 内で設定されています。
 

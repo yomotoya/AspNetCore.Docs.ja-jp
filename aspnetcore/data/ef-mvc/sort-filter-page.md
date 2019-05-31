@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 921e27bf56587813f835357c9090c91a155c087b
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751035"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212553"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>チュートリアル: 並べ替え、フィルター処理、ページングを追加する - ASP.NET MVC と EF Core
 
@@ -74,7 +74,7 @@ Students ンデックス ページに並べ替えを追加するには、`Index`
 
 このコードは、`ViewData` プロパティ内の情報を使用して、適切なクエリ文字列使用含むハイパーリンクを設定します。
 
-アプリを実行し、**[Students]** タブを選択して、**[Last Name]** と **[Enrollment Date]** 列見出しをクリックし、並べ替えが機能することを確認します。
+アプリを実行し、 **[Students]** タブを選択して、 **[Last Name]** と **[Enrollment Date]** 列見出しをクリックし、並べ替えが機能することを確認します。
 
 ![名前順の Students インデックス ページ](sort-filter-page/_static/name-order.png)
 
@@ -91,19 +91,19 @@ Students インデックス ページにフィルターを追加するには、�
 `searchString` パラメーターを `Index` メソッドに追加しました。 インデックス ビューに追加するテキスト ボックスから検索する文字列値を受け取ります。 さらに LINQ ステートメントに where 句を追加し、姓または名に検索文字列を含む受講者のみを選択します。 where 句を追加するステートメントは、検索する値がある場合にのみ、実行されます。
 
 > [!NOTE]
-> ここで、`IQueryable` オブジェクトに対して `Where` メソッドを呼び出し、フィルターがサーバーで処理されます。 一部のシナリオでは、`Where` メソッドをメモリ内コレクションの拡張メソッドとして呼び出す場合があります  (たとえば、EF `DbSet` の代わりに `IEnumerable` コレクションを返すリポジトリ メソッドを参照するように参照を `_context.Students` に変更する場合)。結果は、通常同じになりますが、場合によっては異なる場合があります。
+> ここで、`IQueryable` オブジェクトに対して `Where` メソッドを呼び出し、フィルターがサーバーで処理されます。 一部のシナリオでは、`Where` メソッドをメモリ内コレクションの拡張メソッドとして呼び出す場合があります (たとえば、EF `DbSet` の代わりに `IEnumerable` コレクションを返すリポジトリ メソッドを参照するように参照を `_context.Students` に変更する場合)。結果は、通常同じになりますが、場合によっては異なる場合があります。
 >
->たとえば、.NET Framework の `Contains` メソッドの実装は、既定では大文字小文字を区別する比較を実行しますが、SQL Server では、これは SQL Server インスタンスの照合順序の設定によって決まります。 その設定は、既定では大文字小文字を区別しません。 `ToUpper` を呼び出して、テストで明示的に大文字小文字を区別しないようにすることができます。*Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*。 これにより、`IQueryable` オブジェクトの代わりに `IEnumerable` コレクションを返すリポジトリを使用するように後でコードを変更した場合でも確実に同じ結果になるようにすることができます  (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。ただし、このソリューションではパフォーマンスが低下します。 `ToUpper` コードは、TSQL SELECT ステートメントの WHERE 句に関数を格納します。 これにより、オプティマイザーはインデックスを使用できなくなります。 ほとんどの場合、SQL は大文字小文字を区別しないようにインストールされているため、大文字小文字を区別するデータストアに移行するまで `ToUpper` コードを避けることをお勧めします。
+>たとえば、.NET Framework の `Contains` メソッドの実装は、既定では大文字小文字を区別する比較を実行しますが、SQL Server では、これは SQL Server インスタンスの照合順序の設定によって決まります。 その設定は、既定では大文字小文字を区別しません。 `ToUpper` を呼び出して、テストで明示的に大文字小文字を区別しないようにすることができます。*Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())* 。 これにより、`IQueryable` オブジェクトの代わりに `IEnumerable` コレクションを返すリポジトリを使用するように後でコードを変更した場合でも確実に同じ結果になるようにすることができます (`IEnumerable` コレクションに対して `Contains` メソッドを呼び出したときには、.NET Framework の実装を取得します。`IQueryable` オブジェクトに対して呼び出したときには、データベース プロバイダーの実装を取得します)。ただし、このソリューションではパフォーマンスが低下します。 `ToUpper` コードは、TSQL SELECT ステートメントの WHERE 句に関数を格納します。 これにより、オプティマイザーはインデックスを使用できなくなります。 ほとんどの場合、SQL は大文字小文字を区別しないようにインストールされているため、大文字小文字を区別するデータストアに移行するまで `ToUpper` コードを避けることをお勧めします。
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Students インデックス ビューに [Search] ボックスを追加する
 
-*Views/Student/Index.cshtml* で、キャプション、テキスト ボックス、**[Search]** ボタンを作成するために、オープニング テーブル タグの直前に強調表示されたコードを追加します。
+*Views/Student/Index.cshtml* で、キャプション、テキスト ボックス、 **[Search]** ボタンを作成するために、オープニング テーブル タグの直前に強調表示されたコードを追加します。
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
 このコードは、`<form>` [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)を使用して、検索テキスト ボックスとボタンを追加します。 既定では、`<form>` タグ ヘルパーは、POST を使用してフォーム データを送信します。これは、パラメーターが、クエリ文字列として URL で渡されるのではなく、HTTP メッセージの本文で渡されることを意味します。 HTTP GET を指定すると、フォーム データがクエリ文字列として URL で渡され、ユーザーが URL をブックマークできるようになります。 アクションの結果として更新されない場合、W3C のガイドラインでは、Get の使用が推奨されます。
 
-アプリを実行し、**[Students]** タブを選択して、検索文字列を入力し、[Search] をクリックして、フィルターが機能していることを確認します。
+アプリを実行し、 **[Students]** タブを選択して、検索文字列を入力し、[Search] をクリックして、フィルターが機能していることを確認します。
 
 ![フィルターを含む Students インデックス ページ](sort-filter-page/_static/filtering.png)
 
@@ -115,7 +115,7 @@ http://localhost:5813/Students?SearchString=an
 
 このページをブックマークに設定した場合、ブックマークを使用するときに、フィルター処理された一覧が表示されます。 `method="get"` を `form` タグに追加すると、クエリ文字列が生成されます。
 
-この段階で、列見出しのソートのリンクをクリックすると、**[Search]** ボックスに入力したフィルター値が失われます。 次のセクションでこれを修正します。
+この段階で、列見出しのソートのリンクをクリックすると、 **[Search]** ボックスに入力したフィルター値が失われます。 次のセクションでこれを修正します。
 
 ## <a name="add-paging-to-students-index"></a>Students/Index にページングを追加する
 
@@ -127,7 +127,7 @@ Students インデックス ページにページングを追加するには、�
 
 [!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
-このコードの `CreateAsync` メソッドは、ページ サイズとページ番号を受け取り、適切な `Skip` および `Take` ステートメントを `IQueryable` に適用します。 `IQueryable` で `ToListAsync` が呼び出されると、要求されたページのみを含むリストを返します。 プロパティ `HasPreviousPage` および `HasNextPage` を使用して、**[Previous]** および **[Next]** ページング ボタンを有効または無効にすることができます。
+このコードの `CreateAsync` メソッドは、ページ サイズとページ番号を受け取り、適切な `Skip` および `Take` ステートメントを `IQueryable` に適用します。 `IQueryable` で `ToListAsync` が呼び出されると、要求されたページのみを含むリストを返します。 プロパティ `HasPreviousPage` および `HasNextPage` を使用して、 **[Previous]** および **[Next]** ページング ボタンを有効または無効にすることができます。
 
 コンストラクターは非同期コードを実行できないので、コンストラクターの代わりに `CreateAsync` メソッドを使用して `PaginatedList<T>`オブジェクトを作成します。
 
@@ -211,10 +211,8 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 Contoso 大学の Web サイトの **[About]** ページに、登録日付ごとに登録した受講者の数が表示されます。 これには、グループ化とグループに関する簡単な計算が必要です。 これを実行するためには、次の手順を実行します。
 
 * ビューに渡す必要があるデータのビュー モデル クラスを作成します。
-
-* Home コントローラーで About メソッドを変更します。
-
-* About ビューを変更する
+* Home コントローラーで About メソッドを作成します。
+* About ビューを作成します。
 
 ### <a name="create-the-view-model"></a>ビュー モデルを作成する
 
@@ -239,10 +237,8 @@ Contoso 大学の Web サイトの **[About]** ページに、登録日付ごと
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 LINQ ステートメントは、登録日で受講者エンティティをグループ化し、各グループ内のエンティティの数を計算して、結果を `EnrollmentDateGroup` ビュー モデル オブジェクトのコレクションに格納します。
-> [!NOTE]
-> 1.0 のバージョンの Entity Framework Core では、結果セット全体がクライアントに返され、クライアントでグループ化が行われます。 一部のシナリオでは、このためにパフォーマンスの問題が発生する可能性があります。 必ず実稼働時のデータ量でパフォーマンスをテストし、必要な場合、未加工の SQL を使用してサーバーのグループ化を行ってください。 未加工の SQL の使用方法については、[このシリーズの最後のチュートリアル](advanced.md)を参照してください。
 
-### <a name="modify-the-about-view"></a>About ビューを変更する
+### <a name="create-the-about-view"></a>About ビューを作成する
 
 次のコードを含む *Views/Home/About.cshtml* ファイルを追加します。
 
@@ -252,7 +248,7 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 ## <a name="get-the-code"></a>コードを取得する
 
-[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[完成したアプリケーションをダウンロードまたは表示する。](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>次の手順
 

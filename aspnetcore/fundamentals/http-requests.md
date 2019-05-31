@@ -5,14 +5,14 @@ description: IHttpClientFactory インターフェイスを使用して、ASP.NE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 84cdbca20e7c7aaa1941c78483cc36a9f0b24505
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888947"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536003"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core で IHttpClientFactory を使用して HTTP 要求を行う
 
@@ -27,9 +27,13 @@ ms.locfileid: "64888947"
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
+::: moniker range="<= aspnetcore-2.2"
+
 ## <a name="prerequisites"></a>必須コンポーネント
 
 .NET Framework をターゲットとするプロジェクトでは、[Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) NuGet パッケージのインストールが必要です。 .NET Core をターゲットとし、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)を参照するプロジェクトには、既に `Microsoft.Extensions.Http` パッケージが含まれています。
+
+::: moniker-end
 
 ## <a name="consumption-patterns"></a>利用パターン
 
@@ -197,11 +201,10 @@ public class ValuesController : ControllerBase
 
 `IHttpClientFactory` は、[Polly](https://github.com/App-vNext/Polly) という名前の人気のあるサードパーティ製ライブラリと統合します。 Polly は、.NET 用の包括的な回復力および一時的エラー処理ライブラリです。 開発者は、自然でスレッド セーフな方法を使用して、Retry、Circuit Breaker、Timeout、Bulkhead Isolation、Fallback などのポリシーを表現できます。
 
-構成されている `HttpClient` インスタンスで Polly ポリシーを使用できるようにするための、拡張メソッドが提供されています。 ポリー拡張機能は、"[Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/)" という NuGet パッケージで利用できます。 このパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれていません。 拡張を使用するには、プロジェクトに明示的な `<PackageReference />` を含める必要があります。
+構成されている `HttpClient` インスタンスで Polly ポリシーを使用できるようにするための、拡張メソッドが提供されています。 Polly の拡張機能は、次のようになっています。
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
-
-このパッケージを復元した後は、拡張メソッドを使用してクライアントに Polly ベースのハンドラーを追加できます。
+* クライアントへの Polly ベースのハンドラーの追加がサポートされます。
+* [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) NuGet パッケージのインストール後に使用できます。 このパッケージは、ASP.NET Core 共有フレームワークに含まれていません。
 
 ### <a name="handle-transient-faults"></a>一時的な障害を処理する
 
@@ -219,7 +222,7 @@ Polly ベースのハンドラーを追加するために使用できる追加�
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
-上記のコードでは、送信要求が GET の場合は、10 秒のタイムアウトが適用されます。 他の HTTP メソッドの場合は、30 秒のタイムアウトが使用されます。
+上記のコードでは、送信要求が HTTP GET の場合は、10 秒のタイムアウトが適用されます。 他の HTTP メソッドの場合は、30 秒のタイムアウトが使用されます。
 
 ### <a name="add-multiple-polly-handlers"></a>複数の Polly ハンドラーを追加する
 

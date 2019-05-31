@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: b16d1b67b3b501811ab34330851e6cacc76f2ed0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: dea178d169cb8f2ae807caa2ef495d4243b1f59f
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886407"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516895"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -61,9 +57,9 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio の **[ファイル]** メニューから、**[新規作成]**、>**[プロジェクト]** の順に選択します。
+* Visual Studio の **[ファイル]** メニューから、 **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 * 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **ContosoUniversity** という名前を付けます。 このプロジェクトに *ContosoUniversity* という名前を付けることは重要です。そうすることでコードをコピーしたり貼り付けるときに名前空間が一致します。
-* ドロップダウン リストで **[ASP.NET Core 2.1]** を選択してから、**[Web アプリケーション]** を選択します。
+* ドロップダウン リストで **[ASP.NET Core 2.1]** を選択してから、 **[Web アプリケーション]** を選択します。
 
 前の手順の画像については、「[Razor Web アプリの作成](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app)」を参照してください。
 アプリを実行します。
@@ -157,14 +153,14 @@ EF Core は、プロパティの名前が `<navigation property name><primary ke
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **ソリューション エクスプローラー**で、*[Pages/Students]* フォルダーを右クリックし、**[追加]** > **[スキャフォールディングされた新しい項目]** の順に選択します。
-* **[スキャフォールディングを追加]** ダイアログで、**[Razor Pages using Entity Framework (CRUD)]\(Entity Framework を使用する Razor Pages (CRUD)\)** > **[追加]** の順に選択します。
+* **ソリューション エクスプローラー**で、 *[Pages/Students]* フォルダーを右クリックし、 **[追加]**  >  **[スキャフォールディングされた新しい項目]** を選択します。
+* **[スキャフォールディングを追加]** ダイアログで、 **[Entity Framework を使用する Razor Pages (CRUD)]**  >  **[追加]** を選択します。
 
 **[Add Razor Pages using Entity Framework (CRUD)]\(Entity Framework を使用して Razor Pages (CRUD) を追加する\)** ダイアログを完了します。
 
-* **[モデル クラス]** ドロップダウンで、**[Student (ContosoUniversity.Models)]** を選択します。
+* **[モデル クラス]** ドロップダウンで、 **[Student (ContosoUniversity.Models)]** を選択します。
 * **[データ コンテキスト クラス]** 行で **+** (+) 記号を選択し、生成された名前を **ContosoUniversity.Models.SchoolContext** に変更します。
-* **[データ コンテキスト クラス]** ドロップダウンで、**[ContosoUniversity.Models.SchoolContext]** を選択します。
+* **[データ コンテキスト クラス]** ドロップダウンで、 **[ContosoUniversity.Models.SchoolContext]** を選択します。
 * **[追加]** を選びます。
 
 ![CRUD ダイアログ](intro/_static/s1.png)
@@ -234,7 +230,7 @@ ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injectio
 
 アプリを実行し、Cookie ポリシーに同意します。 このアプリで個人情報が保持されることはありません。 Cookie ポリシーについては、[EU の一般的なデータ保護規制 (GDPR) のサポート](xref:security/gdpr)に関するページを参照してください。
 
-* **[Students]** リンクを選択し、**[新規作成]** を選択します。
+* **[Students]** リンクを選択し、 **[新規作成]** を選択します。
 * [編集]、[詳細]、および [削除] の各リンクをテストします。
 
 ## <a name="examine-the-schoolcontext-db-context"></a>SchoolContext DB コンテキストを確認する
@@ -280,11 +276,11 @@ EF Core によって空の DB が作成されます。 このセクションで�
 
 前に指定したコンテキスト名にダッシュと GUID が追加されて、データベース名が生成されます。 したがって、データベース名は "SchoolContext-{GUID}" になります。 GUID は、ユーザーごとに異なります。
 Visual Studio の **[表示]** メニューから **SQL Server オブジェクト エクスプローラー** (SSOX) を開きます。
-SSOX で、**(localdb)\MSSQLLocalDB > Databases > SchoolContext-{GUID}** をクリックします。
+SSOX で、 **(localdb)\MSSQLLocalDB > Databases > SchoolContext-{GUID}** をクリックします。
 
 **[Tables]\(テーブル\)** ノードを展開します。
 
-**[Student]\(学生\)** テーブルを右クリックし、**[View Data]\(データの表示\)** をクリックすると、作成された列とテーブルに挿入された行が表示されます。
+**[Student]\(学生\)** テーブルを右クリックし、 **[View Data]\(データの表示\)** をクリックすると、作成された列とテーブルに挿入された行が表示されます。
 
 ## <a name="asynchronous-code"></a>非同期コード
 
@@ -316,7 +312,7 @@ EF Core を利用する非同期コードの記述で注意すべき点:
 
 次のチュートリアルでは、基本的な CRUD (作成、読み取り、更新、削除) の操作について説明します。
 
-::: moniker-end
+
 
 ## <a name="additional-resources"></a>その他の技術情報
 
