@@ -2,16 +2,17 @@
 title: Web ファームでの ASP.NET Core のホスト
 author: guardrex
 description: Web ファーム環境での共有リソースを使用して、ASP.NET Core アプリのインスタンスを複数ホストする方法について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 05/12/2019
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: df1be8cc76a5017923f26636a241b69881dfcc81
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884157"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970106"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Web ファームでの ASP.NET Core のホスト
 

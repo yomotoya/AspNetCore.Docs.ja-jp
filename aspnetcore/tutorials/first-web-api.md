@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 24c87f2ad0446aef51f9d648fd20c181cbeaed2e
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: dce2926e3cb19d6ac8d2af0e9b96c31dee1d92fd
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346472"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087518"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>チュートリアル: ASP.NET Core MVC で Web API を作成する
 
@@ -57,9 +57,9 @@ ms.locfileid: "57346472"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **[ファイル]** メニューで、**[新規作成]**、 > **[プロジェクト]** の順に作成します。
-* **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。 プロジェクトに「*TodoApi*」という名前を付け、**[OK]** をクリックます。
-* **[New ASP.NET Core Web Application - TodoApi]\(新しい ASP.NET Core Web アプリケーション - TodoApi\)** ダイアログで、ASP.NET Core のバージョンを選択します。 **API** テンプレートを選択し、**[OK]** をクリックします。 **[Enable Docker Support]\(Docker サポートを有効にする\)** は**選択しないで**ください。
+* **[ファイル]** メニューで、 **[新規作成]** 、 >  **[プロジェクト]** の順に作成します。
+* **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。 プロジェクトに「*TodoApi*」という名前を付け、 **[OK]** をクリックます。
+* **[New ASP.NET Core Web Application - TodoApi]\(新しい ASP.NET Core Web アプリケーション - TodoApi\)** ダイアログで、ASP.NET Core のバージョンを選択します。 **API** テンプレートを選択し、 **[OK]** をクリックします。 **[Enable Docker Support]\(Docker サポートを有効にする\)** は**選択しないで**ください。
 
 ![VS の [新しいプロジェクト] ダイアログ](first-web-api/_static/vs.png)
 
@@ -76,21 +76,21 @@ ms.locfileid: "57346472"
 
   これらのコマンドでは、新しい Web API プロジェクトが作成され、新しいプロジェクト フォルダー内に Visual Studio Code の新しいインスタンスが開かれます。
 
-* ダイアログ ボックスで、プロジェクトに必要な資産を追加するかどうかを確認されたら、**[はい]** を選択します。
+* ダイアログ ボックスで、プロジェクトに必要な資産を追加するかどうかを確認されたら、 **[はい]** を選択します。
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* **[ファイル]**、**[新しいソリューション]** の順に選択します。
+* **[ファイル]** 、 **[新しいソリューション]** の順に選択します。
 
   ![macOS の新しいソリューション](first-web-api-mac/_static/sln.png)
 
-* **[.NET Core アプリ]**、 > **[ASP.NET Core Web API]**、 > **[次へ]** の順に選択します。
+* **[.NET Core アプリ]** 、 >  **[ASP.NET Core Web API]** 、 >  **[次へ]** の順に選択します。
 
   ![macOS の [新しいプロジェクト] ダイアログ](first-web-api-mac/_static/1.png)
   
-* **[Configure your new ASP.NET Core Web API]\(新しい ASP.NET Core Web API を構成する\)** ダイアログ ボックスで、既定の**ターゲット フレームワーク** **.NET Core 2.2* を受け入れます。
+* **[Configure your new ASP.NET Core Web API]\(新しい ASP.NET Core Web API を構成する\)** ダイアログ ボックスで、既定の**ターゲット フレームワーク** * *.NET Core 2.2* を受け入れます。
 
-* **[プロジェクト名]** に「*TodoApi*」と入力し、**[作成]** を選択します。
+* **[プロジェクト名]** に「*TodoApi*」と入力し、 **[作成]** を選択します。
 
   ![構成ダイアログ](first-web-api-mac/_static/2.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "57346472"
 
 Ctrl キーを押しながら F5 キーを押して、アプリを実行します。 Visual Studio でブラウザーが起動し、`https://localhost:<port>/api/values` にアクセスします。ここで、`<port>` はランダムに選択されたポート番号になります。
 
-IIS Express 証明書を信頼するかどうかを確認するダイアログ ボックスが表示された場合は、**[はい]** を選択します。 次に表示される **[セキュリティ警告]** ダイアログ ボックスで、**[はい]** を選択します。
+IIS Express 証明書を信頼するかどうかを確認するダイアログ ボックスが表示された場合は、 **[はい]** を選択します。 次に表示される **[セキュリティ警告]** ダイアログ ボックスで、 **[はい]** を選択します。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -112,7 +112,7 @@ Ctrl キーを押しながら F5 キーを押して、アプリを実行しま�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-**[実行]**、**[デバッグありで開始]** の順に選択してアプリを起動します。 Visual Studio for Mac でブラウザーが起動し、`https://localhost:<port>` にアクセスします。ここで、`<port>` はランダムに選択されたポート番号になります。 HTTP 404 (Not Found) エラーが返されます。 URL に `/api/values` を追加します (URL を `https://localhost:<port>/api/values` に変更します)。
+**[実行]** 、 **[デバッグありで開始]** の順に選択してアプリを起動します。 Visual Studio for Mac でブラウザーが起動し、`https://localhost:<port>` にアクセスします。ここで、`<port>` はランダムに選択されたポート番号になります。 HTTP 404 (Not Found) エラーが返されます。 URL に `/api/values` を追加します (URL を `https://localhost:<port>/api/values` に変更します)。
 
 ---
 
@@ -128,9 +128,9 @@ Ctrl キーを押しながら F5 キーを押して、アプリを実行しま�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **ソリューション エクスプローラー**で、プロジェクトを右クリックします。 **[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
+* **ソリューション エクスプローラー**で、プロジェクトを右クリックします。 **[追加]**  >  **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
-* *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに「*TodoItem*」という名前を付け、**[追加]** を選択します。
+* *Models* フォルダーを右クリックし、 **[追加]**  >  **[クラス]** の順にクリックします。 クラスに「*TodoItem*」という名前を付け、 **[追加]** を選択します。
 
 * テンプレート コードを次のコードに置き換えます。
 
@@ -142,13 +142,13 @@ Ctrl キーを押しながら F5 キーを押して、アプリを実行しま�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* プロジェクトを右クリックします。 **[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
+* プロジェクトを右クリックします。 **[追加]**  >  **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
   ![新しいフォルダー](first-web-api-mac/_static/folder.png)
 
-* *Models* フォルダーを右クリックし、**[追加]**、**[新しいファイル]**、**[全般]**、**[空のクラス]** の順に選択します。
+* *Models* フォルダーを右クリックし、 **[追加]** 、 **[新しいファイル]** 、 **[全般]** 、 **[空のクラス]** の順に選択します。
 
-* クラスに「*TodoItem*」という名前を付け、**[新規]** をクリックします。
+* クラスに「*TodoItem*」という名前を付け、 **[新規]** をクリックします。
 
 * テンプレート コードを次のコードに置き換えます。
 
@@ -166,7 +166,7 @@ Ctrl キーを押しながら F5 キーを押して、アプリを実行しま�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに「*TodoContext*」という名前を付け、**[追加]** をクリックします。
+* *Models* フォルダーを右クリックし、 **[追加]**  >  **[クラス]** の順にクリックします。 クラスに「*TodoContext*」という名前を付け、 **[追加]** をクリックします。
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
@@ -197,9 +197,9 @@ ASP.NET Core で、サービス (DB コンテキストなど) を[依存関係�
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * *Controllers* フォルダーを右クリックします。
-* **[追加]** > **[新しい項目]** の順に選択します。
-* **[新しい項目の追加]** ダイアログで、**[API コントローラー クラス]** テンプレートを選択します。
-* クラスに「*TodoController*」という名前を付け、**[追加]** を選択します。
+* **[追加]**  >  **[新しい項目]** の順に選択します。
+* **[新しい項目の追加]** ダイアログで、 **[API コントローラー クラス]** テンプレートを選択します。
+* クラスに「*TodoController*」という名前を付け、 **[追加]** を選択します。
 
   ![[新しい項目の追加] ダイアログ。検索ボックスに「controller」と入力されています。Web API コントローラーが選択されています。](first-web-api/_static/new_controller.png)
 
@@ -216,7 +216,7 @@ ASP.NET Core で、サービス (DB コンテキストなど) を[依存関係�
 上のコードでは以下の操作が行われます。
 
 * メソッドを使用せず、API コントローラー クラスを定義します。
-* クラスを [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) 属性で修飾します。 この属性は、コントローラーが Web API 要求に応答することを示します。 属性によって有効化される特定の動作については、「[ApiController 属性を使用した注釈](xref:web-api/index#annotation-with-apicontroller-attribute)」を参照してください。
+* クラスを [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) 属性で修飾します。 この属性は、コントローラーが Web API 要求に応答することを示します。 属性によって有効化される特定の動作については、<xref:web-api/index> を参照してください。
 * DI を使用して、データベース コンテキスト (`TodoContext`) をコントローラーに挿入します。 データベース コンテキストは、コントローラーの各 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) メソッドで使用されます。
 * 追加データベースが空の場合、`Item1` という名前のアイテムをデータベースにします。 このコードはコンストラクター内にあるので、新しい HTTP 要求が行われるたびに実行されます。 すべてのアイテムを削除した場合、コンストラクターは、次回に API メソッドが呼び出されたときに `Item1` をもう一度作成します。 そのため、削除が実際には機能していても、機能しなかったように見える場合があります。
 
@@ -333,7 +333,7 @@ To Do アイテムを取得する API を指定するには、`TodoController` �
 
 ### <a name="test-the-location-header-uri"></a>場所ヘッダー URI のテスト
 
-* **[Response]** ウィンドウで、**[Headers]** タブを選択します。
+* **[Response]** ウィンドウで、 **[Headers]** タブを選択します。
 * **[Location]** ヘッダー値をコピーします。
 
   ![Postman コンソールの [Headers] タブ](first-web-api/_static/pmc2.png)
@@ -443,7 +443,7 @@ To Do アイテムを削除するには、`DELETE` への AJAX 呼び出しで `
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-[このチュートリアルのサンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples)します。 [ダウンロード方法](xref:index#how-to-download-a-sample)に関するページを参照してください。
+[このチュートリアルのサンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples)します。 [ダウンロード方法](xref:index#how-to-download-a-sample)に関するページを参照してください。
 
 詳細については、次のリソースを参照してください。
 

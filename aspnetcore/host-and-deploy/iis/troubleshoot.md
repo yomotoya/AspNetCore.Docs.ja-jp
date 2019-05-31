@@ -2,16 +2,17 @@
 title: IIS での ASP.NET Core のトラブルシューティング
 author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: f89eac3ae6fc704bc8bf38a9707fc3c6c3568e91
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 80994cb84e9e0658ee90198b6bf992e5b374bf3c
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884347"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970027"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -49,7 +50,7 @@ Visual Studio では、ASP.NET Core プロジェクトのデバッグ時に [IIS
 
 ASP.NET Core モジュールはバックエンドのドットネット プロセスの開始を試みますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断できます。
 
-一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。 *共有フレームワーク*は、コンピューター上にインストールされたアセンブリ (*.dll* ファイル) のセットであり、`Microsoft.AspNetCore.App` などのメタパッケージによって参照されます。 メタパッケージの参照には、必要な最低限のバージョンを指定できます。 詳しくは、[共有フレームワーク](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/)に関するページをご覧ください。
+一般的なエラー条件は、存在しないバージョンの ASP.NET Core 共有フレームワークが対象にされていて、アプリが正しく構成されていないことです。 対象のコンピューターにどのバージョンの ASP.NET Core 共有フレームワークがインストールされているかを確認します。 *共有フレームワーク*は、コンピューター上にインストールされたアセンブリ ( *.dll* ファイル) のセットであり、`Microsoft.AspNetCore.App` などのメタパッケージによって参照されます。 メタパッケージの参照には、必要な最低限のバージョンを指定できます。 詳しくは、[共有フレームワーク](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/)に関するページをご覧ください。
 
 正しく構成されていないホスティングやアプリが原因でワーカー プロセスが失敗する場合、"*502.5 処理エラー*" のエラー ページが返されます。
 
@@ -96,7 +97,7 @@ Source: IIS AspNetCore Module V2
 Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
 ```
 
-アプリのアセンブリ (*.dll*) を読み込めなかったため、アプリの起動に失敗しました。
+アプリのアセンブリ ( *.dll*) を読み込めなかったため、アプリの起動に失敗しました。
 
 このエラーは、公開されたアプリと w3wp/iisexpress プロセスの間でビットの不一致がある場合に発生します。
 
