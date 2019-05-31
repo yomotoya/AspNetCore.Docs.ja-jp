@@ -3,14 +3,15 @@ title: ASP.NET Core 2.0 の新機能
 author: rick-anderson
 description: ASP.NET Core 2.0 の新機能について説明します。
 ms.author: riande
-ms.date: 07/10/2017
+ms.custom: mvc
+ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 07e490fd844f0f9044afce37651ef680ed0c894d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883097"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376407"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 の新機能
 
@@ -75,7 +76,7 @@ ASP.NET Core 2.0 で ID を使用し、簡単に安全な Web API を作成で�
 
 ## <a name="spa-templates"></a>SPA テンプレート
 
-Angular、Aurelia、Knockout.js、React.js、Redux 用 React.js で、シングル ページ アプリケーション (SPA) プロジェクト テンプレートが利用できるようになりました。 Angular テンプレートは、Angular 4 に更新されました。 Angular と React テンプレートは既定で使用可能です。その他のテンプレートの入手方法については、[新しい SPA プロジェクトを作成する](xref:client-side/spa-services#creating-a-new-project)方法に関するページを参照してください。 ASP.NET Core で SPA を構築する方法については、[シングル ページ アプリケーションで JavaScriptServices を使用する](xref:client-side/spa-services)方法に関するページを参照してください。
+Angular、Aurelia、Knockout.js、React.js、Redux 用 React.js で、シングル ページ アプリケーション (SPA) プロジェクト テンプレートが利用できるようになりました。 Angular テンプレートは、Angular 4 に更新されました。 Angular と React テンプレートは既定で使用可能です。その他のテンプレートの入手方法については、[新しい SPA プロジェクトを作成する](xref:client-side/spa-services#create-a-new-project)方法に関するページを参照してください。 ASP.NET Core で SPA を構築する方法については、<xref:client-side/spa-services> を参照してください。
 
 ## <a name="kestrel-improvements"></a>Kestrel の機能強化
 

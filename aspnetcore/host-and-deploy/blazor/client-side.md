@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223186"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376400"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>クライアント側 Blazor をホストおよび展開する
 
@@ -188,7 +188,9 @@ Azure App Service の展開については、「<xref:tutorials/publish-to-azure
 
 ## <a name="standalone-deployment"></a>スタンドアロン展開
 
-*スタンドアロン展開*により、クライアント側 Blazor アプリが、クライアントによって直接要求される静的ファイルのセットとして提供されます。 Web サーバーは、Blazor アプリの提供には使用されません。
+*スタンドアロン展開*により、クライアント側 Blazor アプリが、クライアントによって直接要求される静的ファイルのセットとして提供されます。 任意の静的ファイル サーバーで Blazor アプリを提供できます。
+
+スタンドアロン展開の資産は *bin/Release/{TARGET FRAMEWORK}/publish/{ASSEMBLY NAME}/dist* フォルダーに発行されます。
 
 ### <a name="iis"></a>IIS
 
