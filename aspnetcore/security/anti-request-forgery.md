@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 4498bd88e7188ea6c0063aeec054bc20e13ed5f1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a32e0e2dbd7fab95562a562cb88767d4c1e8049d
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086441"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458486"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core で防ぐクロスサイト リクエスト フォージェリ (XSRF または CSRF) 攻撃
 
 によって[Steve Smith](https://ardalis.com/)、 [Fiyaz Hasan](https://twitter.com/FiyazBinHasan)、および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-クロスサイト リクエスト フォージェリ (XSRF または CSRF の発音とも呼ばれます *「サーフ*) は、悪意ある web アプリ影響を与える、クライアント ブラウザーと web アプリを信頼している間の相互作用 web でホストされたアプリに対する攻撃ブラウザー。 Web ブラウザーの web サイトにすべての要求で自動的に認証トークンの一部の種類を送信するため、これらの攻撃は可能です。 悪用のこのフォームとも呼ばれますが、*ワンクリックによる攻撃*または*乗るセッション*セッション、ユーザーの認証に以前の攻撃を利用するためです。
+クロスサイト リクエスト フォージェリ (XSRF または CSRF) は、web でホストされるアプリが悪意のある web アプリが、クライアント ブラウザーとそのブラウザーが信頼している web アプリ間の相互作用に影響するという攻撃です。 Web ブラウザーの web サイトにすべての要求で自動的に認証トークンの一部の種類を送信するため、これらの攻撃は可能です。 悪用のこのフォームとも呼ばれますが、*ワンクリックによる攻撃*または*乗るセッション*セッション、ユーザーの認証に以前の攻撃を利用するためです。
 
 CSRF 攻撃の例:
 
