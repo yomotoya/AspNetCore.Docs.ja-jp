@@ -91,8 +91,8 @@
           uid: tutorials/signalr-typescript-webpack
     - name: リモート プロシージャ コール アプリ
       items:
-        - name: ASP.NET Core の gRPC サービスの概要
-          uid: tutorials/grpc/grpc-client
+        - name: gRPC サービスの概要
+          uid: tutorials/grpc/grpc-start
     - name: データ アクセス
       items:
         - name: EF Core と Razor Pages
@@ -530,8 +530,6 @@
       uid: grpc/migration
     - name: HTTP API を使用した gRPC サービスの比較
       uid: grpc/comparison
-    - name: gRPC のクライアントとサーバーを作成する
-      uid: tutorials/grpc/grpc-client
 - name: テスト、デバッグ、およびトラブルシューティング
   items:
     - name: 単体テスト
