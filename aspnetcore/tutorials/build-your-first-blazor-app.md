@@ -5,14 +5,14 @@ description: Blazor アプリを段階的に構築します。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/19/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: d48b891127f4db929b631c0ddf199c07658e604c
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087766"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970121"
 ---
 # <a name="build-your-first-blazor-app"></a>最初の Blazor アプリを構築する
 
@@ -89,7 +89,7 @@ HTML 構文を使用して、別のコンポーネント内にコンポーネン
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-1. Index コンポーネントを再読み込みします。 カウンターは、**[クリックしてください]** ボタンを選択するたびに 10 ずつインクリメントされます。 Counter コンポーネントにあるカウンターは、継続して 1 ずつインクリメントされます。
+1. Index コンポーネントを再読み込みします。 カウンターは、 **[クリックしてください]** ボタンを選択するたびに 10 ずつインクリメントされます。 Counter コンポーネントにあるカウンターは、継続して 1 ずつインクリメントされます。
 
 ## <a name="route-to-components"></a>コンポーネントにルーティングする
 
@@ -152,6 +152,14 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
 
 1. アプリケーションをリビルドして実行します。 新しい Todo ページに移動して、Todo コンポーネントへのリンクが機能することを確認します。
 
+1. Blazor サーバー側アプリをビルドする場合、アプリの名前空間を *\_Imports.razor* ファイルに追加します。 次の `@using` ステートメントでは、アプリの名前空間が `WebApplication` であるものとしています。
+
+   ```cshtml
+   @using WebApplication
+   ```
+   
+   Blazor クライアント側アプリでは、既定で、 *\_Imports.razor* ファイルにアプリの名前空間が含まれます。
+
 1. Todo アイテムを表すクラスを保持するために、プロジェクトのルートに *TodoItem.cs* ファイルを追加します。 `TodoItem` クラス用に次の C# コードを使います。
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
@@ -180,7 +188,7 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo">
+   <input placeholder="Something todo" bind="@newTodo" />
    ```
 
 1. 指定したタイトルを備えた `TodoItem` をリストに追加するように、`AddTodo` メソッドを更新します。 `newTodo` を空の文字列に設定して、テキスト入力の値をクリアします。

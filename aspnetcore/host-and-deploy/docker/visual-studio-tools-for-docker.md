@@ -6,29 +6,29 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0d884fe2fe56f267ad70c388a08cd3fe6256364
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888367"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610381"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker と ASP.NET Core
 
-Visual Studio 2017 は、.NET Core をターゲットとするコンテナー化された ASP.NET Core アプリのビルド、デバッグ、実行をサポートします。 Windows と Linux の両方のコンテナーがサポートされます。
+Visual Studio 2017 以降のバージョンでは、.NET Core をターゲットとするコンテナー化された ASP.NET Core アプリのビルド、デバッグ、実行がサポートされています。 Windows と Linux の両方のコンテナーがサポートされます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
-* [Visual Studio 2017](https://visualstudio.microsoft.com) と **[.NET Core クロスプラットフォームの開発]** ワークロード
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) と **.NET Core クロスプラットフォームの開発**ワークロード
 
 ## <a name="installation-and-setup"></a>インストールとセットアップ
 
 Docker をインストールするには、まず、「[Docker for Windows:What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)」 (Docker Desktop for Windows: インストール前に知っておくべきこと) の情報を確認します。 次に、[Docker for Windows](https://docs.docker.com/docker-for-windows/install/) をインストールします。
 
-ボリュームのマッピングとデバッグをサポートするように、Docker for Windows で **[共有ドライブ](https://docs.docker.com/docker-for-windows/#shared-drives)**  を構成する必要があります。 システム トレイの Docker アイコンを右クリックし、**[設定]**、**[Shared Drives]\(共有ドライブ\)** の順に選択します。 Docker がファイルを保存するドライブを選択します。 **[適用]** をクリックします。
+ボリュームのマッピングとデバッグをサポートするように、Docker for Windows で **[共有ドライブ](https://docs.docker.com/docker-for-windows/#shared-drives)**  を構成する必要があります。 システム トレイの Docker アイコンを右クリックし、 **[設定]** 、 **[Shared Drives]\(共有ドライブ\)** の順に選択します。 Docker がファイルを保存するドライブを選択します。 **[適用]** をクリックします。
 
 ![コンテナーで共有するローカル C ドライブを選択するためのダイアログ](visual-studio-tools-for-docker/_static/settings-shared-drives-win.png)
 
@@ -39,7 +39,7 @@ Docker をインストールするには、まず、「[Docker for Windows:What 
 
 ASP.NET Core プロジェクトをコンテナー化するには、プロジェクトで .NET Core をターゲットにする必要があります。 Linux と Windows の両方のコンテナーがサポートされています。
 
-プロジェクトに Docker サポートを追加する場合は、Windows または Linux のいずれかのコンテナーを選択します。 Docker ホストが同じコンテナーの種類を実行している必要があります。 実行中の Docker インスタンスでコンテナーの種類を変更するには、システム トレイの Docker アイコンを右クリックして、**[Switch to Windows containers...]\(Windows コンテナーに切り替える...\)** または **[Switch to Linux containers...]\(Linux コンテナーに切り替える...\)** を選択します。
+プロジェクトに Docker サポートを追加する場合は、Windows または Linux のいずれかのコンテナーを選択します。 Docker ホストが同じコンテナーの種類を実行している必要があります。 実行中の Docker インスタンスでコンテナーの種類を変更するには、システム トレイの Docker アイコンを右クリックして、 **[Switch to Windows containers...]\(Windows コンテナーに切り替える...\)** または **[Switch to Linux containers...]\(Linux コンテナーに切り替える...\)** を選択します。
 
 ### <a name="new-app"></a>新しいアプリ
 
@@ -47,14 +47,14 @@ ASP.NET Core プロジェクトをコンテナー化するには、プロジェ�
 
 ![[Enable Docker Support]\(Docker サポートを有効にする\) チェック ボックス](visual-studio-tools-for-docker/_static/enable-docker-support-check-box.png)
 
-ターゲット フレームワークが .NET Core の場合、**[OS]** ドロップダウンでコンテナーの種類を選択できます。
+ターゲット フレームワークが .NET Core の場合、 **[OS]** ドロップダウンでコンテナーの種類を選択できます。
 
 ### <a name="existing-app"></a>既存のアプリ
 
 .NET Core をターゲットとする ASP.NET Core プロジェクトの場合、ツールを使用して Docker サポートを追加するための 2 つのオプションがあります。 Visual Studio でプロジェクトを開き、次のオプションのいずれかを選択します。
 
 * **[プロジェクト]** メニューから **[Docker サポート]** を選択します。
-* **ソリューション エクスプローラー**でプロジェクトを右クリックして、**[追加]** > **[Docker サポート]** の順に選択します。
+* **ソリューション エクスプローラー**でプロジェクトを右クリックして、 **[追加]**  >  **[Docker サポート]** の順に選択します。
 
 Visual Studio Tools for Docker では、.NET Framework をターゲットとする既存の ASP.NET Core プロジェクトへの Docker の追加はサポートされません。
 
@@ -82,9 +82,9 @@ Visual Studio Tools for Docker では、.NET Framework をターゲットとす�
 
 ## <a name="add-container-orchestrator-support-to-an-app"></a>アプリにコンテナー オーケストレーター サポートを追加する
 
-Visual Studio 2017 バージョン 15.7 以前では、唯一のコンテナー オーケストレーション ソリューションとして、[Docker Compose](https://docs.docker.com/compose/overview/) がサポートされています。 Docker Compose の成果物は、**[追加]** > **[Docker サポート]** を使用して追加されます。
+Visual Studio 2017 バージョン 15.7 以前では、唯一のコンテナー オーケストレーション ソリューションとして、[Docker Compose](https://docs.docker.com/compose/overview/) がサポートされています。 Docker Compose の成果物は、 **[追加]**  >  **[Docker サポート]** を使用して追加されます。
 
-Visual Studio 2017 バージョン 15.8 以降では、指示された場合にのみ、オーケストレーション ソリューションが追加されます。 **ソリューション エクスプローラー**でプロジェクトを右クリックして、**[追加]** > **[Container Orchestrator Support]\(コンテナー オーケストレーター サポート)** の順に選択します。 2 つの異なる選択肢が提示されます。[Docker Compose](#docker-compose) と [Service Fabric](#service-fabric) です。
+Visual Studio 2017 バージョン 15.8 以降では、指示された場合にのみ、オーケストレーション ソリューションが追加されます。 **ソリューション エクスプローラー**でプロジェクトを右クリックして、 **[追加]**  >  **[Container Orchestrator Support]\(コンテナー オーケストレーター サポート)** の順に選択します。 2 つの異なる選択肢が提示されます。[Docker Compose](#docker-compose) と [Service Fabric](#service-fabric) です。
 
 ### <a name="docker-compose"></a>Docker Compose
 
@@ -112,7 +112,7 @@ Visual Studio Tools for Docker では、ソリューションに *docker-compose
 基本的な[前提条件](#prerequisites)に加え、[Service Fabric](/azure/service-fabric/) オーケストレーション ソリューションでは次の前提条件が求められます。
 
 * [Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) バージョン 2.6 以降
-* Visual Studio 2017 の **Azure Development** ワークロード
+* Visual Studio の **Azure Development** ワークロード
 
 Service Fabric では、Windows 上のローカル開発クラスターでの Linux コンテナーの実行はサポートされません。 プロジェクトで既に Linux コンテナーが使用されている場合は、Visual Studio で Windows コンテナーに切り替えるよう求められます。
 
@@ -225,7 +225,7 @@ microsoft/aspnetcore        2.0     c69d39472da9  13 days ago     347MB
 ::: moniker-end
 
 > [!NOTE]
-> `docker images` コマンドは、*\<none>* として識別されるリポジトリ名とタグを持つ中間イメージを返します (上にはリストされていません)。 これらの名前のないイメージは、[multi-stage build](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *Dockerfile* によって生成されます。 これにより、最終イメージの構築効率が向上します&mdash;変更時には必要なレイヤーのみが再構築されます。 中間イメージが不要になった場合は、[docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) コマンドを使用して削除します。
+> `docker images` コマンドは、 *\<none>* として識別されるリポジトリ名とタグを持つ中間イメージを返します (上にはリストされていません)。 これらの名前のないイメージは、[multi-stage build](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *Dockerfile* によって生成されます。 これにより、最終イメージの構築効率が向上します&mdash;変更時には必要なレイヤーのみが再構築されます。 中間イメージが不要になった場合は、[docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) コマンドを使用して削除します。
 
 *dev* イメージと比較した場合、実稼働またはリリース イメージはサイズが小さいと思うかもしれません。 ボリューム マッピングにより、デバッガーとアプリは、コンテナー内ではなく、ローカル コンピューターから実行されています。 *latest* イメージには、ホスト コンピューターでアプリを実行するために必要なアプリ コードがパッケージ化されています。 そのため、デルタはアプリ コードのサイズです。
 

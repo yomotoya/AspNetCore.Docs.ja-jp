@@ -3,14 +3,14 @@ title: 'チュートリアル: ASP.NET Core の Razor ページの概要'
 author: rick-anderson
 description: このチュートリアル シリーズでは、ASP.NET Core で Razor ページを使用する方法を示します。 モデルの作成、Razor ページのコードの生成、Entity Framework Core と SQL Server を使用したデータ アクセス、検索機能の追加、入力検証の追加、および移行を使用したモデルの更新の方法について説明します。
 ms.author: riande
-ms.date: 05/09/2019
+ms.date: 05/30/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
+ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517108"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66415669"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>チュートリアル: ASP.NET Core の Razor ページの概要
 
@@ -24,14 +24,14 @@ ms.locfileid: "65517108"
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-このチュートリアルでは、次の作業を行います。
+このチュートリアルでは、次の作業を行いました。
 
 > [!div class="checklist"]
 > * Razor Pages Web アプリを作成する。
 > * アプリを実行します。
 > * プロジェクト ファイルを確認する
 
-このチュートリアルの最後には、以降のチュートリアルでビルドする作業用 Razor ページ Web アプリができあがります。
+このチュートリアルの最後には、以降のチュートリアルでビルドする作業用 Razor Pages Web アプリができあがります。
 
 ![ホームまたはインデックス ページ](razor-pages-start/_static/home2.2.png)
 
@@ -41,13 +41,13 @@ ms.locfileid: "65517108"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio の **[ファイル]** メニューから、**[新規作成]** > **[プロジェクト]** の順に選択します。
+* Visual Studio の **[ファイル]** メニューから、 **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 
 * 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **RazorPagesMovie** という名前を付けます。 コードのコピーおよび貼り付けを行う際に名前空間が一致するように、プロジェクトに *RazorPagesMovie* という名前を付けることが重要です。
 
   ![新しい ASP.NET Core Web アプリケーション](razor-pages-start/_static/np_2.1.png)
 
-* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、**[Web アプリケーション]** を選択します。
+* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、 **[Web アプリケーション]** を選択します。
 
   ![新しい ASP.NET Core Web アプリケーション](razor-pages-start/_static/np_2_2.2.png)
 
@@ -71,9 +71,9 @@ ms.locfileid: "65517108"
   * `dotnet new` コマンド: *RazorPagesMovie* フォルダーに新しい Razor Pages プロジェクトが作成されます。
   * `code` コマンドは、Visual Studio Code の現在のインスタンス内で *RazorPagesMovie* フォルダーを開きます。
 
-  "**ビルドとデバッグに必要な資産が 'RazorPagesMovie' にありません。追加しますか?**" という内容のダイアログ ボックスが表示されたら、
+* 状態バーの OmniSharp フレーム アイコンが緑色になり、"**ビルドとデバッグに必要な資産が 'RazorPagesMovie' にありません。追加しますか?** " という内容のダイアログ ボックスが表示されたら、 **[はい]** を選択します。
 
-* **[はい]** を選択します
+  *launch.json* ファイルと *tasks.json* ファイルを格納している *.vscode* ディレクトリが、プロジェクトのルート ディレクトリに追加されます。
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
@@ -89,7 +89,7 @@ dotnet new webapp -o RazorPagesMovie
 
 ## <a name="open-the-project"></a>プロジェクトを開く
 
-Visual Studio から、**[ファイル]、[開く]** の順に選択し、*RazorPagesMovie.csproj* ファイルを選択します。
+Visual Studio から、 **[ファイル]、[開く]** の順に選択し、*RazorPagesMovie.csproj* ファイルを選択します。
 
 <!-- End of VS tabs -->
 
@@ -105,7 +105,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
   Visual Studio で [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。
 
-* アプリのホーム ページ上で、**[同意する]** を選択して、追跡に同意します。
+* アプリのホーム ページ上で、 **[同意する]** を選択して、追跡に同意します。
 
   このアプリによって個人情報は追跡されません。しかし、欧州連合の[一般データ保護規則 (GDPR)](xref:security/gdpr) に準拠するための同意機能が必要な場合は、プロジェクト テンプレートにその機能が含められます。
 
@@ -123,7 +123,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
   Visual Studio Code で [Kestrel](xref:fundamentals/servers/kestrel) が開始され、ブラウザーが起動して、`http://localhost:5001` に移動します。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 localhost では、ローカル コンピューターからの Web 要求のみが処理されます。
 
-* アプリのホーム ページ上で、**[同意する]** を選択して、追跡に同意します。
+* アプリのホーム ページ上で、 **[同意する]** を選択して、追跡に同意します。
 
   このアプリによって個人情報は追跡されません。しかし、欧州連合の[一般データ保護規則 (GDPR)](xref:security/gdpr) に準拠するための同意機能が必要な場合は、プロジェクト テンプレートにその機能が含められます。
 
@@ -141,7 +141,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
   Visual Studio は [Kestrel](xref:fundamentals/servers/kestrel) を開始し、ブラウザーを起動して、`http://localhost:5001` に移動します。
 
-* アプリのホーム ページ上で、**[同意する]** を選択して、追跡に同意します。
+* アプリのホーム ページ上で、 **[同意する]** を選択して、追跡に同意します。
 
   このアプリによって個人情報は追跡されません。しかし、欧州連合の[一般データ保護規則 (GDPR)](xref:security/gdpr) に準拠するための同意機能が必要な場合は、プロジェクト テンプレートにその機能が含められます。
 
@@ -166,7 +166,7 @@ Razor ページとサポート ファイルが格納されます。 各 Razor �
 * *.cshtml* ファイル: HTML マークアップと、Razor 構文を使用した C# コードが保存されます。
 * *.cshtml.cs* ファイル: ページ イベントを処理する C# コードが保存されます。
 
-サポート ファイルには、アンダー スコアで始まる名前が付けられます。 たとえば、*_Layout.cshtml* ファイルでは、すべてのページに共通の UI 要素が構成されます。 このファイルでは、ページの上部に表示されるナビゲーション メニューと、ページの下部に表示される著作権の通知が設定されます。 詳細については、「<xref:mvc/views/layout>」を参照してください。
+サポート ファイルには、アンダー スコアで始まる名前が付けられます。 たとえば、 *_Layout.cshtml* ファイルでは、すべてのページに共通の UI 要素が構成されます。 このファイルでは、ページの上部に表示されるナビゲーション メニューと、ページの下部に表示される著作権の通知が設定されます。 詳細については、「<xref:mvc/views/layout>」を参照してください。
 
 ### <a name="wwwroot-folder"></a>wwwroot フォルダー
 

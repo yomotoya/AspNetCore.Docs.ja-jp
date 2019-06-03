@@ -4,14 +4,14 @@ author: rick-anderson
 description: このチュートリアルでは、OAuth 2.0 と外部の認証プロバイダーを使用して ASP.NET Core 2.x アプリを構築する方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 4/19/2019
+ms.date: 05/10/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 8dac8a8a2276388414b6bb1211e970617b001637
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451047"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874809"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
 
@@ -23,7 +23,7 @@ ms.locfileid: "65451047"
 
 ![Facebook、Twitter、Google+、Windows のソーシャル メディア アイコン](index/_static/social.png)
 
-既存の資格情報でユーザーがサインインできるようになると: 
+既存の資格情報でユーザーがサインインできるようになると:
 * ユーザーにとって便利です。
 * サインイン プロセスの複雑な管理の多くが、サード パーティに移ります。 
 
@@ -33,10 +33,12 @@ ms.locfileid: "65451047"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio の **[ファイル]** メニューから、 **[新規作成]**  >  **[プロジェクト]** の順に選択します。
-* 新しい ASP.NET Core Web アプリケーションを作成します。
-* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、 **[Web アプリケーション]** を選択します。
-* **[認証の変更]** を選択し、認証を **[個人のユーザー アカウント]** に設定します。
+* 新しいプロジェクトを作成します。
+* **[ASP.NET Core Web アプリケーション]** 、 **[次へ]** の順に選択します。
+* **[プロジェクト名]** を指定して、 **[場所]** を確認または変更します。 **[作成]** を選択します。
+* ドロップダウンから **[ASP.NET Core 2.2]** を選択します。 テンプレートの一覧で **[Web アプリケーション]** を選択します。
+* **[認証]** の下で、 **[変更]** を選択して認証を **[個人のユーザー アカウント]** に設定します。 **[OK]** を選択します。
+* **[新しい ASP.NET Core Web アプリケーションを作成する]** ウィンドウで、 **[作成]** を選択します。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -56,27 +58,14 @@ ms.locfileid: "65451047"
   * `-au Individual` によって、個々の認証に対するコードを作成します。
   * `code` コマンドでは、Visual Studio Code の新しいインスタンス内に *WebApp1* フォルダーが開かれます。
 
-  "**ビルドとデバッグに必要な資産が 'WebApp1' にありません。追加しますか?** " という内容のダイアログ ボックスが表示されたら、
-
-* **[はい]** を選択します
+* "**ビルドとデバッグに必要な資産が 'WebApp1' にありません。追加しますか?** " という内容のダイアログ ボックスが表示されたら、 **[はい]** を選択します。
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-端末から、次のコマンドを実行します。
-
-<!-- TODO: update these instruction once mac support 2.2 projects -->
-
-```console
-dotnet new webapp -o WebApp1 -au Individual
-```
-
-上記のコマンドでは、[.NET Core CLI](/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトが作成されます。
-
-## <a name="open-the-project"></a>プロジェクトを開く
-
-Visual Studio から、 **[ファイル]、[開く]** の順に選択し、*WebApp1.csproj* ファイルを選択します。
-
-<!-- End of VS tabs -->
+* **[ファイル]** 、 **[新しいソリューション]** の順に選択します。
+* サイドバーで **[.NET Core]**  >  **[アプリ]** の順に選択します。 **[Web アプリケーション]** テンプレートを選択します。 **[次へ]** を選択します。
+* **[ターゲット フレームワーク]** ドロップダウンを **[.NET Core 2.2]** に設定します。 **[次へ]** を選択します。
+* **[プロジェクト名]** を指定します。 **[場所]** を確認または変更します。 **[作成]** を選択します。
 
 ---
 

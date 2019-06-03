@@ -92,10 +92,6 @@
     - name: リモート プロシージャ コール アプリ
       items:
         - name: ASP.NET Core の gRPC サービスの概要
-          uid: tutorials/grpc/index
-        - name: ASP.NET Core gRPC あいさつサービスを作成する
-          uid: tutorials/grpc/grpc-start
-        - name: .NET Core gRPC クライアントを作成する
           uid: tutorials/grpc/grpc-client
     - name: データ アクセス
       items:
@@ -158,7 +154,7 @@
     - name: データ アクセス
       displayName: 'tutorial, ef, entity framework'
       href: /learn/modules/persist-data-ef-core/
-- name: Fundamentals
+- name: 基礎
   items:
     - name: 概要
       uid: fundamentals/index
@@ -277,6 +273,8 @@
       items:
         - name: 概要
           uid: blazor/index
+        - name: サポートされているプラットフォーム
+          uid: blazor/supported-platforms
         - name: 作業開始
           uid: blazor/get-started
         - name: ホスティング モデル
@@ -319,7 +317,7 @@
               uid: spa/react
             - name: Redux による反応
               uid: spa/react-with-redux
-            - name: JavaScriptServices
+            - name: JavaScript サービス
               uid: client-side/spa-services
         - name: LibMan
           items:
@@ -532,14 +530,8 @@
       uid: grpc/migration
     - name: HTTP API を使用した gRPC サービスの比較
       uid: grpc/comparison
-    - name: チュートリアル
-      items:
-        - name: ASP.NET Core の gRPC サービスの概要
-          uid: tutorials/grpc/index
-        - name: ASP.NET Core gRPC あいさつサービスを作成する
-          uid: tutorials/grpc/grpc-start
-        - name: .NET Core gRPC クライアントを作成する
-          uid: tutorials/grpc/grpc-client
+    - name: gRPC のクライアントとサーバーを作成する
+      uid: tutorials/grpc/grpc-client
 - name: テスト、デバッグ、およびトラブルシューティング
   items:
     - name: 単体テスト

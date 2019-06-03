@@ -2,16 +2,17 @@
 title: IIS を使用した Windows での ASP.NET Core のホスト
 author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 05/24/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c8e742047230339434b910de9a8a2492bc4da1ff
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 12aa1b86e0b9078566f1c64cb4b83c4dddef09f7
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450988"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251353"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -32,17 +33,17 @@ Azure でのホスティングの情報については、「<xref:host-and-deplo
 
 ## <a name="supported-platforms"></a>サポートされているプラットフォーム
 
-32 ビット (x86) および 64 ビット (x64) デプロイ用に発行されるアプリがサポートされています。 アプリが以下の場合を除き、32 ビット アプリをデプロイします。
+32 ビット (x86) または 64 ビット (x64) デプロイ用に発行されるアプリがサポートされています。 アプリが次の条件を満たさない限り、32 ビット (x86) .NET Core SDK を使う 32 ビット アプリをデプロイします:
 
 * 64 ビット アプリ用の大規模な仮想メモリ アドレス空間が必要。
 * 大規模な IIS スタック サイズが必要。
 * 64 ビットのネイティブの依存関係がある。
 
+64 ビット (x64) .NET Core SDK を使って 64 ビット アプリを発行します。 ホスト システム上に 64 ビット ランタイムが存在している必要があります。
+
 ## <a name="application-configuration"></a>アプリケーション構成
 
 ### <a name="enable-the-iisintegration-components"></a>IISIntegration コンポーネントを有効にする
-
-::: moniker range=">= aspnetcore-2.1"
 
 一般的な *Program.cs* では、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出してホストの設定を開始します。
 
@@ -52,25 +53,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         ...
 ```
 
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-一般的な *Program.cs* では、<xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> を呼び出してホストの設定を開始します。
-
-```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
-
-::: moniker-end
-
 ::: moniker range=">= aspnetcore-2.2"
 
 **インプロセス ホスティング モデル**
 
-`CreateDefaultBuilder` では、`UseIIS` メソッドを呼び出し、[CoreCLR](/dotnet/standard/glossary#coreclr) を起動して IIS ワーカー プロセス (*w3wp.exe* または *iisexpress.exe*) 内のアプリをホストします。 パフォーマンス テストは、.NET Core アプリのインプロセス ホスティングでは、アプリのアウトプロセス ホスティングや [Kestrel](xref:fundamentals/servers/kestrel) サーバーへのプロキシ要求に比べ、スループットの要求が大幅に高くなることを示しています。
+`CreateDefaultBuilder` では、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> メソッドを呼び出し、[CoreCLR](/dotnet/standard/glossary#coreclr) を起動して IIS ワーカー プロセス (*w3wp.exe* または *iisexpress.exe*) 内のアプリをホストすることで、<xref:Microsoft.AspNetCore.Hosting.Server.IServer> インスタンスを追加します。 パフォーマンス テストは、.NET Core アプリのインプロセス ホスティングでは、アプリのアウトプロセス ホスティングや [Kestrel](xref:fundamentals/servers/kestrel) サーバーへのプロキシ要求に比べ、スループットの要求が大幅に高くなることを示しています。
 
 .NET Framework をターゲットにする ASP.NET Core アプリではインプロセス ホスティング モデルはサポートされていません。
 
@@ -78,7 +65,7 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 IIS でのアウトプロセス ホスティングの場合、`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
-ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`127.0.0.1`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `127.0.0.1:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
+ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> メソッド呼び出すことで、IIS 統合ミドルウェアと [Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) を追加します。 `UseIISIntegration` では、localhost の IP アドレス (`127.0.0.1`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `127.0.0.1:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
 
 * `UseUrls`
 * [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration)
@@ -90,7 +77,7 @@ ASP.NET Core モジュールでは、バックエンド プロセスに割り当
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.2"
 
 `CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)に構成することで、IIS 統合を有効にします。
 
@@ -101,44 +88,6 @@ ASP.NET Core モジュールでは、バックエンド プロセスに割り当
 * [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
 
 モジュールを使用する場合、`UseUrls` または Kestrel の `Listen` API を呼び出す必要はありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-`CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) サーバーを Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)に構成することで、IIS 統合を有効にします。
-
-ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `CreateDefaultBuilder` では <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> メソッドが呼び出されます。 `UseIISIntegration` では、localhost の IP アドレス (`localhost`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `localhost:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
-
-* `UseUrls`
-* [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration)
-* [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
-
-モジュールを使用する場合、`UseUrls` または Kestrel の `Listen` API を呼び出す必要はありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-アプリの依存関係に [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) パッケージへの依存関係を含めます。 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> 拡張メソッドを <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> に追加して、IIS 統合ミドルウェアを使用します。
-
-```csharp
-var host = new WebHostBuilder()
-    .UseKestrel()
-    .UseIISIntegration()
-    ...
-```
-
-<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> と <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> の両方が必要です。 `UseIISIntegration` を呼び出すコードはコードの移植性に影響しません。 アプリが IIS の背後で実行されていない場合 (たとえば、アプリが Kestrel で直接実行されている場合)、`UseIISIntegration` は機能しません。
-
-ASP.NET Core モジュールでは、バックエンド プロセスに割り当てる動的なポートが生成されます。 `UseIISIntegration` では、localhost の IP アドレス (`localhost`) で動的なポートをリッスンするように Kestrel が構成されます。 動的なポートが 1234 である場合、Kestrel は `localhost:1234` でリッスンします。 この構成によって、以下から提供されるその他の URL 構成が置き換えられます。
-
-* `UseUrls`
-* [構成](xref:fundamentals/configuration/index) (または[コマンド ラインの --urls オプション](xref:fundamentals/host/web-host#override-configuration))
-
-モジュールを使用する場合、`UseUrls` を呼び出す必要はありません。 `UseUrls` が呼び出されると、IIS なしでアプリを実行しているときのみ、Kestrel で指定したポートがリッスンされます。
-
-ASP.NET Core 1.0 アプリ内で `UseUrls` 呼び出される場合、モジュールに構成されたポートが上書きされないように、 **を呼び出す**前に`UseIISIntegration`呼び出されます。 この呼び出しの順序は ASP.NET Core 1.1 では必要ありません。モジュール設定は `UseUrls` をオーバーライドするからです。
 
 ::: moniker-end
 
@@ -174,12 +123,16 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 | オプション                         | 既定値 | 設定 |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | `true` の場合、IIS サーバーが [Windows 認証](xref:security/authentication/windowsauth)によって認証された `HttpContext.User` を設定します。 `false` の場合、サーバーは `HttpContext.User` の ID を提供するだけで、`AuthenticationScheme` によって明示的に要求されたときにチャレンジに応答します。 `AutomaticAuthentication` を機能させるためには、IIS で Windows 認証を有効にする必要があります。 詳細については、[Windows 認証](xref:security/authentication/windowsauth)に関する記事を参照してください。 |
 | `AuthenticationDisplayName`    | `null`  | ログイン ページでユーザーに表示名が表示されるように設定します。 |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 **アウトプロセス ホスティング モデル**
 
@@ -196,13 +149,13 @@ services.Configure<IISOptions>(options =>
 
 | オプション                         | 既定値 | 設定 |
 | ------------------------------ | :-----: | ------- |
-| `AutomaticAuthentication`      | `true`  | `true` の場合、IIS 統合ミドルウェアが、[Windows 認証](xref:security/authentication/windowsauth)によって `HttpContext.User` を設定します。 `false` の場合、ミドルウェアは `HttpContext.User` の ID を提供するだけで、`AuthenticationScheme` によって明示的に要求されたときに課題に応答します。 `AutomaticAuthentication` を機能させるためには、IIS で Windows 認証を有効にする必要があります。 詳細については、「[Windows 認証](xref:security/authentication/windowsauth)」のトピックを参照してください。 |
+| `AutomaticAuthentication`      | `true`  | `true` の場合、[IIS 統合ミドルウェア](#enable-the-iisintegration-components)によって、[Windows 認証](xref:security/authentication/windowsauth)で認証された `HttpContext.User` が設定されます。 `false` の場合、ミドルウェアは `HttpContext.User` の ID を提供するだけで、`AuthenticationScheme` によって明示的に要求されたときに課題に応答します。 `AutomaticAuthentication` を機能させるためには、IIS で Windows 認証を有効にする必要があります。 詳細については、「[Windows 認証](xref:security/authentication/windowsauth)」のトピックを参照してください。 |
 | `AuthenticationDisplayName`    | `null`  | ログイン ページでユーザーに表示名が表示されるように設定します。 |
 | `ForwardClientCertificate`     | `true`  | `true` の場合、`MS-ASPNETCORE-CLIENTCERT` 要求ヘッダーが指定されていると、`HttpContext.Connection.ClientCertificate` が設定されます。 |
 
 ### <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
 
-要求が発生したスキーム (HTTP/HTTPS) とリモート IP アドレスを転送するために、Forwarded Headers Middleware を構成する IIS 統合ミドルウェアと、ASP.NET Core モジュールが構成されます。 追加のプロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
+要求が発生したスキーム (HTTP/HTTPS) とリモート IP アドレスを転送するために、Forwarded Headers Middleware を構成する [IIS 統合ミドルウェア](#enable-the-iisintegration-components)と、ASP.NET Core モジュールが構成されます。 追加のプロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ### <a name="webconfig-file"></a>web.config ファイル
 
@@ -329,7 +282,7 @@ Web SDK ファイルの変換を無効にすると、 *processPath*と*引数*�
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Visual Studio で発行する場合の Web 配置のインストール
 
-[Web 配置](/iis/publish/using-web-deploy/introduction-to-web-deploy)を使用してサーバーにアプリを展開する場合、Web 配置の最新バージョンをサーバーにインストールします。 Web 配置をインストールするには、[Web Platform Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) を使用するか、[Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=43717)からインストーラーを取得します。 WebPI を使用することをお勧めします。 WebPI は、スタンドアロンのセットアップとホスティング プロバイダー向けの構成を提供します。
+[Web 配置](/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later)を使用してサーバーにアプリを展開する場合、Web 配置の最新バージョンをサーバーにインストールします。 Web 配置をインストールするには、[Web Platform Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) を使用するか、[Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=43717)からインストーラーを取得します。 WebPI を使用することをお勧めします。 WebPI は、スタンドアロンのセットアップとホスティング プロバイダー向けの構成を提供します。
 
 ## <a name="create-the-iis-site"></a>IIS サイトを作成する
 
@@ -352,7 +305,7 @@ Web SDK ファイルの変換を無効にすると、 *processPath*と*引数*�
 
    ![.NET CLR バージョンとして [マネージド コードなし] を設定します。](index/_static/edit-apppool-ws2016.png)
 
-    ASP.NET Core は、別個のプロセスで実行され、ランタイムを管理します。 ASP.NET Core を使用するためにデスクトップ CLR を読み込む必要はありません。 **[.NET CLR バージョン]** の **[マネージド コードなし]** への設定は、任意です。
+    ASP.NET Core は、別個のプロセスで実行され、ランタイムを管理します。 ASP.NET Core はデスクトップ CLR (.NET CLR) の読み込みに依存しません&mdash;.NET Core 用の Core 共通言語ランタイム (CoreCLR) が起動され、ワーカー プロセスでアプリがホストされます。 **[.NET CLR バージョン]** の **[マネージド コードなし]** への設定は省略可能ですが、推奨されます。
 
 1. *ASP.NET Core 2.2 以降*:[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)を使用する 64 ビット (x64) の[自己完結型展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合、32 ビット (x86) プロセス用のアプリケーション プールを無効にします。
 
@@ -505,7 +458,7 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
 
 ある ASP.NET Core アプリを別の ASP.NET Core アプリの下でサブアプリとしてホスティングするには:
 
-1. サブアプリ用のアプリ プールを確立します。 **[.NET CLR バージョン]** を **[マネージド コードなし]** に設定します。
+1. サブアプリ用のアプリ プールを確立します。 デスクトップ CLR (.NET CLR) ではなく、.NET Core 用の Core 共通言語ランタイム (CoreCLR) が起動されてワーカー プロセスでアプリがホストされるため、 **[.NET CLR バージョン]** を **[マネージド コードなし]** に設定します。
 
 1. ルート サイトを IIS マネージャーに追加し、サブアプリをルート サイトの下のフォルダー内に置きます。
 
@@ -629,6 +582,83 @@ HTTP/2 は既定で有効になっています。 HTTP/2 接続が確立され�
 "*このセクションは、.NET Framework をターゲットにした ASP.NET Core アプリにのみ適用されます。* "
 
 .NET Framework をターゲットにした ASP.NET Core アプリの場合、IIS では既定で OPTIONS 要求がアプリに渡されません。 OPTIONS 要求を渡すように *web.config* でアプリの IIS のハンドラーを構成する方法については、[ASP.NET Web API 2 でのクロスオリジン要求の有効化:CORS のしくみ](/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api#how-cors-works)に関する記事をご覧ください。
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization-module-and-idle-timeout"></a>Application Initialization モジュールとアイドル タイムアウト
+
+IIS 内で ASP.NET Core モジュール バージョン 2 によってホストされている場合:
+
+* [Application Initialization モジュール](#application-initialization-module) &ndash; アプリのホストされている[インプロセス](xref:fundamentals/servers/index#in-process-hosting-model)または[アウトプロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)は、ワーカー プロセスの再起動時またはサーバーの再起動時に自動的に起動するように構成できます。
+* [アイドル タイムアウト](#idle-timeout) &ndash; アプリのホストされている[インプロセス](xref:fundamentals/servers/index#in-process-hosting-model)は、非アクティブ期間中にタイムアウトしないように構成できます。
+
+### <a name="application-initialization-module"></a>Application Initialization モジュール
+
+"*アプリのホストされているインプロセスとアウトプロセスに適用されます。* "
+
+[IIS Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) は、アプリ プールが開始するときまたはリサイクルされるときに、アプリに HTTP 要求を送信する IIS 機能です。 要求によってアプリの起動がトリガーされます。 既定では、IIS ではアプリのルート URL (`/`) に対して要求が発行され、アプリが初期化されます (構成の詳細については[その他の技術情報](#application-initialization-module-and-idle-timeout-additional-resources)を参照)。
+
+IIS Application Initialization 役割の機能が有効になっていることを確認します。
+
+Windows 7 以降のデスクトップ システム上で、IIS をローカルで使う場合:
+
+1. **[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。
+1. **[インターネット インフォメーション サービス]** > **[World Wide Web サービス]** > **[アプリケーション開発機能]** を開きます。
+1. **[Application Initialization]** のチェック ボックスをオンにします。
+
+Windows Server 2008 R2 以降の場合:
+
+1. **[役割と機能の追加ウィザード]** を開きます。
+1. **[役割サービスの選択]** パネルで、 **[アプリケーション開発]** ノードを開きます。
+1. **[Application Initialization]** のチェック ボックスをオンにします。
+
+次の方法のいずれかを使って、サイトの Application Initialization モジュールを有効にします。
+
+* IIS マネージャーを使う場合:
+
+  1. **[接続]** パネルの **[アプリケーション プール]** を選択します。
+  1. 一覧でアプリのアプリ プールを右クリックして、 **[詳細設定]** を選択します。
+  1. 既定の **[開始モード]** は **[オンデマンド]** です。 **[開始モード]** を **[常時実行]** に設定します。 **[OK]** を選択します。
+  1. **[接続]** パネルの **[サイト]** ノードを開きます。
+  1. アプリを右クリックして、 **[Web サイトの管理]** > **[詳細設定]** の順に選択します。
+  1. 既定の **[有効化されたプリロード]** 設定は **[False]** です。 **[有効化されたプリロード]** を **True** に設定します。 **[OK]** を選択します。
+
+* *web.config* を使う場合、`doAppInitAfterRestart` を `true` に設定した `<applicationInitialization>` 要素を、アプリの *web.config* ファイル内の `<system.webServer>` 要素に追加します。
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <configuration>
+    <location path="." inheritInChildApplications="false">
+      <system.webServer>
+        <applicationInitialization doAppInitAfterRestart="true" />
+      </system.webServer>
+    </location>
+  </configuration>
+  ```
+
+### <a name="idle-timeout"></a>アイドル タイムアウト
+
+"*アプリのホストされているインプロセスにのみ適用されます。* "
+
+アプリがアイドル状態にならないようにするには、IIS マネージャーを使ってアプリ プールのアイドル タイムアウトを設定します。
+
+1. **[接続]** パネルの **[アプリケーション プール]** を選択します。
+1. 一覧でアプリのアプリ プールを右クリックして、 **[詳細設定]** を選択します。
+1. 既定の **[アイドル状態のタイムアウト (分)]** は **[20]** 分です。 **[アイドル状態のタイムアウト (分)]** を **[0]** (ゼロ) に設定します。 **[OK]** を選択します。
+1. ワーカー プロセスをリサイクルします。
+
+アプリのホストされている[アウトプロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)がタイムアウトにならないようにするには、次の方法のいずれかを使います。
+
+* 実行させ続けるために、外部サービスからアプリに ping を送信します。
+* アプリでバックグラウンド サービスのみをホストしている場合は、IIS ホスティングを回避し、[ASP.NET Core アプリをホストするための Windows サービス](xref:host-and-deploy/windows-service)を使います。
+
+### <a name="application-initialization-module-and-idle-timeout-additional-resources"></a>Application Initialization モジュールとアイドル タイムアウトに関するその他の技術情報
+
+* [IIS 8.0 Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)
+* [Application Initialization \<applicationInitialization>](/iis/configuration/system.webserver/applicationinitialization/)。
+* [アプリケーション プールのプロセス モデルの設定 \<processModel>](/iis/configuration/system.applicationhost/applicationpools/add/processmodel)。
+
+::: moniker-end
 
 ## <a name="deployment-resources-for-iis-administrators"></a>IIS 管理者用の展開リソース
 
