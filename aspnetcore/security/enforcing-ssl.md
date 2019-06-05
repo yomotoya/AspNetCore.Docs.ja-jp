@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: e27e0c31b128cbd7d71bf7b83a2d33cc89ea3ab1
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 8d48877153d6d75348e29299c669125904236de8
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610427"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692591"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -29,7 +29,6 @@ API ようにするありませんクライアントの最初の要求で機密�
 >
 > * HTTP をリッスンしない。
 > * ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
-
 
 ## <a name="require-https"></a>HTTPS を要求する
 
@@ -226,6 +225,8 @@ dotnet new webapp --no-https
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
+<a name="trust"></a>
 
 ## <a name="trust-the-aspnet-core-https-development-certificate-on-windows-and-macos"></a>Windows と macOS で ASP.NET Core HTTPS 開発証明書を信頼します。
 
