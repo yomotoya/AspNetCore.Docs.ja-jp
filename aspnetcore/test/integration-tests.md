@@ -5,14 +5,14 @@ description: 統合テストによってデータベース、ファイル シス
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 46c3b227ca0b3def5ab7d527a2f6ef2497d55f83
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892069"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716367"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core で統合テスト
 
@@ -84,7 +84,7 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 
 `Microsoft.AspNetCore.Mvc.Testing`パッケージは、次のタスクを処理します。
 
-* 依存関係ファイルのコピー (*\*.deps*) にテスト プロジェクトの SUT から*bin*フォルダー。
+* 依存関係ファイルのコピー ( *\*.deps*) にテスト プロジェクトの SUT から*bin*ディレクトリ。
 * 静的ファイルとページ/ビューは、テストの実行時に検出できるように、コンテンツのルートを SUT のプロジェクトのルートに設定します。
 * 提供、 [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1)で SUT をブートス トラップを効率化するクラス`TestServer`します。
 
@@ -127,6 +127,8 @@ ASP.NET Core で統合テストでは、次の項目が必要です。
 [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient)のインスタンスを作成します`HttpClient`を自動的にリダイレクトに依存して cookie を処理します。
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
+
+既定では、不要な cookie は維持されません要求間で、 [GDPR の承認ポリシー](xref:security/gdpr)を有効にします。 TempData プロバイダーによって使用されるものなどの不要な cookie を保持するために、テストで重要としてマークします。 Cookie 重要としてマークする方法の詳細については、次を参照してください。 [Essential cookie](xref:security/gdpr#essential-cookies)します。
 
 ### <a name="test-a-secure-endpoint"></a>セキュリティで保護されたエンドポイントをテストします。
 
@@ -270,7 +272,7 @@ SUT アプリの実行時に、次のマークアップが生成されます。
 
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>テスト インフラストラクチャが、アプリのコンテンツ ルート パスを推論する方法
 
-`WebApplicationFactory`コンス トラクターを検索して、アプリのコンテンツ ルート パスの推測を[WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute)と等しいキーを使用して、統合テストを含むアセンブリを`TEntryPoint`アセンブリ`System.Reflection.Assembly.FullName`. 正しいキーを持つ属性が見つからない場合に`WebApplicationFactory`ソリューション ファイルの検索にフォールバック (*\*.sln*) し、追加、`TEntryPoint`ソリューション ディレクトリにアセンブリ名。 アプリのルート ディレクトリ (コンテンツ ルート パス) を使用して、ビューとコンテンツ ファイルを検出します。
+`WebApplicationFactory`コンス トラクターを検索して、アプリのコンテンツ ルート パスの推測を[WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute)と等しいキーを使用して、統合テストを含むアセンブリを`TEntryPoint`アセンブリ`System.Reflection.Assembly.FullName`. 正しいキーを持つ属性が見つからない場合に`WebApplicationFactory`ソリューション ファイルの検索にフォールバック ( *\*.sln*) し、追加、`TEntryPoint`ソリューション ディレクトリにアセンブリ名。 アプリのルート ディレクトリ (コンテンツ ルート パス) を使用して、ビューとコンテンツ ファイルを検出します。
 
 ほとんどの場合、必要はありません、アプリのコンテンツ ルートを明示的に設定するとしての検索ロジックが実行時に、通常の適切なコンテンツのルートを検索します。 コンテンツのルートが見つからないの特殊なシナリオでは、アプリのコンテンツ ルートは、明示的にまたはカスタム ロジックを使用して指定できます、組み込みの検索アルゴリズムを使用します。 これらのシナリオでは、アプリのコンテンツ ルートを設定するには、呼び出し、`UseSolutionRelativeContentRoot`から拡張メソッド、 [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost)パッケージ。 ソリューションの相対パスと省略可能なソリューション ファイルの名前または glob パターンを指定 (既定 = `*.sln`)。
 
@@ -311,7 +313,7 @@ SUT アプリの実行時に、次のマークアップが生成されます。
 
 ## <a name="disable-shadow-copying"></a>シャドウ コピーを無効にします。
 
-シャドウ コピーすると、出力フォルダーとは別のフォルダーで実行するテストが発生します。 正常に動作するテストでは、シャドウ コピーする必要があります無効になります。 [サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples)xUnit を使用し、シャドウ コピーを含めることで xunit を無効にする*xunit.runner.json*適切な構成設定ファイル。 詳細については、次を参照してください。 [JSON で xUnit を構成する](https://xunit.github.io/docs/configuring-with-json.html)します。
+シャドウ コピーと、出力ディレクトリとは異なるディレクトリで実行するテストが発生します。 正常に動作するテストでは、シャドウ コピーする必要があります無効になります。 [サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples)xUnit を使用し、シャドウ コピーを含めることで xunit を無効にする*xunit.runner.json*適切な構成設定ファイル。 詳細については、次を参照してください。 [JSON で xUnit を構成する](https://xunit.github.io/docs/configuring-with-json.html)します。
 
 追加、 *xunit.runner.json*以下の内容のテスト プロジェクトのルートにファイル。
 
@@ -329,12 +331,12 @@ SUT アプリの実行時に、次のマークアップが生成されます。
 
 [サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples)は 2 つのアプリで構成されます。
 
-| アプリ | プロジェクト フォルダー | 説明 |
-| --- | -------------- | ----------- |
+| アプリ | プロジェクト ディレクトリ | 説明 |
+| --- | ----------------- | ----------- |
 | メッセージ アプリ (SUT) | *src/RazorPagesProject* | により、ユーザーの追加、削除のいずれか、すべてを削除、およびメッセージを分析できます。 |
 | テスト アプリ | *tests/RazorPagesProject.Tests* | 統合テスト SUT するために使用します。 |
 
-などの IDE、組み込みのテスト機能を使用して、テストを実行できる[Visual Studio](https://visualstudio.microsoft.com)します。 使用して場合[Visual Studio Code](https://code.visualstudio.com/)またはコマンド プロンプトで次のコマンドを実行するコマンドライン、 *tests/RazorPagesProject.Tests*フォルダー。
+などの IDE、組み込みのテスト機能を使用して、テストを実行できる[Visual Studio](https://visualstudio.microsoft.com)します。 使用して場合[Visual Studio Code](https://code.visualstudio.com/)またはコマンド プロンプトで次のコマンドを実行するコマンドライン、 *tests/RazorPagesProject.Tests*ディレクトリ。
 
 ```console
 dotnet test
@@ -357,10 +359,10 @@ SUT は、次の特性を持つ、Razor ページ メッセージ システム�
 
 ### <a name="test-app-organization"></a>組織のアプリをテストします。
 
-テスト アプリが内部でコンソール アプリ、 *tests/RazorPagesProject.Tests*フォルダー。
+テスト アプリが内部でコンソール アプリ、 *tests/RazorPagesProject.Tests*ディレクトリ。
 
-| アプリ フォルダーのテスト | 説明 |
-| --------------- | ----------- |
+| テスト アプリのディレクトリ | 説明 |
+| ------------------ | ----------- |
 | *BasicTests* | *BasicTests.cs*ルーティング、未認証のユーザーによってセキュリティで保護されたページにアクセスして、GitHub のユーザー プロファイルの取得およびプロファイルのユーザーのログインを確認用のテスト メソッドが含まれています。 |
 | *IntegrationTests* | *IndexPageTests.cs*カスタムを使用して、インデックス ページに対する統合テストを含む`WebApplicationFactory`クラス。 |
 | *ヘルパー/ユーティリティ* | <ul><li>*Utilities.cs*が含まれています、`InitializeDbForTests`メソッドがテスト データでデータベースをシードするために使用します。</li><li>*HtmlHelpers.cs* 、AngleSharp を返すメソッドを提供します。`IHtmlDocument`テスト メソッドで使用します。</li><li>*HttpClientExtensions.cs*のオーバー ロードを用意`SendAsync`SUT に要求を送信します。</li></ul> |

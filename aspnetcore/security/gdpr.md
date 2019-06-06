@@ -5,14 +5,14 @@ description: ASP.NET Core web アプリでは、GDPR の拡張ポイントにア
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 06/05/2019
 uid: security/gdpr
-ms.openlocfilehash: c5c13dbd1006d10aba0f54b0b9d72b527ee98945
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 967f3246836c93a1af56f7109edb056220606b58
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894109"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716340"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core での EU 一般データ保護規則 (GDPR) のサポート
 
@@ -30,13 +30,13 @@ ASP.NET Core には、いくつかの[EU 一般データ保護規則 (GDPR)](htt
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
-## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>生成されたテンプレート コードで ASP.NET Core の GDPR サポート
+## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>テンプレートによって生成されたコードでの ASP.NET Core GDPR サポートします。
 
 Razor ページと MVC プロジェクト テンプレートで作成したプロジェクトには、次の GDPR サポートが含まれます。
 
-* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions)と[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy)で設定されて`Startup`します。
-* *_CookieConsentPartial.cshtml* [部分ビュー](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)します。
-* *Pages/Privacy.cshtml*ページまたは*Views/Home/Privacy.cshtml*ビューは、サイトのプライバシー ポリシーについて詳しく説明するページを提供します。 *_CookieConsentPartial.cshtml*ファイル プライバシー ページへのリンクが生成されます。
+* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions)と[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy)で設定されて、`Startup`クラス。
+* *\_CookieConsentPartial.cshtml* [部分ビュー](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)します。 **Accept**ボタンがこのファイルに含まれます。 ユーザーがクリックすると、 **Accept**ボタン、cookie を保存することに同意提供されます。
+* *Pages/Privacy.cshtml*ページまたは*Views/Home/Privacy.cshtml*ビューは、サイトのプライバシー ポリシーについて詳しく説明するページを提供します。 *\_CookieConsentPartial.cshtml*ファイル プライバシー ページへのリンクが生成されます。
 * [管理] ページをアプリの個々 のユーザー アカウントで作成された場合に、ダウンロードして、削除するリンクを提供します[ユーザーの個人データ](#pd)します。
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions と UseCookiePolicy
@@ -49,29 +49,29 @@ Razor ページと MVC プロジェクト テンプレートで作成したプ�
 
 [!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=51)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>_CookieConsentPartial.cshtml 部分ビュー
+### <a name="cookieconsentpartialcshtml-partial-view"></a>\_CookieConsentPartial.cshtml 部分ビュー
 
-*_CookieConsentPartial.cshtml*部分ビュー。
+*\_CookieConsentPartial.cshtml*部分ビュー。
 
 [!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
 
 この部分には:
 
-* ユーザーの追跡の状態を取得します。 同意を必要とするアプリを構成する場合、ユーザーは cookie を追跡する前に同意する必要があります。 によって作成されたナビゲーション バーの上部にある cookie の同意のパネルを固定の同意が必要な場合、 *_Layout.cshtml*ファイル。
+* ユーザーの追跡の状態を取得します。 同意を必要とするアプリを構成する場合、ユーザーは cookie を追跡する前に同意する必要があります。 によって作成されたナビゲーション バーの上部にある cookie の同意のパネルを固定の同意が必要な場合、  *\_Layout.cshtml*ファイル。
 * HTML を提供します。`<p>`プライバシーと cookie を要約する要素は、ポリシーを使用します。
 * プライバシー ページまたはサイトのプライバシー ポリシーについて説明できるビューへのリンクを提供します。
 
 ## <a name="essential-cookies"></a>重要な cookie
 
-同意が与えられていない場合は、必須のマークの cookie のみが、ブラウザーに送信されます。 次のコードでは、cookie が不可欠です。
+場合の同意の cookie を保存するが指定されていない、必須のマークの cookie のみが、ブラウザーに送信されます。 次のコードでは、cookie が不可欠です。
 
 [!code-csharp[Main](gdpr/sample/RP/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
-## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>Tempdata プロバイダーとのセッション状態の cookie が必須ではないです。
+### <a name="tempdata-provider-and-session-state-cookies-arent-essential"></a>TempData プロバイダーとのセッション状態の cookie は不可欠です。
 
-[Tempdata プロバイダー](xref:fundamentals/app-state#tempdata) cookie が必須ではありません。 追跡が無効になっている場合は、Tempdata プロバイダーは機能しません。 追跡を無効にするには、Tempdata プロバイダーを有効にするするには、重要として TempData cookie をマーク`Startup.ConfigureServices`:
+[TempData プロバイダー](xref:fundamentals/app-state#tempdata) cookie が必須ではありません。 追跡が無効になっている場合は、TempData プロバイダーは機能しません。 追跡を無効にするには、TempData プロバイダーを有効にするするには、重要として TempData cookie をマーク`Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
 
