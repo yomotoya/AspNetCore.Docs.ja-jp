@@ -5,14 +5,14 @@ description: ASP.NET Core での IIS と HTTP.sys は Windows 認証を構成す
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/29/2019
+ms.date: 06/05/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 9dfff5dcba409ddca7e05c771b864ab121e0ea85
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: 900bbf5f14b1876ad537b2b77e4ba07d7aa168f2
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395922"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750167"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
@@ -22,9 +22,17 @@ ms.locfileid: "66395922"
 
 Windows 認証は、ASP.NET Core アプリのユーザーを認証するオペレーティング システムに依存します。 ユーザーを識別するために Active Directory ドメインの id または Windows アカウントを使用して、企業ネットワークで、サーバーの実行時に、Windows 認証を使用できます。 Windows 認証は、同じ Windows ドメインに属しているユーザー、クライアント アプリ、および web サーバーのイントラネット環境に最適です。
 
-## <a name="launch-settings-debugger"></a>起動設定 (デバッガー)
+## <a name="iisiis-express"></a>IIS または IIS Express
 
-起動設定の構成にのみ影響、 *Properties/launchSettings.json*ファイルし、Windows 認証のため、IIS または HTTP.sys サーバーを構成しません。 サーバーの構成については、 [IIS または HTTP.sys の認証サービスを有効にする](#authentication-services-for-iis-or-httpsys)セクション。
+認証サービスを呼び出すことによって追加<xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>(<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName>名前空間) で`Startup.ConfigureServices`:
+
+```csharp
+services.AddAuthentication(IISDefaults.AuthenticationScheme);
+```
+
+### <a name="launch-settings-debugger"></a>起動設定 (デバッガー)
+
+起動設定の構成にのみ影響、 *Properties/launchSettings.json* IIS Express 用のファイルし、IIS の Windows 認証を構成しません。 サーバーの構成については、 [IIS](#iis)セクション。
 
 **Web アプリケーション**を更新する Windows 認証をサポートする Visual Studio または .NET Core CLI を使用して利用可能なテンプレートを構成することができます、 *Properties/launchSettings.json*ファイル自動的に。
 
@@ -76,17 +84,7 @@ dotnet new webapp --auth Windows
 
 既存のプロジェクトを変更する場合は、プロジェクト ファイルにはへのパッケージ参照が含まれていることを確認、 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)**または**、 [Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) NuGet パッケージ。
 
-## <a name="authentication-services-for-iis-or-httpsys"></a>IIS または HTTP.sys の認証サービス
-
-ホスティングのシナリオに応じてのガイダンスに従って**か**、 [IIS](#iis)セクション**または** [HTTP.sys](#httpsys)セクション。
-
 ### <a name="iis"></a>IIS
-
-認証サービスを呼び出すことによって追加<xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>(<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName>名前空間) で`Startup.ConfigureServices`:
-
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
 
 IIS を使用して、 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)ASP.NET Core アプリをホストします。 使用した IIS の Windows 認証が構成されている、 *web.config*ファイル。 以下のセクションで表示する方法。
 
@@ -127,9 +125,9 @@ ASP.NET Core モジュールは、既定では、アプリに Windows 認証ト�
   * 設定をリセットする IIS マネージャーを使用して、 *web.config*ファイルについては、展開で、ファイルが上書きされます。
   * 追加、 *web.config ファイル*アプリの設定でローカルにします。
 
-### <a name="httpsys"></a>HTTP.sys
+## <a name="httpsys"></a>HTTP.sys
 
-[Kestrel](xref:fundamentals/servers/kestrel) 、Windows 認証をサポートしていないを使用することができます[HTTP.sys](xref:fundamentals/servers/httpsys) Windows で自己ホスト型のシナリオをサポートします。
+自己ホスト型のシナリオで[Kestrel](xref:fundamentals/servers/kestrel)が Windows 認証をサポートしないを使用できる[HTTP.sys](xref:fundamentals/servers/httpsys)します。
 
 認証サービスを呼び出すことによって追加<xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>(<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName>名前空間) で`Startup.ConfigureServices`:
 

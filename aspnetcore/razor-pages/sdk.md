@@ -5,14 +5,14 @@ description: ASP.NET Core の Razor ページを使用して、ページのコ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 10/25/2018
+ms.date: 06/05/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: de51c9443e639cd64c234b6975cf7252bb7a2b9a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8c4e882af93b043afaa0bcf86fd1583405f84be9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895299"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750176"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core の Razor SDK
 
@@ -71,8 +71,8 @@ Razor の SDK の動作は、プロジェクトをビルドする際に次のプ
 
 | 項目 | 説明 |
 | ----- | ----------- |
-| `RazorGenerate` | コードの生成対象に入力する項目要素 (*.cshtml* ファイル) です。 |
-| `RazorCompile` | 項目要素 (*.cs*ファイル)、Razor コンパイルのターゲットに入力します。 Razor アセンブリに追加でコンパイルするファイルを指定するには、この ItemGroup を使用します。 |
+| `RazorGenerate` | コードの生成対象に入力する項目要素 ( *.cshtml* ファイル) です。 |
+| `RazorCompile` | 項目要素 ( *.cs*ファイル)、Razor コンパイルのターゲットに入力します。 Razor アセンブリに追加でコンパイルするファイルを指定するには、この ItemGroup を使用します。 |
 | `RazorTargetAssemblyAttribute` | Razor アセンブリ用の属性をコード生成するために使用する項目要素です。 例:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | 項目の要素が生成された Razor アセンブリに埋め込みリソースとして追加します。 |
 
@@ -85,10 +85,10 @@ Razor の SDK の動作は、プロジェクトをビルドする際に次のプ
 | `EnableDefaultRazorGenerateItems` | `true` の場合、`RazorGenerate` 項目の `Content` 項目の *.cshtml* ファイルが含まれます。 |
 | `GenerateRazorTargetAssemblyInfo` | ときに`true`、生成、 *.cs*ファイルで指定された属性を格納している`RazorAssemblyAttribute`コンパイル出力ファイルが含まれています。 |
 | `EnableDefaultRazorTargetAssemblyInfoAttributes` | `true` の場合、`RazorAssemblyAttribute` にアセンブリ属性の既定のセットが追加されます。 |
-| `CopyRazorGenerateFilesToPublishDirectory` | ときに`true`、コピー`RazorGenerate`項目 (*.cshtml*) ファイルを発行ディレクトリ。 通常、Razor ファイルは必要ありません発行されたアプリの場合、それらのビルド時または発行時のコンパイルに参加します。 既定値は `false` です。 |
+| `CopyRazorGenerateFilesToPublishDirectory` | ときに`true`、コピー`RazorGenerate`項目 ( *.cshtml*) ファイルを発行ディレクトリ。 通常、Razor ファイルは必要ありません発行されたアプリの場合、それらのビルド時または発行時のコンパイルに参加します。 既定値は `false` です。 |
 | `CopyRefAssembliesToPublishDirectory` | `true` の場合、発行ディレクトリに参照アセンブリ項目がコピーされます。 通常、参照アセンブリは必要ありません発行されたアプリのビルド時または発行時に Razor コンパイルが発生した場合。 設定`true`発行されたアプリケーションがランタイムのコンパイルを必要とする場合。 などの値を設定`true`アプリを変更する場合 *.cshtml*実行時にファイルや埋め込みのビューを使用します。 既定値は `false` です。 |
-| `IncludeRazorContentInPack` | ときに`true`、すべての Razor コンテンツ アイテム (*.cshtml*ファイル)、生成された NuGet パッケージに含める対象としてマークされました。 既定値は `false` です。 |
-| `EmbedRazorGenerateSources` | `true` の場合、生成された Razor アセンブリに、埋め込みファイルとして RazorGenerate (*.cshtml*) 項目が追加されます。 既定値は `false` です。 |
+| `IncludeRazorContentInPack` | ときに`true`、すべての Razor コンテンツ アイテム ( *.cshtml*ファイル)、生成された NuGet パッケージに含める対象としてマークされました。 既定値は `false` です。 |
+| `EmbedRazorGenerateSources` | `true` の場合、生成された Razor アセンブリに、埋め込みファイルとして RazorGenerate ( *.cshtml*) 項目が追加されます。 既定値は `false` です。 |
 | `UseRazorBuildServer` | `true` の場合、コードの生成作業をオフロードするために、永続的なビルド サーバーが使用されます。 既定値は、`UseSharedCompilation` の値です。 |
 
 プロパティの詳細については、「[MSBuild プロパティ](/visualstudio/msbuild/msbuild-properties)」を参照してください。
@@ -105,3 +105,13 @@ Razor SDK では、次の 2 つの主要なターゲットが定義されてい�
 * 既定では、Razor SDK は、実行時のコンパイルを実行するために必要な参照アセンブリを公開しません。 この結果、アプリケーション モデルが実行時のコンパイルに依存している場合には、コンパイルが失敗します。たとえば、アプリが公開後に埋め込まれたビューを使用したり、ビューを変更したりする場合などです。 `CopyRefAssembliesToPublishDirectory` を `true` に設定して、参照アセンブリの公開を続行します。
 
 * Web アプリの場合、アプリが対象とすることを確認して、 `Microsoft.NET.Sdk.Web` SDK。
+
+## <a name="razor-language-version"></a>Razor 言語のバージョン
+
+対象とする場合、 `Microsoft.NET.Sdk.Web` Razor 言語のバージョンは、SDK から推測、アプリのターゲット フレームワークのバージョン。 ターゲットとするプロジェクト、 `Microsoft.NET.Sdk.Razor` SDK またはアプリが推定値とは異なる Razor 言語バージョンが必要であるまれなケース、バージョンを設定して構成できます、`<RazorLangVersion>`アプリのプロジェクト ファイルのプロパティ。
+
+```xml
+<PropertyGroup>
+  <RazorLangVersion>{VERSION}</RazorLangVersion>
+</PropertyGroup>
+```

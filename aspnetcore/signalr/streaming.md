@@ -5,14 +5,14 @@ description: クライアントとサーバー間でデータをストリーミ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/12/2019
+ms.date: 06/05/2019
 uid: signalr/streaming
-ms.openlocfilehash: 8f39fdfa45766b5bbec572970f009abefefdc419
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a75156f398e113393ddb891d16eec3f09de80c09
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897199"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750195"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用して、
 
@@ -36,7 +36,7 @@ ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリ�
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに、 <xref:System.Threading.Channels.ChannelReader%601>、 `IAsyncEnumerable<T>`、 `Task<ChannelReader<T>>`、または`Task<IAsyncEnumerable<T>>`します。
+ハブ メソッドはストリーミングのハブ メソッドを自動的になりますが返されるときに<xref:System.Collections.Generic.IAsyncEnumerable`1>、 <xref:System.Threading.Channels.ChannelReader%601>、 `Task<IAsyncEnumerable<T>>`、または`Task<ChannelReader<T>>`します。
 
 ::: moniker-end
 
@@ -93,9 +93,23 @@ ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリ�
 
 ### <a name="client-to-server-streaming"></a>クライアントとサーバーのストリーミング
 
-1 つまたは複数を受け付ける場合にハブ メソッドがクライアントからサーバーへのストリーミングのハブ メソッドに自動的になります<xref:System.Threading.Channels.ChannelReader`1>秒。 次の例では、クライアントから送信されたストリーミング データの読み取りの基礎を示します。 クライアントが書き込むたびに、<xref:System.Threading.Channels.ChannelWriter`1>に、データが書き込まれる、`ChannelReader`のハブ メソッドからの読み取りは、サーバー上。
+ハブ メソッドはクライアントからサーバーへのストリーミングのハブ メソッドを自動的になりますが、型の 1 つまたは複数のオブジェクトを受け入れる場合<xref:System.Threading.Channels.ChannelReader%601>または<xref:System.Collections.Generic.IAsyncEnumerable%601>します。 次の例では、クライアントから送信されたストリーミング データの読み取りの基礎を示します。 クライアントが書き込むたびに、<xref:System.Threading.Channels.ChannelWriter%601>に、データが書き込まれる、`ChannelReader`のハブ メソッドの読み取り元となるサーバー上。
 
 [!code-csharp[Streaming upload hub method](streaming/samples/3.0/Hubs/StreamHub.cs?name=snippet2)]
+
+<xref:System.Collections.Generic.IAsyncEnumerable%601>メソッドのバージョンに依存します。
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+public async Task UploadStream(IAsyncEnumerable<Stream> stream) 
+{
+    await foreach (var item in stream)
+    {
+        Console.WriteLine(item);
+    }
+}
+```
 
 ::: moniker-end
 
@@ -103,9 +117,55 @@ ASP.NET Core SignalR は、サーバーのメソッドの戻り値のストリ�
 
 ### <a name="server-to-client-streaming"></a>サーバーからクライアントのストリーミング
 
-`StreamAsChannelAsync`メソッド`HubConnection`ストリーミング サーバーからクライアント メソッドを呼び出すために使用します。 メソッド名のハブおよびハブ メソッドで定義されている引数を渡す`StreamAsChannelAsync`します。 ジェネリック パラメーター`StreamAsChannelAsync<T>`ストリーミング メソッドによって返されるオブジェクトの種類を指定します。 A`ChannelReader<T>`ストリーム呼び出しから返され、クライアントにストリームを表します。
+
+::: moniker range=">= aspnetcore-3.0"
+
+`StreamAsync`と`StreamAsChannelAsync`メソッド`HubConnection`サーバーからクライアントにストリーミング メソッドの呼び出しに使用されます。 メソッド名のハブおよびハブ メソッドで定義されている引数を渡す`StreamAsync`または`StreamAsChannelAsync`します。 ジェネリック パラメーター`StreamAsync<T>`と`StreamAsChannelAsync<T>`ストリーミング メソッドによって返されるオブジェクトの種類を指定します。 型のオブジェクト`IAsyncEnumerable<T>`または`ChannelReader<T>`ストリーム呼び出しから返され、クライアントにストリームを表します。
+
+A`StreamAsync`を返す例`IAsyncEnumerable<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var stream = await hubConnection.StreamAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+await foreach (var count in stream)
+{
+    Console.WriteLine($"{count}");
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+対応する`StreamAsChannelAsync`を返す例`ChannelReader<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var channel = await hubConnection.StreamAsChannelAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+// Wait asynchronously for data to become available
+while (await channel.WaitToReadAsync())
+{
+    // Read all currently available data synchronously, before waiting for more data
+    while (channel.TryRead(out var count))
+    {
+        Console.WriteLine($"{count}");
+    }
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
+
+`StreamAsChannelAsync`メソッド`HubConnection`ストリーミング サーバーからクライアント メソッドを呼び出すために使用します。 メソッド名のハブおよびハブ メソッドで定義されている引数を渡す`StreamAsChannelAsync`します。 ジェネリック パラメーター`StreamAsChannelAsync<T>`ストリーミング メソッドによって返されるオブジェクトの種類を指定します。 A`ChannelReader<T>`ストリーム呼び出しから返され、クライアントにストリームを表します。
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -131,6 +191,8 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range="= aspnetcore-2.1"
 
+`StreamAsChannelAsync`メソッド`HubConnection`ストリーミング サーバーからクライアント メソッドを呼び出すために使用します。 メソッド名のハブおよびハブ メソッドで定義されている引数を渡す`StreamAsChannelAsync`します。 ジェネリック パラメーター`StreamAsChannelAsync<T>`ストリーミング メソッドによって返されるオブジェクトの種類を指定します。 A`ChannelReader<T>`ストリーム呼び出しから返され、クライアントにストリームを表します。
+
 ```csharp
 var channel = await hubConnection
     .StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
@@ -154,11 +216,29 @@ Console.WriteLine("Streaming completed");
 
 ### <a name="client-to-server-streaming"></a>クライアントとサーバーのストリーミング
 
-.NET クライアントからサーバーへのクライアント ストリーミング ハブ メソッドを呼び出すには、作成、`Channel`を渡すと、`ChannelReader`への引数として`SendAsync`、 `InvokeAsync`、または`StreamAsChannelAsync`のハブ メソッドが呼び出されるとは異なりますが、します。
+.NET クライアントからサーバーへのクライアント ストリーミング ハブ メソッドを呼び出すための 2 つの方法はあります。 渡したりすることができます、`IAsyncEnumerable<T>`または`ChannelReader`への引数として`SendAsync`、 `InvokeAsync`、または`StreamAsChannelAsync`のハブ メソッドが呼び出されるとは異なりますが、します。
 
-データが書き込まれるたびに、`ChannelWriter`サーバー上のハブ メソッドは、クライアントからのデータの新しい項目を受信します。
+データが書き込まれるたびに、`IAsyncEnumerable`または`ChannelWriter`オブジェクト、サーバー上のハブ メソッドは、クライアントからのデータの新しい項目を受信します。
 
-ストリームを終了するとチャネルを完了`channel.Writer.Complete()`します。
+使用する場合、`IAsyncEnumerable`オブジェクト、ストリームが終了の項目を返すメソッドの後、ストリームを終了します。
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+async IAsyncEnumerable<string> clientStreamData()
+{
+    for (var i = 0; i < 5; i++)
+    {
+        var data = await FetchSomeData();
+        yield return data;
+    }
+    //After the for loop has completed and the local function exits the stream completion will be sent.
+}
+
+await connection.SendAsync("UploadStream", clientStreamData());
+```
+
+使用する場合や、 `ChannelWriter`、チャネルを完了する`channel.Writer.Complete()`:
 
 ```csharp
 var channel = Channel.CreateBounded<string>(10);
