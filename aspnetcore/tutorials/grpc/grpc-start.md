@@ -4,14 +4,14 @@ author: juntaoluo
 description: このチュートリアルでは、ASP.NET Core で gRPC サービスと gRPC クライアントを作成する方法を示します。 gRPC サービス プロジェクトの作成方法、proto ファイルの編集方法、二重ストリーミング呼び出しの追加方法について学習します。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 5/30/2019
+ms.date: 06/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 2b4325d2413e335a3061a7695def88a1b23ee52b
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376369"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692530"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>チュートリアル: ASP.NET Core で gRPC のクライアントとサーバーを作成する
 
@@ -161,7 +161,7 @@ code -r GrpcGreeterClient
 
 パッケージ マネージャー コンソール (PMC) または NuGet パッケージの管理を使用してパッケージをインストールする
 
-####  <a name="pmc-option-to-install-packages"></a>パッケージをインストールするための PMC オプション
+#### <a name="pmc-option-to-install-packages"></a>パッケージをインストールするための PMC オプション
 
 * Visual Studio で **[ツール]** 、 **[NuGet パッケージ マネージャー]** 、 **[パッケージ マネージャー コンソール]** の順に選択します。
 * **[パッケージ マネージャー コンソール]** ウィンドウから、*GrpcGreeterClient.csproj* ファイルがあるディレクトリに移動します。
@@ -169,7 +169,7 @@ code -r GrpcGreeterClient
 
  ```powershell
 Install-Package Grpc.Core
-Install-Package Grpc.Protobuf
+Install-Package Google.Protobuf
 Install-Package Grpc.Tools
 ```
 
@@ -218,7 +218,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   プロジェクトを右クリックし、 **[ツール]、[ファイルの編集]** の順に選択します。
 
-  ------
+  ---
 
 * GrpcGreeterClient プロジェクト ファイルの `<Protobuf>` 項目グループに **greet.proto** ファイルを追加します。
 
@@ -230,7 +230,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 クライアント プロジェクトをビルドし、C# クライアント アセットの生成をトリガーします。
 
-### <a name="create-the-greater-client"></a>より大きなクライアントを作成する
+### <a name="create-the-greeter-client"></a>Greeter クライアントを作成する
 
 プロジェクトをビルドして **Greeter** 名前空間内に型を作成します。 `Greeter` 型は、ビルド プロセスによって自動的に生成されます。
 
@@ -240,14 +240,14 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 *Program.cs* には、gRPC クライアントのエントリ ポイントとロジックが含まれています。
 
-より大きなクライアントは、次の方法で作成されます。
+Greeter クライアントは、次の方法で作成されます。
 
 * gRPC サービスへの接続を作成するための情報が含まれている `Channel` をインスタンス化する。
-* `Channel` を使用して、より大きなクライアントを構築する。
+* `Channel` を使用して、Greeter クライアントを構築します。
 
 [!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=4-6)]
 
-より大きなクライアントが非同期 `SayHello` メソッドを呼び出します。 `SayHello` 呼び出しの結果が表示されます。
+Greeter クライアントから非同期の `SayHello` メソッドが呼び出されます。 `SayHello` 呼び出しの結果が表示されます。
 
 [!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=7-9)]
 
