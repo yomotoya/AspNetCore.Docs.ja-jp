@@ -1,103 +1,103 @@
 ---
-title: ASP.NET Core と MongoDB で Web API を構築する
+title: ASP.NET Core と MongoDB で Web API を作成する
 author: prkhandelwal
-description: このチュートリアルは、MongoDB NoSQL データベースを使用して ASP.NET Core Web API を構築する方法を説明します。
+description: このチュートリアルは、MongoDB NoSQL データベースを使用して ASP.NET Core Web API を作成する方法を説明します。
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 01/31/2019
+ms.date: 06/04/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: f593a8d2d06897736b12f49f25c6049ea994a88a
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 6a8c5d75f562b38015101e039a2f5d96a5491595
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610608"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692552"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a><span data-ttu-id="35d65-103">ASP.NET Core と MongoDB で Web API を作成する</span><span class="sxs-lookup"><span data-stu-id="35d65-103">Create a web API with ASP.NET Core and MongoDB</span></span>
+# <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a><span data-ttu-id="d5ab3-103">ASP.NET Core と MongoDB で Web API を作成する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-103">Create a web API with ASP.NET Core and MongoDB</span></span>
 
-<span data-ttu-id="35d65-104">作成者: [Pratik Khandelwal](https://twitter.com/K2Prk) および [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="35d65-104">By [Pratik Khandelwal](https://twitter.com/K2Prk) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
+<span data-ttu-id="d5ab3-104">作成者: [Pratik Khandelwal](https://twitter.com/K2Prk) および [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="d5ab3-104">By [Pratik Khandelwal](https://twitter.com/K2Prk) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="35d65-105">このチュートリアルでは、[MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL データベース上で Create、Read、Update、Delete の各操作 (CRUD) を実行するWeb API を作成します。</span><span class="sxs-lookup"><span data-stu-id="35d65-105">This tutorial creates a web API that performs Create, Read, Update, and Delete (CRUD) operations on a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database.</span></span>
+<span data-ttu-id="d5ab3-105">このチュートリアルでは、[MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL データベース上で Create、Read、Update、Delete の各操作 (CRUD) を実行するWeb API を作成します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-105">This tutorial creates a web API that performs Create, Read, Update, and Delete (CRUD) operations on a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database.</span></span>
 
-<span data-ttu-id="35d65-106">このチュートリアルでは、次の作業を行う方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="35d65-106">In this tutorial, you learn how to:</span></span>
+<span data-ttu-id="d5ab3-106">このチュートリアルでは、次の作業を行う方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-106">In this tutorial, you learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="35d65-107">MongoDB を構成する</span><span class="sxs-lookup"><span data-stu-id="35d65-107">Configure MongoDB</span></span>
-> * <span data-ttu-id="35d65-108">MongoDB データベースを作成する</span><span class="sxs-lookup"><span data-stu-id="35d65-108">Create a MongoDB database</span></span>
-> * <span data-ttu-id="35d65-109">MongoDB のコレクションとスキーマを定義する</span><span class="sxs-lookup"><span data-stu-id="35d65-109">Define a MongoDB collection and schema</span></span>
-> * <span data-ttu-id="35d65-110">Web API から MongoDB CRUD 操作を実行する</span><span class="sxs-lookup"><span data-stu-id="35d65-110">Perform MongoDB CRUD operations from a web API</span></span>
+> * <span data-ttu-id="d5ab3-107">MongoDB を構成する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-107">Configure MongoDB</span></span>
+> * <span data-ttu-id="d5ab3-108">MongoDB データベースを作成する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-108">Create a MongoDB database</span></span>
+> * <span data-ttu-id="d5ab3-109">MongoDB のコレクションとスキーマを定義する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-109">Define a MongoDB collection and schema</span></span>
+> * <span data-ttu-id="d5ab3-110">Web API から MongoDB CRUD 操作を実行する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-110">Perform MongoDB CRUD operations from a web API</span></span>
 
-<span data-ttu-id="35d65-111">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="35d65-111">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="d5ab3-111">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-111">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="35d65-112">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="35d65-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="d5ab3-112">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="d5ab3-112">Prerequisites</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="35d65-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="35d65-113">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="d5ab3-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d5ab3-113">Visual Studio</span></span>](#tab/visual-studio)
 
-* [<span data-ttu-id="35d65-114">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="35d65-114">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
-* <span data-ttu-id="35d65-115">[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) と **ASP.NET と Web 開発**ワークロード</span><span class="sxs-lookup"><span data-stu-id="35d65-115">[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload</span></span>
-* [<span data-ttu-id="35d65-116">MongoDB</span><span class="sxs-lookup"><span data-stu-id="35d65-116">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+* [<span data-ttu-id="d5ab3-114">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="d5ab3-114">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* <span data-ttu-id="d5ab3-115">[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) と **ASP.NET と Web 開発**ワークロード</span><span class="sxs-lookup"><span data-stu-id="d5ab3-115">[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload</span></span>
+* [<span data-ttu-id="d5ab3-116">MongoDB</span><span class="sxs-lookup"><span data-stu-id="d5ab3-116">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="35d65-117">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="35d65-117">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="d5ab3-117">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="d5ab3-117">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* [<span data-ttu-id="35d65-118">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="35d65-118">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
-* [<span data-ttu-id="35d65-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="35d65-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="35d65-120">Visual Studio Code 用 C#</span><span class="sxs-lookup"><span data-stu-id="35d65-120">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [<span data-ttu-id="35d65-121">MongoDB</span><span class="sxs-lookup"><span data-stu-id="35d65-121">MongoDB</span></span>](https://docs.mongodb.com/manual/administration/install-community/)
+* [<span data-ttu-id="d5ab3-118">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="d5ab3-118">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="d5ab3-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="d5ab3-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="d5ab3-120">Visual Studio Code 用 C#</span><span class="sxs-lookup"><span data-stu-id="d5ab3-120">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [<span data-ttu-id="d5ab3-121">MongoDB</span><span class="sxs-lookup"><span data-stu-id="d5ab3-121">MongoDB</span></span>](https://docs.mongodb.com/manual/administration/install-community/)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="35d65-122">Visual Studio for Mac</span><span class="sxs-lookup"><span data-stu-id="35d65-122">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="d5ab3-122">Visual Studio for Mac</span><span class="sxs-lookup"><span data-stu-id="d5ab3-122">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* [<span data-ttu-id="35d65-123">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="35d65-123">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
-* [<span data-ttu-id="35d65-124">Visual Studio for Mac バージョン 7.7 以降</span><span class="sxs-lookup"><span data-stu-id="35d65-124">Visual Studio for Mac version 7.7 or later</span></span>](https://visualstudio.microsoft.com/downloads/)
-* [<span data-ttu-id="35d65-125">MongoDB</span><span class="sxs-lookup"><span data-stu-id="35d65-125">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+* [<span data-ttu-id="d5ab3-123">.NET Core SDK 2.2 以降</span><span class="sxs-lookup"><span data-stu-id="d5ab3-123">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="d5ab3-124">Visual Studio for Mac バージョン 7.7 以降</span><span class="sxs-lookup"><span data-stu-id="d5ab3-124">Visual Studio for Mac version 7.7 or later</span></span>](https://visualstudio.microsoft.com/downloads/)
+* [<span data-ttu-id="d5ab3-125">MongoDB</span><span class="sxs-lookup"><span data-stu-id="d5ab3-125">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
 ---
 
-## <a name="configure-mongodb"></a><span data-ttu-id="35d65-126">MongoDB を構成する</span><span class="sxs-lookup"><span data-stu-id="35d65-126">Configure MongoDB</span></span>
+## <a name="configure-mongodb"></a><span data-ttu-id="d5ab3-126">MongoDB を構成する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-126">Configure MongoDB</span></span>
 
-<span data-ttu-id="35d65-127">Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\MongoDB* にインストールされます。</span><span class="sxs-lookup"><span data-stu-id="35d65-127">If using Windows, MongoDB is installed at *C:\\Program Files\\MongoDB* by default.</span></span> <span data-ttu-id="35d65-128">*C:\\Program Files\\MongoDB\\Server\\\<バージョン番号>\\bin* を `Path` 環境変数に追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-128">Add *C:\\Program Files\\MongoDB\\Server\\\<version_number>\\bin* to the `Path` environment variable.</span></span> <span data-ttu-id="35d65-129">この変更により、開発用コンピューターのどこからでも MongoDB にアクセスできるようになります。</span><span class="sxs-lookup"><span data-stu-id="35d65-129">This change enables MongoDB access from anywhere on your development machine.</span></span>
+<span data-ttu-id="d5ab3-127">Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\MongoDB* にインストールされます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-127">If using Windows, MongoDB is installed at *C:\\Program Files\\MongoDB* by default.</span></span> <span data-ttu-id="d5ab3-128">*C:\\Program Files\\MongoDB\\Server\\\<バージョン番号>\\bin* を `Path` 環境変数に追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-128">Add *C:\\Program Files\\MongoDB\\Server\\\<version_number>\\bin* to the `Path` environment variable.</span></span> <span data-ttu-id="d5ab3-129">この変更により、開発用コンピューターのどこからでも MongoDB にアクセスできるようになります。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-129">This change enables MongoDB access from anywhere on your development machine.</span></span>
 
-<span data-ttu-id="35d65-130">次の手順では mongo シェルを使用して、データベースを作成し、コレクションを作成し、ドキュメントを保存します。</span><span class="sxs-lookup"><span data-stu-id="35d65-130">Use the mongo Shell in the following steps to create a database, make collections, and store documents.</span></span> <span data-ttu-id="35d65-131">mongo のシェル コマンドについて詳しくは、「[Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell)」(mongo シェルの使用) をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="35d65-131">For more information on mongo Shell commands, see [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span></span>
+<span data-ttu-id="d5ab3-130">次の手順では mongo シェルを使用して、データベースを作成し、コレクションを作成し、ドキュメントを保存します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-130">Use the mongo Shell in the following steps to create a database, make collections, and store documents.</span></span> <span data-ttu-id="d5ab3-131">mongo のシェル コマンドについて詳しくは、「[Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell)」(mongo シェルの使用) をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-131">For more information on mongo Shell commands, see [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span></span>
 
-1. <span data-ttu-id="35d65-132">データを格納するために開発用コンピューター上のディレクトリを選択します。</span><span class="sxs-lookup"><span data-stu-id="35d65-132">Choose a directory on your development machine for storing the data.</span></span> <span data-ttu-id="35d65-133">たとえば、Windows では *C:\\BooksData* です。</span><span class="sxs-lookup"><span data-stu-id="35d65-133">For example, *C:\\BooksData* on Windows.</span></span> <span data-ttu-id="35d65-134">存在しない場合はディレクトリを作成します。</span><span class="sxs-lookup"><span data-stu-id="35d65-134">Create the directory if it doesn't exist.</span></span> <span data-ttu-id="35d65-135">mongo シェルでは新しいディレクトリは作成されません。</span><span class="sxs-lookup"><span data-stu-id="35d65-135">The mongo Shell doesn't create new directories.</span></span>
-1. <span data-ttu-id="35d65-136">コマンド シェルを開きます。</span><span class="sxs-lookup"><span data-stu-id="35d65-136">Open a command shell.</span></span> <span data-ttu-id="35d65-137">次のコマンドを実行して、既定のポート 27017 で MongoDB に接続します。</span><span class="sxs-lookup"><span data-stu-id="35d65-137">Run the following command to connect to MongoDB on default port 27017.</span></span> <span data-ttu-id="35d65-138">忘れずに、前の手順で選択したディレクトリで `<data_directory_path>` を置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35d65-138">Remember to replace `<data_directory_path>` with the directory you chose in the previous step.</span></span>
+1. <span data-ttu-id="d5ab3-132">データを格納するために開発用コンピューター上のディレクトリを選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-132">Choose a directory on your development machine for storing the data.</span></span> <span data-ttu-id="d5ab3-133">たとえば、Windows では *C:\\BooksData* です。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-133">For example, *C:\\BooksData* on Windows.</span></span> <span data-ttu-id="d5ab3-134">存在しない場合はディレクトリを作成します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-134">Create the directory if it doesn't exist.</span></span> <span data-ttu-id="d5ab3-135">mongo シェルでは新しいディレクトリは作成されません。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-135">The mongo Shell doesn't create new directories.</span></span>
+1. <span data-ttu-id="d5ab3-136">コマンド シェルを開きます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-136">Open a command shell.</span></span> <span data-ttu-id="d5ab3-137">次のコマンドを実行して、既定のポート 27017 で MongoDB に接続します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-137">Run the following command to connect to MongoDB on default port 27017.</span></span> <span data-ttu-id="d5ab3-138">忘れずに、前の手順で選択したディレクトリで `<data_directory_path>` を置き換えます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-138">Remember to replace `<data_directory_path>` with the directory you chose in the previous step.</span></span>
 
     ```console
     mongod --dbpath <data_directory_path>
     ```
 
-1. <span data-ttu-id="35d65-139">別のコマンド シェル インスタンスを開きます。</span><span class="sxs-lookup"><span data-stu-id="35d65-139">Open another command shell instance.</span></span> <span data-ttu-id="35d65-140">次のコマンドを実行して、既定のテスト データベースに接続します。</span><span class="sxs-lookup"><span data-stu-id="35d65-140">Connect to the default test database by running the following command:</span></span>
+1. <span data-ttu-id="d5ab3-139">別のコマンド シェル インスタンスを開きます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-139">Open another command shell instance.</span></span> <span data-ttu-id="d5ab3-140">次のコマンドを実行して、既定のテスト データベースに接続します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-140">Connect to the default test database by running the following command:</span></span>
 
     ```console
     mongo
     ```
 
-1. <span data-ttu-id="35d65-141">コマンド シェルで次を実行します。</span><span class="sxs-lookup"><span data-stu-id="35d65-141">Run the following in a command shell:</span></span>
+1. <span data-ttu-id="d5ab3-141">コマンド シェルで次を実行します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-141">Run the following in a command shell:</span></span>
 
     ```console
     use BookstoreDb
     ```
 
-    <span data-ttu-id="35d65-142">これがまだ存在していない場合、*BookstoreDb* という名前のデータベースが作成されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-142">If it doesn't already exist, a database named *BookstoreDb* is created.</span></span> <span data-ttu-id="35d65-143">データベースが存在する場合は、トランザクションのために接続されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-143">If the database does exist, its connection is opened for transactions.</span></span>
+    <span data-ttu-id="d5ab3-142">これがまだ存在していない場合、*BookstoreDb* という名前のデータベースが作成されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-142">If it doesn't already exist, a database named *BookstoreDb* is created.</span></span> <span data-ttu-id="d5ab3-143">データベースが存在する場合は、トランザクションのために接続されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-143">If the database does exist, its connection is opened for transactions.</span></span>
 
-1. <span data-ttu-id="35d65-144">次のコマンドを使用して `Books` コレクションを作成します。</span><span class="sxs-lookup"><span data-stu-id="35d65-144">Create a `Books` collection using following command:</span></span>
+1. <span data-ttu-id="d5ab3-144">次のコマンドを使用して `Books` コレクションを作成します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-144">Create a `Books` collection using following command:</span></span>
 
     ```console
     db.createCollection('Books')
     ```
 
-    <span data-ttu-id="35d65-145">次のような結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-145">The following result is displayed:</span></span>
+    <span data-ttu-id="d5ab3-145">次のような結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-145">The following result is displayed:</span></span>
 
     ```console
     { "ok" : 1 }
     ```
 
-1. <span data-ttu-id="35d65-146">次のコマンドを使用して、`Books` コレクションのスキーマを定義し、2 つのドキュメントを挿入します。</span><span class="sxs-lookup"><span data-stu-id="35d65-146">Define a schema for the `Books` collection and insert two documents using the following command:</span></span>
+1. <span data-ttu-id="d5ab3-146">次のコマンドを使用して、`Books` コレクションのスキーマを定義し、2 つのドキュメントを挿入します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-146">Define a schema for the `Books` collection and insert two documents using the following command:</span></span>
 
     ```console
     db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
     ```
 
-    <span data-ttu-id="35d65-147">次のような結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-147">The following result is displayed:</span></span>
+    <span data-ttu-id="d5ab3-147">次のような結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-147">The following result is displayed:</span></span>
 
     ```console
     {
@@ -109,13 +109,13 @@ ms.locfileid: "65610608"
     }
     ```
 
-1. <span data-ttu-id="35d65-148">次のコマンドを使用して、データベース内のドキュメントを表示します。</span><span class="sxs-lookup"><span data-stu-id="35d65-148">View the documents in the database using the following command:</span></span>
+1. <span data-ttu-id="d5ab3-148">次のコマンドを使用して、データベース内のドキュメントを表示します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-148">View the documents in the database using the following command:</span></span>
 
     ```console
     db.Books.find({}).pretty()
     ```
 
-    <span data-ttu-id="35d65-149">次のような結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-149">The following result is displayed:</span></span>
+    <span data-ttu-id="d5ab3-149">次のような結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-149">The following result is displayed:</span></span>
 
     ```console
     {
@@ -134,117 +134,147 @@ ms.locfileid: "65610608"
     }
     ```
 
-    <span data-ttu-id="35d65-150">スキーマによって、自動生成された型が `ObjectId` の `_id` プロパティが各ドキュメントに追加されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-150">The schema adds an autogenerated `_id` property of type `ObjectId` for each document.</span></span>
+    <span data-ttu-id="d5ab3-150">スキーマによって、自動生成された型が `ObjectId` の `_id` プロパティが各ドキュメントに追加されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-150">The schema adds an autogenerated `_id` property of type `ObjectId` for each document.</span></span>
 
-<span data-ttu-id="35d65-151">データベースの準備ができました。</span><span class="sxs-lookup"><span data-stu-id="35d65-151">The database is ready.</span></span> <span data-ttu-id="35d65-152">ASP.NET Core Web API の作成を開始できます。</span><span class="sxs-lookup"><span data-stu-id="35d65-152">You can start creating the ASP.NET Core web API.</span></span>
+<span data-ttu-id="d5ab3-151">データベースの準備ができました。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-151">The database is ready.</span></span> <span data-ttu-id="d5ab3-152">ASP.NET Core Web API の作成を開始できます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-152">You can start creating the ASP.NET Core web API.</span></span>
 
-## <a name="create-the-aspnet-core-web-api-project"></a><span data-ttu-id="35d65-153">ASP.NET Core Web API プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="35d65-153">Create the ASP.NET Core web API project</span></span>
+## <a name="create-the-aspnet-core-web-api-project"></a><span data-ttu-id="d5ab3-153">ASP.NET Core Web API プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-153">Create the ASP.NET Core web API project</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="35d65-154">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="35d65-154">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="d5ab3-154">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d5ab3-154">Visual Studio</span></span>](#tab/visual-studio)
 
-1. <span data-ttu-id="35d65-155">**[ファイル]** > **[新規作成]** > **[プロジェクト]** に移動します。</span><span class="sxs-lookup"><span data-stu-id="35d65-155">Go to **File** > **New** > **Project**.</span></span>
-1. <span data-ttu-id="35d65-156">**[ASP.NET Core Web アプリケーション]** を選択し、プロジェクト名を「*BooksApi*」として、**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-156">Select **ASP.NET Core Web Application**, name the project *BooksApi*, and click **OK**.</span></span>
-1. <span data-ttu-id="35d65-157">**[.NET Core]** ターゲット フレームワークと **[ASP.NET Core 2.2]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="35d65-157">Select the **.NET Core** target framework and **ASP.NET Core 2.2**.</span></span> <span data-ttu-id="35d65-158">**[API]** プロジェクト テンプレートを選択し、**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-158">Select the **API** project template, and click **OK**:</span></span>
-1. <span data-ttu-id="35d65-159">[NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。</span><span class="sxs-lookup"><span data-stu-id="35d65-159">Visit the [NuGet Gallery: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) to determine the latest stable version of the .NET driver for MongoDB.</span></span> <span data-ttu-id="35d65-160">**[パッケージ マネージャー コンソール]** ウィンドウで、プロジェクトのルートに移動します。</span><span class="sxs-lookup"><span data-stu-id="35d65-160">In the **Package Manager Console** window, navigate to the project root.</span></span> <span data-ttu-id="35d65-161">次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。</span><span class="sxs-lookup"><span data-stu-id="35d65-161">Run the following command to install the .NET driver for MongoDB:</span></span>
+1. <span data-ttu-id="d5ab3-155">**[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** に移動します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-155">Go to **File** > **New** > **Project**.</span></span>
+1. <span data-ttu-id="d5ab3-156">**[ASP.NET Core Web アプリケーション]** プロジェクトの種類を選択し、 **[次へ]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-156">Select the **ASP.NET Core Web Application** project type, and select **Next**.</span></span>
+1. <span data-ttu-id="d5ab3-157">プロジェクトに *BooksApi* という名前を付けて、 **[作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-157">Name the project *BooksApi*, and select **Create**.</span></span>
+1. <span data-ttu-id="d5ab3-158">**[.NET Core]** ターゲット フレームワークと **[ASP.NET Core 2.2]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-158">Select the **.NET Core** target framework and **ASP.NET Core 2.2**.</span></span> <span data-ttu-id="d5ab3-159">**[API]** プロジェクト テンプレートを選択し、 **[作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-159">Select the **API** project template, and select **Create**.</span></span>
+1. <span data-ttu-id="d5ab3-160">[NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-160">Visit the [NuGet Gallery: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) to determine the latest stable version of the .NET driver for MongoDB.</span></span> <span data-ttu-id="d5ab3-161">**[パッケージ マネージャー コンソール]** ウィンドウで、プロジェクトのルートに移動します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-161">In the **Package Manager Console** window, navigate to the project root.</span></span> <span data-ttu-id="d5ab3-162">次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-162">Run the following command to install the .NET driver for MongoDB:</span></span>
 
     ```powershell
     Install-Package MongoDB.Driver -Version {VERSION}
     ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="35d65-162">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="35d65-162">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="d5ab3-163">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="d5ab3-163">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-1. <span data-ttu-id="35d65-163">コマンド シェルで次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="35d65-163">Run the following commands in a command shell:</span></span>
+1. <span data-ttu-id="d5ab3-164">コマンド シェルで次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-164">Run the following commands in a command shell:</span></span>
 
     ```console
     dotnet new webapi -o BooksApi
     code BooksApi
     ```
 
-    <span data-ttu-id="35d65-164">.NET Core をターゲットとする新しい ASP.NET Core Web API プロジェクトが生成され、Visual Studio Code で開きます。</span><span class="sxs-lookup"><span data-stu-id="35d65-164">A new ASP.NET Core web API project targeting .NET Core is generated and opened in Visual Studio Code.</span></span>
+    <span data-ttu-id="d5ab3-165">.NET Core をターゲットとする新しい ASP.NET Core Web API プロジェクトが生成され、Visual Studio Code で開きます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-165">A new ASP.NET Core web API project targeting .NET Core is generated and opened in Visual Studio Code.</span></span>
 
-1. <span data-ttu-id="35d65-165">**[はい]** をクリックするのは、*[Required assets to build and debug are missing from 'BooksApi'.Add them?]\(構築とデバッグに必要なアセットが 'BooksApi' にありません。追加しますか?\)* という通知が表示された場合です。</span><span class="sxs-lookup"><span data-stu-id="35d65-165">Click **Yes** when the *Required assets to build and debug are missing from 'BooksApi'. Add them?* notification appears.</span></span>
-1. <span data-ttu-id="35d65-166">[NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。</span><span class="sxs-lookup"><span data-stu-id="35d65-166">Visit the [NuGet Gallery: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) to determine the latest stable version of the .NET driver for MongoDB.</span></span> <span data-ttu-id="35d65-167">**[統合端末]** を開き、プロジェクトのルートに移動します。</span><span class="sxs-lookup"><span data-stu-id="35d65-167">Open **Integrated Terminal** and navigate to the project root.</span></span> <span data-ttu-id="35d65-168">次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。</span><span class="sxs-lookup"><span data-stu-id="35d65-168">Run the following command to install the .NET driver for MongoDB:</span></span>
+1. <span data-ttu-id="d5ab3-166">状態バーの OmniSharp フレーム アイコンが緑色になり、"**ビルドとデバッグに必要な資産が 'BooksApi' にありません。追加しますか?** " という内容のダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-166">After the status bar's OmniSharp flame icon turns green, a dialog asks **Required assets to build and debug are missing from 'BooksApi'. Add them?**.</span></span> <span data-ttu-id="d5ab3-167">**[はい]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-167">Select **Yes**.</span></span>
+1. <span data-ttu-id="d5ab3-168">[NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-168">Visit the [NuGet Gallery: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) to determine the latest stable version of the .NET driver for MongoDB.</span></span> <span data-ttu-id="d5ab3-169">**[統合端末]** を開き、プロジェクトのルートに移動します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-169">Open **Integrated Terminal** and navigate to the project root.</span></span> <span data-ttu-id="d5ab3-170">次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-170">Run the following command to install the .NET driver for MongoDB:</span></span>
 
     ```console
     dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
     ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="35d65-169">Visual Studio for Mac</span><span class="sxs-lookup"><span data-stu-id="35d65-169">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="d5ab3-171">Visual Studio for Mac</span><span class="sxs-lookup"><span data-stu-id="d5ab3-171">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-1. <span data-ttu-id="35d65-170">**[ファイル]** > **[新しいソリューション]** > **[.NET Core]** > **[アプリ]** に移動します。</span><span class="sxs-lookup"><span data-stu-id="35d65-170">Go to **File** > **New Solution** > **.NET Core** > **App**.</span></span>
-1. <span data-ttu-id="35d65-171">**[ASP.NET Core Web API]** C# プロジェクト テンプレートを選択し、**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-171">Select the **ASP.NET Core Web API** C# project template, and click **Next**.</span></span>
-1. <span data-ttu-id="35d65-172">**[ターゲット フレームワーク]** ドロップダウン リストで **[.NET Core 2.2]** を選択し、**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-172">Select **.NET Core 2.2** from the **Target Framework** drop-down list, and click **Next**.</span></span>
-1. <span data-ttu-id="35d65-173">**[プロジェクト名]** に「*BooksApi*」と入力し、**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-173">Enter *BooksApi* for the **Project Name**, and click **Create**.</span></span>
-1. <span data-ttu-id="35d65-174">**[ソリューション]** パッドで、プロジェクトの **[依存関係]** ノードを右クリックし、**[パッケージを追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="35d65-174">In the **Solution** pad, right-click the project's **Dependencies** node and select **Add Packages**.</span></span>
-1. <span data-ttu-id="35d65-175">検索ボックスに「*MongoDB.Driver*」と入力し、*MongoDB.Driver* パッケージを選択して、**[パッケージを追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-175">Enter *MongoDB.Driver* in the search box, select the *MongoDB.Driver* package, and click **Add Package**.</span></span>
-1. <span data-ttu-id="35d65-176">**[ライセンスへの同意]** ダイアログの **[承諾]** ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="35d65-176">Click the **Accept** button in the **License Acceptance** dialog.</span></span>
+1. <span data-ttu-id="d5ab3-172">**[ファイル]**  >  **[新しいソリューション]**  >  **[.NET Core]**  >  **[アプリ]** に移動します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-172">Go to **File** > **New Solution** > **.NET Core** > **App**.</span></span>
+1. <span data-ttu-id="d5ab3-173">**[ASP.NET Core Web API]** C# プロジェクト テンプレートを選択し、 **[次へ]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-173">Select the **ASP.NET Core Web API** C# project template, and select **Next**.</span></span>
+1. <span data-ttu-id="d5ab3-174">**[ターゲット フレームワーク]** ドロップダウン リストで **[.NET Core 2.2]** を選択し、 **[次へ]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-174">Select **.NET Core 2.2** from the **Target Framework** drop-down list, and select **Next**.</span></span>
+1. <span data-ttu-id="d5ab3-175">**[プロジェクト名]** に「*BooksApi*」と入力し、 **[作成]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-175">Enter *BooksApi* for the **Project Name**, and select **Create**.</span></span>
+1. <span data-ttu-id="d5ab3-176">**[ソリューション]** パッドで、プロジェクトの **[依存関係]** ノードを右クリックし、 **[パッケージを追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-176">In the **Solution** pad, right-click the project's **Dependencies** node and select **Add Packages**.</span></span>
+1. <span data-ttu-id="d5ab3-177">検索ボックスに「*MongoDB.Driver*」と入力し、*MongoDB.Driver* パッケージを選択して、 **[パッケージを追加]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-177">Enter *MongoDB.Driver* in the search box, select the *MongoDB.Driver* package, and select **Add Package**.</span></span>
+1. <span data-ttu-id="d5ab3-178">**[ライセンスへの同意]** ダイアログの **[承諾]** ボタンを選択します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-178">Select the **Accept** button in the **License Acceptance** dialog.</span></span>
 
 ---
 
-## <a name="add-a-model"></a><span data-ttu-id="35d65-177">モデルを追加する</span><span class="sxs-lookup"><span data-stu-id="35d65-177">Add a model</span></span>
+## <a name="add-an-entity-model"></a><span data-ttu-id="d5ab3-179">モデルにエンティティを追加する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-179">Add an entity model</span></span>
 
-1. <span data-ttu-id="35d65-178">*Models* ディレクトリをプロジェクトのルートに追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-178">Add a *Models* directory to the project root.</span></span>
-1. <span data-ttu-id="35d65-179">次のコードを使用して、`Book` クラスを *Models* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-179">Add a `Book` class to the *Models* directory with the following code:</span></span>
+1. <span data-ttu-id="d5ab3-180">*Models* ディレクトリをプロジェクトのルートに追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-180">Add a *Models* directory to the project root.</span></span>
+1. <span data-ttu-id="d5ab3-181">次のコードを使用して、`Book` クラスを *Models* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-181">Add a `Book` class to the *Models* directory with the following code:</span></span>
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
-<span data-ttu-id="35d65-180">上記のクラスでは、`Id` プロパティは:</span><span class="sxs-lookup"><span data-stu-id="35d65-180">In the preceding class, the `Id` property:</span></span>
+    <span data-ttu-id="d5ab3-182">上記のクラスでは、`Id` プロパティは:</span><span class="sxs-lookup"><span data-stu-id="d5ab3-182">In the preceding class, the `Id` property:</span></span>
+    
+    * <span data-ttu-id="d5ab3-183">共通言語ランタイム (CLR) オブジェクトを MongoDB コレクションにマッピングするために必須です。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-183">Is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.</span></span>
+    * <span data-ttu-id="d5ab3-184">ドキュメントの主キーとしてこのプロパティを指定するために、[[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) で注釈を付けられています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-184">Is annotated with [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) to designate this property as the document's primary key.</span></span>
+    * <span data-ttu-id="d5ab3-185">パラメーターを [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) 構造体ではなく型 `string` として渡すことができるように、[[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) で注釈が付けられています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-185">Is annotated with [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) to allow passing the parameter as type `string` instead of an [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) structure.</span></span> <span data-ttu-id="d5ab3-186">Mongo によって `string` から `ObjectId` への変換が処理されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-186">Mongo handles the conversion from `string` to `ObjectId`.</span></span>
+    
+    <span data-ttu-id="d5ab3-187">クラスのその他のプロパティは、[[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) 属性で注釈を付けられています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-187">Other properties in the class are annotated with the [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) attribute.</span></span> <span data-ttu-id="d5ab3-188">属性の値は、MongoDB コレクションでのプロパティ名を表します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-188">The attribute's value represents the property name in the MongoDB collection.</span></span>
 
-* <span data-ttu-id="35d65-181">共通言語ランタイム (CLR) オブジェクトを MongoDB コレクションにマッピングするために必須です。</span><span class="sxs-lookup"><span data-stu-id="35d65-181">Is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.</span></span>
-* <span data-ttu-id="35d65-182">ドキュメントの主キーとしてこのプロパティを指定するために、`[BsonId]` で注釈を付けられています。</span><span class="sxs-lookup"><span data-stu-id="35d65-182">Is annotated with `[BsonId]` to designate this property as the document's primary key.</span></span>
-* <span data-ttu-id="35d65-183">`ObjectId` ではなく `string` 型としてパラメーターを渡すことができるようにするために、`[BsonRepresentation(BsonType.ObjectId)]` で注釈を付けられています。</span><span class="sxs-lookup"><span data-stu-id="35d65-183">Is annotated with `[BsonRepresentation(BsonType.ObjectId)]` to allow passing the parameter as type `string` instead of `ObjectId`.</span></span> <span data-ttu-id="35d65-184">Mongo によって `string` から `ObjectId` への変換が処理されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-184">Mongo handles the conversion from `string` to `ObjectId`.</span></span>
+## <a name="add-a-configuration-model"></a><span data-ttu-id="d5ab3-189">構成モデルを追加する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-189">Add a configuration model</span></span>
 
-<span data-ttu-id="35d65-185">クラスのその他のプロパティは、`[BsonElement]` 属性で注釈を付けられています。</span><span class="sxs-lookup"><span data-stu-id="35d65-185">Other properties in the class are annotated with the `[BsonElement]` attribute.</span></span> <span data-ttu-id="35d65-186">属性の値は、MongoDB コレクションでのプロパティ名を表します。</span><span class="sxs-lookup"><span data-stu-id="35d65-186">The attribute's value represents the property name in the MongoDB collection.</span></span>
+1. <span data-ttu-id="d5ab3-190">次のデータベース構成値を *appsettings.json* に追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-190">Add the following database configuration values to *appsettings.json*:</span></span>
 
-## <a name="add-a-crud-operations-class"></a><span data-ttu-id="35d65-187">CRUD 操作のクラスを追加する</span><span class="sxs-lookup"><span data-stu-id="35d65-187">Add a CRUD operations class</span></span>
+    [!code-json[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-6)]
 
-1. <span data-ttu-id="35d65-188">*Services* ディレクトリをプロジェクトのルートに追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-188">Add a *Services* directory to the project root.</span></span>
-1. <span data-ttu-id="35d65-189">次のコードを使用して、`BookService` クラスを *Services* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-189">Add a `BookService` class to the *Services* directory with the following code:</span></span>
+1. <span data-ttu-id="d5ab3-191">次のコードを使用して、*BookstoreDatabaseSettings.cs* ファイルを *Models* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-191">Add a *BookstoreDatabaseSettings.cs* file to the *Models* directory with the following code:</span></span>
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/BookstoreDatabaseSettings.cs)]
+
+    <span data-ttu-id="d5ab3-192">前述の `BookstoreDatabaseSettings` クラスは、*appsettings.json* ファイルの `BookstoreDatabaseSettings` プロパティ値を格納するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-192">The preceding `BookstoreDatabaseSettings` class is used to store the *appsettings.json* file's `BookstoreDatabaseSettings` property values.</span></span> <span data-ttu-id="d5ab3-193">JSON と C# のプロパティ名には、マッピング処理を簡単にするために同じ名前が付けられています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-193">The JSON and C# property names are named identically to ease the mapping process.</span></span>
+
+1. <span data-ttu-id="d5ab3-194">`AddMvc` の呼び出しの前に、次のコードを `Startup.ConfigureServices` に追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-194">Add the following code to `Startup.ConfigureServices`, before the call to `AddMvc`:</span></span>
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureDatabaseSettings)]
+
+    <span data-ttu-id="d5ab3-195">上のコードでは以下の操作が行われます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-195">In the preceding code:</span></span>
+
+    * <span data-ttu-id="d5ab3-196">*appsettings.json* ファイルの `BookstoreDatabaseSettings` セクションがバインドされている構成インスタンスは、Dependency Injection (DI) コンテナーに登録されています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-196">The configuration instance to which the *appsettings.json* file's `BookstoreDatabaseSettings` section binds is registered in the Dependency Injection (DI) container.</span></span> <span data-ttu-id="d5ab3-197">たとえば、`BookstoreDatabaseSettings` オブジェクトの `ConnectionString` プロパティには、*appsettings.json* の `BookstoreDatabaseSettings:ConnectionString` プロパティが設定されています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-197">For example, a `BookstoreDatabaseSettings` object's `ConnectionString` property is populated with the `BookstoreDatabaseSettings:ConnectionString` property in *appsettings.json*.</span></span>
+    * <span data-ttu-id="d5ab3-198">`IBookstoreDatabaseSettings` インターフェイスは、シングルトン [サービス有効期間](xref:fundamentals/dependency-injection#service-lifetimes)で DI に登録されています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-198">The `IBookstoreDatabaseSettings` interface is registered in DI with a singleton [service lifetime](xref:fundamentals/dependency-injection#service-lifetimes).</span></span> <span data-ttu-id="d5ab3-199">挿入されると、インターフェイス インスタンスは `BookstoreDatabaseSettings` オブジェクトに解決されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-199">When injected, the interface instance resolves to a `BookstoreDatabaseSettings` object.</span></span>
+
+1. <span data-ttu-id="d5ab3-200">次のコードを *Startup.cs* の先頭に追加して、`BookstoreDatabaseSettings` と `IBookstoreDatabaseSettings` の参照を解決します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-200">Add the following code to the top of *Startup.cs* to resolve the `BookstoreDatabaseSettings` and `IBookstoreDatabaseSettings` references:</span></span>
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_UsingBooksApiModels)]
+
+## <a name="add-a-crud-operations-service"></a><span data-ttu-id="d5ab3-201">CRUD 操作のサービスを追加する</span><span class="sxs-lookup"><span data-stu-id="d5ab3-201">Add a CRUD operations service</span></span>
+
+1. <span data-ttu-id="d5ab3-202">*Services* ディレクトリをプロジェクトのルートに追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-202">Add a *Services* directory to the project root.</span></span>
+1. <span data-ttu-id="d5ab3-203">次のコードを使用して、`BookService` クラスを *Services* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-203">Add a `BookService` class to the *Services* directory with the following code:</span></span>
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceClass)]
 
-1. <span data-ttu-id="35d65-190">MongoDB の接続文字列を *appsettings.json* に追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-190">Add the MongoDB connection string to *appsettings.json*:</span></span>
+    <span data-ttu-id="d5ab3-204">前述のコードでは、`IBookstoreDatabaseSettings` インスタンスがコンストラクターの挿入によって DI から取得されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-204">In the preceding code, an `IBookstoreDatabaseSettings` instance is retrieved from DI via constructor injection.</span></span> <span data-ttu-id="d5ab3-205">この手法で、「[構成モデルを追加する](#add-a-configuration-model)」セクションで追加した *appsettings.json* 構成値にアクセスできます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-205">This technique provides access to the *appsettings.json* configuration values that were added in the [Add a configuration model](#add-a-configuration-model) section.</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-4)]
+1. <span data-ttu-id="d5ab3-206">`Startup.ConfigureServices` で、`BookService` クラスを DI に登録します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-206">In `Startup.ConfigureServices`, register the `BookService` class with DI:</span></span>
 
-    <span data-ttu-id="35d65-191">上記の `BookstoreDb` プロパティは `BookService` クラス コンストラクターでアクセスされます。</span><span class="sxs-lookup"><span data-stu-id="35d65-191">The preceding `BookstoreDb` property is accessed in the `BookService` class constructor.</span></span>
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=9)]
 
-1. <span data-ttu-id="35d65-192">`Startup.ConfigureServices` で、`BookService` クラスを依存関係挿入システムに登録します。</span><span class="sxs-lookup"><span data-stu-id="35d65-192">In `Startup.ConfigureServices`, register the `BookService` class with the Dependency Injection system:</span></span>
+    <span data-ttu-id="d5ab3-207">前述のコードでは、消費クラスへのコンストラクターの挿入をサポートする `BookService` クラスが DI に登録されています。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-207">In the preceding code, the `BookService` class is registered with DI to support constructor injection in consuming classes.</span></span> <span data-ttu-id="d5ab3-208">`BookService` が `MongoClient` に直接依存しているため、シングルトン サービスの有効期間が最も適切です。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-208">The singleton service lifetime is most appropriate because `BookService` takes a direct dependency on `MongoClient`.</span></span> <span data-ttu-id="d5ab3-209">公式の [Mongo Client 再利用ガイドライン](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)に従い、シングルトン サービスの有効期間を使用して DI に `MongoClient` を登録する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-209">Per the official [Mongo Client reuse guidelines](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` should be registered in DI with a singleton service lifetime.</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
+1. <span data-ttu-id="d5ab3-210">次のコードを *Startup.cs* の先頭に追加して、`BookService` の参照を解決します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-210">Add the following code to the top of *Startup.cs* to resolve the `BookService` reference:</span></span>
 
-    <span data-ttu-id="35d65-193">上記のサービスの登録は、コンシューマー クラスでコンス トラクターの挿入をサポートするために必要です。</span><span class="sxs-lookup"><span data-stu-id="35d65-193">The preceding service registration is necessary to support constructor injection in consuming classes.</span></span>
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_UsingBooksApiServices)]
 
-<span data-ttu-id="35d65-194">`BookService` クラスは次の `MongoDB.Driver` メンバーを使用して、データベースに対する CRUD 操作を実行します。</span><span class="sxs-lookup"><span data-stu-id="35d65-194">The `BookService` class uses the following `MongoDB.Driver` members to perform CRUD operations against the database:</span></span>
+<span data-ttu-id="d5ab3-211">`BookService` クラスは次の `MongoDB.Driver` メンバーを使用して、データベースに対する CRUD 操作を実行します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-211">The `BookService` class uses the following `MongoDB.Driver` members to perform CRUD operations against the database:</span></span>
 
-* <span data-ttu-id="35d65-195">`MongoClient` &ndash; データベース操作を実行するためにサーバー インスタンスを読み取ります。</span><span class="sxs-lookup"><span data-stu-id="35d65-195">`MongoClient` &ndash; Reads the server instance for performing database operations.</span></span> <span data-ttu-id="35d65-196">このクラスのコンストラクターには MongoDB 接続文字列が提供されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-196">The constructor of this class is provided the MongoDB connection string:</span></span>
+* <span data-ttu-id="d5ab3-212">[MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; データベース操作を実行するためにサーバー インスタンスを読み取ります。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-212">[MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; Reads the server instance for performing database operations.</span></span> <span data-ttu-id="d5ab3-213">このクラスのコンストラクターには MongoDB 接続文字列が提供されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-213">The constructor of this class is provided the MongoDB connection string:</span></span>
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
 
-* <span data-ttu-id="35d65-197">`IMongoDatabase` &ndash; 操作を実行する Mongo データベースを表します。</span><span class="sxs-lookup"><span data-stu-id="35d65-197">`IMongoDatabase` &ndash; Represents the Mongo database for performing operations.</span></span> <span data-ttu-id="35d65-198">このチュートリアルでは、インターフェイスで汎用の `GetCollection<T>(collection)` メソッドを使用し、特定のコレクション内のデータへのアクセスを取得します。</span><span class="sxs-lookup"><span data-stu-id="35d65-198">This tutorial uses the generic `GetCollection<T>(collection)` method on the interface to gain access to data in a specific collection.</span></span> <span data-ttu-id="35d65-199">CRUD 操作をこのコレクションに対して実行できるのは、このメソッドが呼び出された後です。</span><span class="sxs-lookup"><span data-stu-id="35d65-199">CRUD operations can be performed against the collection after this method is called.</span></span> <span data-ttu-id="35d65-200">`GetCollection<T>(collection)` メソッドの呼び出しの内容は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="35d65-200">In the `GetCollection<T>(collection)` method call:</span></span>
-  * <span data-ttu-id="35d65-201">`collection` はコレクション名です。</span><span class="sxs-lookup"><span data-stu-id="35d65-201">`collection` represents the collection name.</span></span>
-  * <span data-ttu-id="35d65-202">`T` はコレクションに格納されている CLR オブジェクト型です。</span><span class="sxs-lookup"><span data-stu-id="35d65-202">`T` represents the CLR object type stored in the collection.</span></span>
+* <span data-ttu-id="d5ab3-214">[IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; 操作を実行する Mongo データベースを表します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-214">[IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; Represents the Mongo database for performing operations.</span></span> <span data-ttu-id="d5ab3-215">このチュートリアルでは、インターフェイスで汎用の [GetCollection<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) メソッドを使用し、特定のコレクション内のデータへのアクセスを取得します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-215">This tutorial uses the generic [GetCollection<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) method on the interface to gain access to data in a specific collection.</span></span> <span data-ttu-id="d5ab3-216">このメソッドが呼び出された後に、CRUD 操作をこのコレクションに対して実行します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-216">Perform CRUD operations against the collection after this method is called.</span></span> <span data-ttu-id="d5ab3-217">`GetCollection<TDocument>(collection)` メソッドの呼び出しの内容は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-217">In the `GetCollection<TDocument>(collection)` method call:</span></span>
+  * <span data-ttu-id="d5ab3-218">`collection` はコレクション名です。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-218">`collection` represents the collection name.</span></span>
+  * <span data-ttu-id="d5ab3-219">`TDocument` はコレクションに格納されている CLR オブジェクト型です。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-219">`TDocument` represents the CLR object type stored in the collection.</span></span>
 
-<span data-ttu-id="35d65-203">`GetCollection<T>(collection)` は、コレクションを表す `MongoCollection` オブジェクトを返します。</span><span class="sxs-lookup"><span data-stu-id="35d65-203">`GetCollection<T>(collection)` returns a `MongoCollection` object representing the collection.</span></span> <span data-ttu-id="35d65-204">このチュートリアルでは、コレクションに対して次のメソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="35d65-204">In this tutorial, the following methods are invoked on the collection:</span></span>
+<span data-ttu-id="d5ab3-220">`GetCollection<TDocument>(collection)` から、コレクションを表す [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) オブジェクトが返されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-220">`GetCollection<TDocument>(collection)` returns a [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) object representing the collection.</span></span> <span data-ttu-id="d5ab3-221">このチュートリアルでは、コレクションに対して次のメソッドを呼び出します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-221">In this tutorial, the following methods are invoked on the collection:</span></span>
 
-* <span data-ttu-id="35d65-205">`Find<T>` &ndash; 指定された検索基準と一致するコレクション内のすべてのドキュメントを返します。</span><span class="sxs-lookup"><span data-stu-id="35d65-205">`Find<T>` &ndash; Returns all documents in the collection matching the provided search criteria.</span></span>
-* <span data-ttu-id="35d65-206">`InsertOne` &ndash; 指定されたオブジェクトを新しいドキュメントとしてコレクションに挿入します。</span><span class="sxs-lookup"><span data-stu-id="35d65-206">`InsertOne` &ndash; Inserts the provided object as a new document in the collection.</span></span>
-* <span data-ttu-id="35d65-207">`ReplaceOne` &ndash; 指定された検索基準と一致する 1 つのドキュメントを、指定されたオブジェクトで置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35d65-207">`ReplaceOne` &ndash; Replaces the single document matching the provided search criteria with the provided object.</span></span>
-* <span data-ttu-id="35d65-208">`DeleteOne` &ndash; 指定された検索基準と一致する 1 つのドキュメントを削除します。</span><span class="sxs-lookup"><span data-stu-id="35d65-208">`DeleteOne` &ndash; Deletes a single document matching the provided search criteria.</span></span>
+* <span data-ttu-id="d5ab3-222">[DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; 指定された検索基準と一致する 1 つのドキュメントを削除します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-222">[DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; Deletes a single document matching the provided search criteria.</span></span>
+* <span data-ttu-id="d5ab3-223">[Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; 指定された検索基準と一致するコレクション内のすべてのドキュメントを返します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-223">[Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; Returns all documents in the collection matching the provided search criteria.</span></span>
+* <span data-ttu-id="d5ab3-224">[InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; 指定されたオブジェクトを新しいドキュメントとしてコレクションに挿入します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-224">[InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; Inserts the provided object as a new document in the collection.</span></span>
+* <span data-ttu-id="d5ab3-225">[ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; 指定された検索基準と一致する 1 つのドキュメントを、指定されたオブジェクトで置き換えます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-225">[ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; Replaces the single document matching the provided search criteria with the provided object.</span></span>
 
-## <a name="add-a-controller"></a><span data-ttu-id="35d65-209">コントローラーの追加</span><span class="sxs-lookup"><span data-stu-id="35d65-209">Add a controller</span></span>
+## <a name="add-a-controller"></a><span data-ttu-id="d5ab3-226">コントローラーの追加</span><span class="sxs-lookup"><span data-stu-id="d5ab3-226">Add a controller</span></span>
 
-1. <span data-ttu-id="35d65-210">次のコードを使用して、`BooksController` クラスを *Controllers* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="35d65-210">Add a `BooksController` class to the *Controllers* directory with the following code:</span></span>
+<span data-ttu-id="d5ab3-227">次のコードを使用して、`BooksController` クラスを *Controllers* ディレクトリに追加します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-227">Add a `BooksController` class to the *Controllers* directory with the following code:</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
+[!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
 
-    <span data-ttu-id="35d65-211">上記の Web API コントローラー:</span><span class="sxs-lookup"><span data-stu-id="35d65-211">The preceding web API controller:</span></span>
+<span data-ttu-id="d5ab3-228">上記の Web API コントローラー:</span><span class="sxs-lookup"><span data-stu-id="d5ab3-228">The preceding web API controller:</span></span>
 
-    * <span data-ttu-id="35d65-212">`BookService` クラスを使用して CRUD 操作を実行します。</span><span class="sxs-lookup"><span data-stu-id="35d65-212">Uses the `BookService` class to perform CRUD operations.</span></span>
-    * <span data-ttu-id="35d65-213">GET、POST、PUT、DELETE HTTP 要求をサポートするアクション メソッドが含まれます。</span><span class="sxs-lookup"><span data-stu-id="35d65-213">Contains action methods to support GET, POST, PUT, and DELETE HTTP requests.</span></span>
-    * <span data-ttu-id="35d65-214"><xref:System.Web.Http.ApiController.CreatedAtRoute*> メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。</span><span class="sxs-lookup"><span data-stu-id="35d65-214">The <xref:System.Web.Http.ApiController.CreatedAtRoute*> method returns a 201 response, which is the standard response for an HTTP POST method that creates a new resource on the server.</span></span> <span data-ttu-id="35d65-215">`CreatedAtRoute` では、応答に場所ヘッダーも追加されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-215">`CreatedAtRoute` also adds a Location header to the response.</span></span> <span data-ttu-id="35d65-216">場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。</span><span class="sxs-lookup"><span data-stu-id="35d65-216">The Location header specifies the URI of the newly created to-do item.</span></span> <span data-ttu-id="35d65-217">「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="35d65-217">See [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).</span></span>
-1. <span data-ttu-id="35d65-218">アプリケーションをビルドし、実行します。</span><span class="sxs-lookup"><span data-stu-id="35d65-218">Build and run the app.</span></span>
-1. <span data-ttu-id="35d65-219">ブラウザーで `http://localhost:<port>/api/books` にナビゲートします。</span><span class="sxs-lookup"><span data-stu-id="35d65-219">Navigate to `http://localhost:<port>/api/books` in your browser.</span></span> <span data-ttu-id="35d65-220">次の JSON 応答が示されます。</span><span class="sxs-lookup"><span data-stu-id="35d65-220">The following JSON response is displayed:</span></span>
+* <span data-ttu-id="d5ab3-229">`BookService` クラスを使用して CRUD 操作を実行します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-229">Uses the `BookService` class to perform CRUD operations.</span></span>
+* <span data-ttu-id="d5ab3-230">GET、POST、PUT、DELETE HTTP 要求をサポートするアクション メソッドが含まれます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-230">Contains action methods to support GET, POST, PUT, and DELETE HTTP requests.</span></span>
+* <span data-ttu-id="d5ab3-231">`Create` アクション メソッドで <xref:System.Web.Http.ApiController.CreatedAtRoute*> を呼び出して、[HTTP 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) 応答を返します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-231">Calls <xref:System.Web.Http.ApiController.CreatedAtRoute*> in the `Create` action method to return an [HTTP 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) response.</span></span> <span data-ttu-id="d5ab3-232">状態コード 201 は、サーバーに新しいリソースを作成する HTTP POST メソッドに対する標準の応答です。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-232">Status code 201 is the standard response for an HTTP POST method that creates a new resource on the server.</span></span> <span data-ttu-id="d5ab3-233">`CreatedAtRoute` によって、応答に `Location` ヘッダーも追加されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-233">`CreatedAtRoute` also adds a `Location` header to the response.</span></span> <span data-ttu-id="d5ab3-234">`Location` ヘッダーでは、新しく作成されたブックの URI を指定します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-234">The `Location` header specifies the URI of the newly created book.</span></span>
+
+## <a name="test-the-web-api"></a><span data-ttu-id="d5ab3-235">Web API をテストする</span><span class="sxs-lookup"><span data-stu-id="d5ab3-235">Test the web API</span></span>
+
+1. <span data-ttu-id="d5ab3-236">アプリケーションをビルドし、実行します。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-236">Build and run the app.</span></span>
+
+1. <span data-ttu-id="d5ab3-237">`http://localhost:<port>/api/books` に移動して、コントローラーのパラメーターなしの `Get` アクション メソッドをテストします。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-237">Navigate to `http://localhost:<port>/api/books` to test the controller's parameterless `Get` action method.</span></span> <span data-ttu-id="d5ab3-238">次の JSON 応答が示されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-238">The following JSON response is displayed:</span></span>
 
     ```json
     [
@@ -265,10 +295,22 @@ ms.locfileid: "65610608"
     ]
     ```
 
-## <a name="next-steps"></a><span data-ttu-id="35d65-221">次の手順</span><span class="sxs-lookup"><span data-stu-id="35d65-221">Next steps</span></span>
+1. <span data-ttu-id="d5ab3-239">`http://localhost:<port>/api/books/5bfd996f7b8e48dc15ff215e` に移動して、コントローラーのオーバーロードされた `Get` アクション メソッドをテストします。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-239">Navigate to `http://localhost:<port>/api/books/5bfd996f7b8e48dc15ff215e` to test the controller's overloaded `Get` action method.</span></span> <span data-ttu-id="d5ab3-240">次の JSON 応答が示されます。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-240">The following JSON response is displayed:</span></span>
 
-<span data-ttu-id="35d65-222">ASP.NET Core Web API の構築について詳しくは、次のリソースを参照してください。</span><span class="sxs-lookup"><span data-stu-id="35d65-222">For more information on building ASP.NET Core web APIs, see the following resources:</span></span>
+    ```json
+    {
+      "id":"5bfd996f7b8e48dc15ff215e",
+      "bookName":"Clean Code",
+      "price":43.15,
+      "category":"Computers",
+      "author":"Robert C. Martin"
+    }
+    ```
 
-* [<span data-ttu-id="35d65-223">この記事の YouTube バージョン</span><span class="sxs-lookup"><span data-stu-id="35d65-223">Youtube version of this article</span></span>](https://www.youtube.com/watch?v=7uJt_sOenyo&feature=youtu.be)
+## <a name="next-steps"></a><span data-ttu-id="d5ab3-241">次の手順</span><span class="sxs-lookup"><span data-stu-id="d5ab3-241">Next steps</span></span>
+
+<span data-ttu-id="d5ab3-242">ASP.NET Core Web API の構築について詳しくは、次のリソースを参照してください。</span><span class="sxs-lookup"><span data-stu-id="d5ab3-242">For more information on building ASP.NET Core web APIs, see the following resources:</span></span>
+
+* [<span data-ttu-id="d5ab3-243">この記事の YouTube バージョン</span><span class="sxs-lookup"><span data-stu-id="d5ab3-243">YouTube version of this article</span></span>](https://www.youtube.com/watch?v=7uJt_sOenyo&feature=youtu.be)
 * <xref:web-api/index>
 * <xref:web-api/action-return-types>
