@@ -3,14 +3,14 @@ title: 'チュートリアル: ASP.NET Core の Razor ページの概要'
 author: rick-anderson
 description: このチュートリアル シリーズでは、ASP.NET Core で Razor ページを使用する方法を示します。 モデルの作成、Razor ページのコードの生成、Entity Framework Core と SQL Server を使用したデータ アクセス、検索機能の追加、入力検証の追加、および移行を使用したモデルの更新の方法について説明します。
 ms.author: riande
-ms.date: 05/30/2019
+ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
-ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
+ms.openlocfilehash: d843e47ccb5180fab34b4c4c4a4b5cbda21289bf
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66415669"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491207"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>チュートリアル: ASP.NET Core の Razor ページの概要
 
@@ -43,13 +43,17 @@ ms.locfileid: "66415669"
 
 * Visual Studio の **[ファイル]** メニューから、 **[新規作成]**  >  **[プロジェクト]** の順に選択します。
 
-* 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **RazorPagesMovie** という名前を付けます。 コードのコピーおよび貼り付けを行う際に名前空間が一致するように、プロジェクトに *RazorPagesMovie* という名前を付けることが重要です。
+* 新しい ASP.NET CoreWeb アプリケーションを作成し、 **[次へ]** を選択します。
 
   ![新しい ASP.NET Core Web アプリケーション](razor-pages-start/_static/np_2.1.png)
 
-* ドロップダウン リストで **[ASP.NET Core 2.2]** を選択してから、 **[Web アプリケーション]** を選択します。
+* プロジェクトに **RazorPagesMovie** という名前を付けます。 コードのコピーおよび貼り付けを行う際に名前空間が一致するように、プロジェクトに *RazorPagesMovie* という名前を付けることが重要です。
 
-  ![新しい ASP.NET Core Web アプリケーション](razor-pages-start/_static/np_2_2.2.png)
+  ![新しい ASP.NET Core Web アプリケーション](razor-pages-start/_static/config.png)
+
+* ドロップダウンの **[ASP.NET Core 2.2]** 、 **[Web アプリケーション]** の順に選択し、 **[作成]** を選択します。
+
+![新しい ASP.NET Core Web アプリケーション](razor-pages-start/_static/np_2_2.2.png)
 
   次のスターター プロジェクトが作成されます。
 

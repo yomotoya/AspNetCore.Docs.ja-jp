@@ -5,14 +5,14 @@ description: ASP.NET Core アプリをホストするための ASP.NET Core モ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/17/2019
+ms.date: 06/05/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 11906f34f4aa358fda126772e2147dc805c28e81
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: f287a9bad623c5ff5c41868c7c4408b572b39000
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395939"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716354"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 
@@ -156,7 +156,7 @@ ASP.NET Core モジュールでは次のことも行えます。
 
 ## <a name="how-to-install-and-use-the-aspnet-core-module"></a>ASP.NET Core モジュールをインストールして使用する方法
 
-ASP.NET Core モジュールをインストールして使用する方法の詳細については、「<xref:host-and-deploy/iis/index>」を参照してください。
+ASP.NET Core モジュールのインストール手順については、「[.NET Core ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)」を参照してください。
 
 ## <a name="configuration-with-webconfig"></a>web.config での構成
 

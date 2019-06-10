@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core アプリケーションにモデルを追�
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 0580c2cb7717a89d0d16cd3f431a63db78fa27cb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0de1b7e69298af8299e0ca6c8ebd3c2b995b7471
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887427"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692489"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのモデルの追加
 
@@ -28,7 +28,7 @@ ms.locfileid: "64887427"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-*Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順に選択します。 クラスに **Movie** と名前を付けます。
+*Models* フォルダーを右クリックし、 **[追加]**  >  **[クラス]** の順に選択します。 クラスに **Movie** と名前を付けます。
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
@@ -47,11 +47,11 @@ ms.locfileid: "64887427"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-*ソリューション エクスプローラー*で、**Controllers** フォルダーを右クリックし、**[追加]、[スキャフォールディングされた新しい項目]** の順に選択します。
+*ソリューション エクスプローラー*で、**Controllers** フォルダーを右クリックし、 **[追加]、[スキャフォールディングされた新しい項目]** の順に選択します。
 
 ![前述の手順を参照](adding-model/_static/add_controller21.png)
 
-**[スキャフォールディングを追加]** ダイアログで、**[Entity Framework を使用したビューがある MVC コントローラー]、[追加]** の順に選択します。
+**[スキャフォールディングを追加]** ダイアログで、 **[Entity Framework を使用したビューがある MVC コントローラー]、[追加]** の順に選択します。
 
 ![[スキャフォールディングを追加] ダイアログ](adding-model/_static/add_scaffold21.png)
 
@@ -119,7 +119,7 @@ Visual Studio では、次が作成されます。
 
 <!-- End of VS tabs                  -->
 
-アプリを実行し、**[MVC Movie]\(MVC ムービー\)** リンクをクリックすると、次のようなエラーが表示されます。
+アプリを実行し、 **[MVC Movie]\(MVC ムービー\)** リンクをクリックすると、次のようなエラーが表示されます。
 
 ``` error
 An unhandled exception occurred while processing the request.
@@ -143,7 +143,7 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. **[ツール]** メニューで、**[NuGet パッケージ マネージャー]** > **[パッケージ マネージャー コンソール]** (PMC) の順に選択します。
+1. **[ツール]** メニューで、 **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** (PMC) の順に選択します。
 
    ![PMC メニュー](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
@@ -156,7 +156,7 @@ System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity id
 
    `Add-Migration` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。
 
-   データベース スキーマは、`MvcMovieContext` クラスで指定されたモデルに基づきます (*Data/MvcMovieContext.cs* ファイル内)。 `Initial` 引数は、移行の名前です。 任意の名前を使用できますが、慣例により、移行を説明する名前が使用されます。 詳細については、「<xref:data/ef-mvc/migrations>」を参照してください。
+   データベース スキーマは、`MvcMovieContext` クラスで指定されたモデルに基づきます。 `Initial` 引数は、移行の名前です。 任意の名前を使用できますが、慣例により、移行を説明する名前が使用されます。 詳細については、「<xref:data/ef-mvc/migrations>」を参照してください。
 
    `Update-Database` コマンドは、データベースを作成する、*Migrations/{time-stamp}_InitialCreate.cs* ファイルの `Up` メソッドを実行します。
 
@@ -182,7 +182,7 @@ ASP.NET Core には、[依存関係挿入 (DI)](xref:fundamentals/dependency-inj
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-`MvcMovieContext` では、`Movie` モデルのために EF Core 機能 (作成、読み取り、更新、削除など) が調整されます。 データ コンテキスト (`MvcMovieContext`) は [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) から派生されます。 データ コンテキストによって、データ モデルに含めるエンティティが指定されます: 
+`MvcMovieContext` では、`Movie` モデルのために EF Core 機能 (作成、読み取り、更新、削除など) が調整されます。 データ コンテキスト (`MvcMovieContext`) は [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) から派生されます。 データ コンテキストによって、データ モデルに含めるエンティティが指定されます:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
 
@@ -202,7 +202,7 @@ DB コンテキストを作成し、それを DI コンテナーに登録しま�
 
 * アプリを実行し、ブラウザーで URL に `/Movies` を追加します ( `http://localhost:port/movies` )。
 
-次のようなデータベースの例外が表示された場合: 
+次のようなデータベースの例外が表示された場合:
 
 ```console
 SqlException: Cannot open database "MvcMovieContext-GUID" requested by the login. The login failed.
@@ -216,7 +216,7 @@ Login failed for user 'User-name'.
   > [!NOTE]
   > `Price` フィールドに小数点のコンマを入力できない場合があります。 小数点にコンマ (",") を使う英語以外のロケール、および英語 (米国) 以外の日付形式で、[jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する必要があります。 グローバル化の手順については、[この GitHub の記事](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420)をご覧ください。
 
-* **[編集]**、**[詳細]**、および **[削除]** の各リンクをテストします。
+* **[編集]** 、 **[詳細]** 、および **[削除]** の各リンクをテストします。
 
 次の `Startup` クラスを調べます。
 

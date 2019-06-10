@@ -5,14 +5,14 @@ description: ASP.NET Core でホステッド サービスを使用するバッ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/03/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 613227cdead1d0b62a0dead2fca9fab68fd534cc
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 2dbb1a84a380ab06a4be7ecf628799a070afc9e3
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889007"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692516"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core でホステッド サービスを使用するバックグラウンド タスク
 
@@ -30,6 +30,32 @@ ASP.NET Core では、バックグラウンド タスクを*ホステッド サ�
 
 * Web ホスト &ndash; Web ホストは、Web アプリをホストするのに役立ちます。 このトピックで示すコード例は、サンプルの Web ホスト バージョンからのものです。 詳細については、[Web ホスト](xref:fundamentals/host/web-host)のトピックをご覧ください。
 * 汎用ホスト &ndash; 汎用ホストは ASP.NET Core 2.1 の新機能です。 詳細については、[汎用ホスト](xref:fundamentals/host/generic-host)のトピックをご覧ください。
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="worker-service-template"></a>ワーカー サービス テンプレート
+
+ASP.NET Core ワーカー サービス テンプレートは、実行時間が長いサービス アプリを作成する場合の出発点として利用できます。 ホステッド サービス アプリの基礎としてテンプレートを使用するには:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. 新しいプロジェクトを作成します。
+1. **[ASP.NET Core Web アプリケーション]** を選択します。 **[次へ]** を選択します。
+1. **[プロジェクト名]** フィールドにプロジェクト名を入力するか、既定のプロジェクト名をそのまま使用します。 **[作成]** を選択します。
+1. **[新しい ASP.NET Core Web アプリケーションを作成する]** ダイアログで、 **[.NET Core]** と **[ASP.NET Core 3.0]** が選択されていることを確認します。
+1. **[ワーカー サービス]** テンプレートを選択します。 **[作成]** を選択します。
+
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
+
+コマンド シェルから [dotnet new](/dotnet/core/tools/dotnet-new) コマンドと共にワーカー サービス (`worker`) テンプレートを使用します。 次の例では、`ContosoWorkerService` という名前のワーカー サービス アプリが作成されます。 このコマンドが実行されると、`ContosoWorkerService` アプリ用のフォルダーが自動的に作成されます。
+
+```console
+dotnet new worker -o ContosoWorkerService
+```
+
+---
+
+::: moniker-end
 
 ## <a name="package"></a>Package
 

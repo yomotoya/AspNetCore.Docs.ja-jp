@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: bba9cf051deaf57efdd82ca2fb1318fce79bd6cc
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 4c49a5349c0718e5c59f30e6d51caf7a43fa0454
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223217"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458446"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core での Websocket のサポート
 
@@ -20,7 +20,13 @@ ms.locfileid: "66223217"
 
 この記事では、ASP.NET Core で Websocket の使用を開始する方法について説明します。 [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) は、TCP 接続を使用した双方向の永続的通信チャネルを有効にするプロトコルです。 このプロトコルは、チャット、ダッシュボード、ゲーム アプリなど、高速かつリアルタイムのコミュニケーションを活用するアプリで使用されます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 詳細については、「[次の手順](#next-steps)」のセクションを参照してください。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。 [実行方法](#sample-app)。
+
+## <a name="signalr"></a>SignalR
+
+[ASP.NET Core SignalR](xref:signalr/introduction) は、アプリへのリアルタイム Web 機能の追加を簡単にするライブラリです。 可能なかぎり、WebSocket が使用されます。
+
+ほとんどのアプリケーションでは、生の WebSocket よりも SignalR が推奨されます。 SignalR には、WebSocket を使用できない環境の場合にトランスポートのフォールバックが用意されています。 シンプルなリモート プロシージャ呼び出しアプリ モデルも用意されています。 また、ほとんどのシナリオで、SignalR には生の WebSocket を使用した場合と比較してパフォーマンス上の大きなデメリットがありません。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -43,34 +49,20 @@ ms.locfileid: "66223217"
 
 * サポートされているブラウザーについては、 https://caniuse.com/#feat=websockets を参照してください。
 
-## <a name="when-to-use-websockets"></a>WebSockets を使用する場合
+::: moniker range="< aspnetcore-2.1"
 
-Websocket を使用して、ソケット接続を直接使用します。 たとえば、リアルタイムのゲームで最高のパフォーマンスが必要な場合に WebSockets を使用します。
+## <a name="nuget-package"></a>NuGet パッケージ
 
-[ASP.NET Core SignalR](xref:signalr/introduction) は、アプリへのリアルタイム Web 機能の追加を簡単にするライブラリです。 可能なかぎり、WebSocket が使用されます。
+[Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) パッケージをインストールします。
 
-## <a name="how-to-use-websockets"></a>WebSocket の使用方法
+::: moniker-end
 
-* [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) パッケージをインストールします。
-* ミドルウェアを構成します。
-* WebSocket の要求を受け入れます。
-* メッセージを送受信します。
+## <a name="configure-the-middleware"></a>ミドルウェアの構成
 
-### <a name="configure-the-middleware"></a>ミドルウェアの構成
 
 `Startup` クラスの `Configure` メソッドに、Websocket ミドルウェアを追加します。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
-
-::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
@@ -91,35 +83,15 @@ Websocket を使用して、ソケット接続を直接使用します。 たと
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptions)]
 
-::: moniker-end
+## <a name="accept-websocket-requests"></a>WebSocket の要求の受け入れ
 
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptions)]
-
-::: moniker-end
-
-### <a name="accept-websocket-requests"></a>WebSocket の要求の受け入れ
-
-以降の要求ライフサイクルのどこかで (たとえば、以降の `Configure` メソッドまたは MVC アクションで)、それが WebSocket 要求であるかを確認し、WebSocket 要求を受け入れます。
+以降の要求ライフサイクルのどこかで (たとえば、以降の `Configure` メソッドまたはアクション メソッド)、それが WebSocket 要求であるかを確認し、WebSocket 要求を受け入れます。
 
 次の例は、以降の `Configure` メソッドから抜粋したものです。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
-
-::: moniker-end
 
 WebSocket 要求はどの URL からも受け取る場合がありますが、このサンプル コードでは `/ws` の要求のみを受け取ります。
 
@@ -130,37 +102,41 @@ System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed t
 Object name: 'HttpResponseStream'.
 ```
 
-バックグラウンド サービスを利用してデータを WebSocket に書き込む場合、ミドルウェア パイプラインの実行を維持します。 これは <xref:System.Threading.Tasks.TaskCompletionSource%601> を使用して行います。 `TaskCompletionSource` をバックグラウンド サービスに渡し、WebSocket が終わったとき、それに <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> を呼び出させます。 次に、要求中、<xref:System.Threading.Tasks.TaskCompletionSource%601.Task> プロパティを `await` します。
+バックグラウンド サービスを利用してデータを WebSocket に書き込む場合、ミドルウェア パイプラインの実行を維持します。 これは <xref:System.Threading.Tasks.TaskCompletionSource%601> を使用して行います。 `TaskCompletionSource` をバックグラウンド サービスに渡し、WebSocket が終わったとき、それに <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> を呼び出させます。 次の例に示すように、要求中に <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> プロパティの `await` を行います。
 
-### <a name="send-and-receive-messages"></a>メッセージの送受信
+```csharp
+app.Use(async (context, next) => {
+    var socket = await context.WebSockets.AcceptWebSocketAsync();
+    var socketFinishedTcs = new TaskCompletionSource<object>();
+
+    BackgroundSocketProcessor.AddSocket(socket, socketFinishedTcs); 
+
+    await socketFinishedTcs.Task;
+});
+```
+WebSocket の終了例外は、アクション メソッドから早く戻りすぎた場合にも発生する可能性があります。 アクション メソッドでソケットを受け入れる場合は、そのソケットを使用するコードが完了するまで待ち、アクション メソッドから戻ってください。
+
+重大なスレッドの問題を引き起こす可能性があるので、ソケットの完了を待つために `Task.Wait()`、`Task.Result`、または同様のブロック呼び出しを使用しないでください。 常に `await` を使用します。
+
+## <a name="send-and-receive-messages"></a>メッセージの送受信
 
 `AcceptWebSocketAsync` メソッドは、TCP 接続を WebSocket 接続にアップグレードし、[WebSocket](/dotnet/core/api/system.net.websockets.websocket) オブジェクトを提供します。 メッセージの送受信に、`WebSocket` オブジェクトを使用します。
 
 前に示した、WebSocket 要求を受け入れるコードが、`WebSocket` オブジェクトを `Echo` メソッドに渡します。 このコードは、メッセージを受信し、同じメッセージをすぐに送信します。 クライアントが接続を閉じるまで、メッセージがループで送受信されます。
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=Echo)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=Echo)]
-
-::: moniker-end
 
 このループを開始する前に、WebSocket 接続を受け入れた場合、ミドルウェア パイプラインは終了します。 ソケットを閉じると、パイプラインはアンワインドされます。 つまり、WebSocket を受け入れると、要求はパイプラインでの先への移動を中止します。 ループを終了し、ソケットを閉じた場合、要求はパイプラインのバックアップを続けます。
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="handle-client-disconnects"></a>クライアントの切断の処理
+## <a name="handle-client-disconnects"></a>クライアントの切断の処理
 
 接続の損失によってクライアントが切断されても、サーバーに自動的に通知されるわけではありません。 サーバーが切断メッセージを受信するのは、クライアントがそれを送信した場合のみです。インターネット接続が失われた場合、これを実行することはできません。 これが発生した場合に何らかのアクションを実行したい場合は、特定の時間枠内でクライアントからの受信を待つタイムアウトを設定します。
 
 クライアントが常にメッセージを送信するとは限らず、その接続がアイドル状態になっただけでタイムアウトしたくない場合は、X 秒ごとに ping メッセージを送信するタイマーをクライアントに使用させます。 サーバー上では、前のものから 2\*X 秒以内にメッセージが到着しなかった場合に、接続を終了してクライアントが切断されたことをレポートします。 予想される 2 倍の期間を待機することで、ping メッセージを遅らせる可能性のあるネットワークの遅延のために余分な時間を残します。
 
-### <a name="websocket-origin-restriction"></a>WebSocket の配信元の制限
+## <a name="websocket-origin-restriction"></a>WebSocket の配信元の制限
 
 CORS で提供される保護は、WebSocket には適用されません。 ブラウザーでは以下を実行**しません**。
 
@@ -220,7 +196,7 @@ Windows 8 以降で WebSocket プロトコルのサポートを有効にする�
 </system.webServer>
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="sample-app"></a>サンプル アプリ
 
 この記事に添えられている[サンプル アプリ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples)は、エコー アプリです。 これには、WebSocket 接続を作成する Web ページがあり、サーバーが受け取るすべてのメッセージをクライアントに再送信します。 コマンド プロンプトからアプリを実行し (IIS Express を使用した Visual Studio からは実行するように設定されていません)、 http://localhost:5000 に移動します。 Web ページの左上に、接続の状態が示されます。
 
@@ -229,3 +205,4 @@ Windows 8 以降で WebSocket プロトコルのサポートを有効にする�
 **[接続]** を選択し、表示されている URL に WebSocket 要求を送信します。 テスト メッセージを入力し、 **[送信]** を選択します。 完了したら、 **[Close Socket]\(ソケットを閉じる\)** を選択します。 **[Communication Log]\(コミュニケーション ログ\)** セクションに、発生した各オープン、送信、クローズのアクションが表示されます。
 
 ![Web ページの初期状態](websockets/_static/end.png)
+

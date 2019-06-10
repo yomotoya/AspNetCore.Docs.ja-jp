@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/12/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 80994cb84e9e0658ee90198b6bf992e5b374bf3c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: e4c93459f2030c7c0a55ea90e0cc8c8d30b76c51
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970027"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470460"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -56,7 +56,7 @@ ASP.NET Core モジュールはバックエンドのドットネット プロセ
 
 ![502.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range="= aspnetcore-2.2"
 
 ### <a name="50030-in-process-startup-failure"></a>500.30 インプロセス起動エラー
 
@@ -80,6 +80,93 @@ ASP.NET Core モジュールは .NET Core CLR の検出に失敗し、インプ�
 ワーカー プロセスが失敗します。 アプリは起動しません。
 
 ASP.NET Core モジュールは、アウト プロセスのホスティング要求ハンドラーの検索に失敗します。 *aspnetcorev2_outofprocess.dll* が *aspnetcorev2.dll* の隣のサブフォルダーにあることを確認してください。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 ANCM Failed to Find Native Dependencies (500.31 ANCM ネイティブの依存関係を見つけられませんでした)
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+ASP.NET Core モジュールで .NET Core ランタイムの開始がインプロセスで試行されますが、開始に失敗します。 このスタートアップ エラーの最も一般的な原因は、`Microsoft.NETCore.App` または `Microsoft.AspNetCore.App` ランタイムがインストールされていない場合です。 アプリが ASP.NET Core 3.0 をターゲットとして展開されていて、そのバージョンがコンピューターに存在しない場合、このエラーが発生します。 エラー メッセージの例は次のとおりです。
+
+```
+The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
+  - The following frameworks were found:
+      2.2.1 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview5-27626-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27713-13 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27714-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27723-08 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+```
+
+エラー メッセージには、インストールされているすべての .NET Core のバージョンとアプリに必要なバージョンが一覧表示されます。 このエラーを修正するには、次のいずれかを実行します。
+
+* 適切なバージョンの .NET Core をマシンにインストールします。
+* マシンに存在する .NET Core のバージョンをターゲットにするようにアプリを変更します。
+* アプリを[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)として発行します。
+
+開発環境で実行している場合 (`ASPNETCORE_ENVIRONMENT` 環境変数が `Development` に設定されている場合)、特定のエラーが HTTP 応答に書き込まれます。 プロセスのスタートアップ エラーの原因は、[アプリケーション イベント ログ](#application-event-log)でも見つかります。
+
+### <a name="50032-ancm-failed-to-load-dll"></a>500.32 ANCM Failed to Load dll (500.32 ANCM DLL を読み込めませんでした)
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+このエラーの最も一般的な原因は、アプリが互換性のないプロセッサ アーキテクチャ用に発行されていることです。 ワーカー プロセスが 32 ビットアプリとして実行されていて、そのアプリが 64 ビットをターゲットとして発行されている場合、このエラーが発生します。
+
+このエラーを修正するには、次のいずれかを実行します。
+
+* ワーカー プロセスと同じプロセッサ アーキテクチャ用にアプリを再発行します。
+* アプリを[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-executables-fde)として発行します。
+
+### <a name="50033-ancm-request-handler-load-failure"></a>500.33 ANCM Request Handler Load Failure (500.33 ANCM 要求ハンドラーの読み込みエラー)
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+アプリは `Microsoft.AspNetCore.App` フレームワークを参照していませんでした。 ASP.NET Core モジュールでホストできるのは、`Microsoft.AspNetCore.App` フレームワークをターゲットとしているアプリのみです。
+
+このエラーを修正するには、アプリが `Microsoft.AspNetCore.App` フレームワークをターゲットにしていることを確認します。 アプリがターゲットとしているフレームワークを確認するには、`.runtimeconfig.json` を確認します。
+
+### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500.34 ANCM Mixed Hosting Models Not Supported (500.34 ANCM 混在ホスティング モデルはサポートされません)
+
+ワーカー プロセスでは、インプロセス アプリとアウト プロセス アプリの両方を同じプロセスで実行できません。
+
+このエラーを修正するには、別の IIS アプリケーション プールでアプリを実行します。
+
+### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500.35 ANCM Multiple In-Process Applications in same Process (500.35 ANCM 同一プロセス内の複数のインプロセス アプリケーション)
+
+ワーカー プロセスでは、インプロセス アプリとアウト プロセス アプリの両方を同じプロセスで実行できません。
+
+このエラーを修正するには、別の IIS アプリケーション プールでアプリを実行します。
+
+### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500.36 ANCM Out-Of-Process Handler Load Failure (500.36 ANCM アウト プロセス ハンドラーの読み込みエラー)
+
+アウト プロセス要求ハンドラーの *aspnetcorev2_outofprocess.dll* が *aspnetcorev2.dll* ファイルの次にありません。 これは、ASP.NET Core モジュールのインストールが破損していることを示しています。
+
+このエラーを修正するには、[.NET Core Hosting Bundle](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (IIS 用) または Visual Studio (IIS Express 用) のインストールを修復します。
+
+### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500.37 ANCM Failed to Start Within Startup Time Limit (500.37 ANCM スタートアップ時間の制限内に起動できませんでした)
+
+指定されたスタートアップ時間の制限内に ANCM が起動に失敗しました。 既定では、タイムアウトは 120 秒です。
+
+このエラーは、同じマシン上で多数のアプリを起動したときに発生する可能性があります。 スタートアップ中のサーバー上の CPU/メモリ使用量の急上昇を確認します。 必要に応じて、複数のアプリのスタートアップ プロセスをずらします。
+
+### <a name="50030-in-process-startup-failure"></a>500.30 インプロセス起動エラー
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+ASP.NET Core モジュールで .NET Core ランタイムの開始がインプロセスで試行されますが、開始に失敗します。 プロセス起動時のエラーの原因は、通常、[アプリケーション イベント ログ](#application-event-log)と [ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)のエントリから判断します。
+
+### <a name="5000-in-process-handler-load-failure"></a>500.0 インプロセス ハンドラーの読み込みエラー
+
+ワーカー プロセスが失敗します。 アプリは起動しません。
+
+ASP.NET Core モジュール コンポーネントの読み込み中に不明なエラーが発生しました。 次のいずれかのアクションを実行します。
+
+* [Microsoft サポート](https://support.microsoft.com/oas/default.aspx?prid=15832)に問い合わせます ( **[開発者ツール]** 、 **[ASP.NET Core]** の順に選択します)。
+* Stack Overflow について質問します。
+* [GitHub リポジトリ](https://github.com/aspnet/AspNetCore)で問題を報告します。
 
 ::: moniker-end
 

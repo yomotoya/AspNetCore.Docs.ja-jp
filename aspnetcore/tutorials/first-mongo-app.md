@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core と MongoDB で Web API を構築する
+title: ASP.NET Core と MongoDB で Web API を作成する
 author: prkhandelwal
-description: このチュートリアルは、MongoDB NoSQL データベースを使用して ASP.NET Core Web API を構築する方法を説明します。
+description: このチュートリアルは、MongoDB NoSQL データベースを使用して ASP.NET Core Web API を作成する方法を説明します。
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 01/31/2019
+ms.date: 06/04/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: f593a8d2d06897736b12f49f25c6049ea994a88a
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 6a8c5d75f562b38015101e039a2f5d96a5491595
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610608"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692552"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>ASP.NET Core と MongoDB で Web API を作成する
 
@@ -142,9 +142,10 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. **[ファイル]** > **[新規作成]** > **[プロジェクト]** に移動します。
-1. **[ASP.NET Core Web アプリケーション]** を選択し、プロジェクト名を「*BooksApi*」として、**[OK]** をクリックします。
-1. **[.NET Core]** ターゲット フレームワークと **[ASP.NET Core 2.2]** を選択します。 **[API]** プロジェクト テンプレートを選択し、**[OK]** をクリックします。
+1. **[ファイル]**  >  **[新規作成]**  >  **[プロジェクト]** に移動します。
+1. **[ASP.NET Core Web アプリケーション]** プロジェクトの種類を選択し、 **[次へ]** を選択します。
+1. プロジェクトに *BooksApi* という名前を付けて、 **[作成]** を選択します。
+1. **[.NET Core]** ターゲット フレームワークと **[ASP.NET Core 2.2]** を選択します。 **[API]** プロジェクト テンプレートを選択し、 **[作成]** を選択します。
 1. [NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。 **[パッケージ マネージャー コンソール]** ウィンドウで、プロジェクトのルートに移動します。 次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。
 
     ```powershell
@@ -162,7 +163,7 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
     .NET Core をターゲットとする新しい ASP.NET Core Web API プロジェクトが生成され、Visual Studio Code で開きます。
 
-1. **[はい]** をクリックするのは、*[Required assets to build and debug are missing from 'BooksApi'.Add them?]\(構築とデバッグに必要なアセットが 'BooksApi' にありません。追加しますか?\)* という通知が表示された場合です。
+1. 状態バーの OmniSharp フレーム アイコンが緑色になり、"**ビルドとデバッグに必要な資産が 'BooksApi' にありません。追加しますか?** " という内容のダイアログ ボックスが表示されます。 **[はい]** を選択します。
 1. [NuGet ギャラリー:MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) に関するページを参照して、MongoDB 用 .NET ドライバーの最新の安定バージョンを確認します。 **[統合端末]** を開き、プロジェクトのルートに移動します。 次のコマンドを実行して、MongoDB 用の .NET ドライバーをインストールします。
 
     ```console
@@ -171,80 +172,109 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-1. **[ファイル]** > **[新しいソリューション]** > **[.NET Core]** > **[アプリ]** に移動します。
-1. **[ASP.NET Core Web API]** C# プロジェクト テンプレートを選択し、**[次へ]** をクリックします。
-1. **[ターゲット フレームワーク]** ドロップダウン リストで **[.NET Core 2.2]** を選択し、**[次へ]** をクリックします。
-1. **[プロジェクト名]** に「*BooksApi*」と入力し、**[作成]** をクリックします。
-1. **[ソリューション]** パッドで、プロジェクトの **[依存関係]** ノードを右クリックし、**[パッケージを追加]** を選択します。
-1. 検索ボックスに「*MongoDB.Driver*」と入力し、*MongoDB.Driver* パッケージを選択して、**[パッケージを追加]** をクリックします。
-1. **[ライセンスへの同意]** ダイアログの **[承諾]** ボタンをクリックします。
+1. **[ファイル]**  >  **[新しいソリューション]**  >  **[.NET Core]**  >  **[アプリ]** に移動します。
+1. **[ASP.NET Core Web API]** C# プロジェクト テンプレートを選択し、 **[次へ]** を選択します。
+1. **[ターゲット フレームワーク]** ドロップダウン リストで **[.NET Core 2.2]** を選択し、 **[次へ]** を選択します。
+1. **[プロジェクト名]** に「*BooksApi*」と入力し、 **[作成]** を選択します。
+1. **[ソリューション]** パッドで、プロジェクトの **[依存関係]** ノードを右クリックし、 **[パッケージを追加]** を選択します。
+1. 検索ボックスに「*MongoDB.Driver*」と入力し、*MongoDB.Driver* パッケージを選択して、 **[パッケージを追加]** を選択します。
+1. **[ライセンスへの同意]** ダイアログの **[承諾]** ボタンを選択します。
 
 ---
 
-## <a name="add-a-model"></a>モデルを追加する
+## <a name="add-an-entity-model"></a>モデルにエンティティを追加する
 
 1. *Models* ディレクトリをプロジェクトのルートに追加します。
 1. 次のコードを使用して、`Book` クラスを *Models* ディレクトリに追加します。
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
-上記のクラスでは、`Id` プロパティは:
+    上記のクラスでは、`Id` プロパティは:
+    
+    * 共通言語ランタイム (CLR) オブジェクトを MongoDB コレクションにマッピングするために必須です。
+    * ドキュメントの主キーとしてこのプロパティを指定するために、[[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) で注釈を付けられています。
+    * パラメーターを [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) 構造体ではなく型 `string` として渡すことができるように、[[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) で注釈が付けられています。 Mongo によって `string` から `ObjectId` への変換が処理されます。
+    
+    クラスのその他のプロパティは、[[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) 属性で注釈を付けられています。 属性の値は、MongoDB コレクションでのプロパティ名を表します。
 
-* 共通言語ランタイム (CLR) オブジェクトを MongoDB コレクションにマッピングするために必須です。
-* ドキュメントの主キーとしてこのプロパティを指定するために、`[BsonId]` で注釈を付けられています。
-* `ObjectId` ではなく `string` 型としてパラメーターを渡すことができるようにするために、`[BsonRepresentation(BsonType.ObjectId)]` で注釈を付けられています。 Mongo によって `string` から `ObjectId` への変換が処理されます。
+## <a name="add-a-configuration-model"></a>構成モデルを追加する
 
-クラスのその他のプロパティは、`[BsonElement]` 属性で注釈を付けられています。 属性の値は、MongoDB コレクションでのプロパティ名を表します。
+1. 次のデータベース構成値を *appsettings.json* に追加します。
 
-## <a name="add-a-crud-operations-class"></a>CRUD 操作のクラスを追加する
+    [!code-json[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-6)]
+
+1. 次のコードを使用して、*BookstoreDatabaseSettings.cs* ファイルを *Models* ディレクトリに追加します。
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/BookstoreDatabaseSettings.cs)]
+
+    前述の `BookstoreDatabaseSettings` クラスは、*appsettings.json* ファイルの `BookstoreDatabaseSettings` プロパティ値を格納するために使用されます。 JSON と C# のプロパティ名には、マッピング処理を簡単にするために同じ名前が付けられています。
+
+1. `AddMvc` の呼び出しの前に、次のコードを `Startup.ConfigureServices` に追加します。
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureDatabaseSettings)]
+
+    上のコードでは以下の操作が行われます。
+
+    * *appsettings.json* ファイルの `BookstoreDatabaseSettings` セクションがバインドされている構成インスタンスは、Dependency Injection (DI) コンテナーに登録されています。 たとえば、`BookstoreDatabaseSettings` オブジェクトの `ConnectionString` プロパティには、*appsettings.json* の `BookstoreDatabaseSettings:ConnectionString` プロパティが設定されています。
+    * `IBookstoreDatabaseSettings` インターフェイスは、シングルトン [サービス有効期間](xref:fundamentals/dependency-injection#service-lifetimes)で DI に登録されています。 挿入されると、インターフェイス インスタンスは `BookstoreDatabaseSettings` オブジェクトに解決されます。
+
+1. 次のコードを *Startup.cs* の先頭に追加して、`BookstoreDatabaseSettings` と `IBookstoreDatabaseSettings` の参照を解決します。
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_UsingBooksApiModels)]
+
+## <a name="add-a-crud-operations-service"></a>CRUD 操作のサービスを追加する
 
 1. *Services* ディレクトリをプロジェクトのルートに追加します。
 1. 次のコードを使用して、`BookService` クラスを *Services* ディレクトリに追加します。
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceClass)]
 
-1. MongoDB の接続文字列を *appsettings.json* に追加します。
+    前述のコードでは、`IBookstoreDatabaseSettings` インスタンスがコンストラクターの挿入によって DI から取得されます。 この手法で、「[構成モデルを追加する](#add-a-configuration-model)」セクションで追加した *appsettings.json* 構成値にアクセスできます。
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-4)]
+1. `Startup.ConfigureServices` で、`BookService` クラスを DI に登録します。
 
-    上記の `BookstoreDb` プロパティは `BookService` クラス コンストラクターでアクセスされます。
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=9)]
 
-1. `Startup.ConfigureServices` で、`BookService` クラスを依存関係挿入システムに登録します。
+    前述のコードでは、消費クラスへのコンストラクターの挿入をサポートする `BookService` クラスが DI に登録されています。 `BookService` が `MongoClient` に直接依存しているため、シングルトン サービスの有効期間が最も適切です。 公式の [Mongo Client 再利用ガイドライン](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)に従い、シングルトン サービスの有効期間を使用して DI に `MongoClient` を登録する必要があります。
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
+1. 次のコードを *Startup.cs* の先頭に追加して、`BookService` の参照を解決します。
 
-    上記のサービスの登録は、コンシューマー クラスでコンス トラクターの挿入をサポートするために必要です。
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_UsingBooksApiServices)]
 
 `BookService` クラスは次の `MongoDB.Driver` メンバーを使用して、データベースに対する CRUD 操作を実行します。
 
-* `MongoClient` &ndash; データベース操作を実行するためにサーバー インスタンスを読み取ります。 このクラスのコンストラクターには MongoDB 接続文字列が提供されます。
+* [MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; データベース操作を実行するためにサーバー インスタンスを読み取ります。 このクラスのコンストラクターには MongoDB 接続文字列が提供されます。
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
 
-* `IMongoDatabase` &ndash; 操作を実行する Mongo データベースを表します。 このチュートリアルでは、インターフェイスで汎用の `GetCollection<T>(collection)` メソッドを使用し、特定のコレクション内のデータへのアクセスを取得します。 CRUD 操作をこのコレクションに対して実行できるのは、このメソッドが呼び出された後です。 `GetCollection<T>(collection)` メソッドの呼び出しの内容は次のとおりです。
+* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; 操作を実行する Mongo データベースを表します。 このチュートリアルでは、インターフェイスで汎用の [GetCollection<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) メソッドを使用し、特定のコレクション内のデータへのアクセスを取得します。 このメソッドが呼び出された後に、CRUD 操作をこのコレクションに対して実行します。 `GetCollection<TDocument>(collection)` メソッドの呼び出しの内容は次のとおりです。
   * `collection` はコレクション名です。
-  * `T` はコレクションに格納されている CLR オブジェクト型です。
+  * `TDocument` はコレクションに格納されている CLR オブジェクト型です。
 
-`GetCollection<T>(collection)` は、コレクションを表す `MongoCollection` オブジェクトを返します。 このチュートリアルでは、コレクションに対して次のメソッドを呼び出します。
+`GetCollection<TDocument>(collection)` から、コレクションを表す [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) オブジェクトが返されます。 このチュートリアルでは、コレクションに対して次のメソッドを呼び出します。
 
-* `Find<T>` &ndash; 指定された検索基準と一致するコレクション内のすべてのドキュメントを返します。
-* `InsertOne` &ndash; 指定されたオブジェクトを新しいドキュメントとしてコレクションに挿入します。
-* `ReplaceOne` &ndash; 指定された検索基準と一致する 1 つのドキュメントを、指定されたオブジェクトで置き換えます。
-* `DeleteOne` &ndash; 指定された検索基準と一致する 1 つのドキュメントを削除します。
+* [DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; 指定された検索基準と一致する 1 つのドキュメントを削除します。
+* [Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; 指定された検索基準と一致するコレクション内のすべてのドキュメントを返します。
+* [InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; 指定されたオブジェクトを新しいドキュメントとしてコレクションに挿入します。
+* [ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; 指定された検索基準と一致する 1 つのドキュメントを、指定されたオブジェクトで置き換えます。
 
 ## <a name="add-a-controller"></a>コントローラーの追加
 
-1. 次のコードを使用して、`BooksController` クラスを *Controllers* ディレクトリに追加します。
+次のコードを使用して、`BooksController` クラスを *Controllers* ディレクトリに追加します。
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
+[!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
 
-    上記の Web API コントローラー:
+上記の Web API コントローラー:
 
-    * `BookService` クラスを使用して CRUD 操作を実行します。
-    * GET、POST、PUT、DELETE HTTP 要求をサポートするアクション メソッドが含まれます。
-    * <xref:System.Web.Http.ApiController.CreatedAtRoute*> メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。
+* `BookService` クラスを使用して CRUD 操作を実行します。
+* GET、POST、PUT、DELETE HTTP 要求をサポートするアクション メソッドが含まれます。
+* `Create` アクション メソッドで <xref:System.Web.Http.ApiController.CreatedAtRoute*> を呼び出して、[HTTP 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) 応答を返します。 状態コード 201 は、サーバーに新しいリソースを作成する HTTP POST メソッドに対する標準の応答です。 `CreatedAtRoute` によって、応答に `Location` ヘッダーも追加されます。 `Location` ヘッダーでは、新しく作成されたブックの URI を指定します。
+
+## <a name="test-the-web-api"></a>Web API をテストする
+
 1. アプリケーションをビルドし、実行します。
-1. ブラウザーで `http://localhost:<port>/api/books` にナビゲートします。 次の JSON 応答が示されます。
+
+1. `http://localhost:<port>/api/books` に移動して、コントローラーのパラメーターなしの `Get` アクション メソッドをテストします。 次の JSON 応答が示されます。
 
     ```json
     [
@@ -263,6 +293,18 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
         "author":"Robert C. Martin"
       }
     ]
+    ```
+
+1. `http://localhost:<port>/api/books/5bfd996f7b8e48dc15ff215e` に移動して、コントローラーのオーバーロードされた `Get` アクション メソッドをテストします。 次の JSON 応答が示されます。
+
+    ```json
+    {
+      "id":"5bfd996f7b8e48dc15ff215e",
+      "bookName":"Clean Code",
+      "price":43.15,
+      "category":"Computers",
+      "author":"Robert C. Martin"
+    }
     ```
 
 ## <a name="next-steps"></a>次の手順

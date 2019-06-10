@@ -4,14 +4,14 @@ author: rick-anderson
 description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 05/31/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 17ce0c111daabe2c7bbf4795b658856568c85158
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8430f8e720870a7b541655ea8bcfe2f67c942bb3
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886177"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458427"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - コンカレンシー - 8/8
 
@@ -189,7 +189,7 @@ Index ページを更新するために、次を実行します。
 
 ### <a name="update-the-edit-page-model"></a>Edit ページ モデルの更新
 
-次のコードを使用して、*pages\departments\edit.cshtml.cs* を更新します。
+次のコードで *Pages\Departments\Edit.cshtml.cs* を更新します。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
@@ -231,12 +231,12 @@ Index ページを更新するために、次を実行します。
 English 部署の 2 つの Edit のブラウザー インスタンスを開きます。
 
 * アプリを実行し、部署を選択します。
-* English 部署の **[編集]** ハイパーリンクを右クリックし、**[新しいタブで開く]** を選択します。
+* English 部署の **[編集]** ハイパーリンクを右クリックし、 **[新しいタブで開く]** を選択します。
 * 最初のタブの English 部署の **[編集]** ハイパーリンクをクリックします。
 
 2 つのブラウザー タブに同じ情報が表示されます。
 
-最初のブラウザー タブの名前を変更し、**[保存]** をクリックします。
+最初のブラウザー タブの名前を変更し、 **[保存]** をクリックします。
 
 ![変更後の Department Edit ページ 1](concurrency/_static/edit-after-change-1.png)
 
@@ -289,12 +289,12 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 テスト部署の 2 つの Delete のブラウザー インスタンスを開きます。
 
 * アプリを実行し、部署を選択します。
-* テスト部署の **[削除]** ハイパーリンクを右クリックし、**[新しいタブで開く]** を選択します。
+* テスト部署の **[削除]** ハイパーリンクを右クリックし、 **[新しいタブで開く]** を選択します。
 * テスト部署の **[編集]** ハイパーリンクをクリックします。
 
 2 つのブラウザー タブに同じ情報が表示されます。
 
-最初のブラウザー タブで予算を変更し、**[保存]** をクリックします。
+最初のブラウザー タブで予算を変更し、 **[保存]** をクリックします。
 
 Index ページが、値が変更され、rowVersion インジケーターが更新され、ブラウザーに表示されます。 更新された rowVersion インジケーターに注意してください。これは、他方のタブの 2 番目のポストバックに表示されています。
 

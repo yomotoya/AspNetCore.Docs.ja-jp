@@ -5,14 +5,14 @@ description: Windows サービスで ASP.NET Core アプリケーションをホ
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 06/03/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: ab36bc1b2827c80bb1e7b9e8cee558b346a991f8
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 4cfca4b38543ff073bb98dc09b483d96096928ae
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251428"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692572"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -26,6 +26,35 @@ ASP.NET Core アプリは、IIS を 使用せずに、[Windows サービス](/do
 
 * [ASP.NET Core SDK 2.1 以降](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 以降](https://github.com/PowerShell/PowerShell)
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="worker-service-template"></a>ワーカー サービス テンプレート
+
+ASP.NET Core ワーカー サービス テンプレートは、実行時間が長いサービス アプリを作成する場合の出発点として利用できます。 テンプレートを Windows サービス アプリの基礎として使用するには:
+
+1. .NET Core テンプレートからワーカー サービス アプリを作成します。
+1. 「[アプリの構成](#app-configuration)」セクションのガイダンスに従って、Windows サービスとして実行できるようにワーカー サービス アプリを更新します。
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. 新しいプロジェクトを作成します。
+1. **[ASP.NET Core Web アプリケーション]** を選択します。 **[次へ]** を選択します。
+1. **[プロジェクト名]** フィールドにプロジェクト名を入力するか、既定のプロジェクト名をそのまま使用します。 **[作成]** を選択します。
+1. **[新しい ASP.NET Core Web アプリケーションを作成する]** ダイアログで、 **[.NET Core]** と **[ASP.NET Core 3.0]** が選択されていることを確認します。
+1. **[ワーカー サービス]** テンプレートを選択します。 **[作成]** を選択します。
+
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
+
+コマンド シェルから [dotnet new](/dotnet/core/tools/dotnet-new) コマンドと共にワーカー サービス (`worker`) テンプレートを使用します。 次の例では、`ContosoWorkerService` という名前のワーカー サービス アプリが作成されます。 このコマンドが実行されると、`ContosoWorkerService` アプリ用のフォルダーが自動的に作成されます。
+
+```console
+dotnet new worker -o ContosoWorkerService
+```
+
+---
+
+::: moniker-end
 
 ## <a name="app-configuration"></a>アプリの構成
 
