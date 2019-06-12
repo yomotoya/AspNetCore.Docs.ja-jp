@@ -3,14 +3,14 @@ title: ASP.NET core コンシューマー Api の概要
 author: rick-anderson
 description: さまざまなコンシューマーの ASP.NET Core データ保護のライブラリ内で使用可能な Api の概要が表示されます。
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 06/11/2019
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ff9badb55813cae0aa72d3a95dc53792332f109b
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087552"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837380"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>ASP.NET core コンシューマー Api の概要
 
@@ -32,7 +32,7 @@ ms.locfileid: "65087552"
 
 ## <a name="consuming-these-interfaces"></a>これらのインターフェイスを使用
 
-DI 対応のコンポーネントでは、使用目的は、コンポーネントが取る、`IDataProtectionProvider`コンス トラクターにパラメーターと、コンポーネントがインスタンス化されるとき、DI システムがそのこのサービスを自動的に提供します。
+DI に対応したコンポーネントでは、使用目的は、コンポーネントが受け取る、`IDataProtectionProvider`コンス トラクターにパラメーターと、コンポーネントがインスタンス化されるとき、DI システムがそのこのサービスを自動的に提供します。
 
 > [!NOTE]
 > 一部のアプリケーション (コンソール アプリケーション、ASP.NET 4.x アプリケーションなど) があります DI に対応したため、ここで説明されているメカニズムを使用することはできません。 これらのシナリオを参照してください、[非 DI 対応シナリオ](xref:security/data-protection/configuration/non-di-scenarios)ドキュメントのインスタンスの取得の詳細については、 `IDataProtection` DI を経由せずプロバイダー。

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/05/2019
 uid: security/authorization/policies
-ms.openlocfilehash: ea9d687d3810c104d5b3fa39033849c21569709b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 67337c847ba71df3fe61250996ec944632ad5d57
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891829"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837348"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
 
@@ -22,6 +22,87 @@ ms.locfileid: "64891829"
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,66)]
 
 上記の例では、"AtLeast21"ポリシーが作成されます。 1 つの要件がある&mdash;の最小経過期間が、要件にパラメーターとして指定されています。
+
+## <a name="iauthorizationservice"></a>IAuthorizationService 
+
+承認が成功したかどうかを決定する、プライマリ サービスが<xref:Microsoft.AspNetCore.Authorization.IAuthorizationService>:
+
+[!code-csharp[](policies/samples/stubs/copy_of_IAuthorizationService.cs?highlight=24-25,48-49&name=snippet)]
+
+上記のコードには 2 つの方法が強調表示、 [IAuthorizationService](https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs)します。
+
+<xref:Microsoft.AspNetCore.Authorization.IAuthorizationRequirement> メソッドのない、および承認が成功したかどうかを追跡するためのメカニズムを使用して、マーカー サービスです。
+
+各<xref:Microsoft.AspNetCore.Authorization.IAuthorizationHandler>要件が満たされた場合にチェックを担当します。
+<!--The following code is a copy/paste from 
+https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationHandler.cs -->
+
+```csharp
+/// <summary>
+/// Classes implementing this interface are able to make a decision if authorization
+/// is allowed.
+/// </summary>
+public interface IAuthorizationHandler
+{
+    /// <summary>
+    /// Makes a decision if authorization is allowed.
+    /// </summary>
+    /// <param name="context">The authorization information.</param>
+    Task HandleAsync(AuthorizationHandlerContext context);
+}
+```
+
+<xref:Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext>クラスは、ハンドラーの使用要件を満たしているかどうかをマークします。
+
+```csharp
+ context.Succeed(requirement)
+```
+
+次のコードが簡略化された (およびコメントによる注釈付き) には、承認サービスの既定の実装。
+
+```csharp
+public async Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user, 
+             object resource, IEnumerable<IAuthorizationRequirement> requirements)
+{
+    // Create a tracking context from the authorization inputs.
+    var authContext = _contextFactory.CreateContext(requirements, user, resource);
+
+    // By default this returns an IEnumerable<IAuthorizationHandlers> from DI.
+    var handlers = await _handlers.GetHandlersAsync(authContext);
+
+    // Invoke all handlers.
+    foreach (var handler in handlers)
+    {
+        await handler.HandleAsync(authContext);
+    }
+
+    // Check the context, by default success is when all requirements have been met.
+    return _evaluator.Evaluate(authContext);
+}
+```
+
+次のコードは、一般的な`ConfigureServices`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // Add all of your handlers to DI.
+    services.AddSingleton<IAuthorizationHandler, MyHandler1>();
+    // MyHandler2, ...
+
+    services.AddSingleton<IAuthorizationHandler, MyHandlerN>();
+
+    // Configure your policies
+    services.AddAuthorization(options =>
+          options.AddPolicy("Something",
+          policy => policy.RequireClaim("Permission", "CanViewPage", "CanViewAnything")));
+
+
+    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+}
+```
+
+使用<xref:Microsoft.AspNetCore.Authorization.IAuthorizationService>または`[Authorize(Policy = "Something"]`承認します。
 
 ## <a name="applying-policies-to-mvc-controllers"></a>MVC コント ローラーにポリシーを適用します。
 
