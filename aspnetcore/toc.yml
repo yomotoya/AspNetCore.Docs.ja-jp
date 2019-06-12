@@ -832,6 +832,8 @@
           href: /azure/app-service/overview-authentication-authorization?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: 個人のユーザー アカウント
           uid: security/authentication/individual
+        - name: 証明書認証の構成
+          uid: security/authentication/certauth
     - name: 承認
       items:
         - name: 概要
