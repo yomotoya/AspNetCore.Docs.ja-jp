@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 65a927b6288ca6cc41ee1bedd1080e52ffe0d3e1
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897299"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034926"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
 
@@ -23,7 +23,7 @@ ms.locfileid: "64897299"
 これらのシナリオについては、データ保護システムは、高度な構成 API を提供します。
 
 > [!WARNING]
-> 構成ファイルと同様に、データ保護キー リングする必要があります保護する適切なアクセス許可を使用します。 、保存時のキーを暗号化することもできますが、攻撃者を防ぐ新しいキーを作成するがこれです。 その結果、アプリのセキュリティに影響します。 データ保護で構成されている記憶域の場所のアクセスは、アプリ自体と同じように構成ファイルを保護するように制限があります。 たとえば、ディスク上のキー リングを格納する場合は、ファイル システム権限を使用します。 Id のみを確認します。 web アプリの実行に読み取り、書き込み、およびそのディレクトリへのアクセスを作成します。 Azure Table Storage を使用する場合、web アプリのみが読み取り、書き込み、またはテーブル ストアなどの新しいエントリを作成する機能に必要です。
+> 構成ファイルと同様に、データ保護キー リングする必要があります保護する適切なアクセス許可を使用します。 、保存時のキーを暗号化することもできますが、攻撃者を防ぐ新しいキーを作成するがこれです。 その結果、アプリのセキュリティに影響します。 データ保護で構成されている記憶域の場所のアクセスは、アプリ自体と同じように構成ファイルを保護するように制限があります。 たとえば、ディスク上のキー リングを格納する場合は、ファイル システム権限を使用します。 Id のみを確認します。 web アプリの実行に読み取り、書き込み、およびそのディレクトリへのアクセスを作成します。 Azure Blob Storage を使用する場合、web アプリのみが読み取り、書き込み、または blob ストアなどの新しいエントリを作成する機能に必要です。
 >
 > 拡張メソッド[AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection)を返します、 [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder)します。 `IDataProtectionBuilder` 連結できますデータ保護を構成するオプションの拡張メソッドを公開します。
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-設定キー リング記憶域の場所 (たとえば、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage))。 呼び出すために、場所を設定する必要があります`ProtectKeysWithAzureKeyVault`実装、 [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)キー リング記憶域の場所を含む、データの自動保護設定を無効にします。 前の例では、Azure Blob Storage を使用して、キー リングを保持します。 詳細については、次を参照してください。[キー記憶域プロバイダー。Azure と Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)します。 ローカルにキー リングを保存することもできます。 [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system)します。
+設定キー リング記憶域の場所 (たとえば、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage))。 呼び出すために、場所を設定する必要があります`ProtectKeysWithAzureKeyVault`実装、 [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)キー リング記憶域の場所を含む、データの自動保護設定を無効にします。 前の例では、Azure Blob Storage を使用して、キー リングを保持します。 詳細については、次を参照してください。[キー記憶域プロバイダー。Azure Storage](xref:security/data-protection/implementation/key-storage-providers#azure-storage) に関するページをご覧ください。 ローカルにキー リングを保存することもできます。 [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system)します。
 
 `keyIdentifier`はキーの暗号化に使用されるキー コンテナーのキー識別子です。 たとえば、という名前の key vault に作成されたキー`dataprotection`で、`contosokeyvault`したキー識別子を持つ`https://contosokeyvault.vault.azure.net/keys/dataprotection/`します。 使用してアプリを提供**Unwrap Key**と**Wrap Key** key vault へのアクセスを許可します。
 
@@ -170,7 +170,7 @@ public void ConfigureServices(IServiceCollection services)
 
 したがって、一意のテナントとして、ローカル コンピューター上の各アプリを考慮して分離メカニズムの動作、<xref:Microsoft.AspNetCore.DataProtection.IDataProtector>ルートの指定したアプリに自動的に識別子としてアプリ ID が含まれています。 アプリの一意の ID は、アプリの物理パスです。
 
-* ホストされるアプリ[IIS](xref:fundamentals/servers/index#iis-http-server)、一意の ID は、アプリの IIS 物理パス。 場合は、web ファーム環境でアプリを展開すると、この値は、IIS 環境は web ファーム内のすべてのコンピューター間で同様に構成されていると仮定安定したは。
+* アプリの IIS でホストされている場合、アプリの IIS 物理パスが一意の ID です。 場合は、web ファーム環境でアプリを展開すると、この値は、IIS 環境は web ファーム内のすべてのコンピューター間で同様に構成されていると仮定安定したは。
 * 実行される自己ホスト型アプリ、 [Kestrel サーバー](xref:fundamentals/servers/index#kestrel)、一意の ID は、ディスク上のアプリへの物理パス。
 
 一意の識別子がリセット後も存続するように設計&mdash;の個々 のアプリと、マシン自体の両方。

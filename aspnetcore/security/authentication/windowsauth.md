@@ -5,22 +5,35 @@ description: ASP.NET Core での IIS と HTTP.sys は Windows 認証を構成す
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 900bbf5f14b1876ad537b2b77e4ba07d7aa168f2
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 93f833adff95f25d570947cd1a9035d652f522c2
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750167"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034950"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core での Windows 認証を構成します。
 
 によって[Scott Addie](https://twitter.com/Scott_Addie)と[Luke Latham](https://github.com/guardrex)
 
-[Windows 認証](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)でホストされている ASP.NET Core アプリ用に構成できます[IIS](xref:host-and-deploy/iis/index)または[HTTP.sys](xref:fundamentals/servers/httpsys)します。
+::: moniker range=">= aspnetcore-3.0"
+
+Windows 認証 (Negotiate、Kerberos、または NTLM 認証とも呼ばれます) でホストされている ASP.NET Core アプリ用に構成できます[IIS](xref:host-and-deploy/iis/index)、 [Kestrel](xref:fundamentals/servers/kestrel)、または[HTTP.sys](xref:fundamentals/servers/httpsys).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Windows 認証 (Negotiate、Kerberos、または NTLM 認証とも呼ばれます) でホストされている ASP.NET Core アプリ用に構成できます[IIS](xref:host-and-deploy/iis/index)または[HTTP.sys](xref:fundamentals/servers/httpsys)します。
+
+::: moniker-end
 
 Windows 認証は、ASP.NET Core アプリのユーザーを認証するオペレーティング システムに依存します。 ユーザーを識別するために Active Directory ドメインの id または Windows アカウントを使用して、企業ネットワークで、サーバーの実行時に、Windows 認証を使用できます。 Windows 認証は、同じ Windows ドメインに属しているユーザー、クライアント アプリ、および web サーバーのイントラネット環境に最適です。
+
+> [!NOTE]
+> Http/2 では、Windows 認証はサポートされていません。 Http/2 の応答の認証チャレンジを送信できますが、クライアントは、http/1.1 に、認証する前にダウン グレードする必要があります。
 
 ## <a name="iisiis-express"></a>IIS または IIS Express
 
@@ -125,9 +138,65 @@ ASP.NET Core モジュールは、既定では、アプリに Windows 認証ト�
   * 設定をリセットする IIS マネージャーを使用して、 *web.config*ファイルについては、展開で、ファイルが上書きされます。
   * 追加、 *web.config ファイル*アプリの設定でローカルにします。
 
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="kestrel"></a>Kestrel
+
+ [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate)と NuGet パッケージを使用する[Kestrel](xref:fundamentals/servers/kestrel) Negotiate、Kerberos、および NTLM を使用して、Windows、Linux、macOS で Windows 認証をサポートします。
+
+> [!WARNING]
+> 接続で要求間で資格情報を保持できます。 *ネゴシエート、プロキシは、Kestrel での 1 対 1 の接続のアフィニティ (固定接続) を保持しない限り、認証をプロキシで使用しないでください。* つまり、ネゴシエート認証が、IIS の背後の Kestrel で使用しないでください[ASP.NET Core モジュール (ANCM) のアウト プロセスの](xref:host-and-deploy/iis/index#out-of-process-hosting-model)します。
+
+ 認証サービスを呼び出すことによって追加<xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>(`Microsoft.AspNetCore.Authentication.Negotiate`名前空間) と`AddNegotitate`(`Microsoft.AspNetCore.Authentication.Negotiate`名前空間) で`Startup.ConfigureServices`:
+
+ ```csharp
+services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
+    .AddNegotiate();
+```
+
+認証ミドルウェアを呼び出すことによって追加<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>で`Startup.Configure`:
+
+ ```csharp
+app.UseAuthentication();
+
+app.UseMvc();
+```
+
+ミドルウェアの詳細については、次を参照してください。<xref:fundamentals/middleware/index>します。
+
+匿名の要求が許可されます。 使用[ASP.NET Core の承認](xref:security/authorization/introduction)課題の匿名認証を要求します。
+
+### <a name="windows-environment-configuration"></a>Windows 環境の構成
+
+[Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate)コンポーネントは、ユーザー モード認証を実行します。 サービス プリンシパル名 (Spn) は、マシン アカウントではなく、サービスを実行するユーザー アカウントに追加する必要があります。 実行`setspn -S HTTP/mysrevername.mydomain.com myuser`管理コマンド シェルでします。
+
+### <a name="linux-and-macos-environment-configuration"></a>Linux と macOS の環境の構成
+
+Linux または macOS マシンを Windows ドメインに参加するための手順については、 [Windows 認証に Kerberos を使用して、SQL server の Azure Data Studio の接続](/sql/azure-data-studio/enable-kerberos?view=sql-server-2017#join-your-os-to-the-active-directory-domain-controller)記事。 手順については、ドメイン上の Linux マシンのコンピューター アカウントを作成します。 そのコンピューター アカウントに Spn を追加する必要があります。
+
+> [!NOTE]
+> ガイダンスに従うと、 [Windows 認証に Kerberos を使用して、SQL server の Azure Data Studio の接続](/sql/azure-data-studio/enable-kerberos?view=sql-server-2017#join-your-os-to-the-active-directory-domain-controller)に関する記事で、置き換える`python-software-properties`で`python3-software-properties`必要な場合。
+
+Linux または macOS マシンをドメインに参加すると、追加の手順が提供する必要が、 [keytab ファイル](https://blogs.technet.microsoft.com/pie/2018/01/03/all-you-need-to-know-about-keytab-files/)Spn で。
+
+* ドメイン コント ローラーで、コンピューター アカウントに新しい web サービスの Spn を追加します。
+  * `setspn -S HTTP/mywebservice.mydomain.com mymachine`
+  * `setspn -S HTTP/mywebservice@MYDOMAIN.COM mymachine`
+* 使用[ktpass](/windows-server/administration/windows-commands/ktpass) keytab ファイルを生成します。
+  * `ktpass -princ HTTP/mywebservice.mydomain.com@MYDOMAIN.COM -pass myKeyTabFilePassword -mapuser MYDOMAIN\mymachine$ -pType KRB5_NT_PRINCIPAL -out c:\temp\mymachine.HTTP.keytab -crypto AES256-SHA1`
+  * 一部のフィールドで指定されなければなりません大文字のとおりです。
+* Linux または macOS マシンに keytab ファイルをコピーします。
+* 環境変数を介して keytab ファイルを選択します。 `export KRB5_KTNAME=/tmp/mymachine.HTTP.keytab`
+* 呼び出す`klist`を現在使用可能な Spn を表示します。
+
+> [!NOTE]
+> Keytab ファイルは、ドメイン アクセスの資格情報を含み、適切に保護する必要があります。
+
+::: moniker-end
+
 ## <a name="httpsys"></a>HTTP.sys
 
-自己ホスト型のシナリオで[Kestrel](xref:fundamentals/servers/kestrel)が Windows 認証をサポートしないを使用できる[HTTP.sys](xref:fundamentals/servers/httpsys)します。
+[HTTP.sys](xref:fundamentals/servers/httpsys) Negotiate、NTLM、または基本認証を使用してカーネル モードの Windows 認証をサポートします。
 
 認証サービスを呼び出すことによって追加<xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>(<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName>名前空間) で`Startup.ConfigureServices`:
 
@@ -177,6 +246,12 @@ ASP.NET Core では、権限借用を実装しません。 アプリは、アプ
 [!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
 `RunImpersonated` 非同期操作をサポートしていないし、複雑なシナリオでは使用しないでください。 全体要求またはミドルウェアのチェーンをラッピングされていないサポートなど、お勧めします。
+
+::: moniker range=">= aspnetcore-3.0"
+
+中に、 [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate)パッケージが Windows での認証ができるように、Linux、および macOS での偽装は、Windows でのみサポートされます。
+
+::: moniker-end
 
 ## <a name="claims-transformations"></a>要求の変換
 

@@ -3,14 +3,14 @@ title: ASP.NET Core でのキー記憶域プロバイダー
 author: rick-anderson
 description: キー記憶域プロバイダーでは、ASP.NET Core とキー記憶域の場所を構成する方法について説明します。
 ms.author: riande
-ms.date: 12/19/2018
+ms.date: 06/11/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: d6dabc9e4581e0891d1dd14f73e086d50b45bba4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 64c7e6b25d5b4acc72e96747a77826efaeb693fd
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897449"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034769"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET Core でのキー記憶域プロバイダー
 
@@ -33,21 +33,11 @@ public void ConfigureServices(IServiceCollection services)
 
 `DirectoryInfo`ローカル コンピューター上のディレクトリを指すことができます、またはネットワーク共有上のフォルダーを指すことができます。 ローカル コンピューター上のディレクトリを指している場合 (および、シナリオでは、ローカル コンピューター上のアプリのみが使用して、このリポジトリへのアクセスを必要と)、使用を検討して[Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest)保存時のキーを暗号化する (on Windows)。 それ以外の場合、使用を検討して、 [X.509 証明書](xref:security/data-protection/implementation/key-encryption-at-rest)保存時のキーを暗号化します。
 
-## <a name="azure-and-redis"></a>Azure と Redis
+## <a name="azure-storage"></a>Azure ストレージ
 
-::: moniker range=">= aspnetcore-2.2"
+[Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/)パッケージでは、Azure Blob Storage にデータ保護キーを格納します。 Web アプリの複数のインスタンスでは、キーを共有することができます。 アプリでは、複数のサーバー認証 cookie または CSRF protection を共有できます。
 
-[Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/)と[Microsoft.AspNetCore.DataProtection.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) Azure Storage または Redis のデータ保護キーを格納するパッケージを使用します。キャッシュします。 Web アプリの複数のインスタンスでは、キーを共有することができます。 アプリでは、複数のサーバー認証 cookie または CSRF protection を共有できます。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-[Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/)と[Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) Azure Storage または Redis cache でデータ保護キーを格納するパッケージを使用します。 Web アプリの複数のインスタンスでは、キーを共有することができます。 アプリでは、複数のサーバー認証 cookie または CSRF protection を共有できます。
-
-::: moniker-end
-
-で、Azure Blob 記憶域プロバイダーを構成するには、のいずれかを呼び出して、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)オーバー ロードします。
+で、Azure Blob 記憶域プロバイダーを構成するには、のいずれかを呼び出して、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)オーバー ロードします。 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,6 +46,39 @@ public void ConfigureServices(IServiceCollection services)
         .PersistKeysToAzureBlobStorage(new Uri("<blob URI including SAS token>"));
 }
 ```
+
+Web アプリが Azure のサービスとして実行している場合の認証トークンは自動的に作成を使用して[Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)します。 
+
+```csharp
+var tokenProvider = new AzureServiceTokenProvider();
+var token = await tokenProvider.GetAccessTokenAsync("https://storage.azure.com/");
+var credentials = new StorageCredentials(new TokenCredential(token));
+var storageAccount = new CloudStorageAccount(credentials, "mystorageaccount", "core.windows.net", useHttps: true);
+var client = storageAccount.CreateCloudBlobClient();
+var container = client.GetContainerReference("my-key-container");
+
+// optional - provision the container automatically
+await container.CreateIfNotExistsAsync();
+
+services.AddDataProtection()
+    .PersistKeysToAzureBlobStorage(container, "keys.xml");
+```
+
+参照してください[サービス間認証を構成する方法の詳細。](/azure/key-vault/service-to-service-authentication)
+
+## <a name="redis"></a>Redis
+
+::: moniker range=">= aspnetcore-2.2"
+
+[Microsoft.AspNetCore.DataProtection.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/)パッケージでは、Redis cache でデータ保護キーを格納します。 Web アプリの複数のインスタンスでは、キーを共有することができます。 アプリでは、複数のサーバー認証 cookie または CSRF protection を共有できます。
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+[Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/)パッケージでは、Redis cache でデータ保護キーを格納します。 Web アプリの複数のインスタンスでは、キーを共有することができます。 アプリでは、複数のサーバー認証 cookie または CSRF protection を共有できます。
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
