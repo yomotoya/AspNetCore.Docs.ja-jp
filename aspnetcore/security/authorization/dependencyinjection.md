@@ -16,11 +16,11 @@ ms.locfileid: "64896369"
 
 <a name="security-authorization-di"></a>
 
-構成の中にあるサービスコレクションで、[承認ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration) (これには[依存関係の注入](xref:fundamentals/dependency-injection)を使用します)。
+構成の中にあるサービスコレクションで、[承認ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration) (これには[依存関係の注入](xref:fundamentals/dependency-injection)を使用します。
 
-承認ハンドラーの内部で評価を行たいルールのリポジトリがあり、それがサービスコレクションに登録されてると仮定します。 承認が解決されコンストラクターに挿入します。
+認可ハンドラー内に評価するルールのリポジトリがあり、そのリポジトリがサービスコレクションに登録されているとします。 承認はそれを解決してコンストラクターに挿入します。
 
-例えば、ASP.NET のロギングの委付らストラクチャを使いたい場合は、ハンドラーに `ILoggerFactory` を挿入します。そのときは、ハンドラーを次のようにします。
+たとえば、ASP.NETのログ記録インフラストラクチャを使用する場合は、`ILoggerFactory`をハンドラーに挿入します。 ハンドラーは次のようになります。
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -47,7 +47,7 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-アプリケーションの起動時にハンドラーのインスタンスが生成され、DIでハンドラーのコンストラクターに登録した `ILoggerFactory` を挿入されます。
+アプリケーションの起動時にハンドラーのインスタンスが作成され、DIは登録された `ILoggerFactory`をコンストラクターに挿入します。
 
 > [!NOTE]
 > Entity Framework を使用したハンドラーは、シングルトンとして登録することはできません。
