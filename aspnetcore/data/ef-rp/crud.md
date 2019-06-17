@@ -5,12 +5,12 @@ description: EF Core で作成、読み取り、更新、削除を行う方法�
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 43d133c61c0387ebcb4bcb2d22c800588d8534c3
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: ec22c82b3b70399017b5b9aa61896440db647062
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516918"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750027"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 
@@ -60,11 +60,11 @@ ms.locfileid: "65516918"
 
 ## <a name="customize-the-details-page"></a>Details ページをカスタマイズする
 
-`Pages/Students` ページを参照します。 **[編集]**、**[詳細]**、**[削除]** の各リンクは、*Pages/Students/Index.cshtml* ファイルで[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)によって生成されます。
+`Pages/Students` ページを参照します。 **[編集]** 、 **[詳細]** 、 **[削除]** の各リンクは、*Pages/Students/Index.cshtml* ファイルで[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)によって生成されます。
 
 [!code-cshtml[](intro/samples/cu21/Pages/Students/Index1.cshtml?name=snippet)]
 
-アプリを実行し、**[詳細]** リンクを選択します。 URL の形式は、 `http://localhost:5000/Students/Details?id=2` です。 クエリ文字列 (`?id=2`) によって受講者 ID が渡されます。
+アプリを実行し、 **[詳細]** リンクを選択します。 URL の形式は、 `http://localhost:5000/Students/Details?id=2` です。 クエリ文字列 (`?id=2`) によって受講者 ID が渡されます。
 
 `"{id:int}"` ルート テンプレートを使用するには、[編集]、[詳細]、[削除] の Razor ページを更新します。 これらの各ページのページ ディレクティブを `@page` から `@page "{id:int}"` に変更します。
 
@@ -102,7 +102,7 @@ Students インデックス ページのスキャフォールディング コー
 
 上記のコードは、`Enrollments` ナビゲーション プロパティ内でエンティティをループ処理します。 登録ごとに、コースのタイトルとグレードが表示されます。 コース タイトルは、Enrollments エンティティの `Course` ナビゲーション プロパティに格納されている Course エンティティから取得されます。
 
-アプリを実行し、**[Students]** タブを選択し、学生用の **[詳細]** リンクをクリックします。 選択した受講者のコースとグレードの一覧が表示されます。
+アプリを実行し、 **[Students]** タブを選択し、学生用の **[詳細]** リンクをクリックします。 選択した受講者のコースとグレードの一覧が表示されます。
 
 ## <a name="update-the-create-page"></a>[作成] ページを更新する
 
@@ -123,7 +123,7 @@ Students インデックス ページのスキャフォールディング コー
 上記のサンプルについて:
 
 * 2 番目の引数 (`"student", // Prefix`) には、値を検索するためのプレフィックスが使用されています。 大文字と小文字の区別はありません。
-* ポストされたフォームの値は、[モデル バインディング](xref:mvc/models/model-binding#how-model-binding-works) を使用して `Student` モデル内の型に変換されます。
+* ポストされたフォームの値は、[モデル バインディング](xref:mvc/models/model-binding) を使用して `Student` モデル内の型に変換されます。
 
 <a id="overpost"></a>
 

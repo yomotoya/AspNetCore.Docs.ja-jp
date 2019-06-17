@@ -5,14 +5,14 @@ description: Blazor アプリを段階的に構築します。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/19/2019
+ms.date: 06/12/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d48b891127f4db929b631c0ddf199c07658e604c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: df27dad17133f287b1c73dc308b4cc69426e0a63
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970121"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040713"
 ---
 # <a name="build-your-first-blazor-app"></a>最初の Blazor アプリを構築する
 
@@ -36,7 +36,7 @@ ms.locfileid: "65970121"
 
    Counter コンポーネントの UI は、HTML を使って定義されています。 動的なレンダリング ロジック (たとえばループ、条件、式) が、[Razor](xref:mvc/views/razor) と呼ばれる埋め込みの C# 構文を使って追加されています。 HTML マークアップと C# のレンダリング ロジックは、ビルド時にコンポーネント クラスに変換されます。 生成される .NET クラスの名前はファイル名と同じです。
 
-   コンポーネント クラスのメンバーは、`@functions` ブロック内で定義されています。 `@functions` ブロック内では、イベント処理や他のコンポーネント ロジックの定義のために、コンポーネントの状態 (プロパティ、フィールド) とメソッドを指定します。 これらのメンバーは、コンポーネントのレンダリング ロジックの一部として、またイベントを処理するために使われます。
+   コンポーネント クラスのメンバーは、`@code` ブロック内で定義されています。 `@code` ブロック内では、イベント処理や他のコンポーネント ロジックの定義のために、コンポーネントの状態 (プロパティ、フィールド) とメソッドを指定します。 これらのメンバーは、コンポーネントのレンダリング ロジックの一部として、またイベントを処理するために使われます。
 
    **[クリックしてください]** ボタンを選択すると:
 
@@ -69,7 +69,7 @@ HTML 構文を使用して、別のコンポーネント内にコンポーネン
 
 コンポーネントにパラメーターを持たせることもできます。 コンポーネントのパラメーターは、`[Parameter]` で修飾されたコンポーネント クラス上の、パブリックでないプロパティを使って定義します。 マークアップ内でコンポーネントの引数を指定するには、属性を使います。
 
-1. コンポーネントの `@functions` に関する C# コードを更新します。
+1. コンポーネントの `@code` に関する C# コードを更新します。
 
    * `[Parameter]` 属性で修飾された `IncrementAmount` プロパティを追加します。
    * `currentCount` の値を増やすときに `IncrementAmount` を使うように `IncrementCount` メソッドを変更します。
@@ -152,21 +152,13 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
 
 1. アプリケーションをリビルドして実行します。 新しい Todo ページに移動して、Todo コンポーネントへのリンクが機能することを確認します。
 
-1. Blazor サーバー側アプリをビルドする場合、アプリの名前空間を *\_Imports.razor* ファイルに追加します。 次の `@using` ステートメントでは、アプリの名前空間が `WebApplication` であるものとしています。
-
-   ```cshtml
-   @using WebApplication
-   ```
-   
-   Blazor クライアント側アプリでは、既定で、 *\_Imports.razor* ファイルにアプリの名前空間が含まれます。
-
 1. Todo アイテムを表すクラスを保持するために、プロジェクトのルートに *TodoItem.cs* ファイルを追加します。 `TodoItem` クラス用に次の C# コードを使います。
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
 1. Todo コンポーネントに戻ります (*Pages/Todo.razor*)。
 
-   * Todo 項目用のフィールドを `@functions` ブロックに追加します。 Todo コンポーネントでは、このフィールドを使って Todo リストの状態を維持します。
+   * Todo 項目用のフィールドを `@code` ブロックに追加します。 Todo コンポーネントでは、このフィールドを使って Todo リストの状態を維持します。
    * 各 ToDo アイテムをリスト アイテムとしてレンダリングするために、順序のないリストのマークアップと `foreach` ループを追加します。
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
@@ -177,7 +169,7 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
 
 1. アプリケーションをリビルドして実行します。 **[Add todo]\(ToDo の追加\)** ボタンを選択しても何も起こりません。ボタンにイベント ハンドラーが関連付けられていないためです。
 
-1. Todo コンポーネントに `AddTodo` メソッドを追加し、`onclick` 属性を使ってボタンのクリック用にこれを登録します。
+1. Todo コンポーネントに `AddTodo` メソッドを追加し、`@onclick` 属性を使ってボタンのクリック用にこれを登録します。
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
@@ -188,7 +180,7 @@ FetchData コンポーネントでは、`ForecastService` のような挿入さ�
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" @bind="@newTodo" />
    ```
 
 1. 指定したタイトルを備えた `TodoItem` をリストに追加するように、`AddTodo` メソッドを更新します。 `newTodo` を空の文字列に設定して、テキスト入力の値をクリアします。

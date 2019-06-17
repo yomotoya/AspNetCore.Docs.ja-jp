@@ -5,14 +5,14 @@ description: ASP.NET Core 用のクロスプラットフォーム Web サーバ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/17/2019
+ms.date: 05/28/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 37274873f2bd4127f8743399d95d3cf7fef435c5
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 0ba207bf6c78476a8c778b95710fd89be50d397a
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251331"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034839"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
@@ -285,7 +285,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 アプリが要求の読み取りを開始した後で、要求に対する制限を構成しようとすると、例外がスローされます。 `MaxRequestBodySize` プロパティが読み取り専用状態にある (制限を構成するには遅すぎる) かどうかを示す `IsReadOnly` プロパティがあります。
 
-[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) の背後でアプリが[アウト プロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)で実行されるとき、Kestrel の要求本文サイズ上限が無効になります。IIS により既に上限が設定されているためです。
+[ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) の背後でアプリが[アウト プロセス](xref:host-and-deploy/iis/index#out-of-process-hosting-model)で実行されるとき、Kestrel の要求本文サイズ上限が無効になります。IIS により既に上限が設定されているためです。
 
 ### <a name="minimum-request-body-data-rate"></a>要求本文の最小レート
 

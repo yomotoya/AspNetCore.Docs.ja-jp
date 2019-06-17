@@ -5,14 +5,14 @@ description: ASP.NET Core アプリのインターネット インフォメー�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 05/28/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: e4c93459f2030c7c0a55ea90e0cc8c8d30b76c51
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: cb42a262c89c27fa350e936184f8ddb3a02788f0
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470460"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034745"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -54,7 +54,7 @@ ASP.NET Core モジュールはバックエンドのドットネット プロセ
 
 正しく構成されていないホスティングやアプリが原因でワーカー プロセスが失敗する場合、"*502.5 処理エラー*" のエラー ページが返されます。
 
-![502.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
+![502\.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
 
 ::: moniker range="= aspnetcore-2.2"
 
@@ -330,13 +330,13 @@ stdout ログを有効にして表示するには:
 
 1. `c:\dumps` にクラッシュ ダンプ ファイルを保持するフォルダーを作成します。 アプリ プールには、そのフォルダーへの書き込みアクセス権が必要です。
 1. [EnableDumps PowerShell スクリプト](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1) を実行します。
-   * アプリで[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
+   * アプリで[インプロセス ホスティング モデル](xref:host-and-deploy/iis/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
 
-   * アプリで[アウト プロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
+   * アプリで[アウト プロセス ホスティング モデル](xref:host-and-deploy/iis/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
@@ -344,13 +344,13 @@ stdout ログを有効にして表示するには:
 
 1. クラッシュが発生する条件の下でアプリを実行します。
 1. クラッシュが発生した後、[DisableDumps PowerShell スクリプト](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1)を実行します。
-   * アプリで[インプロセス ホスティング モデル](xref:fundamentals/servers/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
+   * アプリで[インプロセス ホスティング モデル](xref:host-and-deploy/iis/index#in-process-hosting-model)が使われている場合は、*w3wp.exe* に対するスクリプトを実行します。
 
      ```console
      .\DisableDumps w3wp.exe
      ```
 
-   * アプリで[アウト プロセス ホスティング モデル](xref:fundamentals/servers/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
+   * アプリで[アウト プロセス ホスティング モデル](xref:host-and-deploy/iis/index#out-of-process-hosting-model)が使われている場合は、*dotnet.exe* に対するスクリプトを実行します。
 
      ```console
      .\DisableDumps dotnet.exe

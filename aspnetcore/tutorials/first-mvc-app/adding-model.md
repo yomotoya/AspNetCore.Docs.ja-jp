@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core アプリケーションにモデルを追�
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 0de1b7e69298af8299e0ca6c8ebd3c2b995b7471
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: fcfe97e2228c21ffea8fe7ec5df8e2ea9c398828
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692489"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837324"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのモデルの追加
 
@@ -180,7 +180,7 @@ ASP.NET Core には、[依存関係挿入 (DI)](xref:fundamentals/dependency-inj
 
 次の `Startup.ConfigureServices` メソッドを調べます。 強調表示された行は、スキャフォールダーによって追加されました。
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=14-15)]
 
 `MvcMovieContext` では、`Movie` モデルのために EF Core 機能 (作成、読み取り、更新、削除など) が調整されます。 データ コンテキスト (`MvcMovieContext`) は [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) から派生されます。 データ コンテキストによって、データ モデルに含めるエンティティが指定されます:
 
