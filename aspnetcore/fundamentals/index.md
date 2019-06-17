@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 3cf311f8e6be4ed12c79ceecc15ccc1babfb0117
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610321"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034860"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -22,11 +22,12 @@ ms.locfileid: "65610321"
 
 `Startup` クラスとは、次のとおりです。
 
-* アプリで必要なすべてのサービスが構成されています。
+* アプリで必要なサービスが構成されています。
 * 要求を処理するパイプラインが定義されています。
 
-* サービスを構成 (または*登録*) するコードが `Startup.ConfigureServices` メソッドに追加されています。 *サービス*とは、アプリが使用するコンポーネントです。 たとえば、Entity Framework Core コンテキスト オブジェクトはサービスです。
-* `Startup.Configure` メソッドには、要求を処理するパイプラインを構成するコードが追加されます。 このパイプラインは、一連の*ミドルウェア* コンポーネントとして構成されます。 たとえば、ミドルウェアは、静的ファイルに対する要求を処理したり、HTTPS に HTTP 要求をリダイレクトします。 各ミドルウェアは `HttpContext` に非同期操作を実行してから、パイプラインの次のミドルウェアを呼び出すか、要求を終了します。
+*サービス*とは、アプリが使用するコンポーネントです。 たとえば、ログ コンポーネントは、サービスです。 サービスを構成 (または*登録*) するコードが `Startup.ConfigureServices` メソッドに追加されています。
+
+要求を処理するパイプラインは、一連の*ミドルウェア* コンポーネントとして構成されています。 たとえば、ミドルウェアは、静的ファイルに対する要求を処理したり、HTTPS に HTTP 要求をリダイレクトします。 各ミドルウェアは `HttpContext` に非同期操作を実行してから、パイプラインの次のミドルウェアを呼び出すか、要求を終了します。 `Startup.Configure` メソッドには、要求を処理するパイプラインを構成するコードが追加されます。
 
 `Startup` クラスの例を次に示します。
 
@@ -60,9 +61,7 @@ ASP.NET Core にはミドルウェアのセットが豊富に組み込まれて�
 
 詳細については、「<xref:fundamentals/middleware/index>」を参照してください。
 
-<a id="host"/>
-
-## <a name="the-host"></a>ホスト
+## <a name="host"></a>Host
 
 ASP.NET Core アプリは起動時に*ホスト*をビルドします。 ホストとは、次などのアプリのすべてのリソースをカプセル化するオブジェクトです。
 
@@ -74,61 +73,45 @@ ASP.NET Core アプリは起動時に*ホスト*をビルドします。 ホス�
 
 アプリの相互依存するすべてのリソースを 1 つのオブジェクトに含める主な理由は、アプリの起動と正常なシャットダウンの制御の有効期間の管理のためです。
 
-ホストを作成するコードは、`Program.Main` にあり、[Builder パターン](https://wikipedia.org/wiki/Builder_pattern)に従っています。 メソッドは、ホストの一部である各リソースを構成するために呼び出されます。 ビルダー メソッドは、それをすべてまとめ、ホスト オブジェクトをインスタンス化するために呼び出されます。
-
 ::: moniker range=">= aspnetcore-3.0"
 
-`CreateHostBuilder` は、[Entity Framework](/ef/core/) などの外部コンポーネントに対するビルダー メソッドを識別するための特別な名前です。
+汎用ホストと Web ホストの 2 つのホストが利用可能です。 汎用ホストが推奨されます。Web ホストは下位互換性のためにのみ使用できます。
 
-ASP.NET Core 3.0 以降では、汎用ホスト (`Host` クラス) または Web ホスト (`WebHost` クラス) を Web アプリで使用できます。 汎用ホストが推奨されますが、下位互換性のために Web ホストを使用することも可能です。
+ホストを作成するコードは `Program.Main` にあります。
 
-このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` メソッドと `ConfigureWebHostDefaults` メソッドを提供します。
+[!code-csharp[](index/snapshots/3.x/Program1.cs)]
+
+`CreateDefaultBuilder` メソッドと `ConfigureWebHostDefaults` メソッドは、次のようなよく使用されるオプションと共にホストを構成します。
 
 * Web サーバーとして [Kestrel](#servers) を使用し、IIS の統合を有効にします。
 * *appsettings.json*、"*appsettings.{環境名}.json*"、環境変数、コマンド ライン引数、およびその他の構成ソースから構成を読み込みます。
 * ログ出力をコンソールとデバッグ プロバイダーに送ります。
 
-ホストをビルドするサンプル コードは次のとおりです。 ホストを設定するメソッドとよく使用されるオプションが強調表示されています。
-
-[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
-
-詳細については、次のトピックを参照してください。 <xref:fundamentals/host/generic-host> および <xref:fundamentals/host/web-host>
+詳細については、「<xref:fundamentals/host/generic-host>」を参照してください。
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-`CreateWebHostBuilder` は、[Entity Framework](/ef/core/) などの外部コンポーネントに対するビルダー メソッドを識別するための特別な名前です。
+Web ホストと汎用ホストの 2 つのホストが利用可能です。 ASP.NET core 2.x では、汎用ホストは Web 以外のシナリオのみを対象としています。
 
-ASP.NET Core 2.x では、Web アプリに Web ホスト (`WebHost` クラス) を使用します。 このフレームワークは、次などのよく使用されるオプションと共にホストを設定する `CreateDefaultBuilder` を提供します。
+ホストを作成するコードは `Program.Main` にあります。
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs)]
+
+`CreateDefaultBuilder` メソッドは、次のようなよく使用されるオプションと共にホストを構成します。
 
 * Web サーバーとして [Kestrel](#servers) を使用し、IIS の統合を有効にします。
 * *appsettings.json*、"*appsettings.{環境名}.json*"、環境変数、コマンド ライン引数、およびその他の構成ソースから構成を読み込みます。
 * ログ出力をコンソールとデバッグ プロバイダーに送ります。
-
-ホストをビルドするサンプル コードは次のとおりです。
-
-[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
 
 詳細については、「<xref:fundamentals/host/web-host>」を参照してください。
 
 ::: moniker-end
 
-### <a name="advanced-host-scenarios"></a>高度なホスト シナリオ
+### <a name="non-web-scenarios"></a>Web 以外のシナリオ
 
-::: moniker range=">= aspnetcore-3.0"
-
-汎用ホストは、ASP.NET Core アプリのみでなくすべての .NET Core アプリで使用できます。 汎用ホスト (`Host` クラス) により、他の種類のアプリで、ログ記録、DI、構成、およびアプリの有効期間管理などの横断的なフレームワーク拡張機能を使えるようになります。 詳細については、「<xref:fundamentals/host/generic-host>」を参照してください。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-Web ホストは、他の種類の .NET アプリでは必要のない、HTTP サーバー実装を含めるよう設計されています。 ASP.NET Core 2.1 以降では、汎用ホスト (`Host` クラス) はすべての .NET Core アプリで使用できます&mdash;ASP.NET Core アプリのみではありません。 汎用ホストにより、他の種類のアプリで、ログ記録、DI、構成、およびアプリの有効期間管理などの横断的なフレームワーク拡張機能を使えるようになります。 詳細については、「<xref:fundamentals/host/generic-host>」を参照してください。
-
-::: moniker-end
-
-ホストを使用して、バックグラウンド タスクを実行することも可能です。 詳細については、「<xref:fundamentals/host/hosted-services>」を参照してください。
+汎用ホストにより、他の種類のアプリで、ログ記録、依存性の注入 (DI)、構成、およびアプリの有効期間管理などの横断的なフレームワーク拡張機能を使えるようになります。 詳細については、次のトピックを参照してください。 <xref:fundamentals/host/generic-host> および <xref:fundamentals/host/hosted-services>
 
 ## <a name="servers"></a>サーバー
 
@@ -181,7 +164,7 @@ ASP.NET Core は、*Kestrel* クロスプラットフォーム サーバーの�
 
 ## <a name="configuration"></a>構成
 
-ASP.NET Core は、構成プロバイダーの順序付けされたセットから、名前と値のペアの設定を取得する構成フレームワークとなります。 *.json* ファイル、*.xml* ファイル、環境変数、コマンドライン引数など、さまざまなソース用に構成プロバイダーが組み込まれています。 独自のカスタム構成プロバイダーを記述することもできます。
+ASP.NET Core は、構成プロバイダーの順序付けされたセットから、名前と値のペアの設定を取得する構成フレームワークとなります。 *.json* ファイル、 *.xml* ファイル、環境変数、コマンドライン引数など、さまざまなソース用に構成プロバイダーが組み込まれています。 独自のカスタム構成プロバイダーを記述することもできます。
 
 たとえば、構成は *appsettings.json* と環境変数から取得したものであると指定できます。 このとき *ConnectionString* 値が要求されると、フレームワークはまず *appsettings.json* ファイルを参照します。 値がそこにあり、しかし環境変数にもある場合、環境変数の値が優先されます。
 
@@ -285,8 +268,8 @@ ASP.NET Core には、次などのエラー処理用の機能が組み込まれ�
 
 ## <a name="web-root"></a>Web ルート
 
-(*webroot* としても知られている) Web ルートは、CSS、JavaScript、およびイメージ ファイルなど、パブリックな静的リソースへの基本パスです。 既定で、この静的ファイル ミドルウェアは、Web ルート ディレクトリ (とそのサブディレクトリ) のファイルにのみサービスを提供します。 Web ルートのパスの既定値は、"*{コンテンツ ルート}/wwwroot*" ですが、[ホストの構築](#host)時に別の場所を指定することも可能です。
+(*webroot* としても知られている) Web ルートは、CSS、JavaScript、およびイメージ ファイルなど、パブリックな静的リソースへの基本パスです。 既定で、この静的ファイル ミドルウェアは、Web ルート ディレクトリ (とそのサブディレクトリ) のファイルにのみサービスを提供します。 Web ルートのパスの既定値は、" *{コンテンツ ルート}/wwwroot*" ですが、[ホストの構築](#host)時に別の場所を指定することも可能です。
 
-Razor (*.cshtml*) のファイルの場合、チルダとスラッシュ `~/` が webroot を指します。 `~/` で始まるパスは仮想パスと呼ばれます。
+Razor ( *.cshtml*) のファイルの場合、チルダとスラッシュ `~/` が webroot を指します。 `~/` で始まるパスは仮想パスと呼ばれます。
 
 詳細については、「<xref:fundamentals/static-files>」を参照してください。

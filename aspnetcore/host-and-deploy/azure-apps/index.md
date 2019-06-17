@@ -5,14 +5,14 @@ description: この記事には、Azure のホストと展開リソースへの�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 05/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 8ce969739d9d98941d4d7670395c74e0e25c92a7
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 5daefde13310ebeb232ef4c8886b12ad78182e50
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251399"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048245"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Azure App Service に ASP.NET Core アプリを展開する
 
@@ -72,15 +72,23 @@ Azure アプリのプラットフォームで適用される Azure App Service �
 
 Azure Portal のアプリの設定により、アプリの環境変数の設定が許可されます。 環境変数は、[環境変数構成プロバイダー](xref:fundamentals/configuration/index#environment-variables-configuration-provider)で使用できます。
 
-Azure Portal でアプリの設定が作成または変更され、**[保存]** ボタンが選択された場合、Azure アプリは再起動されます。 環境変数は、サービスが再起動された後にアプリに適用されます。
+Azure Portal でアプリの設定が作成または変更され、 **[保存]** ボタンが選択された場合、Azure アプリは再起動されます。 環境変数は、サービスが再起動された後にアプリに適用されます。
 
-アプリが [Web ホスト](xref:fundamentals/host/web-host)を使用し、[WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を使用してホストをビルドする場合、ホストを構成する環境変数では `ASPNETCORE_` プレフィックスが使用されます。 詳細については、<xref:fundamentals/host/web-host> および「[Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider)」(環境変数構成プロバイダー) をご覧ください。
+::: moniker range=">= aspnetcore-3.0"
 
 アプリが[汎用ホスト](xref:fundamentals/host/generic-host)を使用する場合、環境変数は既定ではアプリの構成に読み込まれません。開発者が構成プロバイダーを追加する必要があります。 開発者は、構成プロバーダーを追加する際に環境変数のプレフィックスを決定します。 詳細については、<xref:fundamentals/host/generic-host> および「[Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider)」(環境変数構成プロバイダー) をご覧ください。
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
+
+アプリが [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を使用してホストをビルドする場合、ホストを構成する環境変数では `ASPNETCORE_` プレフィックスが使用されます。 詳細については、<xref:fundamentals/host/web-host> および「[Environment Variables Configuration Provider](xref:fundamentals/configuration/index#environment-variables-configuration-provider)」(環境変数構成プロバイダー) をご覧ください。
+
+::: moniker-end
+
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
 
-要求が発生したスキーム (HTTP/HTTPS) とリモート IP アドレスを転送するために、[アウトプロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)をホストするときに Forwarded Headers Middleware を構成する [IIS 統合ミドルウェア](xref:host-and-deploy/iis/index#enable-the-iisintegration-components)と、ASP.NET Core モジュールが構成されます。 追加のプロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
+要求が発生したスキーム (HTTP/HTTPS) とリモート IP アドレスを転送するために、[アウトプロセス](xref:host-and-deploy/iis/index#out-of-process-hosting-model)をホストするときに Forwarded Headers Middleware を構成する [IIS 統合ミドルウェア](xref:host-and-deploy/iis/index#enable-the-iisintegration-components)と、ASP.NET Core モジュールが構成されます。 追加のプロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ## <a name="monitoring-and-logging"></a>監視およびログ記録
 
@@ -151,7 +159,7 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 
 1. **[高度なツール]** を選択します。
 1. **[高度なツール]** で **[移動]** を選択します。
-1. **[デバッグ コンソール]** > **[PowerShell]** のメニュー項目を選択します。
+1. **[デバッグ コンソール]**  >  **[PowerShell]** のメニュー項目を選択します。
 1. PowerShell のプロンプトで次のコマンドを実行します。 コマンドの `{X.Y}` を ASP.NET Core ランタイム バージョンに、`{PLATFORM}` をプラットフォームに置き換えます。
 
    ```powershell
@@ -184,21 +192,21 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 プレビュー ランタイムを対象とする[自己完結型の展開 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) では、展開でプレビュー ランタイムを保持します。
 
-自己完結型アプリを展開する場合: 
+自己完結型アプリを展開する場合:
 
 * Azure App Service のサイトには、[プレビュー サイト拡張機能](#install-the-preview-site-extension)は必要ありません。
 * アプリは、[フレームワークに依存する展開 (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd) に発行するときとは異なる方法に従って、発行される必要があります。
 
 #### <a name="publish-from-visual-studio"></a>Visual Studio からの発行
 
-1. Visual Studio ツール バーから **[ビルド]** > **[発行 {アプリケーション名}]** の順に選択します。
-1. **[発行先を選択]** ダイアログで、**[App Service]** が選択されていることを確認します。
+1. Visual Studio ツール バーから **[ビルド]**  >  **[発行 {アプリケーション名}]** の順に選択します。
+1. **[発行先を選択]** ダイアログで、 **[App Service]** が選択されていることを確認します。
 1. **[詳細]** を選択します。 **[発行]** ダイアログが開きます。
 1. **[発行]** ダイアログで、次の操作を行います。
    * **[リリース]** の構成が選択されていることを確認します。
-   * **[展開モード]** ドロップダウン リストを開いて、**[自己完結]** を選択します。
+   * **[展開モード]** ドロップダウン リストを開いて、 **[自己完結]** を選択します。
    * **[ターゲット ランタイム]** ドロップダウン リストからターゲット ランタイムを選択します。 既定値は、`win-x86` です。
-   * 展開時に追加のファイルを削除する場合、**[ファイル発行オプション]** を開いて、転送先で追加のファイルを削除するチェック ボックスを選択します。
+   * 展開時に追加のファイルを削除する場合、 **[ファイル発行オプション]** を開いて、転送先で追加のファイルを削除するチェック ボックスを選択します。
    * **[保存]** を選択します。
 1. 発行ウィザードの残りのメッセージに従って、新しいサイトを作成するか、既存のサイトを更新します。
 
@@ -227,7 +235,7 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 ## <a name="protocol-settings-https"></a>プロトコル設定 (HTTPS)
 
-セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 (*.pfx*) が必要です。 詳しくは、「[チュートリアル: 既存のカスタム SSL 証明書を Azure App Service にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
+セキュリティで保護されたプロトコル バインディングを使うと、HTTPS 経由で要求に応答するときに使用する証明書を指定できます。 バインディングには、特定のホスト名に向けて発行された有効なプライベート証明書 ( *.pfx*) が必要です。 詳しくは、「[チュートリアル: 既存のカスタム SSL 証明書を Azure App Service にバインドする](/azure/app-service/app-service-web-tutorial-custom-ssl)」をご覧ください。
 
 ## <a name="transform-webconfig"></a>web.config を変換する
 

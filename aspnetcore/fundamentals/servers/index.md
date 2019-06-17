@@ -2,22 +2,41 @@
 title: ASP.NET Core での Web サーバーの実装
 author: guardrex
 description: ASP.NET Core の Web サーバー Kestrel と HTTP.sys を検出します。 サーバーを選択する方法と、リバース プロキシ サーバーを使用するタイミングについて説明します。
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/01/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 82a4bd0173b0aab094ac5ac9f89d5358ba585d3d
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 6b4debdaf386bb596c600d3216e78c0cd0380f93
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251349"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034847"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Steve Smith](https://ardalis.com/)、[Stephen Halter](https://twitter.com/halter73)、[Chris Ross](https://github.com/Tratcher)
 
 ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバーの実装では、HTTP 要求がリッスンされ、<xref:Microsoft.AspNetCore.Http.HttpContext> に構成された[要求機能](xref:fundamentals/request-features)のセットとしてアプリに公開されます。
+
+## <a name="kestrel"></a>Kestrel
+
+Kestrel は、ASP.NET Core のプロジェクト テンプレートに含まれる既定の Web サーバーです。
+
+Kestrel を使用する:
+
+* これ自体で、インターネットを含むネットワークから直接要求を処理するエッジ サーバーとして。
+
+  ![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
+
+* [インターネット インフォメーション サービス (IIS)](https://www.iis.net/)、[Nginx](http://nginx.org)、[Apache](https://httpd.apache.org/) などの*リバース プロキシ サーバー*と共に。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。
+
+  ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
+
+いずれのホスティング構成も、リバース プロキシ サーバーの有無に関わらず、ASP.NET Core 2.1 以降のアプリに対してサポートされます。
+
+Kestrel の構成ガイダンスおよびリバース プロキシ構成で Kestrel を使用するときの情報については、「<xref:fundamentals/servers/kestrel>」をご覧ください。
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -26,56 +45,23 @@ ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用�
 ASP.NET Core には次のものが付属しています。
 
 * [Kestrel サーバー](xref:fundamentals/servers/kestrel)は、クロスプラットフォーム HTTP サーバーの既定の実装です。
-* IIS HTTP サーバーは、IIS 用の[インプロセス サーバー](#in-process-hosting-model)です。
+* IIS HTTP サーバーは、IIS 用の[インプロセス サーバー](#hosting-models)です。
 * [HTTP.sys サーバー](xref:fundamentals/servers/httpsys)は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](/windows/desktop/Http/http-api-start-page) に基づく Windows 専用の HTTP サーバーです。
 
 [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用すると、アプリは次のどちらかで実行されます。
 
-* [IIS HTTP サーバー](#iis-http-server)を使用して IIS ワーカー プロセスと同じプロセス内 ([インプロセス ホスティング モデル](#in-process-hosting-model))。 "*インプロセス*" が推奨される構成です。
-* [Kestrel サーバー](#kestrel)を使用して IIS ワーカー プロセスとは異なるプロセス内 ([プロセス外ホスティング モデル](#out-of-process-hosting-model))。
+* IIS HTTP サーバーを使用して IIS ワーカー プロセスと同じプロセス内 ([インプロセス ホスティング モデル](#hosting-models))。 "*インプロセス*" が推奨される構成です。
+* [Kestrel サーバー](#kestrel)を使用して IIS ワーカー プロセスとは異なるプロセス内 ([プロセス外ホスティング モデル](#hosting-models))。
 
 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)はネイティブの IIS モジュールであり、IIS とインプロセス IIS HTTP サーバーまたは Kestrel の間のネイティブ IIS 要求が処理されます。 詳細については、「<xref:host-and-deploy/aspnet-core-module>」を参照してください。
 
 ## <a name="hosting-models"></a>ホスティング モデル
 
-### <a name="in-process-hosting-model"></a>インプロセス ホスティング モデル
-
 インプロセス ホスティング モデルを使用する場合、ASP.NET Core アプリはその IIS ワーカー プロセスと同じプロセスで実行されます。 インプロセス ホスティングは、パフォーマンスの点でアウトプロセス ホスティングよりも優れています。要求がループバック アダプター (発信されたネットワーク トラフィックを同じコンピューターに送り返すネットワーク インターフェイス) を介してプロキシされることがないからです。 IIS では [Windows プロセス アクティブ化サービス (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was) を使用してプロセス管理が処理されます。
 
-ASP.NET Core モジュール:
+アウト プロセス ホスティングでは ASP.NET Core アプリは IIS ワーカー プロセスとは独立したプロセスで実行され、プロセス管理はモジュールによって処理されます。 モジュールでは、最初の要求が届いたときに ASP.NET Core アプリのプロセスが開始され、プロセスがシャットダウンまたはクラッシュした場合はアプリが再起動されます。 この動作は、インプロセスで実行されるアプリであり、[WAS (Windows プロセス アクティブ化サービス)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was) によって管理されるアプリと基本的に同じです。
 
-* アプリの初期化を実行します。
-  * [CoreCLR](/dotnet/standard/glossary#coreclr) を読み込みます。
-  * `Program.Main`.
-* IIS ネイティブ要求の有効期間を処理します。
-
-.NET Framework をターゲットにする ASP.NET Core アプリではインプロセス ホスティング モデルはサポートされていません。
-
-次の図は、IIS (ASP.NET Core モジュール) とインプロセスでホストされるアプリとの間のリレーションシップを示しています。
-
-![ASP.NET Core モジュール](_static/ancm-inprocess.png)
-
-Web からカーネル モードの HTTP.sys ドライバーに要求が届きます。 このドライバーによって、Web サイトの構成ポート (通常は 80 (HTTP) または 443 (HTTPS)) 上で IIS へのネイティブ要求がルーティングされます。 モーダルは、ネイティブ要求を受け取り、それを IIS HTTP サーバー (`IISHttpServer`) に渡します。 IIS HTTP サーバーは IIS 用のインプロセス サーバーの実装であり、要求がネイティブからマネージドに変換されます。
-
-IIS HTTP サーバーによって要求が処理された後、その要求は ASP.NET Core ミドルウェア パイプラインにプッシュされます。 ミドルウェア パイプラインは要求を処理し、`HttpContext` インスタンスとしてアプリのロジックに渡します。 アプリの応答は、IIS の HTTP サーバーを経由して IIS に戻されます。 IIS は、要求を開始したクライアントに応答を送信します。
-
-インプロセス ホスティングは既存のアプリではオプトインになっていますが、[dotnet new](/dotnet/core/tools/dotnet-new) テンプレートは既定ではすべての IIS および IIS Express シナリオにおいてインプロセス ホスティング モデルに設定されています。
-
-### <a name="out-of-process-hosting-model"></a>アウト プロセス ホスティング モデル
-
-ASP.NET Core アプリは IIS ワーカー プロセスとは独立したプロセスで実行されるため、プロセス管理はモジュールによって処理されます。 モジュールでは、最初の要求が届いたときに ASP.NET Core アプリのプロセスが開始され、プロセスがシャットダウンまたはクラッシュした場合はアプリが再起動されます。 この動作は、インプロセスで実行されるアプリであり、[WAS (Windows プロセス アクティブ化サービス)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was) によって管理されるアプリと基本的に同じです。
-
-次の図は、IIS (ASP.NET Core モジュール) とアウトプロセスでホストされるアプリとの間のリレーションシップを示しています。
-
-![ASP.NET Core モジュール](_static/ancm-outofprocess.png)
-
-要求は、Web からカーネル モードの HTTP.sys ドライバーに到着します。 ドライバーは、Web サイトの構成ポート (通常は 80 (HTTP) または 443 (HTTPS)) で IIS への要求をルーティングします。 モジュールでは、アプリのランダムなポート (ポート 80 または 443 ではありません) で Kestrel に要求が転送されます。
-
-モジュールによってスタートアップ時に環境変数を介してポートが指定されると、<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> 拡張機能によって `http://localhost:{PORT}` をリッスンするようにサーバーが構成されます。 追加のチェックが実行され、モジュールから発生していない要求は拒否されます。 モジュールでは HTTPS 転送がサポートされていないため、要求は HTTPS を介して IIS によって受信された場合でも、HTTP を介して転送されます。
-
-Kestrel によってモジュールから要求が取り込まれた後、その要求は ASP.NET Core ミドルウェア パイプラインにプッシュされます。 ミドルウェア パイプラインは要求を処理し、`HttpContext` インスタンスとしてアプリのロジックに渡します。 IIS 統合によって追加されたミドルウェアでは、カーネルへの要求の転送を考慮して、スキーム、リモート IP、およびパスベースが更新されます。 アプリの応答が IIS に戻され、IIS はその応答を、要求を開始した HTTP クライアントに返します。
-
-IIS と ASP.NET Core モジュールの構成のガイダンスについては、次のトピックをご覧ください。
+詳細および構成のガイダンスについては、次のトピックを参照してください:
 
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
@@ -132,42 +118,6 @@ ASP.NET Core には、既定のクロスプラットフォーム HTTP サーバ�
 
 ::: moniker-end
 
-## <a name="kestrel"></a>Kestrel
-
-Kestrel は、ASP.NET Core のプロジェクト テンプレートに含まれる既定の Web サーバーです。
-
-::: moniker range=">= aspnetcore-2.0"
-
-Kestrel は次のように使用できます。
-
-* これ自体で、インターネットを含むネットワークから直接要求を処理するエッジ サーバーとして。
-
-  ![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
-
-* [インターネット インフォメーション サービス (IIS)](https://www.iis.net/)、[Nginx](http://nginx.org)、[Apache](https://httpd.apache.org/) などの*リバース プロキシ サーバー*と共に。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。
-
-  ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
-
-いずれのホスティング構成も、リバース プロキシ サーバーの有無に関わらず、ASP.NET Core 2.1 以降のアプリに対してサポートされます。
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-アプリが内部ネットワークからの要求のみを受け入れる場合は、Kestrel を単独で使用することができます。
-
-![内部ネットワークと直接通信する Kestrel](kestrel/_static/kestrel-to-internal.png)
-
-アプリをインターネットに公開する場合は、Kestrel が[インターネット インフォメーション サービス (IIS)](https://www.iis.net/)、[Nginx](http://nginx.org)、[Apache](https://httpd.apache.org/) などの*リバース プロキシ サーバー*を使用する必要があります。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、これを Kestrel に転送します。
-
-![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
-
-インターネットに直接公開される一般向けのエッジ サーバー展開でリバース プロキシを使用する最も重要な理由は、セキュリティです。 1.x バージョンの Kestrel はインターネットからの攻撃を防御する重要なセキュリティ機能を備えていません。 これには、適切なタイムアウト、要求サイズの制限、およびコンカレント接続の制限などが含まれます (ただし、これらに限定されない)。
-
-::: moniker-end
-
-Kestrel の構成ガイダンスおよびリバース プロキシ構成で Kestrel を使用するときの情報については、「<xref:fundamentals/servers/kestrel>」をご覧ください。
-
 ### <a name="nginx-with-kestrel"></a>Nginx と Kestrel
 
 Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、<xref:host-and-deploy/linux-nginx> を参照してください。
@@ -175,14 +125,6 @@ Kestrel のリバース プロキシ サーバーとして Linux で Nginx を�
 ### <a name="apache-with-kestrel"></a>Apache と Kestrel
 
 Kestrel のリバース プロキシ サーバーとして Linux で Apache を使用する方法については、<xref:host-and-deploy/linux-apache> を参照してください。
-
-::: moniker range=">= aspnetcore-2.2"
-
-## <a name="iis-http-server"></a>IIS HTTP サーバー
-
-IIS HTTP サーバーは、IIS 用の[インプロセス サーバー](#in-process-hosting-model)であり、インプロセスの展開に必要です。 [ASP.NET Core モジュール](xref:host-and-deploy/aspnet-core-module)では、IIS と IIS HTTP サーバーの間のネイティブ IIS 要求が処理されます。 詳細については、「<xref:host-and-deploy/aspnet-core-module>」を参照してください。
-
-::: moniker-end
 
 ## <a name="httpsys"></a>HTTP.sys
 
