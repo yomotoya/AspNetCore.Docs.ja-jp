@@ -4,14 +4,14 @@ author: scottaddie
 description: バンドルと縮小の手法を適用することで、ASP.NET Core web アプリケーションで静的なリソースを最適化する方法について説明します。
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ba01d365a25dfbd13fed89263d7489b2ce2a8771
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: c3ec67d9f5c2b8eb44b5ced911ccfd0fa40a52a7
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535929"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152774"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>バンドルし、縮小の ASP.NET Core で静的なアセット
 
@@ -265,7 +265,7 @@ Visual Studio [Bundler & Minifier](https://marketplace.visualstudio.com/items?it
 > [!NOTE]
 > Bundler & Minifier 拡張機能は、github の Microsoft サポートを提供しないコミュニティが主導のプロジェクトに属しています。 問題を提出する必要があります[ここ](https://github.com/madskristensen/BundlerMinifier/issues)します。
 
-右クリックし、 *bundleconfig.json*ソリューション エクスプ ローラーでファイルおよび選択**Bundler & Minifier** > **Gulp に変換しています.**:
+右クリックし、 *bundleconfig.json*ソリューション エクスプ ローラーでファイルおよび選択**Bundler & Minifier** > **Gulp に変換しています.** :
 
 ![Gulp をで変換コンテキスト メニュー項目](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
 
@@ -286,6 +286,9 @@ npm i -g gulp-cli
 Visual Studio や Bundler & Minifier 拡張機能を使用できない場合に、手動で変換します。
 
 追加、 *package.json*を次のファイル`devDependencies`プロジェクトのルート。
+
+> [!WARNING]
+> `gulp-uglify` ECMAScript (ES) 2015 をサポートしていないモジュール/ES6 以降。 インストール[gulp terser](https://www.npmjs.com/package/gulp-terser)の代わりに`gulp-uglify`ES2015 を使用する/ES6 以降。
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/package.json?range=5-13)]
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 8d48877153d6d75348e29299c669125904236de8
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 08ce50775d1b5348cb0528a1724cec2e5c72dae2
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692591"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152904"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core での HTTPS を適用します。
 
@@ -24,11 +24,32 @@ ms.locfileid: "66692591"
 
 API ようにするありませんクライアントの最初の要求で機密データを送信します。
 
+::: moniker range="< aspnetcore-3.0"
+
 > [!WARNING]
+> ## <a name="api-projects"></a>API プロジェクト
+>
 > **いない**使用[RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute)機密情報を受け取る Web Api で。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
 >
 > * HTTP をリッスンしない。
 > * ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!WARNING]
+> ## <a name="api-projects"></a>API プロジェクト
+>
+> **いない**使用[RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute)機密情報を受け取る Web Api で。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
+>
+> * HTTP をリッスンしない。
+> * ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
+>
+> ## <a name="hsts-and-api-projects"></a>HSTS と API プロジェクト
+>
+> 既定の API プロジェクトが含まれていません[HSTS](#hsts) HSTS は、ブラウザーの唯一の命令では通常ためです。 電話やデスクトップ アプリなどの他の呼び出し元は**いない**指示に従います。 ブラウザー内であっても HTTP 経由で API に対する単一の認証された呼び出しは安全でないネットワークには、リスクいます。 セキュリティで保護された方法では、API プロジェクトのみをリッスンして、HTTPS 経由で応答を構成します。
+
+::: moniker-end
 
 ## <a name="require-https"></a>HTTPS を要求する
 
@@ -159,6 +180,8 @@ HTTPS リダイレクト ミドルウェアの使用をお勧めときに、追�
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
+<a name="hsts"></a>
 
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP Strict Transport Security プロトコル (HSTS)
 
