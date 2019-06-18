@@ -70,6 +70,9 @@
               uid: tutorials/first-mvc-app/validation
             - name: Details メソッドと Delete メソッドの確認
               uid: tutorials/first-mvc-app/details
+        - name: Blazor
+          displayName: tutorial
+          uid: tutorials/first-blazor-app
     - name: Web API アプリ
       items:
         - name: Web API の作成
