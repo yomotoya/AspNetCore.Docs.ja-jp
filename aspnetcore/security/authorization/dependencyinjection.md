@@ -16,7 +16,7 @@ ms.locfileid: "64896369"
 
 <a name="security-authorization-di"></a>
 
-構成の中にあるサービスコレクションで、[承認ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration) (これには[依存関係の注入](xref:fundamentals/dependency-injection)を使用します。
+構成の中にあるサービスコレクションで、[承認ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration) (これには[依存関係の注入](xref:fundamentals/dependency-injection)を使用します)。
 
 認可ハンドラー内に評価するルールのリポジトリがあり、そのリポジトリがサービスコレクションに登録されているとします。 承認はそれを解決してコンストラクターに挿入します。
 
