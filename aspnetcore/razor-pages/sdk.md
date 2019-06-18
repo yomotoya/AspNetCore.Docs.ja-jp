@@ -5,29 +5,43 @@ description: ASP.NET Core の Razor ページを使用して、ページのコ�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/05/2019
+ms.date: 06/18/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: 8c4e882af93b043afaa0bcf86fd1583405f84be9
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: fa69e4840377e0c1c8291c7ba9305a27bd3e6b82
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750176"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196362"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core の Razor SDK
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
+
+## <a name="overview"></a>概要
 
 [!INCLUDE[](~/includes/2.1-SDK.md)]が含まれています、 `Microsoft.NET.Sdk.Razor` MSBuild SDK (Razor SDK)。 Razor SDK とは、次のとおりです。
 
 * ASP.NET Core MVC ベース プロジェクト用の [Razor](xref:mvc/views/razor) ファイルを含むプロジェクトのビルド、パッケージ、および発行に関わる表示と操作を標準化できます。
 * Razor ファイルのコンパイルのカスタマイズを可能にする事前定義されたターゲット、プロパティ、項目のセットを含みます。
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Razor の SDK が含まれています、`<Content>`を持つ要素を`Include`属性に設定、`**\*.cshtml`グロビング パターン。 一致するファイルが発行されます。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Razor の SDK が含まれています`<Content>`要素`Include`属性に設定、`**\*.cshtml`と`**\*.razor`glob パターン。 一致するファイルが発行されます。
+
+::: moniker-end
+
 ## <a name="prerequisites"></a>必須コンポーネント
 
 [!INCLUDE[](~/includes/2.1-SDK.md)]
 
-## <a name="using-the-razor-sdk"></a>Razor SDK を使用する
+## <a name="use-the-razor-sdk"></a>Razor の SDK を使用して、
 
 ほとんどの web アプリは、Razor の SDK を明示的に参照する必要はありません。
 
@@ -37,7 +51,7 @@ Razor SDK を使用して Razor ビューまたは Razor ページを含むク�
 
   ```xml
   <Project SDK="Microsoft.NET.Sdk.Razor">
-    ...
+    <!-- omitted for brevity -->
   </Project>
   ```
 
@@ -72,7 +86,7 @@ Razor の SDK の動作は、プロジェクトをビルドする際に次のプ
 | 項目 | 説明 |
 | ----- | ----------- |
 | `RazorGenerate` | コードの生成対象に入力する項目要素 ( *.cshtml* ファイル) です。 |
-| `RazorCompile` | 項目要素 ( *.cs*ファイル)、Razor コンパイルのターゲットに入力します。 Razor アセンブリに追加でコンパイルするファイルを指定するには、この ItemGroup を使用します。 |
+| `RazorCompile` | 項目要素 ( *.cs*ファイル)、Razor コンパイルのターゲットに入力します。 これを使用して、 `ItemGroup` Razor アセンブリにコンパイルする追加のファイルを指定します。 |
 | `RazorTargetAssemblyAttribute` | Razor アセンブリ用の属性をコード生成するために使用する項目要素です。 例:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | 項目の要素が生成された Razor アセンブリに埋め込みリソースとして追加します。 |
 
@@ -115,3 +129,8 @@ Razor SDK では、次の 2 つの主要なターゲットが定義されてい�
   <RazorLangVersion>{VERSION}</RazorLangVersion>
 </PropertyGroup>
 ```
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [.NET Core の csproj 形式に追加されたもの](/dotnet/core/tools/csproj)
+* [MSBuild プロジェクトの共通項目](/visualstudio/msbuild/common-msbuild-project-items)

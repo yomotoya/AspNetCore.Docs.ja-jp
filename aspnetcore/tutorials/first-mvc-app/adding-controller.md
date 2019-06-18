@@ -5,12 +5,12 @@ description: 単純な ASP.NET Core MVC アプリにコントローラーを追�
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: dad9262e544fc216ddc694b11b0dfb88b58db9cd
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9dbfb52109260dbfe0c6c094a7ac4edae47d24e7
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887287"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837336"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリにコントローラーを追加する
 
@@ -32,24 +32,24 @@ MVC パターンは、これらの要素間の疎結合を提供しながら、�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **ソリューション エクスプローラー**で、**[コントローラー] を右クリックし、[追加]、[コントローラー]、[コンテキスト メニュー] の順に選択します。**
+* **ソリューション エクスプローラー**で、 **[コントローラー] を右クリックし、[追加]、[コントローラー]、[コンテキスト メニュー] の順に選択します。** 
   ![コンテキスト メニュー](adding-controller/_static/add_controller.png)
 
-* **[スキャフォールディングを追加]** ダイアログ ボックスで、**[MVC コント ローラー - 空]** を選択します。
+* **[スキャフォールディングを追加]** ダイアログ ボックスで、 **[MVC コント ローラー - 空]** を選択します。
 
   ![MVC コント ローラーを追加し、名前を付けます](adding-controller/_static/ac.png)
 
-* **[Add Empty MVC Controller]\(空の MVC コント ローラーの追加\)** ダイアログで、「**HelloWorldController**」と入力して、**[追加]** を選択します。
+* **[Add Empty MVC Controller]\(空の MVC コント ローラーの追加\)** ダイアログで、「**HelloWorldController**」と入力して、 **[追加]** を選択します。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-**[エクスプローラー]** アイコンで、**[コントローラー] を右クリックして [新しいファイル] を選択し**、新しいファイルに「*HelloWorldController.cs*」という名前を付けます。
+**[エクスプローラー]** アイコンで、 **[コントローラー] を右クリックして [新しいファイル] を選択し**、新しいファイルに「*HelloWorldController.cs*」という名前を付けます。
 
   ![コンテキスト メニュー](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-**ソリューション エクスプローラー**で、**[Controllers] を右クリックし、[追加]、[新しいファイル]** の順に選択します。
+**ソリューション エクスプローラー**で、 **[Controllers] を右クリックし、[追加]、[新しいファイル]** の順に選択します。
 ![コンテキスト メニュー](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
 
 **[ASP.NET Core]** と **[MVC コントローラー クラス]** を選択します。

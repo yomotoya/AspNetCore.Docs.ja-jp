@@ -4,14 +4,14 @@ author: juntaoluo
 description: このチュートリアルでは、ASP.NET Core で gRPC サービスと gRPC クライアントを作成する方法を示します。 gRPC サービス プロジェクトの作成方法、proto ファイルの編集方法、二重ストリーミング呼び出しの追加方法について学習します。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 919db3f31310342657c89100a6e25e8293648a9f
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692530"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034809"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>チュートリアル: ASP.NET Core で gRPC のクライアントとサーバーを作成する
 
@@ -86,13 +86,13 @@ Visual Studio から、 **[ファイル]、[開く]** の順に選択し、*Grpc
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* デバッガーなしで gRPC サービスを実行するには、Ctrl+F5 キーを押します。
+* デバッガーなしで gRPC サービスを実行するには、`Ctrl+F5` キーを押します。
 
   Visual Studio では、コマンド プロンプトでサービスが実行されます。
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* `dotnet run` を使用し、コマンド ラインから gRPC あいさつプロジェクト GrpcGreeter を実行します。
+* `dotnet run` を使用し、コマンド ラインから gRPC あいさつプロジェクト *GrpcGreeter* を実行します。
 
 <!-- End of combined VS/Mac tabs -->
 
@@ -112,7 +112,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ### <a name="examine-the-project-files"></a>プロジェクト ファイルを確認する
 
-GrpcGreeter ファイル:
+*GrpcGreeter*プロジェクト ファイル:
 
 * *greet.proto*:*Protos/greet.proto* ファイルは、`Greeter` gRPC を定義し、gRPC サーバー資産を生成するために使用されます。 詳細については、「[gRPC の概要](xref:grpc/index)」を参照してください。
 * *Services* フォルダー:`Greeter` サービスの実装が含まれます。
@@ -153,13 +153,13 @@ code -r GrpcGreeterClient
 
 次のパッケージを gRPC クライアント プロジェクトに追加します。
 
-* [Grpc.Core](https://www.nuget.org/packages/Grpc.Core)。これには C-core クライアント用の C# API が含まれています。
+* .NET Core のクライアントを含む [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client)。
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/)。これに C# の protobuf メッセージ API が含まれています。
 * [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/)。これには protobuf ファイルの C# ツール サポートが含まれています。 ツール パッケージは実行時に不要であり、依存関係には `PrivateAssets="All"` のマークが付きます。
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-パッケージ マネージャー コンソール (PMC) または NuGet パッケージの管理を使用してパッケージをインストールする
+パッケージ マネージャー コンソール (PMC) または NuGet パッケージの管理を使用してパッケージをインストールします。
 
 #### <a name="pmc-option-to-install-packages"></a>パッケージをインストールするための PMC オプション
 
@@ -168,7 +168,7 @@ code -r GrpcGreeterClient
 * 次のコマンドを実行します。
 
  ```powershell
-Install-Package Grpc.Core
+Install-Package Grpc.Net.Client
 Install-Package Google.Protobuf
 Install-Package Grpc.Tools
 ```
@@ -186,7 +186,7 @@ Install-Package Grpc.Tools
 **統合ターミナル**から次のコマンドを実行します。
 
 ```console
-dotnet add GrpcGreeterClient.csproj package Grpc.Core
+dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
 dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ```
@@ -194,8 +194,8 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
 * **[Solution Pad]**  >  **[パッケージを追加]** で **[パッケージ]** フォルダーを右クリックします。
-* 検索ボックスに「**Grpc.Core**」と入力します。
-* 結果ウィンドウから **Grpc.Core** パッケージを選択し、 **[パッケージを追加]** を選択します
+* 検索ボックスに「**Grpc.Net.Client**」と入力します。
+* 結果ウィンドウから **Grpc.Net.Client** パッケージを選択し、 **[パッケージを追加]** を選択します
 * `Google.Protobuf` と `Grpc.Tools` に同じ手順を繰り返します。
 
 ---
@@ -242,23 +242,21 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 Greeter クライアントは、次の方法で作成されます。
 
-* gRPC サービスへの接続を作成するための情報が含まれている `Channel` をインスタンス化する。
-* `Channel` を使用して、Greeter クライアントを構築します。
+* gRPC サービスへの接続を作成するための情報が含まれている `HttpClient` をインスタンス化します。
+* `HttpClient` を使用して、Greeter クライアントを構築します。
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=4-6)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=3-9)]
 
 Greeter クライアントから非同期の `SayHello` メソッドが呼び出されます。 `SayHello` 呼び出しの結果が表示されます。
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=7-9)]
-
-操作が完了してすべてのリソースが解放されたときに、クライアントによって使用される `Channel` をシャットダウンします。
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=10-12)]
 
 ## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a>gRPC あいさつサービスで gRPC クライアントをテストする
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* あいさつサービスで、Ctrl キーを押しながら F5 キーを押して、デバッガーなしでサーバーを起動します。
-* GrpcGreeterClient プロジェクトで、Ctrl キーを押しながら F5 キーを押して、デバッガーなしでサーバーを起動します。
+* あいさつサービスで、`Ctrl+F5` キーを押して、デバッガーなしでサーバーを起動します。
+* `GrpcGreeterClient` プロジェクトで、`Ctrl+F5` キーを押して、デバッガーなしでサーバーを起動します。
 
 ### <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code / Visual Studio for Mac](#tab/visual-studio-code+visual-studio-mac)
 

@@ -5,12 +5,12 @@ description: ASP.NET Core がコンテンツをさまざまな言語と文化に
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 3192ad150b914c00b315f38bd9fe077ebf402b37
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: ec78d35daf6823779fca491aca7b7b309db4b02e
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488703"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750038"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -30,7 +30,7 @@ ASP.NET Core で多言語の Web サイトを作成すると、より幅広い�
 
 3. 要求ごとに言語/カルチャを選択するための戦略を実装する
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
 ## <a name="make-the-apps-content-localizable"></a>アプリのコンテンツをローカライズできるようにする
 
@@ -120,13 +120,13 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures と SupportedUICultures
 
-ASP.NET Core では、`SupportedCultures` と `SupportedUICultures` という 2 つのカルチャ値を指定できます。 日付、数値、および通貨の書式設定など、カルチャに依存する関数の結果は、`SupportedCultures` の [CultureInfo](/dotnet/api/system.globalization.cultureinfo) オブジェクトによって決まります。 テキストの並べ替え順序、大文字と小文字の表記規則、文字列比較も `SupportedCultures` によって決まります。 サーバーがカルチャを取得する方法の詳細については、「[CultureInfo.CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)」を参照してください。 `SupportedUICultures` は、*.resx* ファイルからのどの翻訳文字列が [ResourceManager](/dotnet/api/system.resources.resourcemanager) によって検索されるかを決定します。 `ResourceManager` は、`CurrentUICulture` によって決定されるカルチャ固有の文字列を単に検索します。 .NET のすべてのスレッドに `CurrentCulture` オブジェクトと `CurrentUICulture`オブジェクトがあります。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが "en-US" (英語、米国) に設定されている場合は、`DateTime.Now.ToLongDateString()` は、"Thursday, February 18, 2016" を表示しますが、`CurrentCulture` が "es-ES" (スペイン語、スペイン) に設定されている場合、出力は "jueves, 18 de febrero de 2016" になります。
+ASP.NET Core では、`SupportedCultures` と `SupportedUICultures` という 2 つのカルチャ値を指定できます。 日付、数値、および通貨の書式設定など、カルチャに依存する関数の結果は、`SupportedCultures` の [CultureInfo](/dotnet/api/system.globalization.cultureinfo) オブジェクトによって決まります。 テキストの並べ替え順序、大文字と小文字の表記規則、文字列比較も `SupportedCultures` によって決まります。 サーバーがカルチャを取得する方法の詳細については、「[CultureInfo.CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)」を参照してください。 `SupportedUICultures` は、 *.resx* ファイルからのどの翻訳文字列が [ResourceManager](/dotnet/api/system.resources.resourcemanager) によって検索されるかを決定します。 `ResourceManager` は、`CurrentUICulture` によって決定されるカルチャ固有の文字列を単に検索します。 .NET のすべてのスレッドに `CurrentCulture` オブジェクトと `CurrentUICulture`オブジェクトがあります。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが "en-US" (英語、米国) に設定されている場合は、`DateTime.Now.ToLongDateString()` は、"Thursday, February 18, 2016" を表示しますが、`CurrentCulture` が "es-ES" (スペイン語、スペイン) に設定されている場合、出力は "jueves, 18 de febrero de 2016" になります。
 
 ## <a name="resource-files"></a>リソース ファイル
 
 リソース ファイルは、ローカライズ可能な文字列をコードから分離するために役立つメカニズムです。 既定以外の言語の翻訳された文字列は、分離された *.resx* リソース ファイルです。 たとえば、翻訳された文字列を含む *Welcome.es.resx* という名前のスペイン語のリソース ファイルを作成したい場合があります。 "es" は、スペイン語の言語コードです。 Visual Studio でこのリソース ファイルを作成するには、次の手順を実行します。
 
-1. **ソリューション エクスプローラー**で、リソース ファイルが格納されているフォルダーを右クリックし、**[追加]** > **[新しい項目]** を選択します。
+1. **ソリューション エクスプローラー**で、リソース ファイルが格納されているフォルダーを右クリックし、 **[追加]**  >  **[新しい項目]** を選択します。
 
     ![入れ子になったコンテキスト メニュー:ソリューション エクスプローラーで、リソースのコンテキスト メニューが開かれます。 [追加] の 2 つ目のコンテキスト メニューが開き、[新しい項目] コマンドが強調表示されます。](localization/_static/newi.png)
 
@@ -146,7 +146,7 @@ ASP.NET Core では、`SupportedCultures` と `SupportedUICultures` という 2 
 
 リソースの名前は、クラスの完全な型名からアセンブリ名を除いたものになります。 たとえば、メイン アセンブリが `LocalizationWebsite.Web.dll` であるプロジェクト内のクラス `LocalizationWebsite.Web.Startup` のフランス語のリソースは、*Startup.fr.resx* という名前になります。 クラス `LocalizationWebsite.Web.Controllers.HomeController` のリソースは、*Controllers.HomeController.fr.resx* という名前になります。 対象となるクラスの名前空間が、アセンブリ名と同じでない場合は、完全な型名が必要です。 たとえば、同じプロジェクトで、型 `ExtraNamespace.Tools` のリソースは、*ExtraNamespace.Tools.fr.resx* という名前になります。
 
-サンプル プロジェクトで、`ConfigureServices` メソッドは `ResourcesPath` を "Resources" に設定するので、ホーム コントローラーのフランス語のりソース ファイルの相対パスは、*Resources/Controllers.HomeController.fr.resx* です。 あるいは、フォルダーを使用してリソース ファイルを整理することもできます。 Home コント ローラーのパスは、*Resources/Controllers/HomeController.fr.resx* です。 `ResourcesPath` オプションを使用しない場合、*.resx* ファイルは、プロジェクトの基本ディレクトリに置かれます。 `HomeController` のリソース ファイルは、*Controllers.HomeController.fr.resx* という名前になります。 ドットまたはパスの名前付け規則の選択は、リソース ファイルを整理する方法によって決まります。
+サンプル プロジェクトで、`ConfigureServices` メソッドは `ResourcesPath` を "Resources" に設定するので、ホーム コントローラーのフランス語のりソース ファイルの相対パスは、*Resources/Controllers.HomeController.fr.resx* です。 あるいは、フォルダーを使用してリソース ファイルを整理することもできます。 Home コント ローラーのパスは、*Resources/Controllers/HomeController.fr.resx* です。 `ResourcesPath` オプションを使用しない場合、 *.resx* ファイルは、プロジェクトの基本ディレクトリに置かれます。 `HomeController` のリソース ファイルは、*Controllers.HomeController.fr.resx* という名前になります。 ドットまたはパスの名前付け規則の選択は、リソース ファイルを整理する方法によって決まります。
 
 | リソース名 | ドットまたはパスの名前付け |
 | ------------   | ------------- |
@@ -259,7 +259,7 @@ Cookie の形式は `c=%LANGCODE%|uic=%LANGCODE%` です。ここで、`c` は `
 
 ### <a name="set-the-accept-language-http-header-in-ie"></a>IE で Accept-Language HTTP ヘッダーを設定する
 
-1. 歯車アイコンから、**[インターネット オプション]** をタップします。
+1. 歯車アイコンから、 **[インターネット オプション]** をタップします。
 
 2. **[言語]** をタップします。
 
@@ -271,7 +271,7 @@ Cookie の形式は `c=%LANGCODE%|uic=%LANGCODE%` です。ここで、`c` は `
 
 5. 言語を追加します。
 
-6. 言語をタップして、**[上へ移動]** をタップします。
+6. 言語をタップして、 **[上へ移動]** をタップします。
 
 ### <a name="use-a-custom-provider"></a>カスタム プロバイダーを使用する
 
@@ -348,3 +348,4 @@ services.Configure<RequestLocalizationOptions>(options =>
 * [.NET アプリケーションのグローバライズとローカライズ](/dotnet/standard/globalization-localization/index)
 * [.resx ファイル内のリソース](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft 多言語アプリ ツールキット](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
+* [ローカリゼーションとジェネリック](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)

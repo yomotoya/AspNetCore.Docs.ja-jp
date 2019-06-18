@@ -5,12 +5,12 @@ description: キー記憶域プロバイダーでは、ASP.NET Core とキー記
 ms.author: riande
 ms.date: 06/11/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 49b068480fe7ba0a9b338aa5f5b7fc19fb98528f
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: 19d51399e24d085f7c34f70098ca02cbba7a888f
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048102"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167036"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET Core でのキー記憶域プロバイダー
 
@@ -37,7 +37,7 @@ public void ConfigureServices(IServiceCollection services)
 
 [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/)パッケージでは、Azure Blob Storage にデータ保護キーを格納します。 Web アプリの複数のインスタンスでは、キーを共有することができます。 アプリでは、複数のサーバー認証 cookie または CSRF protection を共有できます。
 
-で、Azure Blob 記憶域プロバイダーを構成するには、のいずれかを呼び出して、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)オーバー ロードします。 
+で、Azure Blob 記憶域プロバイダーを構成するには、のいずれかを呼び出して、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)オーバー ロードします。
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -47,7 +47,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Web アプリが Azure のサービスとして実行している場合の認証トークンは自動的に作成を使用して[Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)します。 
+Web アプリが Azure のサービスとして実行している場合の認証トークンは自動的に作成を使用して[Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)します。
 
 ```csharp
 var tokenProvider = new AzureServiceTokenProvider();
@@ -149,7 +149,7 @@ EF Core プロバイダーを構成するには、呼び出し、 [ `PersistKeys
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
 
-作成、`DataProtectionKeys`テーブル。 
+作成、`DataProtectionKeys`テーブル。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

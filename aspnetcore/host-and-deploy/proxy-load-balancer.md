@@ -5,14 +5,14 @@ description: プロキシ サーバーとロード バランサーの背後に�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 2423b5bed760ad879d1c47c5e64b0f815b50397e
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: ab48d80c9cb1c09b5164ed732e76a59687683e97
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251379"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034732"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する
 
@@ -53,11 +53,11 @@ Forwarded Headers Middleware の[既定の設定](#forwarded-headers-middleware-
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>IIS/IIS Express と ASP.NET Core モジュール
 
-アプリが IIS と ASP.NET Core モジュールの背後で[アウト プロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)でホストされている場合、[IIS Integration Middleware](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) によって Forwarded Headers Middleware が既定で有効にされます。 転送されるヘッダーの信頼に関する問題のため (たとえば、[IP スプーフィング](https://www.iplocation.net/ip-spoofing))、Forwarded Headers Middleware はアクティブ化されると最初に、ASP.NET Core モジュールに固有の制限された構成を使って、ミドルウェア パイプライン内で実行します。 ミドルウェアは、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送するように構成され、単一の localhost プロキシに制限されます。 追加の構成が必要な場合は、「[Forwarded Headers Middleware のオプション](#forwarded-headers-middleware-options)」をご覧ください。
+アプリが IIS と ASP.NET Core モジュールの背後で[アウト プロセス](xref:host-and-deploy/iis/index#out-of-process-hosting-model)でホストされている場合、[IIS Integration Middleware](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) によって Forwarded Headers Middleware が既定で有効にされます。 転送されるヘッダーの信頼に関する問題のため (たとえば、[IP スプーフィング](https://www.iplocation.net/ip-spoofing))、Forwarded Headers Middleware はアクティブ化されると最初に、ASP.NET Core モジュールに固有の制限された構成を使って、ミドルウェア パイプライン内で実行します。 ミドルウェアは、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送するように構成され、単一の localhost プロキシに制限されます。 追加の構成が必要な場合は、「[Forwarded Headers Middleware のオプション](#forwarded-headers-middleware-options)」をご覧ください。
 
 ## <a name="other-proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーの他のシナリオ
 
-[アウト プロセス](xref:fundamentals/servers/index#out-of-process-hosting-model)でホストされている場合に [IIS Integration](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) が使われていない場合は、Forwarded Headers Middleware は既定で有効になりません。 <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> を含む転送されたヘッダーをアプリで処理するためには、Forwarded Headers Middleware を有効にする必要があります。 ミドルウェアを有効にした後、ミドルウェアに対して <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> が指定されていない場合の既定の [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) は [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders) です。
+[アウト プロセス](xref:host-and-deploy/iis/index#out-of-process-hosting-model)でホストされている場合に [IIS Integration](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) が使われていない場合は、Forwarded Headers Middleware は既定で有効になりません。 <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> を含む転送されたヘッダーをアプリで処理するためには、Forwarded Headers Middleware を有効にする必要があります。 ミドルウェアを有効にした後、ミドルウェアに対して <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> が指定されていない場合の既定の [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) は [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders) です。
 
 <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> でミドルウェアを構成して、`Startup.ConfigureServices` で `X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。 他のミドルウェアを呼び出す前に、`Startup.Configure` 内で <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> メソッドを呼び出します。
 
@@ -226,6 +226,38 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Linux および非 IIS のリバース プロキシのスキームを転送する
+
+.NET Core テンプレートでは、<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> および <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> が呼び出されます。 これらのメソッドが Azure Linux App Service、Azure Linux 仮想マシン (VM) に展開されている場合、または IIS 以外の他のリバース プロキシの背後に展開されている場合、サイトは無限ループに陥ります。 TLS はリバース プロキシによって終了され、Kestrel では正しい要求スキームが認識されません。 OAuth と OIDC もこの構成では正しくないリダイレクトを生成するため、失敗します。 <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> は IIS の背後で実行される場合、Forwarded Headers Middleware を追加して構成しますが、Linux 用の対応する自動設定 (Apache または Nginx 統合) はありません。
+
+非 IIS シナリオでプロキシからスキームを転送するには、Forwarded Headers Middleware を追加して構成します。 `Startup.ConfigureServices` で、次のコードを使用します。
+
+```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
+if (string.Equals(
+    Environment.GetEnvironmentVariable("ASPNETCORE_FORWARDEDHEADERS_ENABLED"), 
+    "true", StringComparison.OrdinalIgnoreCase))
+{
+    services.Configure<ForwardedHeadersOptions>(options =>
+    {
+        options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | 
+            ForwardedHeaders.XForwardedProto;
+        // Only loopback proxies are allowed by default.
+        // Clear that restriction because forwarders are enabled by explicit 
+        // configuration.
+        options.KnownNetworks.Clear();
+        options.KnownProxies.Clear();
+    });
+}
+```
+
+Azure で新しいコンテナー イメージが提供されるまで、`ASPNETCORE_FORWARDEDHEADERS_ENABLED` を `true` に設定するためのアプリ設定 (環境変数) を作成する必要があります。 詳細については、「[Templates do not work in Antares Linux due to missing scheme forwarders (aspnet/AspNetCore #4135)](https://github.com/aspnet/AspNetCore/issues/4135)」 (スキーム フォワーダーがないため Antares Linux ではテンプレートが機能しない (aspnet/AspNetCore #4135)) を参照してください。
+
+::: moniker-end
+
 ## <a name="troubleshoot"></a>トラブルシューティング
 
 ヘッダーが意図したとおりに転送されない場合は、[ログ](xref:fundamentals/logging/index) を有効にします。 ログで問題のトラブルシューティングに十分な情報が提供されない場合は、サーバーが受信した要求ヘッダーを列挙します。 インライン ミドルウェアを使用し、アプリ応答に要求ヘッダーを書き込んだり、ヘッダーをログに記録したりします。 
@@ -310,6 +342,53 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 > [!IMPORTANT]
 > 信頼されているプロキシとネットワークにのみ、ヘッダーの転送を許可します。 それ以外に許可すると、[IP なりすまし](https://www.iplocation.net/ip-spoofing)攻撃が可能になります。
+
+## <a name="certificate-forwarding"></a>証明書の転送 
+
+### <a name="on-azure"></a>Azure の場合
+
+Azure Web Apps を構成するには、[Azure のドキュメント](/azure/app-service/app-service-web-configure-tls-mutual-auth)を参照してください。 ご利用のアプリの `Startup.Configure` メソッドで、`app.UseAuthentication();` の呼び出し前に次のコードを追加します。
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+また、Azure で使用されるヘッダー名を指定するように証明書の転送ミドルウェアを構成する必要もあります。 ご利用のアプリの `Startup.ConfigureServices` メソッドで、ミドルウェアが証明書を作成する元となるヘッダーを構成するための次のコードを追加します。
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "X-ARR-ClientCert");
+```
+
+### <a name="with-other-web-proxies"></a>その他の Web プロキシの場合
+
+使用しているプロキシが IIS でも Azure の Web Apps アプリケーション要求ルーティング処理でもない場合は、HTTP ヘッダーで受信した証明書を転送するようにそのプロキシを構成します。 ご利用のアプリの `Startup.Configure` メソッドで、`app.UseAuthentication();` の呼び出し前に次のコードを追加します。
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+また、ヘッダー名を指定するように証明書の転送ミドルウェアを構成する必要もあります。 ご利用のアプリの `Startup.ConfigureServices` メソッドで、ミドルウェアが証明書を作成する元となるヘッダーを構成するための次のコードを追加します。
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
+```
+
+最後に、プロキシで証明書の base64 エンコード以外の処理が何か行われている場合 (Nginx の場合のように)、`HeaderConverter` オプションを設定します。 `Startup.ConfigureServices` での次の例を検討してください。
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
+    options.HeaderConverter = (headerValue) => 
+    {
+        var clientCertificate = 
+           /* some conversion logic to create an X509Certificate2 */
+        return clientCertificate;
+    }
+});
+```
 
 ## <a name="additional-resources"></a>その他の技術情報
 

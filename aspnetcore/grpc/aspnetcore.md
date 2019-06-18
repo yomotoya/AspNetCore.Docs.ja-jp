@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 190004de8b70a463f9f58a25164d5a86ecc266d6
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: ca06478e6168c59d9abf43d99213fa8a7091e178
+ms.sourcegitcommit: 756114cab5e24e99ec23de62b0c1c16b15197ac2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376355"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67169528"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>ASP.NET Core を使用した gRPC サービス
 
@@ -45,11 +45,11 @@ gRPC では、次のパッケージが必要です。
 
 gRPC、有効化され、`AddGrpc`メソッド。
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=5)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7)]
 
 各 gRPC サービスを通じてルーティング パイプラインに追加されます、`MapGrpcService`メソッド。
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=21)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=24)]
 
 ASP.NET Core のミドルウェアと機能を共有して、ルーティングのパイプライン、ハンドラーの追加の要求を処理するためにそのため、アプリを構成できます。 MVC コント ローラーなど、追加の要求ハンドラーは、gRPC が構成されているサービスと並列で動作します。
 
@@ -76,7 +76,7 @@ GRPC API は、メソッド、ホスト、ヘッダー、およびトレーラ�
 
 `ServerCallContext` フル アクセスを提供しない`HttpContext`すべての ASP.NET Api でします。 `GetHttpContext`拡張メソッドへのフル アクセスを提供する、 `HttpContext` ASP.NET Api では、基になる HTTP/2 メッセージを表します。
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet1)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
 ## <a name="additional-resources"></a>その他の技術情報
 

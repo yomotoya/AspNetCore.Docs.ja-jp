@@ -3,14 +3,14 @@ title: ASP.NET Core の Razor 構文リファレンス
 author: rick-anderson
 description: Web ページにサーバー ベースのコードを埋め込むための Razor マークアップの構文について説明します。
 ms.author: riande
-ms.date: 10/26/2018
+ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 7f97be651c067e94f29eef4956c10d87ec031bed
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887907"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034941"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
@@ -574,9 +574,39 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
 ::: moniker-end
 
+### <a name="attribute"></a>@attribute
+
+`@attribute` ディレクティブでは、指定された属性が生成されたページまたはビューのクラスに追加されます。 次の例では、`[Authorize]` 属性が追加されます。
+
+```cshtml
+@attribute [Authorize]
+```
+
+> [!WARNING]
+> ASP.NET Core 3.0 Preview 6 のリリースには、 *\_Imports.razor* ファイルと *\_ViewImports.cshtml* ファイルで `@attribute` ディレクティブが動作しないという既知の問題があります。 これは Preview 7 のリリースで対処される予定です。
+
+### <a name="namespace"></a>@namespace
+
+`@namespace` ディレクティブでは、生成されたページまたはビューのクラスの名前空間が設定されます。
+
+```cshtml
+@namespace Your.Namespace.Here
+```
+
+ページまたはビューで `@namespace` ディレクティブを使用して API がインポートされる場合、その名前空間を基準にして元のファイルの名前空間は設定されます。 
+
+*MyApp/Pages/\_ViewImports.cshtml* に `@namespace Hello.World` が含まれている場合、`Hello.World` 名前空間をインポートするページまたはビューの名前空間は、次の表に示すように設定されます。
+
+| ページ (またはビュー)                     | 名前空間               |
+| ---------------------------------- | ----------------------- |
+| *MyApp/Pages/Index.cshtml*         | `Hello.World`           |
+| *MyApp/Pages/MorePages/Bar.cshtml* | `Hello.World.MorePages` |
+
+複数のインポート ファイルに `@namespace` ディレクティブが含まれている場合、ディレクトリ チェーン内のページまたはビューに最も近いファイルが使用されます。
+
 ### <a name="section"></a>@section
 
-`@section` ディレクティブを[レイアウト](xref:mvc/views/layout)と組み合わせて使うと、HTML ページのさまざまな部分のコンテンツをビューでレンダリングできます。 詳しくは、「[セクション](xref:mvc/views/layout#layout-sections-label)」をご覧ください。
+`@section` ディレクティブを[レイアウト](xref:mvc/views/layout)と組み合わせて使うと、HTML ページのさまざまな部分のコンテンツをページまたはビューでレンダリングできます。 詳しくは、「[セクション](xref:mvc/views/layout#layout-sections-label)」をご覧ください。
 
 ## <a name="templated-razor-delegates"></a>テンプレート化された Razor デリゲート
 
@@ -787,7 +817,7 @@ C# Razor のキーワードは、`@(@C# Razor Keyword)` で二重にエスケー
 Razor ビュー エンジンによるビューの参照では、大文字と小文字が区別されます。 ただし、実際の参照は、基になるファイル システムによって決定されます。
 
 * ファイル ベースのソース:
-  * 大文字と小文字が区別されないファイル システムを使っているオペレーティング システム (Windows など) では、物理的なファイル プロバイダーの参照は大文字と小文字を区別しません。 たとえば、`return View("Test")` は、*/Views/Home/Test.cshtml*、*/Views/home/test.cshtml*、その他のすべての大文字と小文字のバリエーションと一致します。
+  * 大文字と小文字が区別されないファイル システムを使っているオペレーティング システム (Windows など) では、物理的なファイル プロバイダーの参照は大文字と小文字を区別しません。 たとえば、`return View("Test")` は、 */Views/Home/Test.cshtml*、 */Views/home/test.cshtml*、その他のすべての大文字と小文字のバリエーションと一致します。
   * 大文字と小文字が区別されるファイル システム (たとえば、Linux、OSX、および `EmbeddedFileProvider`) では、参照は大文字と小文字を区別します。 たとえば、`return View("Test")` は */Views/Home/Test.cshtml* だけと一致します。
 * プリコンパイル済みのビュー:ASP.NET Core 2.0 以降では、プリコンパイル済みのビューの参照は、すべてのオペレーティング システムで大文字と小文字を区別しません。 動作は、Windows での物理ファイル プロバイダーの動作と同じです。 2 つのプリコンパイル済みビューの相違点が大文字と小文字の使い分けだけの場合、参照の結果はどちらになるかわかりません。
 

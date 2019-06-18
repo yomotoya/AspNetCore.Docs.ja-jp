@@ -1,20 +1,20 @@
 ---
-title: Blazor をホストおよび展開する
+title: ASP.NET Core Blazor のホストと展開
 author: guardrex
 description: Blazor アプリをホストおよびデプロイする方法を説明します。
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 0fc7643c65b93a63d7a594d35e4013eab76e9db8
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 8a5ac5c58e7ceab07e55da8b61ebb01f7ac984bc
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376385"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153196"
 ---
-# <a name="host-and-deploy-blazor"></a>Blazor をホストおよび展開する
+# <a name="host-and-deploy-aspnet-core-blazor"></a>ASP.NET Core Blazor のホストと展開
 
 作成者: [Luke Latham](https://github.com/guardrex)、[Rainer Stropek](https://www.timecockpit.com)、[Daniel Roth](https://github.com/danroth27)
 
@@ -55,4 +55,4 @@ Blazor クライアント側アプリは、" */bin/Release/{ターゲット フ�
 
 クライアント側 Blazor アプリは、ストレージ コンテナーから直接静的コンテンツとして、[Azure Storage](https://azure.microsoft.com/services/storage/) からサービスを提供できます。
 
-詳細については、[クライアント側 Blazor のホストと展開 (スタンドアロン展開):Azure Storage](xref:host-and-deploy/blazor/client-side#azure-storage) に関するページをご覧ください。
+詳細については、[クライアント側 ASP.NET Core Blazor のホストと展開 (スタンドアロン展開):Azure Storage](xref:host-and-deploy/blazor/client-side#azure-storage) に関するページをご覧ください。

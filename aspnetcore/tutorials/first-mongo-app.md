@@ -4,14 +4,14 @@ author: prkhandelwal
 description: このチュートリアルは、MongoDB NoSQL データベースを使用して ASP.NET Core Web API を作成する方法を説明します。
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/04/2019
+ms.date: 06/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 6a8c5d75f562b38015101e039a2f5d96a5491595
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 5e3bdb10f0e192ba98df442959ceb68dc7c7adc5
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692552"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824778"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>ASP.NET Core と MongoDB で Web API を作成する
 
@@ -26,6 +26,7 @@ ms.locfileid: "66692552"
 > * MongoDB データベースを作成する
 > * MongoDB のコレクションとスキーマを定義する
 > * Web API から MongoDB CRUD 操作を実行する
+> * JSON のシリアル化のカスタマイズ
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample)します ([ダウンロード方法](xref:index#how-to-download-a-sample))。
 
@@ -187,7 +188,29 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 1. *Models* ディレクトリをプロジェクトのルートに追加します。
 1. 次のコードを使用して、`Book` クラスを *Models* ディレクトリに追加します。
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
+    ```csharp
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
+    
+    namespace BooksApi.Models
+    {
+        public class Book
+        {
+            [BsonId]
+            [BsonRepresentation(BsonType.ObjectId)]
+            public string Id { get; set; }
+    
+            [BsonElement("Name")]
+            public string BookName { get; set; }
+    
+            public decimal Price { get; set; }
+    
+            public string Category { get; set; }
+    
+            public string Author { get; set; }
+        }
+    }
+    ```
 
     上記のクラスでは、`Id` プロパティは:
     
@@ -195,7 +218,7 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
     * ドキュメントの主キーとしてこのプロパティを指定するために、[[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) で注釈を付けられています。
     * パラメーターを [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) 構造体ではなく型 `string` として渡すことができるように、[[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) で注釈が付けられています。 Mongo によって `string` から `ObjectId` への変換が処理されます。
     
-    クラスのその他のプロパティは、[[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) 属性で注釈を付けられています。 属性の値は、MongoDB コレクションでのプロパティ名を表します。
+    `BookName` プロパティには、[[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) 属性を使用して注釈が付けられます。 属性の値 `Name` は、MongoDB コレクションでのプロパティ名を表します。
 
 ## <a name="add-a-configuration-model"></a>構成モデルを追加する
 
@@ -209,9 +232,9 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
     前述の `BookstoreDatabaseSettings` クラスは、*appsettings.json* ファイルの `BookstoreDatabaseSettings` プロパティ値を格納するために使用されます。 JSON と C# のプロパティ名には、マッピング処理を簡単にするために同じ名前が付けられています。
 
-1. `AddMvc` の呼び出しの前に、次のコードを `Startup.ConfigureServices` に追加します。
+1. 次の強調表示されたコードを `Startup.ConfigureServices` に追加します。
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureDatabaseSettings)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
 
     上のコードでは以下の操作が行われます。
 
@@ -231,9 +254,9 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
 
     前述のコードでは、`IBookstoreDatabaseSettings` インスタンスがコンストラクターの挿入によって DI から取得されます。 この手法で、「[構成モデルを追加する](#add-a-configuration-model)」セクションで追加した *appsettings.json* 構成値にアクセスできます。
 
-1. `Startup.ConfigureServices` で、`BookService` クラスを DI に登録します。
+1. 次の強調表示されたコードを `Startup.ConfigureServices` に追加します。
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=9)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
     前述のコードでは、消費クラスへのコンストラクターの挿入をサポートする `BookService` クラスが DI に登録されています。 `BookService` が `MongoClient` に直接依存しているため、シングルトン サービスの有効期間が最も適切です。 公式の [Mongo Client 再利用ガイドライン](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use)に従い、シングルトン サービスの有効期間を使用して DI に `MongoClient` を登録する必要があります。
 
@@ -306,6 +329,33 @@ Windows を使用する場合、MongoDB は既定では *C:\\Program Files\\Mong
       "author":"Robert C. Martin"
     }
     ```
+
+## <a name="configure-json-serialization-options"></a>JSON シリアル化オプションを構成する
+
+「[Web API をテストする](#test-the-web-api)」セクションで返される JSON 応答について変更すべき 2 つの詳細があります。
+
+* プロパティ名の既定の camel 形式は、CLR オブジェクトのプロパティ名の Pascal 形式と一致するように変更する必要があります
+* `bookName` プロパティは `Name` として返される必要があります。
+
+上記の要件を満たすには、次の変更を行います。
+
+1. `Startup.ConfigureServices` で、次の強調表示されたコードを `AddMvc` メソッド呼び出しにチェーンします。
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
+
+    上記の変更により、Web API のシリアル化された JSON 応答内のプロパティ名は、CLR のオブジェクトの種類での対応するプロパティ名と一致しています。 たとえば、`Book` クラスの `Author` プロパティは `Author` としてシリアル化されます。
+
+1. *Models/Book.cs* では、`BookName` プロパティに次の [[JsonProperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) 属性を使用して注釈を付けます。
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
+
+    `[JsonProperty]`属性の値 `Name` は、Web API のシリアル化された JSON 応答内のプロパティ名を表します。
+
+1. 次のコードを *Models/Book.cs* の先頭に追加して、`[JsonProperty]` 属性の参照を解決します。
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+
+1. 「[Web API をテストする](#test-the-web-api)」セクションで定義されている手順を繰り返します。 JSON プロパティ名の違いに注意してください。
 
 ## <a name="next-steps"></a>次の手順
 
