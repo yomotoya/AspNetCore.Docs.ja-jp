@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bfe417a6153f74cf0ca2d9bcde4db1bba8453b3b
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886657"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152888"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>チュートリアル: コンカレンシーの処理 - ASP.NET MVC と EF Core
 
@@ -154,7 +154,7 @@ HttpPost `Edit` メソッドの既存コードを次のコードに変更しま�
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-このコードはまず、更新する部署を読み込みます。 `SingleOrDefaultAsync` が null を返した場合、部署は別のユーザーが削除しています。 その場合、このコードは送信されたフォーム値を利用して部署エンティティを作成します。編集ページはエラー メッセージと共に再表示できます。 あるいは、部署フィールドを再表示せず、エラー メッセージのみを表示するのであれば、部署エンティティを再作成する必要はないでしょう。
+このコードはまず、更新する部署を読み込みます。 `FirstOrDefaultAsync` が null を返した場合、部署は別のユーザーが削除しています。 その場合、このコードは送信されたフォーム値を利用して部署エンティティを作成します。編集ページはエラー メッセージと共に再表示できます。 あるいは、部署フィールドを再表示せず、エラー メッセージのみを表示するのであれば、部署エンティティを再作成する必要はないでしょう。
 
 ビューの非表示フィールドに元の `RowVersion` 値が保管されます。このメソッドは `rowVersion` パラメーターでその値を受け取ります。 `SaveChanges` を呼び出す前に、エンティティの `OriginalValues` コレクションにその元の `RowVersion` プロパティ値を置く必要があります。
 

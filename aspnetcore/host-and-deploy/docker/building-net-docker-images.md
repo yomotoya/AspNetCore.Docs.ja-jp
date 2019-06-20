@@ -4,14 +4,14 @@ author: tdykstra
 description: 公開されている .NET Core Docker イメージを Docker レジストリから使用する方法について説明します。 イメージをプルして独自のイメージをビルドします。
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/09/2019
+ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 48fc53a4c2139960c0f696af5732ff68fc6c4b8a
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: ea96ae6d36c7e8320ea49e666a807ece72645865
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451010"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207791"
 ---
 # <a name="docker-images-for-aspnet-core"></a>ASP.NET Core 向けの Docker イメージ
 
@@ -140,7 +140,7 @@ ms.locfileid: "65451010"
 
 * *dotnet-docker/samples/aspnetapp/aspnetapp* にあるプロジェクト フォルダーに移動します。
 
-* [dotnet publish](https://docs.microsoft.com/dotnet/core/tools/dotnet-publish.md) コマンドを実行します。
+* [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドを実行します。
 
   ```console
   dotnet publish -c Release -o published
