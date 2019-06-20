@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: 8ac6528b203831f426feabf4cdd3e0ed293b75c5
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1565aa38a69113781d7c272a1710298cccc1f045
+ms.sourcegitcommit: 3eedd6180fbbdcb81a8e1ebdbeb035bf4f2feb92
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896529"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284519"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript クライアント
 
@@ -130,13 +130,13 @@ const connection = new signalR.HubConnectionBuilder()
 
 ```javascript
 connection.onreconnecting((error) => {
-  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
+    console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
 
-  document.getElementById("messageInput").disabled = true;
+    document.getElementById("messageInput").disabled = true;
 
-  const li = document.createElement("li");
-  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
-  document.getElementById("messagesList").appendChild(li);
+    const li = document.createElement("li");
+    li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
+    document.getElementById("messagesList").appendChild(li);
 });
 ```
 
@@ -149,13 +149,13 @@ connection.onreconnecting((error) => {
 
 ```javascript
 connection.onreconnected((connectionId) => {
-  console.assert(connection.state === signalR.HubConnectionState.Connected);
+    console.assert(connection.state === signalR.HubConnectionState.Connected);
 
-  document.getElementById("messageInput").disabled = false;
+    document.getElementById("messageInput").disabled = false;
 
-  const li = document.createElement("li");
-  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
-  document.getElementById("messagesList").appendChild(li);
+    const li = document.createElement("li");
+    li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
+    document.getElementById("messagesList").appendChild(li);
 });
 ```
 
@@ -179,14 +179,14 @@ async function start() {
 
 ```javascript
 connection.onclose((error) => {
-  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+    console.assert(connection.state === signalR.HubConnectionState.Disconnected);
 
-  document.getElementById("messageInput").disabled = true;
+    document.getElementById("messageInput").disabled = true;
 
-  const li = document.createElement("li");
-  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
-  document.getElementById("messagesList").appendChild(li);
-})
+    const li = document.createElement("li");
+    li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
+    document.getElementById("messagesList").appendChild(li);
+});
 ```
 
 切断する前に再接続試行のカスタムの数を構成または再接続のタイミングを変更するには`withAutomaticReconnect`再接続が試みられるたびに開始する前に待機するミリ秒の遅延を表す数値の配列を受け入れます。
@@ -219,15 +219,16 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/chatHub")
     .withAutomaticReconnect({
         nextRetryDelayInMilliseconds: (previousRetryCount, elapsedMilliseconds) => {
-          if (elapsedMilliseconds < 60000) {
-            // If we've been reconnecting for less than 60 seconds so far,
-            // wait between 0 and 10 seconds before the next reconnect attempt.
-            return Math.random() * 10000;
-          } else {
-            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
-            return null;
-          }
-        })
+            if (elapsedMilliseconds < 60000) {
+                // If we've been reconnecting for less than 60 seconds so far,
+                // wait between 0 and 10 seconds before the next reconnect attempt.
+                return Math.random() * 10000;
+            } else {
+                // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+                return null;
+            }
+        }
+    })
     .build();
 ```
 
@@ -240,7 +241,7 @@ const connection = new signalR.HubConnectionBuilder()
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> 3.0 では、前に SignalR JavaScript クライアントは自動的に再接続しません。 クライアントを手動で再接続するコードを記述する必要があります。
+> 3\.0 では、前に SignalR JavaScript クライアントは自動的に再接続しません。 クライアントを手動で再接続するコードを記述する必要があります。
 
 ::: moniker-end
 
@@ -251,7 +252,7 @@ const connection = new signalR.HubConnectionBuilder()
 
 [!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=28-40)]
 
-実際の実装は、指数バックオフを使用して、または断念する前に指定された回数を再試行してください。 
+実際の実装は、指数バックオフを使用して、または断念する前に指定された回数を再試行してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
